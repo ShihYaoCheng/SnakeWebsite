@@ -1,0 +1,29 @@
+@page "/marketplace"
+@inject IJSRuntime JS
+
+<head>
+    <title>PonPonSnake 碰碰蛇｜MarketPlace</title>
+    <link href="css/MarketPlace.css" rel="stylesheet" />
+</head>
+
+
+<div class="marketPlaceBackground"></div>
+
+<div class="marketPlace">
+    <img src="/images/MarketPlace/ComingSoon.png" alt="">
+    @* <h1>Coming Soon!!</h1> *@
+</div>
+
+
+
+@code{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
+    }
+    
+}

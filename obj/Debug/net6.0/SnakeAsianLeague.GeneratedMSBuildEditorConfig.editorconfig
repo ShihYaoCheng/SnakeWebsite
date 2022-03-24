@@ -1,0 +1,156 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SnakeAsianLeague
+build_property.RootNamespace = SnakeAsianLeague
+build_property.ProjectDir = D:\asp.net6.0\SnakeAsianLeague\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\asp.net6.0\SnakeAsianLeague
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/asp.net6.0/SnakeAsianLeague/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/ACLIndexS2.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQUNMSW5kZXhTMi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/AnchorNavigation.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5jaG9yTmF2aWdhdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Application.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwbGljYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Backstage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmFja3N0YWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/ChristmasIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hyaXN0bWFzSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Description.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVzY3JpcHRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/ERNC.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRVJOQy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Exhibition.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhoaWJpdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/LunarNewYear.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTHVuYXJOZXdZZWFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/MarketPlace.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFya2V0UGxhY2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Myaccount.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlhY2NvdW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/MyAwardNotice.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlBd2FyZE5vdGljZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/MyAwardNoticeDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlBd2FyZE5vdGljZURldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/MyMatch.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlNYXRjaC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/MyMatchDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlNYXRjaERldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/MyProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlQcm9maWxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Notice.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Partner.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydG5lci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Prize.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpemUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Rank.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmFuay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/SnakeIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU25ha2VJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Shared/LoginDisplay.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luRGlzcGxheS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-hl890qdrvs
+
+[D:/asp.net6.0/SnakeAsianLeague/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-l17g4953q7
+
+[D:/asp.net6.0/SnakeAsianLeague/Areas/Identity/Pages/Account/LogOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dPdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/asp.net6.0/SnakeAsianLeague/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

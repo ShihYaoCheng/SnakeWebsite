@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snake-backstage-db
+  labels:
+    app: snake-backstage-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: snake-backstage-db
+  template:
+    metadata:
+      labels:
+        app: snake-backstage-db
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0.23
+          imagePullPolicy: IfNotPresent
+          envFrom:
+          - configMapRef:
+              name: configmap-snakebackstage-db
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+      volumes:
+        
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: snakebackstage-mysql-storage
+
+
+            
+            
+      

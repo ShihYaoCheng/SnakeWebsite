@@ -1,0 +1,152 @@
+@page "/Application"
+
+<head>
+    <link href="css/Application.css" rel="stylesheet" />
+</head>
+
+
+
+<!-- 領獎者登錄視窗-->
+        <div class="winners_login_block" id="winners_login_block">
+            @* <div class="login_block_bg" id="login_block_bg"></div> *@
+
+            <div class="winners_login" id="winners_login">
+
+
+                <div class="winners_prize_block">
+                    <div class="congratulations_txt">
+                        <p>🎊 恭喜您 🎊</p>
+                    </div>
+                </div>
+                <p class="window_p">領獎者資訊登錄</p>
+
+                <div class="input_block">
+                    <div class="login_form">
+                        <label class="login_label" for="">真實姓名</label>
+                        <input type="text" class="login_input" id="" name="" placeholder="" required>
+                        @* <input type="text" class="login_input" id="" name="" placeholder="" @bind=RealName required> *@
+                        <div type="text" class="error">*請填寫正確資訊</div>
+                        @* <div type="text" style="color:red; display: @CRealName.ToCssString();">X</div> *@
+                    </div>
+
+                    <div class="login_form">
+                        <label class="login_label" for="">手機號碼</label>
+                        <input type="text" class="login_input" id="" name="" placeholder="" required>
+                        @* <input type="text" class="login_input" id="" name="" placeholder="" @bind=Phone required> *@
+                        <div type="text" class="error">*請填寫正確資訊</div>
+                        @* <div type="text" style="color:red; display: @CPhone.ToCssString();">X</div> *@
+                    </div>
+
+                    <div class="login_form">
+                        <label class="login_label" for="">E-mail</label>
+                        <input type="email" class="login_input" id="" name="" placeholder="" required>
+                        @* <input type="email" class="login_input" id="" name="" placeholder="" @bind=Email required> *@
+                        <div type="text" class="error">*請填寫正確資訊</div>
+                        @* <div type="text" style="color:red; display: @CEmail.ToCssString();">X</div> *@
+                    </div>
+
+                    <div class="login_form">
+                        <label class="login_label" for="">地址</label>
+                        <input type="text" class="login_input" id="" name="" placeholder="" required>
+                        @* <input type="text" class="login_input" id="" name="" placeholder="" @bind=Address required> *@
+                        <div type="text" class="error">*請填寫正確資訊</div>
+                        @* <div type="text" style="color:red; display: @CAddress.ToCssString();">X</div> *@
+                    </div>
+
+
+                    <div class="login_form">
+                        <label class="login_label" for="">獲獎編號</label>
+                        <input type="text" class="login_input" id="" name="" placeholder="" required>
+                        @* <input type="text" class="login_input" id="" name="" placeholder="" @bind=IdNumber required> *@
+                        <div type="text" class="error">*請填寫正確資訊</div>
+                        @* <div type="text" style="color:red; display: @CIdNumber.ToCssString();">X</div> *@
+                    </div>
+
+                    <div class="login_form">
+                        <label class="login_label" for="">身分證字號</label>
+                        <input type="text" class="login_input" id="" name="" placeholder="" required>
+                        @* <input type="text" class="login_input" id="" name="" placeholder="" @bind=IdNumber required> *@
+                        <div type="text" class="error">*請填寫正確資訊</div>
+                        @* <div type="text" style="color:red; display: @CIdNumber.ToCssString();">X</div> *@
+                    </div>
+
+
+                    <div class="login_form" id="id_card">
+                        <label class="login_label" for="" id="id_txt">
+                            <span>身分證</span><span>正反面</span>
+                        </label>
+
+                        <div class="upload_button_css" id="upload_button_css">
+                            <input type="file" value="" class="upload_button_click">
+                            <input type="file" value="" class="upload_button_click">
+                            @* <InputFile OnChange="FileChangeHandler" id="upload_button_click" /> *@
+                        </div>
+                    </div>
+
+                    <div class="login_form">
+                        <label class="login_label" for="">匯款資訊</label>
+                        <div class="upload_button_css" id="upload_button_css">
+                        <label class="label_remit" for="">銀行代碼
+                        <input type="email" class="login_input" id="" name="" placeholder="" required>
+                        </label>
+                        <label class="label_remit" for="">帳號
+                            <input type="email" class="login_input" id="" name="" placeholder="" required>
+                        </label>
+                        @* <input type="email" class="login_input" id="" name="" placeholder="" @bind=Email required> *@
+                        <div type="text" class="error">*請填寫正確資訊</div>
+                        @* <div type="text" style="color:red; display: @CEmail.ToCssString();">X</div> *@
+                        </div>
+                    </div>
+
+                    
+                    <div class="login_form">
+                        <input type="checkbox" class="checkbox_input" id="" name="" placeholder="" required>
+                        <label class="checkbox_label" for="">
+                            本人未使用任何賽制限制之裝置進行比賽。
+                        </label>
+                        @* <input type="text" class="login_input" id="" name="" placeholder="" @bind=Address required> *@
+                        <div type="text" class="checkbox_error">*請閱讀後並勾選</div>
+                        @* <div type="text" style="color:red; display: @CAddress.ToCssString();">X</div> *@
+                    </div>
+
+                    <div class="login_form">
+                        <input type="checkbox" class="checkbox_input" id="" name="" placeholder="" required>
+                        <label class="checkbox_label" for="">
+                            本帳號與ID為本人持有，並且競賽相關之操作皆為本人作使用。
+                        </label>
+                        @* <input type="text" class="login_input" id="" name="" placeholder="" @bind=Address required> *@
+                        <div type="text" class="checkbox_error">*請閱讀後並勾選</div>
+                        @* <div type="text" style="color:red; display: @CAddress.ToCssString();">X</div> *@
+                    </div>
+
+                    <div class="login_form">
+                        <input type="checkbox" class="checkbox_input" id="" name="" placeholder="" required>
+                        <label class="checkbox_label" for="">
+                            本人遵守所有賽事其他相關之守則。
+                        </label>
+                        @* <input type="text" class="login_input" id="" name="" placeholder="" @bind=Address required> *@
+                        <div type="text" class="checkbox_error">*請閱讀後並勾選</div>
+                        @* <div type="text" style="color:red; display: @CAddress.ToCssString();">X</div> *@
+                    </div>
+
+
+                    
+
+
+                    <input type="button" value="送出" id="winners_profile_button">
+                    @* <input type="button" value="送出" id="winners_profile_button" @onclick=ProfileShow> *@
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- 資料送出成功視窗-->
+        <div class="sent_success_block" id="sent_success_block">
+            <div class="sent_success" id="sent_success">
+
+                <h1>🎊 資料登錄成功 🎊</h1>
+                <p>確認信將寄至 Email</p>
+                <button id="success_close">關閉</button>
+                @* <button id="success_close" @onclick="">關閉</button> *@
+            </div>
+        </div>

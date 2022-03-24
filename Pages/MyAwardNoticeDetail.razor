@@ -1,0 +1,802 @@
+﻿@page "/myawardnoticeDetail"
+
+
+@using SnakeAsianLeague.Data.Entity.View
+@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Entity.Backstage
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.SnakeServerService
+@using SnakeAsianLeague.Data.Services.Backstage
+@using BlazorInputFile
+@using System.IO
+
+@inject IJSRuntime JS
+@inject AppState AppState
+@inject AsiaLeagueScheduleService AsiaLeagueScheduleService
+@inject AsiaLeagueS1PrizeService AsiaLeagueS1PrizeService
+@inject AsiaLeaguePlaceService AsiaLeaguePlaceService
+@inject AwardInfoService AwardInfoService
+
+@inject S2PrizeService S2PrizeService
+@inject AwardService AwardService
+
+@implements IDisposable
+
+
+<EditForm Model="model">
+                <div class="receive_block">
+
+                    <div class="mypage" id="award">得獎細項</div>
+
+                    <div class="match_row match_row_myawardnotice">
+
+                        <div class="match_row_select">
+
+                            <div class="match_row_title">查看賽事</div>
+                            <div class="match_row_status">
+
+                                <InputSelect ValueExpression="@(()=>model.Season)" Value="@model.Season"
+                                             ValueChanged="@((AsiaLeagueSeasons value) => OnValueChanged(value ))" class="my_match_select">
+
+                                    @foreach (var v in Enum.GetValues(typeof(AsiaLeagueSeasonsForAwards)))
+                                    {
+                                        <option class="my_match_option" value="@v">@GetSeasonName((AsiaLeagueSeasons)v)</option>
+                                    }
+                                </InputSelect>
+
+                            </div>
+                        </div>
+
+                        <div class="match_row_select_column">
+                            @if (model.Season == AsiaLeagueSeasons.AsiaLeagueS1)
+                            {
+                                <div class="receive_signUpEvent_button receive_over">
+                                    <img src="/images/Index/receive_over.png" alt="">
+                                    <span>申請已結束</span>
+                                </div>
+                            }
+                            else if (model.Season == AsiaLeagueSeasons.Xmas2021 || model.Season == AsiaLeagueSeasons.NewYear2021)
+                            {
+                                
+                                if (model.AwardNoticeViews == null || model.AwardNoticeViews.Count == 0)
+                                {
+                                    <div class="receive_signUpEvent_button receive_over">
+                                        <img src="/images/Index/receive_over.png" alt="">
+                                        <span>尚未獲獎</span>
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    @switch (model.ApplyStatus)
+                                    {
+                                        case 0:
+
+                                            <div class="receive_signUpEvent_button" @onclick="@S2ApplyAwardFormButtonOnClick">
+                                                <img src="/images/Index/signUpEvent_button.png" alt="">
+                                                <span>申請領獎</span>
+                                            </div>
+
+                                            break;
+                                        case 1:
+
+                                            <div class="receive_signUpEvent_button" @onclick="@S2ApplyAwardFormButtonOnClick">
+                                                <img src="/images/Index/signUpEvent_button.png" alt="">
+                                                <span>編輯申請資訊</span>
+                                            </div>
+
+                                            break;
+                                        case 2:
+                                            <div class="receive_signUpEvent_button receive_over">
+                                                <img src="/images/Index/receive_over.png" alt="">
+                                                <span>申請已結束</span>
+                                            </div>
+                                            break;
+
+                                        default:
+                                            break;
+
+                                    }
+
+
+
+
+                                }
+
+
+                                <span>2022.2.28截止</span>
+
+                            }
+                            else
+                            {
+                                <div class="receive_signUpEvent_button receive_over">
+                                    <img src="/images/Index/receive_over.png" alt="">
+                                    <span>尚未開放領獎</span>
+                                </div>
+                            }
+                        </div>
+
+
+                    </div>
+
+                    
+
+                    <div class="progress_bar">
+                        <div class="progress_bar_step" id="progress_bar_step_01">
+                            @* <span>填寫申請表</span> *@
+                            <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_01.png" alt="">
+                        </div>
+                        <div class="progress_bar_border"></div>
+                        <div class="progress_bar_step" id="progress_bar_step_02">
+                            @* <span>審核資料</span> *@
+                            <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_02.png" alt="">
+                        </div>
+                        <div class="progress_bar_border"></div>
+                        <div class="progress_bar_step" id="progress_bar_step_03">
+                            @* <span>寄送完成</span> *@
+                            <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_03.png" alt="">
+                        </div>
+                    </div>
+
+                    @if (model.AwardNoticeViews == null || model.AwardNoticeViews.Count == 0)
+                    {
+                        <div class="none_awards">尚未獲獎</div>
+                    }
+                    else
+                    {
+                        <div class="winning_awards">
+                            <div class="receive_inner">
+                                <form class="receive_form">
+                                    @foreach (var notice in model.AwardNoticeViews)
+                                    {
+                                        <div class="receive_list">
+                                            <div class="status-hide" style="display:none">@notice.AwardStatus</div>
+                                            <div class="receive_label">
+                                                <div class="checkbox_card @((notice.AwardStatus > 1) ? "card_disabled" : "")">
+
+                                                    @*<div class="checkbox_card_title @((notice.AwardStatus > 1) ? "card_title_disabled" : "")">
+                                                            亞洲聯賽第一季
+                                                            <div class="card_title_progress_step">
+                                                                STEP
+                                                                <div class="diamod diamod_01" id="diamod_01">
+                                                                    <span>1</span>
+                                                                </div>
+                                                                <div class="diamod diamod_02" id="diamod_02">
+                                                                    <span>2</span>
+                                                                </div>
+                                                                <div class="diamod diamod_03" id="diamod_03">
+                                                                    <span>3</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>*@
+
+                                                    <div class="checkbox_card_inner">
+
+                                                        <div class="card_row_left">
+                                                            <div class="card_left">
+                                                                <div class="card_row_title game_type_title">組別</div>
+                                                                <div class="card_row_show game_type">@((notice.IsGuild ? "隊伍 " : "個人 ") + notice.Title)</div>
+                                                            </div>
+                                                            <div class="card_left">
+                                                                <div class="card_row_title award_date_title">獲獎日期</div>
+                                                                <div class="card_row_show award_date">@notice.MatchDate.ToString("yyyy/MM/dd")</div>
+                                                            </div>
+                                                            <div class="card_left">
+                                                                <div class="card_row_title prize_title">獎項</div>
+                                                                <div class="card_row_show prize">@(notice.PrizeContent)</div>
+                                                            </div>
+
+                                                            <div class="card_left award_number_row">
+                                                                <div class="card_row_title award_number_title">獲獎編號</div>
+                                                                <div class="card_row_show award_number">@notice.PrizeCode</div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card_row_right">
+
+                                                            @if (notice.AwardStatus <= 1 && model.Season == AsiaLeagueSeasons.AsiaLeagueS1)
+                                                            {
+
+                                                                <div class="receive_signUpEvent_button" @onclick="@(e => ApplyAwardButtonOnClick(e, notice))">
+                                                                    <img src="/images/Index/signUpEvent_button.png" alt="">
+                                                                    <span> @((notice.AwardStatus == 0) ? "申請領獎" : "編輯申請資訊") </span>
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="approval_status">
+                                                                    <span>@GetdApprovalStatus(notice.AwardStatus)</span>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </form>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+            </EditForm>
+    <!-- 領獎表單S1-->
+    <div class="window @(displayAwardApplyWindow ? "window_open" : "")" id="application_window">
+
+        <div class="window_bg" id="award_application">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24.122" height="24.12" viewBox="0 0 24.122 24.12"
+                 class="window_close" id="award_application_close" @onclick="()=> displayAwardApplyWindow = false">
+                <path id="" data-name="合体 5" d="M-12484-1752l-11,11,11-11-11-11,11,11,11-11-11,11,11,11Z"
+                      transform="translate(12496.062 1764.06)" fill="none" stroke="#e0eeff" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="3" />
+            </svg>
+
+            <div class="window_title">
+                <p>獎金領取申請</p>
+            </div>
+
+            <EditForm Model="@awardInfo" OnValidSubmit="@AwardInfoValidSubmit" class="window_input_block">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form_row">
+                    <label class="window_row_title" for="application_awardNumber">獲獎編號</label>
+                    <div class="window_row_show">
+                        <input type="text" class="window_input" id="application_awardNumber" name="application_awardNumber" placeholder="" required
+                               @bind-value="awardInfo.PrizeCode" disabled="disabled">
+                    </div>
+                </div>
+                <div class="form_row">
+                    <label class="window_row_title" for="application_realname">姓名</label>
+                    <div class="window_row_show">
+                        <InputText @bind-Value="awardInfo.RealName" class="window_input" id="application_realname" name="application_realname" />
+
+                    </div>
+                </div>
+                <div class="form_row">
+                    <label class="window_row_title" for="application_phone">聯絡電話</label>
+                    <div class="window_row_show">
+                        <InputText @bind-Value="awardInfo.ContactNumber" class="window_input" id="application_phone" name="application_phone" />
+                    </div>
+                </div>
+
+                <div class="form_row">
+                    <label class="window_row_title" for="application_email">Email</label>
+                    <div class="window_row_show">
+                        <InputText @bind-Value="awardInfo.Email" class="window_input" id="application_email" name="application_email" />
+                    </div>
+                </div>
+
+                <div class="form_row">
+                    <label class="window_row_title" for="application_address">地址</label>
+                    <div class="window_row_show">
+                        <InputText @bind-Value="awardInfo.Address" class="window_input" id="application_address" name="application_address" />
+                    </div>
+                </div>
+
+                <div class="form_row">
+                    <label class="window_row_title" for="application_IDnumber">身分證字號</label>
+                    <div class="window_row_show">
+                        <InputText @bind-Value="awardInfo.IdNumber" class="window_input" id="application_IDnumber" name="application_IDnumber" />
+                    </div>
+                </div>
+
+                <div class="form_row multipleLines_row">
+                    <label class="window_row_title multipleLines_label" for="application_IDPicture">身分證正反面</label>
+                    <div class="window_row_show">
+
+                        <label for="HandleFile1Selected" class="HandleFileSelected_label">
+                            <input type="button" class="HandleFileSelected_button" value="選擇檔案">
+                            <span class="HandleFileSelected_uploadtext">@(String.IsNullOrEmpty(awardInfo.Img1Name) ? "未選擇任何檔案"  : awardInfo.Img1Name )</span>
+                            @*<InputFile OnChange="HandleFile1Selected" class="window_input HandleFileSelected" id="HandleFile1Selected"></InputFile>*@
+                        </label>
+
+                        <label for="HandleFile2Selected" class="HandleFileSelected_label">
+                            <input type="button" class="HandleFileSelected_button" value="選擇檔案">
+                            <span class="HandleFileSelected_uploadtext">@(String.IsNullOrEmpty(awardInfo.Img2Name) ? "未選擇任何檔案"  : awardInfo.Img2Name )</span>
+                            @*<InputFile OnChange="HandleFile2Selected" class="window_input HandleFileSelected" id="HandleFile2Selected"></InputFile>*@
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="form_row multipleLines_row">
+                    <label class="window_row_title multipleLines_label" for="">匯款資訊</label>
+
+                    <div class="window_row_show" id="remit_info_row_show">
+                        <div class="short_row">
+                            <label class="window_label_short" for="">銀行代碼</label>
+                            <InputText @bind-Value="awardInfo.BankCode" class="window_input_short" />
+                        </div>
+                        <div class="short_row">
+                            <label class="window_label_short" for="">帳號</label>
+                            <InputText @bind-Value="awardInfo.BankAccount" class="window_input_full" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form_row multipleLines_row">
+                    <label class="window_row_title multipleLines_label" for="application_IDPicture">銀行存簿正面</label>
+                    <div class="window_row_show">
+
+                        <label for="HandleFile3Selected" class="HandleFileSelected_label">
+                            <input type="button" class="HandleFileSelected_button" value="選擇檔案">
+                            <span class="HandleFileSelected_uploadtext">@(String.IsNullOrEmpty(awardInfo.BankName) ? "未選擇任何檔案"  : awardInfo.BankName )</span>
+                            @*<InputFile OnChange="HandleFile3Selected" class="window_input HandleFileSelected" id="HandleFile3Selected"></InputFile>*@
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="form_row window_checkbox_row">
+                    <div class="checkbox_row">
+                        <input type="checkbox" class="window_checkbox" id="application_checkbox_01" name="window_checkbox" value="">
+                        <label for="application_checkbox_01" class="window_checkbox_label">本人未使用任何賽制限制之裝置進行比賽。<br>本帳號與ID為本人持有，並且競賽相關之操作皆為本人作使用。<br>本人遵守所有賽事其他相關之守則。</label>
+                    </div>
+                </div>
+
+
+                <button type="submit" id="application_window_submit" class="window_submit">
+                    <img src="/images/Index/signUpEvent_button.png" alt="">
+                    <span>送出</span>
+                </button>
+
+
+
+            </EditForm>
+
+
+        </div>
+    </div>
+
+    <!-- 領獎表單S2-->
+    <div class="window @(S2displayAwardApplyWindow ? "window_open" : "")" id="application_window">
+
+        <div class="window_bg" id="award_application">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24.122" height="24.12" viewBox="0 0 24.122 24.12"
+                 class="window_close" id="award_application_close" @onclick="()=> S2displayAwardApplyWindow = false">
+                <path id="" data-name="合体 5" d="M-12484-1752l-11,11,11-11-11-11,11,11,11-11-11,11,11,11Z"
+                      transform="translate(12496.062 1764.06)" fill="none" stroke="#e0eeff" stroke-linecap="round"
+                      stroke-linejoin="round" stroke-width="3" />
+            </svg>
+
+            <div class="window_title">
+                <p>獎金領取申請</p>
+            </div>
+
+            <EditForm Model="@awardApplicationForm" OnValidSubmit="@S2AwardInfoValidSubmit" class="window_input_block">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                
+                <div class="form_row">
+                    <label class="window_row_title" for="application_realname">姓名</label>
+                    <div class="window_row_show">
+                        <InputText @bind-Value="awardApplicationForm.RealName" class="window_input" id="application_realname" name="application_realname" />
+
+                    </div>
+                </div>
+                <div class="form_row">
+                    <label class="window_row_title" for="application_phone">聯絡電話</label>
+                    <div class="window_row_show">
+                        <InputText @bind-Value="awardApplicationForm.ContactNumber" class="window_input" id="application_phone" name="application_phone" />
+                    </div>
+                </div>
+
+                <div class="form_row">
+                    <label class="window_row_title" for="application_email">Email</label>
+                    <div class="window_row_show">
+                        <InputText @bind-Value="awardApplicationForm.Email" class="window_input" id="application_email" name="application_email" />
+                    </div>
+                </div>
+
+                <div class="form_row">
+                    <label class="window_row_title" for="application_address">地址</label>
+                    <div class="window_row_show">
+                        <InputText @bind-Value="awardApplicationForm.Address" class="window_input" id="application_address" name="application_address" />
+                    </div>
+                </div>
+
+
+                @* S2 checkbox *@
+                <div class="form_row window_checkbox_row">
+                    <div class="checkbox_row">
+                        <input type="checkbox" class="window_checkbox" id="application_checkbox_04" name="window_checkbox" value="">
+                        <label for="application_checkbox_04" class="window_checkbox_label">本人未使用任何賽制限制之裝置進行比賽。<br>本帳號與ID為本人持有，並且競賽相關之操作皆為本人作使用。<br>本人遵守所有賽事其他相關之守則。</label>
+                    </div>
+                    @* <div class="checkbox_row">
+                        <input type="checkbox" class="window_checkbox" id="application_checkbox_02" name="window_checkbox" value=""> 
+                        <label for="application_checkbox_02" class="window_checkbox_label">本帳號與ID為本人持有，並且競賽相關之操作皆為本人作使用。</label>
+                    </div>
+                    <div class="checkbox_row">
+                        <input type="checkbox" class="window_checkbox" id="application_checkbox_03" name="window_checkbox" value=""> 
+                        <label for="application_checkbox_03" class="window_checkbox_label">本人遵守所有賽事其他相關之守則。</label>
+                    </div> *@
+                </div>
+
+
+                <button type="submit" id="application_window_submit" class="window_submit">
+                    <img src="/images/Index/signUpEvent_button.png" alt="">
+                    <span>送出</span>
+                </button>
+
+
+
+            </EditForm>
+
+
+        </div>
+    </div>
+
+    <!-- 送出成功-->
+    <div class="window @(displaySuccessWindow ? "window_open" : "")" id="submit_success_bg">
+        <div class="window_bg" id="submit_success">
+            <img src="/images/Myaccount/submit_success.png" id="submit_success_icon" alt="">
+            <h1>申請成功</h1>
+            <span id="submit_success_span">我們將會盡速審查</span>
+            <div id="success_window_close" class="window_submit" @onclick="successWindowClose">
+                <img src="/images/Index/signUpEvent_button.png" alt="">
+                <span>關閉</span>
+            </div>
+        </div>
+    </div>            
+
+@code {
+
+    Model model = new Model();
+    class Model
+    {
+        public AsiaLeagueSeasons Season { get; set; }
+        public List<AwardNoticeView> AwardNoticeViews { get; set; }
+        public int ApplyStatus { get; set; }
+    }
+
+
+
+    //領獎申請
+    private AwardInfo awardInfo = new AwardInfo();
+    bool displayAwardApplyWindow = false;
+
+    //S2領獎申請
+    private AwardApplicationForm awardApplicationForm = new AwardApplicationForm();
+    bool S2displayAwardApplyWindow = false;
+
+
+    //身分證上傳
+    public byte[] Img1Uploaded { get; set; }
+    public byte[] Img2Uploaded { get; set; }
+    //銀行存簿正面上傳
+    public byte[] BankImgUploaded { get; set; }
+
+    //成功彈窗
+    bool displaySuccessWindow = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.StateChanged += async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+
+        model.Season = AsiaLeagueSeasons.AsiaLeagueS1;
+        await LoadData(model.Season);
+
+    }
+
+
+    void IDisposable.Dispose()
+    {
+        AppState.StateChanged -= async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task AppState_StateChanged(ComponentBase Source, string Property)
+    {
+        if (Source != this)
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+
+    }
+
+    private async Task OnValueChanged(AsiaLeagueSeasons value)
+    {
+        // Assign the selected value to the Model
+        model.Season = value;
+        await LoadData(model.Season);
+
+    }
+
+    protected async Task LoadData(AsiaLeagueSeasons season)
+    {
+        await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(model.Season);
+
+        //Only for test
+        //AppState.LoginStatus.userID = 10553;
+        //AppState.LoginStatus.name = "YT天羽夏月";
+        //AppState.LoginStatus.phone = "0908768750";
+
+
+        await LoadAwardNotice(season);
+
+        AwardApplicationForm applyForm = await AwardService.GetOneAwardApplicationForm((int)model.Season, (uint)AppState.LoginStatus.userID);
+        if (applyForm != null)
+        {
+            model.ApplyStatus = applyForm.ApplyStatus;
+        }
+        else
+        {
+            model.ApplyStatus = 0;
+        }
+
+    }
+
+
+    protected async Task LoadAwardNotice(AsiaLeagueSeasons season)
+    {
+        List<AsiaLeaguePlace> Notices = await AsiaLeaguePlaceService.GetAwardNoticesByUserId(model.Season, AppState.LoginStatus.userID);
+
+        model.AwardNoticeViews = new List<AwardNoticeView>();
+        foreach (var n in Notices)
+        {
+            AwardNoticeView view = new AwardNoticeView();
+            view.SeasonNum = n.SeasonNum;
+            view.Place = n.Place;
+            view.IsGuild = n.IsGuild;
+            view.Station = n.Station;
+            view.PrizeCode = n.PrizeCode;
+
+
+            AsiaLeagueSchedule schedule = AsiaLeagueScheduleService.GetOneScheduleByIsGuildAndStation(n.IsGuild, n.Station);
+            view.Title = n.IsGuild ? schedule.GuildSchedule : schedule.IndividualSchedule;
+            view.MatchDate = schedule.Date;
+
+
+            if (season == AsiaLeagueSeasons.AsiaLeagueS1)
+            {
+                //prize
+                await AsiaLeagueS1PrizeService.GetAsiaLeaguePrizesAsync();
+                int finalType = n.IsGuild ? schedule.GuildFinalType : schedule.IndFinalType;
+                AsiaLeaguePrize asiaLeaguePrize = AsiaLeagueS1PrizeService.GetOnePrize(n.IsGuild, finalType, n.Place);
+                view.PrizeContent = asiaLeaguePrize.Cash + " + " + asiaLeaguePrize.Gifts;
+
+                //領獎狀態
+                view.AwardStatus = await AwardInfoService.GetOneAwardInfoStatus((uint)AppState.LoginStatus.userID, n.PrizeCode, n.Place, n.IsGuild, n.Station);
+
+            }
+            else
+            {
+                //prize
+                S2Prize prize = await S2PrizeService.GetOnePrize(n.SeasonNum, n.Station, n.Place);
+                view.PrizeContent = prize.PrizeName;
+
+                //領獎狀態
+                view.AwardStatus = await AwardService.GetOneAwardDetailStatus(n.SeasonNum, n.IsGuild, n.Station, n.Place, (uint)AppState.LoginStatus.userID);
+
+            }
+
+
+
+            model.AwardNoticeViews.Add(view);
+        }
+
+        Console.WriteLine("LoadAwardNotice end");
+    }
+
+
+
+    private async Task ApplyAwardButtonOnClick(MouseEventArgs e, AwardNoticeView notice)
+    {
+        Console.WriteLine("ApplyAwardButtonOnClick start");
+
+        AwardInfo award = await AwardInfoService.GetOneAwardInfo((uint)AppState.LoginStatus.userID, notice.PrizeCode, notice.Place, notice.IsGuild, notice.Station);
+
+        if (award != null)
+        {
+            awardInfo = award;
+            Img1Uploaded = award.Img1;
+            Img2Uploaded = award.Img2;
+            BankImgUploaded = award.BankImg;
+        }
+        else
+        {
+            awardInfo = new AwardInfo();
+            awardInfo.UserId = AppState.LoginStatus.userID;
+            awardInfo.UserName = AppState.LoginStatus.name;
+            awardInfo.Phone = AppState.LoginStatus.phone;
+            awardInfo.Place = notice.Place;
+            awardInfo.IsGuild = notice.IsGuild;
+            awardInfo.Station = notice.Station;
+            awardInfo.PrizeCode = notice.PrizeCode;
+            awardInfo.PrizeContent = notice.PrizeContent;
+            awardInfo.AwardStatus = 0;
+
+            Img1Uploaded = new byte[0];
+            Img2Uploaded = new byte[0];
+            BankImgUploaded = new byte[0];
+        }
+
+        displayAwardApplyWindow = true;
+
+    }
+
+    public string GetdApprovalStatus(int type)
+    {
+        string returnString = "";
+        switch (type)
+        {
+            case 0:
+                returnString = "未申請";
+                break;
+            case 1:
+                returnString = "已申請";
+                break;
+            case 2:
+                returnString = "審核中";
+                break;
+            case 3:
+                returnString = "審核成功";
+                break;
+            case 4:
+                returnString = "審核失敗";
+                break;
+            case 5:
+                returnString = "已寄送";
+                break;
+
+
+            default:
+                break;
+        }
+        return returnString;
+    }
+
+    private async Task AwardInfoValidSubmit()
+    {
+        var res = await JS.InvokeAsync<bool>("account");
+        if (res)
+        {
+            awardInfo.AwardStatus = 1;
+            awardInfo.Img1 = Img1Uploaded;
+            awardInfo.Img2 = Img2Uploaded;
+            awardInfo.BankImg = BankImgUploaded;
+            AwardInfo award = await AwardInfoService.GetOneAwardInfo((uint)AppState.LoginStatus.userID, awardInfo.PrizeCode, awardInfo.Place, awardInfo.IsGuild, awardInfo.Station);
+
+            if (award == null)
+            {
+                await AwardInfoService.InsertAwardInfo(awardInfo);
+            }
+            else
+            {
+                await AwardInfoService.UpdateAwardInfo(awardInfo);
+            }
+            await LoadData(model.Season);
+
+            displaySuccessWindow = true;
+        }
+    }
+
+    public async Task HandleFile1Selected(IFileListEntry[] files)
+    {
+        var file = files.FirstOrDefault();
+        if (file != null)
+        {
+            var ms = new MemoryStream();
+            await file.Data.CopyToAsync(ms);
+            Img1Uploaded = ms.ToArray();
+            awardInfo.Img1Name = file.Name;
+        }
+        Console.WriteLine("HandleFile1Selected end");
+    }
+
+    public async Task HandleFile2Selected(IFileListEntry[] files)
+    {
+        var file = files.FirstOrDefault();
+        if (file != null)
+        {
+            var ms = new MemoryStream();
+            await file.Data.CopyToAsync(ms);
+            Img2Uploaded = ms.ToArray();
+            awardInfo.Img2Name = file.Name;
+        }
+        Console.WriteLine("HandleFile2Selected end");
+    }
+
+    public async Task HandleFile3Selected(IFileListEntry[] files)
+    {
+        var file = files.FirstOrDefault();
+        if (file != null)
+        {
+            var ms = new MemoryStream();
+            await file.Data.CopyToAsync(ms);
+            BankImgUploaded = ms.ToArray();
+            awardInfo.BankName = file.Name;
+        }
+        Console.WriteLine("HandleFile2Selected end");
+    }
+
+    private void successWindowClose()
+    {
+        displayAwardApplyWindow = false;
+        S2displayAwardApplyWindow = false;
+        displaySuccessWindow = false;
+    }
+
+    private string GetSeasonName(AsiaLeagueSeasons value)
+    {
+        string name = "";
+        switch (value)
+        {
+            case AsiaLeagueSeasons.AsiaLeagueS1:
+                name = "亞洲聯賽第一季";
+                break;
+            case AsiaLeagueSeasons.Xmas2021:
+                name = "聖誕節慶賽2021";
+                break;
+            case AsiaLeagueSeasons.NewYear2021:
+                name = "跨年節慶賽2021";
+                break;
+            default:
+                name = "尚未開放";
+                break;
+        }
+
+        return name;
+    }
+
+    private async Task S2ApplyAwardFormButtonOnClick()
+    {
+        AwardApplicationForm applyForm = await AwardService.GetOneAwardApplicationForm((int)model.Season, (uint)AppState.LoginStatus.userID);
+
+        if (applyForm != null)
+        {
+            awardApplicationForm = applyForm;
+
+        }
+        else
+        {
+            awardApplicationForm = new AwardApplicationForm();
+            awardApplicationForm.SeasonNum = (int)model.Season;
+            awardApplicationForm.UserId = (uint)AppState.LoginStatus.userID;
+            awardApplicationForm.UserName = AppState.LoginStatus.name;
+            awardApplicationForm.Phone = AppState.LoginStatus.phone;
+        }
+
+        S2displayAwardApplyWindow = true;
+    }
+
+
+    private async Task S2AwardInfoValidSubmit()
+    {
+        //S2 checkbox 
+        var res = await JS.InvokeAsync<bool>("account");
+            @* var res = await JS.InvokeAsync<bool>("account",1); *@
+        if (res)
+        {
+            awardApplicationForm.ApplyStatus = 1;
+            AwardApplicationForm applyForm = await AwardService.GetOneAwardApplicationForm((int)model.Season, (uint)AppState.LoginStatus.userID);
+
+            if (applyForm == null)
+            {
+                await AwardService.InsertAward(awardApplicationForm, model.AwardNoticeViews);
+
+                
+
+
+            }
+            else
+            {
+                await AwardService.UpdateAward(awardApplicationForm);
+            }
+            await LoadData(model.Season);
+
+            displaySuccessWindow = true;
+        }
+    }
+
+
+
+
+}

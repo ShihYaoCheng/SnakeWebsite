@@ -1,0 +1,92 @@
+@page "/Backstage"
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h3>ClaimsPrincipal Data</h3>
+<button @onclick="GetClaimsPrincipalData">Get ClaimsPrincipal Data</button>
+
+<p>@_authMessage</p>
+
+@if (_claims.Count() > 0)
+{
+    <ul>
+        @foreach (var claim in _claims)
+        {
+            <li>@claim.Type: @claim.Value</li>
+        }
+    </ul>
+}
+
+<p>@_surnameMessage</p>
+
+
+
+
+<head>
+    <link href="css/Backstage.css" rel="stylesheet" />
+</head>
+
+
+@* <div class="loginBG">
+        <img src="/images/Backstage/login_background.png" alt="" class="">
+    </div> *@
+<div class="container">
+
+    <div class="logo">
+        <img src="/images/Backstage/event_LOGO.png" alt="">
+    </div>
+
+
+    <div class="login-content">
+        <form action="">
+            <img id="loginPicture" src="/images/Backstage/login_picture_border.png" alt="">
+            <h2 class="title_Backstage">BACKSTAGE</h2>
+            <h2 class="title">WELCOME</h2>
+
+            <div class="userNameInput">
+                <input type="text" placeholder="UserName" title="Please enter you username" required="" value=""
+                       name="username" id="username" class="form-control">
+            </div>
+
+            <div class="passWordInput">
+                <input type="password" title="Please enter your password" placeholder="******" required="" value=""
+                       name="password" id="password" class="form-control">
+            </div>
+
+            <!-- <div class="signUp">
+                    <a href="">SIGN UP</a>
+                </div> -->
+
+            <input type="submit" class="btn" value="LOGIN">
+        </form>
+    </div>
+
+</div>
+
+@code{
+    private string _authMessage;
+    private string _surnameMessage;
+    private IEnumerable<Claim> _claims = Enumerable.Empty<Claim>();
+
+    private async Task GetClaimsPrincipalData()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            _authMessage = $"{user.Identity.Name} is authenticated.";
+            _claims = user.Claims;
+            _surnameMessage =
+                $"Surname: {user.FindFirst(c => c.Type == ClaimTypes.Surname)?.Value}";
+        }
+        else
+        {
+            _authMessage = "The user is NOT authenticated.";
+        }
+
+    }
+
+
+}

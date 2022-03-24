@@ -1,0 +1,28 @@
+@page "/ernc"
+@inject IJSRuntime JS
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/ERNC.css" rel="stylesheet" />
+    <title>PonPonSnake 碰碰蛇｜ENRC</title>
+</head>
+
+<div class="ErncBackground"></div>
+
+<div class="marketPlace">
+    @* <img src="/images/MarketPlace/ComingSoon.png" alt=""> *@
+    <h1>Coming Soon!!</h1>
+</div>
+
+
+@code{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
+    }
+    
+}

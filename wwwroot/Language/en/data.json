@@ -1,0 +1,146 @@
+{
+  "input": {
+    "placeholder": "a placeholder"
+  },
+  "h2": "jquery-i18next",
+  "lang": "Language",
+  "id": "test-en-id",
+  "test": "Testing",
+  "lines": "This is line 1.<br>This is line 2.<br>This is line 3.",
+  
+  "nav": {
+    "snakelogo":"./images/Other/LOGO_EN.png",
+    "Ponponsnake": "PonPonSnake",
+    "Home": "Home",
+    "NewEvent":"New Event",
+    "Knight":"Characters",
+    "Adventure":"Adventure",
+    "Video":"Gameplay Clips",
+    "ContactUs":"Contact Us",
+    "Exhibition":"Exhibition",
+
+    "ACLIndex": "ACL-S1",
+    "ACLhome": "Home",
+    "Event":"Event info",
+    "Standings":"Ranking",
+    "Awards":"Rewords Claim",
+    "Sponsor":"Gifts Giveaway",
+    "Ruleset":"Notice",
+
+    "ERNC":"ERNC",
+    "MarketPlace":"MarketPlace",
+    "Arena":"Arena",
+    "AsiaLeague":"Asia League",
+    "FestivalLeague":"Festival League",
+    "LatestLeague":"Latest League",
+
+    "ACLIndexS2":"ACL-S2",
+    "FestivalGame":"Festival",
+    "ChristmasLeague": "Xmas League",
+    "LunarNewYear": "NewYear League",
+    "News":"News",
+    "Language": "Language",
+    "signIn": "sign<br>in",
+    "signOut":"Sign Out",
+    "PersonalInfo":"Personal Info",
+    "Esports":"Esports",
+    "AwardClaim":"Award Claim",
+    "Myprofile":"My Account",
+
+    "Chinese":"中文",
+    "English":"English"
+  },
+
+  "Sidebar": {
+    "Account":"Account",
+    "Esports":"Esports",
+    "Reward":"Reward"
+  },
+
+  "signInWindows":{
+    "PonPonSnake":"PonPonSnake",
+    "PhoneNumber":"<div class=\"signInWindows\">Phone Number</div>",
+    "Password":"<div class=\"signInWindows\">Password</div>",
+    "SignIn":"Sign In",
+    "Failed":"Login failure, please try again."
+  },
+
+  "SnakeIndexlogo":"/images/OfficialWeb/LOGO_EN.png",
+
+  "introduce_01": "<div class=\"index01_introduce_EN\">PonPonSnake is a 3D role- playing game base on the classic arcade snake but evolved with an unique play style.</div>",
+  "introduce_02": "<div class=\"index01_introduce_EN\">The great hero sacrificed themself to protect the world and drive the evil back away to darknest. Although their dedication and exertion has bring a temporary peace to the Snake Land, but the evil hiding in the shadow, still seeking for change to rise again. As for the new hope, a young twin who was lost in the forrest is about to carry the duty of heroes who all came before them and accept it as their destiny.</div>",
+  "introduce_03": "<div class=\"index01_introduce_EN\">At the mean time, skilled Knights across the Great Snake World are also preparing for the returning evil.</div>",
+  "introduce_04": "<div class=\"index01_introduce_EN\">Choose your favorite Snake Rider and enjoy your adventure at the Great Snake Wrold.</div>",
+  "gameName": "▼ Scan or tap to download ▼",
+
+  "eventTitle":"/images/OfficialWeb/SnakeACL_kimlan_EN.png",
+  "grandPrize_Title": "Prize fund TWD 1.72 Million!!",
+  "button_txt": "ENTER",
+
+  "carousel_01": {
+    "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Correa<br>Snakes : Dusnaki<br>Gender : Female</div>",
+    "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : 15<br>Weapon : Knight Lance<br>Nationality : Flange</div>",
+    "introduction": "<div class=\"NewStory03_right_txt_EN\">Correa's twin sister, born and raised in the country. She was lost in the woods at the age of five, after being adopted by the knight captain she spend her time living in the capital.She always have a posstive and active energy, stright A student but super bad a cooking. Every time she cooks the kitchen will be an absolute disaster. Otherwise, she is so perfect that no matter rookies of experienced knights all favors her. She dedicated all her time into training and become the rising star of the Flange Kingdom.【A wonderful day should begin with a big breakfast】</div>",
+    "Knight_skills_01": "<div class=\"NewStory03_right_txt_EN\">Shining Blade</div>",
+    "Knight_skills_02": "<div class=\"NewStory03_right_txt_EN\">Breaking Dawn</div>"
+  },
+  "carousel_02": {
+    "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Selica<br>Snakes : Dawnaki<br>Gender : Male</div>",
+    "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : 15<br>Weapon : Knight Lance<br>Nationality : Flange</div>",
+    "introduction":"<div class=\"NewStory03_right_txt_EN\">Selica's twin brother, born and rised in the country, he was seperated with his sister due to the lost in the woods. He came to the capatial when was 15 and join the Knights of the Kingdom Flange. Correa is gentle guy with has a good heart, always reach out to people who needed help. He often time been taking adventage of just becase hi s too nice. However, he will try to do whatever he can if things doesn't go against the knightship. Inorder to be a snake rider as good as his sister, he works his tails off day and night and were anticipated to be one of the most skilled knight.【Powers are meant to protect the weak】</div>",
+    "Knight_skills_01": "<div class=\"NewStory03_right_txt_EN\">Shadow Coat</div>",
+    "Knight_skills_02": "<div class=\"NewStory03_right_txt_EN\">Nightfall Assault</div>"
+  },
+  "carousel_03": {
+    "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Lucifer<br>Snakes : Gravnaki<br>Gender : Male</div>",
+    "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : 18<br>Weapon : Great sword<br>Nationality : Nord</div>",
+    "introduction": "<div class=\"NewStory03_right_txt_EN\">Lucifer was born to be a noble in duchy Nord, he was sent to Flange to study for a couple years and also get to know Venus there. He is pretty a peoeple person and can become friends with people FAST, but also like to play cool and do stupid stuff which makes him never stand a chance battling against Venus. To makes elevate his outfit, he even put a decorate wing on his shoulder to match the look of his snake, he truly believe on what he's capable of. Although he is outgoing he can be shy when receiving compliments.【Give it a taste of my overwhelming power】</div>",
+    "Knight_skills_01": "<div class=\"NewStory03_right_txt_EN\">Gravity Grip</div>",
+    "Knight_skills_02": "<div class=\"NewStory03_right_txt_EN\">Gravity Restrain</div>"
+  },
+  "carousel_04": {
+    "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Wendini<br>Snakes : Bobonaki<br>Gender : Female</div>",
+    "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : N/A<br>Weapon : Magical ball<br>Nationality : Della</div>",
+    "introduction": "<div class=\"NewStory03_right_txt_EN\">Wendini is from the Wendini Island in the Della Federal, the priest of the Temple of Flange. She is an elve with the ability to fly and control the movement of water. Looks like a little girl but is actually over 100 years old. She can be a nice person if one is honest to her. Also a gold digger.(That's why she is always there selling drinks) Some said she is summoned here by the former queen.【Always keep yourself hydrated】</div>",
+    "Knight_skills_01": "<div class=\"NewStory03_right_txt_EN\">Water of Life</div>",
+    "Knight_skills_02": "<div class=\"NewStory03_right_txt_EN\">Healing Tide</div>"
+  },
+  "carousel_05": {
+    "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Venus<br>Snakes : Aglinaki<br>Gender : N/A</div>",
+    "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : 18<br>Weapon : Spike<br>Nationality : Flange</div>",
+    "introduction": "<div class=\"NewStory03_right_txt_EN\">Princess of the Flange empire, heir of the queen. Appear to be a girl but no one have any idea of her actual gender. The queen raised her as the future and hope of this nation. During her childhood living in the emperor's palace, Lucifer was also sent to Flange to study and they quickly become friends. Since Venus is well taought and well trained, she quickly become one of the skilled snake rider among all knights. She also believes with great power comes great responsibility and she will fight for her family's name with pride.【If you can't take care of the problem itself, take care of the person who creates the problem】</div>",
+    "Knight_skills_01": "<div class=\"NewStory03_right_txt_EN\">Art of Combat</div>",
+    "Knight_skills_02": "<div class=\"NewStory03_right_txt_EN\">Critical Eye</div>"
+  },
+
+  "videoTitle":"Gameplay clips",
+  "gameDownload":"Scan or tap to download",
+
+  "contact":{
+    "title":"Contact Us",
+    "name":"your name",
+    "mail":"email",
+    "phone":"phone number",
+    "feedbackType":"feedback types",
+    "content":"What's about",
+    "send":"Submit"
+  },
+  
+  "knight_adventure":{
+    "txt_01":"<div class=\"Txt_line\"><span class=\"Txt_big\">Knights</span></div><span class=\"Txt_little\">with different characteristics</span><br><span class=\"Txt_little\">came from the five great nations.</span>",
+    "txt_02":"<span class=\"Txt_middle\">Region</span><div class=\"Txt_line\"><span class=\"Txt_big\">Adventure</span></div><span class=\"Txt_little\">Defeat the evil in the darkness</span><br><span class=\"Txt_little\">under the boundless sea.</span>",
+    "txt_03":"<span class=\"Txt_little\">Online real-time</span><br><div class=\"Txt_line\"><span class=\"Txt_big\">Combat</span></div><span class=\"Txt_little\">Fight alongside</span><br><span class=\"Txt_middle\">with your teammates.</span>"
+  },
+
+  "myprofile":{
+    "account":"Account",
+    "edit":"Edit",
+    "gameID":"Game ID",
+    "phone":"Phone",
+    "connectMetamask":"Connect Metamask",
+    "installMetamask":"Please Install Metamask",
+    "asset":"Asset",
+    "activities":"Activities"
+  }
+
+}

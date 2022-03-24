@@ -1,0 +1,271 @@
+﻿@page "/prize"
+@using SnakeAsianLeague.Data.Services
+@inject AppState AppState
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+@implements IDisposable
+
+<head>
+    <link href="css/Prize.css" rel="stylesheet" />
+    <title>PonPonSnake 碰碰蛇｜亞洲聯賽-獎金領取</title>
+</head>
+
+<div class="prize_block">
+
+    <div class="prize_fixed" data-aos="fade-up" data-aos-delay="900" data-aos-duration="500">
+
+        <button class="prize_fixed_button" @onclick="@PrizeButtonClick">
+            <p>申請獎金</p>
+        </button>
+
+        <div class="prize_fixed_text">
+            <p>獎金申請</p>
+            <p>流程說明</p>
+        </div>
+
+        <img id="prize_arrow_down" src="/images/Prize/arrow_down.png" alt="">
+
+    </div>
+
+
+    <div class="prize_area">
+
+        <div class="prize_banner" >
+            @* <img src="/images/Prize/BANNER_bg.png" alt=""> *@
+
+            <img id="banner_text" src="/images/Prize/BANNER_text.png" alt="">
+            <div class="join_block">
+                <div class="join_text">
+                    <p>等你來挑戰</p>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41.949"
+                        height="39.95" viewBox="0 0 41.949 39.95" style="margin-bottom: -4px;">
+                        <defs>
+                            <filter id="fastright" x="0" y="0" width="41.949" height="39.95"
+                                filterUnits="userSpaceOnUse">
+                                <feOffset dy="3" input="SourceAlpha" />
+                                <feGaussianBlur stdDeviation="3" result="blur" />
+                                <feFlood flood-opacity="0.161" />
+                                <feComposite operator="in" in2="blur" />
+                                <feComposite in2="SourceGraphic" />
+                            </filter>
+                        </defs>
+                        <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#fastright)">
+                            <path id="fastright-2" data-name="fastright"
+                                d="M10.642,10.01a1.262,1.262,0,0,1,.407.954,1.33,1.33,0,0,1-.407.975l-9.667,9.6a1.343,1.343,0,0,1-.986.407A1.343,1.343,0,0,1-1,21.543l-.579-.579a1.262,1.262,0,0,1-.407-.954,1.33,1.33,0,0,1,.407-.975l8.124-8.06-8.124-8.06a1.33,1.33,0,0,1-.407-.975A1.33,1.33,0,0,1-1.576.965L-1,.408A1.343,1.343,0,0,1-.011,0,1.343,1.343,0,0,1,.975.408Zm-1.3,10.953a1.262,1.262,0,0,1-.407-.954,1.33,1.33,0,0,1,.407-.975l8.124-8.06L9.341,2.915a1.33,1.33,0,0,1-.407-.975A1.33,1.33,0,0,1,9.341.964L9.92.407a1.372,1.372,0,0,1,1.951,0l9.689,9.6a1.262,1.262,0,0,1,.407.954,1.33,1.33,0,0,1-.407.975l-9.689,9.6a1.372,1.372,0,0,1-1.951,0Z"
+                                transform="translate(10.98 6)" fill="#fff" />
+                        </g>
+                    </svg>
+                </div>
+
+
+                <div id="prize_signUpEvent_button">
+                    <a href="description#download_QRcode">
+                        <img src="/images/Index/signUpEvent_button.png" alt="">
+                        <span>報名參加</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="prize_detail">
+
+            @* 電腦板 *@
+            <img class="prize_picture" src="/images/Prize/personal.png" alt="" data-aos="fade-right"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="500"
+            data-aos-duration="1000">
+            <img class="prize_picture" src="/images/Prize/team.png" alt="" data-aos="fade-left"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="1000"
+            data-aos-duration="500"
+            data-aos-delay="500">
+
+            @* 手機板 *@
+            <img class="prize_picture_rwd" src="/images/Prize/personal01.png" alt="" data-aos="fade-right"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="500"
+            data-aos-duration="1000">
+            <img class="prize_picture_rwd" src="/images/Prize/team01.png" alt="" data-aos="fade-left"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="1000"
+            data-aos-duration="500"
+            data-aos-delay="500">
+
+            <div class="prize_text" data-aos="fade-left"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="1000"
+            data-aos-duration="500"
+            data-aos-delay="500">★ 以上為等值新台幣獎金獎品</div>
+
+
+            <div class="gift_detail">
+                <div class="gift_title" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" >
+                    <span>聯賽指定遊戲競賽裝置</span>
+                    <br>
+                    <span id="gift_title_02">獎品包含</span>
+                </div>
+
+                <div class="gift_block">
+
+                    <div class="gift_info" id="gift_info_01" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="800">
+                        <img class="gift_bg" id="gift_bg_01" src="/images/Prize/gift_bg_A.png" alt="">
+                        <img class="gift_pic" id="gift_pic_01" src="/images/Prize/Rog-phone-5s.png" alt="">
+                        <div class="gift_info_text" id="gift_info_text_01">
+                            <span class="gift_info_text_01">市價 29,990 元</span><br>
+                            <span class="gift_info_text_02">ROG phone 5s</span><br>
+                            <span class="gift_info_text_03">專業遊戲好手的必備手機</span>
+                        </div>
+                    </div>
+
+                    <div class="gift_info"  id="gift_info_02" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1100">
+                        <img class="gift_bg"  id="gift_bg_02" src="/images/Prize/gift_bg_B.png" alt="">
+                        <img class="gift_pic" id="gift_pic_02" src="/images/Prize/iPad-mini.png" alt="">
+                        <div class="gift_info_text" id="gift_info_text_02">
+                            <span class="gift_info_text_01">市價 14,900 元</span><br>
+                            <span class="gift_info_text_02">iPad mini</span><br>
+                            <span class="gift_info_text_03">隨手帶著跑的娛樂神器</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="receiveAward" id="receiveAward">
+    <div class="prize_titile">
+        <div class="blockTitle" data-aos="fade-left" >
+            <img src="/images/Index/title_bg.png" alt="" class="title_bg">
+            <div class="title_BG">
+                <p>申請<br>流程</p>
+            </div>
+        </div>
+
+        @* <p class="receiveAward_title">★報名隊伍只有隊長可以獲取獲獎編號</p> *@
+
+
+    </div>
+
+    <div class="receiveAward_block" id="receiveAward_block">
+        <div class="block_01" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
+            <p>點擊「登入」輸入帳密</p>
+            <img src="/images/Prize/receive_01.png" alt="">
+        </div>
+
+        <img id="prize_arrow_right" src="/images/Prize/arrow_right.png" alt="">
+
+        <div class="block_01" data-aos="fade-left" data-aos-duration="500" data-aos-delay="600">
+            <p>進入個人頁面「領獎通知」</p>
+            <img src="/images/Prize/receive_02.png" alt="">
+        </div>
+
+        <img id="prize_arrow_right" src="/images/Prize/arrow_right.png" alt="">
+
+        <div class="block_01" data-aos="fade-left" data-aos-duration="500" data-aos-delay="900">
+            <p>填寫領獎個人資訊</p>
+            <img src="/images/Prize/receive_03.png" alt="">
+        </div>
+
+        <img id="prize_arrow_right" src="/images/Prize/arrow_right.png" alt="">
+
+        <div class="block_01" data-aos="fade-left" data-aos-duration="500" data-aos-delay="1200">
+            <p>完成申請，等待審查</p>
+            <img src="/images/Prize/receive_04.png" alt="">
+        </div>
+
+        @* <div class="block_02">
+            <img src="/images/Prize/receive_04.png" alt="">
+            <div class="block_02_text">
+                <p>進入亞洲聯賽官網</p>
+                <p>登入後點擊</p>
+                <p>「申請獎金」</p>
+                <p>填寫個人資料</p>
+            </div>
+        </div> *@
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+@*
+    <div class="prize_block">
+    <h1 class="title">獎金領取</h1>
+
+    <div class="award_process">
+    <p>領獎流程</p>
+    </div>
+
+    <div class="index-button-top">
+    <button class="btn" href="">得獎者領獎表單</button>
+    </div>
+
+
+    </div> *@
+
+
+
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        AppState.StateChanged += async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+
+        Console.WriteLine("Prize OnInitialized: " + DateTime.Now);
+    }
+
+
+    void IDisposable.Dispose()
+    {
+        AppState.StateChanged -= async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+    }
+
+
+    private async Task AppState_StateChanged(ComponentBase Source, string Property)
+    {
+        if (Source != this)
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+
+    }
+
+
+
+    private async void PrizeButtonClick()
+    {
+
+        if (AppState.LoginStatus.IsLogin == true)
+        {
+            NavigationManager.NavigateTo("Myaccount#award");
+
+        }
+        else
+        {
+            //NavigationManager.NavigateTo("description#description_03");
+            await JS.InvokeVoidAsync("displayAlert", "請先登入碰碰蛇會員！");
+        }
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
+    }
+
+
+}

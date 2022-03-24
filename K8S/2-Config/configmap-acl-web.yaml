@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: asianleague-web
+data:
+  UserServer: "http://service-user:5500"
+  TableServer: "http://service-table:5000"
+  MySQL-Connection: "Server=snake-backstage-db;Port=3306;database=SnakeBackstage;user id=root;password=cqig7777"

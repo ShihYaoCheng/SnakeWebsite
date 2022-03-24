@@ -1,0 +1,429 @@
+﻿@page "/rank"
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services.SnakeServerService
+@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Entity.View
+@using System.Globalization
+
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+@inject AsiaLeagueScheduleService AsiaLeagueScheduleService
+@inject QualifyingCompetitionRecordService QualifyingCompetitionRecordService
+@inject AsiaLeaguePlaceService AsiaLeaguePlaceService
+@inject GuildMemberService GuildMemberService
+@implements IDisposable
+
+<head>
+    <link href="css/Rank.css" rel="stylesheet" />
+    <title>PonPonSnake 碰碰蛇｜亞洲聯賽-戰績排名</title>
+</head>
+
+@* <div class="rank_block_1">
+    <img src="/images/Other/stay_banner.png" alt="" id="stay_banner">
+    <h1>COMING SOON...</h1>
+    </div> *@
+
+<div class="@((RankIsGuild? "rank_bg team_bg" : "rank_bg personal_bg"))"></div>
+
+<div class="rank_block">
+
+    <div class="blockTitle" data-aos="fade-left" data-aos-delay="300">
+        <img src="/images/Index/title_bg.png" alt="" class="title_bg">
+        <div class="title_BG">
+            <p>騎士<br>榜單</p>
+        </div>
+    </div>
+
+    <div class="rank_area">
+
+        <div class="rank_tab"data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">
+            <div class="@((RankIsGuild? "tab_button" : "tab_button tab_button_clicked"))"
+                 @onclick="@(e => ToggleIsGuild(e, false))">
+
+                <img src="/images/Rank/tab_button.png" alt="">
+                <span>個&nbsp;&nbsp;人</span>
+
+            </div>
+            <div class="@((RankIsGuild? "tab_button tab_button_clicked" : "tab_button"))"
+                 @onclick="@(e => ToggleIsGuild(e, true))">
+
+                <img src="/images/Rank/tab_button.png" alt="">
+                <span>隊&nbsp;&nbsp;伍</span>
+
+            </div>
+        </div>
+
+        <div class="rank_area_all">
+            <p class="rank_title" data-aos="flip-left" data-aos-duration="500" data-aos-delay="800">冠軍賽獲獎名單</p>
+
+            @if (Ranks == null || Ranks.Count == 0)
+            {
+                <div class="rank_list_all" data-aos="fade-up" data-aos-duration="100">
+                    @* 個人白銀四強 *@
+                    <div class="rank_list">
+
+                        @* 標題 *@
+                        <div class="list_title_block title_Silver">
+                            <img class="rank_list_icon" src="/images/Rank/team_icon.png" alt="">
+                            <div class="title_and_date">
+                                <div class="rank_title_text">白銀四強決賽 #D1</div>
+                                <div class="rank_date rank_date_Diamond">9月7日</div>
+                            </div>
+                        </div>
+
+                        @* 冠亞季軍/資格賽 *@
+                        <div class="rank_left">
+                            <div class="rank_inner">
+                                <div class="coming_soon_left">
+                                    <p>尚未開賽</p>
+                                </div>
+                                <div class="rank_qualifying_all">
+                                    <p>資格賽</p>
+                                    <div class="rank_qualifying">9 / 6</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        @* 資格賽積分排名 *@
+                        <div class="rank_right">
+                            <div class="rank_right_title">資格賽積分排名</div>
+                            <div class="rank_table_block">
+                                <div class="rank_table_title">
+                                    <table>
+                                        <tr>
+                                            <th class="ranking">名次</th>
+                                            <th class="player_name">@(RankIsGuild ? "隊伍名稱" : "玩家名稱")</th>
+                                            <th class="winning">勝場</th>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="rank_table_text">
+                                    <div class="coming_soon_right">
+                                        <p>尚未開賽</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table_remark">最多顯示30則</div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="rank_list_all" data-aos="fade-up" data-aos-duration="100">
+
+                    @foreach (var rk in Ranks)
+                    {
+                        <div class="rank_list">
+
+                            @* 標題 *@
+                            <div class="list_title_block @GetRankClassByType("title",rk.Type)">
+                                @if (RankIsGuild)
+                                {
+                                    <img class="rank_list_icon" src="/images/Rank/team_icon.png" alt="">
+                                }
+                                else
+                                {
+                                    <img class="rank_list_icon" id="personal_icon" src="/images/Rank/personal_icon.png" alt="">
+                                }
+                                <div class="title_and_date">
+                                    <div class="rank_title_text">@rk.Title</div>
+                                    <div class="rank_date @GetRankClassByType("rank_date",rk.Type)">@rk.MatchDate.ToString("MM/dd") </div>
+                                </div>
+                            </div>
+
+                            @* 冠亞季軍/資格賽 *@
+                            <div class="rank_left">
+                                <div class="rank_inner">
+                                    <div class="rank_awards_all">
+
+                                        @if (today < rk.MatchDate.Date || rk.Places == null || rk.Places.Count == 0)
+                                        {
+                                            <div class="coming_soon_left">
+                                                <p>尚未開賽</p>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            @foreach (var p in rk.Places)
+                                            {
+                                                <div class="rank_awards_line @GetPlaceViewClassByIndex("line",p.Place.Place)">
+                                                    <div class="awards_line_top">
+                                                        @switch (p.Place.Place)
+                                                        {
+                                                            case 1:
+                                                                <img class="rank_awards_icon icon_01" src="/images/Rank/crown01.png" alt="">
+                                                                <p class="rank_awards_text">冠軍</p>
+                                                                <p class="rank_awards_name">@p.Place.WinnerName</p>
+                                                                break;
+                                                            case 2:
+                                                                <img class="rank_awards_icon" src="/images/Rank/crown02.png" alt="">
+                                                                <p class="rank_awards_text">亞軍</p>
+                                                                <p class="rank_awards_name">@p.Place.WinnerName</p>
+                                                                break;
+                                                            case 3:
+                                                                <img class="rank_awards_icon" src="/images/Rank/crown03.png" alt="">
+                                                                <p class="rank_awards_text">季軍</p>
+                                                                <p class="rank_awards_name">@p.Place.WinnerName</p>
+                                                                break;
+                                                            default:
+                                                                break;
+
+                                                        }
+
+                                                    </div>
+                                                    @if (RankIsGuild && p.Place.Place <= 3)
+                                                    {
+                                                        <div class="awards_ID_all">
+                                                            @foreach (var m in p.Members)
+                                                            {
+                                                                <div class="awards_ID">@m.Name</div>
+                                                            }
+                                                        </div>
+                                                    }
+
+                                                </div>
+                                            }
+
+                                        }
+                                    </div>
+
+                                    <div class="rank_qualifying_all">
+                                        <p>資格賽</p>
+                                        @foreach (var d in rk.QualifyingDates)
+                                        {
+                                            <div class="rank_qualifying">@d.ToString("MM/dd")</div>
+                                        }
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            @* 資格賽積分排名 *@
+                            <div class="rank_right">
+                                <div class="rank_right_title">資格賽積分排名</div>
+
+                                <div class="rank_table_block">
+
+                                    <div class="rank_table_title">
+                                        <table>
+                                            <tr>
+                                                <th class="ranking">名次</th>
+                                                <th class="player_name">@(RankIsGuild ? "隊伍名稱" : "玩家名稱")</th>
+                                                <th class="winning">勝場</th>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <div class="rank_table_text">
+                                        @if (today < rk.QualifyingDates[0].Date)
+                                        {
+                                            <div class="coming_soon_right">
+                                                <p>尚未開賽</p>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="rank_table_scroll">
+                                                <table>
+
+                                                    @foreach (var r in @rk.Records)
+                                                    {
+                                                        <tr>
+                                                            <td class="ranking">@r.Rank</td>
+                                                            <td class="player_name">@r.UserName</td>
+                                                            <td class="winning">@r.Wins</td>
+                                                        </tr>
+                                                    }
+
+
+                                                </table>
+                                            </div>
+                                        }
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="table_remark">最多顯示30則</div>
+                            </div>
+                        </div>
+
+                        <div class="rank_line"></div>
+                    }
+                </div>
+
+            } @* Ranks end else *@
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+@code {
+    List<RankView> Ranks;
+    Boolean RankIsGuild;
+    DateTime today;
+
+    protected override async Task OnInitializedAsync()
+    {
+        RankIsGuild = false;
+        await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS1);
+
+        today = DateTime.Now.Date;
+        ///test 
+        //today = Convert.ToDateTime("10/27/2021");
+
+        ///test 
+
+        await LoadRanks(RankIsGuild);
+        Console.WriteLine("Ranks:" + Ranks.Count);
+    }
+
+    protected async Task LoadRanks(Boolean isGuild)
+    {
+        Ranks = new List<RankView>();
+        List<AsiaLeagueSchedule> Schedules = AsiaLeagueScheduleService.GetSchedulesByIsGuild(isGuild);
+
+        foreach (var s in Schedules)
+        {
+
+            RankView rank = new RankView();
+            int station = isGuild ? s.GuildStation : s.IndStation;
+            if (station < 1) continue;
+
+            
+
+
+            rank.IsGuild = isGuild;
+            rank.Type = isGuild ? s.GuildFinalType : s.IndFinalType;
+            rank.Title = isGuild ? s.GuildSchedule : s.IndividualSchedule;
+            rank.MatchDate = s.Date.Date;
+
+
+            rank.QualifyingDates = AsiaLeagueScheduleService.GetQualifyingDates(isGuild, station);
+
+            if (today >= rank.QualifyingDates[0].Date)
+            {
+                //資格賽積分排名
+                List<QualifyingCompetitionRecord> Records = await QualifyingCompetitionRecordService.GetQualifyingCompetitionRecordsByIsGuildAndStation(isGuild, station);
+                List<QualifyingCompetitionRecordView> RecordViews = new List<QualifyingCompetitionRecordView>();
+                for (int i = 0; i < Records.Count; i++)
+                {
+                    RecordViews.Add(new QualifyingCompetitionRecordView(i + 1, Records[i].IdentityName, Records[i].IdentityId, Records[i].Wins));
+                }
+                rank.Records = RecordViews;
+            }
+            if(today >= rank.MatchDate)
+            {
+                //決賽獲獎名單
+                List<AsiaLeaguePlace> Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesByIsGuildAndStation(AsiaLeagueSeasons.AsiaLeagueS1,isGuild, station);
+                List<AsiaLeaguePlaceView> PlacesViews = new List<AsiaLeaguePlaceView>();
+
+                foreach (AsiaLeaguePlace p in Places)
+                {
+                    if (isGuild)
+                    {
+                        List<GuildMember> members = await GuildMemberService.GetGuildMembersByGuildId(p.WinnerId);
+                        PlacesViews.Add(new AsiaLeaguePlaceView(p, members));
+                    }
+                    else
+                    {
+                        PlacesViews.Add(new AsiaLeaguePlaceView(p, null));
+                    }
+
+
+
+                }
+                rank.Places = PlacesViews;
+
+
+
+            }
+
+            Ranks.Add(rank);
+        }
+
+        Console.WriteLine(Ranks.Count);
+    }
+
+    public enum RankType
+    {
+        Silver,
+        Diamond,
+        Master,
+        Free
+    }
+
+    public string GetRankClassByType(string className, int type)
+    {
+        string typeString = "";
+        switch (type)
+        {
+            case 0:
+            case 1:
+                typeString = className + "_" + RankType.Silver;
+                break;
+            case 2:
+                typeString = className + "_" + RankType.Diamond;
+                break;
+            case 3:
+                typeString = className + "_" + RankType.Master;
+                break;
+            case 4:
+                typeString = className + "_" + RankType.Free;
+                break;
+            default:
+                break;
+        }
+        return typeString;
+    }
+
+    public string GetPlaceViewClassByIndex(string className, int place)
+    {
+        string placeString = "";
+        switch (place)
+        {
+            case 0:
+            case 1:
+                placeString = className + "_" + "champion";
+                break;
+            case 2:
+                placeString = className + "_" + "secondplace";
+                break;
+            case 3:
+                placeString = className + "_" + "thirdplace";
+                break;
+
+            default:
+                break;
+        }
+        return placeString;
+    }
+
+    private async Task ToggleIsGuild(MouseEventArgs e, bool isguild)
+    {
+        RankIsGuild = isguild;
+        await LoadRanks(RankIsGuild);
+        Console.WriteLine("end ToggleIsGuild");
+    }
+
+    public void Dispose()
+    {
+        //    NavigationManager.LocationChanged -= OnLocationChanged;
+
+    }
+
+
+}

@@ -1,0 +1,159 @@
+﻿@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services
+@inject IJSRuntime JS
+@inject AppState AppState
+@inject IAuthService authService
+
+<AuthorizeView>
+    <Authorized>
+        <li class="nav-item" id="nav-user" >
+              
+            <div class="user text-light nav-link">
+                <div class="userIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16.809" height="18.554" viewBox="0 0 16.809 18.554">
+                        <path id="userIcon" data-name="user_icon"
+                                d="M-8228.962-1744.446A1.965,1.965,0,0,1-8231-1746.3a7.529,7.529,0,0,1,6.421-7.866,4.64,4.64,0,0,1-2.657-4.2,4.641,4.641,0,0,1,4.64-4.64,4.64,4.64,0,0,1,4.64,4.64,4.638,4.638,0,0,1-2.655,4.2,7.528,7.528,0,0,1,6.421,7.866,1.965,1.965,0,0,1-2.038,1.853Z"
+                                transform="translate(8231.001 1763)"  />
+                    </svg>
+                </div>
+
+                <div class="userNumber">
+                    <p id="user_Number">@context.User.FindFirst("Name")?.Value</p>
+                    @*<p id="user_Number">@context.User.FindFirst("Phone")?.Value</p>*@
+                </div>
+            </div>
+            <img class="nav_hover_bottom" id="user_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+            <div class="slide_button">
+                <img src="./images/Other/chevron-down.png" alt="">
+            </div>
+            <ul class="nav_ul_slide" id="user-ul">
+                <li id="nav_ul-myprofile">
+                    <a href="myprofile" id="mypage" data-i18n="[html]nav.Myprofile">我的主頁</a>
+                    <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                </li>
+                <li id="nav_ul-myMatch">
+                    <a href="mymatch" id="mymatchpage" data-i18n="[html]nav.Esports">我的賽事</a>
+                    <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                </li>
+                <li id="nav_ul-MyAwardNotice">
+                    <a href="myawardnotice" id="myawardnoticepage" data-i18n="[html]nav.AwardClaim">領獎通知</a>
+                    <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                </li>
+                <li>
+                    <a href="" @onclick="logoutButtonClick" id="" data-i18n="[html]nav.signOut">Sign Out</a>
+                </li>
+            </ul>
+          
+        </li>
+    </Authorized>
+    <NotAuthorized>
+        <li class="nav-item" id="nav-user">
+            <button id="login_button" class="" @onclick="loginButtonClick" data-i18n="[html]nav.signIn">登入!</button>
+        </li>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+<!-- login block-->
+<div class="login_block" id="login_block">
+    <div class="login_block_bg" @onclick="loginCloseClick"></div>
+
+    <div class="login" id="login_window">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="24.122" height="24.12" viewBox="0 0 24.122 24.12"
+             id="login_close" @onclick="loginCloseClick">
+            <path id="" data-name="合体 5" d="M-12484-1752l-11,11,11-11-11-11,11,11,11-11-11,11,11,11Z"
+                  transform="translate(12496.062 1764.06)" fill="none" stroke="#e0eeff" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3" />
+        </svg>
+
+        <p class="window_p" data-i18n="[html]signInWindows.PonPonSnake">登入碰碰蛇帳號</p>
+
+        <div class="login_pictuer_block">
+            <img id="login_pictuer" src="images\Other\login_picture.png" alt="">
+
+        </div>
+       
+
+        <div class="input_block">
+            <div class="login_form">
+                <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">手機</label>
+                <input type="text" class="login_input" id="address" name="address" placeholder="" @bind=loginRequest.phone  required>
+            </div>
+
+            <div class="login_form" style="margin-bottom: 20px;">
+                <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">密碼</label>
+                <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=loginRequest.password required>
+            </div>
+
+            <div type="text" class="login_error"  data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>
+            <div id="login_submit" @onclick="@LoginSubmit">
+                
+                <img src="/images/Index/signUpEvent_button.png" alt="">
+                <span data-i18n="[html]signInWindows.SignIn">登入</span>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@code {
+
+    public LoginRequest loginRequest = new LoginRequest();
+
+    bool loginErrorShow { get; set; } = false;
+    private bool EditUsers;
+
+    bool showModal = false;
+    void ModalShow() => showModal = true;
+    void ModalCancel() => showModal = false;
+
+
+    private async Task LoginSubmit()
+    {
+        SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest);
+        AppState.UpdateLoginStatus(this, snakeAccount);
+        if (AppState.LoginStatus.IsLogin == true)
+        {
+            loginErrorShow = false;
+            await loginCloseClick();
+            await JS.InvokeVoidAsync("myprofileSidebar");
+            await JS.InvokeVoidAsync("installI18n");
+            HandleClick();
+        }
+        else
+        {
+            loginErrorShow = true;
+        }
+
+    }
+
+    private async Task loginButtonClick()
+    {
+        await JS.InvokeVoidAsync("loginButton", "loginButton");
+    }
+
+    private async Task loginCloseClick()
+    {
+        await JS.InvokeVoidAsync("loginClose", "loginClose");
+
+    }
+    private async Task logoutButtonClick()
+    {
+        await authService.AuthLogout();
+    }
+
+    @inject NavigationManager NavigationManager;
+    private void HandleClick()
+    {
+        NavigationManager.NavigateTo("/", true);
+    }
+
+
+}

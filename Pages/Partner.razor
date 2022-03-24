@@ -1,0 +1,107 @@
+@page "/partner"
+
+@using SnakeAsianLeague.Data.Services.Backstage
+@using SnakeAsianLeague.Data.Entity.Backstage
+@inject IJSRuntime JS
+@inject SponsorService SponsorService
+
+<head>
+    <link href="css/Partner.css" rel="stylesheet" />
+    <title>PonPonSnake 碰碰蛇｜亞洲聯賽-賽事好康</title>
+</head>
+
+<div class="partner_bg"></div>
+
+<div class="partner_block">
+    <div class="partner_title">
+        <p>賽事好康</p>
+        <img class="partner_title_line" src="/images/Partner/partner_title_line.png" alt="">
+        
+    </div>
+
+
+    <div class="partner_all">
+
+        @if (BIGSponsors == null && SmallSponsors == null)
+        {
+
+        }
+        else
+        {
+            <div class="partner_banner_all">
+
+                @foreach (var view in BIGSponsors)
+                {
+                    <div class="partner_banner" data-aos-duration="500" data-aos="zoom-in-down">
+                        <a href="@view.SponsorUri" target="_blank">
+                            @* <img src="@view.ImgUrl" width="900" height="300" /> *@
+                            <img src="@view.ImgUrl" />
+                        </a>
+                    </div>
+                }
+
+
+            </div>
+            
+
+            <div class="partner_poster_all">
+                @*<div class="poster">
+                    <a href="" target="_blank">
+                        <img src="/images/Partner/test_banner_424x318.jpeg" alt="">
+                    </a>
+                </div>*@
+
+
+                @if (SmallSponsors == null)
+                {
+
+                }
+                else
+                {
+                    @foreach (var view in SmallSponsors)
+                    {
+                        <div class="poster" data-aos-duration="500" data-aos="zoom-in-down">
+                            <a href="@view.SponsorUri" target="_blank">
+                                @* <img src="@view.ImgUrl" width="300" height="400" /> *@
+                                <img src="@view.ImgUrl" />
+                            </a>
+                        </div>
+                    }
+                }
+
+            </div>
+
+        }
+
+
+
+    </div>
+</div>
+
+
+@code{
+
+    List<Sponsor> BIGSponsors;
+    List<Sponsor> SmallSponsors;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        await LoadData();
+        Console.WriteLine(DateTime.Now);
+    }
+
+    private async Task LoadData()
+    {
+        BIGSponsors = await SponsorService.GetSponsorsByType(1);
+        SmallSponsors = await SponsorService.GetSponsorsByType(2);
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                await JS.InvokeVoidAsync("installI18n");
+            }
+
+        }
+}

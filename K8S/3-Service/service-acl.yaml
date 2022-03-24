@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: asianleague-web
+  annotations:
+    cloud.google.com/backend-config: '{"ports": {"80":"asianleague-web"}}'  
+spec:
+  selector:
+    app: asianleague-web
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

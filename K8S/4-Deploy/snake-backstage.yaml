@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snake-backstage
+  labels:
+    app: snake-backstage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: snake-backstage
+  template:
+    metadata:
+      labels:
+        app: snake-backstage
+    spec:
+      containers:
+        - name: snake-backstage
+          image: asia.gcr.io/cqi-operation/snakebackstage:210.1
+          imagePullPolicy: Always 
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:80
+            - name: ExternalServers__UserServer
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-snakebackstage
+                  key: UserServer
+            - name: ExternalServers__TableServer
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-snakebackstage
+                  key: TableServer
+            - name: ConnectionStrings__DefaultConnection
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-snakebackstage
+                  key: MySQL-Connection
+            - name: ExternalServers__GoogleSheet
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-snakebackstage
+                  key: GoogleSheet
+          volumeMounts:
+            - mountPath: /etc/localtime
+              name: tz-config  
+      volumes:
+        - name: tz-config
+          hostPath:
+            path: /usr/share/zoneinfo/Asia/Shanghai
+        
+
+
+            
+            
+      

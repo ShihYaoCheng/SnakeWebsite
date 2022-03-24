@@ -1,0 +1,40 @@
+﻿@page "/myawardnotice"
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/Myaccount.css" rel="stylesheet" />
+    <link href="css/MyAwardNotice.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>PonPonSnake 碰碰蛇｜領獎通知</title>
+</head>
+
+
+<AuthorizeView>
+    <Authorized>
+    <div class="myaccount_block">
+        <div class="receive_Notice">
+
+            <div class="blockTitle">
+                <img src="/images/Index/title_bg.png" alt="" class="title_bg">
+                <div class="title_BG">
+                    <p>領獎<br>通知</p>
+                </div>
+            </div>
+            <MyAwardNoticeDetail />
+         
+        </div>
+    </div>
+
+
+    </Authorized>
+    <NotAuthorized>
+    <div class="myaccount_login">
+
+        <h1>Please Login First</h1>
+    </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+}

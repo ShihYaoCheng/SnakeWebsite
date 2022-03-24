@@ -1,0 +1,347 @@
+﻿@page "/notice"
+@inject IJSRuntime JS
+
+<head>
+    <link href="css/Notice.css" rel="stylesheet" />
+    <title>PonPonSnake 碰碰蛇｜亞洲聯賽-注意事項</title>
+</head>
+
+<div class="notice_block">
+
+
+    <div class="notice_text_block">
+        <div class="notice_text">
+
+            <div class="download_block" hidden="@(true)">
+                <div id="PDF_download_button">
+                    <a href="/PDF/Ponponsnake_Asia_Champoins_League_S1.pdf" target="_blank" download>
+                        <img src="/images/Other/button_blue.png" alt="">
+                        <span>
+                            賽事規章
+                            <img id="download_icon" style="width: 30px;" src="/images/Other/download.png" alt="">
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <h1 class="notice_title" data-aos="fade-up" data-aos-duration="500">碰碰蛇亞洲聯賽 S1 活動簡章</h1>
+            <p class="event_txt02 event_note" data-aos="fade-up" data-aos-duration="500">
+                *詳細賽事請參閱賽事規章，主辦單位保留隨時修改、終止變更本活動之權利。修改後之活動內容將於本活動網頁更新，恕不另行通知。
+            </p>
+
+            <h1 class="txt_title" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">1. 競賽資訊</h1>
+            <div class="title_border" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300"></div>
+
+            <p class="event_txt">1.1 競賽日期</p>
+            <p class="event_txt02">2021年9月13日到2021年12月12日(*賽程共計三個月)</p>
+            <p class="event_txt02">*賽程共計三個月</p>
+
+            <p class="event_txt">1.2 競賽地點</p>
+            <p class="event_txt02">線上競賽</p>
+
+            <h1 class="txt_title"  data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">2. 賽事摘要</h1>
+            <div class="title_border" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300"></div>
+
+            <p class="event_txt">2.1 賽季時程</p>
+            <p class="event_txt02">a. 全季 9-12月</p>
+            <p class="event_txt02">b. 季中 10-12月</p>
+            <p class="event_txt02">c. 星光季 11-12月</p>
+
+
+            <p class="event_txt">2.2 賽制賽組</p>
+            <p class="event_txt02">a. 公益賽 - 所有等級碰碰蛇玩家皆可參與，且均為免費報名</p>
+            <p class="event_txt03">i. 個人公益白銀賽 - 共6場決賽</p>
+            <p class="event_txt03">ii. 隊伍公益白銀賽 - 共3場決賽</p>
+
+            <p class="event_txt02">b. 菁英賽</p>
+            <p class="event_txt03">i. 個人菁英白銀賽 - 共18場決賽</p>
+            <p class="event_txt03">ii. 個人菁英鑽石賽 - 共3場決賽</p>
+            <p class="event_txt03">iii. 個人菁英大師賽 - 共1場決賽</p>
+            <p class="event_txt03">iv. 隊伍菁英白銀賽 - 共6場決賽</p>
+            <p class="event_txt03">v. 隊伍菁英鑽石賽 - 共3場決賽</p>
+            <p class="event_txt03">vi. 隊伍菁英大師賽 - 共1場決賽</p>
+
+            <p class="event_txt">2.3 賽制說明</p>
+            <p class="event_txt02">a. 個人賽組(公益賽/菁英賽)</p>
+            <p class="event_txt03">i. 賽制說明</p>
+            <p class="event_txt04">1. 每一循環發放入場券20張，一場比賽消耗1張入場券。</p>
+            <p class="event_txt04">2. 積分制，勝利一場，獲得1分；失敗一場，獲得0分。</p>
+            <p class="event_txt03">ii. 決賽資格說明</p>
+            <p class="event_txt04">1. 由積分前四名進入決賽，決賽一天四場。</p>
+            <p class="event_txt04">2. 進入決賽，個人積分需超過10分。</p>
+
+            <p class="event_txt02">b. 隊伍賽組(公益賽/菁英賽)</p>
+            <p class="event_txt03">i. 賽制說明</p>
+            <p class="event_txt04">1. 隊伍賽組一組以５名成員為主，隊長有權踢出隊員，並新增隊員。</p>
+            <p class="event_txt04">2. 每一循環發放入場券100張，隊伍隊員一場比賽消耗1張入場券。</p>
+            <p class="event_txt04">3. 隊伍入場票券一律由隊長領取，自由分配於各隊員中，且分發後不可追回票券。</p>
+            <p class="event_txt04">4. 任一隊員離隊時，若有剩餘票券，一律由系統自動歸還於隊長；此隊員離隊後於12小時內，不可加入其他隊伍。</p>
+            <p class="event_txt04">5. 全隊累積積分制，由取票隊員個別參賽，勝利一場，獲得一分；失敗一場，獲得0分。</p>
+            <p class="event_txt03">ii. 決賽資格說明</p>
+            <p class="event_txt04">1. 由隊伍積分前四名進入決賽，決賽一天四場。</p>
+            <p class="event_txt04">2. 進入決賽，隊伍積分需超過50分。</p>
+
+            <h1 class="txt_title"  data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">3. 比賽獎勵</h1>
+            <div class="title_border" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300"></div>
+
+            <p class="event_txt">3.1 獎勵說明</p>
+            <p class="event_txt02">為鼓勵玩家參與亞洲聯賽並於賽事中展現電競運動精神，亞洲聯賽將設置總額價值1,725,000NTD的獎勵於獲獎玩家，並且設置各式虛寶包含納克幣與星鑽等好禮。</p>
+
+            <p class="event_txt">3.2 實體獎勵列表</p>
+
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>冠軍</th>
+                    <th>亞軍</th>
+                    <th>季軍</th>
+                    <th>數量</th>
+                </tr>
+                <tr>
+                    <td>個人白銀賽</td>
+                    <td>6,000</td>
+                    <td>3,000</td>
+                    <td>1,000</td>
+                    <td>18次</td>
+                </tr>
+                <tr>
+                    <td>個人鑽石賽</td>
+                    <td>18,000</td>
+                    <td>9,000</td>
+                    <td>3,000</td>
+                    <td>3次</td>
+                </tr>
+                <tr>
+                    <td>個人大師賽</td>
+                    <td>60,000</td>
+                    <td>30,000</td>
+                    <td>10,000</td>
+                    <td>1次</td>
+                </tr>
+                <tr>
+                    <td>公益個人白銀賽</td>
+                    <td>3,000</td>
+                    <td>1,500</td>
+                    <td>500</td>
+                    <td>6次</td>
+                </tr>
+                <tr>
+                    <td>隊伍白銀賽</td>
+                    <td>30,000</td>
+                    <td>15,000</td>
+                    <td>5,000</td>
+                    <td>6次</td>
+                </tr>
+                <tr>
+                    <td>隊伍鑽石賽</td>
+                    <td>90,000</td>
+                    <td>45,000</td>
+                    <td>15,000</td>
+                    <td>3次</td>
+                </tr>
+                <tr>
+                    <td>隊伍大師賽</td>
+                    <td>300,000</td>
+                    <td>150,000</td>
+                    <td>50,000</td>
+                    <td>1次</td>
+                </tr>
+                <tr>
+                    <td>公益隊伍白銀賽</td>
+                    <td>15,000</td>
+                    <td>7,500</td>
+                    <td>2,500</td>
+                    <td>3次</td>
+                </tr>
+                <tr>
+                    <td>備註</td>
+                    <td colspan="4" style="font-size: 14px;">※將依規定照比例發出現金與MyCard點數</td>
+                </tr>
+            </table>
+
+            <p class="event_txt">3.3 獎勵申請截止日期</p>
+            <p class="event_txt02">所有獎勵申請將於2021/12/31截止受理。</p>
+
+
+            <h1 class="txt_title">4. 報名辦法</h1>
+            <div class="title_border"></div>
+
+            <p class="event_txt">4.1 報名方式</p>
+            <p class="event_txt02">玩家可從GooglePlay和AppleStore內下載【碰碰蛇】進入【亞洲聯賽】，即可報名碰碰蛇亞洲賽事之【個人賽組】及【團隊賽組】。</p>
+
+            <p class="event_txt">4.2 報名選項</p>
+            <p class="event_txt02">a. 公益賽</p>
+            <p class="event_txt03">i. 報名資格 - 任何有註冊碰碰蛇帳號，且超過15歲之玩家</p>
+            <p class="event_txt03">ii. 報名費用 - 不論個人與隊伍賽制皆為免費</p>
+            <p class="event_txt03">iii. 報名時間 - 10/1 - 12/4</p>
+
+            <p class="event_txt02">b. 菁英賽</p>
+            <p class="event_txt03">i. 菁英禮包報名</p>
+            <p class="event_txt04">1. 報名資格 - </p>
+            <p class="event_txt05">任何有註冊碰碰蛇帳號，且超過15歲之玩家</p>
+
+            <p class="event_txt04">2. 報名費用 - </p>
+            <p class="event_txt05">a. 個人賽組</p>
+            <p class="event_txt06">i. 全季菁英賽禮包(個人) : 6.99 USD / 230 NTD</p>
+            <p class="event_txt06">ii. 季中菁英賽禮包(個人) : 4.99 USD / 170 NTD</p>
+            <p class="event_txt06">iii. 星光季菁英賽禮包 (個人): 2.99 USD / 100 NTD</p>
+
+            <p class="event_txt05">b. 隊伍賽組</p>
+            <p class="event_txt06">i. 全季菁英賽禮包(隊伍) : 27.99 USD / 930 NTD</p>
+            <p class="event_txt06">ii. 季中菁英賽禮包(隊伍) : 19.99 USD / 670 NTD</p>
+            <p class="event_txt06">iii. 星光季菁英賽禮包(隊伍) : 11.99 USD / 390 NTD</p>
+
+            <p class="event_txt04">3. 報名時間 - </p>
+            <p class="event_txt05">a. 全季報名 8/30 - 10/1</p>
+            <p class="event_txt05">b. 季中報名 10/4 - 10/29</p>
+            <p class="event_txt05">c. 星光季報名 11/1 - 12/10</p>
+
+            <p class="event_txt03">ii. 菁英邀請報名</p>
+            <p class="event_txt04">1. 報名資格 -</p>
+            <p class="event_txt05">
+                凡原擁有碰碰蛇帳號之玩家，於「個人戰績」達成「鑽石等級」即可有機會獲得「亞洲聯賽個人報名券」之邀請，達成「大師等級」即可有機會獲得「亞洲聯賽隊伍報名券」之邀請，與其他好手一同競逐比賽報酬。</p>
+            <p class="event_txt04">2. 報名費用 - 免費報名</p>
+            <p class="event_txt04">3. 邀請時間 - 近日公告</p>
+
+
+            <p class="event_txt">4.3 報名獎勵</p>
+            <p class="event_txt02">
+                凡報名參加亞洲聯賽之賽事的參賽者，將獲得亞洲聯賽神秘角色獎勵，並且獲得各式亞洲聯賽造型之角色，玩家可直接從角色信箱中，點擊獲取道具，即可完成兌換。(報名獎勵詳細項目表請至賽事規章查閱)</p>
+
+            <p class="event_txt">4.4 報名注意事項</p>
+            <p class="event_txt02">a. 報名參賽玩家須符合年齡規範15歲以上年齡限制，若主辦單位經查證發現未符資格時，有權取消玩家參賽資格。</p>
+            <p class="event_txt02">b. 於賽事期間只能於每周一更改玩家ID。</p>
+            <p class="event_txt02">c. 碰碰蛇 ID 須為本人持有，若使用他人ID產生帳號糾紛，主辦單位有權取消出賽與領獎資格。</p>
+            <p class="event_txt02">d. 本次活動主辦單位為CQIGAMES。主辦機構員工得參加本次活動，但無法取得決賽資格，以示公允。</p>
+            <p class="event_txt02">e. 兌獎辦法</p>
+            <p class="event_txt03">i. 實體獎勵兌獎辦法</p>
+            <p class="event_txt04">
+                獲得實體獎用戶，將於遊戲信箱中收取兌獎狀，並獲得兌獎編號，並前往遊戲官網，登入遊戲帳號，查看領獎證明，填入實體資料，方可獲得該實體獎，獎金獎品將以現場頒發、匯款、宅配等形式發出。</p>
+            <p class="event_txt03">ii. 虛擬寶物兌獎辦法</p>
+            <p class="event_txt04">虛擬物品將寄送至角色的信箱中，點擊收取道具，即可完成兌換。</p>
+            <p class="event_txt03">iii. 獎勵相關規定</p>
+            <p class="event_txt04">a. 領獎者須有中華民國國籍身分資格。</p>
+            <p class="event_txt04">b. 領獎者須填寫規則遵守聲明，若未符合賽事規範之條例，主辦單位有權保留獎項。</p>
+            <p class="event_txt04">c. 獲獎者須於獲獎確認頁面內提供登錄【得獎確認資訊】主辦單位獲知後七日內將由專人聯絡獲獎者。若因網路問題導致無法完成登錄，請自行與電信業者聯繫，主辦單位恕難負責。
+            </p>
+            <p class="event_txt04">d. 隊伍賽組由該隊伍之隊長代為領獎，並由隊長自行分配隊伍內獎金於各隊員，本單位不負隊伍獎金分配責任。</p>
+            <p class="event_txt04">e.
+                依中華民國稅法規定，獎項價值NT$1,001元(含)以上者，需繳交身分證影本供報稅使用，並於次年列入本年度之個人綜合所得稅申報，主辦單位將不再另外寄發紙本獲獎所得扣繳憑單。獎項價值超過NT$20,000元，依法需預先繳交10％機會獲獎稅金。若獲獎者若不願意配合，則視為自動棄權，不具得獎資格。獲獎者同意依台灣相關稅法規定繳納稅捐，並同意主辦單位得依相關法令代扣(繳納)相關稅捐。
+            </p>
+            <p class="event_txt04">f. 得獎者應導守各獎項兌換辦法即可兌換；倘若未依約定者視為放棄中獎權利。如中獎者因資格不符或自願放棄得資格，不另行網路公告。</p>
+            <p class="event_txt04">g.
+                主辦單位僅使用參加者提供的個人資料於本次活動用途，且依照【個人資料保護法】相關規定，以維護參加者權益。中獎者同意相關個人資料由主辦單位蒐集，電腦處理及利用，但不做其他用途，並受權主辦單位公開公佈姓名。</p>
+            <p class="event_txt04">h. 活動獎項寄送地區僅限為台灣、金門、澎湖、馬祖地區，主辦單位恕不處理郵寄獎項至海外地區之事宜。</p>
+            <p class="event_txt04">i. 活動參加者需保證所有填寫或提出之資料均為真實正確，並未冒用或盜用他人資料，或有不實情況發，主辦單位將取消其中獎資格，並保留一切法律追究權利。</p>
+            <p class="event_txt04">j.
+                主辦單位保留修改活動與獎項細節的權利，無須事前告知，並有權本活動所有事宜作出解釋與裁決。如本活動因不可抗力之特殊原因無法執行時，主辦單位有權取消、終止、修改或暫停本活動。</p>
+
+
+            <h1 class="txt_title">5. 賽事規範</h1>
+            <div class="title_border"></div>
+
+            <p class="event_txt">5.1 比賽行為規範</p>
+            <p class="event_txt02">a. 報名比賽玩家之暱稱不可使用其他隊伍的學校縮寫及角色名稱，且名稱不可包含 :
+                中英文以外語言、粗俗或猥褻的字眼、遊戲角色延伸名稱或任何容易造成混淆困擾的名稱及特殊符號，若經主辦方判定有以上情節，選手須協助更名(費用由選手自付)。</p>
+            <p class="event_txt02">b.
+                任何參與比賽之玩家不得於賽事中、線上比賽、媒體採訪或任何與碰碰蛇有關之交流活動中，使用任何具有冒犯、毀謗、損害他人名譽、淫穢、歧視、威脅等言辭；同時，參與比賽玩家不得發布、散播、轉貼此條規定之言辭於社群媒體上、任何公開活動或是直播內。本規則適用於英文和所有其他語言。
+            </p>
+            <p class="event_txt02">c.
+                禁止玩家私自使用BUG、外掛、巨集功能設定(設備可以具有巨集功能但不可設定及使用該功能)，若獲獎之玩家後續經查證有本條行為，玩家須返還獎金、獎品，且主辦單位有權要求衍生之損害賠償。
+
+            </p>
+            <p class="event_txt02">d. 玩家嚴禁以報名資料不相符之第二人參與比賽。
+            </p>
+            <p class="event_txt02">e. 競賽進行時，玩家須確保無第二人於現場，嚴禁玩家冒名替打，若獲獎玩家後續經查證有本條行為，玩家須返還獎金、獎品，且主辦單位有權要求衍生之損害賠償。
+            </p>
+            <p class="event_txt02">f. 為維護比賽之公平性，主辦單位有權要求玩家於比賽規定之時間開啟視訊通話等要求，確保玩家於比賽過程並無他人於現場、冒名替打等違規行為。
+            </p>
+            <p class="event_txt02">g.
+                競賽裝置嚴禁玩家使用模擬器進行，若獲獎之玩家後續經查證有本條行為，玩家須返還獎金、獎品，且主辦單位有權要求衍生之損害賠償。
+            </p>
+            <p class="event_txt02">h. 遊戲伺服器所有資料將以碰碰蛇官方現行版本為主。
+            </p>
+            <p class="event_txt02">i. 主辦單位不負任何玩家行動裝置與網路之品質責任。
+            </p>
+            <p class="event_txt02">j.
+                選手因為任何原因導致斷線而導致影響比賽成績，不予以重賽，故請所有選手比賽前確認好自己的網路連線狀況、電量、比賽環境。
+            </p>
+            <p class="event_txt02">l.
+                若玩家有任何影響比賽公平性之行為，主辦單位有權取消該名選手之比賽資格；若獲獎玩家後序經查證有此行為，主辦單位有權要求須返還獎金、獎品，並要求衍生之損害賠償。
+            </p>
+
+            <p class="event_txt">5.2 決賽流程規範</p>
+            <p class="event_txt02">a. 個人賽中，玩家須於資格賽獲得10分以上(含)並且於資格賽中取得前4名，才可獲得進入決賽資格。</p>
+            <p class="event_txt02">b. 隊伍賽中，隊伍須於資格賽獲得50分以上(含)並且於資格賽中取得前4名，才可獲得進入決賽資格。</p>
+            <p class="event_txt02">c. 倘若於資格賽中勝場累積積分相同者，以該次活動中的，「擊殺對手數量」、「敗場場次較少者」依序判定。</p>
+            <p class="event_txt02">d. 倘若前四名之選手因任何原因無法參加比賽，亦或主辦方判定其失去比賽資格，將由候補選手出場競賽，主辦單位有外卡權邀請特定玩家參與決賽。</p>
+            <p class="event_txt02">e. 獲得決賽資格之玩家須配合主辦單位之規定，進行報到流程，並且視同同意所有決賽相關之規定。</p>
+            <p class="event_txt02">f. 完成報到之選手需配合主辦單位接受聯繫，並於決賽時出場。</p>
+            <p class="event_txt02">g. 未於相關時間內完成報到者，視為放棄比賽權利，並且不得有異議。</p>
+            <p class="event_txt02">h. 若正取選手放棄決賽權，主辦單位將依相關規定，將給予順位選手進入決賽權。</p>
+            <p class="event_txt02">i. 決賽時，選手須配合主辦單位直播賽事之相關規定，未依規定，主辦單位有權取消選手參與決賽資格。</p>
+            <p class="event_txt02">j. 若於決賽規定時間未進入賽場，亦或者遲到，皆視為放棄比賽資格。</p>
+
+            <p class="event_txt">5.3 決賽裁判判定</p>
+            <p class="event_txt02">a. 若比賽中有以下下列狀況將由主辦單位裁判判定結果與補賽相關規定。</p>
+            <p class="event_txt03">i. 遊戲進行中有任何系統與連線問題發生時。</p>
+            <p class="event_txt03">ii. 有任何不可抗力因素而結束比賽，由裁判直接判定結果。</p>
+            <p class="event_txt03">ii. 遊戲中若有無法正常運行或是其他因素導致玩家無法正常操作時。</p>
+            <p class="event_txt03">iii. 其他。</p>
+            <p class="event_txt02">b. 比賽前十分鐘請檢查開賽倒數時間是否正常或是否有出賽資格，若未即時告知導致賽局無法進行將依系統判斷輸贏為主。</p>
+
+
+            <p class="event_txt">5.4 隊伍相關規範</p>
+            <p class="event_txt02">a. 隊伍賽制中，隊長可以邀請4位玩家為隊員，含隊長一共5名選手。</p>
+            <p class="event_txt02">b. 隊長有權邀請隊員及踢出隊員，離隊隊員積分將於退出隊伍後扣除，並將其之剩餘票券歸還於隊長，並於離隊後，12小時內不可加入任一隊伍。</p>
+            <p class="event_txt02">c. 隊伍賽制決賽時需派出四名選手一同出場，未派出隊員為後補隊員，隊員有權選擇是否出場。</p>
+            <p class="event_txt02">d. 若正式出賽隊員放棄出賽資格，隊長有權指定候補隊員之出場資格。</p>
+            <p class="event_txt02">e. 隊伍內任一決定出賽隊員，若於規定時間內尚未進入等待頁面，亦或者遲到，該隊員視為放棄比賽資格，但若隊伍人數未低於1人，隊伍正常出賽。</p>
+            <p class="event_txt02">f. 隊伍內任一隊員若失去比賽資格，將扣取該隊員之累積積分，其他隊員積分不受影響。</p>
+            <p class="event_txt02">g. 若隊伍出賽人數低於1人，即視為放棄比賽資格，主辦單位將依規定給予順位隊伍決賽資格。</p>
+            <p class="event_txt02">h. 隊伍內所有隊員須配合主辦單位規定之報到流程，若任一隊員未符合規定，主辦單位將依規定取消該隊員出賽資格。</p>
+            <p class="event_txt02">i. 隊長將負責與主辦單位之所有溝通，並且將代表隊伍的集體意願。</p>
+            <p class="event_txt02">j. 語音溝通線上賽時，除非裁判與工作人員有指定或通知，選手可以自行使用Discord、Line或遊戲內建語音系統進行溝通，限定溝通成員不可有隊伍隊員以外的人員，且對手機所造成的效能與影響將須自行負責。</p>
+            <p class="event_txt02">k. 隊員溝通比賽開始後，選手不得與非上場選手進行言語、文字或任何形式的溝通。</p>
+
+
+            <h1 class="txt_title">6. 直播相關事項</h1>
+            <div class="title_border"></div>
+
+            <p class="event_txt">6.1 直播說明</p>
+            <p class="event_txt02">為使參與碰碰蛇之玩家能夠及時觀看決賽賽事，增加競賽互動性，擴大盛舉使未報名玩家也可一同感受線上激戰之氛圍，因此所有決賽，將由主持人進行介紹、主持、訪問、戰況及時轉播等介紹。</p>
+
+            <p class="event_txt">6.2 直播串流平台</p>
+            <p class="event_txt02">a. Youtube</p>
+            <p class="event_txt02">b. Twitch</p>
+
+            <p class="event_txt">6.3 玩家相關規範</p>
+            <p class="event_txt02">a. 任何參與比賽之玩家在此授權CQI GAMES及合作相關單位，在任何賽事中，進行遊玩過程的直播或錄製，並在此基礎上授權CQI GAME及合作相關單位免版稅，使其可以於現在與未來所有賽事的全部和部分直播。</p>
+            <p class="event_txt02">b. 進入決賽之玩家需配合相關單位之直播進行。</p>
+            <p class="event_txt02">c. 於碰碰蛇官方公告之賽事與賽後訪問期間，參賽玩家須確保開台時間可完整進行賽事與賽後訪問。</p>
+            <p class="event_txt02">d. 直播期間將由視訊、音訊等相關方式進行，參賽玩家需配合主辦單位之指示進行線上直播，若玩家無法或不願配合，主辦單位有權取消玩家參賽資格。</p>
+            <p class="event_txt02">e. 為確保玩家能配合線上直播之進行和訪問流程，於開播前應先確保玩家之語音設備和影音設備。</p>
+        
+        <h1 class="txt_title">7. 其他注意事項</h1>
+            <div class="title_border"></div>
+                
+            <p class="event_txt">a. 所有比賽結果將會於碰碰蛇亞洲聯賽官方網站中公布，玩家可至碰碰蛇亞洲聯賽官方網站查閱。</p>
+            <p class="event_txt">b. 所有參賽玩家須同意賽時期間所拍攝之玩家照片、影片及所提供之個人資料，可供主辦單位之賽事直播、影片剪輯、新聞與社群媒體露出等各項宣傳。</p>
+            <p class="event_txt">c. 參加者參加本活動時，即視為同意本活動所有內容及細則之規範。如有違反本活動注意事項之行為，活動小組得取消其兌換資格，並對於任何破壞本活動之行為保留法律追訴權。</p>
+            <p class="event_txt">d. 獲獎選手若違反上述所有規章之規定，主辦單位有權回收所有發送之獎金獎品，並視情況取消該選手之參賽資格，且主辦單位有權要求衍生之損害賠償。</p>
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                await JS.InvokeVoidAsync("installI18n");
+            }
+
+        }
+}

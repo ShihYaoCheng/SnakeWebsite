@@ -1,0 +1,55 @@
+/* nav 當頁顯示 */
+#nav_ul-myMatch {
+    color: white;
+    background-image: url(/images/Other/nav_hover.png);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+#nav-myMatch {
+    color: white;
+    background-image: url(/images/Other/nav_hover.png);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    transition: all .3s ease-out;
+}
+#myMatch_hover_bottom{
+    position: absolute;
+    max-width: 300px;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -7px;
+    opacity: 1;
+    z-index: 0;
+    transition: all .3s ease-out;
+    pointer-events: none;
+}
+
+/* RWD NAV */
+@media all and (max-width: 1000px){
+    #nav-myMatch{
+        background-size: cover;
+        background-position: center;
+    }
+}
+/* NAV 資產頁面選單 */
+.nav-li-normal{
+    display: none;
+}
+
+.nav-li-particular{
+    display: flex;
+    flex-direction: row;
+}
+
+/* RWD */
+@media (max-width: 1000px) {
+    .nav-li-particular{
+        flex-direction: column;
+    }
+}
+
+#nav_ul-myprofile, #nav_ul-myMatch, #nav_ul-MyAwardNotice{
+    display: none !important;
+}

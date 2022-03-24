@@ -1,0 +1,7 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: certificate-snakebackstage
+spec:
+  domains:
+    - alpha.backstage.snake.cqigames.com

@@ -1,0 +1,162 @@
+/* 側邊欄 */
+.myprofileSidebar{
+    width: 360px;
+    height: 100vh;
+    background-color: #27616F;
+    border-top-right-radius: 30% 130%;
+    border-bottom-right-radius: 30% 130%;
+    position: fixed;
+    box-shadow: 1px 1px 15px 1px rgb(39 97 112 / 44%) inset, 3px 3px 10px 3px rgb(39 97 112 / 44%);
+    z-index: 1;
+
+    display: none;
+}
+
+@media all and (max-width: 600px){
+    .myprofileSidebar{
+        display: none;
+    }
+}
+
+.myprofileSidebarBlock{
+    /* border: 1px solid rgb(138, 228, 35); */
+    width: 100%;
+    margin-right: 20px;
+    display: flex;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.accountManagement{
+    /* border: 1px solid red; */
+    color: #488392;
+    font-weight: bold;
+    font-size: 26px;
+    margin: 20px 60px 20px 0;
+    line-height: 32px;
+}
+ul.accountManagementUl{
+    /* border: 1px solid red; */
+    list-style: none; 
+    margin: 0 40px;
+    padding: 0;
+    width: 100%;
+}
+ul.accountManagementUl a{
+    /* border: 1px solid red; */
+    position: relative;
+    color: #67AEA2;
+    text-decoration: none;
+    padding: 11px 30px;
+    width: 100%;
+    transition: all .15s ease-in-out;
+    font-size: 22px;
+    white-space: nowrap;
+    margin: 5px 0;
+}
+
+ul.accountManagementUl a:hover{
+    background-color: #67AEA2;
+    border-radius: 0 50px 50px 0;
+    transform: scale(1.01);
+    color: #fff;
+    transition: all .15s ease-in-out;
+}
+ul.accountManagementUl a li{
+    padding: 0 0 0 180px;
+    position: relative;
+}
+ul.accountManagementUl a:hover ::before{
+    content: "";
+    background-image: url(/images/myprofile/SidebarArrow.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 49%;
+    left: 135px;
+    z-index: 1;
+    /* transition: all .2s ease-in-out; */
+}
+
+@media all and (max-width: 1920px){
+    .myprofileSidebar{
+        width: 280px;
+    }
+    ul.accountManagementUl a li{
+        padding: 0 0 0 110px;
+    }
+    ul.accountManagementUl a:hover ::before{
+    left: 65px;
+    }
+    .myprofileMain{
+        /* margin: 0 5% 0 10%; */
+    }
+}
+@media all and (max-width: 1800px){
+    .myprofileSidebar{
+        transform: translateX(-90%);
+        transition: all .15s ease-in-out;
+    }
+
+    .myprofileSidebarButton{
+        content: "";
+        background-color: #27616F;
+        border-radius: 0 45% 45% 0;
+        border-right: 4px solid #67AEA2;
+        width: 55px;
+        height: 60px;
+        position: absolute;
+        right: -30px;
+        top: 100px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .1s ease-in-out;
+        box-shadow: 1px 1px 15px 1px rgb(39 97 112 / 44%) inset, 3px 3px 10px 3px rgb(39 97 112 / 44%);
+    }
+    .myprofileSidebarButton img{
+        width: 23px;
+        margin-left: 5px;
+    }
+    .myprofileSidebarButton:hover{
+        right: -32px;
+    }
+}
+
+.SidebarOpen{
+    transform: translateX(0%);
+}
+
+/* 當頁顯示 */
+.current_page{
+    background-color: #67AEA2;
+    border-radius: 0 50px 50px 0;
+    transform: scale(1.01);
+    color: #fff !important;
+    transition: all .15s ease-in-out;
+}
+.current_page ::before{
+    content: "";
+    background-image: url(/images/myprofile/SidebarArrow.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 49%;
+    left: 135px;
+    z-index: 1;
+    /* transition: all .2s ease-in-out; */
+}
+@media all and (max-width: 1920px){
+    .current_page ::before{
+    left: 65px;
+    }
+
+}

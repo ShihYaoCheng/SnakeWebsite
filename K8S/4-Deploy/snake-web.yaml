@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: asianleague-web
+  labels:
+    app: asianleague-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: asianleague-web
+  template:
+    metadata:
+      labels:
+        app: asianleague-web
+    spec:
+      containers:
+        - name: asianleague-web
+          image: asia.gcr.io/cqi-operation/asianleague:22.02.25.1
+          imagePullPolicy: Always 
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:80
+            - name: ExternalServers__UserServer
+              valueFrom:
+                configMapKeyRef:
+                  name: asianleague-web
+                  key: UserServer
+            - name: ExternalServers__TableServer
+              valueFrom:
+                configMapKeyRef:
+                  name: asianleague-web
+                  key: TableServer
+            - name: ConnectionStrings__dev
+              valueFrom:
+                configMapKeyRef:
+                  name: asianleague-web
+                  key: MySQL-Connection
+          volumeMounts:
+            - mountPath: /etc/localtime
+              name: tz-config  
+      volumes:
+        - name: tz-config
+          hostPath:
+            path: /usr/share/zoneinfo/Asia/Shanghai
+        
+      

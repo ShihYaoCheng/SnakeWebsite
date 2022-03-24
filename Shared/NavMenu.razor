@@ -1,0 +1,353 @@
+﻿@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Entity
+@inject IJSRuntime JS
+@*@inject LoginService loginService*@
+@inject NavigationManager navigationManager
+@inject AppState AppState
+@implements IDisposable
+
+<nav id="nav" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top">
+    <div class="container">
+        
+        <div class="logo">
+
+            @* 冠名商LOGO *@
+            <div class="ACLnaming ACLnamingState">
+                <a href="https://bit.ly/3ls41hh" target="_blank">
+                    <img src="./images/Other/kimlan_LOGO.png" asp-page="/Index" id="kimlan-Logo">
+                </a>
+                <a href="https://bit.ly/3ls41hh" target="_blank">
+                    <img src="./images/Other/YOMI_LOGO.png" asp-page="/Index" id="YOMI-Logo">
+                </a>
+            </div>
+
+            <a href="">
+                <img src="./images/Other/LOGO.png" asp-page="/Index" id="SnakeACL-Logo" data-i18n="[src]nav.snakelogo">
+            </a>
+
+            @* MarketPlace *@
+            <a class="MarketPlaceButton" href="MarketPlace">
+                <img src="./images/\Myprofile/ICON_SHOP.png" alt="">
+                <p>MarketPlace</p>
+            </a>
+
+
+        </div>
+
+
+        <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="nav_ul" class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse">
+            <ul class="navbar-nav flex-grow-1">
+
+                <div class="nav-li-particular">
+                    @* NAV 資產頁面選單 *@
+                    <li class="nav-item nav-others" id="">
+                        <div class="nav-link text-light nav-item_a others-flex" Match="NavLinkMatch.All">
+                            <p>Others</p>
+                            <img class="others_arrow" src="/images/Other/others_arrow.png" alt="">
+                        </div>
+                        
+                    
+                        <ul class="nav_ul_slide">
+                            <li id="nav_ACLIndexS2">
+                                <a href="" data-i18n="nav.Home">首頁</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+
+                            @* <li id="nav_ERNC">
+                                <a href="ERNC" data-i18n="nav.ERNC">九天基核</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li> *@
+                            
+                            <li id="nav_MarketPlace">
+                                <a href="MarketPlace" data-i18n="nav.MarketPlace">NFT商城</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+
+                            <li id="nav_Arena">
+                                <a href="ACLIndexS2" data-i18n="nav.LatestLeague">近期聯賽</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+
+                            <li id="nav_News">
+                                <a href="https://ponponsnake.substack.com" data-i18n="nav.News" target="_blank">最新消息</a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    @* NAV 帳戶管理選單 *@
+                    <li class="nav-item" id="nav-myprofile">
+                        <a class="nav-link text-light" href="myprofile" data-i18n="[html]nav.Myprofile">我的主頁</a>
+                        <img class="nav_hover_bottom" id="myprofile_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                    </li>
+                    <li class="nav-item" id="nav-myMatch">
+                        <a class="nav-link text-light" href="mymatch" data-i18n="[html]nav.Esports">我的賽事</a>
+                        <img class="nav_hover_bottom" id="myMatch_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                    </li>
+                    <li class="nav-item" id="nav-MyAwardNotice">
+                        <a class="nav-link text-light" href="myawardnotice" data-i18n="[html]nav.AwardClaim">領獎通知</a>
+                        <img class="nav_hover_bottom" id="MyAwardNotice_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                    </li>
+
+                </div>
+
+
+                <div class="nav-li-normal">
+
+                    <li class="nav-item" id="nav-snakeIndex">
+                        <div class="nav-link text-light nav-item_a"  data-i18n="nav.Ponponsnake" Match="NavLinkMatch.All">碰碰蛇</div>
+                        @* <a class="nav-link text-light" href="" data-i18n="nav.Ponponsnake" Match="NavLinkMatch.All">碰碰蛇</a> *@
+                        <img class="nav_hover_bottom" id="snakeIndex_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                        <div class="slide_button">
+                            <img src="./images/Other/chevron-down.png" alt="">
+                        </div>
+                    
+                        <ul class="nav_ul_slide">
+                            <li>
+                                <a href="" data-i18n="nav.Home">首頁</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+                            @* <li>
+                                <a href="#index01" data-i18n="nav.NewEvent">最新活動</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li> *@
+
+                            <li>
+                                <a href="#character" data-i18n="nav.Knight">角色介紹</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+
+                            <li id="nav_knight_adventure">
+                                <a href="#knight_adventure" data-i18n="nav.Adventure">騎士冒險</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+                            
+                            <li id="nav_video05">
+                                <a href="#video05" data-i18n="nav.Video">遊戲影片</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+
+                            <li id="nav_contact06">
+                                <a href="#contact06" data-i18n="nav.ContactUs">意見回饋</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+
+                            <li id="nav_Exhibition">
+                                <a href="Exhibition" data-i18n="nav.Exhibition">參展照片</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+
+                            <li><a href="http://34.81.125.231/mycard" target="_blank">MyCard</a></li>
+
+                        </ul>
+                    </li>
+
+                    @* <li class="nav-item" id="nav-ERNC">
+                        <a class="nav-link text-light" href="ERNC" data-i18n="nav.ERNC">九天基核</a>
+                        <img class="nav_hover_bottom" id="ERNC_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                    </li> *@
+
+                    <li class="nav-item" id="nav-MarketPlace">
+                        <a class="nav-link text-light" href="MarketPlace" data-i18n="nav.MarketPlace">NFT商城</a>
+                        <img class="nav_hover_bottom" id="MarketPlace_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                    </li>
+
+                    @* 聯賽 *@
+                    <li class="nav-item" id="nav-Arena">
+                        <div class="nav-link text-light nav-item_a"  data-i18n="nav.Arena" Match="NavLinkMatch.All">聯賽</div>
+                        <img class="nav_hover_bottom" id="Arena_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                        <div class="slide_button">
+                            <img src="./images/Other/chevron-down.png" alt="">
+                        </div>
+                    
+                        <ul class="nav_ul_slide">
+                            <li id="nav_ACLIndexS2">
+                                <a href="ACLIndexS2" data-i18n="nav.AsiaLeague">亞洲聯賽</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+
+                            @* <li id="nav_ul-ACLIndex">
+                                <a href="ACLIndex" data-i18n="nav.ACLIndex">亞洲聯賽S1</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li> *@
+
+                            <li id="nav_LunarNewYear">
+                                <a href="LunarNewYear" data-i18n="nav.FestivalLeague">節慶賽</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+
+                            @* <li id="nav_ChristmasIndex">
+                                <a href="ChristmasIndex" data-i18n="nav.ChristmasLeague">聖誕節慶賽</a>
+                            </li> *@
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item" id="nav-News">
+                        <a class="nav-link text-light" href="https://ponponsnake.substack.com" data-i18n="nav.News" target="_blank">最新消息</a>
+                        <img class="nav_hover_bottom" id="News_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                    </li>
+
+                </div>
+
+
+                <LoginDisplay />
+
+                <li class="" id="nav-Language_Select">
+                    <select name="" id="Language_Select">
+                        @* <option value="" disabled>Language</option> *@
+                        <option class="Language_option" value="en">English</option>
+                        <option class="Language_option" value="tw">中文</option>
+                    </select>
+                </li>
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+@* 亞洲聯賽S1各分頁navbar *@
+<nav class="ACLIndexNavbar">
+    <ul>
+        @* 亞洲聯賽 賽季選單 *@
+        <div class="NavBlockSelect">
+                <select name="" id="ACLSeasonNav">
+                    <option style="display: none;" disable>ACL Season</option>
+                    <optgroup label="- 2022 -">
+                        <option value="ACLIndexS2">ACL S2</option>
+                    </optgroup>
+                    <optgroup label="- 2021 -">
+                        <option value="ACLIndex">ACL S1</option>
+                    </optgroup>
+                </select>
+        </div> 
+        <li><a href="ACLIndex" data-i18n="nav.ACLhome">首頁</a></li>
+        <li><a href="description" data-i18n="nav.Event">活動介紹</a></li>
+        <li><a href="rank" data-i18n="nav.Standings">戰績排名</a></li>
+        <li><a href="prize" data-i18n="nav.Awards">獎金領取</a></li>
+        <li><a href="partner" data-i18n="nav.Sponsor">賽事好康</a></li>
+        <li><a href="notice" data-i18n="nav.Ruleset">注意事項</a></li>
+    </ul>
+</nav>
+
+
+
+<!-- Back to top -->
+<a class="back_to_top">
+    <img src="/images/OfficialWeb/gotop.png" alt="">
+</a>
+
+@code 
+{      
+    public LoginRequest loginRequest = new LoginRequest();
+
+    protected override void OnInitialized()
+    {
+        AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+    }
+
+
+
+    void IDisposable.Dispose()
+    {
+        //AppState.OnChange -= StateHasChanged;
+        AppState.StateChanged -= async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+    }
+
+
+
+    //private async Task LoginSubmit()
+    //{
+
+    //    SnakeAccount snakeAccount = await loginService.Login(loginRequest);
+        
+    //    AppState.UpdateLoginStatus(this, snakeAccount);
+    //    if (AppState.LoginStatus.IsLogin == true)
+    //    {
+    //        loginErrorShow = false;
+    //        await loginCloseClick();
+    //        await JS.InvokeVoidAsync("myprofileSidebar");
+    //        await JS.InvokeVoidAsync("installI18n");
+    //    }
+    //    else
+    //    {
+    //        loginErrorShow = true;
+    //    }
+
+    //}
+
+    //private void logoutButtonClick()
+    //{
+    //    AppState.UpdateLoginStatus(this, new SnakeAccount());
+    //}
+
+    private async Task AppState_StateChanged(ComponentBase Source, string Property)
+    {
+        if (Source != this)
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+
+    }
+
+
+    //login彈窗
+    //private async Task loginButtonClick()
+    //{
+    //    await JS.InvokeVoidAsync("loginButton", "loginButton");
+    //}
+
+    //private async Task loginCloseClick()
+    //{
+    //    await JS.InvokeVoidAsync("loginClose", "loginClose");
+    //}
+
+    private async Task LanguageSwitchClick(string lang)
+    {
+        await JS.InvokeVoidAsync("LanguageSwitch", lang);
+    }
+
+    bool collapseNavMenu = true;
+
+    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    bool loginErrorShow { get; set; } = false;
+
+    void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    void CollapseNavMenu()
+    {
+        collapseNavMenu = true;
+    }
+
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {   
+        if (firstRender){
+            await JS.InvokeVoidAsync("Carousel");
+            await JS.InvokeVoidAsync("BackToTop");
+            await JS.InvokeVoidAsync("Animate");
+            await JS.InvokeVoidAsync("navbarSlide");
+            
+            await JS.InvokeVoidAsync("selectChangeLocation");
+        }
+        
+    }
+
+
+}

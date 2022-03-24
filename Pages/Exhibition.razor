@@ -1,0 +1,132 @@
+@page "/Exhibition"
+@inject IJSRuntime JS
+
+@* 參展頁面 *@
+
+<head>
+    <link href="css/Exhibition.css" rel="stylesheet" />
+    <title>PonPonSnake 碰碰蛇｜參展照片</title>
+    <link href="css/lightbox.css" rel="stylesheet" />
+</head>
+
+
+<div class="exhibition_block_bg">
+    <div class="exhibition_block">
+        <div class="exhibition_title">
+            <p>參展照片</p>
+            <img class="exhibition_title_line" src="/images/Exhibition/exhibition_title_line2.png" alt="">
+        </div>
+
+        <div class="exhibition_picture_all">
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-01.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-01.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-02.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-02.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-03.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-03.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-04.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-04.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-05.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-05.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-06.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-06.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-07.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-07.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-08.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-08.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-09.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-09.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-10.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-10.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-11.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-11.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-12.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-12.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-13.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-13.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-14.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-14.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-15.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-15.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-16.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-16.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-17.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-17.jpg" >
+            </a>
+
+            <a class="exhibition_picture" href="/images/Exhibition/Kaohsiung/exhibition-19.jpg"
+                data-lightbox="roadtrip">
+                <img src="/images/Exhibition/Kaohsiung/exhibition-19.jpg" >
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<footer>
+    <div class="copyright">
+        <p>Copyright © 2021 PonPonSnake. All rights reserved.</p>
+    </div>
+</footer>
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender){
+            await JS.InvokeVoidAsync("Lightbox");
+        }
+    }
+}

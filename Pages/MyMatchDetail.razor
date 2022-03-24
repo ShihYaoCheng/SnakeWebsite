@@ -1,0 +1,253 @@
+﻿@page "/mymatchDetail"
+@inject IJSRuntime JS
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.SnakeServerService
+@using SnakeAsianLeague.Data.Entity.View
+@using SnakeAsianLeague.Data.Entity.SnakeServer
+
+
+@inject AppState AppState
+@inject AsiaLeagueRegistrationService AsiaLeagueRegistrationService
+@inject QualifyingCompetitionRecordService QualifyingCompetitionRecordService
+@inject AsiaLeagueScheduleService AsiaLeagueScheduleService
+@inject AsiaLeagueFinalQualifiedIdentityService AsiaLeagueFinalQualifiedIdentityService
+@inject GuildMemberService GuildMemberService
+
+@implements IDisposable
+
+
+<div>
+<EditForm Model="model">
+    <div class="match_inner">
+
+
+        <div class="match_row">
+            <div class="match_row_title">查看賽事</div>
+            <div class="match_row_status">
+                <InputSelect ValueExpression="@(()=>model.Season)"  Value="@model.Season"
+                    ValueChanged="@((AsiaLeagueSeasons value) => OnValueChanged(value ))" class="my_match_select">
+                                    
+                                    @foreach (var v in Enum.GetValues(typeof(AsiaLeagueSeasonsForAwards)))
+                                    {
+                                        <option class="my_match_option" value="@v">@GetSeasonName((AsiaLeagueSeasons)v)</option>
+                                    }
+                    </InputSelect>
+            </div>
+        </div>
+
+
+        <div class="match_row">
+            <div class="match_row_title">報名狀態</div>
+            <div class="match_row_status">
+                <div class="registration_status @(model.IndRegistered ? "registered" : "") " id="personal_status">個人賽組
+                    @if (model.IndRegistered)
+                    {
+                        <img class="registration_status_icon" id="signup_icon" src="/images/Myaccount/signup.png" title="已報名" alt="">
+                    }
+                    else
+                    {
+                        <img class="registration_status_icon" id="no_signup_icon" src="/images/Myaccount/no-signup.png" title="未報名" alt="">
+                    }
+                </div>
+                <div class="registration_status @(model.GuildRegistered ? "registered" : "") " id="team_status">隊伍賽組
+                    @if (model.GuildRegistered)
+                    {
+                        <img class="registration_status_icon" id="signup_icon" src="/images/Myaccount/signup.png" title="已報名" alt="">
+                    }
+                    else
+                    {
+                        <img class="registration_status_icon" id="no_signup_icon" src="/images/Myaccount/no-signup.png" title="未報名" alt="">
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="match_row" id="final_qualification_block">
+            <div class="match_row_title">決賽資格</div>
+            <div class="match_row_show">
+                @if (model.FinalRightViews == null || model.FinalRightViews.Count == 0)
+                {
+                    <div class="final_qualification_none">
+                        <div class="finals_none">尚未取得決賽資格</div>
+                        @*<div class="finals_none">聯賽已結束</div>*@
+                    </div>
+                }
+                else
+                {
+                    foreach (var right in model.FinalRightViews)
+                    {
+                        <div class="final_qualification">
+                            <div class="finals_name">@(right.MatchDate.ToString("MM/dd") + (right.IsGuild? "(團體)": "(個人)")  +right.Title )</div>
+                            <div class="finals_time">@(right.startTime) 開戰</div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</EditForm>
+</div>
+
+@code {
+    Model model = new Model();
+
+    class Model
+    {
+        public AsiaLeagueSeasons Season { get; set; }
+        public Boolean IndRegistered { get; set; }
+        public Boolean GuildRegistered { get; set; }
+        public List<FinalRightView> FinalRightViews { get; set; }
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.StateChanged += async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+
+
+        model.Season = AsiaLeagueSeasons.AsiaLeagueS1;
+
+        await LoadData(model.Season);
+
+
+
+    }
+
+    void IDisposable.Dispose()
+    {
+        AppState.StateChanged -= async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task AppState_StateChanged(ComponentBase Source, string Property)
+    {
+        if (Source != this)
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+
+    }
+
+    private async Task OnValueChanged(AsiaLeagueSeasons value)
+    {
+        // Assign the selected value to the Model 
+        model.Season = value;
+        await LoadData(model.Season);
+
+    }
+
+    protected async Task LoadData(AsiaLeagueSeasons season)
+    {
+        await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(model.Season);
+        await LoadRegistered(season);
+
+        if(season == AsiaLeagueSeasons.AsiaLeagueS1)
+        {
+            await LoadFinalRightsS1();
+        }else
+        {
+            await LoadFinalRights(season);
+        }
+
+
+    }
+
+    protected async Task LoadRegistered(AsiaLeagueSeasons season)
+    {
+        model.IndRegistered = false;
+        model.GuildRegistered = false;
+        List<AsiaLeagueRegistration> registrations = await
+        AsiaLeagueRegistrationService.GetAsiaLeagueRegistrationsByUserId(season,AppState.LoginStatus.userID);
+        foreach (var r in registrations)
+        {
+            switch (r.AsiaLeagueSeasonId)
+            {
+                case 0:
+                case 1:
+                case 2:
+                    model.IndRegistered = true;
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    model.GuildRegistered = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+    }
+
+
+    protected async Task LoadFinalRightsS1()
+    {
+        List<QualifyingCompetitionRecord> FinalRights = await QualifyingCompetitionRecordService.GetFinalRightsByUserId(AppState.LoginStatus.userID);
+
+        model.FinalRightViews = new List<FinalRightView>();
+        foreach (var f in FinalRights)
+        {
+            FinalRightView view = new FinalRightView();
+            AsiaLeagueSchedule schedule = AsiaLeagueScheduleService.GetOneScheduleByIsGuildAndStation(f.IsGuild, f.Station);
+            view.IsGuild = f.IsGuild;
+            view.Station = f.Station;
+            view.Title = f.IsGuild ? schedule.GuildSchedule : schedule.IndividualSchedule;
+            view.MatchDate = schedule.Date;
+            view.startTime = f.IsGuild ? schedule.GuildFinal1V4Time : schedule.IndFinal1V4Time;
+
+
+            model.FinalRightViews.Add(view);
+        }
+
+    }
+
+    protected async Task LoadFinalRights(AsiaLeagueSeasons season)
+    {
+        //團體
+        GuildMember guildMember = await GuildMemberService.GetGuildMembersByUserId(AppState.LoginStatus.userID);
+
+        List<AsiaLeagueFinalQualifiedIdentity> FinalRights = await AsiaLeagueFinalQualifiedIdentityService.GetFinalQualifiy(season, guildMember.GuildId);
+
+        model.FinalRightViews = new List<FinalRightView>();
+        foreach (var f in FinalRights)
+        {
+            FinalRightView view = new FinalRightView();
+            AsiaLeagueSchedule schedule = AsiaLeagueScheduleService.GetOneScheduleByIsGuildAndStation(f.IsGuild, f.Station);
+            view.IsGuild = f.IsGuild;
+            view.Station = f.Station;
+            view.Title = f.IsGuild ? schedule.GuildSchedule : schedule.IndividualSchedule;
+            view.MatchDate = schedule.Date;
+            view.startTime = f.IsGuild ? schedule.GuildFinal1V4Time : schedule.IndFinal1V4Time;
+
+
+            model.FinalRightViews.Add(view);
+        }
+
+    }
+
+    private string GetSeasonName(AsiaLeagueSeasons value)
+    {
+        string name = "";
+        switch (value)
+        {
+            case AsiaLeagueSeasons.AsiaLeagueS1:
+                name = "亞洲聯賽第一季";
+                break;
+            case AsiaLeagueSeasons.Xmas2021:
+                name = "聖誕節慶賽2021";
+                break;
+            case AsiaLeagueSeasons.NewYear2021:
+                name = "跨年節慶賽2021";
+                break;
+            default:
+                name = "尚未開放";
+                break;
+        }
+
+        return name;
+    }
+
+
+
+}

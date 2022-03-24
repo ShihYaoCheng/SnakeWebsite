@@ -1,0 +1,62 @@
+.MarketPlaceButton{
+    /* display: flex; */
+}
+
+.marketPlaceBackground{
+    width: 100%;
+    background: linear-gradient(to bottom, #3F5D7F 0%,#4B7D74 100%) repeat fixed center;
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+    z-index: -1;
+}
+
+.marketPlace{
+    /* height: 100vh; */
+    padding-top: 160px;
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 90%;
+}
+@media all and (max-width: 1920px){
+    .marketPlace{
+        max-width: 1200px;
+    }
+}
+.marketPlace h1{
+    color: #fff;
+    font-size: 80px;
+}
+.marketPlace img{
+    width: 100%;
+}
+
+
+/* nav 當頁顯示 */
+#nav-MarketPlace{
+    color: white;
+    background-image: url(/images/Other/nav_hover.png);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+#MarketPlace_hover_bottom{
+    position: absolute;
+    max-width: 300px;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -7px;
+    opacity: 1;
+    z-index: 0;
+    transition: all .3s ease-out;
+    pointer-events: none;
+}
+
+/* RWD NAV */
+@media all and (max-width: 1000px){
+    #nav-MarketPlace{
+        background-size: cover;
+        background-position: center;
+    }
+}

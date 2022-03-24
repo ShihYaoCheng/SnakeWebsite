@@ -1,0 +1,41 @@
+﻿@page "/mymatch"
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/Myaccount.css" rel="stylesheet" />
+    <link href="css/MyMatch.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>PonPonSnake 碰碰蛇｜我的賽事</title>
+</head>
+
+
+<AuthorizeView>
+    <Authorized>
+        <div class="myaccount_block">
+        <div class="my_match_bg">
+            <div class="blockTitle">
+                <img src="/images/Index/title_bg.png" alt="" class="title_bg">
+                <div class="title_BG">
+                    <p>我的<br>賽事</p>
+                </div>
+            </div>
+            <div class="my_match_block">
+                <div class="mypage">賽事詳細</div>
+                <MyMatchDetail />                
+            </div>
+        </div>
+    </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="myaccount_login">
+            <h1>Please Login First</h1>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+@code {
+  
+
+}
