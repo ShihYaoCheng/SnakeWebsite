@@ -9,14 +9,14 @@
 @using SnakeAsianLeague.Data.Services.Metamask
 @using SnakeAsianLeague.Data.Services.SnakeServerService
 @using SnakeAsianLeague.Data.Entity.SnakeServer
-
+@using System.Security.Claims
 
 @inject IJSRuntime JS
 @inject AppState AppState
 @inject ProfileService ProfileService
 @inject IEthereumHostProvider _metamaskHostProvider
 @inject NFTService NFTService
-
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 
 
@@ -398,7 +398,7 @@
     string PopupWindowContent = "";
 
 
-
+    private ClaimsPrincipal LoginUser;
 
 
     protected override async Task OnInitializedAsync()
@@ -408,6 +408,8 @@
         _metamaskHostProvider.SelectedAccountChanged += MetamaskHostProvider_SelectedAccountChanged;
 
         displayEditProfileWindow = false;
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        LoginUser = authState.User;
 
     }
 
@@ -441,9 +443,10 @@
 
     private async Task EditProfileButtonOnClick()
     {
+        //uint userid = Convert.ToUInt32( LoginUser.FindFirst("UserID")?.Value);
+        //Profile p = await ProfileService.GetOneProfileByUserId(userid);
 
         Profile p = await ProfileService.GetOneProfileByUserId((uint)AppState.LoginStatus.userID);
-
 
         if (p != null)
         {
@@ -473,6 +476,8 @@
 
     private async Task EditProfileSubmit()
     {
+
+        //profile.UserName = LoginUser.FindFirst("Name")?.Value;
 
         profile.UserName = AppState.LoginStatus.name;
 

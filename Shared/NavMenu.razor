@@ -223,7 +223,9 @@
                                     <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
                                 </li>
                                 <li>
+                                    <div @onclick="logoutButtonClick">
                                     <a href=""  id="" data-i18n="[html]nav.signOut">Sign Out</a>
+                                    </div>
                                 </li>
                             </ul>          
                         </li>
@@ -333,7 +335,17 @@
 
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         LoginUser = authState.User;
-        var aa = LoginUser;
+
+        if(LoginUser != null  && LoginUser.Identities.Count() !=0 )
+        {
+            SnakeAccount snakeAccount = new SnakeAccount();
+            snakeAccount.userID = Convert.ToUInt32( LoginUser.FindFirst("UserID")?.Value);
+            snakeAccount.name = LoginUser.FindFirst("Name")?.Value;
+            snakeAccount.phone = LoginUser.FindFirst("Phone")?.Value;
+            snakeAccount.walletAddress = LoginUser.FindFirst("walletAddress")?.Value;
+            AppState.UpdateLoginStatus(this, snakeAccount);
+        }
+
     }
 
 
@@ -380,6 +392,7 @@
     /// <returns></returns>
     private async Task logoutButtonClick()
     {
+        AppState.UpdateLoginStatus(this, new SnakeAccount());
         await authService.AuthLogout();
     }
 
