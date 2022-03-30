@@ -28,20 +28,28 @@ namespace SnakeAsianLeague.Areas.Identity
         {
             try
             {
+
+                JWTHelper jWT = new JWTHelper();
                 var savedToken = await _localStorage.GetItemAsync<string>("authToken");
+                
+
                 if (string.IsNullOrWhiteSpace(savedToken))
                 {
                     return new AuthenticationState(new ClaimsPrincipal());
                 }
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", savedToken);
-                return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(ParseClaimsFromJwt(savedToken), "jwt")));
+
+
+
+                var aa = jWT.ParseClaimsFromJwt(savedToken);
+
+                return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(jWT.ParseClaimsFromJwt(savedToken), "jwt")));
             }
             catch (Exception )
             {
                 return new AuthenticationState(new ClaimsPrincipal());
             }
         }
-
 
         /// <summary>
         /// 登入紀錄authState
@@ -65,55 +73,6 @@ namespace SnakeAsianLeague.Areas.Identity
             NotifyAuthenticationStateChanged(authState);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="jwt"></param>
-        /// <returns></returns>
-        private IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
-        {
-            var claims = new List<Claim>();
-            var payload = jwt.Split('.')[1];
-            var jsonBytes = ParseBase64WithoutPadding(payload);
-            var keyValuePairs = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
-
-            keyValuePairs.TryGetValue(ClaimTypes.Role, out object roles);
-
-            if (roles != null)
-            {
-                if (roles.ToString().Trim().StartsWith("["))
-                {
-                    var parsedRoles = JsonSerializer.Deserialize<string[]>(roles.ToString());
-
-                    foreach (var parsedRole in parsedRoles)
-                    {
-                        claims.Add(new Claim(ClaimTypes.Role, parsedRole));
-                    }
-                }
-                else
-                {
-                    claims.Add(new Claim(ClaimTypes.Role, roles.ToString()));
-                }
-
-                keyValuePairs.Remove(ClaimTypes.Role);
-            }
-            claims.AddRange(keyValuePairs.Select(kvp => new Claim(kvp.Key, kvp.Value.ToString())));
-            return claims;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="base64"></param>
-        /// <returns></returns>
-        private byte[] ParseBase64WithoutPadding(string base64)
-        {
-            switch (base64.Length % 4)
-            {
-                case 2: base64 += "=="; break;
-                case 3: base64 += "="; break;
-            }
-            return Convert.FromBase64String(base64);
-        }       
+     
     }
 }
