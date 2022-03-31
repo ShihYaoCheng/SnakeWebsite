@@ -84,25 +84,31 @@
 
                     </li>
 
-                    @* NAV 帳戶管理選單 *@
-                    <div class="Nav-AccountManagement">
-                        <div class="particular-AccountManagement">
-                            <span>Account<br>Management</span>
-                        </div>
+                    @if( AppState.LoginStatus.IsLogin)
+                    {
+                        
+                        @* NAV 帳戶管理選單 *@
+                        <div class="Nav-AccountManagement">
+                            <div class="particular-AccountManagement">
+                                <span>Account<br>Management</span>
+                            </div>
 
-                        <li class="nav-item" id="nav-myprofile">
-                            <a class="nav-link text-light" href="myprofile" data-i18n="[html]nav.Myprofile">我的主頁</a>
-                            <img class="nav_hover_bottom" id="myprofile_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
-                        </li>
-                        <li class="nav-item" id="nav-myMatch">
-                            <a class="nav-link text-light" href="mymatch" data-i18n="[html]nav.Esports">我的賽事</a>
-                            <img class="nav_hover_bottom" id="myMatch_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
-                        </li>
-                        <li class="nav-item" id="nav-MyAwardNotice">
-                            <a class="nav-link text-light" href="myawardnotice" data-i18n="[html]nav.AwardClaim">領獎通知</a>
-                            <img class="nav_hover_bottom" id="MyAwardNotice_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
-                        </li>
-                    </div>
+                            <li class="nav-item" id="nav-myprofile">
+                                <a class="nav-link text-light" href="myprofile" data-i18n="[html]nav.Myprofile">我的主頁</a>
+                                <img class="nav_hover_bottom" id="myprofile_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                            </li>
+                            <li class="nav-item" id="nav-myMatch">
+                                <a class="nav-link text-light" href="mymatch" data-i18n="[html]nav.Esports">我的賽事</a>
+                                <img class="nav_hover_bottom" id="myMatch_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                            </li>
+                            <li class="nav-item" id="nav-MyAwardNotice">
+                                <a class="nav-link text-light" href="myawardnotice" data-i18n="[html]nav.AwardClaim">領獎通知</a>
+                                <img class="nav_hover_bottom" id="MyAwardNotice_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                            </li>
+                        </div>
+                        
+                    }
+                    
 
                 </div>
 
@@ -206,36 +212,35 @@
                 </div>
 
             <div class="LoginUser">
-                @if( LoginUser != null  && LoginUser.Identities.Count() !=0 )
+                @if( AppState.LoginStatus.IsLogin)
                 {
-                    @if (LoginUser.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item" id="nav-user" >              
-                            <LoginDisplay />
-                            <div class="slide_button">
-                                <img src="./images/Other/chevron-down.png" alt="">
-                            </div>
-                            <ul class="nav_ul_slide" id="user-ul">
-                                <li id="nav_ul-myprofile">
-                                    <a href="myprofile" id="mypage" data-i18n="[html]nav.Myprofile">我的主頁</a>
-                                    <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
-                                </li>
-                                <li id="nav_ul-myMatch">
-                                    <a href="mymatch" id="mymatchpage" data-i18n="[html]nav.Esports">我的賽事</a>
-                                    <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
-                                </li>
-                                <li id="nav_ul-MyAwardNotice">
-                                    <a href="myawardnotice" id="myawardnoticepage" data-i18n="[html]nav.AwardClaim">領獎通知</a>
-                                    <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
-                                </li>
-                                <li>
-                                    <div @onclick="logoutButtonClick">
-                                    <a href=""  id="" data-i18n="[html]nav.signOut">Sign Out</a>
-                                    </div>
-                                </li>
-                            </ul>          
-                        </li>
-                    }
+                    
+                    <li class="nav-item" id="nav-user" >              
+                        <LoginDisplay />
+                        <div class="slide_button">
+                            <img src="./images/Other/chevron-down.png" alt="">
+                        </div>
+                        <ul class="nav_ul_slide" id="user-ul">
+                            <li id="nav_ul-myprofile">
+                                <a href="myprofile" id="mypage" data-i18n="[html]nav.Myprofile">我的主頁</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+                            <li id="nav_ul-myMatch">
+                                <a href="mymatch" id="mymatchpage" data-i18n="[html]nav.Esports">我的賽事</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+                            <li id="nav_ul-MyAwardNotice">
+                                <a href="myawardnotice" id="myawardnoticepage" data-i18n="[html]nav.AwardClaim">領獎通知</a>
+                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
+                            </li>
+                            <li>
+                                <div @onclick="logoutButtonClick">
+                                <a href=""  id="" data-i18n="[html]nav.signOut">Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>          
+                    </li>
+                    
                 }
                 else
                 {
@@ -312,7 +317,7 @@
                 <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">密碼</label>
                 <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=loginRequest.password required>
             </div>
-            <div type="text" class="login_error"  data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>
+            <div type="text" class="login_error" hidden="@(!loginErrorShow)"  data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>
             <div id="login_submit" @onclick="@LoginSubmit">                
                 <img src="/images/Index/signUpEvent_button.png" alt="">
                 <span data-i18n="[html]signInWindows.SignIn">登入</span>                
@@ -331,7 +336,6 @@
 @code 
 {
     public LoginRequest loginRequest = new LoginRequest();
-    private ClaimsPrincipal LoginUser;
 
 
     protected async override Task OnInitializedAsync()
@@ -340,7 +344,7 @@
             => await InvokeAsync(StateHasChanged);
 
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        LoginUser = authState.User;
+        var LoginUser = authState.User;
 
         if(LoginUser != null  && LoginUser.Identities.Count() !=0 )
         {
@@ -398,8 +402,9 @@
     /// <returns></returns>
     private async Task logoutButtonClick()
     {
-        AppState.UpdateLoginStatus(this, new SnakeAccount());
+        
         await authService.AuthLogout();
+        AppState.UpdateLoginStatus(this, new SnakeAccount());
     }
 
     private async Task AppState_StateChanged(ComponentBase Source, string Property)
