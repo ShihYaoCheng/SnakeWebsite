@@ -68,17 +68,27 @@
         background-position: center;
     }
 }
-
-.ra+.ra {
-    margin-left: 1rem;
+.ra{
+    width: 15px;
+    height: 15px;
 }
+.ra+.ra {
+    margin-left: 1.3rem;
+}
+
+
+input[type="radio"] {
+    /* visibility: hidden; */
+    /* opacity: 0; */
+}
+
 
 .bgBorder::after {
     position: absolute;
     height: 3px;
     content: '';
-    background: white;
-    top: 50%;
+    background: var(--green-2);
+    top: 40%;
     left: 0;
     transform: translateY(-50%);
     z-index: -2;
@@ -88,10 +98,10 @@
 
 .ra:checked::after {
     position: absolute;
-    height: 3px;
+    height: 5px;
     content: '';
-    background: red;
-    top: 50%;
+    background: white;
+    top: 40%;
     left: 0;
     transform: translateY(-50%);
     z-index: -1;
@@ -211,20 +221,20 @@
 label {
     padding: 0;
     cursor: pointer;
-  }
-  input[type="checkbox"] {
+}
+input[type="checkbox"] {
     display: none;
-  }
-  input[type="checkbox"]+span {
+}
+input[type="checkbox"]+span {
     display: inline-block;
     padding-left: 26px;
     line-height: 20px;
     background: url(/images/MarketPlace/checkbox.png) no-repeat left top;
-              user-select: none;
-  }
-  input[type="checkbox"]:checked+span {
+    user-select: none;
+}
+input[type="checkbox"]:checked+span {
     background: url(/images/MarketPlace/checkbox_checked.png) no-repeat left top;
-  }
+}
 
 
 
