@@ -48,12 +48,13 @@
     "Myprofile":"My Account",
 
     "Chinese":"中文",
-    "English":"English"
+    "English":"EN"
   },
 
   "Sidebar": {
+    "AccountManagement":"Account<br>Management",
     "Account":"Account",
-    "Esports":"Esports",
+    "Esports":"eSport",
     "Reward":"Reward"
   },
 
@@ -137,8 +138,8 @@
     "edit":"Edit",
     "gameID":"Game ID",
     "phone":"Phone",
-    "connectMetamask":"Connect Metamask",
-    "installMetamask":"Please Install Metamask",
+    "connectMetamask":"Connect Wallet",
+    "installMetamask":"Please Install Wallet",
     "asset":"Asset",
     "activities":"Activities"
   }
