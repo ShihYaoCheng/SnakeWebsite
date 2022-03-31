@@ -205,7 +205,7 @@
 
                 </div>
 
-            <div class="d-flex align-items-center">
+            <div class="LoginUser">
                 @if( LoginUser != null  && LoginUser.Identities.Count() !=0 )
                 {
                     @if (LoginUser.Identity.IsAuthenticated)
@@ -239,7 +239,7 @@
                 }
                 else
                 {
-                    <li class="nav-item" id="nav-user">
+                    <li class="nav-item" id="">
                         <button id="login_button" class="" @onclick="loginButtonClick" data-i18n="[html]nav.signIn">登入</button>
                     </li>
                 }

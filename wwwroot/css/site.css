@@ -282,6 +282,12 @@ a, .btn-link {
     flex-direction: row;
 }
 
+.LoginUser{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
 /* RWD */
 @media (max-width: 1000px) {
     .nav-li-normal{
