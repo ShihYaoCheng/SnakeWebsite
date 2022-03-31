@@ -68,14 +68,14 @@
                             </div>
 
                             <div class="personalInformation">
-                                <div class="playerNickname">@context.User.FindFirst("Name")?.Value</div>
+                                <div class="playerNickname">@AppState.LoginStatus.name</div>
                                 <div class="playerInfoRow">
                                     <div class="playerInfoRowTitle" data-i18n="myprofile.gameID">Game ID</div>
-                                    <div class="playerInfoRowShow">@context.User.FindFirst("UserID")?.Value</div>
+                                    <div class="playerInfoRowShow">@AppState.LoginStatus.userID</div>
                                 </div>
                                 <div class="playerInfoRow">
                                     <div class="playerInfoRowTitle" data-i18n="myprofile.phone">Phone</div>
-                                    <div class="playerInfoRowShow">@context.User.FindFirst("Phone")?.Value</div>
+                                    <div class="playerInfoRowShow">@AppState.LoginStatus.phone</div>
                                 </div>
 
                                 @if (!MetamaskAvailable)
@@ -400,7 +400,7 @@
     string PopupWindowContent = "";
 
 
-    private ClaimsPrincipal LoginUser;
+    //private ClaimsPrincipal LoginUser;
 
 
     protected override async Task OnInitializedAsync()
@@ -410,8 +410,8 @@
         _metamaskHostProvider.SelectedAccountChanged += MetamaskHostProvider_SelectedAccountChanged;
 
         displayEditProfileWindow = false;
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        LoginUser = authState.User;
+        //var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        //LoginUser = authState.User;
 
     }
 
