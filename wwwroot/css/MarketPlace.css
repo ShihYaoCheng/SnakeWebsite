@@ -157,7 +157,7 @@
     margin-top: 70px;
     height: calc(100vh - 70px);
 
-    /* display: none; */
+    display: none;
 }
 
 @media all and (max-width: 500px){
