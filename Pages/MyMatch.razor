@@ -1,5 +1,5 @@
 ﻿@page "/mymatch"
-
+@inject IJSRuntime JS
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,20 +12,28 @@
 
 <AuthorizeView>
     <Authorized>
-        <div class="myaccount_block">
-        <div class="my_match_bg">
-            <div class="blockTitle">
+        <div class="myMatch_Background"></div>
+
+        <MyprofileSidebar /> 
+
+        
+        <div class="myMatchBlock">
+            @* <div class="blockTitle">
                 <img src="/images/Index/title_bg.png" alt="" class="title_bg">
                 <div class="title_BG">
                     <p>我的<br>賽事</p>
                 </div>
-            </div>
+            </div> *@
+
+            <div class="myMatch">
+                <div class="myMatchTitle" data-i18n="Sidebar.Esports">Esports</div>
             <div class="my_match_block">
                 <div class="mypage">賽事詳細</div>
                 <MyMatchDetail />                
             </div>
+            </div>
         </div>
-    </div>
+    
     </Authorized>
     <NotAuthorized>
         <div class="myaccount_login">
@@ -36,6 +44,13 @@
 
 
 @code {
-  
+      protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
 
 }

@@ -24,7 +24,6 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/Myaccount.css" rel="stylesheet" />
     <link href="css/Myprofile.css" rel="stylesheet" />
     <link href="css/Sidebar.css" rel="stylesheet" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -34,7 +33,9 @@
 <AuthorizeView>
     <Authorized>
     <div>
-        <aside class="myprofileSidebar">
+        <MyprofileSidebar /> 
+
+        @* <aside class="myprofileSidebar">
             <div class="myprofileSidebarButton">
                 <img src="/images/Myprofile/sidebarLine.png" alt="">
             </div>
@@ -46,7 +47,7 @@
                     <a href="myawardnotice" id="accountManagementUl-Reward"><li data-i18n="Sidebar.Reward">Reward</li></a>
                 </ul>
             </div>
-        </aside>
+        </aside> *@
 
         <main class="myprofileMain">
 
@@ -143,7 +144,7 @@
                             <div class="informationAssetBlock">
                                 <div class="assetItem">
                                     <img class="assetIcon" src="/images/Myprofile/Knight.png" alt="">
-                                    <span>Knight</span>
+                                    <span>Rider</span>
                                 </div>
                                 <div class="assetValue">0</div>
                             </div>
@@ -538,7 +539,7 @@
 
             StateHasChanged();
 
-            await JS.InvokeVoidAsync("myprofileSidebar");
+            @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("afterRender");
         }

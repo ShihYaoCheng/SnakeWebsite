@@ -325,14 +325,26 @@ a, .btn-link {
 }
 
 #Language_Select{
+    width: 115px;
+    height: 32px;
     margin-left: 5px;
     outline: none;
-    padding: 3px;
-    border-radius: 5px;
-    background-color: #d9ebff;
+    /* padding: 3px; */
+    border-radius: 15px;
+    background-color: #1C4C58;
     border: none;
     max-width: 100px;
-    color: #002140;
+    color: #69ADA2;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url(/images/Other/Language_Select.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    /* padding: 1px; */
+    outline: 0;
+    text-align: center;
 }
 
 .Language_option{
@@ -351,6 +363,9 @@ a, .btn-link {
 #nav-user{
     /* display: none; */
     cursor: pointer;
+}
+#nav-user:hover{
+    background: none;
 }
 
 .user {
@@ -712,6 +727,7 @@ position: relative;
     color: #ff6666;
     text-align: center;
     font-size: 18px;
+    margin: -9px auto 10px;
     /*display: none;*/
 }
 
@@ -1260,12 +1276,10 @@ position: relative;
 .NavBlockSelect select{
     max-width: 110px;
     width: 100%;
-    outline: none;
-    /* font-family: 'Noto Sans TC','Helvetica Neue', Helvetica, Arial, sans-serif; */
-    padding: 0px 5px 1px;
+    height: 25px;
     margin-left: 5px;
     border-radius: 10px;
-    border: 2.5px solid rgb(218, 202, 202);
+    border: 2px solid rgb(218, 202, 202);
     color: #324a66;
     font-size: 18px;
     line-height: 16px;
@@ -1273,6 +1287,15 @@ position: relative;
     background-color: #ebeae7;
     font-family: 'Alumni Sans', 'AlumniSans-Bold','AlumniSans-Regular','Oswald';
     cursor: pointer;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url(/images/Other/select-arrow-s.png);
+    background-repeat: no-repeat;
+    background-position: right 0.25rem center;
+    background-size: auto;
+    padding: 1px 12px 1px 10px;
+    outline: 0;
 }
 
 @media all and (max-width: 500px){
@@ -1401,11 +1424,36 @@ position: relative;
 
 /* NAV 帳戶管理選單 */
 #nav-myprofile, #nav-myMatch, #nav-MyAwardNotice {
-    /* display: none; */
+    display: none;
+}
+.particular-AccountManagement{
+    width: 90%;
+    /* border: 1px solid red;  */
+    color: #1c4c58;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0 auto;
+    line-height: 30px;
+    border-bottom: 2.5px solid #1c4c58;
+    padding: 18px;
+
+    display: none;
+}
+.particular-AccountManagement span{
+    /* margin: 0 auto; */
+    /* text-align: center; */
+
 }
 @media all and (max-width: 1000px){
     #nav-myprofile, #nav-myMatch, #nav-MyAwardNotice{
-        /* display: block; */
+        display: block;
     }
-    
+    .particular-AccountManagement{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.myprofileSidebar{
+    display: none;
 }

@@ -49,10 +49,11 @@
     "Myprofile":"我的主頁",
 
     "Chinese":"中文",
-    "English":"English"
+    "English":"EN"
   },
 
   "Sidebar": {
+    "AccountManagement":"帳號管理",
     "Account":"資產",
     "Esports":"我的賽事",
     "Reward":"領獎通知"
@@ -140,8 +141,8 @@
     "edit":"編輯",
     "gameID":"遊戲ID",
     "phone":"手機號碼",
-    "connectMetamask":"連結 Metamask",
-    "installMetamask":"請安裝 Metamask",
+    "connectMetamask":"連結 Wallet",
+    "installMetamask":"請安裝 Wallet",
     "asset":"資產",
     "activities":"活動"
   }

@@ -10,20 +10,348 @@
 <div class="marketPlaceBackground"></div>
 
 <div class="marketPlace">
-    <img src="/images/MarketPlace/ComingSoon.png" alt="">
-    @* <h1>Coming Soon!!</h1> *@
+    @* <img src="/images/MarketPlace/ComingSoon.png" alt=""> *@
+    @* <div class="d-inline ml-5 position-relative bgBorder">
+        <input style="--step:0" class="ra" type="radio" name="test" value="1">
+        <input style="--step:1" class="ra" type="radio" name="test" value="1.1">
+        <input style="--step:2" class="ra" type="radio" name="test" value="1.2">
+        <input style="--step:3" class="ra" type="radio" name="test" value="1.3">
+        <input style="--step:4" class="ra" type="radio" name="test" value="1.4">
+        <input style="--step:5" class="ra" type="radio" name="test" value="1.5">
+        <input style="--step:6" class="ra" type="radio" name="test" value="1.6">
+        </div>
+
+        <div class="m-5 p-5 rounded-lg w-25 card-bg card-bg-green">
+        <button class="heart btn p-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+        <path class="heart__path"
+        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="2" />
+        </svg>
+        </button>
+        </div>
+
+        <div class="m-5 p-5 rounded-lg w-25 card-bg card-bg-red">
+        <button class="heart btn p-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+        <path class="heart__path"
+        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="2" />
+        </svg>
+        </button>
+        </div>
+
+        <div class="bg-info m-5 p-5 rounded-lg w-25">
+        <button class="heart btn p-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+        <path class="heart__path"
+        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="2" />
+        </svg>
+        </button>
+        </div> *@
+
+    <aside class="marketPlaceSidebar ">
+        <div class="marketPlaceSidebar-scroll">
+            <section class="Sidebar-Filter-Block" id="Filter-mobile">
+                <div class="Filter-mobile-arrow">
+                    <span>Filter</span>
+                    <img class="Filter-arrow" style="padding-bottom:3px; margin: 5px; "
+                        src="/images/MarketPlace/MP-arrow-sm.png" alt="">
+                </div>
+            </section>
+
+            <section class="Sidebar-Filter-Block" id="Filter-Header">
+                <span>Filter</span>
+                <div class="Filter-Header-Block">
+                    <button class="Filter-Button">Reset</button>
+                    <button class="Filter-heart btn p-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                            <path class="heart__path"
+                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <section class="Sidebar-Filter-Block" id="">
+
+                @* <label for="officialDebut" class="Sidebar-checkbox">
+                    <input type="checkbox" id="officialDebut">
+                    Only show the official debut
+                </label> *@
+                <label for="officialDebut" class="Sidebar-checkbox">
+                    <input type="checkbox" id="officialDebut">
+                    <span>Only show the official debut</span>
+                </label>
+
+            </section>
+
+            <section class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span>Rare</span>
+                    <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
+                </div>
+                <div class="Filter-Options">
+                    <button class="Filter-Button">N</button>
+                    <button class="Filter-Button">R</button>
+                    <button class="Filter-Button">SR</button>
+                    <button class="Filter-Button">SSR</button>
+                    <button class="Filter-Button">UR</button>
+                </div>
+            </section>
+
+            <section class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span>Class</span>
+                    <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
+                </div>
+                <div class="Filter-Options">
+                    <button class="Filter-Button">Land</button>
+                    <button class="Filter-Button">Water</button>
+                    <button class="Filter-Button">Wind</button>
+                    <button class="Filter-Button">Fire</button>
+                </div>
+            </section>
+
+            <section class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span>Profession</span>
+                    <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
+                </div>
+                <div class="Filter-Options">
+                    <button class="Filter-Button">Archer</button>
+                    <button class="Filter-Button">Necromancer</button>
+                    <button class="Filter-Button">Cleric</button>
+                    <button class="Filter-Button">Bard</button>
+                    <button class="Filter-Button">Magician</button>
+                    <button class="Filter-Button">Assassin</button>
+                    <button class="Filter-Button">Gunner</button>
+                    <button class="Filter-Button">Gladiator</button>
+                    <button class="Filter-Button">Dragoon</button>
+                </div>
+            </section>
+
+            <section class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span>Country</span>
+                    <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
+                </div>
+                <div class="Filter-Options">
+                    <button class="Filter-Button">Archer</button>
+                    <button class="Filter-Button">Necromancer</button>
+                    <button class="Filter-Button">Cleric</button>
+                    <button class="Filter-Button">Bard</button>
+                    <button class="Filter-Button">Magician</button>
+                    <button class="Filter-Button">Assassin</button>
+                </div>
+            </section>
+        </div>
+
+
+
+    </aside>
+
+    <main class="marketPlaceMain">
+        <section class="marketPlaceHeader">
+            <div class="marketPlaceTitle">PonPonSnake's NFTs<br>1,234 PPSFs</div>
+            <div class="d-flex flex-column align-items-end" style="align-self: flex-end;">
+                <button class="BuyOnOpensea"><a href="">Buy on Opensea</a></button>
+
+                <select class="sortSelect" name="count_adults" id="">
+                    <option disabled="" value="" selected="" hidden="">
+                        Sort</option>
+                    <option value="">Highest Earned</option>
+                    <option value="">Lowest Earned</option>
+                    <option value="">Highest Price</option>
+                    <option value="">Lowest Price</option>
+                    <option value="">Newest</option>
+                    <option value="">Oldest</option>
+                </select>
+
+            </div>
+        </section>
+        <section class="marketPlaceCardBLock">
+
+            <div class="NFTcard card-bg-red">
+                <div class="NFT-cardImg">
+                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
+                </div>
+                <div class="NFT-cardText">
+                    <button class="heart btn p-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                            <path class="heart__path"
+                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" />
+                        </svg>
+                    </button>
+                    <div class="NFT-Number">#123456</div>
+                    <div class="NFT-Name">Name Of Rider</div>
+                    <div class="NFT-PriceBlock">
+                        <div class="NFT-PriceMain">
+                            <img class="NFT-PriceIcon" src="/images/MarketPlace/ERNC.png" alt="">
+                            <span class="NFT-Price">$2913.89</span>
+                        </div>
+                        <div class="NFT-USD">231269.89 USD</div>
+                    </div>
+                    <div class="NFT-EndTime">Ends in 30d 12h</div>
+                </div>
+            </div>
+
+            <div class="NFTcard card-bg-red">
+                <div class="NFT-cardImg">
+                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
+                </div>
+                <div class="NFT-cardText">
+                    <button class="heart btn p-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                            <path class="heart__path"
+                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" />
+                        </svg>
+                    </button>
+                    <div class="NFT-Number">#123456</div>
+                    <div class="NFT-Name">Name Of Rider</div>
+                    <div class="NFT-PriceBlock">
+                        <div class="NFT-PriceMain">
+                            <img class="NFT-PriceIcon" src="/images/MarketPlace/ERNC.png" alt="">
+                            <span class="NFT-Price">$2913.89</span>
+                        </div>
+                        <div class="NFT-USD">231269.89 USD</div>
+                    </div>
+                    <div class="NFT-EndTime">Ends in 30d 12h</div>
+                </div>
+            </div>
+
+            <div class="NFTcard card-bg-green">
+                <div class="NFT-cardImg">
+                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
+                </div>
+                <div class="NFT-cardText">
+                    <button class="heart btn p-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                            <path class="heart__path"
+                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" />
+                        </svg>
+                    </button>
+                    <div class="NFT-Number">#123456</div>
+                    <div class="NFT-Name">Name Of Rider</div>
+                    <div class="NFT-PriceBlock">
+                        <div class="NFT-PriceMain">
+                            <img class="NFT-PriceIcon" src="/images/MarketPlace/ERNC.png" alt="">
+                            <span class="NFT-Price">$2913.89</span>
+                        </div>
+                        <div class="NFT-USD">231269.89 USD</div>
+                    </div>
+                    <div class="NFT-EndTime">Ends in 30d 12h</div>
+                </div>
+            </div>
+
+            <div class="NFTcard card-bg-green">
+                <div class="NFT-cardImg">
+                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
+                </div>
+                <div class="NFT-cardText">
+                    <button class="heart btn p-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                            <path class="heart__path"
+                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" />
+                        </svg>
+                    </button>
+                    <div class="NFT-Number">#123456</div>
+                    <div class="NFT-Name">Name Of Rider</div>
+                    <div class="NFT-PriceBlock">
+                        <div class="NFT-PriceMain">
+                            <img class="NFT-PriceIcon" src="/images/MarketPlace/ERNC.png" alt="">
+                            <span class="NFT-Price">$2913.89</span>
+                        </div>
+                        <div class="NFT-USD">231269.89 USD</div>
+                    </div>
+                    <div class="NFT-EndTime">Ends in 30d 12h</div>
+                </div>
+            </div>
+
+            <div class="NFTcard card-bg-green">
+                <div class="NFT-cardImg">
+                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
+                </div>
+                <div class="NFT-cardText">
+                    <button class="heart btn p-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                            <path class="heart__path"
+                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" />
+                        </svg>
+                    </button>
+                    <div class="NFT-Number">#123456</div>
+                    <div class="NFT-Name">Name Of Rider</div>
+                    <div class="NFT-PriceBlock">
+                        <div class="NFT-PriceMain">
+                            <img class="NFT-PriceIcon" src="/images/MarketPlace/ERNC.png" alt="">
+                            <span class="NFT-Price">$2913.89</span>
+                        </div>
+                        <div class="NFT-USD">231269.89 USD</div>
+                    </div>
+                    <div class="NFT-EndTime">Ends in 30d 12h</div>
+                </div>
+            </div>
+
+            <div class="NFTcard card-bg-green">
+                <div class="NFT-cardImg">
+                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
+                </div>
+                <div class="NFT-cardText">
+                    <button class="heart btn p-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                            <path class="heart__path"
+                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" />
+                        </svg>
+                    </button>
+                    <div class="NFT-Number">#123456</div>
+                    <div class="NFT-Name">Name Of Rider</div>
+                    <div class="NFT-PriceBlock">
+                        <div class="NFT-PriceMain">
+                            <img class="NFT-PriceIcon" src="/images/MarketPlace/ERNC.png" alt="">
+                            <span class="NFT-Price">$2913.89</span>
+                        </div>
+                        <div class="NFT-USD">231269.89 USD</div>
+                    </div>
+                    <div class="NFT-EndTime">Ends in 30d 12h</div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+
 </div>
 
 
-
-@code{
+@code {
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("heartClick");
+            await JS.InvokeVoidAsync("FilterButtonClick");
         }
 
     }
-    
+
 }

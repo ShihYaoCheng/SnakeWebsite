@@ -85,18 +85,24 @@
                     </li>
 
                     @* NAV 帳戶管理選單 *@
-                    <li class="nav-item" id="nav-myprofile">
-                        <a class="nav-link text-light" href="myprofile" data-i18n="[html]nav.Myprofile">我的主頁</a>
-                        <img class="nav_hover_bottom" id="myprofile_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
-                    </li>
-                    <li class="nav-item" id="nav-myMatch">
-                        <a class="nav-link text-light" href="mymatch" data-i18n="[html]nav.Esports">我的賽事</a>
-                        <img class="nav_hover_bottom" id="myMatch_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
-                    </li>
-                    <li class="nav-item" id="nav-MyAwardNotice">
-                        <a class="nav-link text-light" href="myawardnotice" data-i18n="[html]nav.AwardClaim">領獎通知</a>
-                        <img class="nav_hover_bottom" id="MyAwardNotice_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
-                    </li>
+                    <div class="Nav-AccountManagement">
+                        <div class="particular-AccountManagement">
+                            <span>Account<br>Management</span>
+                        </div>
+
+                        <li class="nav-item" id="nav-myprofile">
+                            <a class="nav-link text-light" href="myprofile" data-i18n="[html]nav.Myprofile">我的主頁</a>
+                            <img class="nav_hover_bottom" id="myprofile_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                        </li>
+                        <li class="nav-item" id="nav-myMatch">
+                            <a class="nav-link text-light" href="mymatch" data-i18n="[html]nav.Esports">我的賽事</a>
+                            <img class="nav_hover_bottom" id="myMatch_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                        </li>
+                        <li class="nav-item" id="nav-MyAwardNotice">
+                            <a class="nav-link text-light" href="myawardnotice" data-i18n="[html]nav.AwardClaim">領獎通知</a>
+                            <img class="nav_hover_bottom" id="MyAwardNotice_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
+                        </li>
+                    </div>
 
                 </div>
 
@@ -234,7 +240,7 @@
                 else
                 {
                     <li class="nav-item" id="nav-user">
-                        <button id="login_button" class="" @onclick="loginButtonClick" data-i18n="[html]nav.signIn">登入!</button>
+                        <button id="login_button" class="" @onclick="loginButtonClick" data-i18n="[html]nav.signIn">登入</button>
                     </li>
                 }
                 
@@ -243,7 +249,7 @@
                 <li class="" id="nav-Language_Select">
                     <select name="" id="Language_Select">
                         @* <option value="" disabled>Language</option> *@
-                        <option class="Language_option" value="en">English</option>
+                        <option class="Language_option" value="en">EN</option>
                         <option class="Language_option" value="tw">中文</option>
                     </select>
                 </li>

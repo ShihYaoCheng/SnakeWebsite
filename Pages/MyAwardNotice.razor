@@ -1,4 +1,5 @@
 ﻿@page "/myawardnotice"
+@inject IJSRuntime JS
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,18 +12,25 @@
 
 <AuthorizeView>
     <Authorized>
-    <div class="myaccount_block">
-        <div class="receive_Notice">
+    <div class="myAwardNotice_Background"></div>
+    <MyprofileSidebar /> 
 
-            <div class="blockTitle">
-                <img src="/images/Index/title_bg.png" alt="" class="title_bg">
-                <div class="title_BG">
-                    <p>領獎<br>通知</p>
-                </div>
+    <div class="myAwardNotice">
+        
+        <div class="myAwardNoticeTitle" data-i18n="Sidebar.Reward">Reward</div>
+
+
+        @* <div class="blockTitle">
+            <img src="/images/Index/title_bg.png" alt="" class="title_bg">
+            <div class="title_BG">
+                <p>領獎<br>通知</p>
             </div>
+        </div> *@
+
+        <div class="myAwardNotice_block">
             <MyAwardNoticeDetail />
-         
         </div>
+        
     </div>
 
 

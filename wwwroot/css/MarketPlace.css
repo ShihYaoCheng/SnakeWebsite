@@ -1,36 +1,44 @@
 .MarketPlaceButton{
-    /* display: flex; */
+    display: flex;
+}
+/* NAV 資產頁面選單 */
+.nav-li-normal{
+    display: none;
+}
+
+.nav-li-particular{
+    display: flex;
+    flex-direction: row;
+}
+
+/* RWD */
+@media (max-width: 1000px) {
+    .nav-li-particular{
+        flex-direction: column;
+    }
+}
+
+.Nav-AccountManagement{
+    display: none !important;
 }
 
 .marketPlaceBackground{
     width: 100%;
-    background: linear-gradient(to bottom, #3F5D7F 0%,#4B7D74 100%) repeat fixed center;
+    /* background: linear-gradient(to bottom, #3F5D7F 0%,#4B7D74 100%) repeat fixed center; */
+    background: #253A4B;
     height: 100vh;
     position: fixed;
     overflow-y: auto;
-    z-index: -1;
+    z-index: -3;
 }
 
-.marketPlace{
-    /* height: 100vh; */
-    padding-top: 160px;
-    margin: 0 auto;
-    max-width: 1400px;
-    width: 90%;
-}
-@media all and (max-width: 1920px){
-    .marketPlace{
-        max-width: 1200px;
-    }
-}
-.marketPlace h1{
-    color: #fff;
-    font-size: 80px;
+/* .marketPlace{
+  width: 80%;
+  margin: 200px auto;
 }
 .marketPlace img{
     width: 100%;
-}
-
+} */
 
 /* nav 當頁顯示 */
 #nav-MarketPlace{
@@ -58,5 +66,566 @@
     #nav-MarketPlace{
         background-size: cover;
         background-position: center;
+    }
+}
+
+.ra+.ra {
+    margin-left: 1rem;
+}
+
+.bgBorder::after {
+    position: absolute;
+    height: 3px;
+    content: '';
+    background: white;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -2;
+    width: 100%;
+}
+
+
+.ra:checked::after {
+    position: absolute;
+    height: 3px;
+    content: '';
+    background: red;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+    width: calc(var(--step)* 16%);
+}
+
+
+:root {
+    --blue-1: #253B4B;
+    --blue-2: #4B8B8B;
+
+    --green-1: #276170;
+    --green-2: #69ADA2;
+
+    --pink-1: #E58880;
+    --red-1: #C73D4C;
+    --theme-bg-1: ;
+}
+
+.heart {
+    position: absolute;
+    aspect-ratio: 1;
+    width: 40px;
+    top: 5px;
+    right: 8px;
+    /* margin: 2px 7px; */
+}
+
+.heartClickRed .heart__path {
+    fill: var(--red-1) !important;
+    stroke: var(--red-1) !important;
+}
+
+.card-bg-green {
+    --theme-bg-1: #69ADA2;
+    --theme-bg-2: #4B8B8B;
+    --theme-font-1: #8Fcdc3;
+    --theme-font-2: #276170;
+    --theme-font-3: #a7e5db;
+    --theme-border: #427c72;
+}
+
+.card-bg-red {
+    --theme-bg-1: #E58880;
+    --theme-bg-2: #D06F6F;
+    --theme-font-1: #F7cdc4;
+    --theme-font-2: #823131;
+    --theme-font-3: #ffd8d8;
+    --theme-border: #7a1823;
+    
+}
+
+
+/* marketPlaceSidebar 側邊欄 */
+.marketPlaceSidebar{
+    border: 1px solid red;
+    width: 300px;
+    /* min-height: calc(100vh - 70px); */
+    /* min-height: 100vh; */
+    background-color: var(--green-1);
+    z-index: 50;
+    position: fixed;
+    margin-top: 70px;
+    height: calc(100vh - 70px);
+
+    /* display: none; */
+}
+
+@media all and (max-width: 500px){
+    .marketPlaceSidebar{
+        margin-top: 54px;
+        height: calc(100vh - 54px);
+    }
+}
+.marketPlaceSidebar-scroll{
+    overflow-y: auto;
+    height: 100%;
+}
+/* 改scrollbar樣式 */
+.marketPlaceSidebar-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.marketPlaceSidebar-scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--green-2);
+}
+
+.marketPlaceSidebar-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background: var(--green-1);
+}
+
+
+.Sidebar-Filter-Block{
+    /* border: 1px solid blue; */
+    border-bottom: 1.8px solid var(--green-2);
+    color: var(--green-2);
+    /* font-size: 20px; */
+    font-weight: bold;
+    padding: 10px 15px;
+}
+.Filter-mobile-arrow{
+    /* border: 1px solid blue; */
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.Sidebar-checkbox{
+    font-size: 18px;
+    line-height: 26px;
+
+}
+label {
+    padding: 0;
+    cursor: pointer;
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"]+span {
+    display: inline-block;
+    padding-left: 26px;
+    line-height: 20px;
+    background: url(https://i.imgur.com/bZM5Itd.png) no-repeat left top;
+              user-select: none;
+  }
+  input[type="checkbox"]:checked+span {
+    background: url(https://i.imgur.com/JWm4WKA.png) no-repeat left top;
+  }
+
+
+
+#Filter-mobile{
+    font-size: 30px;
+}
+#Filter-Header{
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Filter-Header-Block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Filter-Header-Block .Filter-Button{
+    margin: 5px;
+}
+
+
+.Filter-arrow{
+    /* margin: 5px; */
+}
+.Filter-Button{
+    border: 2px solid var(--green-2);
+    color:  var(--green-2);
+    background: none;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 10px;
+    transition: all .05s ease-in-out;
+    margin: 0 5px 11px 0;
+    min-width: 65px;
+}
+.Filter-Button:hover{
+    color: var(--green-1);
+    opacity: 0.7;
+    background-color:  var(--green-2);
+    transform: scale(1.05);
+}
+.Filter-Button-Click{
+    /* border: 2px solid var(--green-2); */
+    transition: all .05s ease-in-out;
+    color: white;
+    background-color:  var(--green-2);
+}
+
+.Filter-heart{
+    width: 34px;
+    fill: none;
+    stroke: var(--green-2);
+    margin: 5px;
+}
+
+.Filter-Title{
+    /* border: 1px solid rgb(255, 255, 255); */
+    cursor: pointer;
+    display: inline-block;
+    /* align-items: baseline; */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.Filter-Options{
+    /* border: 1px solid rgb(255, 255, 255); */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 商品區塊 */
+.marketPlaceMain{
+    /* border: 1px solid red; */
+    min-height: calc(100vh - 70px);
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 100px 0 0 0;
+}
+.marketPlaceHeader{
+    /* border: 1px solid red; */
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+}
+.marketPlaceTitle{
+    color: var(--green-2);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.BuyOnOpensea{
+    width: 348px;
+    height: 75px;
+    border-radius: 16px;
+    background-color: #ffa71d;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0;
+    white-space: nowrap;
+}
+.BuyOnOpensea a{
+    /* border: 1px solid red; */
+    padding: 17px 70px;
+    text-decoration: none;
+}
+
+.sortSelect{
+    background-color: var(--green-1);
+    color: var(--green-2);
+    width: 208px;
+    height: 45px;
+    border-radius: 16px;
+    font-size: 20px;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #253A4B;
+    background-image: url(/images/MarketPlace/MP-arrow.png);
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: auto;
+    padding: 6px 12px 6px 12px;
+    outline: 0;
+    margin: 15px 0;
+}
+.sortSelect:focus {
+    border: 3.5px solid  #49736c;
+    box-shadow: 0 0 0 0.25rem rgb(11 56 106 / 25%);
+}
+
+.arrow {
+    width: 23px;
+    height: 18px;
+    fill: var(--green-2);
+    margin: 0 10px 0 0;
+}
+.marketPlaceCardBLock{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.NFTcard{
+    width: 540px;
+    border-radius: 15px;
+    padding: 3px 0 3px 3px;
+    display: flex;
+    box-shadow: 5px 5px 10px #1414142e;
+    margin: 15px;
+}
+
+.NFT-cardImg{
+    /* border: 1px solid red; */
+    min-width: 260px;
+    width: 100%;
+    height: 320px;
+    /* height: 100%; */
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: var(--blue-1);
+
+}
+
+.NFT-cardImg img{
+    /* object-fit: contain; */
+    width: 100%;
+    height: 100%;
+}
+
+.NFT-cardText{
+    /* border: 1px solid red; */
+    width: 100%;
+    position: relative;
+}
+
+.NFT-Number{
+    width: 100px;
+    font-size: 18px;
+    padding: 0 15px;
+    margin: 12px 10px 10px 10px;
+    border-radius: 5px;
+}
+
+.NFT-Name{
+    font-size: 24px;
+    margin: 10px 10px 26px 10px;
+}
+
+.NFT-PriceBlock{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.NFT-PriceMain{
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+}
+.NFT-Price{
+    font-size: 48px;
+    /* font-weight: bold; */
+}
+.NFT-PriceIcon{
+    width: 45px;
+    margin: 8px 8px 8px 10px;
+}
+.NFT-USD{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.NFT-EndTime{
+    font-size: 18px;
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+    left: 50%;
+    white-space: nowrap;
+}
+
+/* 粉紅色 首發 CARD */
+.card-bg-red {
+    background-color: var(--theme-bg-1);
+    position: relative;
+}
+.card-bg-red::before{
+    content: url('/images/MarketPlace/NFT-Debut.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.card-bg-red .heart__path {
+    fill: none;
+    stroke: var(--theme-bg-2);
+    /* stroke-width: 2; */
+}
+.card-bg-red .NFT-Number{
+    background-color: var(--theme-bg-2);
+    color:  var(--theme-font-1);
+}
+
+.card-bg-red .NFT-Name{
+    color: var(--theme-font-2);
+}
+.card-bg-red .NFT-PriceBlock{
+    background-color: var(--theme-bg-2);
+}
+.card-bg-red .NFT-Price {
+    color: var(--theme-font-3);
+}
+.card-bg-red .NFT-USD {
+    color: var(--theme-font-1);
+}
+
+.card-bg-red .NFT-EndTime{
+    color: var(--theme-font-2);
+}
+
+/* 綠色 一般 CARD */
+.card-bg-green {
+    background-color: var(--theme-bg-1);
+    position: relative;
+}
+
+.card-bg-green .heart__path {
+    fill: none;
+    stroke: var(--theme-bg-2);
+    /* stroke-width: 2; */
+}
+.card-bg-green .NFT-Number{
+    background-color: var(--theme-bg-2);
+    color:  var(--theme-font-1);
+}
+
+.card-bg-green .NFT-Name{
+    color: var(--theme-font-2);
+}
+.card-bg-green .NFT-PriceBlock{
+    background-color: var(--theme-bg-2);
+}
+.card-bg-green .NFT-Price {
+    color: var(--theme-font-3);
+}
+.card-bg-green .NFT-USD {
+    color: var(--theme-font-1);
+}
+
+.card-bg-green .NFT-EndTime{
+    color: var(--theme-font-2);
+}
+@media all and (max-width: 1200px){
+    .marketPlaceMain{
+        width: 95%;
+    }
+    .marketPlaceCardBLock{
+        justify-content: center;
+    }
+    .marketPlaceTitle {
+        font-size: 26px;
+        white-space: nowrap;
+    }
+    .BuyOnOpensea{
+        width: 250px;
+        height: 60px;
+        font-size: 22px;
+    }
+    .BuyOnOpensea a{
+        padding: 14px 0px;
+    }
+    .sortSelect{
+        width: 180px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .NFTcard {
+        width: 300px;
+        margin: 10px;
+    }
+    .NFT-cardImg{
+        min-width: 150px;
+        height: 175px;
+        /* height: 100%; */
+    }
+    .card-bg-red::before{
+        content: url(/images/MarketPlace/NFT-Debut-s.png);
+    }
+    .heart{
+        width: 24px;
+        top: 2px;
+        right: 7px
+    }
+    .NFT-Number{
+        width: 60px;
+        padding: 0 6px;
+        font-size: 10px;
+        margin: 6px 3px 5px 5px
+    }
+    .NFT-Name{
+        font-size: 16px;
+        margin: 8px 10px 7px 7px;
+    }
+    .NFT-PriceBlock{
+        height: 52px;
+    }
+    .NFT-PriceIcon{
+        width: 26px;
+        margin: 5px 5px 5px 7px;
+    }
+    .NFT-Price{
+        font-size: 24px;
+    }
+    .NFT-USD{
+        font-size: 10px;
+        margin: 0 7px;
+    }
+    .NFT-EndTime{
+        font-size: 10px;
+    }
+}
+
+@media all and (max-width: 800px){
+    .marketPlaceMain{
+        padding: 80px 0 0 0;
+    }
+    .marketPlaceHeader{
+        flex-direction: column;
+        /* margin: 80px auto 0px; */
+    }
+    .BuyOnOpensea{
+        margin-top: 30px;
+    }
+    .BuyOnOpensea {
+        width: 240px;
+        /* height: 58px; */
+    }
+    .BuyOnOpensea a {
+        padding: 12px 0px;
     }
 }
