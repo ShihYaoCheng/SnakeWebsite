@@ -14,18 +14,17 @@ window.FilterButtonClick = function () {
 window.FilterArrowSlideClick = function () {
     $('.Filter-Title').click(function(){
         console.log('FilterArrowSlideClick')
-        $(this).parent().children('.Filter-Options').slideToggle();
-
+        $(this).parent().children('.Filter-Options').slideToggle('fast');
+        $(this).children('.Filter-arrow').toggleClass('Filter-arrow-toggle');
     })
     $('#Filter-mobile').click(function(){
         console.log('Filter-mobile-Slide')
-        $('.marketPlaceSidebar').slideToggle(); 
+        $('.marketPlaceSidebar').slideToggle('fast'); 
+        $('.Filter-mobile-arrow').toggleClass('Filter-mobile-arrow-toggle'); 
     })
 
-    // if($('.marketPlaceSidebar').length = 1 ){
-    //     $(document).not($('.marketPlaceSidebar')).click(function(){
-    //         $('.marketPlaceSidebar').slideUp();
-    //     });
-    // }
-
+}
+window.updateTextInput = function (val) {
+    console.log('rangeInput')
+    // $('#textInputRange').val(val);
 }

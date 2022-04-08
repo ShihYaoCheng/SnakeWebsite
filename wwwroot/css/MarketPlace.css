@@ -68,13 +68,118 @@
         background-position: center;
     }
 }
+.range-Input{
+    /* border: 1px solid red; */
+    width: 100%;
+    max-width: 250px;
+}
+#PriceRange{
+    width: 100%;
+}
+.range-Text{
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 250px;
+}
+.ra-range{
+    font-size: 14px;
+}
+
+#textInputRange{
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #253A4B;
+    background-color: #253A4B;
+    outline: none;
+    color: white;
+    border: 2px solid var(--green-2); 
+    outline: none; 
+    /* border: 0; 
+    background: none; */
+}
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+-webkit-appearance: none;
+appearance: none;
+background: transparent;
+cursor: pointer;
+width: 100%;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+background-color: #69ada2;
+border-radius: 0.5rem;
+height: 3px;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none; /* Override default look */
+appearance: none;
+margin-top: -6px; /* Centers thumb on the track */
+background-color: #ffffff;
+border-radius: 0.5rem;
+height: 14px;
+width: 14px;
+}
+
+
+input[type="range"]:focus::-webkit-slider-thumb {
+background-color: #0075ff;
+outline: 2px solid #ffffff;
+outline-offset: -0.125rem;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+background-color: #69ada2;
+border-radius: 0.5rem;
+height: 3px;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+background-color: #ffffff;
+border: none; /*Removes extra border that FF applies*/
+border-radius: 0.5rem;
+height: 14px;
+width: 14px;
+}
+
+input[type="range"]:focus::-moz-range-thumb{
+background-color: #0075ff;
+outline: 2px solid #ffffff;
+outline-offset: -0.125rem;
+}
+
+
+
+
+
+
+
 
 .Filter-Radio{
     /* width: 100%; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5px auto 10px;
+    margin: 0 auto 10px;
 }
 
 .bodyType-radio{
@@ -130,7 +235,7 @@ input[type="radio"] {
 
 .ra:checked::after {
     position: absolute;
-    height: 5px;
+    height: 4px;
     content: '';
     background: white;
     top: 40%;
@@ -200,9 +305,15 @@ input[type="radio"] {
     height: calc(100vh - 70px);
     box-shadow: 5px 5px 10px #1414142e;
 
+
     /* display: none; */
 }
 
+@media all and (min-width: 1000px){
+    .marketPlaceSidebar{
+        display: block !important;
+    }
+}
 
 #Filter-mobile{
     font-size: 26px;
@@ -267,7 +378,7 @@ input[type="radio"] {
     padding: 10px 18px;
 }
 
-.Filter-mobile-arrow{
+.Filter-mobile-slide{
     /* border: 1px solid blue; */
     cursor: pointer;
     display: flex;
@@ -317,8 +428,23 @@ input[type="checkbox"]:checked+span {
 
 
 .Filter-arrow{
-    /* margin: 5px; */
+    transition: all .1s ease-in-out;
+    transform: rotate(180deg);
 }
+.Filter-arrow-toggle{
+    transition: all .1s ease-in-out;
+    transform: rotate(0deg) !important;
+}
+.Filter-mobile-arrow{
+    margin: 5px;
+    transition: all .1s ease-in-out;
+    transform: rotate(00deg);
+}
+.Filter-mobile-arrow-toggle{
+    transition: all .1s ease-in-out;
+    transform: rotate(180deg) !important;
+}
+
 .Filter-Button{
     border: 2px solid var(--green-2);
     color:  var(--green-2);
@@ -332,9 +458,9 @@ input[type="checkbox"]:checked+span {
     min-width: 65px;
 }
 .Filter-Button:hover{
-    color: var(--green-1);
-    opacity: 0.7;
-    background-color:  var(--green-2);
+    /* color: var(--green-1); */
+    opacity: 0.8;
+    /* background-color:  var(--green-2); */
     transform: scale(1.05);
 }
 .Filter-Button-Click{
@@ -406,6 +532,7 @@ input[type="checkbox"]:checked+span {
     .marketPlaceMain{
         margin: 0 auto;
         max-width: none;
+        padding: 30px 0 0 0;
     }
 }
 
@@ -627,6 +754,9 @@ input[type="checkbox"]:checked+span {
     color: var(--theme-font-2);
 }
 @media all and (max-width: 1500px){
+    .marketPlaceHeader{
+        width: 90%;
+    }
     .marketPlaceMain{
         width: 95%;
     }
@@ -699,7 +829,7 @@ input[type="checkbox"]:checked+span {
 
 @media all and (max-width: 800px){
     .marketPlaceMain{
-        padding: 80px 0 0 0;
+        padding: 30px 0 0 0;
     }
     .marketPlaceHeader{
         flex-direction: column;
