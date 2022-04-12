@@ -17,17 +17,13 @@
                 </div>
 
                 <div class="userNumber">
-                    <p id="user_Number">@context.User.FindFirst("Name")?.Value</p>
+                    <p id="user_Number">@AppState.LoginStatus.name</p>
                 </div>
             </div>
             <img class="nav_hover_bottom" id="user_hover_bottom" src="/images/Other/nav_hover_bottom.png" alt="">
 
     </Authorized>
-    <NotAuthorized>
-        @* <li class="nav-item" id="nav-user"> *@
-            <button id="login_button" class="" @onclick="loginButtonClick" data-i18n="[html]nav.signIn">登入</button>
-        @* </li> *@
-    </NotAuthorized>
+    
 </AuthorizeView>
 
 
