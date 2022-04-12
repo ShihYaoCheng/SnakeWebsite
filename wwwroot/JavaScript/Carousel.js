@@ -9,8 +9,8 @@ window.Carousel = function (Carousel) {
     });
 }
 
-window.GameFiCarousel = function (Carousel) {
-    console.log('jq',$);
+window.GameFiCarousel = function () {
+    console.log('GameFiCarousel',$);
     $(".owl-carousel").owlCarousel({
         items: 3,
         autoplay: true,

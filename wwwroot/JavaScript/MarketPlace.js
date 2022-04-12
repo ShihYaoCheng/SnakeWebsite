@@ -1,4 +1,12 @@
 window.heartClick = function () {
+    
+    // $('NFT-Link').on('click', function(e) {
+    //     console.log(".NFTcard a")
+    //     if (e.target === $(this).find('.heart')[0]) {
+    //       e.preventDefault()
+    //     }
+    // })
+
     $('.heart, .Filter-heart').click(function(){
         console.log("heartClick")
         $(this).toggleClass('heartClickRed')
