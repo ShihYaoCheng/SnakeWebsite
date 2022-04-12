@@ -266,8 +266,9 @@ input[type="radio"] {
     width: 40px;
     top: 5px;
     right: 8px;
-    /* margin: 2px 7px; */
+    z-index: 5;
 }
+
 
 .heartClickRed .heart__path {
     fill: var(--red-1) !important;
@@ -605,6 +606,16 @@ input[type="checkbox"]:checked+span {
     display: flex;
     box-shadow: 5px 5px 10px #1414142e;
     margin: 15px;
+    transition: all .1s ease-in-out;
+    position: relative;
+}
+
+.NFTcard:hover{
+    transform: scale(1.01);
+}
+
+.NFT-Link{
+    display: contents;
 }
 
 .NFT-cardImg{

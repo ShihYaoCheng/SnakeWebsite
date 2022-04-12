@@ -66,6 +66,12 @@
     
 }
 
+.GameFi-Carousel-Block{
+    border:  1px solid red;
+    width: 90%;
+    margin: 0 auto;
+}
+
 .GameFi-Carousel-Title{
     font-size: 36px;
     color: var(--green-2);
@@ -78,13 +84,62 @@
 
 
 
+
+
+.GameFi-Carousel{
+    border: 1px solid yellow;
+    width: 90%;
+    /* height: 300px; */
+    margin: 50px auto;
+}
+
+.GameFi-Carousel-Item{
+    border: 1px solid red;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    background-color: #6F9FA5;
+    margin: 20px;
+}
+.Carousel-Item-bg{
+    width: 100%;
+    position: absolute;
+}
+.Item-Info{
+    /* border: 1px solid red; */
+    color: var(--bg-1);
+    z-index: 1;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Item-Info img{
+    width: 100px;
+    margin: 10px;
+}
+.Item-Info-01{
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.Item-Info-02{
+    font-size: 20px;
+}
+
 /* 輪播調整 */
 
 .owl-carousel{
-    z-index: 0 !important;
-
+    border: 1px solid red;
+    /* z-index: 0 !important; */
 }
-.owl-carousel .owl-item img{
+
+.owl-carousel .owl-item{
     width: unset;
 }
 
@@ -94,19 +149,22 @@
 .owl-theme .owl-nav{
     z-index: 10;
 }
+
+
 .owl-nav{
     position: absolute;
-    top: 44%;
+    top: 50%;
     width: 100%;
-    /* z-index: 10; */
+    transform: translateY(-50%);
+    /* z-index: 5; */
 }
 
-.owl-dots{
+/* .owl-dots{
     position: absolute;
     bottom: 127px;
     width: 100%;
-    /* z-index: 10; */
-}
+
+} */
 
 .owl-nav{
     display: flex;
@@ -153,53 +211,6 @@
         top: 36%;
     }
 }
-
-.GameFi-Carousel{
-    border: 1px solid yellow;
-    width: 100%;
-    /* height: 300px; */
-    margin: 50px 0;
-}
-
-.GameFi-Carousel-Item{
-    border: 1px solid red;
-    width: 300px;
-    height: 300px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 25px;
-    background-color: #6F9FA5;
-}
-.Carousel-Item-bg{
-    width: 100%;
-    position: absolute;
-}
-.Item-Info{
-    /* border: 1px solid red; */
-    color: var(--bg-1);
-    z-index: 1;
-    margin: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.Item-Info img{
-    width: 100px;
-    margin: 10px;
-}
-.Item-Info-01{
-    font-size: 36px;
-    text-align: center;
-    font-weight: bold;
-    white-space: nowrap;
-}
-.Item-Info-02{
-    font-size: 20px;
-}
-
-
 
 
 
