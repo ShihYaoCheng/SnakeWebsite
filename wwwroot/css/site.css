@@ -486,7 +486,7 @@ a, .btn-link {
 
 #user-ul li{
     color: #000;
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
 }
 

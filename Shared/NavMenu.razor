@@ -217,7 +217,7 @@
                     
                     <li class="nav-item" id="nav-user" >              
                         @*<LoginDisplay />*@
-                        <div class="user text-light nav-link">
+                        <div class="user text-light nav-link" @onclick="ToggleUserNavMenu">
                             <div class="userIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16.809" height="18.554" viewBox="0 0 16.809 18.554">
                                     <path id="userIcon" data-name="user_icon"
@@ -236,7 +236,7 @@
                         <div class="slide_button">
                             <img src="./images/Other/chevron-down.png" alt="">
                         </div>
-                        <ul class="nav_ul_slide" id="user-ul">
+                        <ul class="nav_ul_slide" id="user-ul" hidden="@collapseUserNavMenu">
                             <li id="nav_ul-myprofile">
                                 <a href="myprofile" id="mypage" data-i18n="[html]nav.Myprofile">我的主頁</a>
                                 <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
@@ -452,7 +452,9 @@
         await JS.InvokeVoidAsync("LanguageSwitch", lang);
     }
 
-    bool collapseNavMenu = true;
+    bool collapseNavMenu  = true;
+    bool collapseUserNavMenu  { get; set; }  = true;
+    
 
     string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
@@ -461,6 +463,11 @@
     void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    void ToggleUserNavMenu()
+    {
+        collapseUserNavMenu = !collapseUserNavMenu;
     }
 
     void CollapseNavMenu()
