@@ -7,11 +7,11 @@
 
         public string NftName { get; set; }
 
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } //圖片
 
-        public double Price { get; set; }
+        public double Price { get; set; } //現價
 
-        public DateTime UnBoxingTime { get; set; }
+        public DateTime UnBoxingTime { get; set; } //拍賣截止日期
 
 
 
