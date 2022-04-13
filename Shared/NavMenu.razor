@@ -128,10 +128,6 @@
                                 <a href="" data-i18n="nav.Home">首頁</a>
                                 <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
                             </li>
-                            @* <li>
-                                <a href="#index01" data-i18n="nav.NewEvent">最新活動</a>
-                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
-                            </li> *@
 
                             <li>
                                 <a href="#character" data-i18n="nav.Knight">角色介紹</a>
@@ -187,19 +183,11 @@
                                 <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
                             </li>
 
-                            @* <li id="nav_ul-ACLIndex">
-                                <a href="ACLIndex" data-i18n="nav.ACLIndex">亞洲聯賽S1</a>
-                                <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
-                            </li> *@
 
                             <li id="nav_LunarNewYear">
                                 <a href="LunarNewYear" data-i18n="nav.FestivalLeague">節慶賽</a>
                                 <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
                             </li>
-
-                            @* <li id="nav_ChristmasIndex">
-                                <a href="ChristmasIndex" data-i18n="nav.ChristmasLeague">聖誕節慶賽</a>
-                            </li> *@
 
                         </ul>
                     </li>
@@ -217,7 +205,9 @@
                     
                     <li class="nav-item" id="nav-user" >              
                         @*<LoginDisplay />*@
-                        <div class="user text-light nav-link" @onclick="ToggleUserNavMenu">
+
+                        @* <div class="user text-light nav-link" @onclick="ToggleUserNavMenu"> *@
+                        <div class="user text-light nav-link">
                             <div class="userIcon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16.809" height="18.554" viewBox="0 0 16.809 18.554">
                                     <path id="userIcon" data-name="user_icon"
@@ -236,7 +226,8 @@
                         <div class="slide_button">
                             <img src="./images/Other/chevron-down.png" alt="">
                         </div>
-                        <ul class="nav_ul_slide" id="user-ul" hidden="@collapseUserNavMenu">
+                        @* <ul class="nav_ul_slide" id="user-ul" hidden="@collapseUserNavMenu"> *@
+                        <ul class="nav_ul_slide" id="user-ul">
                             <li id="nav_ul-myprofile">
                                 <a href="myprofile" id="mypage" data-i18n="[html]nav.Myprofile">我的主頁</a>
                                 <img class="li_bottom" src="/images/Other/li_bottom.png" alt="">
@@ -403,6 +394,7 @@
             await loginCloseClick();
             await JS.InvokeVoidAsync("myprofileSidebar");
             await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("navbarSlide");
             //HandleClick();
             
         }

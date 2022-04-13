@@ -28,7 +28,7 @@ window.displayAlert = (text) => {
 window.navbarSlide = function (navbarSlide) {
     var navbarSlideContainer = $('.nav-link, .nav-item, .slide_button, .slide_button img, .userIcon, .userNumber, .userNumber p, #userIcon, .nav-link img, .nav-link p');
 
-    $('.nav-item').click(function (e) {
+    $('.nav-item').unbind('click').click(function (e) {
 
         if($(e.target).is(navbarSlideContainer)){
             if($(this).children('.nav_ul_slide').css('display') === 'none')$('.nav_ul_slide').slideUp();
@@ -43,7 +43,7 @@ window.navbarSlide = function (navbarSlide) {
     });
 
     // 如果點擊nav-link以外的地方，下拉選單收起
-    $("body").click(function(e){
+    $("body").unbind('click').click(function(e){
         if(!navbarSlideContainer.is(e.target) &&
         !navbarSlideContainer.has(e.target).length){
             $('.nav_ul_slide').slideUp("fast");
@@ -51,10 +51,10 @@ window.navbarSlide = function (navbarSlide) {
     });
 
 
-    $(".navbar-toggler").click(function(){
+    $(".navbar-toggler").unbind('click').click(function(){
         $('.navbar-collapse').slideToggle("fast");
     })
-
+    console.log('navbarSlide init');
 }
 
 

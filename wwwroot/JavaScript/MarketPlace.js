@@ -8,7 +8,6 @@ window.heartClick = function () {
     // })
 
     $('.heart, .Filter-heart').click(function(){
-        console.log("heartClick")
         $(this).toggleClass('heartClickRed')
     })
 }

@@ -20,13 +20,11 @@ window.installI18n = async function () {
     function (err, t) {
       jqueryI18next.init(i18next, $);
       $("body").localize();
-      console.log('i18 init');
       $("#Language_Select").val(lang ? lang : defaultLang)
     }
   );
   $("#Language_Select").unbind('change').on("change", (e) => {
     localStorage.lang = e.target.value
     LanguageSwitch(e.target.value); 
-    console.log('Language_Select change');
   });
 }
