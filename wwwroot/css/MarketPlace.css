@@ -307,6 +307,7 @@ input[type="radio"] {
     margin-top: 69px;
     height: calc(100vh - 70px);
     box-shadow: 5px 5px 10px #1414142e;
+    z-index: 9;
 
 
     /* display: none; */
@@ -328,6 +329,8 @@ input[type="radio"] {
     padding: 5px 18px 3px;
     border-bottom: 1.8px solid var(--green-2);
     box-shadow: 5px 5px 10px #1414142e;
+    position: fixed;
+    z-index: 10;
 
     display: none;
 }
@@ -337,7 +340,7 @@ input[type="radio"] {
         display: block;
     }
     .marketPlaceSidebar{
-        margin-top: 0;
+        margin-top: 118px;
         display: none;
     }
 }
@@ -346,6 +349,7 @@ input[type="radio"] {
         margin-top: 57px;
     }
     .marketPlaceSidebar{
+        margin-top: 106px;
         height: calc(100vh - 57px);
     }
 }
@@ -354,6 +358,7 @@ input[type="radio"] {
 .marketPlaceSidebar-scroll{
     overflow-y: auto;
     height: 100%;
+    padding-bottom: 50px;
 }
 /* 改scrollbar樣式 */
 .marketPlaceSidebar-scroll::-webkit-scrollbar {
@@ -535,7 +540,7 @@ input[type="checkbox"]:checked+span {
     .marketPlaceMain{
         margin: 0 auto;
         max-width: none;
-        padding: 30px 0 0 0;
+        padding: 147px 0 0 0;
     }
 }
 
@@ -555,6 +560,11 @@ input[type="checkbox"]:checked+span {
     font-weight: bold;
     padding: 0;
     white-space: nowrap;
+    border: none;
+}
+.BuyOnOpensea:hover{
+    transition: all .1s ease-in-out;
+    transform: scale(1.01);
 }
 .BuyOnOpensea a{
     /* border: 1px solid red; */
@@ -842,7 +852,7 @@ input[type="checkbox"]:checked+span {
 
 @media all and (max-width: 800px){
     .marketPlaceMain{
-        padding: 30px 0 0 0;
+        padding: 147px 0 0 0;
     }
     .marketPlaceHeader{
         flex-direction: column;

@@ -39,6 +39,8 @@
     
     --bg-1: #253A4B;
     --bg-2: #1f3240;
+
+    --button-1: #ffa71d;
 }
 
 .GameFiBackground {
@@ -51,10 +53,10 @@
     background: var(--bg-1);
 }
 .GameFi{
-    border:  1px solid red;
-    max-width: 1920px;
+    /* border:  1px solid red; */
+    /* max-width: 1920px; */
     width: 100%;
-    padding: 100px 20px 0 20px;
+    padding: 150px 0px 0px 0px;
     margin: 0 auto;
 }
 
@@ -63,38 +65,54 @@
     color: var(--green-2);
     font-weight: bold;
     text-align: center;
-    
+    line-height: 48px;
+    margin: 0px auto 100px;
 }
-
-.GameFi-Carousel-Block{
-    border:  1px solid red;
+.GameFi-Block{
+    width: 100%;
+}
+.GameFi-Paragraph{
+    /* border:  1px solid red; */
+    max-width: 1200px;
     width: 90%;
-    margin: 0 auto;
+    margin: 30px auto 40px;
 }
 
-.GameFi-Carousel-Title{
+.GameFi-Paragraph-Title{
     font-size: 36px;
     color: var(--green-2);
     line-height: 40px;
+    margin: 10px auto 5px;
 }
-.GameFi-Carousel-Txt{
+.GameFi-Paragraph-Txt{
     font-size: 24px;
     color: var(--green-2);
+    line-height: 30px;
+    margin: 0px auto 10px;
+}
+.GameFi-Paragraph-Txt-02{
+    font-size: 18px;
+    color: var(--green-2);
+    line-height: 28px;
 }
 
-
-
-
-
-.GameFi-Carousel{
-    border: 1px solid yellow;
+.Carousel-All{
+    position: relative;
+    max-width: 1350px;
+    width: 95%;
+    margin: 0 auto;
+}
+.GameFi-Carousel-Block{
+    /* border: 1px solid yellow; */
+    max-width: 1200px;
     width: 90%;
     /* height: 300px; */
     margin: 50px auto;
+    /* padding: 0 20px !important; */
 }
 
 .GameFi-Carousel-Item{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 300px;
     height: 300px;
     position: relative;
@@ -103,7 +121,7 @@
     justify-content: center;
     border-radius: 25px;
     background-color: #6F9FA5;
-    margin: 20px;
+    margin: 0px auto;
 }
 .Carousel-Item-bg{
     width: 100%;
@@ -133,87 +151,422 @@
 }
 
 /* 輪播調整 */
-
-.owl-carousel{
-    border: 1px solid red;
-    /* z-index: 0 !important; */
-}
-
-.owl-carousel .owl-item{
-    width: unset;
-}
-
-.owl-carousel .owl-stage-outer{
-    /* z-index: 0; */
-}
-.owl-theme .owl-nav{
-    z-index: 10;
-}
-
-
-.owl-nav{
+.swiper-button{
+    position: relative;
     position: absolute;
-    top: 50%;
+    top: 40%;
     width: 100%;
-    transform: translateY(-50%);
-    /* z-index: 5; */
 }
-
-/* .owl-dots{
-    position: absolute;
-    bottom: 127px;
-    width: 100%;
-
-} */
-
-.owl-nav{
-    display: flex;
-    justify-content: space-between;
+.swiper-button-prev, .swiper-button-next{
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 40% !important;
+    width: 40px !important;
+    height: 65px !important;
+    transition: all .1s ease-in-out;
 }
-
-.owl-theme .owl-nav [class*=owl-]{
-    font-size: 110px !important;
-    color: #FFF !important;
-    margin: 0 20px !important;
+.swiper-button-prev:hover, .swiper-button-next:hover{
     opacity: 0.8;
 }
+.swiper-button-prev{
+    background-image: url(/images/GameFi/button-prev.png);
+    left: 0px !important;
+}
+.swiper-button-prev:after{
+    content: ''!important;
+}
+.swiper-button-next{
+    background-image: url(/images/GameFi/button-next.png);
+    right: 0px !important;
+}
+.swiper-button-next:after{
+    content: ''!important;
+}
+.swiper-pagination{
+    bottom: 0 !important;
+}
 
-.owl-theme .owl-nav [class*=owl-]:hover {
-    background: none !important;
-    color: #d5c3ae !important;
+.swiper-pagination-bullet{
+    width: 20px !important;
+    height: 20px !important;
+    background: #276170 !important;
+    opacity: 1 !important;
+    margin: 0 7px !important;
+    transition: all .1s ease-in-out;
+}
+.swiper-pagination-bullet:hover{
+    opacity: 0.7 !important;
+}
+.swiper-pagination-bullet-active{
+    background: #66AEA2 !important;
+    opacity: 1 !important;
+}
+
+
+#GameFi-Carousel{
+    /* width: 90% !important; */
+    max-width: 1200px !important;
+    margin-bottom: 45px;
+    justify-content: space-between;
+}
+@media all and (max-width: 1000px){
+    .GameFi-Carousel-Block{
+        width: 85% !important;
+    }
+}
+@media all and (max-width: 800px){
+    .swiper-button-prev, .swiper-button-next{
+        width: 30px !important;
+        height: 50px !important;
+    }
+    .GameFi-Carousel-Item{
+        width: 250px;
+        height: 250px;
+    }
+    .swiper-pagination-bullet{
+        width: 15px !important;
+        height: 15px !important;
+        margin: 0 6px !important;
+    }
+}
+
+@media all and (max-width: 500px){
+
+
+}
+
+
+/* Snake-Rider 介紹區 */
+
+.GameFi-Background-Block{
+    background: var(--bg-2);
+    padding: 50px 0 50px 0;
+}
+
+.PPSR-Block, .Chart-Block{
+    /* border: 1px solid yellow; */
+    max-width: 1350px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#PPSR-Rider-All{
+    opacity: 0.3;
+}
+
+.PPSR-Rider, .Pie-Chart{
+    /* border: 1px solid rgb(45, 214, 236); */
+    width: 609px;
+    height: 530px;
+    margin: 0 30px;
+}
+.PPSR-Rider{
+    position: relative;
+}
+
+.PPSR-Rider-Block{
+    /* border: 1px solid red; */
+    position: absolute;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
     opacity: 1;
 }
-
-@media all and (max-width: 1920px){
-    .owl-theme .owl-nav [class*=owl-]{
-        font-size: 100px !important;
-    }
-    .owl-nav{
-        top: 40%;
-    }
+.PPSR-Rider-Block img{
+    width: 100%;
+}
+/* .PPSR-Rider-Block:hover{
+    transition: all .1s ease-in-out;
+    transform: scale(1.03);
+    z-index: 5 !important;
+    filter: drop-shadow(rgb(255, 255, 255) 1px 1px 10px);
+} */
+.PPSR-Rider-Block-Hover{
+    /* transition: all .1s ease-in-out; */
+    transform: scale(1.03);
+    z-index: 5 !important;
+    filter: drop-shadow(rgb(255, 255, 255) 1px 1px 10px) !important;
+}
+.PPSR-Rider-Block-notHover{
+    /* transition: all .1s ease-in-out; */
+    opacity: 0.3;
+    /* z-index: 0 !important; */
+    /* pointer-events: none; */
+}
+/* #Rider-Snake{
+    top: 0;
+    right: 0;
+    border-radius: 71% 0 64% 0;
+    overflow: hidden;
+} */
+#Rider-Snake{
+    top: -10px;
+    right: -15px;
+    border-radius: 71% 0 64% 0;
+    overflow: hidden;
+    /* clip-path: polygon(69% 0, 64% 0%, 60% 5%, 54% 3%, 49% 2%, 43% 1%, 43% 6%, 46% 12%, 39% 9%, 34% 11%, 33% 17%, 37% 22%, 32% 21%, 29% 23%, 21% 27%, 15% 32%, 9% 37%, 5% 42%, 5% 50%, 2% 55%, 0 62%, 0 77%, 0 86%, 4% 96%, 15% 100%, 51% 100%, 55% 98%, 60% 98%, 69% 92%, 75% 89%, 81% 82%, 87% 78%, 88% 69%, 88% 60%, 80% 54%, 69% 52%, 66% 56%, 61% 59%, 53% 61%, 47% 66%, 41% 69%, 33% 68%, 28% 66%, 29% 59%, 32% 56%, 37% 52%, 42% 48%, 48% 48%, 53% 48%, 61% 48%, 65% 48%, 74% 55%, 88% 56%, 94% 53%, 100% 45%, 100% 39%, 100% 15%, 94% 10%, 88% 11%, 84% 9%, 82% 6%, 76% 0); */
+    clip-path: polygon(69% 0, 64% 0%, 60% 5%, 54% 3%, 49% 2%, 43% 1%, 43% 6%, 46% 12%, 39% 9%, 34% 11%, 33% 17%, 37% 22%, 32% 21%, 29% 23%, 21% 27%, 15% 32%, 9% 37%, 5% 42%, 5% 50%, 2% 55%, 0 62%, 0 77%, 0 86%, 4% 96%, 15% 100%, 51% 100%, 55% 98%, 60% 98%, 69% 92%, 75% 89%, 81% 82%, 87% 78%, 88% 69%, 88% 60%, 80% 54%, 65% 51%, 66% 56%, 61% 59%, 53% 61%, 47% 66%, 41% 69%, 33% 68%, 28% 66%, 29% 62%, 33% 58%, 37% 53%, 42% 51%, 47% 50%, 51% 50%, 58% 49%, 62% 50%, 74% 55%, 88% 56%, 94% 53%, 100% 45%, 100% 39%, 100% 15%, 94% 10%, 88% 11%, 84% 9%, 82% 6%, 76% 0);
+    -webkit-clip-path: polygon(69% 0, 64% 0%, 60% 5%, 54% 3%, 49% 2%, 43% 1%, 43% 6%, 46% 12%, 39% 9%, 34% 11%, 33% 17%, 37% 22%, 32% 21%, 29% 23%, 21% 27%, 15% 32%, 9% 37%, 5% 42%, 5% 50%, 2% 55%, 0 62%, 0 77%, 0 86%, 4% 96%, 15% 100%, 51% 100%, 55% 98%, 60% 98%, 69% 92%, 75% 89%, 81% 82%, 87% 78%, 88% 69%, 88% 60%, 80% 54%, 65% 51%, 66% 56%, 61% 59%, 53% 61%, 47% 66%, 41% 69%, 33% 68%, 28% 66%, 29% 62%, 33% 58%, 37% 53%, 42% 51%, 47% 50%, 51% 50%, 58% 49%, 62% 50%, 74% 55%, 88% 56%, 94% 53%, 100% 45%, 100% 39%, 100% 15%, 94% 10%, 88% 11%, 84% 9%, 82% 6%, 76% 0);
+    /* width: 490px;
+    height: 440px; */
+    padding: 15px;
 }
 
-@media all and (max-width: 1400px){
-    .owl-theme .owl-nav [class*=owl-]{
-        font-size: 90px !important;
-        margin: 0 14px !important;
-    }
-    .owl-nav{
-        top: 40%;
-    }
+#Rider-Knight {
+    top: 89px;
+    left: 238px;
+    border-radius: 56px 63px 61px 135px;
+    overflow: hidden;
+    z-index: 2;
 }
-@media all and (max-width: 1200px){
-    .owl-theme .owl-nav [class*=owl-]{
-        font-size: 90px !important;
-        margin: 0 7px !important;
-    }
-    .owl-nav{
-        top: 36%;
-    }
+#Rider-Weapon {
+    bottom: 0px;
+    left: 0px;
+    border-radius: 87% 0% 77% 0%;
+    overflow: hidden;
+    /* z-index: 3; */
+}
+#Rider-Pet {
+    bottom: 65px;
+    right: 21px;
+    border-radius: 0 50% 0 50%;
+    overflow: hidden;
+    /* z-index: 4; */
 }
 
 
 
+.Pie-Chart img{
+    width: 557px;
+}
+.Info-Area{
+    /* border: 1px solid rgb(241, 111, 230); */
+    /* width: 100%; */
+    margin: 0 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.Button-Title{
+    font-size: 18px;
+    color: var(--green-2);
+    line-height: 30px;
+    margin: 5px 0;
+}
+
+
+
+.Link-Button{
+    max-width: 488px;
+    width: 100%;
+    height: 75px;
+    border-radius: 16px;
+    background-color: var(--button-1);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0;
+    white-space: nowrap;
+    border: none;
+}
+.Link-Button:hover{
+    transition: all .1s ease-in-out;
+    transform: scale(1.01);
+}
+.Link-Button a{
+    /* border: 1px solid red; */
+    padding: 17px 30px;
+    text-decoration: none;
+}
+
+.Info-Area .GameFi-Paragraph-Txt-02{
+    margin: 130px 0 100px;
+    max-width: 450px;
+}
+.Chart-Info .GameFi-Paragraph-Txt-02{
+
+}
+#GameFi-Block-Ecosystem{
+    padding: 70px 0;
+}
+#GameFi-Block-Ecosystem .GameFi-Paragraph-Txt-02{
+    margin: 25px 0;
+}
+
+.Ecosystem-Block{
+    /* border: 1px solid red; */
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.Ecosystem-Item{
+    /* border: 1px solid red; */
+    background-color: var(--green-1);
+    border-radius: 15px;
+    display: flex;
+    margin: 30px 0;
+    padding: 45px 30px 45px 0 
+}
+
+.Ecosystem-Item-Icon{
+    /* border: 1px solid red; */
+    max-width: 330px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 30px;
+}
+.Ecosystem-Item-Icon img{
+    width: 150px;
+    /* margin: 0 50px; */
+}
+
+.Ecosystem-Item-Info{
+    /* padding: 50px 10px ; */
+    width: 75%;
+}
 @media all and (max-width: 800px){
+    .Ecosystem-Item{
+        flex-direction: column;
+        align-items: center;
+        padding: 45px 30px;
+    }
+    .Ecosystem-Item-Icon img {
+        width: 120px;
+    }
+    .Ecosystem-Item-Info >.GameFi-Paragraph-Txt{
+        text-align: center !important;
+    }
+    .Ecosystem-Item-Info{
+        width: 90%;
+    }
+    .Ecosystem-Item-Info{
+        margin-top: 30px;
+    }
+}
 
+
+.Ecosystem-Item .GameFi-Paragraph-Txt-02 {
+    margin: 25px 0 0 !important;
+}
+
+.Roadmap-All{
+    /* border: 1px solid red; */
+    max-width: 1350px;
+    width: 90%;
+    margin: 0 auto 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.Roadmap-Item{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    max-width: 290px;
+    min-width: 200px;
+    width: 100%;
+}
+.Roadmap-PC-Title{
+    
+}
+.Roadmap-Item-Block{
+    /* border: 1px solid red; */
+    background-color: var(--green-1);
+
+    height: 293px;
+    border-radius: 30px;
+    position: relative;
+    padding: 15px 30px;
+    background-size: auto;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+#Roadmap-Item-Block-01{
+    background-image: url(/images/GameFi/06-2022Q1.png);
+}
+#Roadmap-Item-Block-02{
+    background-image: url(/images/GameFi/06-2022Q2.png);
+}
+#Roadmap-Item-Block-03{
+    background-image: url(/images/GameFi/06-2022Q3.png);
+}
+#Roadmap-Item-Block-04{
+    background-image: url(/images/GameFi/06-2022Q4.png);
+}
+
+.Roadmap-Item-List{
+    color: var(--green-2);
+    font-size: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+.Roadmap-Item-List li{
+    padding-left: 30px;
+    text-indent: -25px;
+    line-height: 36px;
+
+}
+.Roadmap-Item-List img{
+    margin: 0px 5px;
+}
+
+.Roadmap-Mobile{
+    text-align: center;
+}
+.Roadmap-Mobile-Title{
+    font-size: 36px;
+    color: var(--green-2);
+    line-height: 40px;
+    /* margin: 0px auto 0; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    white-space: nowrap;
+
+    display: none;
+}
+
+
+@media all and (max-width: 500px){
+    .Roadmap-PC-Title{
+        display: none;
+    }
+    .Roadmap-Mobile-Title{
+        display: flex;
+    }
+    .Roadmap-Mobile-Slide{
+        display: none;
+    }
+    .Roadmap-Item-Block{
+        height: unset;
+        /* background-image: none !important; */
+        background-size: auto;
+        background-position: center center;
+    }
+    .Roadmap-Item-BG{
+        background-position: bottom center;
+    }
+    .Roadmap-All{
+        flex-direction: row;
+    }
+}
+@media all and (min-width: 501px){
+    .Roadmap-Mobile-Slide{
+        display: block !important;
+    }
+}
+.Filter-arrow-toggle{
+    transition: all .1s ease-in-out;
+    transform: rotate(180deg) !important;
 }
