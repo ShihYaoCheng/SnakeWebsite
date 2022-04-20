@@ -14,6 +14,7 @@ using SnakeAsianLeague.Data.Entity.Config;
 using SnakeAsianLeague.Data.Services;
 using SnakeAsianLeague.Data.Services.Backstage;
 using SnakeAsianLeague.Data.Services.Interface;
+using SnakeAsianLeague.Data.Services.MarketPlace;
 using SnakeAsianLeague.Data.Services.Metamask;
 using SnakeAsianLeague.Data.Services.SnakeServerService;
 using System.Text;
@@ -46,6 +47,7 @@ builder.Services.AddSingleton<S2PrizeService>();
 builder.Services.AddSingleton<AsiaLeagueFinalQualifiedIdentityService>();
 builder.Services.AddSingleton<AwardService>();
 builder.Services.AddSingleton<NFTService>();
+builder.Services.AddSingleton<OptionService>();
 
 builder.Services.Configure<ExternalServers>(builder.Configuration.GetSection("ExternalServers"));
 builder.Services.AddScoped<AppState>();
