@@ -66,10 +66,11 @@
     font-weight: bold;
     text-align: center;
     line-height: 48px;
-    margin: 0px auto 100px;
+    margin: 0px auto 50px;
 }
 .GameFi-Block{
     width: 100%;
+    padding: 50px 0;
 }
 .GameFi-Paragraph{
     /* border:  1px solid red; */
@@ -148,6 +149,38 @@
 }
 .Item-Info-02{
     font-size: 20px;
+}
+
+@media all and (max-width: 800px){
+    .GameFi-Title{
+        font-size: 40px;
+        margin: 0px auto 30px;
+    }
+    .GameFi-Paragraph-Title{
+        font-size: 32px;
+        line-height: 36px;
+    }
+    .GameFi-Paragraph-Txt{
+        font-size: 20px;
+    }
+    .GameFi-Block {
+        padding: 30px 0;
+    }
+}
+@media all and (max-width: 600px){
+    .GameFi{
+        padding: 120px 0px 0px 0px;
+    }
+    .GameFi-Title{
+        font-size: 30px;
+        margin: 0px auto 0px;
+    }
+    .Item-Info-01{
+        font-size: 30px;
+    }
+    .Item-Info-02{
+        line-height: 26px;
+    }
 }
 
 /* 輪播調整 */
@@ -230,11 +263,12 @@
     }
 }
 
-@media all and (max-width: 500px){
-
-
+@media all and (max-width: 600px){
+    .GameFi-Paragraph-Title {
+        font-size: 28px;
+        margin: 10px auto 15px;
+    }
 }
-
 
 /* Snake-Rider 介紹區 */
 
@@ -243,7 +277,7 @@
     padding: 50px 0 50px 0;
 }
 
-.PPSR-Block, .Chart-Block{
+.PPSR-Block{
     /* border: 1px solid yellow; */
     max-width: 1350px;
     width: 90%;
@@ -257,12 +291,13 @@
     opacity: 0.3;
 }
 
-.PPSR-Rider, .Pie-Chart{
+.PPSR-Rider{
     /* border: 1px solid rgb(45, 214, 236); */
     width: 609px;
     height: 530px;
     margin: 0 30px;
 }
+
 .PPSR-Rider{
     position: relative;
 }
@@ -272,17 +307,13 @@
     position: absolute;
     cursor: pointer;
     transition: all .1s ease-in-out;
-    opacity: 1;
+    /* width: 30%; */
+    /* opacity: 0.3; */
 }
 .PPSR-Rider-Block img{
     width: 100%;
 }
-/* .PPSR-Rider-Block:hover{
-    transition: all .1s ease-in-out;
-    transform: scale(1.03);
-    z-index: 5 !important;
-    filter: drop-shadow(rgb(255, 255, 255) 1px 1px 10px);
-} */
+
 .PPSR-Rider-Block-Hover{
     /* transition: all .1s ease-in-out; */
     transform: scale(1.03);
@@ -295,12 +326,7 @@
     /* z-index: 0 !important; */
     /* pointer-events: none; */
 }
-/* #Rider-Snake{
-    top: 0;
-    right: 0;
-    border-radius: 71% 0 64% 0;
-    overflow: hidden;
-} */
+
 #Rider-Snake{
     top: -10px;
     right: -15px;
@@ -319,7 +345,7 @@
     left: 238px;
     border-radius: 56px 63px 61px 135px;
     overflow: hidden;
-    z-index: 2;
+    /* z-index: 2; */
 }
 #Rider-Weapon {
     bottom: 0px;
@@ -334,16 +360,204 @@
     border-radius: 0 50% 0 50%;
     overflow: hidden;
     /* z-index: 4; */
+
 }
 
 
 
-.Pie-Chart img{
-    width: 557px;
+/* SVG 線動畫 */
+.line-Rider{
+    /* border: 1px solid red; */
+    position: absolute;
+    opacity: 1;
+
+    z-index: 10;
+
+    display: none;
 }
+.Info-Rider{
+    position: absolute;
+    font-size: 38px;
+    color: #ffffff;
+    z-index: 10;
+    text-shadow: 0px 0px 5px #98ECFF ;
+    display: block !important;
+
+
+    opacity: 0;
+    z-index: -1;
+}
+
+.Info-Rider-show{
+    opacity: 1 !important;
+    z-index: 10 !important;
+    display: block !important;
+    transition: all 0.1s ease-in-out; 
+    transition-delay: 0.4s;
+}
+
+#line-Rider-Snake{
+    width: 204px;
+    height: 57px;
+    bottom: 30px;
+    left: 227px;
+}
+#Info-Rider-Snake{
+    bottom: 13px;
+    left: 430px;
+}
+
+#line-Rider-Knight{
+    width: 81px;
+    height: 135px;
+    top: -9px;
+    left: 452px;
+}
+#Info-Rider-Knight{
+    top: -54px;
+    left: 504px;
+}
+
+#line-Rider-Weapon{
+    width: 51px;
+    height: 172px;
+    bottom: 160px;
+    left: 300px;
+}
+#Info-Rider-Weapon{
+    bottom: 328px;
+    left: 273px;
+}
+
+#line-Rider-Pet{
+    width: 67px;
+    height: 170px;
+    bottom: 245px;
+    right: 43px;
+}
+#Info-Rider-Pet{
+    bottom: 403px;
+    right: 25px;
+}
+
+#Rider-Pet{
+    animation: Rider-Block-Shadow 3s infinite;
+    /* opacity: 1; */
+}
+
+
+@keyframes Rider-Block-Shadow{
+    0%{ 
+        margin-bottom: 20px;
+        transform: scale(1.03);
+        filter: drop-shadow(rgba(255, 255, 255, 0.7) 1px 1px 10px)
+    }
+    50%{
+        margin-bottom: 0px;
+        transform: scale(1.0);
+        filter: drop-shadow(rgba(255, 255, 255, 0.7) 1px 1px 2px)
+    }
+    100%{
+        /* transform: translateY(20px); */
+        margin-bottom: 20px;
+        transform: scale(1.03);
+        filter: drop-shadow(rgb(255, 255, 255, 0.7) 1px 1px 10px)
+    }
+}
+.Rider-first{
+    opacity: 0.5;
+}
+.PPSR-Click-Icon{
+    /* border: 1px solid red; */
+    width: 100px;
+    position: absolute;
+    right: -10px;
+    bottom: 60px;
+    filter: drop-shadow(0px 0px 10px rgba(27, 27, 27, 0.8));
+
+    animation: PPSR-Click-Icon 1.5s infinite;
+}
+@keyframes PPSR-Click-Icon{
+    0%{ 
+        transform: translateX(80px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+.PPSR-Click-Icon img{
+    width: 100%;
+}
+
+
+
+
+
+#line-Rider-Knight path{
+    stroke-dasharray: 381;
+    /* stroke-dashoffset: 0; */
+    animation: line-Rider-Knight 0.4s linear forwards;
+}
+
+@keyframes line-Rider-Knight {
+    from {
+      stroke-dashoffset: -381;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+
+#line-Rider-Snake path{
+    stroke-dasharray: 255;
+    /* stroke-dashoffset: 0; */
+    animation: line-Rider-Snake 0.4s linear forwards;
+}
+
+@keyframes line-Rider-Snake {
+    from {
+      stroke-dashoffset: 255;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+
+#line-Rider-Weapon path{
+    stroke-dasharray: 186;
+    /* stroke-dashoffset: 0; */
+    animation: line-Rider-Weapon 0.4s linear forwards;
+}
+
+@keyframes line-Rider-Weapon {
+    from {
+      stroke-dashoffset: 186;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+
+#line-Rider-Pet path{
+    stroke-dasharray: 203;
+    /* stroke-dashoffset: 0; */
+    animation: line-Rider-Pet 0.4s linear forwards;
+}
+
+@keyframes line-Rider-Pet {
+    from {
+      stroke-dashoffset: 203;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+
+
 .Info-Area{
     /* border: 1px solid rgb(241, 111, 230); */
-    /* width: 100%; */
+    width: 100%;
+    max-width: 488px;
     margin: 0 50px 50px;
     display: flex;
     flex-direction: column;
@@ -377,7 +591,7 @@
 }
 .Link-Button a{
     /* border: 1px solid red; */
-    padding: 17px 30px;
+    /* padding: 17px 30px; */
     text-decoration: none;
 }
 
@@ -385,9 +599,124 @@
     margin: 130px 0 100px;
     max-width: 450px;
 }
-.Chart-Info .GameFi-Paragraph-Txt-02{
+
+
+@media all and (max-width: 800px){
+    .PPSR-Rider{
+        margin: 0;
+    }
+}
+@media all and (max-width: 700px){
+    #PPSR-Rider-All{
+        width: 100%;
+    }
+    .PPSR-Rider{
+        margin: 0;
+        width: 360px;
+        height: 313px;
+    }
+    #Rider-Snake{
+        width: 300px;
+        top: -10px;
+        right: -15px;
+    }
+    
+    #Rider-Knight {
+        width: 124px;
+        top: 53px;
+        left: 140px;
+    }
+    #Rider-Weapon {
+        width: 165px;
+        bottom: 0px;
+        left: 0px;
+    }
+    #Rider-Pet {
+        width: 96px;
+        bottom: 38px;
+        right: 13px;
+    }
+    .Info-Rider{
+        font-size: 24px;
+    }
+    
+    #line-Rider-Snake{
+        width: 120px;
+        /* height: 57px; */
+        bottom: 20px;
+        left: 127px;
+    }
+    #Info-Rider-Snake{
+        bottom: 21px;
+        left: 247px;
+    }
+
+    #line-Rider-Knight{
+        width: 51px;
+        height: 135px;
+        top: 30px;
+        left: 260px;
+    }
+    #Info-Rider-Knight{
+        top: 25px;
+        left: 275px;
+    }
+
+    #line-Rider-Weapon{
+        width: 30px;
+        /* height: 172px; */
+        bottom: 60px;
+        left: 175px;
+    }
+    #Info-Rider-Weapon{
+        bottom: 195px;
+        left: 155px;
+    }
+
+    #line-Rider-Pet{
+        width: 35px;
+        /* height: 170px; */
+        bottom: 105px;
+        right: 40px;
+    }
+    #Info-Rider-Pet{
+        bottom: 230px;
+        right: 30px;
+    }
+
+    .PPSR-Click-Icon{
+        /* border: 1px solid red; */
+        width: 70px;
+        position: absolute;
+        right: -10px;
+        bottom: 35px;
+        filter: drop-shadow(0px 0px 10px rgba(27, 27, 27, 0.8));
+    
+        animation: PPSR-Click-Icon 1.5s infinite;
+    }
+    .Info-Area{
+        margin: 0 0px 50px;
+    }
+    .Info-Area .GameFi-Paragraph-Txt-02{
+        margin: 80px 0 50px;
+    }
+    .Link-Button{
+        height: 55px;
+        font-size: 20px;
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
 #GameFi-Block-Ecosystem{
     padding: 70px 0;
 }
@@ -395,11 +724,13 @@
     margin: 25px 0;
 }
 
+
+
 .Ecosystem-Block{
     /* border: 1px solid red; */
     max-width: 1200px;
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 80px;
 }
 
 .Ecosystem-Item{
@@ -419,16 +750,157 @@
     justify-content: center;
     align-items: center;
     margin: 0 30px;
+    animation: Item-Icon-Move 3s 0s infinite;
 }
 .Ecosystem-Item-Icon img{
     width: 150px;
     /* margin: 0 50px; */
 }
 
+@keyframes Item-Icon-Move{
+
+    0%{
+        transform: translateY(10px);
+    }
+
+    50%{
+        transform: translateY(-10px);
+    }
+
+    100%{
+        transform: translateY(10px);
+    }
+}
 .Ecosystem-Item-Info{
     /* padding: 50px 10px ; */
     width: 75%;
 }
+
+
+
+.Ecosystem-Item .GameFi-Paragraph-Txt-02 {
+    margin: 25px 0 0 !important;
+}
+
+.Ecosystem-Circle{
+    /* border: 1px solid yellow; */
+    max-width: 950px;
+    width: 90%;
+    margin: 0 auto;
+    height: 950px;
+    position: relative;
+}
+
+.Ecosystem-Circle-Item{
+    /* border: 1px solid rgb(129, 201, 237); */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 18px;
+    max-width: 270px;
+    width: 100%;
+    /* height: 372px; */
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: nowrap;
+    position: absolute;
+}
+.Circle-Item-Icon{
+    max-width: 110px;
+    width: 50%;
+    margin: 5px;
+}
+.Circle-Item-Title{
+    background-color: var(--green-2);
+    color: white;
+    border-radius: 30px;
+    padding: 5px 40px;
+    margin: 8px;
+}
+.Circle-Item-Txt{
+    background-color: var(--green-1);
+    color: var(--green-2);
+    border-radius: 30px;
+    padding: 5px 40px;
+    margin: 4px;
+}
+
+#Circle-Item-01{
+    transform: translateX(-50%);
+    left: 50%;
+    /* margin: 30px 0 0 0; */
+}
+#Circle-Item-02{
+    flex-direction: column;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0%;
+}
+#Circle-Item-03{
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 0%;
+    margin: 0 0 50px 0;
+}
+#Circle-Item-04{
+    flex-direction: column;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0%;
+}
+
+.Circle-Line{
+    /* border: 1px solid rgb(237, 154, 129); */
+    max-width: 170px;
+    width: 30%;
+    position: absolute;
+}
+
+#Circle-Line-01{
+    top: 18%;
+    left: 18%;
+}
+#Circle-Line-02{
+    top: 18%;
+    right: 18%;
+}
+#Circle-Line-03{
+    bottom: 18%;
+    right: 18%;
+}
+#Circle-Line-04{
+    left: 18%;
+    bottom: 18%;
+}
+
+
+
+
+@media all and (max-width: 1000px){
+    .Ecosystem-Circle{
+        height: 750px;
+    }
+    .Ecosystem-Circle-Item{
+        font-size: 14px;
+        max-width: 210px;
+    }
+    .Circle-Item-Icon{
+        max-width: 80px;
+    }
+    .Circle-Item-Title{
+        padding: 5px 30px;
+        margin: 3.5px;
+    }
+    .Circle-Item-Txt{
+        padding: 5px 30px;
+        margin: 2.5px;
+    }
+    .Circle-Line{
+        max-width: 140px;
+    }
+}
+
+
 @media all and (max-width: 800px){
     .Ecosystem-Item{
         flex-direction: column;
@@ -447,18 +919,510 @@
     .Ecosystem-Item-Info{
         margin-top: 30px;
     }
+    #GameFi-Block-Ecosystem {
+        padding: 0px 0;
+    }
+
+
+    .Ecosystem-Circle{
+        height: 600px;
+        margin: 0 auto 50px;
+    }
+    .Ecosystem-Circle-Item{
+        font-size: 12px;
+        max-width: 160px;
+    }
+    .Circle-Item-Icon{
+        max-width: 70px;
+    }
+    .Circle-Item-Title{
+        padding: 3.5px 20px;
+        margin: 3px;
+    }
+    .Circle-Item-Txt{
+        padding: 3.5px 20px;
+        margin: 2px;
+    }
+    .Circle-Line{
+        max-width: 110px;
+    }
+
+    
+}
+@media all and (max-width: 700px){
+    .Ecosystem-Circle{
+        height: 550px;
+    }
+    .Circle-Line{
+        max-width: 100px;
+    }
+        
+    #Circle-Line-01{
+        top: 16%;
+        left: 16%;
+    }
+    #Circle-Line-02{
+        top: 16%;
+        right: 16%;
+    }
+    #Circle-Line-03{
+        bottom: 16%;
+        right: 16%;
+    }
+    #Circle-Line-04{
+        left: 16%;
+        bottom: 16%;
+    }
+}
+
+@media all and (max-width: 600px){
+    .Ecosystem-Circle{
+        height: 450px;
+    }
+    .Ecosystem-Circle-Item{
+        font-size: 9px;
+        max-width: 135px;
+    }
+    .Circle-Item-Icon{
+        max-width: 70px;
+    }
+    .Circle-Item-Title{
+        padding: 3px 15px;
+        margin: 3px;
+    }
+    .Circle-Item-Txt{
+        padding: 3px 15px;
+        margin: 2px;
+    }
+    .Circle-Line{
+        max-width: 80px;
+    }
+    #Circle-Item-03{
+        margin: 0;
+    }
+
+}
+
+.Circle-Click-Icon{
+    /* border: 1px solid red; */
+    width: 80px;
+    position: absolute;
+    /* right: 60px;
+    top: 10px; */
+    top: 35%;
+    left: 12%;
+    /* transform: translate(-50%,-50%); */
+    filter: drop-shadow(0px 0px 10px rgba(27, 27, 27, 0.8));
+    pointer-events: none;
+    animation: Circle-Click-Icon 1s infinite;
+
+    display: none;
+}
+@keyframes Circle-Click-Icon{
+    0%{ 
+        /* transform: translateX(80px); */
+        transform: scale(1.2)
+    }
+    100%{
+        /* transform: translateX(0px); */
+        transform: scale(1);
+    }
+}
+.Circle-Click-Icon img{
+    width: 100%;
+}
+
+@media all and (max-width: 500px){
+    .Ecosystem-Item{
+        padding: 40px 20px;
+    }
+
+    .Ecosystem-Circle{
+        height: 350px;
+    }
+    .Ecosystem-Circle-Item{
+        max-width: 110px;
+        cursor: pointer;
+        transition: all .1s ease-in-out;
+    }
+    .Ecosystem-Circle-Item:hover .Circle-Item-Icon{
+        transition: all .1s ease-in-out;
+        transform: scale(1.05);
+        filter: drop-shadow(rgba(255, 255, 255, 0.339) 1px 1px 3px);
+    }
+    .Ecosystem-Circle-Item:hover .Circle-Item-Title{
+        transition: all .1s ease-in-out;
+        transform: scale(1.05);
+    }
+    .Circle-Item-Icon{
+        max-width: 60px;
+    }
+    .Ecosystem-Circle .Circle-Item-Txt{
+        display: none ;
+    }    
+    .Circle-Line{
+        max-width: 70px;
+    }
+    .Circle-Click-Icon{
+        display: block;
+    }
 }
 
 
-.Ecosystem-Item .GameFi-Paragraph-Txt-02 {
-    margin: 25px 0 0 !important;
+@media all and (max-width: 400px){
+    .Ecosystem-Circle{
+        height: 320px;
+    }
+    .Ecosystem-Circle-Item{
+        max-width: 110px;
+    }
+    #Circle-Item-02{
+        right: -6%;
+    }
+    #Circle-Item-04{
+        left: -6%;
+    }
 }
 
+
+/* Circle 點擊彈窗區 */
+
+.Circle-Popup-BG{
+    background-color: #050505c7;
+    width: 100%;
+    height: 100vh;
+
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 20;
+    transition: all .5s ease-in-out;
+
+
+    display: none;
+}
+.Circle-Popup{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    border-radius: 25px;
+    border: 5px solid var(--green-2);
+    background-color: #253a4be6;
+    width: 80vw;
+    /* height: 350px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    z-index: -1;
+
+    transition: all .2s ease-in-out;
+}
+
+.Circle-Popup-Open{
+    opacity: 1;
+    z-index: 20;
+}
+
+.Popup-Back{
+    position: absolute;
+    top: -42px;
+    right: 0;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+.Popup-Back:hover{
+    transform: scale(1.1);
+}
+.Circle-Popup .Ecosystem-Circle-Item{
+    max-width: 250px;
+    font-size: 20px;
+    position: unset;
+    transform: none !important;
+    margin: 50px auto  !important;
+    display: flex ;
+
+    /* display: none; */
+}
+
+.Circle-Popup .Circle-Item-Icon {
+    max-width: 120px;
+}
+.Circle-Popup .Circle-Item-Title {
+    padding: 5px 30px;
+    margin: 4px;
+}
+.Circle-Popup .Circle-Item-Txt{
+    display: block;
+    padding: 5px 30px;
+    margin: 3px;
+}
+
+html.noscroll {
+    position: fixed; 
+    overflow-y: scroll;
+    width: 100%;
+}
+
+
+
+
+/* 圓餅圖區塊 */
+
+.Chart-Block{
+    /* border: 1px solid yellow; */
+    max-width: 1350px;
+    width: 90%;
+    margin: 200px auto 50px;
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+}
+
+.Pie-Chart-Block{
+    /* border: 1px solid rgb(45, 214, 236); */
+    max-width: 607px;
+    width: 100%;
+    /* height: 530px; */
+    position: relative;
+    margin: 0 30px;
+    /* overflow: hidden; */
+}
+
+.Pie-Chart{
+    max-width: 607px;
+    width: 100%;
+    height: 530px;
+}
+
+.Pie-Chart-Line,.Pie-Chart-Label{
+    position: absolute;
+    z-index: 2;
+}
+.Pie-Chart-Label{
+    font-size: 30px;
+    color: var(--green-2);
+    line-height: 40px;
+}
+
+#Pie-Chart-Line-01{
+    width: 57px;
+    height: 197px;
+    top: -32px;
+    left: 91px;
+}
+#Pie-Chart-Label-01{
+    top: -125px;
+    left: -25px;
+}
+#Pie-Chart-Line-02{
+    width: 69px;
+    height: 145px;
+    top: 7px;
+    right: 90px;
+}
+#Pie-Chart-Label-02{
+    top: -29px;
+    right: -210px;
+}
+
+
+#Pie-Chart-Line-01 path{
+    stroke-dasharray: 213;
+    /* stroke-dashoffset: 0; */
+    animation: Pie-Chart-Line-01 0.4s linear forwards;
+}
+
+@keyframes Pie-Chart-Line-01 {
+    from {
+      stroke-dashoffset: 213;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+
+#Pie-Chart-Line-02 path{
+    stroke-dasharray: 190;
+    /* stroke-dashoffset: 0; */
+    animation: Pie-Chart-Line-02 0.4s linear forwards;
+}
+
+@keyframes Pie-Chart-Line-02 {
+    from {
+      stroke-dashoffset: 190;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+
+.Pie-Chart-Line{
+    /* border: 1px solid red; */
+    position: absolute;
+    opacity: 1;
+
+    z-index: 10;
+
+    display: none;
+}
+.Pie-Chart-Label{
+    z-index: 10;
+    display: block !important;
+
+    opacity: 0;
+    z-index: -1;
+}
+.Pie-Chart-Label-show{
+    opacity: 1 !important;
+    z-index: 10 !important;
+    display: block !important;
+    transition: all 0.1s ease-in-out; 
+    transition-delay: 0.4s;
+}
+
+.Pie-Chart-Icon{
+    max-width: 85px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 51%;
+    
+    transition: all 0.5s ease-in-out; 
+    
+    opacity: 0;
+    z-index: -1;
+}
+
+.Pie-Chart-Icon img{
+    width: 100%;
+}
+
+@media all and (max-width: 1200px){
+    .Pie-Chart-Block{
+        max-width: 350px;
+    }
+    .Pie-Chart-Label{
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .Pie-Chart-Icon{
+        max-width: 60px;
+        top: 50.2%;
+    }
+    
+    #Pie-Chart-Line-01{
+        width: 45px;
+        /* height: 197px; */
+        top: 10px;
+        left: 30px;
+    }
+    #Pie-Chart-Label-01{
+        top: -45px;
+        left: -10px;
+    }
+    #Pie-Chart-Line-02{
+        width: 55px;
+        /* height: 145px; */
+        top: 7px;
+        right: 90px;
+    }
+    #Pie-Chart-Label-02{
+        top: -10px;
+        right: -155px;
+    }
+}
+@media all and (max-width: 1000px){
+    .Info-Area{
+        margin: 0 10px 50px;
+    }
+}
+@media all and (max-width: 800px){
+    .Chart-Block{
+        flex-wrap: wrap;
+        margin: 100px auto 50px;
+    }
+
+    .Chart-Block .GameFi-Paragraph-Txt-02{
+        margin: 00px 0 50px;
+    }
+    .Pie-Chart-Label {
+        font-size: 20px;
+        line-height: 28px;
+    }    
+    #Pie-Chart-Line-01{
+        width: 35px;
+        top: 50px;
+        left: 10px;
+    }
+    #Pie-Chart-Label-01{
+        top: 20px;
+        left: -10px;
+    }
+    #Pie-Chart-Line-02{
+        width: 40px;
+        top: 27px;
+        right: 95px;
+    }
+    #Pie-Chart-Label-02{
+        top: -10px;
+        right: -55px;
+    }
+}
+@media all and (max-width: 600px){
+    .Chart-Block{
+        margin: 80px auto 50px;
+    }
+    .Pie-Chart-Block{
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    .Pie-Chart-Label{
+        font-size: 16px;
+        line-height: 20px;
+    }
+    #Pie-Chart-Line-01{
+        width: 35px;
+        top: 50px;
+        left: 10px;
+    }
+    #Pie-Chart-Label-01{
+        top: 35px;
+        left: -10px;
+    }
+    #Pie-Chart-Line-02{
+        width: 40px;
+        top: 27px;
+        right: 80px;
+    }
+    #Pie-Chart-Label-02{
+        top: 10px;
+        right: -10px;
+    }
+    .Pie-Chart-Icon {
+        max-width: 50px;
+        top: 50.2%;
+    }
+    .Info-Area{
+        margin: -30px 10px 0px;
+    }
+}
+
+/* Roadmap 區塊 */
+
+#GameFi-Block-Roadmap{
+    padding: 50px 0;
+}
 .Roadmap-All{
     /* border: 1px solid red; */
     max-width: 1350px;
     width: 90%;
-    margin: 0 auto 50px;
+    margin: 0 auto 70px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -538,7 +1502,7 @@
 }
 
 
-@media all and (max-width: 500px){
+@media all and (max-width: 750px){
     .Roadmap-PC-Title{
         display: none;
     }
@@ -553,6 +1517,8 @@
         /* background-image: none !important; */
         background-size: auto;
         background-position: center center;
+        /* border-radius: 25px; */
+        padding: 12px 15px;
     }
     .Roadmap-Item-BG{
         background-position: bottom center;
@@ -560,8 +1526,16 @@
     .Roadmap-All{
         flex-direction: row;
     }
+    .Roadmap-Mobile-Title{
+        font-size:28px;
+        justify-content: space-around;
+    }
+    .Roadmap-Item-List{
+        font-size: 18px;
+    }
+
 }
-@media all and (min-width: 501px){
+@media all and (min-width: 756px){
     .Roadmap-Mobile-Slide{
         display: block !important;
     }
