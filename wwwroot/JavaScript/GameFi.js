@@ -239,7 +239,7 @@ window.chartInit = function () {
 
         const rect = $('.Pie-Chart')[0].getBoundingClientRect()
         //控制圓餅出現頁面高度 ex: (...) - 100
-        position = (rect.top - rect.height) 
+        position = (rect.top - rect.height) - 200
     });
 
     $(window).on('scroll', init)
