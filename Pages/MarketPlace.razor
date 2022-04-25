@@ -57,16 +57,16 @@
         </svg>
         </button>
         </div> *@
-
+    <section class="Sidebar-Filter-Block" id="Filter-mobile">
+        <div class="">
+            <span>Filter</span>
+            <img class="Filter-mobile-arrow" style="padding-bottom:3px; margin: 5px; "
+                src="/images/MarketPlace/MP-arrow-sm.png" alt="">
+        </div>
+    </section>
     <aside class="marketPlaceSidebar ">
         <div class="marketPlaceSidebar-scroll">
-            <section class="Sidebar-Filter-Block" id="Filter-mobile">
-                <div class="Filter-mobile-arrow">
-                    <span>Filter</span>
-                    <img class="Filter-arrow" style="padding-bottom:3px; margin: 5px; "
-                        src="/images/MarketPlace/MP-arrow-sm.png" alt="">
-                </div>
-            </section>
+
 
             <section class="Sidebar-Filter-Block" id="Filter-Header">
                 <span>Filter</span>
@@ -189,8 +189,6 @@
                     <button class="Filter-Button">Magician</button>
                     <button class="Filter-Button">Assassin</button>*@
 
-
- >
 
                 </div>
             </section>
@@ -519,6 +517,7 @@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterButtonClick");
+            await JS.InvokeVoidAsync("FilterArrowSlideClick");
         }
 
     }

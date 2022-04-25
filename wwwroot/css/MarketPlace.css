@@ -331,6 +331,7 @@ input[type="radio"] {
     box-shadow: 5px 5px 10px #1414142e;
     position: fixed;
     z-index: 10;
+    cursor: pointer;
 
     display: none;
 }
@@ -607,6 +608,8 @@ input[type="checkbox"]:checked+span {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 100px;
+    justify-content: flex-start;
+    width: 95%;
 }
 
 .NFTcard{
@@ -783,9 +786,7 @@ input[type="checkbox"]:checked+span {
     .marketPlaceMain{
         width: 95%;
     }
-    .marketPlaceCardBLock{
-        justify-content: center;
-    }
+
     .marketPlaceTitle {
         font-size: 26px;
         white-space: nowrap;
@@ -848,8 +849,29 @@ input[type="checkbox"]:checked+span {
     .NFT-EndTime{
         font-size: 10px;
     }
+    .marketPlaceCardBLock{
+        justify-content: center;
+        justify-content: flex-start;
+        /* max-width: 1027px; */
+        /* margin: 0 auto;
+        padding: 0 20px; */
+    }
 }
+@media all and (min-width: 1300px){
+    .marketPlaceCardBLock{
+        justify-content: center;
+        justify-content: flex-start;
+        /* max-width: 1027px; */
+        /* margin: 0 auto;
+        padding: 0 20px; */
+    }
+}
+@media all and (max-width: 1300px){
+    .marketPlaceCardBLock{
+        justify-content: center;
 
+    }
+}
 @media all and (max-width: 800px){
     .marketPlaceMain{
         padding: 147px 0 0 0;
