@@ -202,7 +202,7 @@
 
     <main class="marketPlaceMain">
         <section class="marketPlaceHeader">
-            <div class="marketPlaceTitle">PonPonSnake's NFTs<br>1,234 PPSFs</div>
+            <div class="marketPlaceTitle">PonPonSnake's NFTs<br>@PPSFsCount PPSFs</div>
             <div class="d-flex flex-column align-items-end" style="align-self: flex-end;">
                 <button class="BuyOnOpensea"><a href="">Buy on Opensea</a></button>
 
@@ -489,6 +489,8 @@
 
     private List<NFTData> NFTDataList;
 
+    private int PPSFsCount;
+
     //private DateTime DateTimeNow;
 
     protected override async Task OnInitializedAsync()
@@ -503,6 +505,8 @@
         ProfessionList = await OptionService.GetProfessionList();
         CountryList = await OptionService.GetCountryList();
         NFTDataList =await OptionService.GetNFTDataList();
+
+        PPSFsCount = NFTDataList.Count;
         //DateTimeNow = DateTime.Now;//
         StateHasChanged();
     }
