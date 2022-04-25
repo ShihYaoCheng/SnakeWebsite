@@ -21,5 +21,9 @@
         public string Country { get; set; }
 
         public DateTime EndTime { get; set; }
+
+        public string CalDays { get; set; }
+
+        public bool IsOpen { get; set; }
     }
 }

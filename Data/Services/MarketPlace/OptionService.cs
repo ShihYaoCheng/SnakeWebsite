@@ -66,10 +66,24 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 data.Profession = ProfessionList[ProfessionInt].ToString();
                 data.Country = CountryList[CountryInt].ToString();
                 data.EndTime = DateTime.Now.AddDays(value);
+                data.CalDays = Math.Truncate(( DateTime.Now.AddDays(value)  - DateTime.Now ).TotalDays)    +  " d " 
+                               + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate(( DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24)  + " H ";
+
+                if (value % 2 == 0)
+                {
+                    data.IsOpen = true;
+                }
+                else
+                {
+                    data.IsOpen = false;
+                }
+
+
+
                 datas.Add(data);
             }
 
-            datas = datas.OrderBy(m => m.Number).ToList();
+            datas = datas.OrderBy(m => m.IsOpen ==false).ThenBy( m => m.Number).ToList();
             return datas;
         }
 
@@ -77,27 +91,27 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         {
             if (OrderByString == "Highest Earned" || OrderByString == "Sort")
             {
-                datas = datas.OrderBy(m => m.Number).ToList();
+                datas = datas.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Number).ToList();
             }
             if (OrderByString == "Lowest Earned")
             {
-                datas = datas.OrderByDescending(m => m.Number).ToList();
+                datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
             }
             if (OrderByString == "Highest Price")
             {
-                datas = datas.OrderBy(m => m.Price).ToList();
+                datas = datas.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Price).ToList();
             }
             if (OrderByString == "Lowest Price")
             {
-                datas = datas.OrderByDescending(m => m.Price).ToList();
+                datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Price).ToList();
             }
             if (OrderByString == "Newest")
             {
-                datas = datas.OrderBy(m => m.EndTime).ToList();
+                datas = datas.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.EndTime).ToList();
             }
             if (OrderByString == "Oldest")
             {
-                datas = datas.OrderByDescending(m => m.EndTime).ToList();
+                datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.EndTime).ToList();
             }
             return datas;
         }
