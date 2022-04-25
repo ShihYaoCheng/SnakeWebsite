@@ -687,6 +687,7 @@ input[type="checkbox"]:checked+span {
 .NFT-Price{
     font-size: 40px;
     /* font-weight: bold; */
+    margin: 0 0 0 5px;
 }
 .NFT-PriceIcon{
     width: 45px;
