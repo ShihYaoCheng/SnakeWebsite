@@ -1,11 +1,17 @@
-﻿<CascadingAuthenticationState>
+﻿<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/site.css" rel="stylesheet" />
+    <title>PonPonSnake 碰碰蛇｜Not Found</title>
+</head>
+
+<CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
             <FocusOnNavigate RouteData="@routeData" Selector="h1" />
         </Found>
         <NotFound>
-            <PageTitle>Not found</PageTitle>
+            <PageTitle>Not Found</PageTitle>
             <LayoutView Layout="@typeof(MainLayout)">
                 <p role="alert">Sorry, there's nothing at this address.</p>
                 <p role="alert">Sorry, there's nothing at this address.</p>
