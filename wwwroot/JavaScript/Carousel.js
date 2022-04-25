@@ -13,9 +13,9 @@ window.GameFiCarousel = function () {
     console.log('GameFiCarousel init22', Swiper);
     new Swiper('.GameFi-Carousel-Block', {
         spaceBetween: 100,
-        // autoplay: {
-        //     delay: 3000,
-        // },
+        autoplay: {
+            delay: 2000,
+        },
         slidesPerView: 1,
         loop: true,
         breakpoints: {
