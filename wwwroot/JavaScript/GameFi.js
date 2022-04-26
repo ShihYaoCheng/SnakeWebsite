@@ -234,7 +234,7 @@ window.chartInit = function () {
 
         // 改變size時重跑一次
         $(window).resize(function(){  
-            location.reload();
+            // location.reload();
         });  
 
         const rect = $('.Pie-Chart')[0].getBoundingClientRect()

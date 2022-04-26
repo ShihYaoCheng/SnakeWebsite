@@ -81,19 +81,19 @@
                                 @if (!MetamaskAvailable)
                                 {
 
-                                    @* <button class="btnMetamask" disabled>
+                                    <button class="btnMetamask" disabled>
                                         <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank">
                                             <span style="margin: 5px 20px;" data-i18n="myprofile.installMetamask">Please Install Metamask</span>
                                         </a>
-                                    </button> *@
+                                    </button>
 
                                 }
                                 else if (MetamaskAvailable && string.IsNullOrEmpty(@context.User.FindFirst("WalletAddress")?.Value))
                                 {
-                                    @* <button type="button" class="btnMetamask" @onclick="@EnableEthereumAsync">
+                                    <button type="button" class="btnMetamask" @onclick="@EnableEthereumAsync">
                                         <span data-i18n="myprofile.connectMetamask">Connect Metamask</span>
                                         <img src="/images/Myprofile/btnMetamask_icon.png" alt="">
-                                    </button> *@
+                                    </button>
 
                                 }
                             </div>
@@ -101,10 +101,10 @@
 
                         @if (MetamaskAvailable && !string.IsNullOrEmpty(@context.User.FindFirst("WalletAddress")?.Value))
                         {
-                            @* <div class="metamaskAvailable" title="點擊複製 Address" @onclick="textCopyClick">
+                            <div class="metamaskAvailable" title="點擊複製 Address" @onclick="textCopyClick">
                                 Address：<span>@context.User.FindFirst("WalletAddress")?.Value</span>
                                 <div id="copyTip">複製成功</div>
-                            </div> *@
+                            </div>
                         }
 
                     </div>
@@ -113,7 +113,7 @@
 
             @if (MetamaskAvailable && !string.IsNullOrEmpty(@context.User.FindFirst("WalletAddress")?.Value))
             {
-                @* <div class="myprofileBlock" id="Asset">
+                <div class="myprofileBlock" id="Asset">
                     <div class="myprofileBlockTitle" data-i18n="myprofile.asset">Asset</div>
 
                     <div class="myprofileArea">
@@ -151,8 +151,8 @@
                             </div>
                         </div>
                     </div>
-                </div> *@
-                
+                </div>
+
                 @* <div class="myprofileBlock" id="Activities">
                     <div class="myprofileBlockTitle" data-i18n="myprofile.activities">Activities</div>
                     <div class="myprofileArea">

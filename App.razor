@@ -1,6 +1,8 @@
-﻿<head>
+﻿@inject IJSRuntime JS
+
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/site.css" rel="stylesheet" />
+    @* <link href="css/site.css" rel="stylesheet" /> *@
     <title>PonPonSnake 碰碰蛇｜Not Found</title>
 </head>
 
@@ -13,14 +15,47 @@
         <NotFound>
             <PageTitle>Not Found</PageTitle>
             <LayoutView Layout="@typeof(MainLayout)">
-                <p role="alert">Sorry, there's nothing at this address.</p>
-                <p role="alert">Sorry, there's nothing at this address.</p>
-                <p role="alert">Sorry, there's nothing at this address.</p>
-                <p role="alert">Sorry, there's nothing at this address.</p>
-                <p role="alert">Sorry, there's nothing at this address.</p>
-                <p role="alert">Sorry, there's nothing at this address.</p>
-                @* <a href="">回首頁</a> *@
+                <div class="NotFound_BG">
+                <div class="NotFound_Block">
+                    <div class="NotFound_Alert">
+                        <h5>OOPS!</h5>
+                        <p>This Page Could Not Be Found.</p>
+                    </div>
+                    <div class="NotFound_Change" id="NotFound_Shikei">
+                        <div class="NotFound_Img">
+                            <img class="moon" src="/images/Other/moon.png" alt="">
+                            <img class="Shikei" src="/images/Other/Shikei.gif" alt="">
+                            <a class="GoBack" href="">
+                                <img src="/images/Other/GoBack.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="NotFound_Change" id="NotFound_grassRadish">
+                        <div class="NotFound_Img">
+                            <img class="grassRadish" src="/images/Other/grass_radish.png" alt="">
+                        
+                            <a class="GoBack-2" href="">
+                                GO BACK
+                                <svg class="grassRadish-Back" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 33.641 27.345">
+                                    <path id="arrow-backward" d="M2.768,12.68,14.011,2.844A1.789,1.789,0,0,1,16.768,2.7V9.332l.485,0c10.622,0,18.5,7.545,18.5,17.809,0,3.575-1.639,2.272-2.323,1.025a18.158,18.158,0,0,0-16.266-9.9l-.4,0v6.491a1.991,1.991,0,0,1-2.757.144L2.766,15.827a2.228,2.228,0,0,1,0-3.147Z" transform="translate(-2.116 -2.116)"  fill-rule="evenodd"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+</div>
             </LayoutView>
         </NotFound>
     </Router>
 </CascadingAuthenticationState>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("NotFoundPageChange");
+        }
+    }
+
+}

@@ -65,3 +65,10 @@ window.selectChangeLocation = function () {
     })
 }
 
+window.NotFoundPageChange = function () {
+    console.log('NotFoundPageChange');
+    var random = Math.floor(Math.random() * $('.NotFound_Change').length);
+    $('.NotFound_Change').hide().eq(random).show();
+}
+
+
