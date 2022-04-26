@@ -31,14 +31,19 @@
     overflow-y: auto;
     z-index: -3;
 }
-
-/* .marketPlace{
-  width: 80%;
-  margin: 200px auto;
+/* open版暫時示意圖 */
+.marketPlace_Open{
+    width: 80%;
+    margin: 200px auto;
 }
-.marketPlace img{
+.marketPlace_Open img{
     width: 100%;
-} */
+}
+
+    /* open版暫時關閉 */
+.marketPlace{
+    display: none;
+}
 
 /* nav 當頁顯示 */
 #nav-MarketPlace{
@@ -687,11 +692,11 @@ input[type="checkbox"]:checked+span {
 .NFT-Price{
     font-size: 40px;
     /* font-weight: bold; */
-    margin: 0 0 0 5px;
+    margin: 0 0 0 10px;
 }
 .NFT-PriceIcon{
     width: 45px;
-    margin: 8px 8px 8px 10px;
+    margin: 8px 0px 8px 10px;
 }
 .NFT-USD{
     position: absolute;
@@ -838,10 +843,11 @@ input[type="checkbox"]:checked+span {
     }
     .NFT-PriceIcon{
         width: 26px;
-        margin: 5px 5px 5px 7px;
+        margin: 5px 0px 5px 5px;
     }
     .NFT-Price{
-        font-size: 24px;
+        font-size: 23px;
+        margin: 0 0 0 8px;
     }
     .NFT-USD{
         font-size: 10px;
