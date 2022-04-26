@@ -88,7 +88,7 @@
                                     </button>
 
                                 }
-                                else if (MetamaskAvailable && string.IsNullOrEmpty(@context.User.FindFirst("WalletAddress")?.Value))
+                                else if (MetamaskAvailable && string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
                                 {
                                     <button type="button" class="btnMetamask" @onclick="@EnableEthereumAsync">
                                         <span data-i18n="myprofile.connectMetamask">Connect Metamask</span>
@@ -99,10 +99,10 @@
                             </div>
                         </div>
 
-                        @if (MetamaskAvailable && !string.IsNullOrEmpty(@context.User.FindFirst("WalletAddress")?.Value))
+                        @if (MetamaskAvailable && !string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
                         {
                             <div class="metamaskAvailable" title="點擊複製 Address" @onclick="textCopyClick">
-                                Address：<span>@context.User.FindFirst("WalletAddress")?.Value</span>
+                                Address：<span>@AppState.LoginStatus.walletAddress</span>
                                 <div id="copyTip">複製成功</div>
                             </div>
                         }
@@ -111,7 +111,7 @@
                 </div>
             </div>
 
-            @if (MetamaskAvailable && !string.IsNullOrEmpty(@context.User.FindFirst("WalletAddress")?.Value))
+            @if (MetamaskAvailable && !string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
             {
                 <div class="myprofileBlock" id="Asset">
                     <div class="myprofileBlockTitle" data-i18n="myprofile.asset">Asset</div>
