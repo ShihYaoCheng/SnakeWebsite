@@ -368,7 +368,7 @@ html{
         border-radius: 7px;
     }
     .playerInfoRowShow {
-        padding-left: 18px;
+        padding-left: 10px;
         font-size: 19px;
     }
     .playerInfoRow{
@@ -413,7 +413,7 @@ html{
         width: 60%;
     }
     .playerInfoRowTitle{
-        width: 40%;
+        width: 38%;
     }
     .btnMetamask span {
         margin: 6px 40px 5px 25px;
