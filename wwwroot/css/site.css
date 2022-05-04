@@ -1401,7 +1401,7 @@ position: relative;
     }
     .nav-others:hover{
         /* background-image: url(/images/Other/nav_hover.png);*/
-background-color: #aad4cd;
+        /* background-color: #aad4cd; */
     }
 }
 
