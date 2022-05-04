@@ -68,10 +68,10 @@
 
   "SnakeIndexlogo":"/images/OfficialWeb/LOGO_EN.png",
 
-  "introduce_01": "<div class=\"index01_introduce_EN\">PonPonSnake is a 3D role- playing game base on the classic arcade snake but evolved with an unique play style.</div>",
-  "introduce_02": "<div class=\"index01_introduce_EN\">The great hero sacrificed themself to protect the world and drive the evil back away to darknest. Although their dedication and exertion has bring a temporary peace to the Snake Land, but the evil hiding in the shadow, still seeking for change to rise again. As for the new hope, a young twin who was lost in the forrest is about to carry the duty of heroes who all came before them and accept it as their destiny.</div>",
-  "introduce_03": "<div class=\"index01_introduce_EN\">At the mean time, skilled Knights across the Great Snake World are also preparing for the returning evil.</div>",
-  "introduce_04": "<div class=\"index01_introduce_EN\">Choose your favorite Snake Rider and enjoy your adventure at the Great Snake Wrold.</div>",
+  "introduce_01": "<div class=\"index01_introduce_EN\">PonPonSnake is a 3D role-playing game based on the classic arcade snake but evolved with a unique play style.</div>",
+  "introduce_02": "<div class=\"index01_introduce_EN\">The great hero sacrificed themself to protect the world and drive the evil back away to the darkness. Although their dedication and exertion have brought temporary peace to the Snake Land, the evil hiding in the shadow, still seeking for change to rise again. As for the new hope, a young twin who was lost in the forest is about to carry the duty of heroes who all came before them and accept it as their destiny.</div>",
+  "introduce_03": "<div class=\"index01_introduce_EN\">In the meantime, skilled Knights across the Great Snake World are also preparing for the returning evil. </div>",
+  "introduce_04": "<div class=\"index01_introduce_EN\">Choose your favorite Snake Rider and enjoy your adventure at the Great Snake World!</div>",
   "gameName": "▼ Scan or tap to download ▼",
 
   "eventTitle":"/images/OfficialWeb/SnakeACL_kimlan_EN.png",
@@ -79,37 +79,37 @@
   "button_txt": "ENTER",
 
   "carousel_01": {
-    "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Correa<br>Snakes : Dusnaki<br>Gender : Female</div>",
-    "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : 15<br>Weapon : Knight Lance<br>Nationality : Flange</div>",
-    "introduction": "<div class=\"NewStory03_right_txt_EN\">Correa's twin sister, born and raised in the country. She was lost in the woods at the age of five, after being adopted by the knight captain she spend her time living in the capital.She always have a posstive and active energy, stright A student but super bad a cooking. Every time she cooks the kitchen will be an absolute disaster. Otherwise, she is so perfect that no matter rookies of experienced knights all favors her. She dedicated all her time into training and become the rising star of the Flange Kingdom.【A wonderful day should begin with a big breakfast】</div>",
+    "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Celica<br>Snakes : Dawnaki<br>Gender : Female</div>",
+    "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : 15<br>Weapon : Knight Lance<br>Nationality : Flaine</div>",
+    "introduction": "<div class=\"NewStory03_right_txt_EN\">Celica is Correa's twin sister, she was born and raised in a rural village. She was lost in the woods at the age of five. After that, she spent her time living in the capital with the knight captain who adopted her. She is a positive and straight-A student, but super bad at cooking. Every time she cooks, the kitchen will be an absolute disaster. Otherwise, she is so perfect that no matter rookies or experienced knights all favor her. She dedicated all her time to training and becoming the rising star of the Honor Kingdom. <br>Character Class:  DPS Snake Rider. <br>Celica: A wonderful day should begin with a big breakfast!</div>",
     "Knight_skills_01": "<div class=\"NewStory03_right_txt_EN\">Shining Blade</div>",
     "Knight_skills_02": "<div class=\"NewStory03_right_txt_EN\">Breaking Dawn</div>"
   },
   "carousel_02": {
-    "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Selica<br>Snakes : Dawnaki<br>Gender : Male</div>",
-    "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : 15<br>Weapon : Knight Lance<br>Nationality : Flange</div>",
-    "introduction":"<div class=\"NewStory03_right_txt_EN\">Selica's twin brother, born and rised in the country, he was seperated with his sister due to the lost in the woods. He came to the capatial when was 15 and join the Knights of the Kingdom Flange. Correa is gentle guy with has a good heart, always reach out to people who needed help. He often time been taking adventage of just becase hi s too nice. However, he will try to do whatever he can if things doesn't go against the knightship. Inorder to be a snake rider as good as his sister, he works his tails off day and night and were anticipated to be one of the most skilled knight.【Powers are meant to protect the weak】</div>",
+    "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Correa<br>Snakes : Dusnaki<br>Gender : Male</div>",
+    "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : 15<br>Weapon : Knight Lance<br>Nationality : Flaine</div>",
+    "introduction":"<div class=\"NewStory03_right_txt_EN\">Correa is Celica's twin brother, they were born in a rural village. At the age of 5, he was separated from Celica because they got lost in the woods. He came to Faline when he was 15 and joined the Knights of the Honor Kingdom. Correa is a gentle guy with a good heart and also good at cooking. Even though he gets tricked easily, as long as it doesn't go against the knightship, it doesn't matter if he suffers a little loss. He trains day and night to catch up with his younger sister, Celica, which is also a great snake rider. Correa is the most eye-catching new snake ridder of the year and has a sister complex. <br>Character Class: Tank Snake Ridder. <br>Correa: Power exists to protect the weak.</div>",
     "Knight_skills_01": "<div class=\"NewStory03_right_txt_EN\">Shadow Coat</div>",
     "Knight_skills_02": "<div class=\"NewStory03_right_txt_EN\">Nightfall Assault</div>"
   },
   "carousel_03": {
     "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Lucifer<br>Snakes : Gravnaki<br>Gender : Male</div>",
     "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : 18<br>Weapon : Great sword<br>Nationality : Nord</div>",
-    "introduction": "<div class=\"NewStory03_right_txt_EN\">Lucifer was born to be a noble in duchy Nord, he was sent to Flange to study for a couple years and also get to know Venus there. He is pretty a peoeple person and can become friends with people FAST, but also like to play cool and do stupid stuff which makes him never stand a chance battling against Venus. To makes elevate his outfit, he even put a decorate wing on his shoulder to match the look of his snake, he truly believe on what he's capable of. Although he is outgoing he can be shy when receiving compliments.【Give it a taste of my overwhelming power】</div>",
+    "introduction": "<div class=\"NewStory03_right_txt_EN\">Lucifer was born into a noble family from Nord. He studied in Flaine for a couple of years and also became friends with Venus. He's an outspoken person who also loves to act cool but always does silly things. That’s why he never gets a chance to battle against Venus. To evolve his outfit, he even put a decorated wing on his shoulder to match the look of his snake. He truly believes in what he's capable of. Although he is outgoing, he becomes shy while receiving compliments. <br>Character Class: Tank Snake Ridder. <br>Lucifer: Give it a taste of my overwhelming power!</div>",
     "Knight_skills_01": "<div class=\"NewStory03_right_txt_EN\">Gravity Grip</div>",
     "Knight_skills_02": "<div class=\"NewStory03_right_txt_EN\">Gravity Restrain</div>"
   },
   "carousel_04": {
     "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Wendini<br>Snakes : Bobonaki<br>Gender : Female</div>",
     "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : N/A<br>Weapon : Magical ball<br>Nationality : Della</div>",
-    "introduction": "<div class=\"NewStory03_right_txt_EN\">Wendini is from the Wendini Island in the Della Federal, the priest of the Temple of Flange. She is an elve with the ability to fly and control the movement of water. Looks like a little girl but is actually over 100 years old. She can be a nice person if one is honest to her. Also a gold digger.(That's why she is always there selling drinks) Some said she is summoned here by the former queen.【Always keep yourself hydrated】</div>",
+    "introduction": "<div class=\"NewStory03_right_txt_EN\">Wendini is a priest of the Temple in Flaine, and she came from an island in the Della Federal. She is an elf with the ability to fly and control the water. Even though she looks like a little girl, she is actually over 100 years old. Some say she is summoned here by the former queen. Wendini is also a money-grubber, that’s why she always sells mystery drinks everywhere. As long as you are honest with her, she will be kind and gentle to you. <br>Character Class: Support Snake Ridder. <br>Wendini: Always keep yourself hydrated.</div>",
     "Knight_skills_01": "<div class=\"NewStory03_right_txt_EN\">Water of Life</div>",
     "Knight_skills_02": "<div class=\"NewStory03_right_txt_EN\">Healing Tide</div>"
   },
   "carousel_05": {
     "div_01": "<div class=\"NewStory03_right_txt_EN\">Characters : Venus<br>Snakes : Aglinaki<br>Gender : N/A</div>",
     "div_02": "<div class=\"NewStory03_right_txt_EN\">Age : 18<br>Weapon : Spike<br>Nationality : Flange</div>",
-    "introduction": "<div class=\"NewStory03_right_txt_EN\">Princess of the Flange empire, heir of the queen. Appear to be a girl but no one have any idea of her actual gender. The queen raised her as the future and hope of this nation. During her childhood living in the emperor's palace, Lucifer was also sent to Flange to study and they quickly become friends. Since Venus is well taought and well trained, she quickly become one of the skilled snake rider among all knights. She also believes with great power comes great responsibility and she will fight for her family's name with pride.【If you can't take care of the problem itself, take care of the person who creates the problem】</div>",
+    "introduction": "<div class=\"NewStory03_right_txt_EN\">Venus is the Princess of the Flaine empire, and also the heir to the queen. The queen raised her as the future hope of this nation. Venus appears to be a girl, but no one has any idea of her actual gender. When she was a child, she stayed in the emperor's palace and met Lucifer; Meanwhile, Lucifer was brought to Flaine to train and study, and they became friends. Since Venus is well taught and trained, she becomes one of the most skilled snake riders among all knights. She also believes that great power comes with great responsibility, and she is willing to fight for her family's name with pride. <br>Character Class: Speed Snake Ridder. <br>Venus: If you can't take care of the problem itself, take care of the person who creates the problem.</div>",
     "Knight_skills_01": "<div class=\"NewStory03_right_txt_EN\">Art of Combat</div>",
     "Knight_skills_02": "<div class=\"NewStory03_right_txt_EN\">Critical Eye</div>"
   },
