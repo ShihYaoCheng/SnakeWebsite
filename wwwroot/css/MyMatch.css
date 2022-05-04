@@ -1,19 +1,11 @@
 /* nav 當頁顯示 */
-#nav_ul-myMatch {
-    color: white;
-    background-image: url(/images/Other/nav_hover.png);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
+#nav-myMatch > .nav-link {
+    background-color: #aad4cd;
 }
-#nav-myMatch {
-    color: white;
-    background-image: url(/images/Other/nav_hover.png);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    transition: all .3s ease-out;
+.user-ul-web{
+    display: none;
 }
+
 #myMatch_hover_bottom{
     position: absolute;
     max-width: 300px;
@@ -50,9 +42,7 @@
     }
 }
 
-#nav_ul-myprofile, #nav_ul-myMatch, #nav_ul-MyAwardNotice{
-    display: none !important;
-}
+
 
 .myMatch_Background{
     width: 100%;

@@ -7,21 +7,11 @@ html{
     /* position: fixed; */
     /* overflow-y: auto; */
 }
-#nav_ul-myprofile {
-    color: white;
-    background-image: url(/images/Other/nav_hover.png);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
+
+#nav-myprofile > .nav-link {
+    background-color: #aad4cd;
 }
-#nav-myprofile {
-    color: white;
-    background-image: url(/images/Other/nav_hover.png);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    transition: all .3s ease-out;
-}
+
 #myprofile_hover_bottom{
     position: absolute;
     max-width: 300px;
@@ -413,7 +403,7 @@ html{
         width: 60%;
     }
     .playerInfoRowTitle{
-        width: 38%;
+        width: 36%;
     }
     .btnMetamask span {
         margin: 6px 40px 5px 25px;

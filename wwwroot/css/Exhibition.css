@@ -2,7 +2,8 @@
 
 #nav-Exhibition{
     color: white;
-    background-image: url(/images/Other/nav_hover.png);
+    /* background-image: url(/images/Other/nav_hover.png);*/
+background-color: #aad4cd;
     background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;

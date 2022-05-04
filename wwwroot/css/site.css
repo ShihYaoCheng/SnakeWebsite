@@ -26,43 +26,30 @@ a, .btn-link {
 
 .nav-item > ul{
     display: none;
-    /* background: #ffc107e6; */
-    /* background-image: linear-gradient(to bottom, #5b86b6a1 0%, #608ab7ad 50%, #6790bba8 100%); */
-    background: #315380ad;
+
     list-style: none;
     padding: 0px;
-    color: #000;
-    /* position: none; */
-    /* opacity: 0; */
-    /* z-index: -1; */
+    background: #276170;
+    border-radius: 10px;
 }
 
 /* RWD NAV */
-
-
 @media all and (min-width: 1000px){
     .nav-item > ul{
         display: none;
-        /* background: #ffc107d6; */
-        /* background-image: linear-gradient(to bottom, #5b86b6a1 0%, #608ab7ad 50%, #6790bba8 100%); */
-        background: #315380ad;
+    
+        /* background: #315380ad; */
+        background: #276170;
         list-style: none;
         padding: 0px;
-        margin-top: 11px;
-        color: #000;
+        margin-top: 6px;
         position: fixed;
         text-decoration: none;
+        border: 2px solid #cdf5ee82;
+        box-shadow: 0px 2px 8px #06060663;
     }
 
 
-    /* 電腦版 nav hover */
-    /* .nav-item:hover > ul {
-        min-width: 128px;
-        display: block;
-        list-style: none;
-        text-decoration: none;
-        transition: all .3s ease-out;
-    } */
 
 }
 
@@ -159,19 +146,20 @@ a, .btn-link {
 }
 
 .nav-item{
-    padding: 8px 0;
+    padding: 0px 2px;
     position: relative;
     transition: all .2s ease-out;
 }
 
-/* @media all and (min-width: 1000px){
+@media all and (max-width: 1000px){
     .nav-item{
+        padding: 8px 15px;
     }
-} */
+}
 
 
 .nav-item a, .nav-item_a {
-    border-radius: 4px;
+    /* border-radius: 4px; */
     /* height: 3.5rem; */
     display: flex;
     justify-content: center;
@@ -200,11 +188,20 @@ a, .btn-link {
 .nav-item:hover {
     /* background-color: rgba(255,255,255,0.1); */
     color: white;
-    background-image: url(/images/Other/nav_hover.png);
+    /* background-image: url(/images/Other/nav_hover.png);*/
+    /* background-color: #aad4cd; */
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
     transition: all .3s ease-out;
+}
+.nav-link{
+    border-radius: 10px;
+    transition: all .1s ease-out;
+}
+.nav-link:hover{
+    background-color: #aad4cd;
+    border-radius: 10px;
 }
 
 .nav_hover_bottom{
@@ -216,6 +213,8 @@ a, .btn-link {
     opacity: 0;
     z-index: -1;
     transition: all .3s ease-out;
+
+    display: none;
 }
 .nav-item:hover .nav_hover_bottom{
     opacity: 1;
@@ -394,13 +393,14 @@ a, .btn-link {
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.8px;
+    border-radius: 10px;
 }
 
 .userIcon {
     /* border: solid rgb(209, 94, 28) 1px; */
     margin: 0 5px;
     transform: translateY(-4px);
-    fill: #5a2c0e;
+    fill: #1C4C58;
 }
 
 .userNumber {
@@ -447,30 +447,10 @@ a, .btn-link {
 }
 
 
-#nav-user > ul{
-    display: none;
-    /* background: #ffc107; */
-    background: #315380ad;
-    list-style: none;
-    padding: 0;
-    color: #000;
-    position: none;
-}
+
 
 /* NAV RWD */
-@media (min-width: 1000px){
-    #nav-user > ul {
-        display: none;
-        /* background: #ffc107d6; */
-        background: #315380ad;
-        list-style: none;
-        /* padding: 5px 10px; */
-        color: #000;
-        position: fixed;
-        text-decoration: none;
-        margin-top: 8px;
-    }
-}
+
 @media screen and (min-width: 700px) and (max-width: 800px){
     #mypage {
         font-size: 16px;
@@ -478,14 +458,7 @@ a, .btn-link {
 }
 
 
-/* #nav-user:hover > ul {
-    display: block;
-    list-style: none;
-    text-decoration: none;
-} */
-
 #user-ul li{
-    color: #000;
     /*display: flex;*/
     justify-content: center;
 }
@@ -504,7 +477,8 @@ a, .btn-link {
 
 .nav-item ul li:hover{
     color: white;
-    background-image: url(/images/Other/nav_hover.png);
+    /* background-image: url(/images/Other/nav_hover.png);*/
+background-color: #aad4cd;
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -1317,7 +1291,7 @@ position: relative;
     /* border: 1px solid red; */
     width: 100%;
     position: fixed;
-    top: 72px;
+    top: 69px;
     z-index: 20;
     background-color: rgba(67, 128, 150, 0.877);
     box-shadow: 0px 2px 8px #06060663;
@@ -1407,8 +1381,8 @@ position: relative;
     margin: 8px 0;
 }
 
-.nav-others:hover{
-    background-image: none;
+.nav-others >.nav-link:hover{
+    background: none;
 }
 
 .others-flex{
@@ -1426,14 +1400,20 @@ position: relative;
         display: block;
     }
     .nav-others:hover{
-        background-image: url(/images/Other/nav_hover.png);
+        /* background-image: url(/images/Other/nav_hover.png);*/
+background-color: #aad4cd;
     }
 }
 
 /* NAV 帳戶管理選單 */
-#nav-myprofile, #nav-myMatch, #nav-MyAwardNotice {
+.nav-personal {
     display: none;
+    border-radius: 10px;
 }
+.nav-personal > .nav-link{
+    border-radius: 10px;
+}
+
 .particular-AccountManagement{
     width: 90%;
     /* border: 1px solid red;  */
@@ -1453,7 +1433,7 @@ position: relative;
 
 }
 @media all and (max-width: 1000px){
-    #nav-myprofile, #nav-myMatch, #nav-MyAwardNotice{
+    .nav-personal{
         display: block;
     }
     .particular-AccountManagement{

@@ -7,12 +7,8 @@
 }
 
 /* nav 當頁顯示 */
-#nav-snakeIndex{
-    color: white;
-    background-image: url(/images/Other/nav_hover.png);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
+#nav-snakeIndex >.nav-link{
+    background-color: #aad4cd;
 }
 
 #snakeIndex_hover_bottom{

@@ -8,12 +8,8 @@
     src: url(/font/AlumniSans-Bold.woff) format('woff');
 }
 /* nav 當頁顯示 */
-#nav-Arena{
-    color: white;
-    background-image: url(/images/Other/nav_hover.png);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
+#nav-Arena >.nav-link{
+    background-color: #aad4cd;
 }
 
 #Arena_hover_bottom{

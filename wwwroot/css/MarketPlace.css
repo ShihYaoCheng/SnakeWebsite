@@ -35,6 +35,9 @@
 .marketPlace_Open{
     width: 80%;
     margin: 200px auto;
+    max-width: 1200px;
+
+    display: none;
 }
 .marketPlace_Open img{
     width: 100%;
@@ -42,16 +45,12 @@
 
     /* open版暫時關閉 */
 .marketPlace{
-    display: none;
+    /* display: none; */
 }
 
 /* nav 當頁顯示 */
-#nav-MarketPlace{
-    color: white;
-    background-image: url(/images/Other/nav_hover.png);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
+#nav-MarketPlace >.nav-link{
+    background-color: #aad4cd;
 }
 
 #MarketPlace_hover_bottom{

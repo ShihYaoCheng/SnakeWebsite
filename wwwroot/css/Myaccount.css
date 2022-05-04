@@ -29,12 +29,11 @@ html{
 
 
 /* nav 當頁顯示 */
-#nav-user{
-    color: white;
-    /* background-image: url(/images/Other/nav_hover.png); */
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
+#nav-user >.nav-link{
+    background-color: #aad4cd;
+}
+.user-ul-web{
+    display: none;
 }
 
 #user_hover_bottom{

@@ -1,10 +1,6 @@
 /* nav 當頁顯示 */
-#nav-GameFi{
-    color: white;
-    background-image: url(/images/Other/nav_hover.png);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
+#nav-GameFi >.nav-link{
+    background-color: #aad4cd;
 }
 
 #GameFi_hover_bottom{

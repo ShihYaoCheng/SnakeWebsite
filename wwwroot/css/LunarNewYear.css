@@ -10,20 +10,13 @@ body{
 }
 
 /* nav 當頁顯示 */
-#nav_LunarNewYear {
-    color: white;
-    background-image: url(/images/Other/nav_hover.png);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
+#nav-Arena >.nav-link{
+    background-color: #aad4cd;
 }
 
-#nav-LunarNewYear, #nav-Arena{
+#nav_LunarNewYear{
     color: white;
-    background-image: url(/images/Other/nav_hover.png);
-    background-size: contain;
-    background-position: bottom;
-    background-repeat: no-repeat;
+    background-color: #aad4cd;
 }
 
 #LunarNewYear_hover_bottom, #Arena_hover_bottom{

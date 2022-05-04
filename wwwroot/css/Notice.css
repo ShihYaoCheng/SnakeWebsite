@@ -121,6 +121,16 @@
 
 
 /* nav 當頁顯示 */
+.nav-item:hover{
+    background-image: url(/images/Other/nav_hover.png) !important;
+    background-color: #aad4cd00;
+}
+.nav_hover_bottom{
+    display: block;
+}
+.nav-link:hover{
+    background: none;
+}
 .bg-dark{
     background-image: url(/images/Other/nav_banner_acl.png);
 }
