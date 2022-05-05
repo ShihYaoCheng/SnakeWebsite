@@ -20,6 +20,7 @@
 </div>
 
 <div class="marketPlace">
+@*<div>*@
     @* <div class="d-inline ml-5 position-relative bgBorder">
         <input style="--step:0" class="ra" type="radio" name="test" value="1">
         <input style="--step:1" class="ra" type="radio" name="test" value="1.1">
@@ -254,71 +255,69 @@
 
            
 
-
-            @foreach( NFTData item in NFTDataList)
-            {
-
-                if (item.IsOpen)
+            @if(NFTDataList != null){
+                @foreach( NFTData item in NFTDataList)
                 {
-                    <div class="NFTcard card-bg-red">
-                        <div class="NFT-cardImg">
-                            <img src="/images/MarketPlace/NFTproduct.png" alt="">
+
+                    if (item.IsOpen)
+                    {
+                        <div class="NFTcard card-bg-red">
+                            <div class="NFT-cardImg">
+                                <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                            </div>
+                            <div class="NFT-cardText">
+                                <button class="heart btn p-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                        <path class="heart__path"
+                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" />
+                                    </svg>
+                                </button>
+                                <div class="NFT-Number">#@item.Number</div>
+                                <div class="NFT-Name">@item.Name</div>
+                                <div class="NFT-PriceBlock">
+                                    <div class="NFT-PriceMain">
+                                        <img class="NFT-PriceIcon" src="/images/MarketPlace/ERNC.png" alt="">
+                                        <span class="NFT-Price">$@item.Price</span>
+                                    </div>
+                                    <div class="NFT-USD">@item.USD USD</div>
+                                </div>
+                                <div class="NFT-EndTime">Ends in @item.CalDays</div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                    
+                        <div class="NFTcard card-bg-green">
+                            <div class="NFT-cardImg">
+                            <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
                         </div>
                         <div class="NFT-cardText">
                             <button class="heart btn p-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                                     <path class="heart__path"
-                                    d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                    transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" />
+                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" />
                                 </svg>
                             </button>
                             <div class="NFT-Number">#@item.Number</div>
                             <div class="NFT-Name">@item.Name</div>
                             <div class="NFT-PriceBlock">
                                 <div class="NFT-PriceMain">
-                                    <img class="NFT-PriceIcon" src="@item.ImgPath" alt="">
-                                    <span class="NFT-Price">$@item.Price</span>
+                                    @*<img class="NFT-PriceIcon" src="/images/MarketPlace/ERNC.png" alt="">*@
+                                    <span class="NFT-Price">ComingSoon</span>
                                 </div>
-                                <div class="NFT-USD">@item.USD USD</div>
+                                @*<div class="NFT-USD">231269.89 USD</div>*@
                             </div>
-                            <div class="NFT-EndTime">Ends in       @item.CalDays</div>
+                            @*<div class="NFT-EndTime">Ends in 30d 12h</div>*@
                         </div>
-                    </div>
-                }
-                else
-                {
-                    
-                    <div class="NFTcard card-bg-green">
-                        <div class="NFT-cardImg">
-                        <img src="/images/MarketPlace/NFTproduct.png" alt="">
-                    </div>
-                    <div class="NFT-cardText">
-                        <button class="heart btn p-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                                <path class="heart__path"
-                                    d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                    transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" />
-                            </svg>
-                        </button>
-                        <div class="NFT-Number">#@item.Number</div>
-                        <div class="NFT-Name">@item.Name</div>
-                        <div class="NFT-PriceBlock">
-                            <div class="NFT-PriceMain">
-                                @*<img class="NFT-PriceIcon" src="/images/MarketPlace/ERNC.png" alt="">*@
-                                <span class="NFT-Price">ComingSoon</span>
-                            </div>
-                            @*<div class="NFT-USD">231269.89 USD</div>*@
                         </div>
-                        @*<div class="NFT-EndTime">Ends in 30d 12h</div>*@
-                    </div>
-                    </div>
+                    }
+
                 }
-
-
-               
-            
             }
 
             
@@ -532,7 +531,7 @@
 
 
         PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageList( 1,10);
-        NFTDataList = pagelist.GetRange(0,10);
+        NFTDataList = pagelist;
 
         MetaData =  pagelist.MetaData;
 

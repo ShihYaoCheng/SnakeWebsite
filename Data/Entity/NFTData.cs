@@ -3,7 +3,7 @@
     public class NFTData
     {
 
-        public int Number { get; set; }
+        public string Number { get; set; }
         public string Name { get; set; }
 
         public double Price { get; set; }
