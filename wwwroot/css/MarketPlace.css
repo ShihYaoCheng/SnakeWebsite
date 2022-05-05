@@ -401,29 +401,30 @@ input[type="radio"] {
     flex-direction: row;
     /* justify-content: flex-end; */
 }
-.Sidebar-checkbox{
+.Sidebar-checkbox-label{
     font-size: 18px;
     line-height: 26px;
 
 }
-label {
+
+
+.Sidebar-checkbox-label {
     padding: 0;
     cursor: pointer;
 }
-input[type="checkbox"] {
+.Sidebar-checkbox[type="checkbox"] {
     display: none;
 }
-input[type="checkbox"]+span {
+.Sidebar-checkbox[type="checkbox"]+span {
     display: inline-block;
     padding-left: 26px;
     line-height: 24px;
     background: url(/images/MarketPlace/checkbox.png) no-repeat left 2px;
     user-select: none;
 }
-input[type="checkbox"]:checked+span {
+.Sidebar-checkbox[type="checkbox"]:checked+span {
     background: url(/images/MarketPlace/checkbox_checked.png) no-repeat left 2px;
 }
-
 
 
 #Filter-Header{
@@ -460,6 +461,8 @@ input[type="checkbox"]:checked+span {
     transform: rotate(180deg) !important;
 }
 
+
+
 .Filter-Button{
     border: 2px solid var(--green-2);
     color:  var(--green-2);
@@ -471,6 +474,9 @@ input[type="checkbox"]:checked+span {
     transition: all .05s ease-in-out;
     margin: 0 5px 11px 0;
     min-width: 65px;
+    cursor: pointer;
+    z-index: 5;
+    text-align: center;
 }
 .Filter-Button:hover{
     /* color: var(--green-1); */
@@ -484,6 +490,11 @@ input[type="checkbox"]:checked+span {
     color: white;
     background-color:  var(--green-2);
 }
+.Filter-Button-checkbox[type="checkbox"] {
+    /* border: 1px solid red; */
+    display: none;
+}
+
 
 .Filter-heart{
     width: 34px;
@@ -898,4 +909,44 @@ input[type="checkbox"]:checked+span {
     .BuyOnOpensea a {
         padding: 12px 0px;
     }
+}
+
+/* page-select 頁籤樣式*/
+.page-select{
+    border: 1px solid red;
+}
+
+.pagination{
+    /* border: 1px solid red; */
+}
+
+.page-item{
+    background: none;
+}
+.disabled >.page-link {
+    background: none;
+}
+.page-link{
+    /* border: 1px solid red; */
+    padding: 2px 20px;
+    font-weight: bold;
+    color:var(--green-2);
+    border: none;
+    margin: 2px;
+    background: none;
+    font-size: 16px;
+    transition: all .1s ease-in-out;
+}
+.page-link:hover{
+    transform: scale(1.1);
+    background: none;
+    color: #fff;
+}
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+
+    background-color: var(--green-2);
+    border-radius: 20px;
+    /* border-color: #007bff; */
 }

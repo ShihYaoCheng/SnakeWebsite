@@ -102,12 +102,12 @@
 
             <section class="Sidebar-Filter-Block" id="">
 
-                @* <label for="officialDebut" class="Sidebar-checkbox">
+                @* <label for="officialDebut" class="Sidebar-checkbox-label">
                     <input type="checkbox" id="officialDebut">
                     Only show the official debut
                 </label> *@
-                <label for="officialDebut" class="Sidebar-checkbox">
-                    <input type="checkbox" id="officialDebut">
+                <label for="officialDebut" class="Sidebar-checkbox-label">
+                    <input type="checkbox" id="officialDebut" class="Sidebar-checkbox">
                     <span>Only show the official debut</span>
                 </label>
 
@@ -124,12 +124,21 @@
                     @foreach( string item in RareList)
                     {
                         
-                        <button class="Filter-Button">@item</button>
-                        
+                        @* <button class="Filter-Button">@item</button>*@
+
+                        <label class="Filter-Button" for="@item">
+                            <span>@item</span>
+                        </label>
+                        <input class="Filter-Button-checkbox" id="@item" type="checkbox" value="">
+
                     }
+                    
 
-
-
+                    @* <div id="ck-button">
+                        <label>
+                            <input type="checkbox" value="1"><span>N</span>
+                        </label>
+                    </div>
 
                    
                     @*<button class="Filter-Button">N</button>
@@ -138,11 +147,8 @@
                     <button class="Filter-Button">SSR</button>
                     <button class="Filter-Button">UR</button>*@
                 </div>
-                @* <div id="ck-button">
-                           <label>
-                              <input type="checkbox" value="1"><span>SUR</span>
-                           </label>
-                        </div>*@
+
+
             </section>
 
             <section class="Sidebar-Filter-Block" id="">

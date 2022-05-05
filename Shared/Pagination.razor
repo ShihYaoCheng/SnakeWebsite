@@ -4,7 +4,7 @@
 
 @*@if (MetaData.TotalCount != 0)
 {*@
-    <nav aria-label="Page navigation example">
+    <nav class="page-select" aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             @foreach (var link in _links)
             {
@@ -41,7 +41,7 @@
     {
         _links = new List<PagingLink>();
 
-        _links.Add(new PagingLink(MetaData.CurrentPage - 1, MetaData.HasPrevious, "Previous"));
+        _links.Add(new PagingLink(MetaData.CurrentPage - 1, MetaData.HasPrevious, "<"));
         
         for (int i = 1; i <= MetaData.TotalPages; i++)
         {
@@ -51,7 +51,7 @@
             }
         }
 
-        _links.Add(new PagingLink(MetaData.CurrentPage + 1, MetaData.HasNext, "Next"));
+        _links.Add(new PagingLink(MetaData.CurrentPage + 1, MetaData.HasNext, ">"));
     }
 
     /// <summary>
