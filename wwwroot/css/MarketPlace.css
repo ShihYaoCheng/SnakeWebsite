@@ -37,7 +37,7 @@
     margin: 200px auto;
     max-width: 1200px;
 
-    /* display: none; */
+    display: none;
 }
 .marketPlace_Open img{
     width: 100%;
@@ -45,7 +45,7 @@
 
     /* open版暫時關閉 */
 .marketPlace{
-    display: none;
+    /* display: none; */
 }
 
 /* nav 當頁顯示 */
@@ -310,7 +310,8 @@ input[type="radio"] {
     position: fixed;
     margin-top: 69px;
     height: calc(100vh - 70px);
-    box-shadow: 5px 5px 10px #1414142e;
+    /* box-shadow: 5px 5px 10px #1414142e; */
+    box-shadow: 0px 2px 8px #06060663;
     z-index: 9;
 
 
@@ -367,18 +368,19 @@ input[type="radio"] {
 }
 /* 改scrollbar樣式 */
 .marketPlaceSidebar-scroll::-webkit-scrollbar {
-    width: 6px;
+    width: 6px  !important;
 }
 
 .marketPlaceSidebar-scroll::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: var(--green-2);
+    border-radius: 10px  !important;
+    background-color: var(--green-2) !important;
+    border: none  !important;
 }
 
 .marketPlaceSidebar-scroll::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    background: var(--green-1);
+    border-radius: 10px  !important;
+    background: var(--green-1) !important;
 }
 
 
