@@ -26,5 +26,15 @@
         /// 下一頁
         /// </summary>
         public bool HasNext => CurrentPage < TotalPages;
+
+        /// <summary>
+        /// 至第一頁
+        /// </summary>
+        public bool HasTop => CurrentPage != 1;
+
+        /// <summary>
+        /// 至最後一頁
+        /// </summary>
+        public bool HasEnd => CurrentPage != TotalPages;
     }
 }
