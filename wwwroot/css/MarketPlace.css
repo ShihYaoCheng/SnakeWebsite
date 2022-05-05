@@ -179,7 +179,7 @@ outline-offset: -0.125rem;
 
 
 .Filter-Radio{
-    /* width: 100%; */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -200,7 +200,8 @@ outline-offset: -0.125rem;
     /* width: calc(100% / 7); */
 }
 .bodyType-label{
-    width: 100%;
+    /* border: 1px solid red;  */
+    width: 105%;
     line-height: 12px;
     white-space: nowrap;
 }
