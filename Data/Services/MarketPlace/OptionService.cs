@@ -1,4 +1,5 @@
 ﻿using SnakeAsianLeague.Data.Entity;
+using SnakeAsianLeague.Data.Paging;
 
 namespace SnakeAsianLeague.Data.Services.MarketPlace
 {
@@ -37,6 +38,68 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="PageNumber"></param>
+        /// <param name="PageSize"></param>
+        /// <returns></returns>
+        public async Task<PagedList<NFTData>> GetNFTDataPageList( int PageNumber , int PageSize)
+        {
+            datas = new List<NFTData>();
+
+            Random myObject = new Random();
+
+
+
+            for (int i = 0; i < 30; i++)
+            {
+
+                int value = myObject.Next(1, 1000);
+                int RareInt = value % RareList.Count();
+                int ClassInt = value % ClassList.Count();
+                int ProfessionInt = value % RareList.Count();
+                int CountryInt = value % RareList.Count();
+
+                NFTData data = new NFTData();
+                data.Number = value;
+                data.Name = value.ToString() + "-" + ProfessionList[ProfessionInt].ToString();
+                data.Price = myObject.Next(value, value * 10);
+                data.USD = myObject.Next(value, value * 10) * 30;
+                data.ImgPath = "/images/MarketPlace/ERNC.png";
+                data.Rare = RareList[RareInt].ToString();
+                data.Class = ClassList[ClassInt].ToString();
+                data.Profession = ProfessionList[ProfessionInt].ToString();
+                data.Country = CountryList[CountryInt].ToString();
+                data.EndTime = DateTime.Now.AddDays(value);
+                data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
+                               + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
+
+                if (value % 2 == 0)
+                {
+                    data.IsOpen = true;
+                }
+                else
+                {
+                    data.IsOpen = false;
+                }
+
+
+
+                datas.Add(data);
+            }
+            datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
+            return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
+        }
+
+        public async Task<PagedList<NFTData>> GetNFTDataPageListbyPage(int PageNumber, int PageSize)
+        {
+
+            return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
+        }
+        
+
+
         public async Task<List<NFTData>> GetNFTDataList()
         {
             datas = new List<NFTData>();
@@ -46,7 +109,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 30; i++)
             {
 
                 int value = myObject.Next(1, 1000);
@@ -87,11 +150,12 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             return datas;
         }
 
-        public async Task<List<NFTData>> NFTDataListOrderby(string OrderByString)
+        public async Task<PagedList<NFTData>> NFTDataListOrderby(string OrderByString , int PageNumber, int PageSize)
         {
             if (OrderByString == "Highest Earned" || OrderByString == "Sort")
             {
                 datas = datas.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Number).ToList();
+                
             }
             if (OrderByString == "Lowest Earned")
             {
@@ -113,7 +177,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             {
                 datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.EndTime).ToList();
             }
-            return datas;
+            return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
         }
     }
 }

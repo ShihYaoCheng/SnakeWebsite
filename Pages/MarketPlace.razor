@@ -1,5 +1,6 @@
 @page "/marketplace"
 @using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Paging
 @using SnakeAsianLeague.Data.Services.MarketPlace
 
 @inject OptionService OptionService
@@ -19,7 +20,6 @@
 </div>
 
 <div class="marketPlace">
-
     @* <div class="d-inline ml-5 position-relative bgBorder">
         <input style="--step:0" class="ra" type="radio" name="test" value="1">
         <input style="--step:1" class="ra" type="radio" name="test" value="1.1">
@@ -138,9 +138,9 @@
                     <button class="Filter-Button">SSR</button>
                     <button class="Filter-Button">UR</button>*@
                 </div>
-              @*   <div id="ck-button">
+                @* <div id="ck-button">
                            <label>
-                              <input type="checkbox" value="1"><span>NNN</span>
+                              <input type="checkbox" value="1"><span>SUR</span>
                            </label>
                         </div>*@
             </section>
@@ -244,6 +244,9 @@
             </div>
         </section>
         <section class="marketPlaceCardBLock">
+
+
+           
 
 
             @foreach( NFTData item in NFTDataList)
@@ -471,6 +474,9 @@
             </div>*@
 
         </section>
+        <div >
+             <Pagination MetaData="MetaData" Spread="5" SelectedPage="SelectedPage" />
+        </div>
     </main>
 
 
@@ -506,8 +512,6 @@
 
     private int PPSFsCount;
 
-    //private DateTime DateTimeNow;
-
     protected override async Task OnInitializedAsync()
     {
         await Refresh();
@@ -519,10 +523,15 @@
         ClassList = await OptionService.GetClassList();
         ProfessionList = await OptionService.GetProfessionList();
         CountryList = await OptionService.GetCountryList();
-        NFTDataList =await OptionService.GetNFTDataList();
 
-        PPSFsCount = NFTDataList.Count;
-        //DateTimeNow = DateTime.Now;//
+
+        PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageList( 1,10);
+        NFTDataList = pagelist.GetRange(0,10);
+
+        MetaData =  pagelist.MetaData;
+
+
+        PPSFsCount = MetaData.TotalCount;
         StateHasChanged();
     }
 
@@ -539,24 +548,31 @@
 
     }
 
-
-    private  void SelectedCarsChanged(ChangeEventArgs e)
-    {
-        if (e.Value is not null)
-        {
-           var SelectedCars = (string[])e.Value;
-        }
-
-        //var aa =  e.Value.ToString();
-       // 
-    }
     private async Task DoStuff(ChangeEventArgs e)
     {
 
+        PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( e.Value.ToString() ,1 ,10);
 
-        //var selectedString = e.Value.ToString();
+        MetaData =  pagelist.MetaData;
+        NFTDataList = pagelist;
+        PPSFsCount = MetaData.TotalCount;
+    }
 
-        NFTDataList =await OptionService.NFTDataListOrderby( e.Value.ToString());
-        //Console.WriteLine("It is definitely: " + selectedString);
+
+
+
+    public MetaData MetaData { get; set; } = new MetaData();
+
+
+    private async Task SelectedPage(int page)
+    {
+            await GetNFTDataPageListbyPage(page);
+    }
+
+    private async Task GetNFTDataPageListbyPage(int page)
+    {
+            PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( page,10);
+            NFTDataList = pagelist;
+            MetaData = pagelist.MetaData;
     }
 }
