@@ -914,6 +914,9 @@ input[type="radio"] {
     .BuyOnOpensea a {
         padding: 12px 0px;
     }
+    .marketPlaceCardBLock{
+        margin-bottom: 50px;
+    }
 }
 
 /* page-select 頁籤樣式*/
@@ -979,7 +982,10 @@ input[type="radio"] {
     border-radius: 20px;
 }
 
-@media all and (max-width: 500px){
+@media all and (max-width: 600px){
+    .Pagination-Block{
+        margin: 0px auto 70px;
+    }
     .page-link{
         padding: 2px 10px;
     }
