@@ -54,6 +54,10 @@
     flex-direction: row;
 }
 
+.Nav-AccountManagement{
+    display: block !important;
+}
+
 /* RWD */
 @media (max-width: 1000px) {
     .nav-li-particular{
@@ -68,6 +72,7 @@
 .myprofileSidebar{
     display: block;
 }
+
 
 /* Sidebar當頁顯示 */
 #accountManagementUl-Inventory{

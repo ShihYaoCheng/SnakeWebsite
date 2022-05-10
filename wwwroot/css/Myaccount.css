@@ -30,7 +30,7 @@ html{
 
 /* nav 當頁顯示 */
 #nav-user >.nav-link{
-    background-color: #aad4cd;
+    /* background-color: #aad4cd; */
 }
 .user-ul-web{
     display: none;
