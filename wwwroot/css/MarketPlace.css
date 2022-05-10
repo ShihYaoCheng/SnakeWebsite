@@ -320,7 +320,7 @@ input[type="radio"] {
 }
 
 @media all and (min-width: 1000px){
-    .marketPlaceSidebar{
+    .marketPlaceSidebar-Web{
         display: block !important;
     }
 }
@@ -609,6 +609,7 @@ input[type="radio"] {
     padding: 6px 12px 6px 12px;
     outline: 0;
     margin: 15px 0;
+    cursor: pointer;
 }
 .sortSelect:focus {
     border: 3.5px solid  #49736c;
@@ -639,6 +640,12 @@ input[type="radio"] {
     margin: 15px;
     transition: all .1s ease-in-out;
     position: relative;
+}
+.NFTcard a{
+    border: 1px solid red;
+    display: contents;
+
+    /* 暫時關閉連結 */
 }
 
 .NFTcard:hover{
@@ -674,11 +681,13 @@ input[type="radio"] {
 }
 
 .NFT-Number{
-    width: 100px;
+    display: inline-block;
+    /* width: 100px; */
     font-size: 18px;
     padding: 0 15px;
     margin: 12px 10px 10px 10px;
     border-radius: 5px;
+    white-space: nowrap;
 }
 
 .NFT-Name{
@@ -799,7 +808,7 @@ input[type="radio"] {
     color: var(--theme-font-2);
 }
 .NFTcard{
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 @media all and (max-width: 1500px){
     .marketPlaceHeader{
@@ -830,7 +839,6 @@ input[type="radio"] {
     .NFTcard {
         width: 300px;
         margin: 10px;
-        cursor: pointer;
     }
     .NFT-cardImg{
         min-width: 150px;
@@ -846,7 +854,7 @@ input[type="radio"] {
         right: 7px
     }
     .NFT-Number{
-        width: 60px;
+        /* width: 60px; */
         padding: 0 6px;
         font-size: 10px;
         margin: 6px 3px 5px 5px
@@ -919,74 +927,4 @@ input[type="radio"] {
     }
 }
 
-/* page-select 頁籤樣式*/
-.Pagination-Block{
-    /* border: 1px solid red; */
-    max-width: 100%;
-    margin: 0 auto;
-}
-.page-select{
-    /* border: 1px solid rgb(195, 165, 165); */
-    width: 80%;
-    margin: 0 auto;
-}
 
-.pagination{
-    /* border: 1px solid red; */
-    /* background: none; */
-}
-
-.page-item{
-    /* background: none !important; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.page-item.disabled .page-link{
-    /* padding: 0px 18px; */
-    font-weight: bold;
-    color:var(--green-2);
-    border: none;
-    margin: 0px;
-    background: none;
-    font-size: 16px;
-    transition: all .1s ease-in-out;
-}
-.disabled >.page-link {
-    /* background: none; */
-}
-.page-link{
-    /* border: 1px solid red; */
-    padding: 2px 16px;
-    font-weight: bold;
-    color:var(--green-2);
-    border: none;
-    margin: 2px;
-    background: none;
-    font-size: 16px;
-    transition: all .1s ease-in-out;
-    white-space: nowrap;
-}
-.page-link:hover{
-    transform: scale(1.1);
-    background: none;
-    color: white;
-    /* color:var(--green-2);
-    opacity: 0.5; */
-}
-.page-item.active .page-link {
-    z-index: 1;
-    color: #fff;
-
-    background-color: var(--green-2);
-    border-radius: 20px;
-}
-
-@media all and (max-width: 600px){
-    .Pagination-Block{
-        margin: 0px auto 70px;
-    }
-    .page-link{
-        padding: 2px 10px;
-    }
-}

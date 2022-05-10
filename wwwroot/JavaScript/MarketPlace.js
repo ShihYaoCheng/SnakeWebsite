@@ -12,7 +12,7 @@ window.heartClick = function () {
     })
 }
 window.FilterButtonClick = function () {
-    $('.Filter-Button').click(function(){
+    $('.Filter-Button:not(#Filter-Button-Reset)').click(function(){
         console.log('FilterButtonClick')
         $(this).toggleClass('Filter-Button-Click')
     })
@@ -35,3 +35,4 @@ window.updateTextInput = function (val) {
     console.log('rangeInput')
     // $('#textInputRange').val(val);
 }
+

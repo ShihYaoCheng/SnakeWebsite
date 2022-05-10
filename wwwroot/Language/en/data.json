@@ -46,6 +46,7 @@
     "Esports":"Esports",
     "AwardClaim":"Award Claim",
     "Myprofile":"My Account",
+    "Inventory":"Inventory",
 
     "Chinese":"中文",
     "English":"EN"
@@ -55,7 +56,8 @@
     "AccountManagement":"Account<br>Management",
     "Account":"Account",
     "Esports":"eSport",
-    "Reward":"Reward"
+    "Reward":"Reward",
+    "Inventory":"Inventory"
   },
 
   "signInWindows":{
@@ -69,8 +71,8 @@
   "SnakeIndexlogo":"/images/OfficialWeb/LOGO_EN.png",
 
   "introduce_01": "<div class=\"index01_introduce_EN\">PonPonSnake is a 3D role-playing game based on the classic arcade snake but evolved with a unique play style.</div>",
-  "introduce_02": "<div class=\"index01_introduce_EN\">The great hero sacrificed themself to protect the world and drive the evil back away to the darkness. Although their dedication and exertion have brought temporary peace to the Snake Land, the evil hiding in the shadow, still seeking for change to rise again. As for the new hope, a young twin who was lost in the forest is about to carry the duty of heroes who all came before them and accept it as their destiny.</div>",
-  "introduce_03": "<div class=\"index01_introduce_EN\">In the meantime, skilled Knights across the Great Snake World are also preparing for the returning evil. </div>",
+  "introduce_02": "<div class=\"index01_introduce_EN\">The great hero sacrificed themself to protect the world and drive the evil back away to the darkness. Although their dedication and exertion have brought temporary peace to the Itza world. But the evil hiding in the shadow still seeks for change to rise again. As for the new hope, a young twin who was lost in the forest is about to carry the duty of heroes who all came before them and accept it as their destiny.</div>",
+  "introduce_03": "<div class=\"index01_introduce_EN\">In the meantime, skilled riders across the Great Snake World are also preparing for the returning evil.</div>",
   "introduce_04": "<div class=\"index01_introduce_EN\">Choose your favorite Snake Rider and enjoy your adventure at the Great Snake World!</div>",
   "gameName": "▼ Scan or tap to download ▼",
 

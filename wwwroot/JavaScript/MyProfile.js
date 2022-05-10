@@ -53,3 +53,42 @@ window.copyTip = function () {
         $("#copyTip").css({"opacity": "0","z-index":"-1"}); //提示完即消失
     }, 700);
 }
+
+window.InventoryFilterSidebarClick = function () {
+    $('.Inventory-PPSR-Filter').click(function(){
+        console.log('Inventory-PPSR-Filter')
+        $('.Inventory-PPSR-Filter-Sidebar').slideToggle('fast'); 
+
+    })
+    $(document).mouseup(function (e) {
+        var container =$(".Inventory-PPSR-Filter-Sidebar, .Inventory-PPSR-Filter"); // 這邊放你想要排除的區塊
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            $('.Inventory-PPSR-Filter-Sidebar').slideUp('fast');
+
+        }
+    });
+
+    if ($('.NFTcard').length === 0) {
+        $('.IfNoCard').show();
+    }if ($('.NFTcard').length > 0){
+        $('.IfNoCard').hide();
+    }
+}
+
+window.CardAmountLinkDisplay = function (){
+    // var FilterCheckbox = $('.Inventory-PPSR-Filter-Sidebar input[type="checkbox"]:checked');
+    $('.Inventory-PPSR-Filter-Sidebar').change(function (e) {
+        if ($('.Inventory-PPSR-Filter-Sidebar input[type="checkbox"]:checked').length > 0 || 
+            $('.Filter-Button-Click:not(#Filter-Button-Reset)').length > 0  || 
+            $('.Inventory-PPSR-Filter-Sidebar input[type="radio"]:checked').length > 0 ||
+            $('.heartClickRed').length > 0){
+            
+            $('.Inventory-PPSR-Filter').addClass("Inventory-PPSR-Filter-Ing");
+        }else{
+            $('.Inventory-PPSR-Filter').removeClass("Inventory-PPSR-Filter-Ing");
+        }
+        console.log($('.Inventory-PPSR-Filter-Sidebar input[type="checkbox"]:checked').length)
+        console.log($('.Filter-Button-Click').length)
+        console.log($('.heartClickRed').length)
+    });
+}

@@ -21,7 +21,7 @@
 </head>
 
 @* 節慶賽各分頁navbar *@
-<nav class="FestivalNavbar">
+<nav class="FestivalNavbar" id="FestivalNavbar">
     <ul>
         @* 亞洲聯賽 賽季選單 *@
         <div class="FestivalNavBlockSelect">
@@ -74,7 +74,7 @@
 
     @* 主視覺banner區塊 *@
 
-    <div class="christmas_banner">
+    <div class="christmas_banner" id="index_banner">
         
         <div class="snowstorm">
             @* <canvas id="fireworks_canvas"></canvas> *@
@@ -2171,6 +2171,7 @@
             @* await JS.InvokeVoidAsync("fireworks"); *@
             await JS.InvokeVoidAsync("Lightbox");
             await JS.InvokeVoidAsync("ParallaxInit");
+            await JS.InvokeVoidAsync("installI18n");
         }
     }
 }

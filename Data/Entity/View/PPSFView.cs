@@ -1,6 +1,6 @@
 ﻿namespace SnakeAsianLeague.Data.Entity.View
 {
-    public class PPSFView
+    public class PPSRView
     {
 
         public string SerialNumber { get; set; }     // NFT 單位編號

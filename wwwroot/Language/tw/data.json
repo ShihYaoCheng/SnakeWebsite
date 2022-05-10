@@ -47,6 +47,7 @@
     "Esports":"我的賽事",
     "AwardClaim":"領獎通知",
     "Myprofile":"我的主頁",
+    "Inventory":"資產管理",
 
     "Chinese":"中文",
     "English":"EN"
@@ -54,9 +55,10 @@
 
   "Sidebar": {
     "AccountManagement":"帳號管理",
-    "Account":"資產",
+    "Account":"我的主頁",
     "Esports":"我的賽事",
-    "Reward":"領獎通知"
+    "Reward":"領獎通知",
+    "Inventory":"資產明細"
   },
 
   "signInWindows":{
