@@ -22,7 +22,8 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
-        public List<string> RareList = new List<string>() { "N", "R", "SR", "SSR", "UR", "UUR" };
+        //public List<string> RareList = new List<string>() { "N", "R", "SR", "SSR", "UR", "UUR" };
+        public List<string> RareList = new List<string>() { "advanced", "rare", "epic", "legend", "abyss", "mythic" };
 
         public List<string> ClassList = new List<string>() { "Land", "Water", "Wind", "Fire" };
 
