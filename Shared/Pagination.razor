@@ -1,9 +1,9 @@
-﻿@using SnakeAsianLeague.Data.Paging
+@using SnakeAsianLeague.Data.Paging
 
 
 
-@* @if (MetaData.TotalCount != 0)
-{ *@
+@if (MetaData.TotalCount != 0)
+{
     <nav class="page-select" aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             @foreach (var link in _links)
@@ -14,7 +14,7 @@
             }
         </ul>
     </nav>
-@* } *@
+}
 
 
 
@@ -27,7 +27,6 @@
     [Parameter] public int Spread { get; set; }
 
     private List<PagingLink> _links;
-    //private List<LinkModel> links;
 
     protected override void OnParametersSet() 
     {
@@ -40,17 +39,25 @@
     private void CreatePaginationLinks()
     {
         _links = new List<PagingLink>();
-
-
         _links.Add(new PagingLink(1, MetaData.HasTop, "|<"));
         _links.Add(new PagingLink(MetaData.CurrentPage - 1, MetaData.HasPrevious, "<"));
-        
+        if ( Spread * 2 <= MetaData.CurrentPage)
+        {
+            _links.Add(new PagingLink(1, false, "......") { Active = false });
+        }
+
         for (int i = 1; i <= MetaData.TotalPages; i++)
         {
-            if(i >= MetaData.CurrentPage - Spread && i <= MetaData.CurrentPage + Spread)
+            if(i >= MetaData.CurrentPage - Spread && i <= MetaData.CurrentPage + Spread   )
             {
                 _links.Add(new PagingLink(i, true, i.ToString()) { Active = MetaData.CurrentPage == i });
             }
+        }
+
+        if (MetaData.CurrentPage <= MetaData.TotalPages - Spread * 2 + 1)
+        {
+            _links.Add(new PagingLink(MetaData.TotalPages, false, "......") { Active = false });
+            _links.Add(new PagingLink(MetaData.TotalPages, true, MetaData.TotalPages.ToString()) { Active = MetaData.CurrentPage == MetaData.TotalPages });
         }
 
         _links.Add(new PagingLink(MetaData.CurrentPage + 1, MetaData.HasNext, ">"));
