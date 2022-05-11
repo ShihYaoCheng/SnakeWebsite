@@ -131,7 +131,8 @@ html{
 }
 .informationAssetBlockAll{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: flex-start;
     flex-wrap: wrap
 }
 
@@ -452,6 +453,10 @@ html{
     /* margin-bottom: 40px; */
     cursor: pointer;
     transition: all .15s ease-in-out;
+    height: 228px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .informationAssetBlock:hover{
@@ -461,6 +466,18 @@ html{
     /* border: 1px solid red; */
     text-decoration: none;
 }
+#informationAssetBlock-Lock{
+    cursor: not-allowed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ICON_Lock{
+    width: 150px;
+    opacity: 0.6;
+    margin: 0 auto;
+}
+
 .assetItem{
     /* border: 1px solid red; */
     display: flex;
@@ -533,6 +550,9 @@ html{
     }
 }
 @media all and (max-width: 800px){
+    .informationAssetBlock{
+        height: 197px;
+    }
     .assetItem span{
         font-size: 18px;
     }
@@ -557,7 +577,8 @@ html{
 }
 @media all and (max-width: 1075px){
     .informationAssetBlockAll{
-        justify-content: center;
+        /* justify-content: center; */
+        justify-content: flex-start;
     }
 }
 @media all and (max-width: 600px){
