@@ -38,7 +38,7 @@
 }
 .page-link{
     /* border: 1px solid red; */
-    padding: 2px 16px;
+    /* padding: 2px 16px; */
     font-weight: bold;
     color:var(--green-2);
     border: none;
@@ -61,6 +61,7 @@
 
     background-color: var(--green-2);
     border-radius: 20px;
+    padding: 2px 16px;
 }
 
 @media all and (max-width: 600px){

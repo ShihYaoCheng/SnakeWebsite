@@ -43,7 +43,7 @@
         _links.Add(new PagingLink(MetaData.CurrentPage - 1, MetaData.HasPrevious, "<"));
         if ( Spread * 2 <= MetaData.CurrentPage)
         {
-            _links.Add(new PagingLink(1, false, "......") { Active = false });
+            _links.Add(new PagingLink(1, false, "....") { Active = false });
         }
 
         for (int i = 1; i <= MetaData.TotalPages; i++)
@@ -56,7 +56,7 @@
 
         if (MetaData.CurrentPage <= MetaData.TotalPages - Spread * 2 + 1)
         {
-            _links.Add(new PagingLink(MetaData.TotalPages, false, "......") { Active = false });
+            _links.Add(new PagingLink(MetaData.TotalPages, false, "....") { Active = false });
             _links.Add(new PagingLink(MetaData.TotalPages, true, MetaData.TotalPages.ToString()) { Active = MetaData.CurrentPage == MetaData.TotalPages });
         }
 
