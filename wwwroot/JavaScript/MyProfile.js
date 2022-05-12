@@ -83,20 +83,28 @@ window.InventoryFilterSidebarClick = function () {
     }
 }
 
+// 個人資產頁的篩選器使用顯示判斷
 window.CardAmountLinkDisplay = function (){
-    // var FilterCheckbox = $('.Inventory-PPSR-Filter-Sidebar input[type="checkbox"]:checked');
-    $('.Inventory-PPSR-Filter-Sidebar').change(function (e) {
-        if ($('.Inventory-PPSR-Filter-Sidebar input[type="checkbox"]:checked').length > 0 || 
-            $('.Filter-Button-Click:not(#Filter-Button-Reset)').length > 0  || 
-            $('.Inventory-PPSR-Filter-Sidebar input[type="radio"]:checked').length > 0 ||
-            $('.heartClickRed').length > 0){
+    $('.Inventory-PPSR-Filter-Sidebar').click(function () {
+        var FilterCheckboxClicked = $('.Inventory-PPSR-Filter-Sidebar input[type="checkbox"]:checked').length;
+        var FilterButtonClicked = $('.Filter-Button-Click:not(#Filter-Button-Reset)').length;
+        var FilterRadioClicked = $('.Inventory-PPSR-Filter-Sidebar input[type="radio"]:checked').length;
+        var HeartClicked = $('.Filter-Header-Block .heartClickRed').length;
+
+        if (FilterCheckboxClicked > 0 || 
+            FilterButtonClicked > 0 || 
+            FilterRadioClicked > 0 ||
+            HeartClicked > 0){
             
             $('.Inventory-PPSR-Filter').addClass("Inventory-PPSR-Filter-Ing");
+            
+            console.log(FilterCheckboxClicked,'FilterCheckboxClicked')
+            console.log(FilterButtonClicked,'FilterButtonClicked')
+            console.log(FilterRadioClicked,'FilterRadioClicked')
+            console.log(HeartClicked,'HeartClicked')
         }else{
             $('.Inventory-PPSR-Filter').removeClass("Inventory-PPSR-Filter-Ing");
         }
-        console.log($('.Inventory-PPSR-Filter-Sidebar input[type="checkbox"]:checked').length)
-        console.log($('.Filter-Button-Click').length)
-        console.log($('.heartClickRed').length)
+
     });
 }

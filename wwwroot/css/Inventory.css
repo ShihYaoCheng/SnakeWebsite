@@ -239,6 +239,11 @@
     cursor: pointer;
     transition: all .05s ease-in;
 }
+/* Inventory 當前區塊頁籤顯示 */
+.Inventory-hover-Click{
+    background-color: var(--bg-3);
+    color: var(--font-1);
+}
 .Inventory-hover a{
     display: contents;
     /* border: 1px solid red; */
