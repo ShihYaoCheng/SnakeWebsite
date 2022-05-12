@@ -176,8 +176,6 @@
                     @foreach( string item in RareList)
                     {
                         
-                        @* <button class="Filter-Button">@item</button>*@
-
                         <label class="Filter-Button" for="@item">
                             <span>@item</span>
                         </label>
@@ -213,7 +211,10 @@
                     @foreach( string item in ClassList)
                     {
                         
-                        <button class="Filter-Button">@item</button>
+                        <label class="Filter-Button" for="@item">
+                            <span>@item</span>
+                        </label>
+                        <input class="Filter-Button-checkbox" id="@item" type="checkbox" value="">
                     }
                     @*<button class="Filter-Button">Land</button>
                     <button class="Filter-Button">Water</button>
@@ -231,7 +232,10 @@
                     @foreach( string item in ProfessionList)
                     {
                         
-                        <button class="Filter-Button">@item</button>
+                        <label class="Filter-Button" for="@item">
+                            <span>@item</span>
+                        </label>
+                        <input class="Filter-Button-checkbox" id="@item" type="checkbox" value="">
                     }
                     @*<button class="Filter-Button">Archer</button>
                     <button class="Filter-Button">Necromancer</button>
@@ -255,7 +259,10 @@
                     @foreach( string item in CountryList)
                     {
                         
-                        <button class="Filter-Button">@item</button>
+                        <label class="Filter-Button" for="@item">
+                            <span>@item</span>
+                        </label>
+                        <input class="Filter-Button-checkbox" id="@item" type="checkbox" value="">
                     }
                    @* <button class="Filter-Button">Archer</button>
                     <button class="Filter-Button">Necromancer</button>
