@@ -457,7 +457,7 @@
 }
 @media all and (max-width: 1500px){
     .Inventory-CardBLock{
-        width: 90%;
+        /* width: 90%; */
         margin: 0 auto;
     }
     .Inventory-CardBLock .NFTcard{
@@ -471,7 +471,7 @@
     .Inventory-CardBLock{
         width: 100%;
         margin: unset;
-        justify-content: center;
+        /* justify-content: center; */
     }
 }
 
@@ -479,6 +479,11 @@
 @media all and (max-width: 800px){
     .Inventory-CardBLock{
         margin-bottom: 50px;
+    }
+}
+@media all and (max-width: 750px){
+    .Inventory-CardBLock{
+        justify-content: center;
     }
 }
 @media all and (max-width: 500px){
