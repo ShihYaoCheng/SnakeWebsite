@@ -37,7 +37,7 @@
     margin: 200px auto;
     max-width: 1200px;
 
-    display: none;
+    /* display: none; */
 }
 .marketPlace_Open img{
     width: 100%;
