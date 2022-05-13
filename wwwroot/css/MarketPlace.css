@@ -867,12 +867,12 @@ input[type="radio"] {
         height: 52px;
     }
     .NFT-PriceIcon{
-        width: 26px;
+        width: 12px;
         margin: 5px 0px 5px 5px;
     }
     .NFT-Price{
         font-size: 23px;
-        margin: 0 0 0 8px;
+        margin: 0 0 0 5px;
     }
     .NFT-USD{
         font-size: 10px;
