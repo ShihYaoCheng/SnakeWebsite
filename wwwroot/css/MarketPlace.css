@@ -393,7 +393,16 @@ input[type="radio"] {
     font-weight: bold;
     padding: 10px 18px;
 }
+.Filter-Title-Block{
+    display: flex;
+}
+#Filter-Icon-Web{
+    width: 25px;
+    margin: 0 10px 0 0;
+}
+.Filter-Icon{
 
+}
 .Filter-mobile-slide{
     /* border: 1px solid blue; */
     cursor: pointer;
