@@ -3,13 +3,20 @@
     public class NFTRiderUnits
     {
         /// <summary>
-        /// 
+        /// 鍛造次數
         /// </summary>
         public int mintCount { get; set; }
         /// <summary>
-        /// PPSR
+        /// 
         /// </summary>
         public string serialNumber { get; set; }
+
+       
+
+        /// <summary>
+        /// 職業代碼
+        /// </summary>
+        public string occupationId { get; set; }
         /// <summary>
         /// 名子
         /// </summary>
@@ -34,5 +41,26 @@
         /// 寵物
         /// </summary>
         public string pet { get; set; }
+
+        public List<castings> castings { get; set; }
+    }
+
+    public class castings
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string tokenId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ppsr { get; set; }
+
+
+        /// <summary>
+        /// 合約編號
+        /// </summary>
+        public string contractAddress { get; set; }
     }
 }

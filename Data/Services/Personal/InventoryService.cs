@@ -45,7 +45,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             return ProfessionList;
         }
 
-	/// <summary>
+	    /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
@@ -83,8 +83,8 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 NFTData data = new NFTData();
                 data.Number = value.ToString();
                 data.Name = value.ToString() + "-" + ProfessionList[ProfessionInt].ToString();
-                data.Price = myObject.Next(value, value * 10);
-                data.USD = myObject.Next(value, value * 10) * 30;
+                data.Price = myObject.Next(value, value * 10).ToString();
+                data.USD = (myObject.Next(value, value * 10) * 30).ToString();
                 data.ImgPath = "/images/MarketPlace/NFTproduct.png";
                 data.Rare = RareList[RareInt].ToString();
                 data.Class = ClassList[ClassInt].ToString();

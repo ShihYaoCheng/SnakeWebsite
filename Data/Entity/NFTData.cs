@@ -6,11 +6,13 @@
         public string Number { get; set; }
         public string Name { get; set; }
 
-        public double Price { get; set; }
+        public string Price { get; set; }
 
-        public double USD { get; set; }
+        public string USD { get; set; }
 
         public string ImgPath { get; set; }
+
+        public string LinkURL { get; set; }
 
         public string Rare { get; set; }
 
@@ -25,5 +27,9 @@
         public string CalDays { get; set; }
 
         public bool IsOpen { get; set; }
+
+        public bool IsLove { get; set; }
+
+        public bool IsNFT { get; set; }
     }
 }
