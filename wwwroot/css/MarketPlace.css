@@ -37,7 +37,7 @@
     margin: 200px auto;
     max-width: 1200px;
 
-    display: none;
+    /* display: none; */
 }
 .marketPlace_Open img{
     width: 100%;
@@ -45,7 +45,7 @@
 
     /* open版暫時關閉 */
 .marketPlace{
-    /* display: none; */
+    display: none;
 }
 
 /* nav 當頁顯示 */
