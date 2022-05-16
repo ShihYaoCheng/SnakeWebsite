@@ -12,44 +12,86 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 {
     public class OptionService
     {
+        private readonly static KeyValuePair<string, string> RequestKey = new KeyValuePair<string, string>("Backend-Auth-Handler", "gmregk343grgeggw[fk55234w46wfwef46gpwekf[43-i@@!#!@#@");
+        private IConfiguration _config;
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
 
-        public OptionService(IOptions<ExternalServers> myConfiguration,HttpClient httpClient)
+
+
+
+        
+        public List<OptionKeyValue> RarityList = new List<OptionKeyValue>() { };
+        public List<OptionKeyValue> ElementsList = new List<OptionKeyValue>() { };
+        public List<OptionKeyValue> ClassList = new List<OptionKeyValue>() { };
+        public List<OptionKeyValue> CountryList = new List<OptionKeyValue>() { };
+
+
+
+        public OptionService(IConfiguration config ,IOptions<ExternalServers> myConfiguration,HttpClient httpClient)
         {
+            _config = config;
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
+
+            OptionKeyValue option = new OptionKeyValue();
+            RarityList = option.Get_Default_Rarity();
+            ElementsList = option.Get_Default_Elements();
+            ClassList = option.Get_Default_Class();
+            CountryList = option.Get_Default_Country();
+
         }
 
 
 
 
-        //public List<string> RareList = new List<string>() { "N", "R", "SR", "SSR", "UR", "UUR" };
-        public List<string> RareList = new List<string>() { "advanced", "rare", "epic", "legend", "abyss", "mythic" };
-
-        public List<string> ClassList = new List<string>() { "Land", "Water", "Wind", "Fire" };
-
-        public List<string> ProfessionList = new List<string>() { "Archer", "Necromancer", "Cleric", "Bard", "Magician", "Assassin", "Gunner", "Gladiator", "Dragoon" };
-
-        public List<string> CountryList = new List<string>() { "Archer", "Necromancer", "Cleric", "Bard", "Magician", "Assassin" };
+       
 
         List<NFTData> datas;
-        public async Task<List<string>> GetRareList()
+
+        /// <summary>
+        /// 取得OpenSeaURL NFT資產 官方網址
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> Get_OpenSeaURL()
         {
-            return RareList;
+            string OpenSeaURL = _config.GetValue<string>("OpenSeaURL");            
+            return OpenSeaURL;
         }
 
-        public async Task<List<string>> GetClassList()
+
+        /// <summary>
+        /// 取得稀有度
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<OptionKeyValue>> Get_Default_Rarity()
+        {
+            return RarityList;
+        }
+
+        /// <summary>
+        /// 取得屬性
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<OptionKeyValue>> Get_Default_Elements()
+        {
+            return ElementsList;
+        }
+
+        /// <summary>
+        /// 取得職業專精
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<OptionKeyValue>> Get_Default_Class()
         {
             return ClassList;
         }
 
-        public async Task<List<string>> GetProfessionList()
-        {
-            return ProfessionList;
-        }
-
-        public async Task<List<string>> GetCountryList()
+        /// <summary>
+        /// 取得國家
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<OptionKeyValue>> Get_Default_Country()
         {
             return CountryList;
         }
@@ -67,10 +109,16 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         public async Task<PagedList<NFTData>> GetNFTDataPageList( int PageNumber , int PageSize)
         {
 
+            string ImgPath = _config.GetValue<string>("googleapis");
+            string LinkURL = _config.GetValue<string>("OpenSeaLink");
+            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
 
-            List<NFTRiderUnits> nFTRiders = await GetNFTRiderUnits();
 
-            OpenseaAssetsData rd = await GetOpenseaNFTRider();
+
+
+            List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits();
+
+          
 
 
             datas = new List<NFTData>();
@@ -78,38 +126,47 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
             Random myObject = new Random();
 
+            
+            string Rarity = "";
+            string Elements = "";
 
-            for (int i = 0; i < nFTRiders.Count; i++)
+            OpenseaAssetsData rd = new OpenseaAssetsData();
+
+            for (int i = 0; i < NFT_Riders.Count; i++)
             {
                 int value = myObject.Next(1, 1000);
-                int RareInt = value % RareList.Count();
-                int ClassInt = value % ClassList.Count();
-                int ProfessionInt = value % RareList.Count();
-                int CountryInt = value % RareList.Count();
+                //int RareInt = value % RareList.Count();
+                //int ClassInt = value % ClassList.Count();
+                //int ProfessionInt = value % RareList.Count();
+                //int CountryInt = value % RareList.Count();
 
+
+
+               
+
+                if (i % 50 == 0)
+                {
+                    rd = await GetOpenseaNFTRider( i+1 , 50);
+                }
+                
                 assets assets = new assets();
 
                 if (rd.assets.Count > 0)
                 {
-                    assets = rd.assets.Where(m => m.token_id == nFTRiders[i].castings[0].tokenId).FirstOrDefault() ?? new assets(); 
+                    assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets(); 
                 }
 
-             
-
                 NFTData data = new NFTData();
-                data.Number = nFTRiders[i].castings[0].tokenId;
+                data.Number = NFT_Riders[i].castings[0].tokenId;
                 data.Name = assets.name;
                 if (assets.last_sale != null)
                 {
-
-
-                    var aaa = string.Format("{0,18:000000000000000000}", assets.last_sale.total_price);
-                    var bbb = Math.Pow(10, assets.last_sale.payment_token.decimals);
-                    var ccc = double.Parse(aaa.ToString()) / double.Parse(bbb.ToString());
-
+                    string total_price = assets.last_sale.total_price;
+                    Decimal decimals = Convert.ToDecimal(Math.Pow(10, assets.last_sale.payment_token.decimals));
+                    Decimal Price = Decimal.Parse(total_price.ToString()) / Decimal.Parse(decimals.ToString());
                     Decimal usd_price = 0;
                     Decimal.TryParse(assets.last_sale.payment_token.usd_price ?? "0", out usd_price);
-                    data.Price = ccc.ToString();    //myObject.Next(value, value * 10);
+                    data.Price = Price.ToString();    //myObject.Next(value, value * 10);
                     data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture);   //myObject.Next(value, value * 10) * 30;
                     data.IsOpen = true;
                 }
@@ -118,76 +175,29 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                     
                     data.IsOpen = false;
                 }
-                data.ImgPath = string.Format(@"https://storage.googleapis.com/pps-nft/ppsr/{0}.png", nFTRiders[i].serialNumber);
-                //data.ImgPath = assets.image_url;
 
 
-                data.LinkURL = string.Format("https://testnets.opensea.io/assets/0x2de6d9904ac58d6e50c328a0177c038b57f9e2d3/{0}", nFTRiders[i].castings[0].tokenId);
-                data.Rare = RareList[RareInt].ToString();
-                data.Class = ClassList[ClassInt].ToString();
-                data.Profession = ProfessionList[ProfessionInt].ToString();
-                data.Country = CountryList[CountryInt].ToString();
+                List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //NFT_Unit3_2c_1
+                if (RarityElements[2] != null)
+                {
+                    Rarity = RarityElements[2].Substring(0, 1);
+                    Elements = RarityElements[2].Substring(1, 1);
+                }
+              
+
+                data.ImgPath = string.Format(ImgPath, NFT_Riders[i].serialNumber);
+                data.LinkURL = string.Format(LinkURL, asset_contract_address, NFT_Riders[i].castings[0].tokenId);
+                data.Rarity = Rarity;
+                data.Elements = Elements;
+                data.Class = NFT_Riders[i].occupationId;
+                //data.Country = CountryList[CountryInt].ToString();
                 data.EndTime = DateTime.Now.AddDays(value);
                 data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
                                + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
-
-
-
-                //data.IsOpen = true;
-                //if (value % 2 == 0)
-                //{
-                //    data.IsOpen = true;
-                //}
-                //else
-                //{
-                //    data.IsOpen = false;
-                //}
-
-
-
                 datas.Add(data);
             }
 
 
-
-
-
-            //for (int i = 0; i < 30; i++)
-            //{
-
-            //    int value = myObject.Next(1, 1000);
-            //    int RareInt = value % RareList.Count();
-            //    int ClassInt = value % ClassList.Count();
-            //    int ProfessionInt = value % RareList.Count();
-            //    int CountryInt = value % RareList.Count();
-
-            //    NFTData data = new NFTData();
-            //    data.Number = value.ToString();
-            //    data.Name = value.ToString() + "-" + ProfessionList[ProfessionInt].ToString();
-            //    data.Price = myObject.Next(value, value * 10);
-            //    data.USD = myObject.Next(value, value * 10) * 30;
-            //    data.ImgPath = "/images/MarketPlace/ERNC.png";
-            //    data.Rare = RareList[RareInt].ToString();
-            //    data.Class = ClassList[ClassInt].ToString();
-            //    data.Profession = ProfessionList[ProfessionInt].ToString();
-            //    data.Country = CountryList[CountryInt].ToString();
-            //    data.EndTime = DateTime.Now.AddDays(value);
-            //    data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
-            //                   + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
-
-            //    if (value % 2 == 0)
-            //    {
-            //        data.IsOpen = true;
-            //    }
-            //    else
-            //    {
-            //        data.IsOpen = false;
-            //    }
-
-
-
-            //    datas.Add(data);
-            //}
             datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
             return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
         }
@@ -200,56 +210,13 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         
 
 
-        public async Task<List<NFTData>> GetNFTDataList()
-        {
-            datas = new List<NFTData>();
-
-
-            Random myObject = new Random();
-
-
-
-            for (int i = 0; i < 30; i++)
-            {
-
-                int value = myObject.Next(1, 1000);
-                int RareInt = value % RareList.Count();
-                int ClassInt = value % ClassList.Count();
-                int ProfessionInt = value % RareList.Count();
-                int CountryInt = value % RareList.Count();
-
-                NFTData data = new NFTData();
-                data.Number = value.ToString();
-                data.Name = value.ToString() + "-" + ProfessionList[ProfessionInt].ToString();
-                data.Price = myObject.Next(value, value * 10).ToString();
-                data.USD = (myObject.Next(value, value * 10) * 30).ToString();
-                data.ImgPath = "/images/MarketPlace/ERNC.png";
-                data.Rare = RareList[RareInt].ToString();
-                data.Class = ClassList[ClassInt].ToString();
-                data.Profession = ProfessionList[ProfessionInt].ToString();
-                data.Country = CountryList[CountryInt].ToString();
-                data.EndTime = DateTime.Now.AddDays(value);
-                data.CalDays = Math.Truncate(( DateTime.Now.AddDays(value)  - DateTime.Now ).TotalDays)    +  " d " 
-                               + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate(( DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24)  + " H ";
-
-                if (value % 2 == 0)
-                {
-                    data.IsOpen = true;
-                }
-                else
-                {
-                    data.IsOpen = false;
-                }
-
-
-
-                datas.Add(data);
-            }
-
-            datas = datas.OrderBy(m => m.IsOpen ==false).ThenBy( m => m.Number).ToList();
-            return datas;
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="OrderByString"></param>
+        /// <param name="PageNumber"></param>
+        /// <param name="PageSize"></param>
+        /// <returns></returns>
         public async Task<PagedList<NFTData>> NFTDataListOrderby(string OrderByString , int PageNumber, int PageSize)
         {
             if (OrderByString == "Highest Earned" || OrderByString == "Sort")
@@ -280,6 +247,52 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
         }
 
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="PageNumber"></param>
+        /// <param name="PageSize"></param>
+        /// <param name="Rarity"></param>
+        /// <param name="Elements"></param>
+        /// <param name="Class"></param>
+        /// <param name="Country"></param>
+        /// <returns></returns>
+        public async Task<PagedList<NFTData>> Get_NFT_by_Filter(int PageNumber, int PageSize , List<string> Rarity , List<string> Elements, List<string> Class, List<string> Country)
+        {
+
+            List<NFTData> Filter = new List<NFTData>();
+
+            if (Rarity.Count == 0)
+            {
+                Rarity = RarityList.Select(m=>m.Key).ToList();
+                //Rarity.Add("");
+            }
+            if (Elements.Count == 0)
+            {
+                Elements = ElementsList.Select(m => m.Key).ToList();
+                //Elements.Add("");
+            }
+            if (Class.Count == 0)
+            {
+                Class = ClassList.Select(m => m.Key).ToList();
+                //Class.Add("");
+            }
+            if (Country.Count == 0)
+            {
+                Country = CountryList.Select(m => m.Key).ToList();
+                Country.Add("");
+                Country.Add(null);
+            }
+            //|| Country.Contains(m.Country)
+
+            Filter = datas.Where(m => Rarity.Contains(m.Rarity) && Elements.Contains(m.Elements) && Class.Contains(m.Class) ).ToList();
+
+            return PagedList<NFTData>.ToPagedList(Filter, PageNumber, PageSize);
+        }
 
 
 
@@ -318,21 +331,115 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
-        public async Task<OpenseaAssetsData> GetOpenseaNFTRider()
+        /// <summary>
+        /// 呼叫opensea api 依照資產地址
+        /// </summary>
+        /// <param name="offset">第幾筆開始</param>
+        /// <param name="limit">顯示幾筆資料</param>
+        /// <returns></returns>
+        //public async Task<OpenseaAssetsData> GetOpenseaNFTRider(int PageNumber, int PageSize)
+        public async Task<OpenseaAssetsData> GetOpenseaNFTRider(int offset, int limit)
         {
-            //var client = new RestClient("https://testnets-api.opensea.io/api/v1/assets?asset_contract_address=0x2DE6D9904AC58D6e50c328a0177c038b57F9E2D3&order_direction=desc&offset=0&limit=20");
-            //var request = new RestRequest(Method.GET);
-            //IRestResponse response = client.Execute(request);
-            var client = new RestClient("https://testnets-api.opensea.io/api/v1/assets?asset_contract_address=0x2DE6D9904AC58D6e50c328a0177c038b57F9E2D3&order_direction=desc&offset=0&limit=20");
-            var request = new RestRequest(Method.GET);
+            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
+            string RetrieveAssets = _config.GetValue<string>("RetrieveAssets");
+            //string URL = string.Format(RetrieveAssets, asset_contract_address , (PageNumber -1 ) * PageSize + 1 , PageNumber*PageSize);
+            string URL = string.Format(RetrieveAssets, asset_contract_address, offset , limit);
+            RestClient client = new RestClient(URL);
+            RestRequest request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var rd = JsonSerializer.Deserialize<OpenseaAssetsData>(response.Content) ?? new OpenseaAssetsData();
+                OpenseaAssetsData rd = JsonSerializer.Deserialize<OpenseaAssetsData>(response.Content) ?? new OpenseaAssetsData();
 
                 return rd;
             }
             return new OpenseaAssetsData();
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// 將NFT加入我的最愛
+        /// </summary>
+        /// <param name="UsersID"></param>
+        public async Task<bool> AddLove(int UserID, string ppsr)
+        {
+            bool result = false;
+            try
+            {
+                string URL = "Unit/AddLove";
+                RestRequest request = new RestRequest(URL, Method.POST);
+                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader(RequestKey.Key, RequestKey.Value);
+                request.AddQueryParameter("userID", UserID.ToString());
+                request.AddQueryParameter("ppsr", ppsr);
+                var response = await ServerClient.ExecuteAsync(request);
+                result = response.StatusCode == HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                string errormsg = ex.Message;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 移除我的最愛
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="ppsrID"></param>
+        public async Task<bool> RemoveLove(int UserID, string ppsr)
+        {
+            bool result = false;
+            try
+            {
+                string URL = "Unit/RemoveLove";
+                RestRequest request = new RestRequest(URL, Method.POST);
+                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader(RequestKey.Key, RequestKey.Value);
+                request.AddQueryParameter("userID", UserID.ToString());
+                request.AddQueryParameter("ppsr", ppsr);
+                var response = await ServerClient.ExecuteAsync(request);
+                result = response.StatusCode == HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                string errormsg = ex.Message;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 改變租金
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="ppsrID"></param>
+        /// <param name="Price"></param>
+        public async Task<bool> ChangeRent(int UserID, string ppsr, int Price)
+        {
+            bool result = false;
+            try
+            {
+                string URL = "/NFT/ChangeRent";
+                RestRequest request = new RestRequest(URL, Method.POST);
+                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader(RequestKey.Key, RequestKey.Value);
+                request.AddQueryParameter("userID", UserID.ToString());
+                request.AddQueryParameter("ppsr", ppsr);
+                request.AddQueryParameter("price", Price.ToString());
+                var response = await ServerClient.ExecuteAsync(request);
+                result = response.StatusCode == HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                string errormsg = ex.Message;
+            }
+            return result;
         }
     }
 }

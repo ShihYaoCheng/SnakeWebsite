@@ -14,11 +14,20 @@
 
         public string LinkURL { get; set; }
 
-        public string Rare { get; set; }
+        /// <summary>
+        /// 稀有度
+        /// </summary>
+        public string Rarity { get; set; }
 
+        /// <summary>
+        /// 屬性
+        /// </summary>
+        public string Elements { get; set; }
+
+        /// <summary>
+        /// 職業專精
+        /// </summary>
         public string Class { get; set; }
-
-        public string Profession { get; set; }
 
         public string Country { get; set; }
 

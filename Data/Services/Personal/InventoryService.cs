@@ -8,48 +8,65 @@ namespace SnakeAsianLeague.Data.Services.Personal
 {
     public class InventoryService
     {
-
+        private readonly static KeyValuePair<string, string> RequestKey = new KeyValuePair<string, string>("Backend-Auth-Handler", "gmregk343grgeggw[fk55234w46wfwef46gpwekf[43-i@@!#!@#@");
+        private IConfiguration _config;
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
 
         List<NFTData> NFTDataList;
- 
-
-        public List<string> RareList = new List<string>() { "advanced", "rare", "epic", "legend", "abyss", "mythic" };
-
-        public List<string> ClassList = new List<string>() { "Land", "Water", "Wind", "Fire" };
-
-        public List<string> ProfessionList = new List<string>() { "Archer", "Necromancer", "Cleric", "Bard", "Magician", "Assassin", "Gunner", "Gladiator", "Dragoon" };
-
-        public List<string> CountryList = new List<string>() { "Archer", "Necromancer", "Cleric", "Bard", "Magician", "Assassin" };
 
 
-        public InventoryService(IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
+        public List<OptionKeyValue> RarityList = new List<OptionKeyValue>() { };
+        public List<OptionKeyValue> ElementsList = new List<OptionKeyValue>() { };
+        public List<OptionKeyValue> ClassList = new List<OptionKeyValue>() { };
+        public List<OptionKeyValue> CountryList = new List<OptionKeyValue>() { };
+
+
+
+        public InventoryService(IConfiguration config , IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
         {
+            _config = config;
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
-        }
 
-        public async Task<List<string>> GetRareList()
+            OptionKeyValue option = new OptionKeyValue();
+            RarityList = option.Get_Default_Rarity();
+            ElementsList = option.Get_Default_Elements();
+            ClassList = option.Get_Default_Class();
+            CountryList = option.Get_Default_Country();
+        }
+        /// <summary>
+        /// 取得稀有度
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<OptionKeyValue>> Get_Default_Rarity()
         {
-            return RareList;
+            return RarityList;
         }
 
-        public async Task<List<string>> GetClassList()
+        /// <summary>
+        /// 取得屬性
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<OptionKeyValue>> Get_Default_Elements()
+        {
+            return ElementsList;
+        }
+
+        /// <summary>
+        /// 取得職業專精
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<OptionKeyValue>> Get_Default_Class()
         {
             return ClassList;
         }
 
-        public async Task<List<string>> GetProfessionList()
-        {
-            return ProfessionList;
-        }
-
-	    /// <summary>
-        /// 
+        /// <summary>
+        /// 取得國家
         /// </summary>
         /// <returns></returns>
-        public async Task<List<string>> GetCountryList()
+        public async Task<List<OptionKeyValue>> Get_Default_Country()
         {
             return CountryList;
         }
@@ -75,21 +92,21 @@ namespace SnakeAsianLeague.Data.Services.Personal
             {
 
                 int value = myObject.Next(1, 1000);
-                int RareInt = value % RareList.Count();
-                int ClassInt = value % ClassList.Count();
-                int ProfessionInt = value % RareList.Count();
-                int CountryInt = value % RareList.Count();
+                //int RareInt = value % RareList.Count();
+                //int ClassInt = value % ClassList.Count();
+                //int ProfessionInt = value % RareList.Count();
+                //int CountryInt = value % RareList.Count();
 
                 NFTData data = new NFTData();
                 data.Number = value.ToString();
-                data.Name = value.ToString() + "-" + ProfessionList[ProfessionInt].ToString();
+                data.Name = value.ToString() + "-";//+ ProfessionList[ProfessionInt].ToString();
                 data.Price = myObject.Next(value, value * 10).ToString();
                 data.USD = (myObject.Next(value, value * 10) * 30).ToString();
                 data.ImgPath = "/images/MarketPlace/NFTproduct.png";
-                data.Rare = RareList[RareInt].ToString();
-                data.Class = ClassList[ClassInt].ToString();
-                data.Profession = ProfessionList[ProfessionInt].ToString();
-                data.Country = CountryList[CountryInt].ToString();
+                //data.Rare = RareList[RareInt].ToString();
+                //data.Class = ClassList[ClassInt].ToString();
+                //data.Class = ClassList[ProfessionInt].ToString();
+                //data.Country = CountryList[CountryInt].ToString();
                 data.EndTime = DateTime.Now.AddDays(value);
                 data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
                                + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";

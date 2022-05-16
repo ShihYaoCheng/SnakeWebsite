@@ -16,12 +16,12 @@
 <div class="marketPlaceBackground" ></div>
 
 @* open版暫時示意圖 *@
-<div class="marketPlace_Open" hidden="@(true)">
+@*<div class="marketPlace_Open" hidden="@(true)">
     <img src="/images/MarketPlace/ComingSoon.png" alt="">
 </div>
 
-<div class="marketPlace" hidden="@(false)">
-@*<div>*@
+<div class="marketPlace" hidden="@(false)">*@
+<div>
     @* <div class="d-inline ml-5 position-relative bgBorder">
         <input style="--step:0" class="ra" type="radio" name="test" value="1">
         <input style="--step:1" class="ra" type="radio" name="test" value="1.1">
@@ -177,7 +177,7 @@
 
             </section>
 
-            <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+            <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                 <div class="Filter-Title">
                     <span>Rare</span>
                     <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
@@ -185,79 +185,53 @@
                 <div class="Filter-Options">
 
 
-                    @foreach( string item in RareList)
+                    @foreach (var item in RarityList)
                     {
-                        
-                        <label class="Filter-Button" for="@item">
-                            <span>@item</span>
+                        var key = @item.Key;
+                        <label class="Filter-Button" for="@item.Value">
+                            <span data-i18n="@item.Datai18n">@item.Value</span>
                         </label>
-                        <input class="Filter-Button-checkbox" id="@item" type="checkbox" value="">
-
+                        <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
                     }
-                    
-
-                    @* <div id="ck-button">
-                        <label>
-                            <input type="checkbox" value="1"><span>N</span>
-                        </label>
-                    </div>
-
-                   
-                    @*<button class="Filter-Button">N</button>
-                    <button class="Filter-Button">R</button>
-                    <button class="Filter-Button">SR</button>
-                    <button class="Filter-Button">SSR</button>
-                    <button class="Filter-Button">UR</button>*@
                 </div>
 
 
             </section>
 
-            <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+            <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                 <div class="Filter-Title">
                     <span>Class</span>
                     <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
                 </div>
                 <div class="Filter-Options">
 
-                    @foreach( string item in ClassList)
+                    @foreach (var item in ElementsList)
                     {
-                        
-                        <label class="Filter-Button" for="@item">
-                            <span>@item</span>
+                        var key = @item.Key;
+                        <label class="Filter-Button" for="@item.Value">
+                            <span data-i18n="@item.Datai18n">@item.Value</span>
                         </label>
-                        <input class="Filter-Button-checkbox" id="@item" type="checkbox" value="">
+                        <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
                     }
-                    @*<button class="Filter-Button">Land</button>
-                    <button class="Filter-Button">Water</button>
-                    <button class="Filter-Button">Wind</button>
-                    <button class="Filter-Button">Fire</button>*@
                 </div>
             </section>
 
-            <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+            <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                 <div class="Filter-Title">
                     <span>Profession</span>
                     <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
                 </div>
                 <div class="Filter-Options">
-                    @foreach( string item in ProfessionList)
+
+                    @foreach (var item in ClassList)
                     {
-                        
-                        <label class="Filter-Button" for="@item">
-                            <span>@item</span>
+                        var key = @item.Key;
+                        <label class="Filter-Button" for="@item.Value">
+                            <span data-i18n="@item.Datai18n">@item.Value</span>
                         </label>
-                        <input class="Filter-Button-checkbox" id="@item" type="checkbox" value="">
+                        <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
                     }
-                    @*<button class="Filter-Button">Archer</button>
-                    <button class="Filter-Button">Necromancer</button>
-                    <button class="Filter-Button">Cleric</button>
-                    <button class="Filter-Button">Bard</button>
-                    <button class="Filter-Button">Magician</button>
-                    <button class="Filter-Button">Assassin</button>
-                    <button class="Filter-Button">Gunner</button>
-                    <button class="Filter-Button">Gladiator</button>
-                    <button class="Filter-Button">Dragoon</button>*@
+
                 </div>
             </section>
 
@@ -268,20 +242,14 @@
                 </div>
                 <div class="Filter-Options">
 
-                    @foreach( string item in CountryList)
+                    @foreach (var item in CountryList)
                     {
-                        
-                        <label class="Filter-Button" for="@item">
-                            <span>@item</span>
+                        var key = @item.Key;
+                        <label class="Filter-Button" for="@item.Value">
+                            <span data-i18n="@item.Datai18n">@item.Value</span>
                         </label>
-                        <input class="Filter-Button-checkbox" id="@item" type="checkbox" value="">
+                        <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
                     }
-                   @* <button class="Filter-Button">Archer</button>
-                    <button class="Filter-Button">Necromancer</button>
-                    <button class="Filter-Button">Cleric</button>
-                    <button class="Filter-Button">Bard</button>
-                    <button class="Filter-Button">Magician</button>
-                    <button class="Filter-Button">Assassin</button>*@
 
 
                 </div>
@@ -296,7 +264,7 @@
         <section class="marketPlaceHeader">
             <div class="marketPlaceTitle">PonPonSnake's NFTs<br>@PPSRsCount PPSRs</div>
             <div class="d-flex flex-column align-items-end" style="align-self: flex-end;">
-                <button class="BuyOnOpensea"><a href="https://testnets.opensea.io/collection/character-w7pmtkc0wg" target="opensea">Buy on Opensea</a ></button>
+                <button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea">Buy on Opensea</a ></button>
 
                 <select class="sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))"   >
                     <option disabled="" value="Sort" selected="" hidden="">Sort</option>
@@ -395,162 +363,6 @@
 
             
 
- @*           <div class="NFTcard card-bg-red">
-                <div class="NFT-cardImg">
-                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
-                </div>
-                <div class="NFT-cardText">
-                    <button class="heart btn p-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                            <path class="heart__path"
-                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" />
-                        </svg>
-                    </button>
-                    <div class="NFT-Number">#123456</div>
-                    <div class="NFT-Name">Name Of Rider</div>
-                    <div class="NFT-PriceBlock">
-                        <div class="NFT-PriceMain">
-                            <img class="NFT-PriceIcon"  src="/images/MarketPlace/ETH4Polygon.svg" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
-                            <span class="NFT-Price">2913.89</span>
-                        </div>
-                        <div class="NFT-USD">231269.89 USD</div>
-                    </div>
-                    <div class="NFT-EndTime">Ends in 30d 12h</div>
-                </div>
-            </div>
-
-            <div class="NFTcard card-bg-red">
-                <div class="NFT-cardImg">
-                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
-                </div>
-                <div class="NFT-cardText">
-                    <button class="heart btn p-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                            <path class="heart__path"
-                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" />
-                        </svg>
-                    </button>
-                    <div class="NFT-Number">#123456</div>
-                    <div class="NFT-Name">Name Of Rider</div>
-                    <div class="NFT-PriceBlock">
-                        <div class="NFT-PriceMain">
-                            <img class="NFT-PriceIcon"  src="/images/MarketPlace/ETH4Polygon.svg" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
-                            <span class="NFT-Price">2913.89</span>
-                        </div>
-                        <div class="NFT-USD">231269.89 USD</div>
-                    </div>
-                    <div class="NFT-EndTime">Ends in 30d 12h</div>
-                </div>
-            </div>
-
-            <div class="NFTcard card-bg-green">
-                <div class="NFT-cardImg">
-                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
-                </div>
-                <div class="NFT-cardText">
-                    <button class="heart btn p-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                            <path class="heart__path"
-                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" />
-                        </svg>
-                    </button>
-                    <div class="NFT-Number">#123456</div>
-                    <div class="NFT-Name">Name Of Rider</div>
-                    <div class="NFT-PriceBlock">
-                        <div class="NFT-PriceMain">
-                            <img class="NFT-PriceIcon" src="/images/MarketPlace/ETH4Polygon.svg" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
-                            <span class="NFT-Price">2913.89</span>
-                        </div>
-                        <div class="NFT-USD">231269.89 USD</div>
-                    </div>
-                    <div class="NFT-EndTime">Ends in 30d 12h</div>
-                </div>
-            </div>
-
-            <div class="NFTcard card-bg-green">
-                <div class="NFT-cardImg">
-                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
-                </div>
-                <div class="NFT-cardText">
-                    <button class="heart btn p-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                            <path class="heart__path"
-                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" />
-                        </svg>
-                    </button>
-                    <div class="NFT-Number">#123456</div>
-                    <div class="NFT-Name">Name Of Rider</div>
-                    <div class="NFT-PriceBlock">
-                        <div class="NFT-PriceMain">
-                            <img class="NFT-PriceIcon"  src="/images/MarketPlace/ETH4Polygon.svg" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
-                            <span class="NFT-Price">2913.89</span>
-                        </div>
-                        <div class="NFT-USD">231269.89 USD</div>
-                    </div>
-                    <div class="NFT-EndTime">Ends in 30d 12h</div>
-                </div>
-            </div>
-
-            <div class="NFTcard card-bg-green">
-                <div class="NFT-cardImg">
-                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
-                </div>
-                <div class="NFT-cardText">
-                    <button class="heart btn p-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                            <path class="heart__path"
-                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" />
-                        </svg>
-                    </button>
-                    <div class="NFT-Number">#123456</div>
-                    <div class="NFT-Name">Name Of Rider</div>
-                    <div class="NFT-PriceBlock">
-                        <div class="NFT-PriceMain">
-                            <img class="NFT-PriceIcon"  src="/images/MarketPlace/ETH4Polygon.svg" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
-                            <span class="NFT-Price">2913.89</span>
-                        </div>
-                        <div class="NFT-USD">231269.89 USD</div>
-                    </div>
-                    <div class="NFT-EndTime">Ends in 30d 12h</div>
-                </div>
-            </div>
-
-            <div class="NFTcard card-bg-green">
-                <div class="NFT-cardImg">
-                    <img src="/images/MarketPlace/NFTproduct.png" alt="">
-                </div>
-                <div class="NFT-cardText">
-                    <button class="heart btn p-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                            <path class="heart__path"
-                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" />
-                        </svg>
-                    </button>
-                    <div class="NFT-Number">#123456</div>
-                    <div class="NFT-Name">Name Of Rider</div>
-                    <div class="NFT-PriceBlock">
-                        <div class="NFT-PriceMain">
-                            <img class="NFT-PriceIcon"  src="/images/MarketPlace/ETH4Polygon.svg" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
-                            <span class="NFT-Price">2913.89</span>
-                        </div>
-                        <div class="NFT-USD">231269.89 USD</div>
-                    </div>
-                    <div class="NFT-EndTime">Ends in 30d 12h</div>
-                </div>
-            </div>*@
-
         </section>
         <div class="Pagination-Block">
              <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage" />
@@ -574,21 +386,35 @@
 
 @code {
 
-
-    [Parameter] public string InitialText { get; set; } = "Sort";
-    List<string> templates = new List<string>() {  "Sort","Highest Earned", "Lowest Earned", "Highest Price", "Lowest Price", "Newest", "Oldest" };
-
-    private List<string> RareList;
-
-    private List<string> ClassList;
-
-    private List<string> ProfessionList;
-
-    private List<string> CountryList;
-
+    /// <summary>
+    /// 稀有度
+    /// </summary>
+    private List<OptionKeyValue> RarityList = new List<OptionKeyValue>();
+    /// <summary>
+    /// 屬性
+    /// </summary>
+    private List<OptionKeyValue> ElementsList = new List<OptionKeyValue>();
+    /// <summary>
+    /// 職業專精
+    /// </summary>
+    private List<OptionKeyValue> ClassList= new List<OptionKeyValue>();
+    /// <summary>
+    /// 國家
+    /// </summary>
+    private List<OptionKeyValue> CountryList= new List<OptionKeyValue>();
+    /// <summary>
+    /// 
+    /// </summary>
     private List<NFTData> NFTDataList;
-
+    /// <summary>
+    /// 顯示nft rider 筆數
+    /// </summary>
     private int PPSRsCount;
+
+    /// <summary>
+    /// OpenSeaURL NFT資產 官方網址
+    /// </summary>
+    private string OpenSeaURL;
 
     protected override async Task OnInitializedAsync()
     {
@@ -597,10 +423,11 @@
 
     private async Task Refresh()
     {
-        RareList = await OptionService.GetRareList();
-        ClassList = await OptionService.GetClassList();
-        ProfessionList = await OptionService.GetProfessionList();
-        CountryList = await OptionService.GetCountryList();
+        RarityList = await OptionService.Get_Default_Rarity();
+        ElementsList = await OptionService.Get_Default_Elements();
+        ClassList = await OptionService.Get_Default_Class();
+        CountryList = await OptionService.Get_Default_Country();
+        OpenSeaURL = await OptionService.Get_OpenSeaURL();
 
 
         PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageList( 1,10);
@@ -644,13 +471,128 @@
 
     private async Task SelectedPage(int page)
     {
-            await GetNFTDataPageListbyPage(page);
+        await GetNFTDataPageListbyPage(page);
     }
 
     private async Task GetNFTDataPageListbyPage(int page)
     {
-            PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( page,10);
-            NFTDataList = pagelist;
-            MetaData = pagelist.MetaData;
+        PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( page,10);
+        NFTDataList = pagelist;
+        MetaData = pagelist.MetaData;
+    }
+
+
+
+    /* 篩選*/
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public List<string> CheckBoxRarity { get; set; } = new List<string>();
+    public List<string> CheckBoxElements { get; set; } = new List<string>();
+    public List<string> CheckBoxClass { get; set; } = new List<string>();
+    public List<string> CheckBoxCountry { get; set; } = new List<string>();
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxRarityClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxRarity.Contains(CheckID))
+            {
+                CheckBoxRarity.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxRarity.Contains(CheckID))
+            {
+                CheckBoxRarity.Remove(CheckID);
+            }
+        }
+        GetFilter();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxElementsClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxElements.Contains(CheckID))
+            {
+                CheckBoxElements.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxElements.Contains(CheckID))
+            {
+                CheckBoxElements.Remove(CheckID);
+            }
+        }
+        GetFilter();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxClassClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxClass.Contains(CheckID))
+            {
+                CheckBoxClass.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxClass.Contains(CheckID))
+            {
+                CheckBoxClass.Remove(CheckID);
+            }
+        }
+        GetFilter();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxCountryClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxCountry.Contains(CheckID))
+            {
+                CheckBoxCountry.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxCountry.Contains(CheckID))
+            {
+                CheckBoxCountry.Remove(CheckID);
+            }
+        }
+        GetFilter();
+    }
+
+    private async Task GetFilter()
+    { 
+    
+        PagedList<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
+        NFTDataList = pagelist;
+        MetaData = pagelist.MetaData;
     }
 }

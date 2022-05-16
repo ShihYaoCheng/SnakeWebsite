@@ -183,16 +183,14 @@
                                         </div>
                                         <div class="Filter-Options">
 
-
-                                             @foreach( string item in RareList)
-                                            { 
-
-                                                <label class="Filter-Button" for="@item">
-                                                    <span>@item</span>
+                                            @foreach (var item in RarityList)
+                                            {
+                                                var key = @item.Key;
+                                                <label class="Filter-Button" for="@item.Value">
+                                                    <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" id="item" type="checkbox" value="">
-
-                                             } 
+                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
+                                            }
                                             
                                         </div>
 
@@ -206,14 +204,14 @@
                                         </div>
                                         <div class="Filter-Options">
 
-                                            @foreach( string item in ClassList)
-                                            { 
-                                                
-                                                <label class="Filter-Button" for="@item">
-                                                    <span>@item</span>
+                                            @foreach (var item in ElementsList)
+                                            {
+                                                var key = @item.Key;
+                                                <label class="Filter-Button" for="@item.Value">
+                                                    <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" id="item" type="checkbox" value="">
-                                            } 
+                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
+                                            }
 
                                         </div>
                                     </section>
@@ -224,13 +222,14 @@
                                             <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
                                         </div>
                                         <div class="Filter-Options">
-                                            @foreach( string item in ProfessionList)
+
+                                            @foreach (var item in ClassList)
                                             {
-                                                
-                                                <label class="Filter-Button" for="@item">
-                                                    <span>@item</span>
+                                                var key = @item.Key;
+                                                <label class="Filter-Button" for="@item.Value">
+                                                    <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" id="item" type="checkbox" value="">
+                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
                                             } 
 
                                         </div>
@@ -243,13 +242,13 @@
                                         </div>
                                         <div class="Filter-Options">
 
-                                            @foreach( string item in CountryList)
+                                            @foreach (var item in CountryList)
                                             {
-                                                
-                                                <label class="Filter-Button" for="@item">
-                                                    <span>@item</span>
+                                                var key = @item.Key;
+                                                <label class="Filter-Button" for="@item.Value">
+                                                    <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" id="item" type="checkbox" value="">
+                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
                                             }
 
                                         </div>
@@ -394,13 +393,22 @@
 
 @code {
     private int PPSRsCount;
-    private List<string> RareList;
-
-    private List<string> ClassList;
-
-    private List<string> ProfessionList;
-
-    private List<string> CountryList;
+    /// <summary>
+    /// 稀有度
+    /// </summary>
+    private List<OptionKeyValue> RarityList = new List<OptionKeyValue>();
+    /// <summary>
+    /// 屬性
+    /// </summary>
+    private List<OptionKeyValue> ElementsList = new List<OptionKeyValue>();
+    /// <summary>
+    /// 職業專精
+    /// </summary>
+    private List<OptionKeyValue> ClassList= new List<OptionKeyValue>();
+    /// <summary>
+    /// 國家
+    /// </summary>
+    private List<OptionKeyValue> CountryList= new List<OptionKeyValue>();
 
     private List<NFTData> NFTDataList;
 
@@ -413,10 +421,10 @@
 
     private async Task Refresh()
     {   
-        RareList = await InventoryService.GetRareList();
-        ClassList = await InventoryService.GetClassList();
-        ProfessionList = await InventoryService.GetProfessionList();
-        CountryList = await InventoryService.GetCountryList();
+        RarityList = await InventoryService.Get_Default_Rarity();
+        ElementsList = await InventoryService.Get_Default_Elements();
+        ClassList = await InventoryService.Get_Default_Class();
+        CountryList = await InventoryService.Get_Default_Country();
         PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList( 1,10);
         NFTDataList = pagelist;
 
@@ -471,5 +479,107 @@
         PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList( page,10);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
+    }
+
+
+        /* filter  */
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public List<string> CheckBoxRarity { get; set; } = new List<string>();
+    public List<string> CheckBoxElements { get; set; } = new List<string>();
+    public List<string> CheckBoxClass { get; set; } = new List<string>();
+    public List<string> CheckBoxCountry { get; set; } = new List<string>();
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxRarityClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxRarity.Contains(CheckID))
+            {
+                CheckBoxRarity.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxRarity.Contains(CheckID))
+            {
+                CheckBoxRarity.Remove(CheckID);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxElementsClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxElements.Contains(CheckID))
+            {
+                CheckBoxElements.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxElements.Contains(CheckID))
+            {
+                CheckBoxElements.Remove(CheckID);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxClassClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxClass.Contains(CheckID))
+            {
+                CheckBoxClass.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxClass.Contains(CheckID))
+            {
+                CheckBoxClass.Remove(CheckID);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxCountryClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxCountry.Contains(CheckID))
+            {
+                CheckBoxCountry.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxCountry.Contains(CheckID))
+            {
+                CheckBoxCountry.Remove(CheckID);
+            }
+        }
     }
 }
