@@ -283,6 +283,7 @@ input[type="radio"] {
 .card-bg-green {
     --theme-bg-1: #69ADA2;
     --theme-bg-2: #4B8B8B;
+    --theme-bg-3: #a7e5db;
     --theme-font-1: #8Fcdc3;
     --theme-font-2: #276170;
     --theme-font-3: #a7e5db;
@@ -292,6 +293,7 @@ input[type="radio"] {
 .card-bg-red {
     --theme-bg-1: #E58880;
     --theme-bg-2: #D06F6F;
+    --theme-bg-3: #ffd8d8;
     --theme-font-1: #F7cdc4;
     --theme-font-2: #823131;
     --theme-font-3: #ffd8d8;
@@ -728,10 +730,20 @@ input[type="radio"] {
     /* font-weight: bold; */
     margin: 0 0 0 10px;
 }
+.NFT-PriceIcon-Border{
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0px 8px 10px;
+    width: 40px;
+    height: 40px;
+}
 .NFT-PriceIcon{
     width: 20px;
-    margin: 8px 0px 8px 10px;
+
 }
+
 .NFT-USD{
     position: absolute;
     bottom: 0;
@@ -779,6 +791,9 @@ input[type="radio"] {
 .card-bg-red .NFT-Price {
     color: var(--theme-font-3);
 }
+.card-bg-red .NFT-PriceIcon-Border{
+    background-color: var(--theme-bg-3);
+}
 .card-bg-red .NFT-USD {
     color: var(--theme-font-1);
 }
@@ -812,6 +827,9 @@ input[type="radio"] {
 .card-bg-green .NFT-Price {
     color: var(--theme-font-3);
 }
+.card-bg-green .NFT-PriceIcon-Border{
+    background-color: var(--theme-bg-3);
+}
 .card-bg-green .NFT-USD {
     color: var(--theme-font-1);
 }
@@ -819,6 +837,8 @@ input[type="radio"] {
 .card-bg-green .NFT-EndTime{
     color: var(--theme-font-2);
 }
+
+
 .NFTcard{
     /* cursor: pointer; */
 }
@@ -878,9 +898,17 @@ input[type="radio"] {
     .NFT-PriceBlock{
         height: 52px;
     }
+    .NFT-PriceIcon-Border{
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 8px 0px 8px 10px;
+        width: 24px;
+        height: 24px;
+    }
     .NFT-PriceIcon{
         width: 12px;
-        margin: 5px 0px 5px 5px;
     }
     .NFT-Price{
         font-size: 23px;
