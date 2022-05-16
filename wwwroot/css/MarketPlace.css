@@ -396,10 +396,13 @@ input[type="radio"] {
 .Filter-Title-Block{
     display: flex;
 }
-#Filter-Icon-Web{
-    width: 25px;
-    margin: 0 10px 0 0;
+@media all and (min-width: 1000px){
+    #Filter-Icon-Web{
+        width: 25px;
+        margin: 0 10px 0 0;
+    }
 }
+
 .Filter-Icon{
 
 }
@@ -890,27 +893,12 @@ input[type="radio"] {
     .NFT-EndTime{
         font-size: 10px;
     }
-    .marketPlaceCardBLock{
-        justify-content: center;
-        justify-content: flex-start;
-        /* max-width: 1027px; */
-        /* margin: 0 auto;
-        padding: 0 20px; */
-    }
+
 }
-@media all and (min-width: 1300px){
-    .marketPlaceCardBLock{
-        justify-content: center;
-        justify-content: flex-start;
-        /* max-width: 1027px; */
-        /* margin: 0 auto;
-        padding: 0 20px; */
-    }
-}
+
 @media all and (max-width: 1300px){
     .marketPlaceCardBLock{
-        justify-content: center;
-
+        width: 90%;
     }
 }
 @media all and (max-width: 800px){
@@ -933,6 +921,11 @@ input[type="radio"] {
     }
     .marketPlaceCardBLock{
         margin-bottom: 50px;
+    }
+}
+@media all and (max-width: 748px){
+    .marketPlaceCardBLock{
+        justify-content: center;
     }
 }
 
