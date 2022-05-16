@@ -113,13 +113,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             string LinkURL = _config.GetValue<string>("OpenSeaLink");
             string asset_contract_address = _config.GetValue<string>("asset_contract_address");
 
-
-
-
             List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits();
-
-          
-
 
             datas = new List<NFTData>();
 
@@ -140,10 +134,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 //int ProfessionInt = value % RareList.Count();
                 //int CountryInt = value % RareList.Count();
 
-
-
-               
-
                 if (i % 50 == 0)
                 {
                     rd = await GetOpenseaNFTRider( i+1 , 50);
@@ -153,12 +143,14 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
                 if (rd.assets.Count > 0)
                 {
+                    //遊戲api有資料但是還 沒上opensea/沒上鏈
                     assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets(); 
                 }
 
                 NFTData data = new NFTData();
                 data.Number = NFT_Riders[i].castings[0].tokenId;
                 data.Name = assets.name;
+                //可能沒有拍賣紀錄
                 if (assets.last_sale != null)
                 {
                     string total_price = assets.last_sale.total_price;
@@ -167,24 +159,21 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                     Decimal usd_price = 0;
                     Decimal.TryParse(assets.last_sale.payment_token.usd_price ?? "0", out usd_price);
                     data.Price = Price.ToString();    //myObject.Next(value, value * 10);
-                    data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture);   //myObject.Next(value, value * 10) * 30;
+                    data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture); 
                     data.IsOpen = true;
                 }
                 else
-                {
-                    
+                {                    
                     data.IsOpen = false;
                 }
 
 
-                List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //NFT_Unit3_2c_1
+                List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
                 if (RarityElements[2] != null)
                 {
                     Rarity = RarityElements[2].Substring(0, 1);
                     Elements = RarityElements[2].Substring(1, 1);
                 }
-              
-
                 data.ImgPath = string.Format(ImgPath, NFT_Riders[i].serialNumber);
                 data.LinkURL = string.Format(LinkURL, asset_contract_address, NFT_Riders[i].castings[0].tokenId);
                 data.Rarity = Rarity;
@@ -265,28 +254,31 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         {
 
             List<NFTData> Filter = new List<NFTData>();
-
-            if (Rarity.Count == 0)
-            {
-                Rarity = RarityList.Select(m=>m.Key).ToList();
-                //Rarity.Add("");
-            }
-            if (Elements.Count == 0)
-            {
-                Elements = ElementsList.Select(m => m.Key).ToList();
-                //Elements.Add("");
-            }
-            if (Class.Count == 0)
-            {
-                Class = ClassList.Select(m => m.Key).ToList();
-                //Class.Add("");
-            }
-            if (Country.Count == 0)
-            {
-                Country = CountryList.Select(m => m.Key).ToList();
-                Country.Add("");
-                Country.Add(null);
-            }
+            Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
+            Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
+            Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
+            Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
+            //if (Rarity.Count == 0)
+            //{
+            //    Rarity = RarityList.Select(m=>m.Key).ToList();
+            //    //Rarity.Add("");
+            //}
+            //if (Elements.Count == 0)
+            //{
+            //    Elements = ElementsList.Select(m => m.Key).ToList();
+            //    //Elements.Add("");
+            //}
+            //if (Class.Count == 0)
+            //{
+            //    Class = ClassList.Select(m => m.Key).ToList();
+            //    //Class.Add("");
+            //}
+            //if (Country.Count == 0)
+            //{
+            //    Country = CountryList.Select(m => m.Key).ToList();
+            //    Country.Add("");
+            //    Country.Add(null);
+            //}
             //|| Country.Contains(m.Country)
 
             Filter = datas.Where(m => Rarity.Contains(m.Rarity) && Elements.Contains(m.Elements) && Class.Contains(m.Class) ).ToList();
@@ -333,16 +325,18 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
         /// <summary>
         /// 呼叫opensea api 依照資產地址
+        /// opensea api 最多抓50筆
         /// </summary>
         /// <param name="offset">第幾筆開始</param>
-        /// <param name="limit">顯示幾筆資料</param>
+        /// <param name="limit">顯示幾筆資料/抓取資料筆數</param>
+        /// 
         /// <returns></returns>
         //public async Task<OpenseaAssetsData> GetOpenseaNFTRider(int PageNumber, int PageSize)
         public async Task<OpenseaAssetsData> GetOpenseaNFTRider(int offset, int limit)
         {
+            limit = (limit > 50 ) ? 50 : limit;            
             string asset_contract_address = _config.GetValue<string>("asset_contract_address");
             string RetrieveAssets = _config.GetValue<string>("RetrieveAssets");
-            //string URL = string.Format(RetrieveAssets, asset_contract_address , (PageNumber -1 ) * PageSize + 1 , PageNumber*PageSize);
             string URL = string.Format(RetrieveAssets, asset_contract_address, offset , limit);
             RestClient client = new RestClient(URL);
             RestRequest request = new RestRequest(Method.GET);

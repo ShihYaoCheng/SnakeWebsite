@@ -594,5 +594,6 @@
         PagedList<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
+        PPSRsCount = MetaData.TotalCount;
     }
 }
