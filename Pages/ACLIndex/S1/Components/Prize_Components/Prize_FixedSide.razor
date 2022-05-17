@@ -1,0 +1,35 @@
+﻿@using SnakeAsianLeague.Data.Services
+@inject AppState AppState
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+
+<div class="prize_fixed" data-aos="fade-up" data-aos-delay="900" data-aos-duration="500">
+
+    <button class="prize_fixed_button" @onclick="@PrizeButtonClick">
+        <p>申請獎金</p>
+    </button>
+
+    <div class="prize_fixed_text">
+        <p>獎金申請</p>
+        <p>流程說明</p>
+    </div>
+
+    <img id="prize_arrow_down" src="/images/Prize/arrow_down.png" alt="">
+
+</div>
+@code {
+       private async void PrizeButtonClick()
+    {
+
+        if (AppState.LoginStatus.IsLogin == true)
+        {
+            NavigationManager.NavigateTo("Myaccount#award");
+
+        }
+        else
+        {
+            //NavigationManager.NavigateTo("description#description_03");
+            await JS.InvokeVoidAsync("displayAlert", "請先登入碰碰蛇會員！");
+        }
+    }
+}

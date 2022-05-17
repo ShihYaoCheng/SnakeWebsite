@@ -1,10 +1,11 @@
-﻿@page "/rank"
+﻿
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Services.SnakeServerService
 @using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Entity.View
 @using System.Globalization
+@using SnakeAsianLeague.Pages.ACLIndex.S1.Components.Rank_Components
 
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JS
@@ -24,17 +25,12 @@
     <h1>COMING SOON...</h1>
     </div> *@
 
+@*背景*@
 <div class="@((RankIsGuild? "rank_bg team_bg" : "rank_bg personal_bg"))"></div>
 
 <div class="rank_block">
-
-    <div class="blockTitle" data-aos="fade-left" data-aos-delay="300">
-        <img src="/images/Index/title_bg.png" alt="" class="title_bg">
-        <div class="title_BG">
-            <p>騎士<br>榜單</p>
-        </div>
-    </div>
-
+    <Rank_BlockTitle />
+  
     <div class="rank_area">
 
         <div class="rank_tab"data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="500">

@@ -1,0 +1,63 @@
+@page "/GameFi"
+@inject IJSRuntime JS
+@using SnakeAsianLeague.Pages.GameFi.Components
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PonPonSnake 碰碰蛇｜GameFi</title>
+    <link href="css/GameFi.css" rel="stylesheet" />
+    <!-- OwlCarouse -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.1/swiper-bundle.css"
+        integrity="sha512-xTLlG+jNUAbKTCLpdibgQptrCWCqMDQHombvHK7T2S2bQW5zKZtDMssUw3ftsoJ+T9cATQmdNsPIgopUlUWz8g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<div class="GameFiBackground"></div>
+
+<div class="GameFi">
+    <div class="GameFi-Title">PonPonSnake GameFi</div>
+    <GameFi_Block1 />
+    <GameFi_Block2 />
+    <GameFi_Block3 />
+    <GameFi_Block4 />
+    <GameFi_Block5 />   
+
+
+
+</div>
+
+@code {
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+
+        {
+
+            await JS.InvokeVoidAsync("RiderHover");
+
+            await JS.InvokeVoidAsync("GameFiCarousel");
+
+            await JS.InvokeVoidAsync("RoadmapSlideClick");
+
+            await JS.InvokeVoidAsync("CirclePopup");
+
+            await JS.InvokeVoidAsync("chartInit");
+
+            await JS.InvokeVoidAsync("installI18n");
+
+        }
+
+    }
+
+}

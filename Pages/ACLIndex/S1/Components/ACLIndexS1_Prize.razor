@@ -1,0 +1,70 @@
+﻿@using SnakeAsianLeague.Pages.ACLIndex.S1.Components.Prize_Components
+@using SnakeAsianLeague.Data.Services
+@inject AppState AppState
+@inject IJSRuntime JS
+@implements IDisposable
+
+<head>
+    <link href="css/Prize.css" rel="stylesheet" />
+    <title>PonPonSnake 碰碰蛇｜亞洲聯賽-獎金領取</title>
+</head>
+
+@*側邊*@
+<Prize_FixedSide />
+@*名次獎金*@
+<Prize_BonusDetail />
+@*領獎*@
+<Prize_ReceiveAward />
+@*
+    <div class="prize_block">
+    <h1 class="title">獎金領取</h1>
+
+    <div class="award_process">
+    <p>領獎流程</p>
+    </div>
+
+    <div class="index-button-top">
+    <button class="btn" href="">得獎者領獎表單</button>
+    </div>
+    </div> *@
+@code
+{
+    protected override void OnInitialized()
+    {
+        AppState.StateChanged += async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+
+        Console.WriteLine("Prize OnInitialized: " + DateTime.Now);
+    }
+
+
+    void IDisposable.Dispose()
+    {
+        AppState.StateChanged -= async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+    }
+
+
+    private async Task AppState_StateChanged(ComponentBase Source, string Property)
+    {
+        if (Source != this)
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+
+    }
+
+
+
+ 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
+    }
+
+
+}

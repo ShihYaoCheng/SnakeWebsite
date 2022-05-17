@@ -1,0 +1,64 @@
+﻿@page "/ACLIndex/{text}"
+@inject IJSRuntime JS
+@using SnakeAsianLeague.Pages.ACLIndex.S1.Components
+
+@* 亞洲聯賽首頁 *@
+<head>
+    <link href="css/Index.css" rel="stylesheet" />
+    <title>PonPonSnake 碰碰蛇｜Asian Champions League 亞洲聯賽</title>
+</head>
+@*nav跟footer之前是用CSS控制，現在為組件控制，未來修正方向：拿掉CSS操控*@
+<ACLIndexS1_NavBar />
+@switch (Text)
+{
+    case "index":
+        <ACLIndexS1_Index />
+        break;
+     case "description":
+        <ACLIndexS1_Description />
+        break;
+     case "notice":
+        <ACLIndexS1_Notice />
+        break;
+     case "partner":
+         <ACLIndexS1_Partner />
+         break;
+     case "prize":
+         <ACLIndexS1_Prize />
+         break;
+     case "rank":
+         <ACLIndexS1_Rank />
+         break;
+}
+
+<ACLIndexS1_Footer />
+
+@code {
+    [Parameter]
+    public string Text { get; set; } = "index";
+
+    private async Task displayAlertClick()
+    {
+        await JS.InvokeVoidAsync("displayAlert", "即將導入twitch頁面");
+    }
+
+    private async Task testJsClick()
+    {
+        await JS.InvokeVoidAsync("testjs", "OKKK");
+    }
+
+
+
+    private async Task tabClick()
+    {
+        await JS.InvokeVoidAsync("tabChange", "change");
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {   
+        if (firstRender){
+            await JS.InvokeVoidAsync("selectChangeLocation");
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
+
+}

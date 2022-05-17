@@ -1,0 +1,12 @@
+﻿@using SnakeAsianLeague.Data.Entity.Backstage
+<div class="partner_banner" data-aos-duration="500" data-aos="zoom-in-down">
+    <a href="@view.SponsorUri" target="_blank">
+        @* <img src="@view.ImgUrl" width="900" height="300" /> *@
+        <img src="@view.ImgUrl" />
+    </a>
+</div>
+@code {
+    [Parameter]
+    public Sponsor? view { get; set; }
+
+}
