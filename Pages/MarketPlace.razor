@@ -479,6 +479,7 @@
         PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( page,10);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
+        PPSRsCount = MetaData.TotalCount;
     }
 
 
