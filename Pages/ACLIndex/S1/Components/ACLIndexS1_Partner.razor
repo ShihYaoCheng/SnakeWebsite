@@ -2,6 +2,8 @@
 
 @using SnakeAsianLeague.Data.Services.Backstage
 @using SnakeAsianLeague.Data.Entity.Backstage
+@using SnakeAsianLeague.Pages.ACLIndex.S1.Components.Partner_Components
+
 @inject IJSRuntime JS
 @inject SponsorService SponsorService
 
@@ -32,12 +34,7 @@
 
                 @foreach (var view in BIGSponsors)
                 {
-                    <div class="partner_banner" data-aos-duration="500" data-aos="zoom-in-down">
-                        <a href="@view.SponsorUri" target="_blank">
-                            @* <img src="@view.ImgUrl" width="900" height="300" /> *@
-                            <img src="@view.ImgUrl" />
-                        </a>
-                    </div>
+                    <Partner_banner view=@view/>
                 }
 
 
@@ -60,21 +57,11 @@
                 {
                     @foreach (var view in SmallSponsors)
                     {
-                        <div class="poster" data-aos-duration="500" data-aos="zoom-in-down">
-                            <a href="@view.SponsorUri" target="_blank">
-                                @* <img src="@view.ImgUrl" width="300" height="400" /> *@
-                                <img src="@view.ImgUrl" />
-                            </a>
-                        </div>
+                        <Partner_Poster view=@view/>
                     }
                 }
-
             </div>
-
         }
-
-
-
     </div>
 </div>
 
