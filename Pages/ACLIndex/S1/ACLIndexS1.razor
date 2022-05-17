@@ -1,5 +1,6 @@
-﻿@page "/ACLIndex"
+﻿@page "/ACLIndex/{text}"
 @inject IJSRuntime JS
+@using SnakeAsianLeague.Pages.ACLIndex.S1.Components
 
 @* 亞洲聯賽首頁 *@
 <head>
@@ -8,271 +9,33 @@
 </head>
 @*nav跟footer之前是用CSS控制，現在為組件控制，未來修正方向：拿掉CSS操控*@
 <ACLIndexS1_NavBar />
-
-<div class="indexBG">
-        <div class="QRcode_fixed" @onclick="QRcode_SlideClick" data-aos="fade-up"  data-aos-duration="500" data-aos-delay="1100">
-            <div class="QRcode_fixed_top">
-                <button class="QRcode_fixed_button">
-                    <p>下載遊戲</p>
-                </button>
-
-                <img id="QRcode_arrow_down" src="/images/Prize/arrow_down.png" alt="">
-            </div>
-            <div class="QRcode_Slide">
-                <a class="QRcode" href="https://play.google.com/store/apps/details?id=com.cqigames.snakeknight"
-                        target="_blank">
-                        <img src="./images/Description/Android_Download.png" alt=""></a>
-                    <a class="QRcode" href="https://apps.apple.com/us/app/%E7%A2%B0%E7%A2%B0%E8%9B%87-2/id1504212624"
-                        target="_blank">
-                        <img src="./images/Description/iOS_Download.png" alt=""></a>
-                    <a class="QRcode" href="https://ponponsnake.oss-cn-hangzhou.aliyuncs.com/PonPonSnake.apk"
-                        target="_blank">
-                        <img src="./images/Description/aliyun_Download.png" alt=""></a>
-            </div>
-
-        </div>
-    <div class="mainBlock">
-        <img src="images\Index\event_LOGO.png" alt="" id="event_Logo">
-        <div class="ceter_kimlan_LOGO">
-            <img src="images\Index\index_kimlan_LOGO.png" alt="" id="index_kimlan_LOGO">
-            <img src="images\Index\index_yomi_LOGO.png" alt="" id="index_yomi_LOGO">
-        </div>
-        <img src="images\Index\SnakeACL_kimlan.png" alt="" id="SnakeACL_kimlan">
-        @* <img src="images\Index\title_CN.png" alt="" id="title_CN"> *@
-        @* <img src="images\Index\title_EN.png" alt="" id="title_EN"> *@
-        
-        
-        <div id="signUpEvent_button">
-            <a href="description#download_QRcode">
-                <img src="/images/Index/signUpEvent_button.png" alt="">
-                <span>報名參賽</span>
-            </a>
-        </div>
-        
-        <div class="watchLive">
-            <div id="watchLive_button">
-                <a href="#summary">
-                    <img src="/images/Index/watchLive_button.png" alt="">
-                    <span>賽事摘要</span>
-                </a>
-            </div>
-            
-            <svg class="arrows">
-                <path class="a1" d="M0 0 L30 32 L60 0"></path>
-                <path class="a2" d="M0 20 L30 52 L60 20"></path>
-                <path class="a3" d="M0 40 L30 72 L60 40"></path>
-            </svg>
-        </div>
-
-        
-
-    </div>
-</div>
-
-<div class="summary_bg">
-    <div class="summary" id="summary">
-
-        <div class="TitleTimeline">
-
-            <div class="index_blockTitle" data-aos="fade-left">
-                <img src="/images/Index/title_bg.png" alt="" class="title_bg">
-                <div class="title_BG">
-                    <p>賽事<br>摘要</p>
-                </div>
-            </div>
-
-
-            <div class="timeline" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                <div class="time">
-                    @* <img src="/images/Description/SignUp_ICON_01.png" alt=""> *@
-                    <p><span id="index_timeline_01">報名時間 </span> 即日起 - 2021.12.10</p>
-                </div>
-                <div class="time">
-                    @* <img src="/images/Description/SignUp_ICON_02.png" alt=""> *@
-                    <p><span id="index_timeline_02">比賽日期 </span> 2021.09.13 - 12.12</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="summary_detail" id="summary_detail" data-aos="zoom-in-down" data-aos-duration="800" data-aos-delay="300">
-
-            <div class="summary_area" id="summary_game_type">
-                <div class="summary_cube_area" id="summary_cube_area_personal">
-                    <div class="summary_cube" id="summary_cube_personal">
-                        <p>個人競技</p>
-                    </div>
-                    <div class="summary_text">總獎勵40萬</div>
-                    <div class="summary_text_little">28場總決賽</div>
-                </div>
-
-                <div class="summary_cube_area">
-                    <div class="summary_cube" id="summary_cube_team">
-                        <p>隊伍競技</p>
-                    </div>
-                    <div class="summary_text">總獎勵132萬</div>
-                    <div class="summary_text_little">13場總決賽</div>
-                </div>
-
-            </div>
-            <div class="" id="summary_right_arrow">
-                <img src="./images/Index/summary_right_arrow.png"  alt="">
-            </div>
-
-            <div class="" id="summary_top_arrow">
-                <img src="./images/Index/summary_top_arrow.png"  alt="">
-            </div>
-            <div id="summary_line_arrow"></div>
-
-            <div class="summary_area" id="summary_area_rate_type">
-                <div class="summary_rate_type">
-                    <div class="summary_rate_type_cube" id="type_elite">
-                        <img src="./images/Index/summary_icon_normal.png" alt="">
-                        <p>菁英賽</p>
-                    </div>
-                    <img src="./images/Index/summary_line.png" id="summary_line" alt="">
-                    <div class="summary_rate_type_cube_text">
-                        <p>高額獎金賽制</p>
-                        <span>搭配菁英禮包</span>
-                    </div>
-                </div>
-                <div class="summary_rate_type">
-                    <div class="summary_rate_type_cube" id="type_free">
-                        <img src="./images/Index/summary_icon__free.png" alt="">
-                        <p>公益賽</p>
-                    </div>
-                    <img src="./images/Index/summary_line.png" id="summary_line" alt="">
-                    <div class="summary_rate_type_cube_text">
-                        <span>開放所有玩家</span>
-                        <p>免費報名</p>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="watchLive description_down">
-            <img id="summary_money" src="./images/Index/summary_money.png" alt="" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="300">
-
-            <div id="watchLive_button">
-                <a href="ACLIndex#video">
-                    <img src="/images/Index/watchLive_button.png" alt="">
-                    <span>觀看直播</span>
-                </a>
-            </div>
-            @* <img id="downArrow" src="/images/Index/downArrow.png" alt=""> *@
-            <svg class="arrows" id="summary_arrows">
-                <path class="a1" d="M0 0 L30 32 L60 0"></path>
-                <path class="a2" d="M0 20 L30 52 L60 20"></path>
-                <path class="a3" d="M0 40 L30 72 L60 40"></path>
-            </svg>
-        </div>
-
-    </div>
-</div>
-
-<div class="videoBG">
-
-    <div class="video" id="video">
-
-        <div class="index_blockTitle" data-aos="fade-left" data-aos-delay="300">
-            <img src="/images/Index/title_bg.png" alt="" class="title_bg">
-            <div class="title_BG">
-                <p>觀看<br>直播</p>
-            </div>
-        </div>
-
-        <div class="videoArea" id="videoArea">
-            <div class="videoText" data-aos="fade-up">
-                <h1>精彩賽事 ‧ 等你參與</h1>
-
-                <div class="videoBlock">
-                    <iframe src="https://www.youtube.com/embed/KGfxGW0mikg" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="videoButton" data-aos="fade-up" data-aos-delay="100">
-                <h1>點擊進入</h1>
-                <div class="index_button_left">
-                    <div class="video_btn" id="video_btn_youtube">
-                        <a href="https://www.youtube.com/channel/UCknaYifA1xhXBqBO3KulIUw" target="_blank"><img
-                                src="/images/Index/video_btn1.png" alt=""></a>
-                    </div>
-                    <div class="video_btn" id="video_btn_twitch">
-                        <a href="https://www.twitch.tv/ponponsnake" target="_blank"><img
-                                src="/images/Index/video_btn2.png" alt=""></a>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div class="live_stream" data-aos="fade-up" data-aos-delay="300">
-            <div class="live_host">
-                <div class="live_title">合作直播頻道</div>
-
-                <div class="guest_block">
-                    <div class="guest" data-aos="flip-left" data-aos-delay="200" data-aos-duration="700">
-                        <a class="guest_a" href="https://www.twitch.tv/firefly880605" target="_blank">
-                            <img class="guest_picture" src="/images/Index/live_host_YU.png" alt="">
-                            <span class="guest_name">夜雨</span>
-                        </a>
-                    </div>
-                    <div class="guest" data-aos="flip-left" data-aos-delay="200" data-aos-duration="700">
-                        <a class="guest_a" href="https://www.twitch.tv/julia_lion" target="_blank">
-                            <img class="guest_picture" src="/images/Index/live_host_MF.png" alt="">
-                            <span class="guest_name">咪妃</span>
-                        </a>
-                    </div>
-                    <div class="guest" data-aos="flip-left" data-aos-delay="500" data-aos-duration="700">
-                        <a class="guest_a" href="https://www.twitch.tv/dada_0124" target="_blank">
-                            <img class="guest_picture" src="/images/Index/live_host_TT.png" alt="">
-                            <span class="guest_name">妲妲</span>
-                        </a>
-                    </div>
-                    @* <div class="guest">
-                        <a class="guest_a" href="https://www.twitch.tv/inkiiing" target="_blank">
-                            <img class="guest_picture" src="/images/Index/live_host_LM.png" alt="">
-                            <span class="guest_name">小墨</span>
-                        </a>
-                    </div> *@
-                    <div class="guest" data-aos="flip-left" data-aos-delay="500" data-aos-duration="700">
-                        <a class="guest_a" href="https://www.twitch.tv/noriqvq" target="_blank">
-                            <img class="guest_picture" src="/images/Index/live_host_RL.png" alt="">
-                            <span class="guest_name">酪梨</span>
-                        </a>
-                    </div>
-                    <div class="guest" data-aos="flip-left" data-aos-delay="800" data-aos-duration="700">
-                        <a class="guest_a" href="https://www.facebook.com/engineerhateworld/" target="_blank">
-                            <img class="guest_picture" src="/images/Index/live_host_YS.png" alt="">
-                            <span class="guest_name">厭世工程師</span>
-                        </a>
-                    </div>
-                    <div class="guest" data-aos="flip-left" data-aos-delay="800" data-aos-duration="700">
-                        <a class="guest_a" href="https://www.twitch.tv/wenlobong" target="_blank">
-                            <img class="guest_picture" src="/images/Index/live_host_WL.png" alt="">
-                            <span class="guest_name">玩樂幫</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
+@switch (Text)
+{
+    case "index":
+        <ACLIndexS1_Index />
+        break;
+     case "description":
+        <Description />
+        break;
+     case "notice":
+        <Notice />
+        break;
+     case "partner":
+         <Partner />
+         break;
+     case "prize":
+         <Prize />
+         break;
+     case "rank":
+         <Rank />
+         break;
+}
 
 <ACLIndexS1_Footer />
 
 @code {
-    
+    [Parameter]
+    public string Text { get; set; } = "index";
 
     private async Task displayAlertClick()
     {
@@ -284,10 +47,7 @@
         await JS.InvokeVoidAsync("testjs", "OKKK");
     }
 
-    private async Task QRcode_SlideClick()
-    {
-        await JS.InvokeVoidAsync("QRcode_Slide", "QRcode_Slide");
-    }
+
 
     private async Task tabClick()
     {
