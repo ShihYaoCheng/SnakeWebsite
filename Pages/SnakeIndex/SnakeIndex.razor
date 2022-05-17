@@ -1,0 +1,96 @@
+@page "/"
+@inject IJSRuntime JS
+@using SnakeAsianLeague.Pages.SnakeIndex.Components
+<head>
+    <title>PonPonSnake 碰碰蛇｜首頁</title>
+    <link href="css/SnakeIndex.css" rel="stylesheet" />
+    <!-- OwlCarouse -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+
+
+
+<!-- Block02 Event -->
+@* <div class="event02" id="event02">
+    <div class="eventBlock">
+
+        <div class="ACL_logo" data-aos="fade-right" data-aos-duration="1000">
+            <img src="/images/OfficialWeb/ACL_logo.png" alt="" id="ACL_logo">
+        </div>
+
+        <div class="ceter_kimlan_LOGO" data-aos="fade-left" data-aos-duration="1000"  data-aos-delay="300">
+            <img src="/images/OfficialWeb/index_kimlan_LOGO.png" alt="" id="index_kimlan_LOGO">
+            <img src="/images/OfficialWeb/index_yomi_LOGO.png" alt="" id="index_yomi_LOGO">
+        </div>
+        <img  class="eventTitle" data-aos="fade-left" data-aos-duration="1000"  data-aos-delay="300" data-i18n="[src]eventTitle" src="/images/OfficialWeb/SnakeACL_kimlan.png" alt="">
+
+        <div class="grandPrize">
+            <img class="GrandPrize_BG" src="/images/OfficialWeb/GrandPrize_BG.png" alt="">
+
+            <p class="GrandPrize_Title" data-i18n="grandPrize_Title">總獎金高達 172.5 萬元!!</p>
+        </div>
+
+        <a href="ACLIndex"  style="text-decoration:none" data-aos="fade-up" data-aos-duration="1300">
+            <div class="event_Button">
+
+                <img src="/images/OfficialWeb/event_button_round.png" alt="" class="round">
+                <p data-i18n="button_txt">前往亞洲聯賽</p>
+
+            </div>
+        </a>
+
+    </div>
+</div> *@
+
+<SnakeIndex_Block01 />
+@* 輪播區塊 *@
+<SnakeIndex_NewStory03 />
+
+
+<!-- New Block04 -->
+<SnakeIndex_Block04 />
+
+<!-- Block05 Video -->
+<SnakeIndex_Video05 />
+
+<!-- Block06 contact-->
+<SnakeIndex_Contact06 />
+
+<!-- footer -->
+<SnakeIndex_Footer />
+
+@* 浮動活動banner *@
+<SnakeIndex_Banner />
+
+
+
+
+@code {
+    private async Task LanguageSwitchClick()
+    {
+        await JS.InvokeVoidAsync("LanguageSwitch");
+    }
+
+    private async Task event_banner_SlideClick()
+    {
+        await JS.InvokeVoidAsync("event_banner_Slide");
+    }
+
+  
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {   
+        if(firstRender){
+            await JS.InvokeVoidAsync("Carousel");
+            await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("dayjsInit");
+        }
+    }
+}
