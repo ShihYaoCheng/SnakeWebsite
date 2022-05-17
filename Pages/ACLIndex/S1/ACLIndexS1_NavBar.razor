@@ -1,0 +1,27 @@
+﻿@*隱藏問題在CSS 是在site裡面，未來要修正*@
+
+<nav class="ACLIndexNavbar">
+    <ul>
+        @* 亞洲聯賽 賽季選單 *@
+        <div class="NavBlockSelect">
+                <select name="" id="ACLSeasonNav">
+                    <option style="display: none;" disable>ACL Season</option>
+                    <optgroup label="- 2022 -">
+                        <option value="ACLIndexS2">ACL S2</option>
+                    </optgroup>
+                    <optgroup label="- 2021 -">
+                        <option value="ACLIndex">ACL S1</option>
+                    </optgroup>
+                </select>
+        </div> 
+        <li><a href="ACLIndex" data-i18n="nav.ACLhome">首頁</a></li>
+        <li><a href="description" data-i18n="nav.Event">活動介紹</a></li>
+        <li><a href="rank" data-i18n="nav.Standings">戰績排名</a></li>
+        <li><a href="prize" data-i18n="nav.Awards">獎金領取</a></li>
+        <li><a href="partner" data-i18n="nav.Sponsor">賽事好康</a></li>
+        <li><a href="notice" data-i18n="nav.Ruleset">注意事項</a></li>
+    </ul>
+</nav>
+@code {
+
+}

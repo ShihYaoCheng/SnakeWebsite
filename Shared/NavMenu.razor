@@ -1,6 +1,8 @@
-﻿@using SnakeAsianLeague.Data.Services
+﻿@using SnakeAsianLeague.Shared.NavMenu_Component
+@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity
 @using System.Security.Claims
+
 @inject IJSRuntime JS
 @*@inject LoginService loginService*@
 @inject NavigationManager navigationManager
@@ -281,72 +283,11 @@
     </div>
 </nav>
 
-
-@* 亞洲聯賽S1各分頁navbar *@
-<nav class="ACLIndexNavbar">
-    <ul>
-        @* 亞洲聯賽 賽季選單 *@
-        <div class="NavBlockSelect">
-                <select name="" id="ACLSeasonNav">
-                    <option style="display: none;" disable>ACL Season</option>
-                    <optgroup label="- 2022 -">
-                        <option value="ACLIndexS2">ACL S2</option>
-                    </optgroup>
-                    <optgroup label="- 2021 -">
-                        <option value="ACLIndex">ACL S1</option>
-                    </optgroup>
-                </select>
-        </div> 
-        <li><a href="ACLIndex" data-i18n="nav.ACLhome">首頁</a></li>
-        <li><a href="description" data-i18n="nav.Event">活動介紹</a></li>
-        <li><a href="rank" data-i18n="nav.Standings">戰績排名</a></li>
-        <li><a href="prize" data-i18n="nav.Awards">獎金領取</a></li>
-        <li><a href="partner" data-i18n="nav.Sponsor">賽事好康</a></li>
-        <li><a href="notice" data-i18n="nav.Ruleset">注意事項</a></li>
-    </ul>
-</nav>
-
-
-
 <!-- login block-->
-<div class="login_block" id="login_block">
-    <div class="login_block_bg" @onclick="loginCloseClick"></div>
-
-    <div class="login" id="login_window">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24.122" height="24.12" viewBox="0 0 24.122 24.12"
-             id="login_close" @onclick="loginCloseClick">
-            <path id="" data-name="合体 5" d="M-12484-1752l-11,11,11-11-11-11,11,11,11-11-11,11,11,11Z"
-                  transform="translate(12496.062 1764.06)" fill="none" stroke="#e0eeff" stroke-linecap="round"
-                  stroke-linejoin="round" stroke-width="3" />
-        </svg>
-        <p class="window_p" data-i18n="[html]signInWindows.PonPonSnake">登入碰碰蛇帳號</p>
-        <div class="login_pictuer_block">
-            <img id="login_pictuer" src="images\Other\login_picture.png" alt="">
-        </div>       
-        <div class="input_block">
-            <div class="login_form">
-                <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">手機</label>
-                <input type="text" class="login_input" id="address" name="address" placeholder="" @bind=loginRequest.phone  required>
-            </div>
-            <div class="login_form" style="margin-bottom: 20px;">
-                <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">密碼</label>
-                <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=loginRequest.password required>
-            </div>
-            <div type="text" class="login_error" hidden="@(!loginErrorShow)"  data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>
-            <div id="login_submit" @onclick="@LoginSubmit">                
-                <img src="/images/Index/signUpEvent_button.png" alt="">
-                <span data-i18n="[html]signInWindows.SignIn">登入</span>                
-            </div>
-        </div>
-    </div>
-</div>
-
-
+<LoginBlock loginCloseClick="loginCloseClick" loginErrorShow=@loginErrorShow LoginSubmit="LoginSubmit" loginRequest=@loginRequest />
 
 <!-- Back to top -->
-<a class="back_to_top">
-    <img src="/images/OfficialWeb/gotop.png" alt="">
-</a>
+<BackToTop />
 
 @code 
 {
@@ -370,10 +311,7 @@
             snakeAccount.walletAddress = LoginUser.FindFirst("walletAddress")?.Value;
             AppState.UpdateLoginStatus(this, snakeAccount);
         }
-
     }
-
-
 
     void IDisposable.Dispose()
     {

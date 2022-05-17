@@ -6,8 +6,8 @@
     <link href="css/Index.css" rel="stylesheet" />
     <title>PonPonSnake 碰碰蛇｜Asian Champions League 亞洲聯賽</title>
 </head>
-
-
+@*nav跟footer之前是用CSS控制，現在為組件控制，未來修正方向：拿掉CSS操控*@
+<ACLIndexS1_NavBar />
 
 <div class="indexBG">
         <div class="QRcode_fixed" @onclick="QRcode_SlideClick" data-aos="fade-up"  data-aos-duration="500" data-aos-delay="1100">
@@ -269,7 +269,7 @@
 
 </div>
 
-
+<ACLIndexS1_Footer />
 
 @code {
     
