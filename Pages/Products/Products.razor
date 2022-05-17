@@ -1,0 +1,52 @@
+@page "/products"
+
+@inject IJSRuntime JS
+
+
+<head>
+    <title>PonPonSnake 碰碰蛇｜Products</title>
+    <link href="css/Products.css" rel="stylesheet" />
+</head>
+
+
+<div class="products-background"></div>
+
+<div class="products-wrapper">
+    <div class="products-summary">
+        <ProductsImage />
+    </div>
+    <div class="products-main">
+        <ProductsTopBid />
+        <ProductsIncome />
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@code {
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("heartClick");
+            await JS.InvokeVoidAsync("FilterArrowSlideClick");
+        }
+
+    }
+}

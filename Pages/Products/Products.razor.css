@@ -1,0 +1,60 @@
+.MarketPlaceButton{
+    display: flex;
+}
+/* NAV 資產頁面選單 */
+.nav-li-normal{
+    display: none;
+}
+
+.nav-li-particular{
+    display: flex;
+    flex-direction: row;
+}
+
+/* RWD */
+@media (max-width: 1000px) {
+    .nav-li-particular{
+        flex-direction: column;
+    }
+}
+
+.Nav-AccountManagement{
+    display: none !important;
+}
+
+
+/* nav 當頁顯示 */
+#nav-MarketPlace >.nav-link{
+    background-color: #aad4cd;
+}
+
+#MarketPlace_hover_bottom{
+    position: absolute;
+    max-width: 300px;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -7px;
+    opacity: 1;
+    z-index: 0;
+    transition: all .3s ease-out;
+    pointer-events: none;
+}
+
+/* RWD NAV */
+@media all and (max-width: 1000px){
+    #nav-MarketPlace{
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+
+.ProductsBackground{
+    width: 100%;
+    /* background: linear-gradient(to bottom, #3F5D7F 0%,#4B7D74 100%) repeat fixed center; */
+    background: #253A4B;
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+    z-index: -3;
+}
