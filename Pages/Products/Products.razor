@@ -11,13 +11,14 @@
 
 <div class="products-background"></div>
 
-<div class="products-wrapper">
+<div class="products-wrapper" hidden="@(true)">
     <div class="products-summary">
         <ProductsImage />
     </div>
     <div class="products-main">
         <ProductsTopBid />
         <ProductsIncome />
+        <ProductsAttributes />
     </div>
 </div>
 
@@ -44,6 +45,7 @@
         if (firstRender)
         {
             await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("Tippy");
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterArrowSlideClick");
         }
