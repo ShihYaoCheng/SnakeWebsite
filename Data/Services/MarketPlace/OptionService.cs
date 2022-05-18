@@ -45,7 +45,21 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
-       
+        /*  
+         *  var client = new RestClient("https://api.opensea.io/api/v1/assets?order_direction=desc&limit=20&include_orders=false");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("X-API-KEY", "5bec8ae0372044cab1bef0d866c98618");
+            IRestResponse response = client.Execute(request);
+            
+            var client = new RestClient("https://api.opensea.io/api/v1/asset/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/8520/offers?limit=20");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("X-API-KEY", "5bec8ae0372044cab1bef0d866c98618");
+            IRestResponse response = client.Execute(request);
+            
+            
+         */
 
         List<NFTData> datas;
 
@@ -141,7 +155,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 
                 assets assets = new assets();
 
-                if (rd.assets.Count > 0)
+                if (rd.assets != null)
                 {
                     //遊戲api有資料但是還 沒上opensea/沒上鏈
                     assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets(); 
@@ -191,6 +205,14 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
         }
 
+
+
+        /// <summary>
+        /// 篩選頁數
+        /// </summary>
+        /// <param name="PageNumber"></param>
+        /// <param name="PageSize"></param>
+        /// <returns></returns>
         public async Task<PagedList<NFTData>> GetNFTDataPageListbyPage(int PageNumber, int PageSize)
         {
 
@@ -297,16 +319,31 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <returns></returns>
         private async Task<List<NFTRiderUnits>> GetNFTRiderUnits()
         {
-            var LoginRestRequest = new RestRequest($"NFT/Units");
-            LoginRestRequest.AddHeader("Authorization", Authenticate());
+            //var LoginRestRequest = new RestRequest($"NFT/Units");
+            //LoginRestRequest.AddHeader("Authorization", Authenticate());
 
-            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
+            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
+            //if (restResponse.StatusCode == HttpStatusCode.OK)
+            //{
+            //    List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
+            //    return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
+            //}
+            //return  new List<NFTRiderUnits>();
+
+
+            string URL = @"http://104.199.196.10/api/user/NFT/Units";
+
+            var mLoginRestRequest = new RestRequest(URL);
+            mLoginRestRequest.AddHeader("Authorization", Authenticate());
+
+            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(mLoginRestRequest);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
                 return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
             }
             return  new List<NFTRiderUnits>();
+
         }
 
         /// <summary>
@@ -337,10 +374,19 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             limit = (limit > 50 ) ? 50 : limit;            
             string asset_contract_address = _config.GetValue<string>("asset_contract_address");
             string RetrieveAssets = _config.GetValue<string>("RetrieveAssets");
+            string X_API_KEY = _config.GetValue<string>("X-API-KEY");
             string URL = string.Format(RetrieveAssets, asset_contract_address, offset , limit);
+            
+
+
             RestClient client = new RestClient(URL);
             RestRequest request = new RestRequest(Method.GET);
+            /*opensea 正式環境 需要加入這2段*/
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("X-API-KEY", X_API_KEY);
             IRestResponse response = client.Execute(request);
+
+            
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 OpenseaAssetsData rd = JsonSerializer.Deserialize<OpenseaAssetsData>(response.Content) ?? new OpenseaAssetsData();
