@@ -98,12 +98,12 @@
 }
 .products-summary{
     border: 1px solid rgb(255, 255, 255);
-    /* width:50%; */
+    width:50%;
     margin: 0 30px;
 }
 .products-main{
     border: 1px solid rgb(255, 255, 255);
-    width: 50%;
+    width: 100%;
     margin: 0 30px;
     max-width: 670px;
 }
@@ -159,11 +159,11 @@
 
 /* products 圖片區塊 */
 .products-imageContainer{
-    border: 2px solid var(--green-2);
+    border: 1.5px solid var(--green-2);
     border-radius: 43px;
     background-color: var(--bg-3) ;
     max-width: 750px;
-    margin: 15px 0 30px;
+    margin: 12px 0 30px;
     overflow: hidden;
 }
 
@@ -178,10 +178,17 @@
     white-space: nowrap;
     display: flex;
     flex-wrap: nowrap;
-    align-items: center;
+    /* align-items: center; */
+    align-items: flex-start;
+
+}
+.products-owned span{
+
 }
 .products-owned a{
     color: var(--blue-3);
+    word-wrap: break-word; 
+    word-break: break-all;
 }
 
 .products-section{
@@ -210,13 +217,14 @@
     transform: scale(1.01);
 }
 .BuyOnOpensea a{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 15px 70px;
     text-decoration: none;
 }
 
 .products-block{
     max-width: 670px;
+    width: 100%;
 }
 .products-block-title{
     color: var(--green-2);
@@ -225,7 +233,7 @@
     margin: 0 0 15px;
 }
 .products-block-02{
-    border: 2px solid var(--green-2);
+    border: 1.5px solid var(--green-2);
     padding: 30px;
     border-radius: 20px;
     margin-bottom: 20px;
@@ -238,7 +246,7 @@
 }
 
 .products-block-price{
-    border: 2px solid var(--green-2);
+    border: 1.5px solid var(--green-2);
     background-color: var(--green-1);
     border-radius: 20px;
     display: flex;
@@ -249,7 +257,7 @@
 }
 #products-block-price-TopBid{
     
-    padding: 18px 30px 35px;
+    padding: 20px 30px 35px;
 }
 .products-block-price-currency{
     color: var(--white);
@@ -258,6 +266,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 10px;
 
 }
 .products-currency-title{
@@ -284,12 +293,12 @@
 }
 
 .products-countdownTime{
-    color: var(--green-2);
-    font-size: 22px;
+    color: var(--white);
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin: 8px 3px;
+    margin: 8px 5px;
 }
 .products-countdownTime p{
     margin-left: 5px;
@@ -305,3 +314,84 @@
     margin: 8px 5px 30px;
 }
 
+/* Attributes / Stats 方形區塊 */
+.products-propertyCellreact{
+    border: 1.5px solid var(--green-2);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px 20px 20px 0;
+}
+
+.products-property-type{
+    /* border: 1px solid red; */
+    color: var(--green-2);
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    padding: 0 20px;
+    line-height: 30px;
+}
+
+.products-property-value{
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    background-color: var(--green-1);
+    /* padding: 12px; */
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.products-box-block{
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap
+}
+
+#products-Attributes .products-propertyCellreact{
+    max-width: 180px;
+    width: 100%;
+    height: 145px;
+}
+
+.products-property-valueImg{
+    width: 50px;
+
+}
+
+.products-attributes-description{
+    margin-top: 20px;
+    border-top: 1.5px solid var(--green-2);
+}
+
+.products-attributes-description-title{
+    color: var(--green-2);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 25px 0 15px;
+}
+
+.description-item-text{
+    color: var(--green-2);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.description-SeeMore{
+    color: var(--white);
+    cursor: pointer;
+    text-decoration: underline;
+}
+.description-SeeMore:hover{
+
+    text-decoration: underline;
+}
