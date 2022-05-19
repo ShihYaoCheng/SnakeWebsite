@@ -160,5 +160,31 @@ namespace SnakeAsianLeague.Data.Services.Personal
             }
             return PagedList<NFTData>.ToPagedList(NFTDataList, PageNumber, PageSize);
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="PageNumber"></param>
+        /// <param name="PageSize"></param>
+        /// <param name="Rarity"></param>
+        /// <param name="Elements"></param>
+        /// <param name="Class"></param>
+        /// <param name="Country"></param>
+        /// <returns></returns>
+        public async Task<PagedList<NFTData>> Get_NFT_by_Filter(int PageNumber, int PageSize, List<string> Rarity, List<string> Elements, List<string> Class, List<string> Country)
+        {
+
+            List<NFTData> Filter = new List<NFTData>();
+            Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
+            Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
+            Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
+            Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
+
+
+            Filter = NFTDataList.Where(m => Rarity.Contains(m.Rarity) && Elements.Contains(m.Elements) && Class.Contains(m.Class)).ToList();
+
+            return PagedList<NFTData>.ToPagedList(Filter, PageNumber, PageSize);
+        }
     }
 }
