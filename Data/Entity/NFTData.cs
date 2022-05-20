@@ -35,10 +35,26 @@
 
         public string CalDays { get; set; }
 
+        /// <summary>
+        /// 是否公開販售
+        /// </summary>
         public bool IsOpen { get; set; }
 
+        /// <summary>
+        /// 是否加入我的最愛
+        /// </summary>
         public bool IsLove { get; set; }
 
+
+        /// <summary>
+        /// 使否為NFT
+        /// </summary>
         public bool IsNFT { get; set; }
+
+
+        /// <summary>
+        /// 擁有者是否為官方
+        /// </summary>
+        public bool IsOfficial { get; set; }
     }
 }
