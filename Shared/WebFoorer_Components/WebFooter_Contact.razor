@@ -1,8 +1,10 @@
 ﻿@inject IJSRuntime JS
 
 
-<div class="footer-contact" id ="footerContact" @onclick="@(()=>clickClose())">
+<div class="footer-contact"  id ="footerContact" @onclick="@(()=>clickClose())">
     <div class="contact-pop">
+       
+
         <div id ="contactContainer"  class="contact-container">
           <div class="contact06" id="contact06">
             <div class="contactTitle" data-aos="fade-up" data-aos-duration="300">
@@ -37,12 +39,13 @@
              </div>
                  <button class="contact-FB" href="https://www.facebook.com/PonponSnake" />
            </div>
+           <img src ="/images/Footer/open-envelope.png"  class="open-envelop" id="openEnvelop"/>
+            <img src ="/images/Footer/close-envelope.png" class=" close-envelop" id="closeEnvelop" />
         </div>
+   
+       
         
-        <img src ="/images/Footer/open-envelope.png" class="open-envelop" id="openEnvelop"/>
-        <img src ="/images/Footer/close-envelope.png" class="close-envelop"  id="closeEnvelop"/>
-        
-        <div id="appreciate"  class="contact-container appreciate">
+         <div id="appreciate"  class="contact-container appreciate">
             <div class="appreciate-Title">
                 We appreciate your feed back.
             </div>
@@ -72,7 +75,7 @@
 @code {
     private async Task SendFeedbackClick()
     {
-        await JS.InvokeVoidAsync("Feedback", "Feedback");
+     /*   await JS.InvokeVoidAsync("Feedback", "Feedback");*/
         await JS.InvokeVoidAsync("FooterAnimation");
     }
 

@@ -3,7 +3,8 @@
     var contactClose = document.getElementById("contactClose")
     var appreciateGoback = document.getElementById("appreciateGoback")
     var contactContainer = document.getElementById("contactContainer")
-    var contactClose = document.getElementById("contactClose")
+    var contact06 = document.getElementById("contact06")
+   
     footerContact.addEventListener('click', (e) => {
         if (e.target.id == "footerContact") {
             closeAction()
@@ -20,8 +21,8 @@
 
     function closeAction() {
         footerContact.style.display = "none"
-        contactContainer.style.display = "block"
-        contactClose.style.display = "flex"
+        contactContainer.style.display = "flex"
+        contact06.style.display="block"
     }
 }
 
@@ -32,23 +33,23 @@ window.FooterContactShow = function () {
 
 window.FooterAnimation = function () {
     var contactContainer = document.getElementById("contactContainer")
+    var contact06 = document.getElementById("contact06")
     var openEnvelop = document.getElementById("openEnvelop")
     var closeEnvelop = document.getElementById("closeEnvelop")
-    var appreciate = document.getElementById("appreciate")
-    var contactClose = document.getElementById("contactClose")
-
-    contactClose.style.display ="none"
+    var appreciate = document.getElementById("appreciate") 
+ 
     /*先縮小1.5秒*/
-    contactContainer.classList.add('zoom-out') 
+    contact06.classList.add('zoom-out')
     setTimeout(() => {        
-        contactContainer.style.display = 'none'
+        contact06.style.display = 'none'
         openEnvelop.style.display = 'block'
         openEnvelop.classList.add('zoom-in')
       
     }, 500)
     setTimeout(() => {
-        openEnvelop.classList.remove('zoom-in')
+        openEnvelop.classList.remove('zoom-in')       
         openEnvelop.classList.add('rotate')
+        openEnvelop.classList.add('zoom-out')
    
     }, 1000)
     setTimeout(() => {
@@ -56,19 +57,23 @@ window.FooterAnimation = function () {
         closeEnvelop.style.display = 'block'
         appreciate.style.display = "block"
     
-        closeEnvelop.classList.add('fly')
+        contactContainer.classList.add('fly')
+        closeEnvelop.classList.add("zoom-in")
         appreciate.classList.add('appreciateFly')
     }, 1500)
     setTimeout(() => {
-        closeEnvelop.style.display = 'none'     
+        closeEnvelop.style.display = 'none'
+        contactContainer.style.display="none"
 
        
         /*關閉所有動畫*/
-        contactContainer.classList.remove('zoom-out')
+        contact06.classList.remove('zoom-out')
         openEnvelop.classList.remove('rotate')
-        closeEnvelop.classList.remove('fly')
+        openEnvelop.classList.remove('zoom-out')
+        closeEnvelop.classList.remove('zoom-in')
         appreciate.classList.remove('appreciateFly')
-    }, 2000)
+        contactContainer.classList.remove('fly')
+    }, 3000)
     
    
 }
