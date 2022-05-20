@@ -13,7 +13,7 @@
 }
     /*....CQI-Game ....*/
     .CQI-Game {
-        width: 32.96%;
+        width: 40%;
         height: 330px;
         display: inline-block;
     }
@@ -24,19 +24,32 @@
         margin: 110px 0 0 40.7%;
         border-bottom: 1px solid #67ADA2;
         font-weight: 700;
+        text-align:center;
+
+    }
+
+.CQI-Icons {
+    width: 48.18%;
+    height: 41.61px;
+    margin: 36px 0 0 40.75%;
+    text-align: center;
+}
+@media all and (max-width: 1400px) {
+    .CQI-Title {
+        margin: 110px auto 0 auto;
+        width: 70%;     
     }
 
     .CQI-Icons {
-        width: 48.18%;
-        height: 41.61px;
-        margin: 36px 0 0 40.75%;
+        width: 80%;
+        margin: 36px auto 0 auto;
     }
-
+}
 @media all and (max-width: 1024px) {
     .CQI-Title {
         margin: 110px 0 0 20%;
         width: 70%;
-        font-size: 36px;
+     
     }
     .CQI-Icons {
         width: 80%;
@@ -44,12 +57,11 @@
     }
 }
 @media all and (max-width: 768px) {
-    .CQI-Title {     
-        font-size: 30px;      
+    .CQI-Title {
+        font-size:36px
     }
-
     .CQI-Icons {
-        height: 36px;      
+        height: 36px;     
      
     }
 }
@@ -62,8 +74,7 @@
 
     .CQI-Title {
         width: 58%;
-        font-size: 36px;
-        margin: 0 0 0 25%;
+        margin: 0 auto 0 auto;
         padding-top: 34px;
         border-bottom: 1px solid #67ADA2;
         font-weight: 600;
@@ -72,7 +83,7 @@
 
     .CQI-Icons {
         width: 65%;
-        margin: 36px 0 0 25%;
+        margin: 36px auto 0 auto;
     }
 }
 
@@ -83,12 +94,13 @@
 }
 
 [class^="Icon-"]:hover {
-    transform:scale(1.3)
+    transform: scale(1.3) ;
+    transition: all .05s ease-in-out;
 }
 .Icon-FB {
     background: url("../images/Footer/FB-Icon.png");
     height: 100%;
-    width: 7%;
+    width: 19px;
     background-repeat: round;
     padding-top: 5px;
     margin-right: 9.5%;
@@ -97,7 +109,7 @@
 .Icon-YT {
     background: url("../images/Footer/YT-Icon.png");
     height: 85%;
-    width: 16%;
+    width: 43px;
     background-repeat: round;
     margin-right: 9.5%;
 }
@@ -105,7 +117,7 @@
 .Icon-Twitch {
     background: url("../images/Footer/Twitch-Icon.png");
     height: 90%;
-    width: 14.5%;
+    width: 39px;
     background-repeat: round;
     margin-right: 9.5%;
 }
@@ -113,7 +125,7 @@
 .Icon-Discord {
     background: url("../images/Footer/Discord-Icon.png");
     height: 90%;
-    width: 16%;
+    width: 43px;
     background-repeat: round;
 }
 
@@ -136,7 +148,7 @@
 }
     /*....page-links....*/
     .page-links {
-        width: 67.02%;
+        width: 60%;
         height: 608px;
         float: right;
     }
@@ -182,9 +194,11 @@
     .link-row li:not(:first-child):hover {
         color: #bbede5;
         cursor: pointer;
+        transition: all .05s ease-in-out;
     }
     .link-row a:hover {
         color: #bbede5 !important;
+        transition: all .05s ease-in-out; 
     }
 
 
@@ -207,7 +221,7 @@
 
     /*....contact-information..*/
     .contact-information {
-        width: 32.96%;
+        width: 40%;
         height: 276px;
         padding-top: 150px;
         float: left;
@@ -279,25 +293,34 @@
     height: 100%;
     float: right;
     background: #27616F;
-    padding-top:120px;
+    padding-top:67.5px;
     position:relative;
+  
 }
 
 .contact-container {
     width: 422px;
     height: 100%;
-    margin: 0 auto;   
-    text-align:center;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-@media all and (max-width: 576px) {
+@media all and (max-width:768px) {
     .contact-pop {
-        width: 80%;
-        padding-top: 0px;
+        width: 80%;        
     }
     .contact-container {
         width: 95%;       
     }
 
+}
+
+@media all and (max-width:576px) {
+    .contact-pop {      
+        padding-top: 0px;
+    }
 }
     /* Block06 contact */
 
@@ -365,13 +388,17 @@
                 outline: none;
                 box-sizing: border-box;
                 font-family: "微軟正黑體","Arial";
-                color: rgba(103,173,162,0.5);
+               
             }
-@media all and (max-width: 376px) {
-    .contact06 .contactForm form input[type="text"], input[type="email"] {      
-        height: 26px;       
-    }
-}
+
+                .contact06 .contactForm form input[type="text"]::placeholder, input[type="email"]::placeholder {
+                    color: rgba(103,173,162,0.5);
+                }
+                @media all and (max-width: 376px) {
+                    .contact06 .contactForm form input[type="text"], input[type="email"] {      
+                        height: 26px;       
+                    }
+                }
 
                 .contact06 .contactForm form input[type="text"]:-moz-placeholder, input[type="text"]:-ms-input-placeholder, input[type="text"]::-webkit-input-placeholder {
                     color: rgba(103,173,162,0.5);
@@ -396,9 +423,13 @@
                 box-sizing: border-box;
             }
 
+                .contact06 .contactForm form textarea::placeholder {
+                    color: rgba(103,173,162,0.5);
+                }
+
                 .contact06 .contactForm form textarea:focus {
                     /* color: #ed1941; */
-                    border-radius: 31px;
+                    border-radius: 13px;
                     border: 3px solid #F5853D;
                 }
 
@@ -494,6 +525,7 @@
     }
     /*....close....*/
     .contact-close {
+        cursor:pointer;
         position: absolute;
         transform: translate(-50%,-50%);
         top: 50%;
@@ -513,7 +545,7 @@
             height: 31px;
         }
 
-    @media all and (max-width: 576px) {
+    @media all and (max-width: 768px) {
 
         .contact-close {
             height: 65px;
@@ -529,17 +561,10 @@
 
 /*信封*/
 .close-envelop {
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
     display:none;
 }
 
-.open-envelop {
-    position: absolute;
-    top: 40%;
-    left: 35%;
+.open-envelop {   
     display: none;
 }
 
@@ -586,8 +611,8 @@
 }
 
 .zoom-out {
-    animation: zoomOut 0.5s ease-in-out 1;
-    -webkit-animation-: zoomOut 0.5s ease-in-out 1;
+    animation: zoomOut 0.5s ease-out 1;
+    -webkit-animation-: zoomOut 0.5s ease-out 1;
 }
 /*放大*/
 @keyframes zoomIn {
@@ -601,39 +626,42 @@
 }
 
 .zoom-in {
-    animation: zoomIn 0.5s ease-in-out 1;
-    -webkit-animation-: zoomIn 0.5s ease-in-out 1;
+    animation: zoomIn 0.5s ease-out 1;
+    -webkit-animation-: zoomIn 0.5s ease-out 1;
 }
 
 @keyframes fly {
     from {
-        top:50%; /*開始為原始大小*/
+        transform: translateY(0px); /*開始為原始大小*/
     }
 
     to {
-        top: -10%;
+        transform: translateY(-600px)
     }
 }
 
 .fly {
-    animation: fly 0.5s ease-in-out 1;
-    -webkit-animation-: fly 0.5s ease-in-out 1;
+    animation: fly 1.5s ease-in-out 1;
+    -webkit-animation-: fly 1.5s ease-in-out 1;
 }
 
 
 @keyframes appreciateFly {
-    from {
-        transform:translateY(400px); /*開始為原始大小*/
+    0% {
+        transform:translateY(0px); /*開始為原始大小*/
     }
 
-    to {
-        transform: translateY(0px);
+    90% {
+        transform: translateY(-1000px);
         
+    }
+    100% {
+        transform: translateY(-950px);
     }
 }
 .appreciateFly {
-    animation: appreciateFly 0.5s ease-in-out 1;
-    -webkit-animation-: appreciateFly 0.5s ease-in-out 1;
+    animation: appreciateFly 1.5s ease-in-out 1;
+    -webkit-animation-: appreciateFly 1.5s ease-in-out 1;
 }
 
 
