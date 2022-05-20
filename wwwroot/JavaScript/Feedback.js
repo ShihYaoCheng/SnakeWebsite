@@ -44,3 +44,4 @@ window.Feedback = function (Feedback) {
         sendFeedback();
     });
 }
+
