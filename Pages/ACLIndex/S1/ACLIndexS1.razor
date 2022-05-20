@@ -1,4 +1,4 @@
-﻿@page "/ACLIndex/{text}"
+﻿@page "/ACLIndex/{router}"
 @inject IJSRuntime JS
 @using SnakeAsianLeague.Pages.ACLIndex.S1.Components
 
@@ -9,7 +9,7 @@
 </head>
 @*nav跟footer之前是用CSS控制，現在為組件控制，未來修正方向：拿掉CSS操控*@
 <ACLIndexS1_NavBar />
-@switch (Text)
+@switch (router)
 {
     case "index":
         <ACLIndexS1_Index />
@@ -35,7 +35,7 @@
 
 @code {
     [Parameter]
-    public string Text { get; set; } = "index";
+    public string router { get; set; } = "index";
 
     private async Task displayAlertClick()
     {

@@ -1,0 +1,111 @@
+/* 彈窗 Poducts-Popup */
+
+.poducts-popup-bg{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all .2s ease-in-out; 
+    opacity: 0;
+    z-index: -50;
+
+    /* display: none; */
+}
+.poducts-popup-open{
+    opacity: 1;
+    z-index: 50;
+}
+.poducts-popupblock{
+    background-color: var(--green-1);
+    /* border: 1.5px solid var(--green-2); */
+    max-width: 630px;
+    position: relative;
+    width: 80%;
+    max-height: 80vh;
+    border-radius: 20px;
+    z-index: 50;
+    box-shadow: 5px 5px 10px #0606063f;
+
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+
+.poducts-popup-close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    transition: all .1s ease-in-out; 
+}
+.poducts-popup-close:hover{
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.poducts-popup-title{
+    color: var(--green-2);
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+    padding: 30px 0 20px;
+    width: 85%;
+    margin: 0 auto;
+}
+.poducts-popup-content{
+    border-top: 1.5px solid var(--green-2);
+    padding: 30px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.poducts-popup-text{
+    color: var(--green-2);
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 30px;
+    width: 85%;
+}
+
+input.poducts-popup-inputText{
+    background-color: var(--bg-1);
+    border: 2px solid var(--green-2);
+    border-radius: 13px;
+    padding: 3px 12px;
+    white-space: nowrap;
+    font-size: 30px;
+    outline: none;
+    color: var(--white);
+    width: 60%;
+}
+input.poducts-popup-inputText:focus{
+    border: 3px solid var(--white);
+    color: var(--white);
+}
+
+.poducts-popup-error{
+    color: var(--red-2);
+    font-size: 20px;
+    margin: 10px 0 30px;
+}
+
+button.poducts-popup-submit{
+    color: var(--white);
+    font-size: 30px;
+    border: 3px solid var(--white);
+    background: none;
+    border-radius: 13px;
+    padding: 3px 22px;
+    transition: all .05s ease-in-out; 
+}
+button.poducts-popup-submit:hover{
+
+    transform: scale(1.03);
+    border: 3px solid var(--green-2);
+    background-color: var(--green-2);
+    color: var(--white);
+}

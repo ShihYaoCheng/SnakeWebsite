@@ -1,0 +1,87 @@
+﻿@inject IJSRuntime JS
+
+
+<div class="footer-contact"  id ="footerContact" @onclick="@(()=>clickClose())">
+    <div class="contact-pop">
+       
+
+        <div id ="contactContainer"  class="contact-container">
+          <div class="contact06" id="contact06">
+            <div class="contactTitle" data-aos="fade-up" data-aos-duration="300">
+                <p data-i18n="contact.title">We’d love to hear from you</p>    
+            </div>
+
+            <div class="contactForm" data-aos="fade-up" data-aos-duration="300">
+                <form action="">
+                    <label for="userNickname">
+                        <input type="text" name="userNickname" id="userNickname" placeholder="請輸入姓名" data-i18n="[placeholder]contact.name">
+                    </label>
+                    <label for="email">
+                        <input type="email" name="" id="email" placeholder="請輸入e-mail" data-i18n="[placeholder]contact.mail">
+                    </label>
+                    <label for="phone">
+                        <input type="text" name="phone" id="phone" placeholder="請輸入手機號碼" data-i18n="[placeholder]contact.phone">
+                    </label>
+                    <label for="feedbackType">
+                        <input type="text" name="feedbackType" id="feedbackType" placeholder="請選擇回饋類型" data-i18n="[placeholder]contact.feedbackType">
+                    </label>
+                    <label for="content">
+                        <textarea name="content" id="content" cols="30" rows="10" placeholder="請輸入回饋內容" data-i18n="[placeholder]contact.content"></textarea>
+                    </label>
+                    <label for="sendMessageButton">
+                        <input type="button" value="送出" id="sendMessageButton" @onclick="SendFeedbackClick" data-i18n="[value]contact.send">
+                    </label>
+
+                </form>
+            </div>
+            <div class="reach-FB">
+               <p>Or reach out to us directly at</p>  <span> <a href="https://www.facebook.com/PonponSnake">facebook</a> </span>
+             </div>
+                 <button class="contact-FB" href="https://www.facebook.com/PonponSnake" />
+           </div>
+           <img src ="/images/Footer/open-envelope.png"  class="open-envelop" id="openEnvelop"/>
+            <img src ="/images/Footer/close-envelope.png" class=" close-envelop" id="closeEnvelop" />
+        </div>
+   
+       
+        
+         <div id="appreciate"  class="contact-container appreciate">
+            <div class="appreciate-Title">
+                We appreciate your feed back.
+            </div>
+            <button class="appreciate-goback" @onclick="@(()=>clickClose())" id ="appreciateGoback">
+               <img src="/images/Footer/GoBack.png" />
+                <span>
+                   &nbsp Go back
+                </span>
+            </button>
+            <div class="appreciate-space">
+
+            </div>
+            <div class="reach-FB">
+                 <p>Or reach out to us directly at</p>  <span> <a href="https://www.facebook.com/PonponSnake">facebook</a> </span>
+            </div>
+
+             <a class="contact-FB" href="https://www.facebook.com/PonponSnake" ></a>
+         
+        </div>
+  
+
+        <div class ="contact-close" id = "contactClose" @onclick="@(()=>clickClose())">
+            <img src="/images/Footer/arrow.png" @onclick="@(()=>clickClose())"/>
+        </div>
+       </div>
+</div>
+@code {
+    private async Task SendFeedbackClick()
+    {
+     /*   await JS.InvokeVoidAsync("Feedback", "Feedback");*/
+        await JS.InvokeVoidAsync("FooterAnimation");
+    }
+
+   
+    private async Task  clickClose()
+    {
+        await JS.InvokeVoidAsync("FooterContactHide");
+    }
+}
