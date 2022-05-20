@@ -73,15 +73,25 @@
        </div>
 </div>
 @code {
+
     private async Task SendFeedbackClick()
     {
-     /*   await JS.InvokeVoidAsync("Feedback", "Feedback");*/
+        await JS.InvokeVoidAsync("Feedback", "Feedback");
         await JS.InvokeVoidAsync("FooterAnimation");
     }
 
-   
-    private async Task  clickClose()
+
+    private async Task clickClose()
     {
         await JS.InvokeVoidAsync("FooterContactHide");
     }
-}
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
+             await JS.InvokeVoidAsync("Testtest");
+        }
+    }   
+    }
