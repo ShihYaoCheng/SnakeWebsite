@@ -77,7 +77,7 @@
 .products-background{
     width: 100%;
     /* background: linear-gradient(to bottom, #3F5D7F 0%,#4B7D74 100%) repeat fixed center; */
-    background: #253A4B;
+    background-color: var(--bg-1);
     height: 100vh;
     position: fixed;
     overflow-y: auto;
@@ -149,12 +149,50 @@
 }
 
 /* products 名稱 */
-.products-name{
+.products-title{
     color: var(--green-2);
     font-size: 36px;
+    line-height: 40px;
     font-weight: bold;
+    display: inline-flex;
 
 }
+
+/* 如果是持有者的編輯樣式 Owned */
+.Owned-edit{
+    background-color: var(--bg-1);
+    border: 1.5px solid var(--green-2);
+    border-radius:13px;
+    padding: 3px 12px;
+    margin: 10px 0 20px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    cursor: inherit;
+
+    white-space: break-spaces;
+}
+.edit-icon{
+    display: none;
+}
+.Owned-edit .edit-icon{
+    width: 32px;
+    margin-left: 50px;
+    cursor: pointer;
+
+    display: block;
+}
+
+.Owned-edit:hover{
+    transition: all .05s ease-in-out;
+    transform: scale(1.01);
+}
+.Owned-edit:hover .edit_icon{
+    transition: all .05s ease-in-out;
+    transform: scale(1.08);
+}
+
 
 
 /* products 圖片區塊 */
@@ -236,7 +274,7 @@
     border: 1.5px solid var(--green-2);
     padding: 30px;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 .products-block-title-02{
     color: var(--green-2);
@@ -275,7 +313,7 @@
 .products-currency-icon{
     width: 23px;
 }
-#products-currency-SRC{
+.products-currency-SRC{
     width: 40px;
 }
 .products-TopBid-price{
@@ -352,10 +390,11 @@
     align-items: center;
 }
 .products-box-block{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-wrap: wrap;
     /* justify-content: space-between; */
+    margin-bottom: -20px;
 }
 
 #products-Attributes .products-propertyCellreact{
@@ -371,7 +410,7 @@
 }
 
 .products-attributes-description{
-    margin-top: 20px;
+    margin-top: 35px;
     border-top: 1.5px solid var(--green-2);
 }
 
@@ -392,9 +431,24 @@
     color: var(--white);
     cursor: pointer;
     text-decoration: underline;
+    transition: all .05s ease-in-out;
 }
-
-
+.description-SeeMore:hover{
+    opacity: 0.8;
+}
+.Flod-Button{
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 30px;
+    transition: all .05s ease-in-out;
+}
+.Flod-Button svg{
+    margin: 0 5px;
+}
+.Flod-Button:hover{
+    opacity: 0.8;
+}
 /* Stats 頁面 */
 #products-Stats .products-propertyCellreact{
     max-width: 140px;
@@ -404,3 +458,65 @@
 }
 
 /* Avatars區塊 */
+.Avatars-block{
+    background-color: var(--green-1);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    max-width: 295px;
+    width: 100%;
+    margin: 0px 15px 20px 0;
+}
+.Avatars-icon{
+    width: 56px;
+    margin-right: 20px;
+}
+.Avatars-info{
+    color: var(--green-2);
+}
+.Avatars-type{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.Avatars-value{
+    font-size: 20px;
+}
+
+
+/* skills區塊 */
+.products-skills-icon{
+
+}
+.skills-info{
+    color: var(--green-2);
+    margin-left: 30px;
+}    
+
+.skills-type{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.skills-value{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.skills-content{
+    font-size: 20px;
+}
+
+#products-Skills{
+    display: flex;
+    align-items: flex-start;
+    /* flex-direction: row; */
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* 彈窗 Poducts-Popup */
+.poducts-popup-bg{
+    width: 100%;
+    height: 100vh;
+}
