@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Options;
+﻿using AngleSharp;
+using HtmlAgilityPack;
+using Microsoft.Extensions.Options;
 using RestSharp;
 using SnakeAsianLeague.Data.Entity;
 using SnakeAsianLeague.Data.Entity.Config;
@@ -6,7 +8,9 @@ using SnakeAsianLeague.Data.Paging;
 using System;
 using System.Globalization;
 using System.Net;
+using System.Text;
 using System.Text.Json;
+using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace SnakeAsianLeague.Data.Services.MarketPlace
 {
@@ -44,22 +48,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
-
-        /*  
-         *  var client = new RestClient("https://api.opensea.io/api/v1/assets?order_direction=desc&limit=20&include_orders=false");
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("X-API-KEY", "5bec8ae0372044cab1bef0d866c98618");
-            IRestResponse response = client.Execute(request);
-            
-            var client = new RestClient("https://api.opensea.io/api/v1/asset/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/8520/offers?limit=20");
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("X-API-KEY", "5bec8ae0372044cab1bef0d866c98618");
-            IRestResponse response = client.Execute(request);
-            
-            
-         */
 
         List<NFTData> datas;
 
@@ -148,38 +136,86 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 //int ProfessionInt = value % RareList.Count();
                 //int CountryInt = value % RareList.Count();
 
-                if (i % 50 == 0)
-                {
-                    rd = await GetOpenseaNFTRider( i+1 , 50);
-                }
+                //if (i % 50 == 0)
+                //{
+                //    rd = await GetOpenseaNFTRider( i+1 , 50);
+                //}
                 
-                assets assets = new assets();
+                //assets assets = new assets();
 
-                if (rd.assets != null)
-                {
-                    //遊戲api有資料但是還 沒上opensea/沒上鏈
-                    assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets(); 
-                }
+                //if (rd.assets != null)
+                //{
+                //    //遊戲api有資料但是還 沒上opensea/沒上鏈
+                //    assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets(); 
+                //}
 
                 NFTData data = new NFTData();
                 data.Number = NFT_Riders[i].castings[0].tokenId;
-                data.Name = assets.name;
+                data.Name = NFT_Riders[i].name;
                 //可能沒有拍賣紀錄
-                if (assets.last_sale != null)
+
+
+
+
+                //OpenseaOffersData openseaOffersData = await Get_NFTRider_Offers(data.Number);
+
+
+
+                //if (openseaOffersData.Offers != null)
+                //{
+
+                //    data.IsOpen = true;
+                //}
+                //else
+                //{
+                //    data.IsOpen = false;
+                //}
+
+
+                //if (assets.last_sale != null)
+                //{
+                //    string total_price = assets.last_sale.total_price;
+                //    Decimal decimals = Convert.ToDecimal(Math.Pow(10, assets.last_sale.payment_token.decimals));
+                //    Decimal Price = Decimal.Parse(total_price.ToString()) / Decimal.Parse(decimals.ToString());
+                //    Decimal usd_price = 0;
+                //    Decimal.TryParse(assets.last_sale.payment_token.usd_price ?? "0", out usd_price);
+                //    data.Price = Price.ToString();    //myObject.Next(value, value * 10);
+                //    data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture);
+                //    data.IsOpen = true;
+                //}
+                //else
+                //{
+                //    data.IsOpen = false;
+                //}
+
+
+               decimal HighestOfferPrice = await GetSpiderHighestOffer(data.Number);
+
+                if (HighestOfferPrice != 0)
                 {
-                    string total_price = assets.last_sale.total_price;
-                    Decimal decimals = Convert.ToDecimal(Math.Pow(10, assets.last_sale.payment_token.decimals));
-                    Decimal Price = Decimal.Parse(total_price.ToString()) / Decimal.Parse(decimals.ToString());
-                    Decimal usd_price = 0;
-                    Decimal.TryParse(assets.last_sale.payment_token.usd_price ?? "0", out usd_price);
-                    data.Price = Price.ToString();    //myObject.Next(value, value * 10);
-                    data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture); 
+                    data.Price = HighestOfferPrice.ToString();
                     data.IsOpen = true;
+                    data.IsOfficial = true;
                 }
                 else
-                {                    
-                    data.IsOpen = false;
+                {
+                    decimal SalePrice = await GetSpiderSale(data.Number);
+
+                    if (SalePrice != 0)
+                    {
+                        data.Price = SalePrice.ToString();
+                        data.IsOpen = true;
+                        data.IsOfficial = false;
+                    }
+                    else
+                    {
+                        data.IsOpen = false;
+                        data.IsOfficial = false;
+                    }
                 }
+                
+
+
 
 
                 List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
@@ -346,6 +382,40 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
         }
 
+
+
+
+        /// <summary>
+        /// 抓取 offers 清單
+        /// polygon matic 鏈 抓不到
+        /// </summary>
+        /// <param name="TokenID"></param>
+        /// <returns></returns>
+        private async Task<OpenseaOffersData> Get_NFTRider_Offers(string TokenID )
+        {
+            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
+            string RetrieveAssets = _config.GetValue<string>("RetrieveOffers");
+            string X_API_KEY = _config.GetValue<string>("X-API-KEY");
+            string URL = string.Format(RetrieveAssets, asset_contract_address, TokenID );
+            RestClient client = new RestClient(URL);
+            RestRequest request = new RestRequest(Method.GET);
+            /*opensea 正式環境 需要加入這2段*/
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("X-API-KEY", X_API_KEY);
+            IRestResponse response = client.Execute(request);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                OpenseaOffersData rd = JsonSerializer.Deserialize<OpenseaOffersData>(response.Content) ?? new OpenseaOffersData();
+
+                return rd;
+            }
+            return new OpenseaOffersData();
+
+        }
+
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -363,6 +433,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <summary>
         /// 呼叫opensea api 依照資產地址
         /// opensea api 最多抓50筆
+        /// polygon matic 鏈 抓不到
         /// </summary>
         /// <param name="offset">第幾筆開始</param>
         /// <param name="limit">顯示幾筆資料/抓取資料筆數</param>
@@ -396,6 +467,102 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             return new OpenseaAssetsData();
         }
 
+
+
+
+
+
+
+        /// <summary>
+        /// 呼叫opensea api 依照資產地址
+        /// opensea api 最多抓50筆
+        /// polygon matic 鏈 抓不到
+        /// </summary>
+        /// <param name="offset">第幾筆開始</param>
+        /// <param name="limit">顯示幾筆資料/抓取資料筆數</param>
+        /// 
+        /// <returns></returns>
+        //public async Task<OpenseaAssetsData> GetOpenseaNFTRider(int PageNumber, int PageSize)
+        public async Task<decimal> GetSpiderHighestOffer(string TokenID)
+        {
+            decimal result = 0;
+            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
+            string OpenSeaLink = _config.GetValue<string>("OpenSeaLink");
+            string URL = string.Format(OpenSeaLink, asset_contract_address, TokenID);
+
+            HttpClient httpClient = new HttpClient();
+
+
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "http://developer.github.com/v3/#user-agent-required");
+            var responseMessage = await httpClient.GetAsync(URL); //發送請求
+
+            if (responseMessage.StatusCode == HttpStatusCode.OK)
+            {
+                string responseResult = responseMessage.Content.ReadAsStringAsync().Result;//取得內容
+
+                string value1 = "<div class=\"Overflowreact__OverflowContainer-sc-7qr9y8-0 jPSCbX Price--amount\" tabindex=\"-1\">";
+                string value2 = "<!-- --> <span class=\"Price--raw-symbol\"></span>";
+                var str1 = responseResult.IndexOf(value1);
+                var str2 = responseResult.IndexOf(value2);
+                if (str1 != str2  && str1 != -1 && str2 != -1 && str2 > str1)
+                {
+                    var price = responseResult.Substring(str1 + value1.Length , str2 - str1 - value1.Length);
+
+                    decimal.TryParse(price, out result);
+                    
+                }
+                return result;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 呼叫opensea api 依照資產地址
+        /// opensea api 最多抓50筆
+        /// polygon matic 鏈 抓不到
+        /// </summary>
+        /// <param name="offset">第幾筆開始</param>
+        /// <param name="limit">顯示幾筆資料/抓取資料筆數</param>
+        /// 
+        /// <returns></returns>
+        //public async Task<OpenseaAssetsData> GetOpenseaNFTRider(int PageNumber, int PageSize)
+        public async Task<decimal> GetSpiderSale(string TokenID)
+        {
+            decimal result = 0;
+            //string asset_contract_address = _config.GetValue<string>("asset_contract_address");
+            //string OpenSeaLink = _config.GetValue<string>("OpenSeaLink");
+
+            string OpenSeaURL = _config.GetValue<string>("OpenSeaURL");
+
+            
+            string URL = string.Format(OpenSeaURL);
+
+            HttpClient httpClient = new HttpClient();
+
+
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "http://developer.github.com/v3/#user-agent-required");
+            var responseMessage = await httpClient.GetAsync(URL); //發送請求
+
+            if (responseMessage.StatusCode == HttpStatusCode.OK)
+            {
+                string responseResult = responseMessage.Content.ReadAsStringAsync().Result;//取得內容
+
+                string value1 = "class=\"Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 VerticalAlignedreact__VerticalAligned-sc-b4hiel-0 CenterAlignedreact__CenterAligned-sc-cjf6mn-0 Avatarreact__AvatarContainer-sc-sbw25j-0 uqDNW jYqxGr ksFzlZ iXcsEj cgnEmv dukFGY\"><span class=\"Blockreact__Block-sc-1xf18x6-0 Avatarreact__ImgAvatar-sc-sbw25j-1 uqDNW hzWBaN\" style=\"display:inline-block\"></span></div></div><div class=\"Overflowreact__OverflowContainer-sc-7qr9y8-0 jPSCbX Price--amount\" tabindex=\"-1\">";
+                string value2 = "<!-- --> <span class=\"Price--raw-symbol\"></span></div></div></div></div></div></div></div>";
+
+                var str1 = responseResult.IndexOf(value1);
+                var str2 = responseResult.IndexOf(value2);
+                if (str1 != str2 && str1 != -1 && str2 != -1  && str2> str1)
+                {
+                    var price = responseResult.Substring(str1 + value1.Length, str2 - str1 - value1.Length);
+
+                    decimal.TryParse(price, out result);
+
+                }
+                return result;
+            }
+            return result;
+        }
 
 
 
