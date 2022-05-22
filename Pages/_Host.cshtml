@@ -2,11 +2,15 @@
 @namespace SnakeAsianLeague.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
+
+
+
     Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,13 +23,17 @@
     <link rel="icon" type="image/png" href="./images/Other\icon.png">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="_content/Radzen.Blazor/css/default-base.css">
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy.min.css"
+        integrity="sha512-HbPh+j4V7pXprvQMt2dtmK/zCEsUeZWYXRln4sOwmoyHPQAPqy/k9lIquKUyKNpNbDGAY06UdiDHcEkBc72yCQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="css/site.css" rel="stylesheet" />
     <link href="css/Animate.css" rel="stylesheet" />
     @* <link href="css/fullcalendar.css" rel="stylesheet"> *@
     <script src="~/JavaScript/fullcalendar.js"></script>
     @* <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> *@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> *@
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -33,26 +41,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.1/swiper-bundle.min.js" integrity="sha512-xm8JS2jGDMLpY/DrZkEMQecUx4uR7D+6k3+YrVldyuPF9jxqN4SkG0WQ7UjudUgmtL9tbAzfVyRY6hvIERi9HA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.1/swiper-bundle.min.js"
+        integrity="sha512-xm8JS2jGDMLpY/DrZkEMQecUx4uR7D+6k3+YrVldyuPF9jxqN4SkG0WQ7UjudUgmtL9tbAzfVyRY6hvIERi9HA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- i18next -->
     @* <script src="https://cdn.jsdelivr.net/npm/i18next@21.5.2/dist/umd/i18next.js"></script> *@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.3/i18next.min.js" integrity="sha512-uKC/D/bV/ltCj2OVd4SxJ+BUKvHlWq1u1vxfU+ujFufW/eIYNgxBpNAupLJyQac9iB0hd5YuUNLpb4KZOrjm5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.3/i18next.min.js"
+        integrity="sha512-uKC/D/bV/ltCj2OVd4SxJ+BUKvHlWq1u1vxfU+ujFufW/eIYNgxBpNAupLJyQac9iB0hd5YuUNLpb4KZOrjm5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @* <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/dist/umd/jquery-i18next.js"></script> *@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js" integrity="sha512-79RgNpOyaf8AvNEUdanuk1x6g53UPoB6Fh2uogMkOMGADBG6B0DCzxc+dDktXkVPg2rlxGvPeAFKoZxTycVooQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"
+        integrity="sha512-79RgNpOyaf8AvNEUdanuk1x6g53UPoB6Fh2uogMkOMGADBG6B0DCzxc+dDktXkVPg2rlxGvPeAFKoZxTycVooQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @* <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.js"></script> *@
     <script src="~/lib/i18nextHttpBackend.min.js"></script>
     @* parallax.js *@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.2/echarts.min.js" integrity="sha512-weWXHm0Ws2cZKjjwugRMnnOAx9uCP/wUVf84W7/fXQimwYUK28zPDGPprDozomQLpKv6U99xN9PI9+yLI9qxNw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.2/echarts.min.js"
+        integrity="sha512-weWXHm0Ws2cZKjjwugRMnnOAx9uCP/wUVf84W7/fXQimwYUK28zPDGPprDozomQLpKv6U99xN9PI9+yLI9qxNw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @* tippy.js *@
-    @* <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script> *@
-    @* <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script> *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js"
+        integrity="sha512-8cU710tp3iH9RniUh6fq5zJsGnjLzOWLWdZqBMLtqaoZUA6AWIE34lwMB3ipUNiTBP5jEZKY95SfbNnQ8cCKvA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy.umd.min.js"
+        integrity="sha512-2TtfktSlvvPzopzBA49C+MX6sdc7ykHGbBQUTH8Vk78YpkXVD5r6vrNU+nOmhhl1MyTWdVfxXdZfyFsvBvOllw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- jquery-loading v1.3.0 -->
-    @* <link href="https://cdn.jsdelivr.net/npm/jquery-easy-loading@1.3.0/dist/jquery.loading.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/jquery-easy-loading@1.3.0/dist/jquery.loading.min.js"></script> *@
-   
+    @* <link href="https://cdn.jsdelivr.net/npm/jquery-easy-loading@1.3.0/dist/jquery.loading.min.css" rel="stylesheet"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/jquery-easy-loading@1.3.0/dist/jquery.loading.min.js"></script> *@
+
     <script>
 
         function BlazorScrollToId(id) {
@@ -73,7 +94,7 @@
     <app>
         @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
     </app>
-    
+
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="_framework/blazor.server.js"></script>
@@ -99,7 +120,9 @@
     <script src="~/JavaScript/Day.js"></script>
     <script src="~/JavaScript/GameFi.js"></script>
     <script src="~/JavaScript/Tippy.js"></script>
+    <script src="~/JavaScript/Popup.js"></script>
     <script src="~/JavaScript/NethereumMetamask.js"></script>
     <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
 </body>
+
 </html>

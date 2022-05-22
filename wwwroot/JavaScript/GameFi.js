@@ -170,11 +170,8 @@ window.CirclePopup = function (){
 
 
 window.GameFiCharts = function () {
-    console.log("GameFiCharts 33", echarts)
-
     var chartDom = document.querySelector('.Pie-Chart')
-    // var myChart = echarts.init(chartDom, null, { renderer: 'svg' });
-    var myChart = echarts.init(chartDom);
+    window.myChart = echarts.init(chartDom);
     var option;
 
     option = {
@@ -226,7 +223,6 @@ window.GameFiCharts = function () {
 }
 
 window.chartInit = function () {
-    console.log('chartInit 1');
     let position = ''
 
 
@@ -234,7 +230,7 @@ window.chartInit = function () {
 
         // 改變size時重跑一次
         $(window).resize(function(){  
-            // location.reload();
+            window.myChart.resize()
         });  
 
         const rect = $('.Pie-Chart')[0].getBoundingClientRect()
