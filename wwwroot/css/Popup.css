@@ -99,7 +99,7 @@ input.products-popup-inputText::placeholder{
     margin: 15px 0 0px;
     width: 85%;
 
-    display: none;
+    /* display: none; */
 }
 
 button.products-popup-submit{

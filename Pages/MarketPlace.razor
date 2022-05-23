@@ -309,8 +309,8 @@
                                     <div class="NFT-Name">@item.Name</div>
                                     <div class="NFT-PriceBlock">
                                         <div class="NFT-PriceMain" >
-                                            <div class="NFT-PriceIcon-Border">
-                                                <img class="NFT-PriceIcon" src="/images/MarketPlace/Polygon-eth-01.png" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
+                                            <div class="NFT-PriceIcon-Border" title="ETH ON POLYGON" data-content="ETH ON POLYGON">
+                                                <img class="NFT-PriceIcon" src="/images/MarketPlace/Polygon-eth-01.png" alt="ETH ON POLYGON">
                                             </div>
                                             <span class="NFT-Price">@item.Price</span>
                                         </div>
@@ -345,8 +345,8 @@
                                     <div class="NFT-Name">@item.Name</div>
                                     <div class="NFT-PriceBlock">
                                         <div class="NFT-PriceMain" >
-                                            <div class="NFT-PriceIcon-Border">
-                                                <img class="NFT-PriceIcon" src="/images/MarketPlace/Polygon-eth-01.png" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
+                                            <div class="NFT-PriceIcon-Border" title="ETH ON POLYGON" data-content="ETH ON POLYGON">
+                                                <img class="NFT-PriceIcon" src="/images/MarketPlace/Polygon-eth-01.png" alt="ETH ON POLYGON">
                                             </div>
                                             <span class="NFT-Price">@item.Price</span>
                                         </div>
@@ -485,6 +485,7 @@
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterButtonClick");
             await JS.InvokeVoidAsync("FilterArrowSlideClick");
+            await JS.InvokeVoidAsync("TippyInit");
         }
 
     }

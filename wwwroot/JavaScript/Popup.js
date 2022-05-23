@@ -26,19 +26,6 @@ window.Popup = function () {
         }
     });
 
-    // 姓名超過字數顯示error
-    // var inputTextLength = $('#products-popupblock-Name .products-popup-inputText').val().length;
-    // console.log(inputTextLength);
-    // $('#products-popupblock-Name .products-popup-inputText').change(function () { 
-    //     console.log(inputTextLength);
-    //     if (inputTextLength > 20) {
-    //         $('.products-popup-error').show();
-    //     }
-    //     else {
-    //         $('.products-popup-error').hide();
-    //     }
-        
-    // });
 
 
 
