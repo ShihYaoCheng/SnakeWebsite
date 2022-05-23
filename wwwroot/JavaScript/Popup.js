@@ -18,9 +18,19 @@ window.Popup = function () {
         $('.products-popup-bg').removeClass('products-popup-open');
     });
 
+    // 點擊 背景關閉
+    $(document).mouseup(function (e) {
+        var container =$(".products-popupblock"); // 這邊放你想要排除的區塊
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            $('.products-popup-bg').removeClass('products-popup-open');
+        }
+    });
+
+    // 姓名超過字數顯示error
     // var inputTextLength = $('#products-popupblock-Name .products-popup-inputText').val().length;
     // console.log(inputTextLength);
-    // s$('#products-popupblock-Name .products-popup-inputText').change(function () { 
+    // $('#products-popupblock-Name .products-popup-inputText').change(function () { 
+    //     console.log(inputTextLength);
     //     if (inputTextLength > 20) {
     //         $('.products-popup-error').show();
     //     }

@@ -77,9 +77,9 @@ input.products-popup-inputText{
     background-color: var(--bg-1);
     border: 2px solid var(--green-2);
     border-radius: 13px;
-    padding: 3px 20px;
+    padding: 6px 20px 4px;
     white-space: nowrap;
-    font-size: 30px;
+    font-size: 26px;
     outline: none;
     color: var(--white);
     width: 65%;
@@ -88,12 +88,18 @@ input.products-popup-inputText:focus{
     border: 3px solid var(--white);
     color: var(--white);
 }
+input.products-popup-inputText::placeholder{
+    font-size: 22px;
+    color: #627e7a;
+}
 
 .products-popup-error{
     color: var(--red-2);
     font-size: 20px;
     margin: 15px 0 0px;
     width: 85%;
+
+    display: none;
 }
 
 button.products-popup-submit{
