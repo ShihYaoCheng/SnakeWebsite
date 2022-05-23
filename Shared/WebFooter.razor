@@ -1,28 +1,28 @@
-﻿
+﻿@inject IJSRuntime JS
 @using SnakeAsianLeague.Shared.WebFoorer_Components
 
 <head>
-
      <link href ="css/WebFooter.css" rel="stylesheet" />
 </head>
 
-<div class ="webFooter" id="webFooter">
-    @*CQIGame*@
+<div class ="webFooter" id="webFooter">   
+     @*CQIGame*@
     <WebFoorer_CQIGame />
-    @*PageLinks*@
+    @*PageLinks*@ 
     <WebFoorer_PageLinks />
     @*Information*@ 
     <WebFoorer_Information />
     @*Copyright*@
-    <div class="clear-fix Copyright">
-        Copyright © 2022 PonPonSnake All Rights Reserved.
-    </div>
+    <WebFoorer_Copyright />   
 </div>
 @*聯絡表單*@
 
  <WebFooter_Contact  />
 
 @code {  
-
+      private async Task FooterContactShow()
+    {
+        await JS.InvokeVoidAsync("FooterContactShow");
+    }
     
 }

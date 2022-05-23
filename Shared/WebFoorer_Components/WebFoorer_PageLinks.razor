@@ -1,11 +1,62 @@
-﻿ <div class="contact-information">
-        <div>
-            twchenquan@gmail.com
+﻿ @inject IJSRuntime JS
+ 
+<div class="page-links">
+        <div class="link-row">
+            <ul>
+                <li>
+                    PonPonSnake
+                </li>
+                 <li>
+                   <a href="/"> Home</a>
+                </li>
+                  <li>
+                   <a href="/GameFi"> GameFi</a>
+                </li>
+                 <li>
+                   <a href="/MarketPlace"> MarketPlce</a>
+                </li>
+                <li>
+                    <a href="/ACLIndexS2"> Arena</a>
+                </li>
+                 <li>
+                    <a href="/https://ponponsnake.substack.com"> News</a>
+                </li>
+            </ul>
         </div>
-        <div>
-            +886(3)316-0003
+         <div class="link-row">
+            <ul>
+                <li>
+                    NFTs
+                </li>
+                 <li>
+                   <a href="/"> ERNC</a>
+                </li>
+                  <li>
+                   <a href="/"> Whitepaper</a>
+                </li>           
+            </ul>
         </div>
-</div>
+          <div class="link-row">
+            <ul>
+                <li>
+                    Contact
+                </li>
+                 <li @onclick ="FooterContactShow">
+                    Contact us
+                </li>
+                  <li>
+                   <a href="https://www.104.com.tw/company/1a2x6bk34m"> Join us</a>
+                </li>     
+                <li>
+                   <a href="https://www.cqigames.com/"> Our Team</a>
+                </li>     
+            </ul>
+        </div>
+        
+    </div>
 @code {
-
+    private async Task FooterContactShow()
+    {
+        await JS.InvokeVoidAsync("FooterContactShow");
+    }
 }
