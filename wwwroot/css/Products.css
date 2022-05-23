@@ -101,7 +101,7 @@
 .products-summary{
     /* border: 1px solid rgb(255, 255, 255); */
     width:50%;
-    margin: 0 30px;
+    margin: 0 30px 40px;
 }
 .products-main{
     /* border: 1px solid rgb(255, 255, 255); */
@@ -157,7 +157,7 @@
     line-height: 40px;
     font-weight: bold;
     display: inline-flex;
-
+    line-height: 36px;
 }
 
 /* 如果是持有者的編輯樣式 Owned */
@@ -165,7 +165,7 @@
     background-color: var(--bg-1);
     border: 1.5px solid var(--green-2);
     border-radius:13px;
-    padding: 3px 12px;
+    padding: 5px 12px 6px;
     margin: 10px 0 20px;
     display: inline-flex;
     justify-content: space-between;
@@ -517,3 +517,163 @@
     margin-bottom: 30px;
 }
 
+
+@media all and (max-width: 1200px){
+    .products-summary{
+        width: 40%;
+    }
+    .products-title{
+        font-size: 30px;
+    }
+    .products-owned{
+        font-size: 20px;
+    }
+    .Owned-edit{
+        margin: 6px 0 8px;
+    }
+    .products-block-title{
+        font-size: 30px;
+        margin: 0 0 10px;
+    }
+    .products-block-title-02{
+        font-size: 22px;
+    }
+    .products-block-price-currency{
+        font-size: 30px;
+    }
+    .products-TopBid-price{
+        font-size: 30px;
+    }
+    .products-TopBid-USD{
+        font-size: 18px;
+    }
+    .products-countdownTime{
+        font-size: 18px;
+    }
+    .products-TopBid-price-higher{
+        font-size: 18px;
+    }
+    .BuyOnOpensea{
+        width: 320px;
+        height: 70px;
+        font-size: 26px;
+    }
+    .BuyOnOpensea a{
+        padding: 15px 50px;
+    }
+}
+
+@media all and (max-width: 1000px){
+    .products-wrapper{
+        flex-direction: column;
+        margin: 150px auto;
+    }
+    .products-summary {
+        width: 100%;
+        margin: 0 auto 40px;
+    }
+    .products-main{
+        width: 100%;
+        margin: 0 auto;
+        max-width: none;
+    }
+    .products-imageContainer{
+        max-width: 600px;
+        margin: 12px 0 20px;
+    }
+    .products-owned{
+        flex-wrap: wrap;
+        white-space: normal;
+    }
+
+
+}
+@media all and (max-width: 600px){
+    .products-wrapper{
+        margin: 120px auto;
+    }
+    .products-title {
+        font-size: 26px;
+    }
+    .products-block-title{
+        font-size: 26px;
+    }
+    .products-owned {
+        font-size: 18px;
+    }
+    .BuyOnOpensea{
+        width: -webkit-fill-available;
+    }
+    .products-block-price-currency{
+        font-size: 24px;
+    }
+    .products-TopBid-price {
+        font-size: 24px;
+    }
+    .Owned-edit .edit-icon{
+        margin-left: 20px;
+    }
+    .products-currency-SRC {
+        width: 36px;
+    }
+    .products-block-02{
+        padding: 20px;
+    }
+    .products-block-price{
+        padding: 15px 20px;
+    }
+    #products-Attributes .products-propertyCellreact{
+        max-width: 160px;
+        height: 129px;
+    }
+    #products-Stats .products-propertyCellreact{
+        max-width: 130px;
+        height: 120px;
+    }
+    .products-property-type{
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .products-property-value{
+        font-size: 18px;
+    }
+    .products-property-valueImg {
+        width: 40px;
+    }
+    .Avatars-block{
+        padding: 15px 25px;
+    }
+    .Avatars-icon {
+        width: 50px;
+    }
+    .products-skills-icon{
+        margin: 15px auto 25px;
+        width: 50%;
+    }
+    #products-Skills{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .skills-info{
+        margin-left: 0;
+    }
+    #products-AppearanceFee{
+        flex-wrap: wrap;
+    }
+    #products-AppearanceFee  .Owned-edit{
+        margin: 8px auto 8px;
+    }
+    .skills-type {
+        font-size: 22px;
+        line-height: 26px;
+    }
+    .skills-value {
+        font-size: 22px;
+    }
+    .skills-content {
+        font-size: 18px;
+    }
+    .Avatars-value {
+        font-size: 18px;
+    }
+}

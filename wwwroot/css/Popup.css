@@ -35,6 +35,8 @@
     z-index: 50 !important;
 }
 .products-popup-close{
+    width: 25px;
+    height: 25px;
     position: absolute;
     top: 16px;
     right: 16px;
@@ -54,6 +56,7 @@
     padding: 30px 0 20px;
     width: 85%;
     margin: 0 auto;
+    line-height: 36px;
 }
 .products-popup-content{
     border-top: 1.5px solid var(--green-2);
@@ -68,8 +71,8 @@
     color: var(--green-2);
     font-size: 24px;
     line-height: 30px;
-    margin: 10px 0 20px;
-    width: 90%;
+    margin: 10px auto 20px;
+    width: 85%;
     text-align: center;
 }
 
@@ -118,4 +121,53 @@ button.products-popup-submit:hover{
     border: 3px solid var(--green-2);
     background-color: var(--green-2);
     color: var(--white);
+}
+
+@media all and (max-width: 1000px){
+    .products-popup-title{
+        font-size: 30px;
+    }
+    .products-popup-text{
+        font-size: 22px;
+        text-align: left;
+    }
+    input.products-popup-inputText{
+        font-size: 22px;
+        width: 85%;
+    }
+    button.products-popup-submit{
+        font-size: 24px;
+
+    }
+    .products-popup-content{
+        padding: 20px 0 30px;
+    }
+}
+@media all and (max-width: 600px){
+    .products-popup-title{
+        font-size: 28px;
+        padding: 40px 0 20px;
+        line-height: 32px;
+    }
+    .products-popup-text{
+        font-size: 20px;
+        margin: 10px auto 15px
+    }
+    input.products-popup-inputText{
+        font-size: 20px;
+        width: 80%;
+    }
+    button.products-popup-submit{
+        font-size: 22px;
+    }
+    .products-popup-close{
+        top: 12px;
+        right: 12px;
+        width: 22px;
+        height: 22px;
+    }
+    .products-popup-content{
+        padding: 10px 0 30px;
+    }
+
 }
