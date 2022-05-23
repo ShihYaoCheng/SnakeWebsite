@@ -77,12 +77,12 @@ input.products-popup-inputText{
     background-color: var(--bg-1);
     border: 2px solid var(--green-2);
     border-radius: 13px;
-    padding: 3px 12px;
+    padding: 3px 20px;
     white-space: nowrap;
     font-size: 30px;
     outline: none;
     color: var(--white);
-    width: 60%;
+    width: 65%;
 }
 input.products-popup-inputText:focus{
     border: 3px solid var(--white);
