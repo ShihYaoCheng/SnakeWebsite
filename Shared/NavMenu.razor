@@ -11,8 +11,9 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @implements IDisposable
 
-<nav id="nav" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top">
-    <div class="container">
+
+<nav id="nav" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top" >
+    <div class="container" id="navContainer" @onclick="FooterContactHide">
         
         <div class="logo">
 
@@ -433,5 +434,9 @@
         NavigationManager.NavigateTo("/", true);
     }
 
-
+    /*聯絡表單關閉*/
+     private async Task FooterContactHide()
+    {
+        await JS.InvokeVoidAsync("FooterContactHide");
+    }
 }

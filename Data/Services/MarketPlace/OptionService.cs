@@ -511,7 +511,12 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                     decimal.TryParse(price, out result);
                     
                 }
+                Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
                 return result;
+            }
+            else
+            {
+                Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
             }
             return result;
         }
@@ -559,7 +564,12 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                     decimal.TryParse(price, out result);
 
                 }
+                Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
                 return result;
+            }
+            else
+            {
+                Console.WriteLine( string.Format( "{0} : {1}" , URL, responseMessage.StatusCode));
             }
             return result;
         }

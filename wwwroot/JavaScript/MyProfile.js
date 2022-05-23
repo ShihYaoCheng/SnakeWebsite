@@ -7,7 +7,7 @@ window.myprofileSidebar = function () {
     $('.accountManagementUl a').click(function () {
         $('.myprofileSidebar').removeClass('SidebarOpen');
     });
-
+    
     $(document).mouseup(function (e) {
         var container =$(".myprofileSidebar"); // 這邊放你想要排除的區塊
         if (!container.is(e.target) && container.has(e.target).length === 0) {

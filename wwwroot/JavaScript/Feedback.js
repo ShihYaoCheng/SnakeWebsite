@@ -7,9 +7,9 @@ window.Feedback = function (Feedback) {
             type: "POST",
             //test
             //url: "http://localhost:8080/feedback/official/ponsnake",
-            
+            //url: "https://feedback.cqiserv.com/feedback/official/ponsnake",
             //Prod
-            url: "https://feedback.cqiserv.com/feedback/official/ponsnake",
+            url: "https://feedback.cqiserv.com/feedback/official/ponsnake", 
             data: formData,
             crossDomain: true,
             contentType: "application/json;charset=UTF-8",
@@ -39,9 +39,14 @@ window.Feedback = function (Feedback) {
     };
 
 
+    var sendMessageButton = document.getElementById('sendMessageButton')
+    sendMessageButton.addEventListener('click', () => {
+        console.log("????????");
+        sendFeedback();
+    })
 
     $("#sendMessageButton").click(function () {
-        sendFeedback();
+     
     });
 }
 

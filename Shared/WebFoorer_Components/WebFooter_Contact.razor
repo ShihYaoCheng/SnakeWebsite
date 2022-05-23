@@ -2,7 +2,7 @@
 
 
 <div class="footer-contact"  id ="footerContact" @onclick="@(()=>clickClose())">
-    <div class="contact-pop">
+    <div class="contact-pop " id="contactPop" >
        
 
         <div id ="contactContainer"  class="contact-container">
@@ -73,6 +73,12 @@
        </div>
 </div>
 @code {
+     protected override async Task OnAfterRenderAsync(bool firstRender)
+    {   
+        if(firstRender){
+            await JS.InvokeVoidAsync("Feedback", "Feedback");
+        }
+    }
 
     private async Task SendFeedbackClick()
     {
@@ -86,12 +92,5 @@
         await JS.InvokeVoidAsync("FooterContactHide");
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
 
-        if (firstRender)
-        {
-             await JS.InvokeVoidAsync("Testtest");
-        }
-    }   
     }
