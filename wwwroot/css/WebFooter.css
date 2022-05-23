@@ -5,15 +5,16 @@
     background: #27616F;
     height: 658px;
     color: #67ADA2;
+
 }
-@media all and (max-width: 576px) {
+@media all and (max-width: 768px) {
     .webFooter {    
         height: 931px;      
     }
 }
     /*....CQI-Game ....*/
     .CQI-Game {
-        width: 40%;
+        width: 50%;
         height: 330px;
         display: inline-block;
     }
@@ -21,7 +22,7 @@
     .CQI-Title {
         width: 48.18%;
         font-size: 48px;
-        margin: 110px 0 0 40.7%;
+        margin: 110px 0 0 22.22%;
         border-bottom: 1px solid #67ADA2;
         font-weight: 700;
         text-align:center;
@@ -31,7 +32,7 @@
 .CQI-Icons {
     width: 48.18%;
     height: 41.61px;
-    margin: 36px 0 0 40.75%;
+    margin: 36px 0 0 22.22%;
     text-align: center;
 }
 @media all and (max-width: 1400px) {
@@ -57,15 +58,8 @@
     }
 }
 @media all and (max-width: 768px) {
-    .CQI-Title {
-        font-size:36px
-    }
-    .CQI-Icons {
-        height: 36px;     
-     
-    }
-}
-@media all and (max-width: 576px) {
+  
+
     .CQI-Game {
         width: 100%;
         height: 200px;
@@ -79,18 +73,23 @@
         border-bottom: 1px solid #67ADA2;
         font-weight: 600;
         text-align: center;
+        font-size: 36px
     }
 
     .CQI-Icons {
         width: 65%;
         margin: 36px auto 0 auto;
+        font-size: 36px
     }
+}
+@media all and (max-width: 576px) {
+   
 }
 
 [class^="Icon-"] {
-    border: 0px;  
-    display:inline-block;
-   
+    border: 0px;
+    display: inline-block;
+    
 }
 
 [class^="Icon-"]:hover {
@@ -148,13 +147,13 @@
 }
     /*....page-links....*/
     .page-links {
-        width: 60%;
+        width: 50%;
         height: 608px;
         float: right;
     }
 
     .link-row {
-        width: 18.11%;
+        width: 25%;
         height: 100%;
         padding-top: 119px;
         float: left;
@@ -164,46 +163,69 @@
             width: 33%;        
         }
     }
-  
-    @media all and (max-width: 576px) {
-        .page-links {
-            width: 100%;
-            height: 600px;
-            float: right;
-        }
-
-        .link-row {
-            width: 49%;
-            height: 250px;
-            padding-top: 0px;
-            float: left;
-        }
+@media all and (max-width: 1500px) {
+    .link-row {
+        width: 33%;
     }
+}
+
+
+@media all and (max-width: 768px) {
+    .page-links {
+        width: 100%;
+        height: 400px;
+        float: right;
+    }
+
+    .link-row {
+        width: 49%;
+        height: 250px;
+        padding-top: 0px;
+        float: left;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .page-links {
+        width: 100%;
+        height: 600px;
+        float: right;
+    }
+}
 
     .link-row li:first-child {
         color: #253A4B;
+        font-weight: 600;
     }
 
 
 
     .link-row li {
         list-style: none;
-        font-size: 24px;
-        font-weight: 600;
+        font-size: 20px;
     }
-    .link-row li:not(:first-child):hover {
-        color: #bbede5;
-        cursor: pointer;
-        transition: all .05s ease-in-out;
-    }
+
+        .link-row li:not(:first-child):hover {
+            color: #bbede5;
+            cursor: pointer;
+            transition: all .05s ease-in-out;
+        }
+
     .link-row a:hover {
         color: #bbede5 !important;
-        transition: all .05s ease-in-out; 
+        transition: all .05s ease-in-out;
+    }
+
+    .link-row a {
+        color: #bbede5 !important;
+        transition: all .05s ease-in-out;
+        text-decoration: none;
     }
 
 
-@media all and (max-width: 768px) {
-    .link-row li {
+
+    @media all and (max-width: 768px) {
+        .link-row li {
             font-size: 18px;
         }
     }
@@ -215,28 +237,34 @@
     @media all and (max-width: 576px) {
         .link-row li {
             font-size: 20px;
-            font-weight: 400;
         }
     }
 
     /*....contact-information..*/
     .contact-information {
-        width: 40%;
+        width: 50%;
         height: 276px;
         padding-top: 150px;
         float: left;
     }
 
         .contact-information div {
-            margin: 0 0 0 40.75%;
+            margin: 0 0 0 22.22%;
             height: 43px;
             font-size: 24px;
             font-weight: 600;
         }
-
+@media all and (max-width: 768px) {
+    .contact-information {
+        width: 100%;
+    }
+        .contact-information div {
+            text-align: center;
+            margin: 0;
+        }
+}
     @media all and (max-width: 576px) {
         .contact-information {
-            width: 100%;
             height: 100px;
             padding-top: 0px;
         }
@@ -273,55 +301,55 @@
         }
     }
 
-/*...........*/
-/*Contact Pop*/
-/*...........*/
+    /*...........*/
+    /*Contact Pop*/
+    /*...........*/
 
-.footer-contact {
-    position: fixed;
-    z-index: 499;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background: rgb(255, 255, 255,0.31);
-    display: none;    
-}
+    .footer-contact {
+        position: fixed;
+        z-index: 499;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background: rgb(255, 255, 255,0.31);
+        display: none;
+    }
 
-.contact-pop {
-    width: 692px;
-    height: 100%;
-    float: right;
-    background: #27616F;
-    padding-top:67.5px;
-    position:relative;
-  
-}
-
-.contact-container {
-    width: 422px;
-    height: 100%;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-@media all and (max-width:768px) {
     .contact-pop {
-        width: 80%;        
+        width: 692px;
+        height: 100%;
+        float: right;
+        background: #27616F;
+        padding-top: 67.5px;
+        position: relative;
     }
+
     .contact-container {
-        width: 95%;       
+        width: 422px;
+        height: 100%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-}
+    @media all and (max-width:768px) {
+        .contact-pop {
+            width: 80%;
+        }
 
-@media all and (max-width:576px) {
-    .contact-pop {      
-        padding-top: 0px;
+        .contact-container {
+            width: 95%;
+        }
     }
-}
+
+    @media all and (max-width:576px) {
+        .contact-pop {
+            padding-top: 0px;
+        }
+    }
     /* Block06 contact */
 
     .contact06 {
@@ -338,12 +366,12 @@
 
 
 
-    .contact06 .contactTitle p {
-        /* border: solid 1px rgb(255, 255, 255); */
-        font-size: 30px;
-        font-weight: 400;
-        color: #ffffff;
-    }
+            .contact06 .contactTitle p {
+                /* border: solid 1px rgb(255, 255, 255); */
+                font-size: 30px;
+                font-weight: 400;
+                color: #ffffff;
+            }
 
     @media all and (max-width: 1000px) {
         .contact06 .contactTitle p {
@@ -351,18 +379,19 @@
         }
     }
 
-@media all and (max-width: 600px) {
-    .contact06 .contactTitle p {
-        padding: 100px 0 0 0;
-        font-size: 22px;
+    @media all and (max-width: 600px) {
+        .contact06 .contactTitle p {
+            padding: 100px 0 0 0;
+            font-size: 22px;
+        }
     }
-}
-@media all and (max-width: 375px) {
-    .contact06 .contactTitle p {
-        padding: 80px 0 0 0;
-        font-size: 18px;
+
+    @media all and (max-width: 375px) {
+        .contact06 .contactTitle p {
+            padding: 80px 0 0 0;
+            font-size: 18px;
+        }
     }
-}
 
     .contact06 .contactForm {
         /* border: solid 1px rgb(255, 255, 255); */
@@ -388,87 +417,88 @@
                 outline: none;
                 box-sizing: border-box;
                 font-family: "微軟正黑體","Arial";
-               
             }
 
                 .contact06 .contactForm form input[type="text"]::placeholder, input[type="email"]::placeholder {
                     color: rgba(103,173,162,0.5);
                 }
-                @media all and (max-width: 376px) {
-                    .contact06 .contactForm form input[type="text"], input[type="email"] {      
-                        height: 26px;       
-                    }
-                }
 
-                .contact06 .contactForm form input[type="text"]:-moz-placeholder, input[type="text"]:-ms-input-placeholder, input[type="text"]::-webkit-input-placeholder {
-                    color: rgba(103,173,162,0.5);
-                }
-
-            .contact06 .contactForm form input:focus {
-                /* color: #ed1941; */
-                border-radius: 13px;
-                border: 3px solid #F5853D;
-            }
-
-            .contact06 .contactForm form textarea {
-                /* border: solid 1px rgb(204, 144, 144); */
-                width: 100%;
-                resize: none;
-                height: 150px;
-                border-radius: 13px;
-                margin: 7px 0;
-                padding: 10px 20px;
-                font-size: 20px;
-                outline: none;
-                box-sizing: border-box;
-            }
-
-                .contact06 .contactForm form textarea::placeholder {
-                    color: rgba(103,173,162,0.5);
-                }
-
-                .contact06 .contactForm form textarea:focus {
-                    /* color: #ed1941; */
-                    border-radius: 13px;
-                    border: 3px solid #F5853D;
-                }
-
-            .contact06 .contactForm form input[type="button"] {
-                background-color: #FFA81D;
-                color: #ffffff;
-                font-weight: bold;
-                letter-spacing: 1px;
-                transition: all .1s ease-out;
-                height: 63.72px;
-                width: 100%;
-                border: none;
-                margin: 10px 0;
-                padding: 0 20px;
-                font-size: 36px;
-                outline: none;
-                box-sizing: border-box;
-                font-family: "微軟正黑體","Arial";
-                border-radius: 13px;
-            }
-@media all and (max-width: 376px) {
-    .contact06 .contactForm form input[type="button"] {     
-        height: 37px;  
-        font-size:22px;
+    @media all and (max-width: 376px) {
+        .contact06 .contactForm form input[type="text"], input[type="email"] {
+            height: 26px;
+        }
     }
+
+    .contact06 .contactForm form input[type="text"]:-moz-placeholder, input[type="text"]:-ms-input-placeholder, input[type="text"]::-webkit-input-placeholder {
+        color: rgba(103,173,162,0.5);
+    }
+
+    .contact06 .contactForm form input:focus {
+        /* color: #ed1941; */
+        border-radius: 13px;
+        border: 3px solid #F5853D;
+    }
+
     .contact06 .contactForm form textarea {
-      
-        height: 130px;        
+        /* border: solid 1px rgb(204, 144, 144); */
+        width: 100%;
+        resize: none;
+        height: 150px;
+        border-radius: 13px;
+        margin: 7px 0;
+        padding: 10px 20px;
+        font-size: 20px;
+        outline: none;
+        box-sizing: border-box;
     }
-}
 
-                .contact06 .contactForm form input[type="button"]:hover {
-                    /* background-color: #ffffff;
+        .contact06 .contactForm form textarea::placeholder {
+            color: rgba(103,173,162,0.5);
+        }
+
+        .contact06 .contactForm form textarea:focus {
+            /* color: #ed1941; */
+            border-radius: 13px;
+            border: 3px solid #F5853D;
+        }
+
+    .contact06 .contactForm form input[type="button"] {
+        background-color: #FFA81D;
+        color: #ffffff;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: all .1s ease-out;
+        height: 63.72px;
+        width: 100%;
+        border: none;
+        margin: 10px 0;
+        padding: 0 20px;
+        font-size: 36px;
+        outline: none;
+        box-sizing: border-box;
+        font-family: "微軟正黑體","Arial";
+        border-radius: 13px;
+    }
+
+    @media all and (max-width: 376px) {
+        .contact06 .contactForm form input[type="button"] {
+            height: 37px;
+            font-size: 22px;
+        }
+
+        .contact06 .contactForm form textarea {
+            height: 130px;
+        }
+    }
+
+    .contact06 .contactForm form input[type="button"]:hover {
+        /* background-color: #ffffff;
     color: #F5853D; */
-                    box-shadow: 0px 0px 15px rgb(255, 255, 255);
-                    cursor: pointer;
-                    transition: .05s;
-                    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.507);
-                }
+        box-shadow: 0px 0px 15px rgb(255, 255, 255);
+        cursor: pointer;
+        transition: .05s;
+        text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.507);
+    }
 
     @media all and (max-width: 1000px) {
         .contact06 .contactForm form input[type="text"], input[type="email"], input[type="button"] {
@@ -484,15 +514,15 @@
         }
     }
 
-  
+
     /*....reach-FB....*/
-.reach-FB {
-    color: #fff;
-    font-size: 20px;
-    font-weight: 200;
-    text-align: center;
-    margin-top: 15px;
-}
+    .reach-FB {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 200;
+        text-align: center;
+        margin-top: 15px;
+    }
 
         .reach-FB p {
             display: inline;
@@ -507,25 +537,24 @@
             display: inline;
         }
 
- .contact-FB {
+    .contact-FB {
         display: inline-block;
         width: 19px;
         height: 38px;
         background: url("../images/Footer/FB-Icon.png");
         background-repeat: round;
         border: 0px;
-        margin-top:15px;     
-
+        margin-top: 15px;
     }
 
     @media all and (max-width: 576px) {
-        .reach-FB {            
-            font-size: 15px;            
+        .reach-FB {
+            font-size: 15px;
         }
     }
     /*....close....*/
     .contact-close {
-        cursor:pointer;
+        cursor: pointer;
         position: absolute;
         transform: translate(-50%,-50%);
         top: 50%;
@@ -559,125 +588,158 @@
             }
     }
 
-/*信封*/
-.close-envelop {
-    display:none;
-}
+    /*信封*/
+    .close-envelop {
+        display: none;
+    }
 
-.open-envelop {   
-    display: none;
-}
+    .open-envelop {
+        display: none;
+    }
 
-/*感謝*/
-.appreciate {
-    display:none;
-}
+    /*感謝*/
+    .appreciate {
+        display: none;
+    }
 
-.appreciate-goback {
-    border: 0px;
-    background: none;
-    color: #66AEA2;
-    font-size: 30px;
-    font-weight: 700;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-}
-.appreciate img {
-    height: 25px;
-    width: 30px;
-}
-.appreciate-space {
-    height:150px;
-    width:100%;
-}
+    .appreciate-goback {
+        border: 0px;
+        background: none;
+        color: #66AEA2;
+        font-size: 30px;
+        font-weight: 700;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
 
-.appreciate-Title {
-    padding: 200px 0 60px 0;
-    color: #FFFFFF;
-    font-size: 30px;
-    font-weight: 400;
-}
-/*縮小*/
-@keyframes zoomOut {
+    .appreciate img {
+        height: 25px;
+        width: 30px;
+    }
+
+    .appreciate-space {
+        height: 150px;
+        width: 100%;
+    }
+
+    .appreciate-Title {
+        padding: 200px 0 60px 0;
+        color: #FFFFFF;
+        font-size: 30px;
+        font-weight: 400;
+    }
+    /*縮小*/
+    @keyframes zoomOut {
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(0.01);
+        }
+    }
+
+    .zoom-out {
+        animation: zoomOut 0.5s ease-out 1;
+        -webkit-animation-: zoomOut 0.5s ease-out 1;
+    }
+    /*放大*/
+    @keyframes zoomIn {
+        from {
+            transform: scale(0.01);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+
+    .zoom-in {
+        animation: zoomIn 0.5s ease-out 1;
+        -webkit-animation-: zoomIn 0.5s ease-out 1;
+    }
+
+    @keyframes fly {
+        from {
+            transform: translateY(0px); /*開始為原始大小*/
+        }
+
+        to {
+            transform: translateY(-600px)
+        }
+    }
+
+    .fly {
+        animation: fly 1.5s ease-in-out 1;
+        -webkit-animation-: fly 1.5s ease-in-out 1;
+    }
+
+
+    @keyframes appreciateFly {
+        0% {
+            transform: translateY(0%); /*開始為原始大小*/
+        }
+
+
+        90% {
+            transform: translateY(-110%);
+        }
+
+        100% {
+            transform: translateY(-105%);
+        }
+    }
+
+    .appreciateFly {
+        animation: appreciateFly 1.5s ease-in-out 1;
+        -webkit-animation-: appreciateFly 1.5s ease-in-out 1;
+    }
+
+
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(359deg);
+        }
+    }
+
+    .rotate {
+        animation: rotate 0.5s infinite linear;
+        -webkit-animation-: rotate 0.5s infinite linear;
+    }
+
+@keyframes move {
     from {
-        transform: scale(1); 
+        transform: translateX(110%);
     }
 
     to {
-        transform: scale(0.01); 
+        transform: translateX(0%);
     }
 }
 
-.zoom-out {
-    animation: zoomOut 0.5s ease-out 1;
-    -webkit-animation-: zoomOut 0.5s ease-out 1;
+.move {
+    animation: move 0.5s ease-in-out 1;
+    -webkit-animation-: move 0.5s ease-in-out 1;
 }
-/*放大*/
-@keyframes zoomIn {
+
+@keyframes closureMove {
     from {
-        transform: scale(0.01); 
+        transform: translateX(0%);
     }
 
     to {
-        transform: scale(1); 
+        transform: translateX(110%);
     }
 }
 
-.zoom-in {
-    animation: zoomIn 0.5s ease-out 1;
-    -webkit-animation-: zoomIn 0.5s ease-out 1;
-}
-
-@keyframes fly {
-    from {
-        transform: translateY(0px); /*開始為原始大小*/
-    }
-
-    to {
-        transform: translateY(-600px)
-    }
-}
-
-.fly {
-    animation: fly 1.5s ease-in-out 1;
-    -webkit-animation-: fly 1.5s ease-in-out 1;
-}
-
-
-@keyframes appreciateFly {
-    0% {
-        transform:translateY(0%); /*開始為原始大小*/
-    }
-   
-
-    90% {
-        transform: translateY(-110%);
-        
-    }
-    100% {
-        transform: translateY(-105%);
-    }
-}
-.appreciateFly {
-    animation: appreciateFly 1.5s ease-in-out 1;
-    -webkit-animation-: appreciateFly 1.5s ease-in-out 1;
-}
-
-
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(359deg);
-    }
-}
-
-.rotate {
-    animation: rotate 0.5s infinite linear;
-    -webkit-animation-: rotate 0.5s infinite linear;
+.closureMove {
+    animation: closureMove 0.5s ease-in-out 1;
+    -webkit-animation-: closureMove 0.5s ease-in-out 1;
 }

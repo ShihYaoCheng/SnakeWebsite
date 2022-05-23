@@ -82,8 +82,7 @@
     {
         await JS.InvokeVoidAsync("event_banner_Slide");
     }
-
-  
+       
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
@@ -91,6 +90,7 @@
             await JS.InvokeVoidAsync("Carousel");
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("dayjsInit");
+            await JS.InvokeVoidAsync("BannerMove");
         }
     }
 }
