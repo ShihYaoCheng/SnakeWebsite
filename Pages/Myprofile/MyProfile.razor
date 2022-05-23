@@ -1,4 +1,4 @@
-﻿
+﻿@page "/myprofile/{router}"
 @using SnakeAsianLeague.Pages.Myprofile.Components
 
 <head>
@@ -16,6 +16,12 @@
             case "index":
                 <MyProfile_Index />
                 break;
+            case "mymatch":
+                <MyProfile_MyMatch />
+                break;
+            case "myawardnotice":
+                 <MyProfile_MyAwardNotice/>
+                break;               
         }
 
     </Authorized>

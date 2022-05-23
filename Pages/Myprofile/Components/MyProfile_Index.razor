@@ -1,4 +1,4 @@
-﻿@page "/myprofile"
+﻿
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Backstage
 
@@ -32,10 +32,8 @@
     <title>PonPonSnake 碰碰蛇｜MyPage Account</title>
 </head>
 
-<AuthorizeView>
-    <Authorized>
-    <div>
-        <MyprofileSidebar /> 
+   <div>
+   
 
         @* <aside class="myprofileSidebar">
             <div class="myprofileSidebarButton">
@@ -190,16 +188,6 @@
             }
         </main>
     </div>
-    </Authorized>
-    <NotAuthorized>
-        <div class="myprofileLogin">
-            <h1>Please Login First</h1>
-        </div>
-    </NotAuthorized>
-</AuthorizeView>
-
-
-
 
 
 

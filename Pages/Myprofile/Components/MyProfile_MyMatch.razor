@@ -1,0 +1,45 @@
+﻿@inject IJSRuntime JS
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/Myaccount.css" rel="stylesheet" />
+    <link href="css/MyMatch.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>PonPonSnake 碰碰蛇｜我的賽事</title>
+</head>
+
+<div class="myMatch_Background"></div>
+
+      
+
+        
+<div class="myMatchBlock">
+    @* <div class="blockTitle">
+        <img src="/images/Index/title_bg.png" alt="" class="title_bg">
+        <div class="title_BG">
+            <p>我的<br>賽事</p>
+        </div>
+    </div> *@
+
+    <div class="myMatch">
+        <div class="myMatchTitle" data-i18n="Sidebar.Esports">Esports</div>
+    <div class="my_match_block">
+        <div class="mypage">賽事詳細</div>
+        <MyMatchDetail />                
+    </div>
+    </div>
+</div>
+ 
+
+
+@code {
+      protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
+
+}
