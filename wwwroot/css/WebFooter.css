@@ -128,7 +128,7 @@
     background-repeat: round;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 576px) {
     .Icon-FB {
         width: 15px;
     }
@@ -347,7 +347,7 @@
 
     @media all and (max-width:576px) {
         .contact-pop {
-            padding-top: 0px;
+           
         }
     }
     /* Block06 contact */
@@ -380,15 +380,13 @@
     }
 
     @media all and (max-width: 600px) {
-        .contact06 .contactTitle p {
-            padding: 100px 0 0 0;
+        .contact06 .contactTitle p {         
             font-size: 22px;
         }
     }
 
     @media all and (max-width: 375px) {
-        .contact06 .contactTitle p {
-            padding: 80px 0 0 0;
+        .contact06 .contactTitle p {       
             font-size: 18px;
         }
     }
@@ -596,7 +594,15 @@
     .open-envelop {
         display: none;
     }
+    @media all and (max-width: 768px) {
+        .close-envelop {
+            transform:scale(0.8)
+        }
 
+        .open-envelop {
+            transform: scale(0.8)
+        }
+    }
     /*感謝*/
     .appreciate {
         display: none;
@@ -641,6 +647,17 @@
         }
     }
 
+@media all and (max-width: 576px) {
+    @keyframes zoomOut {
+        from {
+            transform: scale(0.8);
+        }
+
+        to {
+            transform: scale(0.01);
+        }
+    }
+}
     .zoom-out {
         animation: zoomOut 0.5s ease-out 1;
         -webkit-animation-: zoomOut 0.5s ease-out 1;
@@ -655,11 +672,24 @@
             transform: scale(1);
         }
     }
+@media all and (max-width: 576px) {
+    /*放大*/
+    @keyframes zoomIn {
+        from {
+            transform: scale(0.01);
+        }
 
+        to {
+            transform: scale(0.8);
+        }
+    }
+}
     .zoom-in {
         animation: zoomIn 0.5s ease-out 1;
         -webkit-animation-: zoomIn 0.5s ease-out 1;
     }
+
+
 
     @keyframes fly {
         from {
@@ -714,32 +744,32 @@
         -webkit-animation-: rotate 0.5s infinite linear;
     }
 
-@keyframes move {
-    from {
-        transform: translateX(110%);
+    @keyframes move {
+        from {
+            transform: translateX(110%);
+        }
+
+        to {
+            transform: translateX(0%);
+        }
     }
 
-    to {
-        transform: translateX(0%);
-    }
-}
-
-.move {
-    animation: move 0.5s ease-in-out 1;
-    -webkit-animation-: move 0.5s ease-in-out 1;
-}
-
-@keyframes closureMove {
-    from {
-        transform: translateX(0%);
+    .move {
+        animation: move 0.5s ease-in-out 1;
+        -webkit-animation-: move 0.5s ease-in-out 1;
     }
 
-    to {
-        transform: translateX(110%);
-    }
-}
+    @keyframes closureMove {
+        from {
+            transform: translateX(0%);
+        }
 
-.closureMove {
-    animation: closureMove 0.5s ease-in-out 1;
-    -webkit-animation-: closureMove 0.5s ease-in-out 1;
-}
+        to {
+            transform: translateX(110%);
+        }
+    }
+
+    .closureMove {
+        animation: closureMove 0.5s ease-in-out 1;
+        -webkit-animation-: closureMove 0.5s ease-in-out 1;
+    }
