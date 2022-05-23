@@ -1,5 +1,4 @@
-﻿@page "/myawardnotice"
-@inject IJSRuntime JS
+﻿@inject IJSRuntime JS
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,12 +8,7 @@
     <title>PonPonSnake 碰碰蛇｜領獎通知</title>
 </head>
 
-
-<AuthorizeView>
-    <Authorized>
-    <div class="myAwardNotice_Background"></div>
-    <MyprofileSidebar /> 
-
+   <div class="myAwardNotice_Background"></div>
     <div class="myAwardNotice">
         
         <div class="myAwardNoticeTitle" data-i18n="Sidebar.Reward">Reward</div>
@@ -34,14 +28,6 @@
     </div>
 
 
-    </Authorized>
-    <NotAuthorized>
-    <div class="myaccount_login">
-
-        <h1>Please Login First</h1>
-    </div>
-    </NotAuthorized>
-</AuthorizeView>
 
 @code {
 

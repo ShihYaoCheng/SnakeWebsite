@@ -9,7 +9,8 @@ window.myprofileSidebar = function () {
     });
     
     $(document).mouseup(function (e) {
-        var container =$(".myprofileSidebar"); // 這邊放你想要排除的區塊
+        var container = $(".myprofileSidebar"); // 這邊放你想要排除的區塊
+
         if (!container.is(e.target) && container.has(e.target).length === 0) {
             $('.myprofileSidebar').removeClass('SidebarOpen');
 
