@@ -1,5 +1,5 @@
 :root {
-    --blue-1: #253B4B;
+    --ckblue-1: #253B4B;
     --blue-2: #4B8B8B;
     --blue-3: #2C93F1;
 
@@ -110,7 +110,7 @@
     max-width: 690px;
 }
 
-.products-header{
+.products-NumberBlock{
     display: flex;
     align-items: center;
     margin-bottom: 5px;
