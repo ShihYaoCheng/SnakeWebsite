@@ -290,7 +290,7 @@ input[type="radio"] {
     --theme-font-1: #8Fcdc3;
     --theme-font-2: #276170;
     --theme-font-3: #a7e5db;
-    --theme-border: #427c72;
+    /* --theme-border: #427c72; */
 }
 
 .card-bg-red {
@@ -300,8 +300,18 @@ input[type="radio"] {
     --theme-font-1: #F7cdc4;
     --theme-font-2: #823131;
     --theme-font-3: #ffd8d8;
-    --theme-border: #7a1823;
+    /* --theme-border: #7a1823; */
     
+}
+
+.card-bg-grey {
+    --theme-bg-1: #959595;
+    --theme-bg-2: #7d7d7d;
+    --theme-bg-3: #D1D1D1;
+    --theme-font-1: #D0D0D0;
+    --theme-font-2: #444444;
+    --theme-font-3: #d1d1d1;
+    /* --theme-border: #7a1823; */
 }
 
 
@@ -841,6 +851,43 @@ input[type="radio"] {
     color: var(--theme-font-2);
 }
 
+/* 灰色 一般 CARD */
+.card-bg-grey {
+    background-color: var(--theme-bg-1);
+    position: relative;
+}
+
+.card-bg-grey .heart__path {
+    fill: none;
+    stroke: var(--theme-bg-2);
+    /* stroke-width: 2; */
+}
+.card-bg-grey .NFT-Number{
+    background-color: var(--theme-bg-2);
+    color:  var(--theme-font-1);
+}
+
+.card-bg-grey .NFT-Name{
+    color: var(--theme-font-2);
+}
+.card-bg-grey .NFT-PriceBlock{
+    background-color: var(--theme-bg-2);
+}
+.card-bg-grey .NFT-Price {
+    color: var(--theme-font-3);
+}
+.card-bg-grey .NFT-PriceIcon-Border{
+    background-color: var(--theme-bg-3);
+}
+.card-bg-grey .NFT-USD {
+    color: var(--theme-font-1);
+}
+
+.card-bg-grey .NFT-EndTime{
+    color: var(--theme-font-2);
+}
+
+/* ------------------- */
 
 .NFTcard{
     /* cursor: pointer; */
