@@ -1,23 +1,20 @@
-/* 彈窗 Poducts-Popup */
+/* 彈窗 products-Popup */
 
-.poducts-popup-bg{
+.products-popup-bg{
     width: 100%;
     height: 100vh;
     background-color: var(--bg-4);
     position: fixed;
     top: 0;
     left: 0;
-    transition: all .2s ease-in-out; 
+    transition: all .3s ease-in-out; 
     opacity: 0;
     z-index: -50;
 
     /* display: none; */
 }
-.poducts-popup-open{
-    opacity: 1;
-    z-index: 50;
-}
-.poducts-popupblock{
+
+.products-popupblock{
     background-color: var(--green-1);
     /* border: 1.5px solid var(--green-2); */
     max-width: 630px;
@@ -31,21 +28,25 @@
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
-}
 
-.poducts-popup-close{
+}
+.products-popup-open{
+    opacity: 1 !important;
+    z-index: 50 !important;
+}
+.products-popup-close{
     position: absolute;
     top: 16px;
     right: 16px;
     cursor: pointer;
     transition: all .1s ease-in-out; 
 }
-.poducts-popup-close:hover{
+.products-popup-close:hover{
     transform: scale(1.05);
     opacity: 0.8;
 }
 
-.poducts-popup-title{
+.products-popup-title{
     color: var(--green-2);
     font-size: 36px;
     font-weight: 600;
@@ -54,7 +55,7 @@
     width: 85%;
     margin: 0 auto;
 }
-.poducts-popup-content{
+.products-popup-content{
     border-top: 1.5px solid var(--green-2);
     padding: 30px 0;
 
@@ -63,15 +64,16 @@
     align-items: center;
     
 }
-.poducts-popup-text{
+.products-popup-text{
     color: var(--green-2);
     font-size: 24px;
     line-height: 30px;
-    margin-bottom: 30px;
-    width: 85%;
+    margin: 10px 0 20px;
+    width: 90%;
+    text-align: center;
 }
 
-input.poducts-popup-inputText{
+input.products-popup-inputText{
     background-color: var(--bg-1);
     border: 2px solid var(--green-2);
     border-radius: 13px;
@@ -82,27 +84,29 @@ input.poducts-popup-inputText{
     color: var(--white);
     width: 60%;
 }
-input.poducts-popup-inputText:focus{
+input.products-popup-inputText:focus{
     border: 3px solid var(--white);
     color: var(--white);
 }
 
-.poducts-popup-error{
+.products-popup-error{
     color: var(--red-2);
     font-size: 20px;
-    margin: 10px 0 30px;
+    margin: 15px 0 0px;
+    width: 85%;
 }
 
-button.poducts-popup-submit{
+button.products-popup-submit{
     color: var(--white);
     font-size: 30px;
     border: 3px solid var(--white);
     background: none;
     border-radius: 13px;
     padding: 3px 22px;
+    margin-top: 30px;
     transition: all .05s ease-in-out; 
 }
-button.poducts-popup-submit:hover{
+button.products-popup-submit:hover{
 
     transform: scale(1.03);
     border: 3px solid var(--green-2);
