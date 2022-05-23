@@ -648,15 +648,16 @@
 
 @keyframes appreciateFly {
     0% {
-        transform:translateY(0px); /*開始為原始大小*/
+        transform:translateY(0%); /*開始為原始大小*/
     }
+   
 
     90% {
-        transform: translateY(-1000px);
+        transform: translateY(-110%);
         
     }
     100% {
-        transform: translateY(-950px);
+        transform: translateY(-105%);
     }
 }
 .appreciateFly {
