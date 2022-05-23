@@ -513,6 +513,10 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 }
                 return result;
             }
+            else
+            {
+                Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
+            }
             return result;
         }
 
@@ -560,6 +564,10 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
                 }
                 return result;
+            }
+            else
+            {
+                Console.WriteLine( string.Format( "{0} : {1}" , URL, responseMessage.StatusCode));
             }
             return result;
         }
