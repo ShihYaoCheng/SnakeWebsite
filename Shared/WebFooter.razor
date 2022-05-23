@@ -1,6 +1,5 @@
 ﻿
 @using SnakeAsianLeague.Shared.WebFoorer_Components
-@inject IJSRuntime JS
 
 <head>
 
@@ -8,97 +7,22 @@
 </head>
 
 <div class ="webFooter" id="webFooter">
-    <div class="CQI-Game">
-        <div class="CQI-Title">
-            CQI Games
-        </div>
-        <div class="CQI-Icons">
-            <a class="Icon-FB"  href="https://www.facebook.com/PonponSnake" ></a>
-            <a class="Icon-YT" href="https://www.youtube.com/channel/UCknaYifA1xhXBqBO3KulIUw" />
-            <a class="Icon-Twitch" href="https://www.twitch.tv/ponponsnake" />
-            <a class="Icon-Discord" href="https://discord.gg/cDHbRJGd" />
-
-        </div>
-    </div>
-    <div class="page-links">
-        <div class="link-row">
-            <ul>
-                <li>
-                    PonPonSnake
-                </li>
-                 <li>
-                   <a href="/"> Home</a>
-                </li>
-                  <li>
-                   <a href="/GameFi"> GameFi</a>
-                </li>
-                 <li>
-                   <a href="/MarketPlace"> MarketPlce</a>
-                </li>
-                <li>
-                    <a href="/ACLIndexS2"> Arena</a>
-                </li>
-                 <li>
-                    <a href="/https://ponponsnake.substack.com"> News</a>
-                </li>
-            </ul>
-        </div>
-         <div class="link-row">
-            <ul>
-                <li>
-                    NFTs
-                </li>
-                 <li>
-                   <a href="/"> ERNC</a>
-                </li>
-                  <li>
-                   <a href="/"> Whitepaper</a>
-                </li>           
-            </ul>
-        </div>
-          <div class="link-row">
-            <ul>
-                <li>
-                    Contact
-                </li>
-                 <li @onclick ="FooterContactShow">
-                    Contact us
-                </li>
-                  <li>
-                   <a href="/"> Join us</a>
-                </li>     
-                <li>
-                   <a href="/"> Our Team</a>
-                </li>     
-            </ul>
-        </div>
-        
-    </div>
-    <div class="contact-information">
-        <div>
-            twchenquan@gmail.com
-        </div>
-        <div>
-            +886(3)316-0003
-        </div>
-    </div>
+    @*CQIGame*@
+    <WebFoorer_CQIGame />
+    @*PageLinks*@
+    <WebFoorer_PageLinks />
+    @*Information*@ 
+    <WebFoorer_Information />
+    @*Copyright*@
     <div class="clear-fix Copyright">
         Copyright © 2022 PonPonSnake All Rights Reserved.
     </div>
 </div>
-
-
+@*聯絡表單*@
 
  <WebFooter_Contact  />
 
+@code {  
 
-
-
-@code {
-  
-
-    private async Task FooterContactShow()
-    {
-        await JS.InvokeVoidAsync("FooterContactShow");
-    }
+    
 }
