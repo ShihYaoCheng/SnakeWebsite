@@ -1,0 +1,168 @@
+﻿@using SnakeAsianLeague.Data.Services
+@inject AppState AppState
+@inject IJSRuntime JS
+
+        <main class="myprofileMain">
+
+            <div class="myprofileBlock" id="Account">
+                <div class="myprofileBlockTitle" data-i18n="myprofile.account">Account</div>
+                <div class="myprofileArea">
+
+                    <div class="informationBackground">
+                        <div class="informationDetailOriginal">
+                            <div class="personalBlock">
+                                <img class="personaAvatar" src="/images/Myprofile/user_icon.png" alt="">
+
+                                <button id="editButton" @onclick="EditProfile">
+                                    <img src="/images/Myprofile/edit_icon.png" alt="">
+                                    <span data-i18n="myprofile.edit">Edit</span>
+                                </button>
+                            </div>
+
+                            <div class="personalInformation">
+                                <div class="playerNickname">@AppState.LoginStatus.name</div>
+                                <div class="playerInfoRow">
+                                    <div class="playerInfoRowTitle" data-i18n="myprofile.gameID">Game ID</div>
+                                    <div class="playerInfoRowShow">@AppState.LoginStatus.userID</div>
+                                </div>
+                                <div class="playerInfoRow">
+                                    <div class="playerInfoRowTitle" data-i18n="myprofile.phone">Phone</div>
+                                    <div class="playerInfoRowShow">@AppState.LoginStatus.phone</div>
+                                </div>
+
+                                @if (!MetamaskAvailable)
+                        {
+
+                            <button class="btnMetamask" disabled>
+                                <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank">
+                                    <span style="margin: 5px 20px;" data-i18n="myprofile.installMetamask">Please Install Metamask</span>
+                                </a>
+                            </button>
+
+                        }
+                        else if (MetamaskAvailable && string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
+                        {
+                            <button type="button" class="btnMetamask" @onclick="@EnableEthereum">
+                                <span data-i18n="myprofile.connectMetamask">Connect Metamask</span>
+                                <img src="/images/Myprofile/btnMetamask_icon.png" alt="">
+                            </button>
+
+                        }
+                    </div>
+                </div>
+
+                @if (MetamaskAvailable && !string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
+                {
+                    <div class="metamaskAvailable" title="點擊複製 Address" @onclick="textCopyClick">
+                        Address：<span>@AppState.LoginStatus.walletAddress</span>
+                        <div id="copyTip">複製成功</div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+    @if (MetamaskAvailable && !string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
+    {
+        <div class="myprofileBlock" id="Asset">
+            <div class="myprofileBlockTitle" data-i18n="myprofile.asset">Asset</div>
+
+            <div class="myprofileArea">
+                <div class="informationAssetBlockAll">
+                    <div class="informationAssetBlock">
+                        <a href="myprofile">
+                            <div class="assetItem">
+                                <img class="assetIcon" src="/images/Myprofile/ERNC.png" alt="">
+                                <span>ERNC</span>
+                            </div>
+                            <div class="assetValue">0</div>
+                        </a>
+                    </div>
+
+                    <div class="informationAssetBlock">
+                        <a href="myprofile">
+                            <div class="assetItem">
+                                <img class="assetIcon" src="/images/Myprofile/MIPR.png" alt="">
+                                <span>MIPR</span>
+                            </div>
+                            <div class="assetValue">0</div>
+                        </a>
+                    </div>
+
+                    <div class="informationAssetBlock">
+                        <a href="myprofile">
+                            <div class="assetItem">
+                                <img class="assetIcon" src="/images/Myprofile/SRC.png" alt="">
+                                <span>SRC</span>
+                            </div>
+                            <div class="assetValue">0</div>
+                        </a>
+                    </div>
+
+                    <div class="informationAssetBlock">
+                        @* <a href="Inventory"> *@
+                        <a href="myprofile">
+                            <div class="assetItem">
+                                <img class="assetIcon" src="/images/Myprofile/Knight.png" alt="">
+                                <span>Rider</span>
+                            </div>
+                            <div class="assetValue">0</div>
+                        </a>
+                    </div>
+                    <div class="informationAssetBlock" id="informationAssetBlock-Lock">
+                        <div class="assetItem">
+                            <img class="ICON_Lock"  src="/images/Myprofile/ICON_Lock.png" alt="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @* <div class="myprofileBlock" id="Activities">
+                    <div class="myprofileBlockTitle" data-i18n="myprofile.activities">Activities</div>
+                    <div class="myprofileArea">
+                        <div class="ActivitiesRow">
+                            <span>XXXXXXXXXXXXXX</span>
+                        </div>
+                    </div>
+                    <div class="myprofileArea">
+                        <div class="ActivitiesRow">
+                            <span>XXXXXXXXXXXXXX</span>
+                        </div>
+                    </div>
+                    <div class="myprofileArea">
+                        <div class="ActivitiesRow">
+                            <span>XXXXXXXXXXXXXX</span>
+                        </div>
+                    </div>
+                </div> *@
+    }
+</main>
+@code {
+    [Parameter]
+    public bool MetamaskAvailable{get;set;}
+
+    [Parameter]
+    public EventCallback EditProfileButtonOnClick { get; set; }
+
+    public void EditProfile()
+    {
+        EditProfileButtonOnClick.InvokeAsync();
+    }
+
+    [Parameter]
+    public EventCallback EnableEthereumAsync { get; set; }
+
+    public void EnableEthereum()
+    {
+        EnableEthereumAsync.InvokeAsync();
+    }
+
+    private async Task textCopyClick()
+    {
+        await JS.InvokeVoidAsync("textCopy");
+        await JS.InvokeVoidAsync("copyTip");
+    }
+}
