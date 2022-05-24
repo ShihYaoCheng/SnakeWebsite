@@ -34,7 +34,7 @@ window.FilterArrowSlideClick = function () {
     $('.Filter-Web').click(function(){
         if($(window).width() > 1000){
             
-                console.log('Filter > 1000')
+                // console.log('Filter > 1000')
                 $('.Filter-Title-Block').addClass('Filter-Web');
                 $('.marketPlaceSidebar-scroll').addClass('marketPlaceSidebar-scroll-Web');
             
@@ -43,7 +43,7 @@ window.FilterArrowSlideClick = function () {
                 $('.Filter-web-arrow').toggleClass('Filter-web-arrow-toggle'); 
 
         }else{
-            console.log('Filter < 1000')
+            // console.log('Filter < 1000')
 
             $('.Filter-Title-Block').removeClass('Filter-Web');
             $('.marketPlaceSidebar-scroll').removeClass('marketPlaceSidebar-scroll-Web');
@@ -56,12 +56,12 @@ window.FilterArrowSlideClick = function () {
     $(window).resize(function () { 
         if($(window).width() > 1000){
             
-            console.log('Filter > 1000')
+            // console.log('Filter > 1000')
             $('.Filter-Title-Block').addClass('Filter-Web');
             $('.marketPlaceSidebar-scroll').addClass('marketPlaceSidebar-scroll-Web');
 
         }else{
-            console.log('Filter < 1000')
+            // console.log('Filter < 1000')
 
             $('.Filter-Title-Block').removeClass('Filter-Web');
             $('.marketPlaceSidebar-scroll').removeClass('marketPlaceSidebar-scroll-Web');
