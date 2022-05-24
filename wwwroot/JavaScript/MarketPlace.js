@@ -30,6 +30,75 @@ window.FilterArrowSlideClick = function () {
         $('.Filter-mobile-arrow').toggleClass('Filter-mobile-arrow-toggle'); 
     })
 
+
+    $('.Filter-Web').click(function(){
+        if($(window).width() > 1000){
+            
+                console.log('Filter > 1000')
+                $('.Filter-Title-Block').addClass('Filter-Web');
+                $('.marketPlaceSidebar-scroll').addClass('marketPlaceSidebar-scroll-Web');
+            
+                $('.marketPlaceSidebar-Web').toggleClass('height-unset'); 
+                $('.marketPlaceSidebar-scroll-Web').slideToggle('fast'); 
+                $('.Filter-web-arrow').toggleClass('Filter-web-arrow-toggle'); 
+
+        }else{
+            console.log('Filter < 1000')
+
+            $('.Filter-Title-Block').removeClass('Filter-Web');
+            $('.marketPlaceSidebar-scroll').removeClass('marketPlaceSidebar-scroll-Web');
+            $('.marketPlaceSidebar-Web').removeClass('height-unset'); 
+
+        }
+    })
+
+
+    $(window).resize(function () { 
+        if($(window).width() > 1000){
+            
+            console.log('Filter > 1000')
+            $('.Filter-Title-Block').addClass('Filter-Web');
+            $('.marketPlaceSidebar-scroll').addClass('marketPlaceSidebar-scroll-Web');
+
+        }else{
+            console.log('Filter < 1000')
+
+            $('.Filter-Title-Block').removeClass('Filter-Web');
+            $('.marketPlaceSidebar-scroll').removeClass('marketPlaceSidebar-scroll-Web');
+            $('.marketPlaceSidebar-Web').removeClass('height-unset'); 
+            $('.marketPlaceSidebar-scroll').show();
+        }
+    });
+
+    
+        // $('.Filter-Web').click(function(){
+
+        //     if($(window).width() > 1000){
+        //     console.log('Filter > 1000')
+        //     $('.Filter-Title-Block').addClass('Filter-Web');
+        //     $('.marketPlaceSidebar-scroll').addClass('marketPlaceSidebar-scroll-Web');
+            
+        //     $('.marketPlaceSidebar-Web').toggleClass('height-unset'); 
+        //     $('.marketPlaceSidebar-scroll-Web').slideToggle('fast'); 
+        //     $('.Filter-web-arrow').toggleClass('Filter-web-arrow-toggle'); 
+        //     }else{
+        //         console.log('Filter < 1000')
+
+        //         $('.Filter-Title-Block').removeClass('Filter-Web');
+        //         $('.marketPlaceSidebar-scroll').removeClass('marketPlaceSidebar-scroll-Web');
+        //         $('.marketPlaceSidebar-Web').removeClass('height-unset'); 
+                
+        //     }
+
+        // })
+    
+
+    
+
+ 
+
+
+
 }
 window.updateTextInput = function (val) {
     console.log('rangeInput')

@@ -334,6 +334,8 @@ input[type="radio"] {
     /* display: none; */
 }
 
+
+
 @media all and (min-width: 1000px){
     .marketPlaceSidebar-Web{
         display: block !important;
@@ -381,6 +383,8 @@ input[type="radio"] {
     overflow-y: auto;
     height: 100%;
     padding-bottom: 50px;
+    
+    display: block;
 }
 /* 改scrollbar樣式 */
 .marketPlaceSidebar-scroll::-webkit-scrollbar {
@@ -408,9 +412,7 @@ input[type="radio"] {
     font-weight: bold;
     padding: 10px 18px;
 }
-.Filter-Title-Block{
-    display: flex;
-}
+
 @media all and (min-width: 1000px){
     #Filter-Icon-Web{
         width: 25px;
@@ -479,16 +481,74 @@ input[type="radio"] {
     transition: all .1s ease-in-out;
     transform: rotate(0deg) !important;
 }
-.Filter-mobile-arrow{
+.Filter-mobile-arrow {
     margin: 5px;
     transition: all .1s ease-in-out;
     transform: rotate(00deg);
+    width: 16px;
+    height: 13px;
+    
 }
-.Filter-mobile-arrow-toggle{
+
+.Filter-mobile-arrow-toggle {
     transition: all .1s ease-in-out;
     transform: rotate(180deg) !important;
 }
+.Filter-web-arrow{
+    /* display: none; */
+}
 
+
+
+
+
+.height-unset{
+    height: unset !important;
+    background-color: unset !important;
+    box-shadow: unset !important;
+}
+@media all and (min-width: 1000px){
+    .Filter-Web{
+        /* border: 1px solid red; */
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: all .1s ease-in-out;
+    }
+    .Filter-web-arrow{
+        margin: 5px;
+        transition: all .1s ease-in-out;
+        transform: rotate(180deg);
+        width: 16px;
+        height: 13px;
+        cursor: pointer;
+        display: block;
+    }
+    .Filter-web-arrow-toggle{
+        transition: all .1s ease-in-out;
+        transform: rotate(00deg) !important;
+    }
+}
+@media all and (max-width: 1000px){
+
+    .Filter-web-arrow{
+        display: none;
+    }  
+
+}
+
+.marketPlaceSidebar-scroll-Web{
+    display: block;
+}
+
+
+
+.Filter-Title-Block{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 
 .Filter-Button{
