@@ -1452,7 +1452,7 @@ position: relative;
     background-color: #253B4B;
     width: 100%;
     height: 100vh;
-    position: fixed;
+    /* position: fixed; */
     z-index: -1;
     display: flex;
     justify-content: center;
