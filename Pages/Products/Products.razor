@@ -12,7 +12,7 @@
 <div class="products-background"></div>
 
 <div class="products-wrapper" hidden="@(false)">
-    <div class="products-summary">
+    <div class="products-summary" id="products-summary">
         <ProductsImage />
     </div>
     <div class="products-main">
@@ -53,6 +53,7 @@
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterArrowSlideClick");
             await JS.InvokeVoidAsync("Popup");
+            await JS.InvokeVoidAsync("ProductsImageMove");
         }
 
     }
