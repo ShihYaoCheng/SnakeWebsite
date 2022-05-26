@@ -727,6 +727,7 @@ input[type="radio"] {
     margin: 15px;
     transition: all .1s ease-in-out;
     position: relative;
+    text-decoration: none;
 }
 .NFTcard a{
     border: 1px solid red;
@@ -1184,12 +1185,12 @@ input[type="radio"] {
 button.price-search-button{
     color: var(--white);
     font-size: 14px;
-    border: 2px solid var(--green-2);
+    border: 2px solid var(--white);
     /* border: none; */
-    background: var(--green-2);
-    background: none;
+    background: var(--white);
+    /* background: none; */
     border-radius: 10px;
-    padding: 4px 5px 4px 6px;
+    padding: 2px 5.5px 3px 5.5px;
     margin: 0px 0 0px 20px;
     transition: all .05s ease-in;
     font-weight: 600;
@@ -1198,13 +1199,17 @@ button.price-search-button{
 
 button.price-search-button:hover {
     /* transform: scale(1.03); */
-    border: 2px solid var(--white);
-    background-color: var(--white);
+    border: 2px solid var(--green-2);
+    background-color: var(--green-2);
     color: var(--green-1);
 }
 .search-icon{
-    width: 22px;
-    fill: var(--green-2);
+    width: 19px;
+    fill: var(--bg-1);
+    transition: all .05s ease-in;
+}
+button.price-search-button:hover .search-icon{
+    fill: var(--green-1);
 }
 
 .range-Text span{
