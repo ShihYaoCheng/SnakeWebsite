@@ -1,5 +1,10 @@
-@page "/products"
+@page "/products/{SerialNumber}/{TokenID}"
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services.Products
+@*@using static SnakeAsianLeague.Data.Services.Products.ProductsService*@
 
+
+@inject ProductsService ProductsService;
 @inject IJSRuntime JS
 
 
@@ -13,14 +18,14 @@
 
 <div class="products-wrapper" hidden="@(false)">
     <div class="products-summary">
-        <ProductsImage />
+        <ProductsImage Ridder =@Ridder   TokenID =@TokenID />
     </div>
     <div class="products-main">
-        <ProductsTopBid />
+        <ProductsTopBid TokenID =@TokenID />
         <ProductsIncome />
-        <ProductsAttributes />
-        <ProductsStats />
-        <ProductsAvatars />
+        <ProductsAttributes Ridder =@Ridder />
+        <ProductsStats Ridder =@Ridder/>
+        <ProductsAvatars Ridder =@Ridder/>
         <ProductsSkills />
     </div>
     <ProductsPopup />
@@ -42,6 +47,31 @@
 
 
 @code {
+
+    [Parameter]
+    public string SerialNumber { get; set; }
+
+    [Parameter]
+    public string TokenID { get; set; }
+    
+
+    [Parameter]
+    public RiderIntroduce Ridder { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+       
+
+        await Refresh();
+    }
+
+    private async Task Refresh()
+    {
+       Ridder =await ProductsService.GetNFT_Unit_SerialNumber(SerialNumber);
+        StateHasChanged();
+    }
 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

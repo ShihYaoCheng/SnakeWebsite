@@ -1,44 +1,65 @@
-<section class="products-section" id="products-Avatars">
-    <div class="products-block">
-        <div class="products-block-title">Avatars</div>
-        <div class="products-block-02" id="products-block-02-Avatars">
-            <div class="products-box-block">
-                @* 實際名稱由後端串接生成 *@
-                <div class="Avatars-block">
-                    <img class="Avatars-icon" src="/images/Products/Avatars-Icon-knight.png" alt="">
-                    <div class="Avatars-info">
-                        <div class="Avatars-type">Ridder</div>
-                        <div class="Avatars-value">Ridder’s Name</div>
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services.Products
+@inject ProductsService ProductsService;
+
+@if (Ridder.Avatars != null)
+{
+    <section class="products-section" id="products-Avatars">
+        <div class="products-block">
+            <div class="products-block-title">Avatars</div>
+            <div class="products-block-02" id="products-block-02-Avatars">
+                <div class="products-box-block">
+                    @* 實際名稱由後端串接生成 *@
+                    <div class="Avatars-block">
+                        <img class="Avatars-icon" src="/images/Products/Avatars-Icon-knight.png" alt="">
+                        <div class="Avatars-info">
+                            <div class="Avatars-type">Ridder</div>
+                            <div class="Avatars-value">@Ridder.Avatars.Ridder</div>
+                        </div>
+                    </div>
+
+                    <div class="Avatars-block">
+                        <img class="Avatars-icon" src="/images/Products/Avatars-Icon-pet.png" alt="">
+                        <div class="Avatars-info">
+                            <div class="Avatars-type">Pet</div>
+                            <div class="Avatars-value">@Ridder.Avatars.Pet</div>
+                        </div>
+                    </div>
+
+                    <div class="Avatars-block">
+                        <img class="Avatars-icon" src="/images/Products/Avatars-Icon-weapon.png" alt="">
+                        <div class="Avatars-info">
+                            <div class="Avatars-type">Weapon</div>
+                            <div class="Avatars-value">@Ridder.Avatars.Weapon</div>
+                        </div>
+                    </div>
+
+                    <div class="Avatars-block">
+                        <img class="Avatars-icon" src="/images/Products/Avatars-Icon-snake.png" alt="">
+                        <div class="Avatars-info">
+                            <div class="Avatars-type">Snake</div>
+                            <div class="Avatars-value">@Ridder.Avatars.Snake</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="Avatars-block">
-                    <img class="Avatars-icon" src="/images/Products/Avatars-Icon-pet.png" alt="">
-                    <div class="Avatars-info">
-                        <div class="Avatars-type">Pet</div>
-                        <div class="Avatars-value">Pet’s Name</div>
-                    </div>
-                </div>
-
-                <div class="Avatars-block">
-                    <img class="Avatars-icon" src="/images/Products/Avatars-Icon-weapon.png" alt="">
-                    <div class="Avatars-info">
-                        <div class="Avatars-type">Weapon</div>
-                        <div class="Avatars-value">Weapon’s Name</div>
-                    </div>
-                </div>
-
-                <div class="Avatars-block">
-                    <img class="Avatars-icon" src="/images/Products/Avatars-Icon-snake.png" alt="">
-                    <div class="Avatars-info">
-                        <div class="Avatars-type">Snake</div>
-                        <div class="Avatars-value">Snake’s Name</div>
-                    </div>
-                </div>
             </div>
-
         </div>
-    </div>
 
+    </section>
+}
+@code{
+     [Parameter]
+    public RiderIntroduce Ridder { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        
+        await Refresh();
+    }
 
-</section>
+    private async Task Refresh()
+    {       
+        Ridder =await ProductsService.Get_RiderIntroduce();
+        StateHasChanged();
+    }
+}

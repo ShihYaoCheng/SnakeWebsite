@@ -5,6 +5,10 @@
 
         public string Number { get; set; }
         public string Name { get; set; }
+        /// <summary>
+        /// 角色詳細By編號
+        /// </summary>
+        public string serialNumber { get; set; }
 
         public string Price { get; set; }
 
