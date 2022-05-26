@@ -1,4 +1,6 @@
 ﻿@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.Backstage
+@inject ProfileService ProfileService
 @inject AppState AppState
 @inject IJSRuntime JS
 
@@ -107,7 +109,7 @@
                                 <img class="assetIcon" src="/images/Myprofile/Knight.png" alt="">
                                 <span>Rider</span>
                             </div>
-                            <div class="assetValue">0</div>
+                            <div class="assetValue">@NFT_Rider_Count</div>
                         </a>
                     </div>
                     <div class="informationAssetBlock" id="informationAssetBlock-Lock">
@@ -154,6 +156,17 @@
 
     [Parameter]
     public EventCallback EnableEthereumAsync { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    int NFT_Rider_Count = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+    }
+
 
     public void EnableEthereum()
     {

@@ -17,6 +17,7 @@ using SnakeAsianLeague.Data.Services.Interface;
 using SnakeAsianLeague.Data.Services.MarketPlace;
 using SnakeAsianLeague.Data.Services.Metamask;
 using SnakeAsianLeague.Data.Services.Personal;
+using SnakeAsianLeague.Data.Services.Products;
 using SnakeAsianLeague.Data.Services.SnakeServerService;
 using System.Text;
 
@@ -50,6 +51,7 @@ builder.Services.AddSingleton<AwardService>();
 builder.Services.AddSingleton<NFTService>();
 builder.Services.AddSingleton<OptionService>();
 builder.Services.AddSingleton<InventoryService>();
+builder.Services.AddSingleton<ProductsService>();
 
 
 builder.Services.Configure<ExternalServers>(builder.Configuration.GetSection("ExternalServers"));

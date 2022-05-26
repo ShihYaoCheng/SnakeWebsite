@@ -1,4 +1,4 @@
-window.RoadmapSlideClick = function () {
+export function RoadmapSlideClick() {
     $('.Roadmap-Mobile-Title').click(function () {
         console.log('Roadmap-Mobile-Title-Click')
         $(this).parent().children('.Roadmap-Mobile-Slide').slideToggle('fast');
@@ -7,7 +7,7 @@ window.RoadmapSlideClick = function () {
     })
 }
 
-window.RiderHover = function (){
+export function RiderHover(){
     
     // $(".PPSR-Rider-Block").hover(function(){
     //     setTimeout(() => {
@@ -107,7 +107,7 @@ window.RiderHover = function (){
     });
 }
 
-window.CirclePopup = function (){
+export function CirclePopup(){
     // var CircleItem = $(this).data("id");
 
     $(".Ecosystem-Circle #Circle-Item-01").click(function () { 
@@ -167,62 +167,7 @@ window.CirclePopup = function (){
     });
 }
 
-
-
-window.GameFiCharts = function () {
-    var chartDom = document.querySelector('.Pie-Chart')
-    window.myChart = echarts.init(chartDom);
-    var option;
-
-    option = {
-        series: [
-            {
-                name: 'Access From',
-                type: 'pie',
-                // selectedMode: 'single',
-                // radius: '90%',
-                radius: ['100%', '20%'],
-                label : {
-                    // show : false,
-                    position: 'inner',
-                    fontSize: 40,
-                    color: "#1F3240",
-                   },
-                labelLine : {
-                    show : false,
-                    length: 10,
-                    normal: {
-                        lineStyle: {
-                            color: '#69ADA2',
-                            width: 8,
-                        },
-                    },
-                },
-                color: ['#F2CE8F','#EF9B8F'],
-                itemStyle: {
-                    borderColor: '#1F3240',
-                    borderWidth: 5
-                  },
-                data: [
-                    { value: 45, name: '45%' },
-                    { value: 55, name: '55%' },
-                ],
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    };
-
-    option && myChart.setOption(option);
-
-}
-
-window.chartInit = function () {
+export function chartInit() {
     let position = ''
 
 
@@ -242,7 +187,7 @@ window.chartInit = function () {
 
     function init() {
         if (window.scrollY > position) {
-            window.GameFiCharts();
+            GameFiCharts();
             setTimeout(() => {
                 $(".Pie-Chart-Line").show();
 
@@ -254,4 +199,57 @@ window.chartInit = function () {
             $(window).unbind('scroll')
         }
     }
+}
+
+export function GameFiCharts() {
+    var chartDom = document.querySelector('.Pie-Chart')
+    window.myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        series: [
+            {
+                name: 'Access From',
+                type: 'pie',
+                // selectedMode: 'single',
+                // radius: '90%',
+                radius: ['100%', '20%'],
+                label: {
+                    // show : false,
+                    position: 'inner',
+                    fontSize: 40,
+                    color: "#1F3240",
+                },
+                labelLine: {
+                    show: false,
+                    length: 10,
+                    normal: {
+                        lineStyle: {
+                            color: '#69ADA2',
+                            width: 8,
+                        },
+                    },
+                },
+                color: ['#F2CE8F', '#EF9B8F'],
+                itemStyle: {
+                    borderColor: '#1F3240',
+                    borderWidth: 5
+                },
+                data: [
+                    { value: 45, name: '45%' },
+                    { value: 55, name: '55%' },
+                ],
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+
 }

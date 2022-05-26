@@ -130,24 +130,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
             for (int i = 0; i < NFT_Riders.Count; i++)
             {
-                int value = myObject.Next(1, 1000);
-                //int RareInt = value % RareList.Count();
-                //int ClassInt = value % ClassList.Count();
-                //int ProfessionInt = value % RareList.Count();
-                //int CountryInt = value % RareList.Count();
-
-                //if (i % 50 == 0)
-                //{
-                //    rd = await GetOpenseaNFTRider( i+1 , 50);
-                //}
                 
-                //assets assets = new assets();
-
-                //if (rd.assets != null)
-                //{
-                //    //遊戲api有資料但是還 沒上opensea/沒上鏈
-                //    assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets(); 
-                //}
 
                 NFTData data = new NFTData();
                 data.Number = NFT_Riders[i].castings[0].tokenId;
@@ -157,62 +140,63 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
-                //OpenseaOffersData openseaOffersData = await Get_NFTRider_Offers(data.Number);
-
-
-
-                //if (openseaOffersData.Offers != null)
-                //{
-
-                //    data.IsOpen = true;
-                //}
-                //else
-                //{
-                //    data.IsOpen = false;
-                //}
-
-
-                //if (assets.last_sale != null)
-                //{
-                //    string total_price = assets.last_sale.total_price;
-                //    Decimal decimals = Convert.ToDecimal(Math.Pow(10, assets.last_sale.payment_token.decimals));
-                //    Decimal Price = Decimal.Parse(total_price.ToString()) / Decimal.Parse(decimals.ToString());
-                //    Decimal usd_price = 0;
-                //    Decimal.TryParse(assets.last_sale.payment_token.usd_price ?? "0", out usd_price);
-                //    data.Price = Price.ToString();    //myObject.Next(value, value * 10);
-                //    data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture);
-                //    data.IsOpen = true;
-                //}
-                //else
-                //{
-                //    data.IsOpen = false;
-                //}
-
-
-               decimal HighestOfferPrice = await GetSpiderHighestOffer(data.Number);
-
-                if (HighestOfferPrice != 0)
+                if (i % 50 == 0)
                 {
-                    data.Price = HighestOfferPrice.ToString();
+                    rd = await GetOpenseaNFTRider(i + 1, 50);
+                }
+
+                assets assets = new assets();
+
+                if (rd.assets != null)
+                {
+                    //遊戲api有資料但是還 沒上opensea/沒上鏈
+                    assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets();
+                }
+
+                if (assets.last_sale != null)
+                {
+                    string total_price = assets.last_sale.total_price;
+                    Decimal decimals = Convert.ToDecimal(Math.Pow(10, assets.last_sale.payment_token.decimals));
+                    Decimal Price = Decimal.Parse(total_price.ToString()) / Decimal.Parse(decimals.ToString());
+                    Decimal usd_price = 0;
+                    Decimal.TryParse(assets.last_sale.payment_token.usd_price ?? "0", out usd_price);
+                    data.Price = Price.ToString();    //myObject.Next(value, value * 10);
+                    data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture);
                     data.IsOpen = true;
+
                     data.IsOfficial = true;
+
                 }
                 else
                 {
-                    decimal SalePrice = await GetSpiderSale(data.Number);
-
-                    if (SalePrice != 0)
-                    {
-                        data.Price = SalePrice.ToString();
-                        data.IsOpen = true;
-                        data.IsOfficial = false;
-                    }
-                    else
-                    {
-                        data.IsOpen = false;
-                        data.IsOfficial = false;
-                    }
+                    data.IsOpen = false;
                 }
+
+
+                //decimal HighestOfferPrice = await GetSpiderHighestOffer(data.Number);
+
+                //if (HighestOfferPrice != 0)
+                //{
+                //    data.Price = HighestOfferPrice.ToString();
+                //    data.IsOpen = true;
+                //    data.IsOfficial = true;
+                //}
+                //else
+                //{
+                //    decimal SalePrice = await GetSpiderSale(data.Number);
+
+                //    if (SalePrice != 0)
+                //    {
+                //        data.Price = SalePrice.ToString();
+                //        data.IsOpen = true;
+                //        data.IsOfficial = false;
+                //    }
+                //    else
+                //    {
+                //        data.IsOpen = false;
+                //        data.IsOfficial = false;
+                //    }
+                //}
                 
 
 
@@ -230,12 +214,23 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 data.Elements = Elements;
                 data.Class = NFT_Riders[i].occupationId;
                 //data.Country = CountryList[CountryInt].ToString();
+
+                int value = myObject.Next(1, 1000);
                 data.EndTime = DateTime.Now.AddDays(value);
                 data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
                                + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
                 datas.Add(data);
             }
 
+
+            /*加入一隻 Coming Soon*/
+            NFTData data1 = new NFTData();
+            data1.Number ="0";
+            data1.Name = "Coming Soon";
+            data1.IsOpen = false;
+            data1.IsOfficial = true;
+            data1.ImgPath = data1.ImgPath==null ? "/images/MarketPlace/NFTproduct.png" : data1.ImgPath;
+            datas.Add(data1);
 
             datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
             return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
@@ -379,7 +374,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
             }
             return  new List<NFTRiderUnits>();
-
         }
 
 
@@ -453,8 +447,8 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             RestClient client = new RestClient(URL);
             RestRequest request = new RestRequest(Method.GET);
             /*opensea 正式環境 需要加入這2段*/
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("X-API-KEY", X_API_KEY);
+            //request.AddHeader("Accept", "application/json");
+            //request.AddHeader("X-API-KEY", X_API_KEY);
             IRestResponse response = client.Execute(request);
 
             

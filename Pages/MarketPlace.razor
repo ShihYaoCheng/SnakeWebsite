@@ -353,13 +353,18 @@
                 @foreach( NFTData item in NFTDataList)
                 {
 
-                    if (item.IsOfficial)
+                    if (@item.IsOfficial)
                     {
-                        <div class="NFTcard card-bg-red">
-                            <a href="@item.LinkURL" target="opensea"> 
-                                <div class="NFT-cardImg">
-                                    <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
-                                </div>
+                        if (@item.IsOpen)
+                        {
+                            /*官方 販售中NFT*/
+                            <div class="NFTcard card-bg-red">
+                                @*<a href="@item.LinkURL" target="opensea"> </a>*@
+                                <a href="Products/@item.serialNumber/@item.Number" >
+                                    <div class="NFT-cardImg">
+                                        <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                    </div>
+                                </a>
                                 <div class="NFT-cardText">
                                     @*<button class="heart btn p-0">*@
                                     <div class="heart btn p-0">
@@ -384,18 +389,57 @@
                                     </div>
                                     @*<div class="NFT-EndTime">Ends in @item.CalDays</div>*@
                                 </div>
-                            </a>
-                        </div>
+                                
+                            </div>
+                        }
+                        else
+                        {
+                            /*官方 預定販售NFT*/
+                            <div class="NFTcard card-bg-grey">
+                        @*        <a href="item.LinkURL" target="opensea"> </a>*@
+                                    <a href="Products/@item.serialNumber/@item.Number" >
+                                        <div class="NFT-cardImg">
+                                            <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                        </div>
+                                    </a>
+                                    <div class="NFT-cardText">
+                                        @* <button class="heart btn p-0"> *@
+                                        <div class="heart btn p-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                                <path class="heart__path"
+                                                d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                                transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                        @* </button> *@
+                                        <div class="NFT-Number">#PPSR @item.Number</div>
+                                        <div class="NFT-Name">@item.Name</div>
+                                        <div class="NFT-PriceBlock">
+                                            <div class="NFT-PriceMain">
+                                           
+                                                <span class="NFT-Price">ComingSoon</span>
+                                            </div>
+                                          @*  <div class="NFT-USD">231269.89 USD</div>*@
+                                        </div>
+                                        @*<div class="NFT-EndTime">Ends in 30d 12h</div>*@
+                                    </div>
+                               
+                            </div>
+                        }
                     }
                     else
                     {
-                        if (item.IsOpen)
+                        /*玩家販售*/
+                        if (@item.IsOpen)
                         {
                             <div class="NFTcard card-bg-green">
-                            <a href="@item.LinkURL" target="opensea"> 
-                                <div class="NFT-cardImg">
-                                    <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
-                                </div>
+                            @*<a href="@item.LinkURL" target="opensea">  </a>*@
+                                <a href="Products/@item.serialNumber/@item.Number" >
+                                    <div class="NFT-cardImg">
+                                        <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                    </div>
+                                 </a>
                                 <div class="NFT-cardText">
                                     @*<button class="heart btn p-0">*@
                                     <div class="heart btn p-0">
@@ -420,16 +464,18 @@
                                     </div>
                                     @*<div class="NFT-EndTime">Ends in @item.CalDays</div>*@
                                 </div>
-                            </a>
+                           
                         </div>
                         }
                         else
                         {
                             <div class="NFTcard card-bg-green">
-                                <a href="@item.LinkURL" target="opensea">
-                                    <div class="NFT-cardImg">
-                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
-                                    </div>
+                                @*<a href="@item.LinkURL" target="opensea"></a>*@
+                                    <a href="Products/@item.serialNumber/@item.Number" >
+                                        <div class="NFT-cardImg">
+                                            <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                        </div>
+                                    </a>
                                     <div class="NFT-cardText">
                                         @*<button class="heart btn p-0">*@
                                         <div class="heart btn p-0">
@@ -454,7 +500,7 @@
                                         </div>
                                         @*<div class="NFT-EndTime">Ends in 30d 12h</div>*@
                                     </div>
-                                </a>
+                                
                             </div>
                         }
 
@@ -463,13 +509,12 @@
                 }
             }
 
-            <div class="NFTcard card-bg-grey">
+          @*  <div class="NFTcard card-bg-grey">
                 <a href="item.LinkURL" target="opensea">
                     <div class="NFT-cardImg">
                         <img src="item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
                     </div>
                     <div class="NFT-cardText">
-                        @* <button class="heart btn p-0"> *@
                         <div class="heart btn p-0">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                                 <path class="heart__path"
@@ -478,14 +523,11 @@
                                 stroke-width="2" />
                             </svg>
                         </div>
-                        @* </button> *@
                         <div class="NFT-Number">#PPSR item.Number</div>
                         <div class="NFT-Name">item.Name</div>
                         <div class="NFT-PriceBlock">
                             <div class="NFT-PriceMain">
-                                @* <div class="NFT-PriceIcon-Border">
-                                    <img class="NFT-PriceIcon"  src="/images/MarketPlace/Polygon-eth-01.png" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
-                                </div> *@
+
                                 <span class="NFT-Price">ComingSoon</span>
                             </div>
                             <div class="NFT-USD">231269.89 USD</div>
@@ -493,7 +535,7 @@
                         <div class="NFT-EndTime">Ends in 30d 12h</div>
                     </div>
                 </a>
-            </div>
+            </div>*@
 
         </section>
         <div class="Pagination-Block">

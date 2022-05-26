@@ -1,5 +1,5 @@
 ﻿
-window.FooterContactHide = function () {
+export function FooterContactHide() {
     var footerContact = document.getElementById("footerContact")
     var contactClose = document.getElementById("contactClose")
     var appreciateGoback = document.getElementById("appreciateGoback")
@@ -41,7 +41,7 @@ window.FooterContactHide = function () {
     }
 }
 
-window.FooterContactShow = function () {
+export function FooterContactShow() {
     var footerContact = document.getElementById("footerContact")
     var contactPop = document.getElementById("contactPop")
    
@@ -52,7 +52,7 @@ window.FooterContactShow = function () {
 
 }
 
-window.FooterAnimation = function () {
+export function FooterAnimation() {
     var contactContainer = document.getElementById("contactContainer")
     var contact06 = document.getElementById("contact06")
     var openEnvelop = document.getElementById("openEnvelop")
@@ -99,25 +99,3 @@ window.FooterAnimation = function () {
 
 }
 
-
-window.BannerMove = function () {
-
-    window.addEventListener('scroll', () => {
-        /*可見高度 */
-        var visibleHeight = window.innerHeight
-        var nowHeight = document.documentElement.scrollTop
-        var allHeight = document.body.scrollHeight
-        var footerHeight = document.getElementById("webFooter").clientHeight
-        var SnakeBanner = document.getElementById("SnakeBanner")
-        if (SnakeBanner != null) {
-            if (nowHeight + visibleHeight > allHeight - footerHeight) {
-
-                SnakeBanner.style.bottom = ((nowHeight + visibleHeight - (allHeight - footerHeight)) / visibleHeight * 100).toString() + "%"
-            } else {
-                SnakeBanner.style.bottom = "0%"
-            }
-        }
-
-    })
-
-}

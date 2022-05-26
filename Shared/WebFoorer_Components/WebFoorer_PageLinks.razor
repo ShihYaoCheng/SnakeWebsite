@@ -55,8 +55,24 @@
         
     </div>
 @code {
+   private IJSObjectReference? footerContactJS;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
+               
+        }
+    }
+
+
     private async Task FooterContactShow()
     {
-        await JS.InvokeVoidAsync("FooterContactShow");
+        if (footerContactJS!=null)
+        {
+            await footerContactJS.InvokeVoidAsync("FooterContactShow");
+        }
+       
     }
 }

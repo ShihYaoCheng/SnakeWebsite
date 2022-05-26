@@ -59,8 +59,21 @@
         </a>
     </div>
 @code {
-      private async Task eventBannerCloseClick()
+    private IJSObjectReference? Banner;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JS.InvokeVoidAsync("eventBannerClose");
+        if (firstRender)
+        {
+            Banner = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SnakeIndex/Banner.js");
+        }
+    }
+
+
+    private async Task eventBannerCloseClick()
+    {
+        if (Banner != null)
+        {
+            await Banner.InvokeVoidAsync("eventBannerClose");
+        }
     }
 }

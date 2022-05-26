@@ -1,10 +1,14 @@
 @page "/Inventory"
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Paging
+@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Personal
 
 @inject InventoryService InventoryService
 @inject IJSRuntime JS
+@inject AppState AppState
+
+@implements IDisposable
 
 
 <head>
@@ -126,7 +130,7 @@
 
                                     </section>
 
-                                    <section class="Sidebar-Filter-Block" id="">
+                                    <section hidden="@(false)" class="Sidebar-Filter-Block" id="">
                                         <div class="Filter-Title">
                                             <span>Price (ETH)</span>
                                             <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
@@ -146,7 +150,7 @@
 
                                     </section>
                                     
-                                    <section class="Sidebar-Filter-Block" id="">
+                                    <section hidden="@(false)" class="Sidebar-Filter-Block" id="">
                                         <div class="Filter-Title">
                                             <span>Body Type</span>
                                             <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
@@ -284,21 +288,24 @@
                         @if(NFTDataList != null){
                             @foreach( NFTData item in NFTDataList)
                             {
-
-                                if (item.IsOpen)
+                                if (@item.IsOfficial)
                                 {
-                                    <div class="NFTcard card-bg-red">
-                                        @* <a href=""> *@
-                                            <div class="NFT-cardImg">
-                                                <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
-                                            </div>
+                                    if (@item.IsOpen)
+                                    {
+                                        <div class="NFTcard card-bg-red">
+                                             @*<a href="@item.LinkURL" target="opensea"></a>*@
+                                            <a href="Products/@item.serialNumber/@item.Number" >
+                                                <div class="NFT-cardImg">
+                                                    <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                                </div>
+                                            </a>
                                             <div class="NFT-cardText">
                                                 <button class="heart btn p-0">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                                                         <path class="heart__path"
-                                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" />
+                                                            d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                                            transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" />
                                                     </svg>
                                                 </button>
                                                 <div class="NFT-Number">#@item.Number</div>
@@ -314,17 +321,57 @@
                                                 </div>
                                                 <div class="NFT-EndTime">Ends in @item.CalDays</div>
                                             </div>
-                                        @* </a> *@
-                                    </div>
+                                            @* </a> *@
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        /*官方 預定販售NFT*/
+                                        <div class="NFTcard card-bg-grey">
+                                             @*<a href="@item.LinkURL" target="opensea"></a>*@
+                                                <a href="Products/@item.serialNumber/@item.Number" >
+                                                    <div class="NFT-cardImg">
+                                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                                    </div>
+                                                </a>
+                                                <div class="NFT-cardText">
+                                                    @* <button class="heart btn p-0"> *@
+                                                    <div class="heart btn p-0">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                                            <path class="heart__path"
+                                                            d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                                            transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" />
+                                                        </svg>
+                                                    </div>
+                                                    @* </button> *@
+                                                    <div class="NFT-Number">#PPSR @item.Number</div>
+                                                    <div class="NFT-Name">@item.Name</div>
+                                                    <div class="NFT-PriceBlock">
+                                                        <div class="NFT-PriceMain">
+                                           
+                                                            <span class="NFT-Price">ComingSoon</span>
+                                                        </div>
+                                                      @*  <div class="NFT-USD">231269.89 USD</div>*@
+                                                    </div>
+                                                    @*<div class="NFT-EndTime">Ends in 30d 12h</div>*@
+                                                </div>
+                                            
+                                        </div>
+
+                                    }
                                 }
                                 else
                                 {
+                                      if(@item.IsOpen){
                     
                                     <div class="NFTcard card-bg-green">
-                                        @* <a href=""> *@
-                                            <div class="NFT-cardImg">
-                                                <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
-                                            </div>
+                                         @*<a href="@item.LinkURL" target="opensea"></a>*@
+                                            <a href="Products/@item.serialNumber/@item.Number" >
+                                                <div class="NFT-cardImg">
+                                                    <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                                </div>
+                                            </a>
                                             <div class="NFT-cardText">
                                                 <button class="heart btn p-0">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
@@ -351,11 +398,14 @@
                                     </div>
                         
                                 }
+                                }
+                                
+                              
 
                             }
                         }
 
-            <div class="NFTcard card-bg-grey">
+            @*<div class="NFTcard card-bg-grey">
                 <a href="item.LinkURL" target="opensea">
                     <div class="NFT-cardImg">
                         <img src="item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
@@ -375,9 +425,6 @@
                         <div class="NFT-Name">item.Name</div>
                         <div class="NFT-PriceBlock">
                             <div class="NFT-PriceMain">
-                                @* <div class="NFT-PriceIcon-Border">
-                                    <img class="NFT-PriceIcon"  src="/images/MarketPlace/Polygon-eth-01.png" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
-                                </div> *@
                                 <span class="NFT-Price">ComingSoon</span>
                             </div>
                             <div class="NFT-USD">231269.89 USD</div>
@@ -385,7 +432,7 @@
                         <div class="NFT-EndTime">Ends in 30d 12h</div>
                     </div>
                 </a>
-            </div>
+            </div>*@
 
                        
                     </div>
@@ -448,6 +495,9 @@
 
     protected override async Task OnInitializedAsync()
     {
+
+        AppState.StateChanged += async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
         await Refresh();
     }
 
@@ -457,7 +507,7 @@
         ElementsList = await InventoryService.Get_Default_Elements();
         ClassList = await InventoryService.Get_Default_Class();
         CountryList = await InventoryService.Get_Default_Country();
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList( 1,10);
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(AppState.LoginStatus.userID.ToString(), 1,10);
         NFTDataList = pagelist;
 
         MetaData =  pagelist.MetaData;
@@ -494,11 +544,15 @@
     }
 
 
-    
+    void IDisposable.Dispose()
+    {
+        AppState.StateChanged -= async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+    }
 
 
 
-    
+
 
 
     private async Task SelectedPage(int page)
@@ -508,9 +562,10 @@
 
     private async Task GetRiderNFTDataPageList(int page)
     {
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList( page,10);
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(AppState.LoginStatus.userID.ToString() , page,10);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
+        PPSRsCount = MetaData.TotalCount;
     }
 
 
@@ -544,6 +599,7 @@
                 CheckBoxRarity.Remove(CheckID);
             }
         }
+        GetFilter();
     }
 
     /// <summary>
@@ -567,6 +623,7 @@
                 CheckBoxElements.Remove(CheckID);
             }
         }
+        GetFilter();
     }
 
     /// <summary>
@@ -590,6 +647,7 @@
                 CheckBoxClass.Remove(CheckID);
             }
         }
+        GetFilter();
     }
 
     /// <summary>
@@ -613,5 +671,15 @@
                 CheckBoxCountry.Remove(CheckID);
             }
         }
+        GetFilter();
+    }
+
+    private async Task GetFilter()
+    { 
+    
+        PagedList<NFTData> pagelist = await InventoryService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
+        NFTDataList = pagelist;
+        MetaData = pagelist.MetaData;
+        PPSRsCount = MetaData.TotalCount;
     }
 }
