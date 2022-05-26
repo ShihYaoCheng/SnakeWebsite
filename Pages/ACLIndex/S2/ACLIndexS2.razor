@@ -661,11 +661,13 @@
 </div>
 
 @code {
+    private IJSObjectReference? AnimateJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("Animate");
+            AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
+            await AnimateJS.InvokeVoidAsync("Animate");
             await JS.InvokeVoidAsync("selectChangeLocation");
             await JS.InvokeVoidAsync("installI18n");
         }
