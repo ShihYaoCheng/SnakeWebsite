@@ -1185,10 +1185,11 @@ input[type="radio"] {
 button.price-search-button{
     color: var(--white);
     font-size: 14px;
-    border: 2px solid var(--white);
+    /* border: 2px solid var(--white); */
+    border: 2px solid var(--green-2);
     /* border: none; */
-    background: var(--white);
-    /* background: none; */
+    /* background: var(--white); */
+    background: none;
     border-radius: 10px;
     padding: 2px 5.5px 3px 5.5px;
     margin: 0px 0 0px 20px;
@@ -1199,17 +1200,19 @@ button.price-search-button{
 
 button.price-search-button:hover {
     /* transform: scale(1.03); */
-    border: 2px solid var(--green-2);
-    background-color: var(--green-2);
+    border: 2px solid var(--white);
+    background-color: var(--white);
+    /* background: none; */
     color: var(--green-1);
 }
 .search-icon{
     width: 19px;
-    fill: var(--bg-1);
+    fill: var(--green-2);
     transition: all .05s ease-in;
 }
 button.price-search-button:hover .search-icon{
-    fill: var(--green-1);
+    fill: var(--green-2);
+
 }
 
 .range-Text span{
