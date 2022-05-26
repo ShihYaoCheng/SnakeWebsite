@@ -275,6 +275,7 @@ input[type="radio"] {
     top: 5px;
     right: 8px;
     z-index: 5;
+    cursor: pointer;
 }
 
 
@@ -721,13 +722,21 @@ input[type="radio"] {
 .NFTcard{
     width: 540px;
     border-radius: 15px;
-    padding: 3px 0 3px 3px;
+    /* padding: 3px 0 3px 3px; */
     display: flex;
     box-shadow: 5px 5px 10px #1414142e;
     margin: 15px;
     transition: all .1s ease-in-out;
     position: relative;
     text-decoration: none;
+}
+.NFTcard-inner{
+    /* border: 1px solid red; */
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 3px 0 3px 3px;
 }
 .NFTcard a{
     border: 1px solid red;
