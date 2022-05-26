@@ -100,6 +100,7 @@
 }
 .products-summary{
     /* border: 1px solid rgb(255, 255, 255); */
+    max-width: 750px;
     width:50%;
     margin: 0 30px 40px;
 }
@@ -108,6 +109,9 @@
     width: 100%;
     margin: 0 30px;
     max-width: 690px;
+}
+.products-header{
+    margin-bottom: 70px;
 }
 
 .products-NumberBlock{
@@ -158,6 +162,7 @@
     font-weight: bold;
     display: inline-flex;
     line-height: 36px;
+    margin: 10px 0;
 }
 
 /* 如果是持有者的編輯樣式 Owned */
@@ -166,7 +171,7 @@
     border: 1.5px solid var(--green-2);
     border-radius:13px;
     padding: 5px 12px 6px;
-    margin: 10px 0 20px;
+    margin: 10px 0 10px;
     display: inline-flex;
     justify-content: space-between;
     align-items: center;

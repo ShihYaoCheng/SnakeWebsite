@@ -1,11 +1,13 @@
 @page "/products/{SerialNumber}/{TokenID}"
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Services.Products
-@*@using static SnakeAsianLeague.Data.Services.Products.ProductsService*@
+
 
 
 @inject ProductsService ProductsService;
 @inject IJSRuntime JS
+
+@*@using static SnakeAsianLeague.Data.Services.Products.ProductsService*@
 
 
 <head>
@@ -83,6 +85,7 @@
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterArrowSlideClick");
             await JS.InvokeVoidAsync("Popup");
+            await JS.InvokeVoidAsync("ProductsImageMove");
         }
 
     }

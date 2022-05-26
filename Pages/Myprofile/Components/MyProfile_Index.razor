@@ -98,6 +98,9 @@
         _metamaskHostProvider.SelectedAccountChanged += MetamaskHostProvider_SelectedAccountChanged;
 
         displayEditProfileWindow = false;
+
+
+ 
         //var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         //LoginUser = authState.User;
 
@@ -216,10 +219,6 @@
     {
         if (firstRender)
         {
-
-
-
-
             MetamaskAvailable = await _metamaskHostProvider.CheckProviderAvailabilityAsync();
 
             StateHasChanged();
