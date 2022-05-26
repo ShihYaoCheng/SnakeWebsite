@@ -59,8 +59,22 @@
         </a>
     </div>
 @code {
-      private async Task eventBannerCloseClick()
+    private IJSObjectReference? module;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JS.InvokeVoidAsync("eventBannerClose");
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import",
+                "./JavaScript/bannerClose.js");
+        }
+    }
+
+
+    private async Task eventBannerCloseClick()
+    {
+        if (module != null)
+        {
+            await module.InvokeVoidAsync("eventBannerClose");
+        }
     }
 }
