@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: asianleague-web
-          image: asia.gcr.io/cqi-operation/asianleague:220520.t2
+          image: asia.gcr.io/stellar-38931/sk-web:master
           imagePullPolicy: Always 
           ports:
             - containerPort: 80

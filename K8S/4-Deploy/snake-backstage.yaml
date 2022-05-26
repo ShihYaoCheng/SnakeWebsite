@@ -16,14 +16,14 @@ spec:
     spec:
       containers:
         - name: snake-backstage
-          image: asia.gcr.io/cqi-operation/snakebackstage:210.1
+          # image: asia.gcr.io/cqi-operation/snakebackstage:220506.net6.t1
+          image: gcr.io/stellar-38931/sk-backstage:test.0512.1
           imagePullPolicy: Always 
           ports:
-            - containerPort: 80
+            - containerPort: 8080
               protocol: TCP
           env:
-            - name: ASPNETCORE_URLS
-              value: http://+:80
+            
             - name: ExternalServers__UserServer
               valueFrom:
                 configMapKeyRef:
@@ -34,16 +34,43 @@ spec:
                 configMapKeyRef:
                   name: configmap-snakebackstage
                   key: TableServer
-            - name: ConnectionStrings__DefaultConnection
-              valueFrom:
-                configMapKeyRef:
-                  name: configmap-snakebackstage
-                  key: MySQL-Connection
+            # - name: ConnectionStrings__DefaultConnection
+            #  valueFrom:
+            #    configMapKeyRef:
+            #      name: configmap-snakebackstage
+            #      key: MySQL-Connection
             - name: ExternalServers__GoogleSheet
               valueFrom:
                 configMapKeyRef:
                   name: configmap-snakebackstage
                   key: GoogleSheet
+
+            - name: MySQL__DoMigrationOnlyThenExit
+              value: "false"
+            - name: MySQL__IP
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-snakebackstage
+                  key: MySQL-IP
+            - name: MySQL__Port
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-snakebackstage
+                  key: MySQL-Port
+            - name: MySQL__DatabaseName
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-snakebackstage
+                  key: MySQL-DatabaseName
+            - name: MySQL__User
+              value: 'root'
+            - name: MySQL__Password
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-snakebackstage
+                  key: MySQL-Password
+            - name: PathBase
+              value: "/"
           volumeMounts:
             - mountPath: /etc/localtime
               name: tz-config  
