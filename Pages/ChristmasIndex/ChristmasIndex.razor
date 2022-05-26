@@ -2075,13 +2075,14 @@
     List<AsiaLeaguePlace> S2Places;
     List<AsiaLeaguePlace> S3Places;
 
+    private IJSObjectReference? AwardsSlideJS;
 
     protected override async Task OnInitializedAsync()
     {
 
         S2Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesBySeason(AsiaLeagueSeasons.Xmas2021);
         S3Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesBySeason(AsiaLeagueSeasons.NewYear2021);
-        
+
 
         S2Prizes = await S2PrizeService.GetSeasonPrizes(2);
         List<S2Prize> tmp = await S2PrizeService.GetSeasonPrizes(3);
@@ -2130,13 +2131,16 @@
 
     private async Task awards_Slide_christmasClick()
     {
-        await JS.InvokeVoidAsync("awards_Slide_christmas", "awards_Slide_christmas");
+        if(AwardsSlideJS != null)
+        {
+            await AwardsSlideJS.InvokeVoidAsync("awards_Slide_christmas", "awards_Slide_christmas");  
+        }
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-
         if (firstRender)
         {
+            AwardsSlideJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/AwardsSlide.js");  
             @* await JS.InvokeVoidAsync("fireworks"); *@
             await JS.InvokeVoidAsync("Lightbox");
         }

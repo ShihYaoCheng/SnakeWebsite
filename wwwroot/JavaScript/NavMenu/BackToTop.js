@@ -1,4 +1,4 @@
-window.BackToTop = function () {
+export function BackToTop() {
     $('a.back_to_top').click(function (e) {
         $('html, body').animate({ scrollTop: 0 }, '1000');
         e.preventDefault();

@@ -1545,7 +1545,9 @@
         </div>
     </div>
 @code {
-     [Parameter]
+
+
+    [Parameter]
     public List<S2Prize> AllPrizes{ get; set; }
 
     [Parameter]
@@ -1553,6 +1555,8 @@
 
     [Parameter]
     public List<AsiaLeaguePlace> S5Places{ get; set; }
+
+    private IJSObjectReference? AwardsSlideJS;
 
     private S2Prize GetOnePrize(int seasonNum, int station, int place)
     {
@@ -1566,7 +1570,7 @@
         }
         return result;
     }
-      private string GetOnePlace(int seasonNum, int station, int place)
+    private string GetOnePlace(int seasonNum, int station, int place)
     {
         AsiaLeaguePlace result;
         if ( S4Places != null && seasonNum == 4 )
@@ -1592,9 +1596,19 @@
         }
 
     }
-    
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {   
+        if (firstRender)
+        {
+            AwardsSlideJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/AwardsSlide.js");
+        }
+    }
+
     private async Task awards_Slide_LunarNewYearClick()
     {
-        await JS.InvokeVoidAsync("awards_Slide_LunarNewYear", "awards_Slide_LunarNewYear");
-    }
+        if(AwardsSlideJS !=null){
+              await AwardsSlideJS.InvokeVoidAsync("awards_Slide_LunarNewYear", "awards_Slide_LunarNewYear");   
+        }
+   }
 }

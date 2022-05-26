@@ -294,6 +294,8 @@
 {
     public LoginRequest loginRequest = new LoginRequest();
     private IJSObjectReference? footerContactJS;
+    private IJSObjectReference? BackToTopJS;
+    private IJSObjectReference? AnimateJS;
 
     protected async override Task OnInitializedAsync()
     {
@@ -343,7 +345,7 @@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("navbarSlide");
             //HandleClick();
-            
+
         }
         else
         {
@@ -358,7 +360,7 @@
     /// <returns></returns>
     private async Task logoutButtonClick()
     {
-        
+
         await authService.AuthLogout();
         AppState.UpdateLoginStatus(this, new SnakeAccount());
     }
@@ -374,7 +376,7 @@
 
 
 
-    
+
     //login彈窗
     private async Task loginButtonClick()
     {
@@ -393,7 +395,7 @@
 
     bool collapseNavMenu  = true;
     bool collapseUserNavMenu  { get; set; }  = true;
-    
+
 
     string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
@@ -414,17 +416,19 @@
         collapseNavMenu = true;
     }
 
-    
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if (firstRender){
             footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
-         
-            await JS.InvokeVoidAsync("Carousel");
-            await JS.InvokeVoidAsync("BackToTop");
-            await JS.InvokeVoidAsync("Animate");
-            await JS.InvokeVoidAsync("navbarSlide");
-            
+            BackToTopJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NavMenu/BackToTop.js");
+            AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
+
+            await BackToTopJS.InvokeVoidAsync("BackToTop");
+            await AnimateJS.InvokeVoidAsync("Animate");
+
+            await JS.InvokeVoidAsync("Carousel");                
+            await JS.InvokeVoidAsync("navbarSlide");            
             await JS.InvokeVoidAsync("selectChangeLocation");
         }
         
