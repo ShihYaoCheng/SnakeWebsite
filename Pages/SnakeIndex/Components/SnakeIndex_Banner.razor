@@ -59,22 +59,21 @@
         </a>
     </div>
 @code {
-    private IJSObjectReference? module;
+    private IJSObjectReference? Banner;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            module = await JS.InvokeAsync<IJSObjectReference>("import",
-                "./JavaScript/bannerClose.js");
+            Banner = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SnakeIndex/Banner.js");
         }
     }
 
 
     private async Task eventBannerCloseClick()
     {
-        if (module != null)
+        if (Banner != null)
         {
-            await module.InvokeVoidAsync("eventBannerClose");
+            await Banner.InvokeVoidAsync("eventBannerClose");
         }
     }
 }

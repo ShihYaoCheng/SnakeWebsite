@@ -293,7 +293,7 @@
 @code 
 {
     public LoginRequest loginRequest = new LoginRequest();
-
+    private IJSObjectReference? footerContactJS;
 
     protected async override Task OnInitializedAsync()
     {
@@ -418,6 +418,8 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if (firstRender){
+            footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
+         
             await JS.InvokeVoidAsync("Carousel");
             await JS.InvokeVoidAsync("BackToTop");
             await JS.InvokeVoidAsync("Animate");
@@ -437,6 +439,10 @@
     /*聯絡表單關閉*/
      private async Task FooterContactHide()
     {
-        await JS.InvokeVoidAsync("FooterContactHide");
+        if (footerContactJS != null)
+        {
+             await footerContactJS.InvokeVoidAsync("FooterContactHide");
+        }
+       
     }
 }

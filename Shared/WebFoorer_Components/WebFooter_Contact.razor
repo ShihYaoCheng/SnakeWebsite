@@ -73,23 +73,34 @@
        </div>
 </div>
 @code {
-     protected override async Task OnAfterRenderAsync(bool firstRender)
+    private IJSObjectReference? footerContactJS;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if(firstRender){
             await JS.InvokeVoidAsync("Feedback", "Feedback");
+            footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/footerContact.js");
         }
     }
 
     private async Task SendFeedbackClick()
     {
+    
+        if (footerContactJS != null)
+        {
+            await footerContactJS.InvokeVoidAsync("FooterAnimation");
+        }
+        //先不動模組化
         await JS.InvokeVoidAsync("Feedback", "Feedback");
-        await JS.InvokeVoidAsync("FooterAnimation");
     }
 
 
     private async Task clickClose()
     {
-        await JS.InvokeVoidAsync("FooterContactHide");
+        if (footerContactJS != null)
+        {
+            await footerContactJS.InvokeVoidAsync("FooterContactHide");
+        }
     }
 
 

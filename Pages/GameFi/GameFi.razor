@@ -29,12 +29,10 @@
     <GameFi_Block4 />
     <GameFi_Block5 />   
 
-
-
 </div>
 
 @code {
-
+    private IJSObjectReference? GameFiJS;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
 
@@ -43,17 +41,22 @@
         if (firstRender)
 
         {
+            GameFiJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/GameFi/GameFi.js");
+            await GameFiJS.InvokeVoidAsync("RiderHover");            
 
-            await JS.InvokeVoidAsync("RiderHover");
+            await GameFiJS.InvokeVoidAsync("RoadmapSlideClick");
 
+            await GameFiJS.InvokeVoidAsync("CirclePopup");
+
+            await GameFiJS.InvokeVoidAsync("chartInit");
+
+            await GameFiJS.InvokeVoidAsync("GameFiCharts");
+          
+            
+           
+
+            //不可模組
             await JS.InvokeVoidAsync("GameFiCarousel");
-
-            await JS.InvokeVoidAsync("RoadmapSlideClick");
-
-            await JS.InvokeVoidAsync("CirclePopup");
-
-            await JS.InvokeVoidAsync("chartInit");
-
             await JS.InvokeVoidAsync("installI18n");
 
         }

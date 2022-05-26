@@ -73,6 +73,8 @@
 
 
 @code {
+    private IJSObjectReference? Banner;
+
     private async Task LanguageSwitchClick()
     {
         await JS.InvokeVoidAsync("LanguageSwitch");
@@ -87,10 +89,14 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if(firstRender){
+            Banner = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SnakeIndex/Banner.js");
+            await Banner.InvokeVoidAsync("BannerMove");
+            //先不動模組化
             await JS.InvokeVoidAsync("Carousel");
             await JS.InvokeVoidAsync("installI18n");
-            await JS.InvokeVoidAsync("dayjsInit");
-            await JS.InvokeVoidAsync("BannerMove");
+            await JS.InvokeVoidAsync("dayjsInit");  
         }
+
+        
     }
 }
