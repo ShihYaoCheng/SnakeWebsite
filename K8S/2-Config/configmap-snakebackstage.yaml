@@ -7,6 +7,11 @@ data:
   TableServer: "http://service-table:5000"
   MySQL-Connection: "Server=snake-backstage-db;Port=3306;database=SnakeBackstage;user id=root;password=cqig7777"
 
+  MySQL-IP: "snake-backstage-db"
+  MySQL-Port: "3306"
+  MySQL-DatabaseName: "SnakeBackstage"
+  MySQL-Password: "cqig7777"
+
   # alpha
   GoogleSheet: "https://docs.google.com/spreadsheets/d/1CB9PFeohG3HGYI06_J_KQj82FXOFbOajnr_1X8tCFTw/edit?usp=sharing"
   # Beta

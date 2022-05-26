@@ -727,6 +727,7 @@ input[type="radio"] {
     margin: 15px;
     transition: all .1s ease-in-out;
     position: relative;
+    text-decoration: none;
 }
 .NFTcard a{
     border: 1px solid red;
@@ -1067,4 +1068,183 @@ input[type="radio"] {
     }
 }
 
+
+/* 選取範圍樣式 */
+
+
+
+  .slider-area-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    -moz-column-gap: 20px;
+    column-gap: 20px;
+    max-width: 220px;
+    margin: 15px 0;
+  }
+#skip-value-lower,
+#skip-value-upper {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #253A4B;
+    background-color: #253A4B;
+    outline: none;
+    color: white;
+    border: 2px solid var(--green-2);
+    outline: none;
+  }
+.noUi-target {
+    flex: 1;
+    position: relative;
+    background: #e3e3e3;
+    border-radius: 50px;
+  }
+.noUi-target.noUi-horizontal {
+    height: 4px;
+  }
+.noUi-target .noUi-base,
+ .noUi-target .noUi-connects {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+.noUi-target .noUi-connects {
+    border-radius: 3px;
+    overflow: hidden;
+    z-index: 0;
+  }
+.noUi-target .noUi-connects .noUi-connect {
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transform-origin: 0 0;
+    transform-style: flat;
+    background-color: var(--green-2);
+  }
+.noUi-target .noUi-origin {
+    will-change: transform;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    height: 0;
+    width: 100%;
+  }
+.noUi-target .noUi-origin .noUi-handle {
+    border-radius: 50px;
+    background: #fff;
+    cursor: default;
+    background-color: var(--white);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: -6px;
+    top: -6px;
+  }
+.noUi-target .noUi-origin .noUi-handle .noUi-touch-area {
+    height: 100%;
+    width: 100%;
+  }
+.noUi-draggable {
+    cursor: ew-resize;
+  }
+
+.price-textInputRange {
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #253A4B;
+    background-color: #253A4B;
+    outline: none;
+    color: var(--white);
+    border: 2px solid var(--green-2);
+    outline: none;
+    font-weight: 600;
+    margin: 0 5px;
+}
+.price-textInputRange::placeholder{
+    color: #7f9390;
+}
+
+
+button.price-search-button{
+    color: var(--white);
+    font-size: 14px;
+    /* border: 2px solid var(--white); */
+    border: 2px solid var(--green-2);
+    /* border: none; */
+    /* background: var(--white); */
+    background: none;
+    border-radius: 10px;
+    padding: 2px 5.5px 3px 5.5px;
+    margin: 0px 0 0px 20px;
+    transition: all .05s ease-in;
+    font-weight: 600;
+    align-self: end;
+}
+
+button.price-search-button:hover {
+    /* transform: scale(1.03); */
+    border: 2px solid var(--white);
+    background-color: var(--white);
+    /* background: none; */
+    color: var(--green-1);
+}
+.search-icon{
+    width: 19px;
+    fill: var(--green-2);
+    transition: all .05s ease-in;
+}
+button.price-search-button:hover .search-icon{
+    fill: var(--green-2);
+
+}
+
+.range-Text span{
+    font-size: 18px;
+    margin: 25px 8px 0;
+}
+
+.price-range-Text{
+    /* max-width: 180px; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 250px;
+}
+
+.Filter-Range{
+    display: flex;
+    flex-direction: row;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0 5px;
+}
+
+.price-label{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+}
+
+.price-label label{
+    margin-left: 7px;
+}
 
