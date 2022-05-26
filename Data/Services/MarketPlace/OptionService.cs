@@ -135,6 +135,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 NFTData data = new NFTData();
                 data.Number = NFT_Riders[i].castings[0].tokenId;
                 data.Name = NFT_Riders[i].name;
+                data.serialNumber = NFT_Riders[i].serialNumber;
                 //可能沒有拍賣紀錄
 
 
