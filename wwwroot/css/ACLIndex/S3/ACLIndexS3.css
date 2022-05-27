@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@400;700&family=Noto+Sans+TC:wght@100;300;400;500;700&family=Oswald:wght@400;700&display=swap');
+@font-face {
+    font-family: 'AlumniSans-Regular';
+    src: url(/font/AlumniSans-Regular.woff) format('woff');
+}
+@font-face {
+    font-family: 'AlumniSans-Bold';
+    src: url(/font/AlumniSans-Bold.woff) format('woff');
+}
+/* nav 當頁顯示 */
+#nav-Arena >.nav-link{
+    background-color: #aad4cd;
+}
+
+#Arena_hover_bottom{
+    position: absolute;
+    max-width: 300px;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -7px;
+    opacity: 1;
+    z-index: 0;
+    transition: all .3s ease-out;
+    pointer-events: none;
+}
+
+/* RWD NAV */
+@media all and (max-width: 1000px){
+    #nav-Arena{
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+/*...外層...*/
+.ACLIndexS2Block{
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Alumni Sans', 'AlumniSans-Bold','AlumniSans-Regular','Oswald';
+}
+
+.BannerBlock{
+    /* border: 1px solid red; */
+    width: 100%;
+
+}
+
+.BannerBlockMain{
+    /* border: 1px solid rgb(34, 134, 248); */
+    position: relative;
+}
+
+/*...主圖...*/
+.BannerImg{
+    width: 100%;
+    height: 70vh;
+    min-height: 900px;
+    filter: brightness(95%)saturate(90%);
+}
+
+.BannerImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: top center;
+}
+
+/*...標題...*/
+.BannerBlockTitle{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 52%;
+    left: 50%;
+    font-size: 150px;
+    font-family: 'Alumni Sans', 'AlumniSans-Bold','AlumniSans-Regular','Oswald';
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    line-height: 110px;
+    width: 100%;
+    text-shadow: 0px 0px 4px #ffffff6b;
+}
+
+.BannerBlockNavLogo {
+    z-index: 3;
+    margin: 30px auto;
+    max-width: 280px;
+    width: 40%;
+}
+
+.BannerBlockNavLogo img {
+    width: 100%;
+}
+
+/*...nav...*/
+.BannerBlockNav{
+    /* border: 1px solid rgb(34, 248, 98); */
+    width: 100%;
+    /* height: 100px; */
+    display: flex;
+    background: rgba(255, 255, 255, 0.808);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    font-family: 'Alumni Sans', 'AlumniSans-Bold','AlumniSans-Regular','Oswald';
+}
+.NavBlockSelect{
+    margin: 15px;
+}
+
+.NavBlockSelect select{
+    width: 170px !important;
+    max-width: none;
+    font-size: 26px;
+    box-shadow: 2px 2px 8px #66666663;
+    border: 3px solid rgb(123 156 165);
+    height: 40px;
+    border-radius: 16px;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url(/images/Other/select-arrow.png);
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: auto;
+    padding: 1px 12px 1px 20px;
+    outline: 0;
+}
+
+/*...list...*/
+
+.BannerBlockNavList{
+    /* border: 1px solid rgb(248, 113, 34); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 600px; */
+    /* width: 100%; */
+    height: 100%;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.NavListAnchor{
+    /* border: 1px solid rgb(34, 248, 34); */
+    display: flex;
+    justify-content: center;
+    margin: 0 30px;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.NavListAnchor a{
+    /* border: 1px solid rgb(248, 113, 34); */
+    font-size: 70px;
+    height: 100%;
+    display: block;
+    font-weight: bold;
+    color: #324a66;
+    line-height: 50px;
+    transition: all .2s ease-in;
+    text-decoration: none;
+    padding: 20px 20px;
+}
+
+.NavListAnchor a:hover{
+    color: #6fa0bb;
+}
+
+
+.shine {
+    position: absolute;
+    top: 0;
+    left: -70px;
+    height: 98px;
+    width: 50px;
+    background: rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ;
+    transform: skewX(20deg) translateX(0);
+    pointer-events: none;
+}
+
+.NavListAnchor:hover .shine{
+    transform: skewX(20deg) translateX(330px);
+}
+
+@media all and (max-width: 1700px){
+    .BannerBlockTitle{
+        font-size: 130px;
+        line-height: 100px;
+    }
+    .NavListAnchor{
+        margin: 0px 14px;
+    }
+    .NavListAnchor a{
+        font-size: 65px;
+    }
+    
+    .BannerBlockNav{
+        height: 90px;
+    }
+}
+
+@media all and (max-width: 1400px){
+    .BannerBlockTitle {
+        font-size: 115px;
+        line-height: 93px;
+        top: 49%;
+    }
+    .BannerImg{
+        height: 65vh;
+        min-height: 840px;
+    }
+    .NavListAnchor a{
+        font-size: 56px;
+    }    
+}
+
+@media all and (max-width: 1200px){
+    .BannerBlockTitle {
+        font-size: 110px;
+        line-height: 90px;
+        top: 49%;
+    }
+    .NavListAnchor a{
+        font-size: 46px;
+    }  
+    .BannerBlockNav{
+        height: 75px;
+    }
+    .BannerImg{
+        height: 58vh;
+        min-height: 750px;
+    }
+    .NavListAnchor{
+        margin: 0 10px;
+    }
+    .NavBlockSelect select {
+        width: 140px !important;
+        font-size: 22px;
+        height: 38px;
+    }
+}
+@media all and (max-width: 1000px){
+    .BannerBlockTitle {
+        font-size: 80px;
+        line-height: 70px;
+        top: 52%;
+    }
+    .BannerImg {
+        height: 44vh;
+        min-height: 570px;
+    }
+    .BannerBlockNav {
+        height: 63px;
+    }
+    .NavListAnchor a {
+        font-size: 40px;
+    }
+    .BannerBlockNavLogo {
+        max-width: 210px;
+        margin: 10px auto;
+    }
+    .NavBlockSelect select {
+        width: 140px !important;
+        font-size: 22px;
+        height: 38px;
+    }
+}
+@media all and (max-width: 800px){
+    .BannerBlockTitle {
+        font-size: 60px;
+        line-height: 55px;
+        top: 53%;
+    }
+    .BannerImg {
+        height: 40vh;
+        min-height: 518px;
+    }
+    .NavListAnchor a {
+        font-size: 32px;
+        padding: 20px 10px;
+    }
+    .BannerBlockNav{
+        /* height: 60px; */
+    }
+    .NavListAnchor {
+        margin: 0 5px;
+    }
+    .BannerBlockNavLogo {
+        max-width: 200px;
+        margin: 10px auto;
+    }
+    .NavBlockSelect select {
+        width: 140px !important;
+        font-size: 23px;
+    }
+    .NavBlockSelect {
+        margin: 10px;
+    }
+}
+@media all and (max-width: 700px){
+    .BannerBlockNav{
+        flex-direction: column;
+        height: unset;
+    }
+    .BannerBlockNavList{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .NavListAnchor a {
+        padding: 0px 10px;
+    }
+    .NavBlockSelect select{
+        height: 33px;
+        border: 2px solid rgb(123 156 165);
+    }
+}
+@media all and (max-width: 600px){
+    .BannerBlockNav{
+        /* height: 86px; */
+    }
+    .BannerBlockTitle {
+        font-size: 50px;
+        line-height: 45px;
+        top: 50%;
+    }
+    .BannerBlockNavLogo {
+        margin: 10px auto;
+    }
+    .NavBlockSelect {
+        margin: 10px auto 5px;
+    }
+    .BannerBlockNavList{
+        height: 43px;
+    }
+}
+@media all and (max-width: 500px){
+    .NavListAnchor a{
+        font-size: 28px;
+    }
+    .BannerBlockNavList{
+        height: 40px;
+    }
+    .NavBlockSelect select {
+        font-size: 20px;
+        height: 30px;
+    }
+}
+@media all and (max-width: 400px){
+    .NavListAnchor a{
+        font-size: 22px;
+    }
+
+}
