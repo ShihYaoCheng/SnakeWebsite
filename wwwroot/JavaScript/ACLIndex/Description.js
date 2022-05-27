@@ -1,4 +1,4 @@
-﻿window.description = {
+﻿export var description = {
     calendar: function () {
         let calendarEl = document.getElementById('calendar');
         let calendar = new FullCalendar.Calendar(calendarEl, {

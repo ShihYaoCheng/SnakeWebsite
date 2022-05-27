@@ -14,18 +14,19 @@
 
 @code {
     private IJSObjectReference? QRcodeSlideJS;
+    private IJSObjectReference? DescriptionJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
-
     {
         if(firstRender){
             QRcodeSlideJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/QRcodeSlide.js");
-            await JS.InvokeVoidAsync("description.calendar");
+            DescriptionJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ACLIndex/Description.js");
+            await DescriptionJS.InvokeVoidAsync("description.calendar");
 
-            await JS.InvokeVoidAsync("description.scheduleRender");
+            await DescriptionJS.InvokeVoidAsync("description.scheduleRender");
 
-            await JS.InvokeVoidAsync("description.awardsSlide");
+            await DescriptionJS.InvokeVoidAsync("description.awardsSlide");
 
-            await JS.InvokeVoidAsync("description.mobileScheduleSwitch");
+            await DescriptionJS.InvokeVoidAsync("description.mobileScheduleSwitch");
             await JS.InvokeVoidAsync("installI18n");
         }
     }

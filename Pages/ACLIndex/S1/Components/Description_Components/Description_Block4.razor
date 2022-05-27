@@ -64,8 +64,21 @@
 </div>
 
 @code {
-      private async Task calendarTabClick(int index)
+    private IJSObjectReference? DescriptionJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JS.InvokeVoidAsync("description.calendarTab", index);
+        if (firstRender)
+        {
+            DescriptionJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ACLIndex/Description.js");
+
+        }
+    }
+    private async Task calendarTabClick(int index)
+    {
+        if (DescriptionJS != null)
+        {
+             await DescriptionJS.InvokeVoidAsync("description.calendarTab", index);
+        }
+       
     }
 }
