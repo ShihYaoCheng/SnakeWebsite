@@ -105,53 +105,51 @@ window.updateTextInput = function (val) {
     // $('#textInputRange').val(val);
 }
 
-window.FilterRange = function () {
-    console.log('FilterRange')
-    // var inputMinValue = $('#input-value-lower').val();
-    // var inputMaxValue = parseInt($('#input-value-upper').val());
+// window.FilterRange = function () {
+//     console.log('FilterRange')
 
-    var skipSlider = document.getElementById("skipstep");
-    var skipValues = [
-        document.getElementById("skip-value-lower"),
-        document.getElementById("skip-value-upper")
-    ];
-    var MinValue = Number($('#skip-value-lower input').text());
-    var MaxValue = Number($('#skip-value-upper').text());
+//     var skipSlider = document.getElementById("skipstep");
+//     var skipValues = [
+//         document.getElementById("skip-value-lower"),
+//         document.getElementById("skip-value-upper")
+//     ];
+//     var MinValue = Number($('#skip-value-lower input').text());
+//     var MaxValue = Number($('#skip-value-upper').text());
 
 
-    // $('.textInputRange').keyup(function () { 
-    //     // inputMinValue.text('#input-value-lower');
-    //     var inputMinValue = $('#input-value-lower').val();
-    //     var MinValue = parseInt($('#skip-value-lower').text());
-    //     console.log(inputMinValue)
+//     // $('.textInputRange').keyup(function () { 
+//     //     // inputMinValue.text('#input-value-lower');
+//     //     var inputMinValue = $('#input-value-lower').val();
+//     //     var MinValue = parseInt($('#skip-value-lower').text());
+//     //     console.log(inputMinValue)
 
 
                
-    // });
+//     // });
 
 
-    noUiSlider.create(skipSlider, {
-        start: [MinValue, MaxValue],
-        connect: true,
-        behaviour: "drag",
-        step: 1,
-        range: {
-            min: MinValue,
-            max: MaxValue
-        },
-        format: {
-            from: function (value) {
-                return parseInt(value);
-            },
-            to: function (value) {
-                return parseInt(value);
-            }
-        }
-    });
+//     noUiSlider.create(skipSlider, {
+//         start: [MinValue, MaxValue],
+//         connect: true,
+//         behaviour: "drag",
+//         step: 1,
+//         range: {
+//             min: MinValue,
+//             max: MaxValue
+//         },
+//         format: {
+//             from: function (value) {
+//                 return parseInt(value);
+//             },
+//             to: function (value) {
+//                 return parseInt(value);
+//             }
+//         }
+//     });
 
-    skipSlider.noUiSlider.on("update", function (values, handle) {
-        skipValues[handle].innerHTML = values[handle];
-    });
+//     skipSlider.noUiSlider.on("update", function (values, handle) {
+//         skipValues[handle].innerHTML = values[handle];
+//     });
 
-}
+// }
 

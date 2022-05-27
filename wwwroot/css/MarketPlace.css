@@ -1197,8 +1197,8 @@ button.price-search-button{
     /* border: 2px solid var(--white); */
     border: 2px solid var(--green-2);
     /* border: none; */
-    /* background: var(--white); */
-    background: none;
+    background: var(--green-2);
+    /* background: none; */
     border-radius: 10px;
     padding: 2px 5.5px 3px 5.5px;
     margin: 0px 0 0px 20px;
@@ -1209,18 +1209,21 @@ button.price-search-button{
 
 button.price-search-button:hover {
     /* transform: scale(1.03); */
-    border: 2px solid var(--white);
-    background-color: var(--white);
+    /* border: 2px solid var(--white);
+    background-color: var(--white); */
     /* background: none; */
-    color: var(--green-1);
+    transform: scale(1.05);
+    opacity: 0.8;
 }
+
+
 .search-icon{
     width: 19px;
-    fill: var(--green-2);
+    fill: var(--green-1);
     transition: all .05s ease-in;
 }
 button.price-search-button:hover .search-icon{
-    fill: var(--green-2);
+    /* fill: var(--green-2); */
 
 }
 
