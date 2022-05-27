@@ -61,10 +61,11 @@
 
 @code {
 
-     List<S2Prize> AllPrizes;
+    List<S2Prize> AllPrizes;
     List<AsiaLeaguePlace> S4Places;
     List<AsiaLeaguePlace> S5Places;
-
+    @*private IJSObjectReference? FireworksJS;*@
+    private IJSObjectReference? ParallaxJS;
     protected override async Task OnInitializedAsync()
     {
 
@@ -82,9 +83,12 @@
 
         if (firstRender)
         {
-            @* await JS.InvokeVoidAsync("fireworks"); *@
-            await JS.InvokeVoidAsync("Lightbox");
-            await JS.InvokeVoidAsync("ParallaxInit");
+        @*  FireworksJS= await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/Festival/Fireworks.js");  
+            await FireworksJS.InvokeVoidAsync("fireworks"); *@
+
+            ParallaxJS =  await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/Festival/Parallax.js");
+            await ParallaxJS.InvokeVoidAsync("ParallaxInit");
+            await JS.InvokeVoidAsync("Lightbox");          
             await JS.InvokeVoidAsync("installI18n");
         }
     }

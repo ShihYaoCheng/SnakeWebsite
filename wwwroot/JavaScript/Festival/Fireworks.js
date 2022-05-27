@@ -1,4 +1,4 @@
-window.fireworks = function (fireworks) {
+export function fireworks  (fireworks) {
     class Animation {
         constructor(elm) {
             this.elm = elm;

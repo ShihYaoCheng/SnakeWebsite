@@ -26,8 +26,22 @@
         </div>
     </div>
 @code {
-        private async Task QRcode_SlideClick()
+
+    private IJSObjectReference? QRcodeSlideJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
     {
-        await JS.InvokeVoidAsync("QRcode_Slide", "QRcode_Slide");
+        if (firstRender)
+        {
+            QRcodeSlideJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SharedLib/QRcodeSlide.js");
+  
+        }
+    }
+    private async Task QRcode_SlideClick()
+    {
+        if (QRcodeSlideJS != null)
+        {
+             await QRcodeSlideJS.InvokeVoidAsync("QRcode_Slide", "QRcode_Slide");
+        }
     }
 }

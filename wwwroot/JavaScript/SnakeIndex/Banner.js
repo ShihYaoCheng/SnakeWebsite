@@ -22,3 +22,10 @@ export function BannerMove() {
     })
 
 }
+
+
+export function event_banner_Slide(event_banner_Slide) {
+    $('.event_banner_bg').slideToggle();
+    $(".event_banner").toggleClass("event_banner_Slide_close");
+    $(".event_banner_logo").toggleClass("event_banner_logo_Slide_close");
+}
