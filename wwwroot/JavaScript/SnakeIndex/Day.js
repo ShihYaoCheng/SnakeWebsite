@@ -1,5 +1,4 @@
-
-window.dayjsInit = function () {
+export function dayjsInit() {
     
     // console.log('dayjs', dayjs);
     dayjs().format()
