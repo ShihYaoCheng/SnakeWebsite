@@ -1,4 +1,4 @@
-window.Feedback = function (Feedback) {
+export function Feedback (Feedback) {
 
     function sendFeedback() {
         let formData = `{"userNickname":"${$("#userNickname").val()}","email":"${$("#email").val()}","mobilePhone":"${$("#phone").val()}","feedbackType":"${$("#feedbackType").val()}","content":"${$("textarea#content").val()}"}`;

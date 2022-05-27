@@ -74,24 +74,29 @@
 </div>
 @code {
     private IJSObjectReference? footerContactJS;
-
+    private IJSObjectReference? FeedbackJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if(firstRender){
-            await JS.InvokeVoidAsync("Feedback", "Feedback");
             footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/footerContact.js");
+            FeedbackJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/Feedback.js");
+            await FeedbackJS.InvokeVoidAsync("Feedback", "Feedback");
         }
     }
 
     private async Task SendFeedbackClick()
     {
-    
+
         if (footerContactJS != null)
         {
             await footerContactJS.InvokeVoidAsync("FooterAnimation");
         }
         //先不動模組化
-        await JS.InvokeVoidAsync("Feedback", "Feedback");
+        if (FeedbackJS != null)
+        {
+           await FeedbackJS.InvokeVoidAsync("Feedback", "Feedback");
+        }
+       
     }
 
 

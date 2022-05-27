@@ -74,6 +74,8 @@
 
 @code {
     private IJSObjectReference? Banner;
+    private IJSObjectReference? dayjsInitJS;   
+
 
     private async Task LanguageSwitchClick()
     {
@@ -84,17 +86,20 @@
     {
         await JS.InvokeVoidAsync("event_banner_Slide");
     }
-       
+
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if(firstRender){
             Banner = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SnakeIndex/Banner.js");
+            dayjsInitJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SnakeIndex/Day.js");
             await Banner.InvokeVoidAsync("BannerMove");
+            await dayjsInitJS.InvokeVoidAsync("dayjsInit"); 
+            
             //先不動模組化
             await JS.InvokeVoidAsync("Carousel");
             await JS.InvokeVoidAsync("installI18n");
-            await JS.InvokeVoidAsync("dayjsInit");  
+       
         }
 
         
