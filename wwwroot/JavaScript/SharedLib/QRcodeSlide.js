@@ -1,4 +1,4 @@
-window.QRcode_Slide = function (QRcode_Slide) {
+export function QRcode_Slide(QRcode_Slide) {
     $('.QRcode_Slide').slideToggle();
 }
 
@@ -11,11 +11,7 @@ window.QRcode_Slide = function (QRcode_Slide) {
 //     });
 // },
 
-window.event_banner_Slide = function (event_banner_Slide) {
-    $('.event_banner_bg').slideToggle();
-    $(".event_banner").toggleClass("event_banner_Slide_close");
-    $(".event_banner_logo").toggleClass("event_banner_logo_Slide_close");
-}
+
 /*
 window.eventBannerClose = function () {
     $('.event_banner').hide();

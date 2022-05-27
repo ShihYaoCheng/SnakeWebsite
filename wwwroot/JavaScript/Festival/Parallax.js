@@ -1,4 +1,4 @@
-window.ParallaxInit = function () {
+export function ParallaxInit () {
     console.log('Parallax',Parallax);
     // var scene = document.getElementById('Lantern_block');
     var scene = document.querySelector('.parallax_block')

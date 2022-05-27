@@ -2075,7 +2075,10 @@
     List<AsiaLeaguePlace> S2Places;
     List<AsiaLeaguePlace> S3Places;
 
+
+    private IJSObjectReference? QRcodeSlideJS; 
     private IJSObjectReference? AwardsSlideJS;
+    @*private IJSObjectReference? FireworksJS;*@ 
 
     protected override async Task OnInitializedAsync()
     {
@@ -2126,7 +2129,10 @@
 
     private async Task QRcode_SlideClick()
     {
-        await JS.InvokeVoidAsync("QRcode_Slide", "QRcode_Slide");
+        if (QRcodeSlideJS != null)
+        {
+             await QRcodeSlideJS.InvokeVoidAsync("QRcode_Slide", "QRcode_Slide");
+        } 
     }
 
     private async Task awards_Slide_christmasClick()
@@ -2140,8 +2146,11 @@
     {
         if (firstRender)
         {
-            AwardsSlideJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/AwardsSlide.js");  
-            @* await JS.InvokeVoidAsync("fireworks"); *@
+           
+            AwardsSlideJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/Festival/AwardsSlide.js");  
+            QRcodeSlideJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SharedLib/QRcodeSlide.js");
+            @* FireworksJS= await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/Festival/Fireworks.js");  
+            await FireworksJS.InvokeVoidAsync("fireworks"); *@
             await JS.InvokeVoidAsync("Lightbox");
         }
     }
