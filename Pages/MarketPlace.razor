@@ -92,28 +92,24 @@
 
                 </section>
 
-                <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                @* <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
                     <div class=" -Title">
                         <span>Price (ETH)</span>
                         <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
                     </div>
                     <div class="Filter-Options Filter-Radio">
                         <div class="slider-area-wrapper">
-                            @* <span id="skip-value-lower"></span> *@
                             <div id="skipstep" class="slider"></div>
-                            @* <span id="skip-value-upper"></span> *@
                         </div>
-
 
                         <div class="range-Text">
                             <div class="" id="skip-value-lower">0</div>
                             <div class="" id="skip-value-upper">10</div>
                         </div>
-
                     </div>
+                </section> *@
 
 
-                </section>
                 <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
                         <span>Price (ETH)</span>
@@ -573,7 +569,6 @@
             await JS.InvokeVoidAsync("FilterButtonClick");
             await JS.InvokeVoidAsync("FilterArrowSlideClick");
             await JS.InvokeVoidAsync("TippyInit");
-            await JS.InvokeVoidAsync("FilterRange");
         }
 
     }
