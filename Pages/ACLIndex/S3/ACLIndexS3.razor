@@ -19,14 +19,33 @@
             
             <ACLIndexS3_Title />
 
-            <ACLIndexS3_NavBar />
-         
+            <ACLIndexS3_NavBar />     
+ 
+         </div>
+        <div class="content">
+             @*Event-Info*@
+            <ACLIndexS3_EventInfo />
+
+            @*Rules*@
+            <ACLIndexS3_Rules/>
+
+            @*Reward*@
+            <ACLIndexS3_Reward/>
+
+            <div id="Ranking" class="Ranking">              
+                <div class="Ranking-banner">
+                    <div class="Ranking-banner-bg"></div>
+                </div>
+            </div>
         </div>
 
+    
     </div>
 
-
 </div>
+
+
+
 
 @code {
     private IJSObjectReference? AnimateJS;
