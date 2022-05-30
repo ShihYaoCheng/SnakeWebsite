@@ -7,9 +7,13 @@ window.heartClick = function () {
     //     }
     // })
 
-    $('.heart, .Filter-heart').click(function () {
-        $(this).toggleClass('heartClickRed')
-    })
+    // $('.heart, .Filter-heart').click(function () {
+    //     $(this).toggleClass('heartClickRed')
+    // })
+    $('.heart, .Filter-heart').unbind('click').click(function(){
+        $(this).toggleClass('heartClickRed')  
+    });
+
 }
 window.FilterButtonClick = function () {
     $('.Filter-Button:not(#Filter-Button-Reset)').click(function () {
