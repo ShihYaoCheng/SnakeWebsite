@@ -149,7 +149,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 }
                 data.ImgPath = string.Format(ImgPath, NFT_Riders[i].serialNumber);
                 data.LinkURL = string.Format(LinkURL, asset_contract_address, data.Number);
-                data.Rarity = Rarity;
+                data.RarityKey = Rarity;
                 data.Elements = Elements;
                 //data.Class = NFT_Riders.selfUnits[i].occupationId;
                 //data.Country = CountryList[CountryInt].ToString();
@@ -226,7 +226,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
             Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
 
-            Filter = NFTDataList.Where(m => Rarity.Contains(m.Rarity) && Elements.Contains(m.Elements) && Class.Contains(m.Class)).ToList();
+            Filter = NFTDataList.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey)).ToList();
 
             return PagedList<NFTData>.ToPagedList(Filter, PageNumber, PageSize);
         }

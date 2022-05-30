@@ -3,6 +3,7 @@
     public class NFTData
     {
 
+        public string TokenID { get; set; }
         public string Number { get; set; }
         public string Name { get; set; }
         /// <summary>
@@ -19,9 +20,13 @@
         public string LinkURL { get; set; }
 
         /// <summary>
-        /// 稀有度
+        /// 稀有度key
         /// </summary>
-        public string Rarity { get; set; }
+        public string RarityKey { get; set; }
+        /// <summary>
+        /// 稀有度名子
+        /// </summary>
+        public string RarityValue { get; set; }
 
         /// <summary>
         /// 屬性
@@ -29,9 +34,18 @@
         public string Elements { get; set; }
 
         /// <summary>
+        /// 屬性Icon 
+        /// </summary>
+        public string ElementsIcon { get; set; }
+
+        /// <summary>
         /// 職業專精
         /// </summary>
-        public string Class { get; set; }
+        public string ClassKey { get; set; }
+        /// <summary>
+        /// 職業專精
+        /// </summary>
+        public string ClassValue { get; set; }
 
         public string Country { get; set; }
 

@@ -133,7 +133,8 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 
 
                 NFTData data = new NFTData();
-                data.Number = NFT_Riders[i].castings[0].tokenId;
+                data.TokenID = NFT_Riders[i].castings[0].tokenId;
+                data.Number =  string.Format(" PPSR {0}",NFT_Riders[i].castings[0].tokenId);
                 data.Name = NFT_Riders[i].name;
                 data.serialNumber = NFT_Riders[i].serialNumber;
                 //可能沒有拍賣紀錄
@@ -164,12 +165,12 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                     data.Price = Price.ToString();    //myObject.Next(value, value * 10);
                     data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture);
                     data.IsOpen = true;
-
                     data.IsOfficial = true;
 
                 }
                 else
                 {
+                    data.IsOfficial = true;
                     data.IsOpen = false;
                 }
 
@@ -198,7 +199,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 //        data.IsOfficial = false;
                 //    }
                 //}
-                
+
 
 
 
@@ -211,9 +212,12 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 }
                 data.ImgPath = string.Format(ImgPath, NFT_Riders[i].serialNumber);
                 data.LinkURL = string.Format(LinkURL, asset_contract_address, NFT_Riders[i].castings[0].tokenId);
-                data.Rarity = Rarity;
+                data.RarityKey = Rarity;
+                data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
                 data.Elements = Elements;
-                data.Class = NFT_Riders[i].occupationId;
+                data.ElementsIcon = string.Format("/images/MarketPlace/Element-{0}.png", ElementsList.Where(m => m.Key == Elements).First().Value);
+                data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
+                data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
                 //data.Country = CountryList[CountryInt].ToString();
 
                 int value = myObject.Next(1, 1000);
@@ -224,14 +228,14 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             }
 
 
-            /*加入一隻 Coming Soon*/
-            NFTData data1 = new NFTData();
-            data1.Number ="0";
-            data1.Name = "Coming Soon";
-            data1.IsOpen = false;
-            data1.IsOfficial = true;
-            data1.ImgPath = data1.ImgPath==null ? "/images/MarketPlace/NFTproduct.png" : data1.ImgPath;
-            datas.Add(data1);
+            ///*加入一隻 Coming Soon*/
+            //NFTData data1 = new NFTData();
+            //data1.Number ="0";
+            //data1.Name = "Coming Soon";
+            //data1.IsOpen = false;
+            //data1.IsOfficial = true;
+            //data1.ImgPath = data1.ImgPath==null ? "/images/MarketPlace/NFTproduct.png" : data1.ImgPath;
+            //datas.Add(data1);
 
             datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
             return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
@@ -335,7 +339,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             //}
             //|| Country.Contains(m.Country)
 
-            Filter = datas.Where(m => Rarity.Contains(m.Rarity) && Elements.Contains(m.Elements) && Class.Contains(m.Class) ).ToList();
+            Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey) ).ToList();
 
             return PagedList<NFTData>.ToPagedList(Filter, PageNumber, PageSize);
         }

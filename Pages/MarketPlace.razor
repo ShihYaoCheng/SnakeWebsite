@@ -63,7 +63,7 @@
             
             <div class="Filter-Header-Block">
                 <button  hidden="@(true)" class="Filter-Button" id="Filter-Button-Reset">Reset</button>
-                <button  hidden="@(false)" class="Filter-heart btn p-0">
+                <button  hidden="@(true)" class="Filter-heart btn p-0">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                         <path class="heart__path"
                             d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
@@ -110,7 +110,7 @@
                 </section> *@
 
 
-                <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
                         <span>Price (ETH)</span>
                         <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.png" alt="">
@@ -301,144 +301,166 @@
         </section>
         <section class="marketPlaceCardBLock">
             
-            @* 1.沒有顯示價格的版本 - 官方首拍 紅色*@
-            <div class="NFTcard card-bg-red">
-                <div class="heart btn p-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                        <path class="heart__path"
-                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" />
-                    </svg>
-                </div>
 
-                @* <a href="Products/@item.serialNumber/@item.Number" > *@
-                @*<a href="@item.LinkURL" target="opensea">  </a>*@
-                
-                    <div class="NFTcard-inner">
-                        <div class="NFT-cardImg">
-                            <img src="/images/MarketPlace/NFTproduct.png" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
-                        </div>
-                    
-                        <div class="NFT-cardText Not-Price-Ver">
-                            <div class="NFT-card-header">
-                                <img  class="NFT-ElementsIcon" src="/images/MarketPlace/Element-water.png" alt="">
-                                <div class="NFT-Number">item.Number</div>
-                            </div>
-                            <div class="NFT-Name">item.Name</div>
-                            @* <div class="NFT-Income-Block">
-                                <div class="NFT-Income-Block-title">Total Income</div>
-                                <div class="NFT-Income-Main">
-                                    <div class="NFT-Income-Currency">
-                                        <span>SRC</span>
-                                        <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.png" alt="">
+            @if (NFTDataList != null) 
+            {
+                @foreach (NFTData item in NFTDataList)
+                {
+                    bool IsLove = @item.IsLove;
+                    string TokenID = @item.TokenID;
+
+                    if (@item.IsOfficial)
+                    {
+
+                        if (@item.IsOpen)
+                        {
+                            @* 1.沒有顯示價格的版本 - 官方首拍 紅色*@
+                            <div class="NFTcard card-bg-red">
+                                <div class="heart btn p-0  @(IsLove ? "heartClickRed" : "") "    @onclick="eventArgs => { HeartToggleButton(  TokenID ,IsLove, eventArgs); }" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005" >
+                                        <path class="heart__path"
+                            d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                            transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" />
+                                    </svg>
+                                    
+                                </div>
+
+                                @*<a href="Products/@item.serialNumber/@item.Number" >*@
+                                    @*<a href="@item.LinkURL" target="opensea">  </a>*@
+
+                                    <div class="NFTcard-inner">
+                                        <div class="NFT-cardImg">
+                                            <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                        </div>
+
+                                        <div class="NFT-cardText Not-Price-Ver">
+                                            <div class="NFT-card-header">
+                                                <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
+                                                <div class="NFT-Number">@item.Number</div>
+                                            </div>
+                                            <div class="NFT-Name">@item.Name</div>
+                                            
+                                            <div class="NFT-Income-Block">
+                                                <div class="NFT-Income-Block-title">Total Income</div>
+                                                <div class="NFT-Income-Main">
+                                                    <div class="NFT-Income-Currency">
+                                                        <span>SRC</span>
+                                                        <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.png" alt="">
+                                                    </div>
+                                                    <span class="NFT-Currency-Price">123,456,789</span>
+                                                </div>
+                                            </div>
+                                            <div class="NFT-Label-block">
+                                                <div class="NFT-Label">@item.RarityValue</div>
+                                                <div class="NFT-Label">@item.ClassValue</div>
+                                                <div class="NFT-Label">Survival master</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="NFT-Currency-Price">123,456,789</span>
-                                </div>
-                            </div> *@
+                               @* </a>*@
 
-                            <div class="NFT-Label-block">
-                                <div class="NFT-Label">Advnaced</div>
-                                <div class="NFT-Label">Protector</div>
-                                <div class="NFT-Label">Survival master</div>
                             </div>
-                        </div>
-                    </div>
-                @* </a> *@
-            
-            </div>
+                        }
+                        else
+                        {
 
 
-            @* 2. 沒有顯示價格的版本 - 其他玩家擁有 綠色*@
-            <div class="NFTcard card-bg-green">
-                <div class="heart btn p-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                        <path class="heart__path"
-                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" />
-                    </svg>
-                </div>
 
-                @* <a href="Products/@item.serialNumber/@item.Number" > *@
-                @*<a href="@item.LinkURL" target="opensea">  </a>*@
-                
-                    <div class="NFTcard-inner">
-                        <div class="NFT-cardImg">
-                            <img src="/images/MarketPlace/NFTproduct.png" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
-                        </div>
-                    
-                        <div class="NFT-cardText Not-Price-Ver">
-                            <div class="NFT-card-header">
-                                <img  class="NFT-ElementsIcon" src="/images/MarketPlace/Element-water.png" alt="">
-                                <div class="NFT-Number">item.Number</div>
+
+
+                            @* 3. 沒有顯示價格的版本 - 尚未開始拍賣 灰色 *@
+                            <div class="NFTcard card-bg-grey">
+                                <div class="heart btn p-0  @(IsLove ? "heartClickRed" : "") "    @onclick="eventArgs => { HeartToggleButton(  TokenID ,IsLove, eventArgs); }" >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                    <path class="heart__path"
+                            d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                            transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" />
+                                </svg>
                             </div>
-                            <div class="NFT-Name">item.Name</div>
-                            <div class="NFT-Income-Block">
-                                <div class="NFT-Income-Block-title">Total Income</div>
-                                <div class="NFT-Income-Main">
-                                    <div class="NFT-Income-Currency">
-                                        <span>SRC</span>
-                                        <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.png" alt="">
+                            <a href="Products/@item.serialNumber/@item.Number" >
+                                <div class="NFTcard-inner">
+
+                                    <div class="NFT-cardImg">
+                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
                                     </div>
-                                    <span class="NFT-Currency-Price">123,456,789</span>
+
+                                    <div class="NFT-cardText  Not-Price-Ver">
+                                        <div class="NFT-card-header">
+                                            <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
+                                            <div class="NFT-Number"> @item.Number</div>
+                                        </div>
+                                        <div class="NFT-Name">@item.Name</div>
+                                        <div class="NFT-PriceBlock">
+                                            <div class="NFT-PriceMain">
+
+                                                <span class="NFT-Price">ComingSoon</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                        }
+                    }
+                    else
+                    {
+
+
+
+                        @* 2. 沒有顯示價格的版本 - 其他玩家擁有 綠色*@
+                        <div class="NFTcard card-bg-green">
+                            <div class="heart btn p-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                <path class="heart__path"
+                            d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                            transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" />
+                            </svg>
+                        </div>
+
+                        <a href="Products/@item.serialNumber/@item.Number" >
+                        @*<a href="@item.LinkURL" target="opensea">  </a>*@
+
+                            <div class="NFTcard-inner">
+                                <div class="NFT-cardImg">
+                                    <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                </div>
+
+                                <div class="NFT-cardText Not-Price-Ver">
+                                    <div class="NFT-card-header">
+                                        <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
+                                        <div class="NFT-Number">@item.Number</div>
+                                    </div>
+                                    <div class="NFT-Name">@item.Name</div>
+                                    <div class="NFT-Income-Block">
+                                        <div class="NFT-Income-Block-title">Total Income</div>
+                                        <div class="NFT-Income-Main">
+                                            <div class="NFT-Income-Currency">
+                                                <span>SRC</span>
+                                                <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.png" alt="">
+                                            </div>
+                                            <span class="NFT-Currency-Price">123,456,789</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="NFT-Label-block">
+                                        <div class="NFT-Label">@item.RarityValue</div>
+                                        <div class="NFT-Label">@item.ClassValue</div>
+                                        <div class="NFT-Label">Survival master</div>
+                                    </div>
                                 </div>
                             </div>
+                        </a> 
 
-                            <div class="NFT-Label-block">
-                                <div class="NFT-Label">Advnaced</div>
-                                <div class="NFT-Label">Protector</div>
-                                <div class="NFT-Label">Survival master</div>
-                            </div>
                         </div>
-                    </div>
-                @* </a> *@
-            
-            </div>
-            
-            
-            @* 3. 沒有顯示價格的版本 - 尚未開始拍賣 灰色 *@
-            <div class="NFTcard card-bg-grey">
-                <div class="heart btn p-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                        <path class="heart__path"
-                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" />
-                    </svg>
-                </div>
+                    }
+                }
+            }
 
-                @* <a href="Products/@item.serialNumber/@item.Number" > *@
-                @*<a href="item.LinkURL" target="opensea"> </a>*@
-
-                    <div class="NFTcard-inner">
-                    
-                        <div class="NFT-cardImg">
-                            <img src="/images/MarketPlace/NFTproduct.png" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
-                        </div>
-
-                        <div class="NFT-cardText  Not-Price-Ver">
-                            <div class="NFT-card-header">
-                                <img  class="NFT-ElementsIcon" src="/images/MarketPlace/Element-water.png" alt="">
-                                <div class="NFT-Number">item.Number</div>
-                            </div>
-                            <div class="NFT-Name">item.Name</div>
-                            <div class="NFT-PriceBlock">
-                                <div class="NFT-PriceMain">
-                            
-                                    <span class="NFT-Price">ComingSoon</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                @* </a> *@
-            </div>
-
-
-           
-
-            @if(NFTDataList != null){
+            @if(NFTDataList != null && false ){
                 @foreach( NFTData item in NFTDataList)
                 {
 
@@ -845,10 +867,25 @@
 
     private async Task GetFilter()
     { 
-    
+
         PagedList<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;
     }
+
+
+
+    /// <summary>
+    /// 點擊我的最愛
+    /// </summary>
+    /// <param name="TokenId">TokenId</param>
+    /// <param name="isLove">isLove </param>
+    /// <param name="checkedValue"></param>
+    private void HeartToggleButton( string TokenId , bool isLove,  object checkedValue)
+    {
+        NFTDataList.Where(m => m.TokenID == TokenId).First().IsLove = !isLove;
+    }
+
+
 }
