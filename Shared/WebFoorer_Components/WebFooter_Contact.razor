@@ -78,7 +78,7 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if(firstRender){
-            footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/footerContact.js");
+            footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
             FeedbackJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/Feedback.js");
             await FeedbackJS.InvokeVoidAsync("Feedback", "Feedback");
         }
