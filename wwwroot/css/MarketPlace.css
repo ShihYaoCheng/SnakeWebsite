@@ -1203,7 +1203,7 @@ button.price-search-button{
     background: var(--green-2);
     /* background: none; */
     border-radius: 10px;
-    padding: 2px 5.5px 3px 5.5px;
+    padding: 3px 5.5px 3px 5.5px;
     margin: 0px 0 0px 20px;
     transition: all .05s ease-in;
     font-weight: 600;
@@ -1221,7 +1221,7 @@ button.price-search-button:hover {
 
 
 .search-icon{
-    width: 19px;
+    width: 25px;
     fill: var(--green-1);
     transition: all .05s ease-in;
 }
@@ -1358,12 +1358,13 @@ button.price-search-button:hover .search-icon{
     }
     .Not-Price-Ver .NFT-ElementsIcon {
         width: 20px;
+        margin: 5px 0 0 0
     }
     .Not-Price-Ver .NFT-card-header{
         margin: 0 5px;
     }
     .Not-Price-Ver .NFT-Number {
-        margin: 8px 0px 0px 5px;
+        margin: 5px 0px 0px 5px;
     }
     .Not-Price-Ver .NFT-Name{
         font-size: 20px;
