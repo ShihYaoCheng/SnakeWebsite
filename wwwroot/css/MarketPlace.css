@@ -413,17 +413,22 @@ input[type="radio"] {
     font-weight: bold;
     padding: 10px 18px;
 }
+.Filter-Web .Filter-Icon{
+    display: block;
+}
+#Filter-Icon-Web{
+    display: none;
+}
 
 @media all and (min-width: 1000px){
     #Filter-Icon-Web{
         width: 25px;
         margin: 0 10px 0 0;
+        display: block;
     }
-}
-
-.Filter-Icon{
 
 }
+
 .Filter-mobile-slide{
     /* border: 1px solid blue; */
     cursor: pointer;
@@ -463,6 +468,7 @@ input[type="radio"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 .Filter-Header-Block{
     display: flex;
