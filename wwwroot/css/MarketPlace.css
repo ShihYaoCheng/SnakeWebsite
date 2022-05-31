@@ -1358,13 +1358,13 @@ button.price-search-button:hover .search-icon{
     }
     .Not-Price-Ver .NFT-ElementsIcon {
         width: 20px;
-        margin: 8px 0 0 0
+        margin: 5px 0 0 0
     }
     .Not-Price-Ver .NFT-card-header{
         margin: 0 5px;
     }
     .Not-Price-Ver .NFT-Number {
-        margin: 8px 0px 0px 5px;
+        margin: 5px 0px 0px 5px;
     }
     .Not-Price-Ver .NFT-Name{
         font-size: 20px;
