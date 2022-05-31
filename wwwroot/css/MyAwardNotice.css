@@ -13,6 +13,9 @@
 }
 
 /* nav 當頁顯示 */
+#nav-myprofile > .nav-link {
+    background-color: unset;
+}
 #nav-MyAwardNotice > .nav-link {
     background-color: #aad4cd;
 }
