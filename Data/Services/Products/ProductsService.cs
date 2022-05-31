@@ -9,6 +9,27 @@ namespace SnakeAsianLeague.Data.Services.Products
 {
     public class ProductsService
     {
+
+
+        /* 
+        * src 抓取 資料庫 腳色
+        * 騎士清單 http://104.199.196.10/api/user/NFT/Units?test=0
+        * => 腳色明細 http://104.199.196.10/api/user/NFT/Unit?SerialNumber=NFT_Unit5_2b_1
+        * 個人腳色 http://104.199.196.10/api/user/Unit/Checklist?UserID=10143
+        * => selfUnits => 自己擁有的腳色(NFT+初始給的 
+        * => 腳色明細 http://104.199.196.10/api/user/NFT/Unit?SerialNumber=NFT_Unit5_2b_1
+        * 缺少腳色故事 技能說明 圖示 #endregion inventory
+        * 公開數值
+        * 配件部位 : 騎士 /  寵物 / 武器 / 蛇體 (並且不一定每個NFT皆有會有所有部分)，
+        * 腳色對照表 取得正確名稱 
+        * API https://docs.google.com/spreadsheets/d/1RUi-p6Ji5HwqoTGRzrdgWoUbjUymxeu9mG9wZr14rO8/edit#gid=261997991
+        * => 主動技能庫
+        * => 被動技能庫
+        * 
+        */
+
+
+
         private readonly static KeyValuePair<string, string> RequestKey = new KeyValuePair<string, string>("Backend-Auth-Handler", "gmregk343grgeggw[fk55234w46wfwef46gpwekf[43-i@@!#!@#@");
         private IConfiguration _config;
         private ExternalServers externalServersConfig;
@@ -36,168 +57,26 @@ namespace SnakeAsianLeague.Data.Services.Products
         public List<OptionKeyValue> CountryList = new List<OptionKeyValue>() { };
 
 
-        /* 
-        * src 抓取 資料庫 腳色
-        * 騎士清單 http://104.199.196.10/api/user/NFT/Units?test=0
-        * => 腳色明細 http://104.199.196.10/api/user/NFT/Unit?SerialNumber=NFT_Unit5_2b_1
-        * 個人腳色 http://104.199.196.10/api/user/Unit/Checklist?UserID=10143
-        * => selfUnits => 自己擁有的腳色(NFT+初始給的 
-        * => 腳色明細 http://104.199.196.10/api/user/NFT/Unit?SerialNumber=NFT_Unit5_2b_1
-        * 缺少腳色故事 技能說明 圖示 #endregion inventory
-        * 公開數值
-        * 配件部位 : 騎士 /  寵物 / 武器 / 蛇體 (並且不一定每個NFT皆有會有所有部分)，
-        * 腳色對照表 取得正確名稱 
-        * API https://docs.google.com/spreadsheets/d/1RUi-p6Ji5HwqoTGRzrdgWoUbjUymxeu9mG9wZr14rO8/edit#gid=261997991
-        * => 主動技能庫
-        * => 被動技能庫
-        * 
-        */
-
-
-
-
-        public class testa {
-            public List<leaseUnits> leaseUnits { get; set; }
-
-            public List<leaseUnits> selfUnits { get; set; }
-
-            public string fight { get; set; }
-        }
-
-        public class leaseUnits
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private string Authenticate()
         {
-            public string serialNumber { get; set; }
-
-            public string ppsr { get; set; }
-
-            public int Level { get; set; }
-
-            public int exp { get; set; }
-
-            public double rent { get; set; }
-
-            public string name { get; set; }
-
-            public string winningPercentage { get; set; }
-
-            public string appearancesCount { get; set; }
-
-            public string isLove { get; set; }
-
-            public string isNFT { get; set; }
+            string auth = "Unity:Yx2fy5tFfDHAfU7Az";
+            auth = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
+            auth = "Basic " + auth;
+            return auth;
         }
 
 
-        public class SerialNumber
-        {
-            public string serialNumber { get; set; }
-
-            public string name { get; set; }
-
-            public double size { get; set; }
-
-            public knight knight { get; set; }
-
-            public knight snake { get; set; }
-
-            public knight weapon { get; set; }
-
-            public knight pet { get; set; }
-
-        }
 
 
-        public class knight {
-            public string serialNumber { get; set; }
-            public string name { get; set; }
-
-            public int hp { get; set; }
-
-            public int atk { get; set; }
-
-            public int occupationID { get; set; }
-
-            public string skill { get; set; }
-        }
 
 
-        public class snake
-        {
-            public string serialNumber { get; set; }
-            public string name { get; set; }
 
-            public int hp { get; set; }
 
-            public int atk { get; set; }
 
-            public int agl { get; set; }
-
-            public int con { get; set; }
-
-            public double ms { get; set; }
-
-            public string skill { get; set; }
-        }
-
-        public class weapon
-        {
-            public string serialNumber { get; set; }
-            public string name { get; set; }
-
-            public double autoATKRange { get; set; }
-
-            public double atkRange { get; set; }
-
-            public double @as { get; set; }
-
-            public string attrEffect { get; set; }
-
-            public string attrEffectValue { get; set; }
-
-            public string skill { get; set; }
-        }
-
-        public class Pet
-        {
-            public string serialNumber { get; set; }
-            public string name { get; set; }
-            //"hp": 0,
-            //"atk": 0,
-            //"agl": 0,
-            //"as": 0,
-            //"ms": 0,
-            //"con": 0,
-            //"crit": 0,
-            public string attrEffect { get; set; }
-            //"attrEffectValue": 0,
-            public string skill { get; set; }
-        }
-
-        public class Knights
-        {
-            public int playerKnightID { get; set; }
-            public int level { get; set; }
-
-            public int skill1 { get; set; }
-
-            public int skill2 { get; set; }
-
-            public int autoAtk { get; set; }
-
-            public int isOwned { get; set; }
-
-            public int petKey { get; set; }
-
-            public int skinList { get; set; }
-
-            public int skinID { get; set; }
-
-            public int weaponSkinList { get; set; }
-
-            public int weaponSkinID { get; set; }
-
-            public int knightID { get; set; }
-        }
 
 
 
@@ -215,12 +94,11 @@ namespace SnakeAsianLeague.Data.Services.Products
         }
 
         /// <summary>
-        /// 
+        /// 取得目前NFT資料
         /// </summary>
         /// <returns></returns>
         public async Task<RiderIntroduce> Get_RiderIntroduce()
         {
-
             return Rider;
         }
 
@@ -235,13 +113,14 @@ namespace SnakeAsianLeague.Data.Services.Products
         /// </summary>
         /// <param name="SerialNumber"></param>
         /// <returns></returns>
-        public async Task<RiderIntroduce> GetNFT_Unit_SerialNumber(string SerialNumber)
+        public async Task<RiderIntroduce> GetNFT_Unit_SerialNumber(string SerialNumber ,string TokenID)
         {
 
+            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
             string ImgPath = _config.GetValue<string>("googleapis");
             try
             {
-                SerialNumber result = new SerialNumber();
+                NFTRiderUnit result = new NFTRiderUnit();
                 RestRequest request = new RestRequest($"NFT/Unit?SerialNumber={SerialNumber}");
                 request.AddHeader("Authorization", Authenticate());
 
@@ -249,9 +128,28 @@ namespace SnakeAsianLeague.Data.Services.Products
 
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
-                    result = JsonSerializer.Deserialize<SerialNumber>(restResponse.Content) ?? new SerialNumber();
+                    result = JsonSerializer.Deserialize<NFTRiderUnit>(restResponse.Content) ?? new NFTRiderUnit();
+
+
+
+                    if (result.castings != null)
+                    {
+                        /*Owned*/
+                        Rider.Owned = result.castings[0].owner;
+                        /*Income*/
+                        Rider.Income = new NowRentAndTotalRevenue();
+                        Rider.Income = await Get_NowRentAndTotalRevenue(TokenID);
+                    }
+                    else
+                    {
+                        /*Owned*/
+                        Rider.Owned = asset_contract_address;
+                        /*Income*/
+                        Rider.Income = new NowRentAndTotalRevenue();
+                    }
 
                     /*ImgPath*/
+                    Rider.Name = SerialNumber;
                     Rider.ImgPath = string.Format(ImgPath, result.serialNumber);
                     /*Attrbutes*/
                     Rider.Attrbutes = new Attrbutes();
@@ -262,12 +160,25 @@ namespace SnakeAsianLeague.Data.Services.Products
                         Rider.Attrbutes.Element = ElementsList.Where(m => m.Key == RarityElements[2].Substring(1, 1)).First().Value;
                         Rider.Attrbutes.ElementImgPath = string.Format("/images/Products/Element-{0}.png", Rider.Attrbutes.Element);
                     }
-                    Rider.Attrbutes.CharacterClass = ClassList.Where(m => m.Key == result.knight.occupationID.ToString()).First().Value;
+
+                    if (result.knight != null)
+                    {
+                        Rider.Attrbutes.CharacterClass = ClassList.Where(m => m.Key == result.knight.occupationID.ToString()).First().Value;
+                    }
                     Rider.Attrbutes.BodyType = result.size;
                     /*Stats*/
+
+                    List<OptionNameValue> BattleData = await Get_BattleData();
+
                     Rider.Stats = new Stats();
-                    Rider.Stats.HP = result.knight.hp;
-                    Rider.Stats.Attack = result.knight.atk;
+                    Rider.Stats.HP = Cal_HP(result);
+                    Rider.Stats.Attack = Cal_Attack(result);
+                    Rider.Stats.Dexterity = Cal_Dexterity(result);
+                    Rider.Stats.MovingSpeed = Cal_MovingSpeed(result);
+                    Rider.Stats.AttackingSpeed = Cal_AttackingSpeed(result , BattleData);
+                    Rider.Stats.Stamina = Cal_Stamina(result);
+                    Rider.Stats.CriticalChance = Cal_CriticalChance(result , BattleData);
+                    Rider.Stats.ElementEffect = Cal_ElementEffect(result);
                     /*Avatars*/
                     Rider.Avatars = new Avatars();
                     Rider.Avatars.Ridder = result.knight == null ? "" : result.knight.name;
@@ -289,6 +200,61 @@ namespace SnakeAsianLeague.Data.Services.Products
         }
 
 
+
+        /// <summary>
+        /// 抓取
+        /// </summary>
+        /// <param name="PPSR"></param>
+        /// <returns></returns>
+        public async Task<NowRentAndTotalRevenue> Get_NowRentAndTotalRevenue(string PPSR)
+        {
+            NowRentAndTotalRevenue result = new NowRentAndTotalRevenue();
+            try
+            {
+                RestRequest request = new RestRequest($"NFT/NowRentAndTotalRevenue?PPSR={PPSR}");
+                request.AddHeader("Authorization", Authenticate());
+
+                IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
+
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = JsonSerializer.Deserialize<NowRentAndTotalRevenue>(restResponse.Content) ?? new NowRentAndTotalRevenue();
+                }
+            }
+            catch (Exception)
+            {
+                result = new NowRentAndTotalRevenue();
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 取得戰場特殊參數
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<OptionNameValue>> Get_BattleData()
+        {
+            List<OptionNameValue> result = new List<OptionNameValue>();
+            try
+            {
+                RestRequest request = new RestRequest($"User/Fight/BattleData");
+                request.AddHeader("Authorization", Authenticate());
+
+                IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
+
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = JsonSerializer.Deserialize<List<OptionNameValue>>(restResponse.Content) ?? new List<OptionNameValue>();
+                }
+            }
+            catch (Exception)
+            {
+                result = new List<OptionNameValue>();
+            }
+            return result;
+        }
+        
 
 
 
@@ -322,26 +288,146 @@ namespace SnakeAsianLeague.Data.Services.Products
             return result;
         }
 
+
+
+
+
         /// <summary>
-        /// 
+        /// 總生命 HP = Unit_Knight(G) + Unit_Snake(G) + Unit_Pet(F)
         /// </summary>
         /// <returns></returns>
-        private string Authenticate()
+        private double Cal_HP(NFTRiderUnit Data)
         {
-            string auth = "Unity:Yx2fy5tFfDHAfU7Az";
-            auth = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
-            auth = "Basic " + auth;
-            return auth;
-        }
-
-
-
-        public string getresult ()
-        { 
-            string result = "";
-
-
+            double Knight = Data.knight == null ? 0 : Data.knight.hp;
+            double Snake = Data.snake == null ? 0 : Data.snake.hp;
+            double Pet = Data.pet == null ? 0 : Data.pet.hp;
+            double result = Knight + Snake + Pet;
             return result;
         }
+
+
+        /// <summary>
+        /// 總攻擊力 Attack  = Unit_Knight(H) + Unit_Snake(H) + Unit_Pet(G)
+        /// </summary>
+        /// <returns></returns>
+        private double Cal_Attack(NFTRiderUnit Data)
+        {
+            double Knight = Data.knight == null ? 0 : Data.knight.atk;
+            double Snake = Data.snake == null ? 0 : Data.snake.atk;
+            double Pet = Data.pet == null ? 0 : Data.pet.atk;
+            double result = Knight + Snake + Pet;
+            return result;
+        }
+
+        /// <summary>
+        /// 總靈活 Dexterity  = Unit_Snake(I) + Unit_Pet(I)
+        /// </summary>
+        /// <returns></returns>
+        private double Cal_Dexterity(NFTRiderUnit Data)
+        {
+            double Snake = Data.snake == null ? 0 : Data.snake.agl;
+            double Pet = Data.pet == null ? 0 : Data.pet.agl;
+            double result = Snake + Pet;
+            return result;
+        }
+
+        /// <summary>
+        /// 總移動速度 Moving Speed  = Unit_Snake(K) + Unit_Pet(J)
+        /// </summary>
+        /// <returns></returns>
+        private double Cal_MovingSpeed(NFTRiderUnit Data)
+        {
+            double Snake = Data.snake == null ? 0 : Data.snake.ms;
+            double Pet = Data.pet == null ? 0 : Data.pet.ms;
+            double result =  Snake + Pet;
+            return result;
+        }
+
+        /// <summary>
+        /// 總攻擊速度 Attacking Speed  = Unit_Weapon(I) + Unit_Pet(I)
+        /// Attacking Speed(以百分比顯示)= (BattleData(C3)/(BattleData(C3)-(Unit_Weapon(I)+ Unit_Pet(I))*0.01)
+        /// </summary>
+        /// <returns></returns>
+        private string Cal_AttackingSpeed(NFTRiderUnit Data , List<OptionNameValue> BattleData)
+        {
+            double Wapon = Data.weapon == null ? 0 : Data.weapon.@as;
+            double Pet = Data.pet == null ? 0 : Data.pet.@as;
+            double BattleDataAttackSpeed = BattleData.Where(m => m.name == "AttackSpeed").First().value;
+            var molecular = (Wapon + Pet) * 0.01;
+            var denominator = BattleDataAttackSpeed - (Wapon + Pet) * 0.01;
+
+            string result = string.Format(" {0} %", BattleDataAttackSpeed  / denominator * 100 );  //Wapon + Pet;
+            return result;
+        }
+
+        /// <summary>
+        /// 總體力 Stamina = Unit_Snake(J) + Unit_Pet(K)
+        /// </summary>
+        /// <returns></returns>
+        private double Cal_Stamina(NFTRiderUnit Data)
+        {
+            double Snake = Data.snake == null ? 0 : Data.snake.con;
+            double Pet = Data.pet == null ? 0 : Data.pet.con;
+            double result = Snake + Pet;
+            return result;
+        }
+
+        /// <summary>
+        /// 總爆擊率 Critical Chance  = BattleData(C2) + Unit_Pet(L) (*%之後以百分比顯示)
+        /// </summary>
+        /// <returns></returns>
+        private string Cal_CriticalChance(NFTRiderUnit Data, List<OptionNameValue> BattleData)
+        {
+            double Pet = Data.pet == null ? 0 : Data.pet.crit;
+
+            double BattleDataCritical = BattleData.Where(m => m.name == "Critical").First().value;
+            string result = string.Format(" {0} %", BattleDataCritical + Pet);
+            return result;
+        }
+
+        /// <summary>
+        /// 總屬性特效    Element Effect  = Unit_Weapon(K)+Unit_Pet(N) (*%之後以百分比顯示)
+        /// </summary>
+        /// <returns></returns>
+        private string Cal_ElementEffect(NFTRiderUnit Data)
+        {
+            double Wapon = Data.weapon == null ? 0 : Data.weapon.attrEffectValue;
+            double Pet = Data.pet == null ? 0 : Data.pet.attrEffectValue;
+            string result = string.Format(" {0} %", Wapon + Pet);
+            return result;
+        }
+
+
+
+
+
+        //public class Knights
+        //{
+        //    public int playerKnightID { get; set; }
+        //    public int level { get; set; }
+
+        //    public int skill1 { get; set; }
+
+        //    public int skill2 { get; set; }
+
+        //    public int autoAtk { get; set; }
+
+        //    public int isOwned { get; set; }
+
+        //    public int petKey { get; set; }
+
+        //    public int skinList { get; set; }
+
+        //    public int skinID { get; set; }
+
+        //    public int weaponSkinList { get; set; }
+
+        //    public int weaponSkinID { get; set; }
+
+        //    public int knightID { get; set; }
+        //}
+
+
+
     }
 }

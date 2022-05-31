@@ -3,7 +3,9 @@
 @using SnakeAsianLeague.Data.Paging
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Personal
+@using Microsoft.AspNetCore.Components.Authorization
 
+@inject AuthenticationStateProvider AuthenticationStateProvider
 @inject InventoryService InventoryService
 @inject IJSRuntime JS
 @inject AppState AppState
@@ -495,11 +497,16 @@
 
     private async Task Refresh()
     {   
+
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var LoginUser = authState.User;
+        string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
+
         RarityList = await InventoryService.Get_Default_Rarity();
         ElementsList = await InventoryService.Get_Default_Elements();
         ClassList = await InventoryService.Get_Default_Class();
         CountryList = await InventoryService.Get_Default_Country();
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(AppState.LoginStatus.userID.ToString(), 1,10);
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID, 1,10);
         NFTDataList = pagelist;
 
         MetaData =  pagelist.MetaData;
@@ -554,7 +561,11 @@
 
     private async Task GetRiderNFTDataPageList(int page)
     {
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(AppState.LoginStatus.userID.ToString() , page,10);
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var LoginUser = authState.User;
+        string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
+
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID , page,10);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;

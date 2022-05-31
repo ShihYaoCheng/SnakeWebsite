@@ -201,9 +201,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 //}
 
 
-
-
-
                 List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
                 if (RarityElements[2] != null)
                 {

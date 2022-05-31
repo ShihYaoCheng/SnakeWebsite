@@ -138,4 +138,28 @@
     }
 
 
+    public class OptionNameValue
+    {
+        public OptionNameValue()
+        {
+
+        }
+
+        public OptionNameValue(string Name, int Value)
+        {
+            this.name = Name;
+            this.value = Value;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string name { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public double value { get; set; }
+      
+    }
 }
