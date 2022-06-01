@@ -106,7 +106,9 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
                 NFTData data = new NFTData();
-                data.Number = NFT_Riders[i].ppsr.Replace("#", "");
+
+                data.TokenID = NFT_Riders[i].ppsr.Replace("#", "");
+                data.Number = NFT_Riders[i].ppsr.Replace("#", "PPSR ");
                 data.Name = NFT_Riders[i].serialNumber;
                 data.serialNumber = NFT_Riders[i].serialNumber;
                 //可能沒有拍賣紀錄
@@ -138,7 +140,9 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 }
                 else
                 {
-                    data.IsOpen = false;
+                    data.IsOpen = true;
+
+                    data.IsOfficial = true;
                 }
 
                 List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
@@ -149,10 +153,16 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 }
                 data.ImgPath = string.Format(ImgPath, NFT_Riders[i].serialNumber);
                 data.LinkURL = string.Format(LinkURL, asset_contract_address, data.Number);
-                data.RarityKey = Rarity;
-                data.Elements = Elements;
+                //data.RarityKey = Rarity;
+                //data.Elements = Elements;
                 //data.Class = NFT_Riders.selfUnits[i].occupationId;
                 //data.Country = CountryList[CountryInt].ToString();
+                data.RarityKey = Rarity;
+                data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
+                data.Elements = Elements;
+                data.ElementsIcon = string.Format("/images/MarketPlace/Element-{0}.png", ElementsList.Where(m => m.Key == Elements).First().Value);
+                //data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
+                //data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
 
                 int value = myObject.Next(1, 1000);
                 data.EndTime = DateTime.Now.AddDays(value);
@@ -283,10 +293,10 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 RiderList lists = JsonSerializer.Deserialize<RiderList>(restResponse.Content) ?? new RiderList();
                 
                 //自有
-                //List<RiderUnit>  result  = lists.selfUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
+                List<RiderUnit>  result  = lists.selfUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
 
                 //租任
-                List<RiderUnit> result = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
+                //List<RiderUnit> result = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
                 return result;
             }
             return new List<RiderUnit>();

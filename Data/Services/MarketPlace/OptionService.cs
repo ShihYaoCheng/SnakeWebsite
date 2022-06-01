@@ -1,4 +1,5 @@
 ﻿using AngleSharp;
+
 using HtmlAgilityPack;
 using Microsoft.Extensions.Options;
 using RestSharp;
@@ -18,13 +19,14 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
     {
         private readonly static KeyValuePair<string, string> RequestKey = new KeyValuePair<string, string>("Backend-Auth-Handler", "gmregk343grgeggw[fk55234w46wfwef46gpwekf[43-i@@!#!@#@");
         private IConfiguration _config;
+
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
-
-
-
-
         
+
+
+
+
         public List<OptionKeyValue> RarityList = new List<OptionKeyValue>() { };
         public List<OptionKeyValue> ElementsList = new List<OptionKeyValue>() { };
         public List<OptionKeyValue> ClassList = new List<OptionKeyValue>() { };
@@ -32,10 +34,14 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
-        public OptionService(IConfiguration config ,IOptions<ExternalServers> myConfiguration,HttpClient httpClient)
+        public OptionService(IConfiguration config, IOptions<ExternalServers> myConfiguration,HttpClient httpClient )
         {
             _config = config;
+            
+
+            
             externalServersConfig = myConfiguration.Value;
+            
             ServerClient = new RestClient(externalServersConfig.UserServer);
 
             OptionKeyValue option = new OptionKeyValue();

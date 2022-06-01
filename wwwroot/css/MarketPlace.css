@@ -365,7 +365,7 @@ input[type="radio"] {
         display: block;
     }
     .marketPlaceSidebar{
-        margin-top: 118px;
+        margin-top: 117px;
         display: none;
     }
 }
@@ -374,7 +374,7 @@ input[type="radio"] {
         margin-top: 57px;
     }
     .marketPlaceSidebar{
-        margin-top: 106px;
+        margin-top: 100px;
         height: calc(100vh - 57px);
     }
 }
@@ -382,10 +382,14 @@ input[type="radio"] {
 
 .marketPlaceSidebar-scroll{
     overflow-y: auto;
-    height: 100%;
-    padding-bottom: 50px;
+
+    height: calc(100vh - 190px);
+
     
     display: block;
+}
+.Inventory-PPSR-Filter-Sidebar .marketPlaceSidebar-scroll{
+    height: 100%;
 }
 /* 改scrollbar樣式 */
 .marketPlaceSidebar-scroll::-webkit-scrollbar {

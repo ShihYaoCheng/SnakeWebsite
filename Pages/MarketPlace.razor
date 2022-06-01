@@ -302,6 +302,8 @@
         <section class="marketPlaceCardBLock">
             
 
+       
+
             @if (NFTDataList != null) 
             {
                 @foreach (NFTData item in NFTDataList)
@@ -337,19 +339,21 @@
                                         <div class="NFT-cardText Not-Price-Ver">
                                             <div class="NFT-card-header">
                                                 <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
-                                                <div class="NFT-Number">@item.Number</div>
+                                                <div class="NFT-Number"  >@item.Number</div>
                                             </div>
-                                            <div class="NFT-Name">@item.Name</div>
+                                            <div class="NFT-Name">
+                                               
+                                                @item.serialNumber</div>
                                             
                                             <div class="NFT-Income-Block">
-                                                <div class="NFT-Income-Block-title">Total Income</div>
+                                                 @*<div class="NFT-Income-Block-title">Total Income</div>
                                                 <div class="NFT-Income-Main">
-                                                    <div class="NFT-Income-Currency">
+                                                   <div class="NFT-Income-Currency">
                                                         <span>SRC</span>
                                                         <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.png" alt="">
                                                     </div>
                                                     <span class="NFT-Currency-Price">123,456,789</span>
-                                                </div>
+                                                </div>*@
                                             </div>
                                             <div class="NFT-Label-block">
                                                 <div class="NFT-Label">@item.RarityValue</div>
@@ -391,7 +395,7 @@
                                             <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
                                             <div class="NFT-Number"> @item.Number</div>
                                         </div>
-                                        <div class="NFT-Name">@item.Name</div>
+                                        <div class="NFT-Name" data-i18n=@item.serialNumber>@item.serialNumber</div>
                                         <div class="NFT-PriceBlock">
                                             <div class="NFT-PriceMain">
 
@@ -434,16 +438,16 @@
                                         <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
                                         <div class="NFT-Number">@item.Number</div>
                                     </div>
-                                    <div class="NFT-Name">@item.Name</div>
+                                    <div class="NFT-Name" data-i18n=@item.serialNumber>@item.serialNumber</div>
                                     <div class="NFT-Income-Block">
-                                        <div class="NFT-Income-Block-title">Total Income</div>
+                                       @* <div class="NFT-Income-Block-title">Total Income</div>
                                         <div class="NFT-Income-Main">
                                             <div class="NFT-Income-Currency">
                                                 <span>SRC</span>
                                                 <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.png" alt="">
                                             </div>
                                             <span class="NFT-Currency-Price">123,456,789</span>
-                                        </div>
+                                        </div>*@
                                     </div>
 
                                     <div class="NFT-Label-block">
@@ -490,7 +494,7 @@
                                         
                                         <div class="NFT-cardText">
                                             <div class="NFT-Number"> #PPSR @item.Number</div>
-                                            <div class="NFT-Name">@item.Name</div>
+                                            <div class="NFT-Name" data-i18n=@item.serialNumber>@item.serialNumber</div>
                                             <div class="NFT-PriceBlock">
                                                 <div class="NFT-PriceMain" >
                                                     <div class="NFT-PriceIcon-Border" title="ETH ON POLYGON" data-content="ETH ON POLYGON">
@@ -531,7 +535,7 @@
 
                                         <div class="NFT-cardText">
                                             <div class="NFT-Number">#PPSR @item.Number</div>
-                                            <div class="NFT-Name">@item.Name</div>
+                                            <div class="NFT-Name" data-i18n=@item.serialNumber>@item.serialNumber</div>
                                             <div class="NFT-PriceBlock">
                                                 <div class="NFT-PriceMain">
                                             
@@ -572,7 +576,7 @@
                                     
                                         <div class="NFT-cardText">
                                             <div class="NFT-Number"> #PPSR @item.Number</div>
-                                            <div class="NFT-Name">@item.Name</div>
+                                            <div class="NFT-Name" data-i18n=@item.serialNumber>@item.serialNumber</div>
                                             <div class="NFT-PriceBlock">
                                                 <div class="NFT-PriceMain" >
                                                     <div class="NFT-PriceIcon-Border" title="ETH ON POLYGON" data-content="ETH ON POLYGON">
@@ -613,7 +617,7 @@
                                         <div class="NFT-cardText">
 
                                             <div class="NFT-Number">#PPSR @item.Number</div>
-                                            <div class="NFT-Name">@item.Name</div>
+                                            <div class="NFT-Name" data-i18n=@item.serialNumber>@item.serialNumber</div>
                                             <div class="NFT-PriceBlock">
                                                 <div class="NFT-PriceMain">
                                                     @* <div class="NFT-PriceIcon-Border">
@@ -698,6 +702,9 @@
 
     private async Task Refresh()
     {
+
+        
+
         RarityList = await OptionService.Get_Default_Rarity();
         ElementsList = await OptionService.Get_Default_Elements();
         ClassList = await OptionService.Get_Default_Class();
@@ -725,6 +732,11 @@
             await JS.InvokeVoidAsync("FilterButtonClick");
             await JS.InvokeVoidAsync("FilterArrowSlideClick");
             await JS.InvokeVoidAsync("TippyInit");
+
+            ///
+            ///await JS.InvokeVoidAsync("installI18nRider");
+
+            
         }
 
     }
