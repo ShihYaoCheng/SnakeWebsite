@@ -7,6 +7,14 @@
 <head>
     <link href="css/ACLIndex/S3/ACLIndexS3.css" rel="stylesheet" />
     <title>PonPonSnake 碰碰蛇｜Asian Champions League S3 亞洲聯賽第三季</title>
+        <!-- OwlCarouse -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 
@@ -21,8 +29,9 @@
 
             <ACLIndexS3_NavBar />     
  
-         </div>
-        <div class="content">
+         </div>      
+    </div>
+     <div class="content">
              @*Event-Info*@
             <ACLIndexS3_EventInfo />
 
@@ -32,15 +41,16 @@
             @*Reward*@
             <ACLIndexS3_Reward/>
 
-            <div id="Ranking" class="Ranking">              
-                <div class="Ranking-banner">
-                    <div class="Ranking-banner-bg"></div>
-                </div>
-            </div>
-        </div>
+            @*Ranking*@
+            <ACLIndexS3_Ranking/>
 
-    
-    </div>
+            @*Schedule*@
+            <ACLIndexS3_Schedule/>
+
+            @*Notice*@
+            <ACLIndexS3_Notice/>
+        </div>
+        <ACLIndexS3_Footer/>
 
 </div>
 
@@ -48,16 +58,19 @@
 
 
 @code {
-    private IJSObjectReference? AnimateJS;
+
+    private IJSObjectReference? TypewriterJS;   
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
-            await AnimateJS.InvokeVoidAsync("Animate");
-            await JS.InvokeVoidAsync("selectChangeLocation");
-            await JS.InvokeVoidAsync("installI18n");
+        //先不動模組化
+            await JS.InvokeVoidAsync("ACLS3RulesCarousel");
+            TypewriterJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/Typewriter.js");
+            await TypewriterJS.InvokeVoidAsync("TypeWriter");
         }
     }
+
 
 }

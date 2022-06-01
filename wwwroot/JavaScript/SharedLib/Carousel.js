@@ -9,6 +9,57 @@ window.Carousel = function (Carousel) {
     console.log('Carousel init1');
 }
 
+window.ACLS3RulesCarousel = function (Carousel) {
+    $(".ACLS3RulesCarousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        //mouseDrag: false,
+        responsive: {
+            0: {
+                items: 1
+            }      
+        }
+        
+    });
+    var owl = $('.owl-carousel');
+    owl.owlCarousel();
+ 
+  
+    owl.on('dragged.owl.carousel', function (event) {
+        Typewriter()
+    })
+    function Typewriter() {
+        var Typewriter = document.querySelectorAll(".Typewriter")
+        var TimeSave = []
+
+        for (var i = 0; i < 10000; i++) {
+            clearTimeout(i)
+        }
+        Typewriter.forEach((e) => {
+            for (let i in e.children) {
+                if (typeof (e.children[i]) != "object") break
+                e.children[i].style.display = "none";
+                e.children[i].classList.remove("Typewriter-1Ani")
+
+            }
+        })
+        Typewriter.forEach((e) => {
+            for (let i in e.children) {
+                if (typeof (e.children[i]) != "object") break
+                test(e.children[i], i)
+            }
+        })
+        function test(e, index) {
+            TimeSave.push(setTimeout(() => {
+                e.style.display = "block";
+                e.classList.add("Typewriter-1Ani")
+            }, 800 * index))
+        }
+
+    }
+   
+}
+
 window.GameFiCarousel = function () {
     console.log('GameFiCarousel init22', Swiper);
     new Swiper('.GameFi-Carousel-Block', {
