@@ -16,6 +16,8 @@ namespace SnakeAsianLeague.Data.Entity.SnakeServer
 
         public bool ban { get; set; }
 
+        public string phoneID { get; set; }
+
     }
 
 
