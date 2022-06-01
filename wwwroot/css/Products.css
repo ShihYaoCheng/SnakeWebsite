@@ -526,7 +526,7 @@
 
 @media all and (max-width: 1200px){
     .products-summary{
-        width: 40%;
+        width: 70%;
     }
     .products-title{
         font-size: 30px;
@@ -576,7 +576,7 @@
     }
     .products-summary {
         width: 100%;
-        margin: 0 auto 40px;
+        margin: 0;
     }
     .products-main{
         width: 100%;
