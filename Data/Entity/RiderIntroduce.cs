@@ -10,9 +10,9 @@
         public string TokenID { get; set; }
         public string serialNumber { get; set; }
         public string Name { get; set; }
-        public string WalletAddress { get; set; }
+        public string Owned { get; set; }
 
-        public string Income { get; set; }
+        public NowRentAndTotalRevenue Income { get; set; }
 
         public string ImgPath { get; set; }
 
@@ -25,6 +25,10 @@
 
         public List<Skill> Skills { get; set; }
     }
+
+
+
+
 
 
     public class Attrbutes
@@ -72,24 +76,35 @@
 
         public double MovingSpeed { get; set; }
 
-        public double AttackingSpeed { get; set; }
+        public string AttackingSpeed { get; set; }
 
         public double Stamina { get; set; }
 
-        public double CriticalChance { get; set; }
+        public string CriticalChance { get; set; }
 
-        public double ElementEffect { get; set; }
+        public string ElementEffect { get; set; }
     }
 
     public class Avatars
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string Ridder { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string Pet { get; set; }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string Weapon { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string Snake { get; set; }
     }
 
@@ -106,6 +121,21 @@
         public string SkillsIcon { get; set; }
 
 
+    }
+
+    /// <summary>
+    /// 收益
+    /// </summary>
+    public class NowRentAndTotalRevenue
+    { 
+        /// <summary>
+        /// 現在租金
+        /// </summary>
+        public double nowRent { get; set; }
+        /// <summary>
+        /// 累計收益
+        /// </summary>
+        public double totalRevenue { get; set;   }
     }
 }
 

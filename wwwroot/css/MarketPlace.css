@@ -413,17 +413,22 @@ input[type="radio"] {
     font-weight: bold;
     padding: 10px 18px;
 }
+.Filter-Web .Filter-Icon{
+    display: block;
+}
+#Filter-Icon-Web{
+    display: none;
+}
 
 @media all and (min-width: 1000px){
     #Filter-Icon-Web{
         width: 25px;
         margin: 0 10px 0 0;
+        display: block;
     }
-}
-
-.Filter-Icon{
 
 }
+
 .Filter-mobile-slide{
     /* border: 1px solid blue; */
     cursor: pointer;
@@ -463,6 +468,7 @@ input[type="radio"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 .Filter-Header-Block{
     display: flex;
@@ -1203,7 +1209,7 @@ button.price-search-button{
     background: var(--green-2);
     /* background: none; */
     border-radius: 10px;
-    padding: 2px 5.5px 3px 5.5px;
+    padding: 3px 5.5px 3px 5.5px;
     margin: 0px 0 0px 20px;
     transition: all .05s ease-in;
     font-weight: 600;
@@ -1221,7 +1227,7 @@ button.price-search-button:hover {
 
 
 .search-icon{
-    width: 19px;
+    width: 25px;
     fill: var(--green-1);
     transition: all .05s ease-in;
 }
@@ -1358,12 +1364,13 @@ button.price-search-button:hover .search-icon{
     }
     .Not-Price-Ver .NFT-ElementsIcon {
         width: 20px;
+        margin: 5px 0 0 0
     }
     .Not-Price-Ver .NFT-card-header{
         margin: 0 5px;
     }
     .Not-Price-Ver .NFT-Number {
-        margin: 8px 0px 0px 5px;
+        margin: 5px 0px 0px 5px;
     }
     .Not-Price-Ver .NFT-Name{
         font-size: 20px;

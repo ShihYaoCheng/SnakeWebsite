@@ -1,5 +1,8 @@
 ﻿namespace SnakeAsianLeague.Data.Entity
 {
+    /// <summary>
+    /// api /NFT/Units  取得所有角色列表 
+    /// </summary>
     public class NFTRiderUnits
     {
         /// <summary>
@@ -10,8 +13,6 @@
         /// 
         /// </summary>
         public string serialNumber { get; set; }
-
-       
 
         /// <summary>
         /// 職業代碼
@@ -42,10 +43,10 @@
         /// </summary>
         public string pet { get; set; }
 
-        public List<castings> castings { get; set; }
+        public List<RiderUnits_Castings> castings { get; set; }
     }
 
-    public class castings
+    public class RiderUnits_Castings
     {
         /// <summary>
         /// 
@@ -62,5 +63,8 @@
         /// 合約編號
         /// </summary>
         public string contractAddress { get; set; }
+
+
+        
     }
 }

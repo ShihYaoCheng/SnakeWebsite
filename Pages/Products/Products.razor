@@ -71,7 +71,7 @@
 
     private async Task Refresh()
     {
-       Ridder =await ProductsService.GetNFT_Unit_SerialNumber(SerialNumber);
+       Ridder =await ProductsService.GetNFT_Unit_SerialNumber(SerialNumber ,TokenID );
         StateHasChanged();
     }
 

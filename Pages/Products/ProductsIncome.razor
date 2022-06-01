@@ -1,42 +1,70 @@
-<section class="products-section" id="products-Income">
-    <div class="products-block">
-        <div class="products-block-title">Income</div>
-        <div class="products-block-02"  id="products-block-02-Income">
-            <div class="products-block-title-02">Total Income</div>
-            <div class="products-block-price" id="">
 
-                <div class="products-block-price-currency">
-                    <p class="products-currency-title">SRC</p>
-                    <img class="products-currency-icon products-currency-SRC" id="" src="/images/Products/SRC.png"
-                        alt="">
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services.Products
+@inject ProductsService ProductsService;
+
+@if (Ridder.Income != null)
+{
+    <section class="products-section" id="products-Income">
+        <div class="products-block">
+            <div class="products-block-title">Income</div>
+            <div class="products-block-02"  id="products-block-02-Income">
+                <div class="products-block-title-02">Total Income</div>
+                <div class="products-block-price" id="">
+
+                    <div class="products-block-price-currency">
+                        <p class="products-currency-title">SRC</p>
+                        <img class="products-currency-icon products-currency-SRC" id="" src="/images/Products/SRC.png"
+                            alt="">
+                    </div>
+                    <div class="products-TopBid-price">@Ridder.Income.totalRevenue</div>
                 </div>
-                <div class="products-TopBid-price">123,456,789</div>
-            </div>
-            <div class="products-TopBid-price-higher">Higher than 70%(後端串) PPSR</div>
-            @* 該NFT出租累積所有金額，首拍時 直接顯示 on debut (未有收入)
-                與所有NFT相比其收入的排名百分比全部NFT為100隻，其收入為前20名顯示 Higher than 80% PPRS若是百分比低於50%則不顯示*@
+                <div class="products-TopBid-price-higher">Higher than 70%(後端串) PPSR</div>
+                @* 該NFT出租累積所有金額，首拍時 直接顯示 on debut (未有收入)
+                    與所有NFT相比其收入的排名百分比全部NFT為100隻，其收入為前20名顯示 Higher than 80% PPRS若是百分比低於50%則不顯示*@
         
-            <div class="products-block-title-02">Rider’s Appearance Fee</div>
-            <div class="products-block-price" id="products-AppearanceFee">
+                <div class="products-block-title-02">Rider’s Appearance Fee</div>
+                <div class="products-block-price" id="products-AppearanceFee">
 
-                <div class="products-block-price-currency">
-                    <p class="products-currency-title">SRC</p>
-                    <img class="products-currency-icon products-currency-SRC" id="" src="/images/Products/SRC.png"
-                        alt="">
-                </div>
-                <div class="products-TopBid-price Owned-edit" id="AppearanceFee-edit">
-                    <div class="products-TopBid-price-value">123,456,789</div>
-                    <img class="edit-icon" src="/images/Products/edit_icon.png" alt="">
-                </div>
+                    <div class="products-block-price-currency">
+                        <p class="products-currency-title">SRC</p>
+                        <img class="products-currency-icon products-currency-SRC" id="" src="/images/Products/SRC.png"
+                            alt="">
+                    </div>
+                    <div class="products-TopBid-price " id="AppearanceFee-edit"> @*Owned-edit*@
+                        <div class="products-TopBid-price-value">@Ridder.Income.nowRent</div>
+                        <img class="edit-icon" src="/images/Products/edit_icon.png" alt="">
+                    </div>
                 
-            </div>
+                </div>
         
+            </div>
+
+        
+
         </div>
 
+
+
+    </section>
+}
+
+@code{
+
+     [Parameter]
+    public string TokenID { get; set; }
+
+     [Parameter]
+    public RiderIntroduce Ridder { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
         
+        await Refresh();
+    }
 
-    </div>
-
-
-
-</section>
+    private async Task Refresh()
+    {     
+        Ridder =await ProductsService.Get_RiderIntroduce();
+        StateHasChanged();
+    }
+}
