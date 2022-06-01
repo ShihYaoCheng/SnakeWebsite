@@ -365,7 +365,7 @@ input[type="radio"] {
         display: block;
     }
     .marketPlaceSidebar{
-        margin-top: 118px;
+        margin-top: 117px;
         display: none;
     }
 }
@@ -382,8 +382,9 @@ input[type="radio"] {
 
 .marketPlaceSidebar-scroll{
     overflow-y: auto;
-    height: 100%;
-    padding-bottom: 50px;
+    /* height: 100%; */
+    height: calc(100vh - 190px);
+
     
     display: block;
 }
