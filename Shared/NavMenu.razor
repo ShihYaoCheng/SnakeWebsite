@@ -307,11 +307,13 @@
 
         if(LoginUser != null  && LoginUser.Identities.Count() !=0 )
         {
-            SnakeAccount snakeAccount = new SnakeAccount();
+            @*SnakeAccount snakeAccount = new SnakeAccount();
             snakeAccount.userID = Convert.ToUInt32( LoginUser.FindFirst("UserID")?.Value);
             snakeAccount.name = LoginUser.FindFirst("Name")?.Value;
             snakeAccount.phone = LoginUser.FindFirst("Phone")?.Value;
-            snakeAccount.walletAddress = LoginUser.FindFirst("walletAddress")?.Value;
+            snakeAccount.walletAddress = LoginUser.FindFirst("walletAddress")?.Value;*@
+
+            SnakeAccount snakeAccount = await authService.AuthLoginByUserId(LoginUser.FindFirst("UserID")?.Value);
             AppState.UpdateLoginStatus(this, snakeAccount);
         }
     }

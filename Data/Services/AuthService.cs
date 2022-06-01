@@ -119,5 +119,21 @@ namespace SnakeAsianLeague.Data.Services
             auth = "Basic " + auth;
             return auth;
         }
+
+        public async Task<SnakeAccount> AuthLoginByUserId(string userId)
+        {
+            var request = new RestRequest($"User", Method.GET);
+            request.AddQueryParameter("UserID", userId);
+            request.AddHeader("Authorization", Authenticate());
+
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                SnakeLoginResponce loginResp = JsonSerializer.Deserialize<SnakeLoginResponce>(restResponse.Content);
+
+                return new SnakeAccount() { userID = loginResp.userID, name = loginResp.name, phone = loginResp.phoneID, walletAddress = loginResp.walletAddress };
+            }
+            return new SnakeAccount();
+        }
     }
 }
