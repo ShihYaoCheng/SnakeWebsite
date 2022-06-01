@@ -382,11 +382,14 @@ input[type="radio"] {
 
 .marketPlaceSidebar-scroll{
     overflow-y: auto;
-    /* height: 100%; */
+
     height: calc(100vh - 190px);
 
     
     display: block;
+}
+.Inventory-PPSR-Filter-Sidebar .marketPlaceSidebar-scroll{
+    height: 100%;
 }
 /* 改scrollbar樣式 */
 .marketPlaceSidebar-scroll::-webkit-scrollbar {
