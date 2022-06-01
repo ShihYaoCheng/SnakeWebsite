@@ -27,6 +27,7 @@ window.ACLS3RulesCarousel = function () {
     owl.on('dragged.owl.carousel', function (event) {
         Typewriter()
     })
+    //¥´¦r°Êµe
     function Typewriter() {
         var Typewriter = document.querySelectorAll(".Typewriter")
         var TimeSave = []
@@ -36,7 +37,9 @@ window.ACLS3RulesCarousel = function () {
         }
         Typewriter.forEach((e) => {
             for (let i in e.children) {
+                if (e.children[i].tagName == "IMG" || e.children[i].tagName == "DIV") continue
                 if (typeof (e.children[i]) != "object") break
+                
                 e.children[i].style.display = "none";
                 e.children[i].classList.remove("Typewriter-1Ani")
 
@@ -44,6 +47,7 @@ window.ACLS3RulesCarousel = function () {
         })
         Typewriter.forEach((e) => {
             for (let i in e.children) {
+                if (e.children[i].tagName == "IMG" || e.children[i].tagName == "DIV") continue
                 if (typeof (e.children[i]) != "object") break
                 test(e.children[i], i)
             }

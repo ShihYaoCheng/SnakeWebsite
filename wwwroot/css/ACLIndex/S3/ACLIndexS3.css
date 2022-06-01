@@ -519,8 +519,26 @@
 .ACLS3RulesCarousel .item {
     width: 1340px;
     height: 720px;
-    padding: 150px;
+    padding:  80px 150px;
 }
+.Rule_Icon {
+    width: 164px !important;
+    height: 119px !important;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    bottom: 0%;
+    left: 50%;
+}
+
+.Rule_Team {
+    width: 201px !important;
+    height: 147px !important;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    bottom:-8%;
+    left: 50%;
+}
+
 
 .ACLS3RulesCarousel .owl-dot span {
     background: #fff !important;
@@ -530,6 +548,41 @@
     background: none !important;
     border: 1px solid #fff;
 }
+
+.Typewriter-blank {
+    width: 1px;
+    height: 20px;
+}
+/*打字動畫*/
+.ACLS3RulesCarousel p {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    display: none;
+}
+
+.TypewriterShow {
+    display: block;
+}
+
+.Typewriter-1Ani {
+    animation-iteration-count: 1;
+    animation-name: TypewriterAnimate;
+    animation-duration: 0.8s;
+    animation-timing-function: steps(100);
+}
+
+
+@keyframes TypewriterAnimate {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
 
 /*...Reward...*/
 .Reward {
@@ -561,14 +614,92 @@
     margin-bottom:60px;    
 }
 
-.Reward img{
-    margin-bottom:60px;
+.Reward-imgContainer {
+    position:relative;
+    margin-bottom: 60px;
+    overflow: hidden;
+    width: 1370px;
+    height: 190px;
+    background: linear-gradient(to right, yellow, red);
 }
+
+.Reward-ERNC {
+    position:absolute;
+    top:5%;
+    left:5%;
+}
+.Reward-Word {
+    position: absolute;
+    bottom:5%;
+    right: 5%;
+}
+
+.Reward-imgContainer div {
+    opacity: 0.6;
+    width: 1920px;
+    height: 801px;
+    transform: rotate(10deg) scale(1.2) translateY(-100px);
+    background: url("/images/AsiaChampionsLeague/S3/Reward/Banner/texture.png");
+    animation: tilt 10s infinite linear;
+    -webkit-animation-: tilt 10s infinite linear;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.rotate {
+    animation: rotate 0.5s infinite linear;
+    -webkit-animation-: rotate 0.5s infinite linear;
+}
+@keyframes tilt {
+    0% {
+        -webkit-transform: rotate(0deg) translateY(-100px);
+        -moz-transform: rotate(0deg) translateY(-100px);
+        -ms-transform: rotate(0deg) translateY(-100px);
+        -o-transform: rotate(0deg) translateY(-100px);
+        transform: rotate(0deg) translateY(-100px);
+    }
+    23% {
+        -webkit-transform: rotate(10deg) scale(1.2) translateY(-100px);
+        -moz-transform: rotate(10deg) scale(1.2) translateY(-100px);
+        -ms-transform: rotate(10deg) scale(1.2) translateY(-100px);
+        -o-transform: rotate(10deg) scale(1.2) translateY(-100px);
+        transform: rotate(10deg) scale(1.2) translateY(-100px);
+    }
+    46% {
+        -webkit-transform: rotate(0deg) translateY(-100px);
+        -moz-transform: rotate(0deg) translateY(-100px);
+        -ms-transform: rotate(0deg) translateY(-100px);
+        -o-transform: rotate(0deg) translateY(-100px);
+        transform: rotate(0deg) translateY(-100px);
+    }
+    69% {
+        -webkit-transform: rotate(-10deg) scale(1.2) translateY(-100px);
+        -moz-transform: rotate(-10deg) scale(1.2) translateY(-100px);
+        -ms-transform: rotate(-10deg) scale(1.2) translateY(-100px);
+        -o-transform: rotate(-10deg) scale(1.2) translateY(-100px);
+        transform: rotate(-10deg) scale(1.2) translateY(-100px);
+    }
+    100% {
+        -webkit-transform: rotate(0deg) translateY(-100px);
+        -moz-transform: rotate(0deg) translateY(-100px);
+        -ms-transform: rotate(0deg) translateY(-100px);
+        -o-transform: rotate(0deg) translateY(-100px);
+        transform: rotate(0deg) translateY(-100px);
+    }
+}
+
 /*...Ranking...*/
 .Ranking {
     width: 100%;
     height: 1350px;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .Ranking-banner-Squad    {
@@ -980,32 +1111,5 @@ td {
 }
 
 
-/*打字動畫*/
-.ACLS3RulesCarousel p {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    display: none;
-}
-.TypewriterShow {
-    display: block;
-}
-.Typewriter-1Ani {
-    animation-iteration-count: 1;
-    animation-name: TypewriterAnimate;
-    animation-duration: 0.8s;
-    animation-timing-function: steps(100);
-}
-
-
-@keyframes TypewriterAnimate {
-    from {
-        width: 0
-    }
-
-    to {
-        width: 100%
-    }
-}
 
 
