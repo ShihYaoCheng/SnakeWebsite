@@ -223,8 +223,8 @@
     white-space: nowrap;
     display: flex;
     flex-wrap: nowrap;
-    /* align-items: center; */
-    align-items: flex-start;
+    align-items: center;
+    /* align-items: fdlex-start; */
 
 }
 .products-owned span{
@@ -234,6 +234,7 @@
     color: var(--blue-3);
     word-wrap: break-word; 
     word-break: break-all;
+    white-space: normal;
 }
 
 .products-section{
@@ -412,7 +413,7 @@
 }
 
 .products-property-valueImg{
-    width: 50px;
+    width: 40px;
 
 }
 
@@ -643,7 +644,7 @@
         font-size: 18px;
     }
     .products-property-valueImg {
-        width: 40px;
+        width: 35px;
     }
     .Avatars-block{
         padding: 15px 25px;
