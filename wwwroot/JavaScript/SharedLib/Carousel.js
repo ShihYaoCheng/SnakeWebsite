@@ -9,7 +9,7 @@ window.Carousel = function (Carousel) {
     console.log('Carousel init1');
 }
 
-window.ACLS3RulesCarousel = function (Carousel) {
+window.ACLS3RulesCarousel = function () {
     $(".ACLS3RulesCarousel").owlCarousel({
         loop: true,
         margin: 10,
@@ -21,9 +21,8 @@ window.ACLS3RulesCarousel = function (Carousel) {
         }
         
     });
-    var owl = $('.owl-carousel');
-    owl.owlCarousel();
- 
+    var owl = $('.ACLS3RulesCarousel');
+    owl.owlCarousel(); 
   
     owl.on('dragged.owl.carousel', function (event) {
         Typewriter()
@@ -59,6 +58,36 @@ window.ACLS3RulesCarousel = function (Carousel) {
     }
    
 }
+
+window.ACLS3ScheduleCarousel = function () {
+    $(".ACLS3ScheduleCarousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        dots: false,
+        //mouseDrag: false,
+        responsive: {
+            0: {
+                items: 1
+            }
+        }
+
+    });
+
+    var owl = $('.ACLS3ScheduleCarousel');
+    owl.owlCarousel();
+
+    $('.ScheduleMonth-next').click(function () {
+        owl.trigger('next.owl.carousel');
+    })
+    $('.ScheduleMonth-prev').click(function () {
+        // With optional speed parameter
+        // Parameters has to be in square bracket '[]'
+        owl.trigger('prev.owl.carousel', [300]);
+    })
+    
+  
+}
+
 
 window.GameFiCarousel = function () {
     console.log('GameFiCarousel init22', Swiper);
