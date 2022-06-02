@@ -138,7 +138,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                         Rider.Owned = result.castings[0].owner;
                         /*Income*/
                         Rider.Income = new NowRentAndTotalRevenue();
-                        Rider.Income = await Get_NowRentAndTotalRevenue(TokenID);
+                        Rider.Income = await Get_NowRentAndTotalRevenue("#" +TokenID);
                     }
                     else
                     {
@@ -202,15 +202,17 @@ namespace SnakeAsianLeague.Data.Services.Products
 
 
         /// <summary>
-        /// 抓取
+        /// 抓取收益
+        /// url #特殊符號 注意轉換問題以處理
         /// </summary>
-        /// <param name="PPSR"></param>
+        /// <param name="PPSR"> ex: #1 </param>
         /// <returns></returns>
         public async Task<NowRentAndTotalRevenue> Get_NowRentAndTotalRevenue(string PPSR)
         {
             NowRentAndTotalRevenue result = new NowRentAndTotalRevenue();
             try
             {
+                PPSR = PPSR.Replace("#", "%23");
                 RestRequest request = new RestRequest($"NFT/NowRentAndTotalRevenue?PPSR={PPSR}");
                 request.AddHeader("Authorization", Authenticate());
 
