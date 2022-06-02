@@ -12,7 +12,7 @@ window.Carousel = function (Carousel) {
 window.ACLS3RulesCarousel = function () {
     $(".ACLS3RulesCarousel").owlCarousel({
         loop: true,
-        margin: 10,
+        margin: 2,
         //mouseDrag: false,
         responsive: {
             0: {
