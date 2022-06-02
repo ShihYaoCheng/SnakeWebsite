@@ -150,7 +150,7 @@ namespace SnakeAsianLeague.Data.Services.Products
 
                     /*ImgPath*/
                     Rider.Name = SerialNumber;
-                    Rider.ImgPath = string.Format(ImgPath, result.serialNumber);
+                    Rider.ImgPath = string.Format(ImgPath, SerialNumber);
                     /*Attrbutes*/
                     Rider.Attrbutes = new Attrbutes();
                     List<string> RarityElements = result.serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
