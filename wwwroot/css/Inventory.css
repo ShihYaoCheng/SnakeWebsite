@@ -132,7 +132,7 @@
 .Inventory{
     /* border: 1px solid red; */
     max-width: 1150px;
-    margin: 200px auto 100px;
+    margin: 200px auto 150px;
     width: 85%;
     transition: all .15s ease-in-out;
 }
@@ -500,7 +500,7 @@
 .IfNoCard{
     width: 100%;
     display: inline-block;
-    margin-top: 20px;
+    margin: 20px 0 200px;
 }
 .IfNoCard a{
     color: var(--green-2);
@@ -510,4 +510,15 @@
 }
 .IfNoCard a:hover{
     color: #ffffff;
+}
+
+@media all and (max-width: 1000px){
+    .IfNoCard{
+        margin: 20px 0 240px;
+    }
+}
+@media all and (max-width: 800px){
+    .IfNoCard{
+        margin: 20px 0 200px;
+    }
 }

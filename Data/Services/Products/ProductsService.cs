@@ -138,7 +138,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                         Rider.Owned = result.castings[0].owner;
                         /*Income*/
                         Rider.Income = new NowRentAndTotalRevenue();
-                        Rider.Income = await Get_NowRentAndTotalRevenue(TokenID);
+                        Rider.Income = await Get_NowRentAndTotalRevenue("#" +TokenID);
                     }
                     else
                     {
@@ -150,7 +150,7 @@ namespace SnakeAsianLeague.Data.Services.Products
 
                     /*ImgPath*/
                     Rider.Name = SerialNumber;
-                    Rider.ImgPath = string.Format(ImgPath, result.serialNumber);
+                    Rider.ImgPath = string.Format(ImgPath, SerialNumber);
                     /*Attrbutes*/
                     Rider.Attrbutes = new Attrbutes();
                     List<string> RarityElements = result.serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
@@ -202,15 +202,17 @@ namespace SnakeAsianLeague.Data.Services.Products
 
 
         /// <summary>
-        /// 抓取
+        /// 抓取收益
+        /// url #特殊符號 注意轉換問題以處理
         /// </summary>
-        /// <param name="PPSR"></param>
+        /// <param name="PPSR"> ex: #1 </param>
         /// <returns></returns>
         public async Task<NowRentAndTotalRevenue> Get_NowRentAndTotalRevenue(string PPSR)
         {
             NowRentAndTotalRevenue result = new NowRentAndTotalRevenue();
             try
             {
+                PPSR = PPSR.Replace("#", "%23");
                 RestRequest request = new RestRequest($"NFT/NowRentAndTotalRevenue?PPSR={PPSR}");
                 request.AddHeader("Authorization", Authenticate());
 
@@ -356,7 +358,7 @@ namespace SnakeAsianLeague.Data.Services.Products
             var molecular = (Wapon + Pet) * 0.01;
             var denominator = BattleDataAttackSpeed - (Wapon + Pet) * 0.01;
 
-            string result = string.Format(" {0} %", BattleDataAttackSpeed  / denominator * 100 );  //Wapon + Pet;
+            string result = Convert.ToDouble(  (BattleDataAttackSpeed / denominator * 100).ToString() ).ToString("0.00") + "%";    //Wapon + Pet;
             return result;
         }
 
