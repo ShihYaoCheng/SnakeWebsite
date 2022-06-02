@@ -370,8 +370,18 @@
 /*...Event-Info...*/
 .Event-Info {
     height: 2200px;
-    width: 100%;
-   
+    width: 100%; 
+}
+
+@media (max-width: 1024px) {
+    .Event-Info {
+        height: 2000px;      
+    }
+}
+@media (max-width: 576px) {
+    .Event-Info {
+        height: 1600px;
+    }
 }
 
 .Event-Info h2 {
@@ -388,43 +398,260 @@
     text-align: center;
     font-size: 35px;
     font-family: Microsoft JhengHei;
-    margin-bottom:20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .Event-Info h2 {
+        font-size: 40px;
+    }
+
+    .Event-Info p {
+        font-size: 20px;
+    }
 }
 
 .ticket {
-    width:100%;
-    height:1041px; 
-    display:flex;
-    justify-content:center; 
-    margin-bottom:157px;
+    width: 100%;
+    height: 1041px;
+    margin-bottom: 157px;
 }
+
 .ticket-container {
     width: 1000px;
-    height: 100%;  
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
 }
-.ticket img {
+
+.ticket-img {
     width: 100%;
     height: 347px;
-    display:block;
+    display: block;
 }
+
+.ticketMobile {
+    display: none;
+}
+
+.ticket-MobileImg {
+    width: 150px;
+    height: 497px;
+    display: inline-block;
+    margin: 0 7px;
+}
+
+@media (max-width: 1024px) {
+    .ticket {
+        height: 750px;
+    }
+
+    .ticket-container {
+        width: 800px;
+        position: relative;
+    }
+
+    .ticket-img {
+        height: 247px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ticket {
+        height: 400px;
+    }
+
+    .ticket-container {
+        width: 600px;
+    }
+
+    .ticketComputer {
+        display: none;
+    }
+
+    .ticketMobile {
+        display: block;
+    }
+}
+
+@media (max-width: 578px) {
+    .ticket {
+        height: 350px;
+        margin-bottom: 50px;
+    }
+
+    .ticket-container {
+        width: 370px;
+    }
+
+    .ticket-MobileImg {
+        width: 100px;
+        height: 331px;
+    }
+}
+
+.ticket-star {
+    position: absolute;
+    transform: scale(0.8);
+}
+/*.ticket-star::after {
+box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
+}*/
+
+.star-1 {
+    top: -1%;
+    left: 5%;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
+
+.star-2 {
+    top: 25%;
+    left: 8%;
+    animation-delay: 0.5s;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
+
+.star-3 {
+    top: -4%;
+    right: 10%;
+    animation-delay: 1s;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
+
+.star-4 {
+    top: 18%;
+    left: 25%;
+    animation-delay: 1.5s;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
+
+.star-5 {
+    top: 25%;
+    right: 2%;
+    animation-delay: 2.5s;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
+
+.star-6 {
+    top: -1%;
+    left: 5%;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
+
+.star-7 {
+    top: 40%;
+    left: 8%;
+    animation-delay: 1s;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
+
+.star-8 {
+    top: 25%;
+    left: 25%;
+    animation-delay: 1.5s;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
+
+.star-9 {
+    top: 80%;
+    left: 30%;
+    animation-delay: 2.0s;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
+
+.star-10 {
+    top: 110%;
+    left: 8%;
+    animation-delay: 2.5s;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
+
+@media (max-width: 1024px) {
+    .star-2 {
+        top: 18%;
+    }
+
+    .star-4 {
+        top: 11%;
+    }
+
+    .star-5 {
+        top: 18%;
+    }
+}
+
+@media (max-width: 576px) {
+    .star-6 {
+        left: 0%;
+    }
+
+    .star-7 {
+        top: 35%;
+        left: -3%;
+    }
+
+    .star-9 {
+        top: 50%;
+        left: 18%;
+    }
+
+    .star-10 {
+        top: 73%;
+        left: 8%;
+    }
+}
+
+@keyframes starAni {
+    0% {
+        transform: scale(0.8);
+    }
+
+    25% {
+        transform: scale(0.5);
+    }
+
+    50% {
+        transform: scale(0.2);
+    }
+
+    75% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(0.8);
+    }
+}
+
 
 .poster {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom:58px;
+    margin-bottom: 58px;
+    overflow: hidden
 }
 
 .poster-container {
     width: 692px;
     height: 514px;
     position: relative;
-    overflow:hidden;
+}
 
-}
-.poster-container:first-child {
-    margin-right: 110px;
-}
+    .poster-container:first-child {
+        margin-right: 110px;
+    }
 
 .poster-shine {
     position: absolute;
@@ -432,11 +659,10 @@
     left: -350px;
     width: 300px;
     height: 514px;
-    background: rgba(255, 255, 255, 0.05); 
+    background: rgba(255, 255, 255, 0.05);
     pointer-events: none;
     animation: posterShine 4s ease-out infinite;
     -webkit-animation-: posterShine 4s ease-out infinite;
-    
 }
 /*反光移動*/
 @keyframes posterShine {
@@ -447,14 +673,16 @@
     10% {
         transform: skewX(10deg) translateX(2000px);
     }
+
     100% {
         transform: skewX(10deg) translateX(2000px);
     }
 }
 
 .poster img {
+    /* */
     width: 692px;
-    height: 514px;  
+    height: 514px;
     animation: posterImg 4s ease-out infinite;
     -webkit-animation-: posterImg 4s ease-out infinite;
 }
@@ -466,174 +694,381 @@
 
     10% {
         opacity: 1;
-    } 
+    }
+
     100% {
         opacity: 0.9;
     }
 }
 
+@media (max-width: 1500px) {
+    .poster-container {
+        width: 500px;
+        height: 371px;
+    }
+
+    .poster img {
+        width: 500px;
+        height: 371px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .poster-container {
+        width: 400px;
+        height: 297px;
+    }
+
+    .poster img {
+        width: 400px;
+        height: 297px;
+    }
+}
+
+@media (max-width: 768px) {
+    .poster {
+        display: block;
+    }
+
+    .poster-container {
+        width: 100%;
+        height: 519px;
+    }
+
+        .poster-container:first-child {
+            margin-bottom: 40px
+        }
+
+    .poster img {
+        width: 100%;
+        height: 519px;
+    }
+}
+
+@media (max-width: 576px) {
+    .poster-container {
+        height: 371px;
+    }
+
+    .poster img {
+        height: 371px;
+    }
+}
+
+
 .button-container {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin: 40px 0;
 }
 
 .Event-Info button {
     border: 0px;
     background: url("/images/AsiaChampionsLeague/S3/More Info/More info_button.png");
     background-repeat: round;
-    height: 115px;
-    width: 448px;
     font-size: 24px;
     font-family: Microsoft JhengHei;
-
-}
-/*...Rules...*/
-.Rules {
-    width: 100%;
-    height: 1300px;
-    background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Bottom.png");
-    background-repeat: round;
-
 }
 
-.Rules h2 {
-    color: #fff;
-    font-size: 48px;
-    padding-top:186px;
-    margin: 0 auto 126px auto;
-    font-family: Microsoft JhengHei;
-    text-align:center;
-}
-.Rules-owl-Container {
-    width: 1340px;
-    height: 720px;
-    margin: 0 auto;
-    background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Screen Frame.png");
-    background-repeat: round;
-}
-.ACLS3RulesCarousel p {
-    font-size: 24px;
-    color: rgba(225,225,225,0.6);
-}
-.ACLS3RulesCarousel .item {
-    width: 1340px;
-    height: 720px;
-    padding:  80px 150px;
-}
-.Rule_Icon {
-    width: 164px !important;
-    height: 119px !important;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    bottom: 0%;
-    left: 50%;
-}
-
-.Rule_Team {
-    width: 201px !important;
-    height: 147px !important;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    bottom:-8%;
-    left: 50%;
-}
-
-
-.ACLS3RulesCarousel .owl-dot span {
-    background: #fff !important;
-}
-
-.ACLS3RulesCarousel .active span {
-    background: none !important;
-    border: 1px solid #fff;
-}
-
-.Typewriter-blank {
-    width: 1px;
-    height: 20px;
-}
-/*打字動畫*/
-.ACLS3RulesCarousel p {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
+.ticket-button-1 {
     display: none;
 }
 
-.TypewriterShow {
-    display: block;
-}
-
-.Typewriter-1Ani {
-    animation-iteration-count: 1;
-    animation-name: TypewriterAnimate;
-    animation-duration: 0.8s;
-    animation-timing-function: steps(100);
-}
-
-
-@keyframes TypewriterAnimate {
-    from {
-        width: 0
+    .ticket-button-1 button {
+        height: 60px;
+        width: 266px;
+        font-size: 20px;
     }
 
-    to {
-        width: 100%
+.ticket-button-2 button {
+    height: 115px;
+    width: 448px;
+}
+
+@media (max-width: 768px) {
+    .ticket-button-1 {
+        display: flex;
+    }
+
+    .ticket-button-2 {
+        display: none;
     }
 }
 
 
-/*...Reward...*/
-.Reward {
-    width:1370px;
-    margin:0 auto;
-}
-    
-.Reward h2 {
-    color: #63a99e;
-    margin: 86px auto 92px auto;
-    font-size: 48px;
-    font-family: Microsoft JhengHei;
-    text-align:center;
+    /*...Rules...*/
+    .Rules {
+        width: 100%;
+        height: 1300px;
+        background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Bottom.png");
+        background-repeat: round;
+    }
+
+.Rules h2 {
+            color: #fff;
+            font-size: 48px;
+            padding-top: 186px;
+            margin: 0 auto 126px auto;
+            font-family: Microsoft JhengHei;
+            text-align: center;
+        }
+@media (max-width: 768px) {
+    .Rules h2 { 
+        font-size: 40px;
+    }
 }
 
-.Reward h3 {
-    color: #FFA71D;
-    font-size: 30px;
-    font-family: Microsoft JhengHei;
-    margin-bottom:28px;
-}
-.Reward-PtagContainer {
-    padding: 83px 103px 29px 103px;
-}
-.Reward p {
-    color: #FFA71D;
-    font-size: 18px;
-    font-family: Microsoft JhengHei;
-    margin-bottom:60px;    
+    .Rules-owl-Container {
+        width: 1340px;
+        height: 720px;
+        margin: 0 auto;
+        background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Screen Frame.png");
+        background-repeat: round;
+    }
+
+    .ACLS3RulesCarousel p {
+        font-size: 24px;
+        color: rgba(225,225,225,0.6);
+    }
+
+    .ACLS3RulesCarousel .item {
+        width: 1340px;
+        height: 720px;
+        padding: 50px 100px;
+    }
+
+@media (max-width: 1500px) {
+    .Rules-owl-Container {
+        width: 1000px;
+        height: 600px;
+    }
+    .ACLS3RulesCarousel .item {
+        width: 1000px;
+        height: 600px;
+        padding: 50px 80px;
+    }
 }
 
-.Reward-imgContainer {
-    position:relative;
-    margin-bottom: 60px;
-    overflow: hidden;
-    width: 1370px;
-    height: 190px;
-    background: linear-gradient(to right, yellow, red);
+
+    .Rule_Icon {
+        width: 164px !important;
+        height: 119px !important;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        bottom: 0%;
+        left: 50%;
+    }
+
+    .Rule_Team {
+        width: 201px !important;
+        height: 147px !important;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        bottom: -8%;
+        left: 50%;
+    }
+
+
+    .ACLS3RulesCarousel .owl-dot span {
+        background: #fff !important;
+    }
+
+    .ACLS3RulesCarousel .active span {
+        background: none !important;
+        border: 1px solid #fff;
+    }
+
+    .Typewriter-blank {
+        width: 1px;
+        height: 10px;
+    }
+    /*打字動畫*/
+    .ACLS3RulesCarousel p {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        display: none;
+    }
+
+    .TypewriterShow {
+        display: block;
+    }
+
+    .Typewriter-1Ani {
+        animation-iteration-count: 1;
+        animation-name: TypewriterAnimate;
+        animation-duration: 0.8s;
+        animation-timing-function: steps(100);
+    }
+
+
+    @keyframes TypewriterAnimate {
+        from {
+            width: 0
+        }
+
+        to {
+            width: 100%
+        }
+    }
+
+
+    /*...Reward...*/
+    .Reward {
+        width: 1370px;
+        margin: 0 auto;
+    }
+@media (max-width: 1500px) {
+    .Reward {
+        width: 1000px;
+    }
+}
+@media (max-width: 1024px) {
+    .Reward {
+        width: 600px;  
+    }
+}
+@media (max-width: 768px) {
+    .Reward {
+        width: 85%;  
+    }
+}
+        .Reward h2 {
+            color: #63a99e;
+            margin: 86px auto 92px auto;
+            font-size: 48px;
+            font-family: Microsoft JhengHei;
+            text-align: center;
+        }
+
+        .Reward h3 {
+            color: #FFA71D;
+            font-size: 30px;
+            font-family: Microsoft JhengHei;
+            margin-bottom: 28px;
+        }
+
+@media (max-width: 768px) {
+    .Reward h2 {
+        font-size: 40px;
+        margin: 43px auto 46px auto;
+    }
+
+    .Reward h3 {  
+        font-size: 22px;
+    }
+
 }
 
-.Reward-ERNC {
-    position:absolute;
-    top:5%;
-    left:5%;
-}
-.Reward-Word {
-    position: absolute;
-    bottom:5%;
-    right: 5%;
+
+    .Reward-PtagContainer {
+        padding: 83px 103px 29px 103px;
+    }
+    @media (max-width: 1000px) {
+        .Reward-PtagContainer {
+            padding: 83px 0px 29px 0px;
+        }
+    }
+    .Reward p {
+        color: #FFA71D;
+        font-size: 18px;
+        font-family: Microsoft JhengHei;
+        margin-bottom: 60px;
+    }
+
+    .Reward-imgContainer {
+        position: relative;
+        margin-bottom: 60px;
+        overflow: hidden;
+        width: 1370px;
+        height: 190px;
+        background: linear-gradient(to right, yellow, red);
+        margin:0 auto;
+
+    }
+
+    @media (max-width: 1500px) {
+        .Reward-imgContainer {
+            width: 100%;
+        }
+    }
+    @media (max-width: 1024px) {
+        .Reward-imgContainer {
+            height: 130px;
+           
+        }
+    }
+@media (max-width: 576px) {
+    .Reward p {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .Reward-PtagContainer {
+        padding: 20px 0px 15px 0px;
+    }
+    .Reward-imgContainer {
+        height: 100px;
+       
+    }
+    }
+
+    .Reward-ERNC {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+    }
+
+    .Reward-Word {
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+    }
+
+@media (max-width: 1500px) {
+    .Reward-ERNC {
+        display: block;
+        height: 184px;
+        width: 200px;
+    }
+
+    .Reward-Word {
+        display: block;
+        height: 25px;
+        width: 320px;
+    }
 }
 
+@media (max-width: 1000px) {
+    .Reward-ERNC {   
+        height:120px;
+        width:130px;
+
+    }
+
+    .Reward-Word {
+        height: 20px;
+        width: 249px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Reward-ERNC {
+        display: block;
+        height: 92px;
+        width: 100px;
+    }
+
+    .Reward-Word {
+        height: 14px;
+        width: 180px;
+    }
+}
+.BonusEdition {
+    width:100%;
+    margin-bottom:15px
+}
+/*動畫*/
 .Reward-imgContainer div {
     opacity: 0.6;
     width: 1920px;
@@ -643,472 +1078,637 @@
     animation: tilt 10s infinite linear;
     -webkit-animation-: tilt 10s infinite linear;
 }
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(359deg);
+        }
     }
 
-    to {
-        transform: rotate(359deg);
+    .rotate {
+        animation: rotate 0.5s infinite linear;
+        -webkit-animation-: rotate 0.5s infinite linear;
     }
-}
 
-.rotate {
-    animation: rotate 0.5s infinite linear;
-    -webkit-animation-: rotate 0.5s infinite linear;
-}
-@keyframes tilt {
-    0% {
-        -webkit-transform: rotate(0deg) translateY(-100px);
-        -moz-transform: rotate(0deg) translateY(-100px);
-        -ms-transform: rotate(0deg) translateY(-100px);
-        -o-transform: rotate(0deg) translateY(-100px);
-        transform: rotate(0deg) translateY(-100px);
-    }
-    23% {
-        -webkit-transform: rotate(10deg) scale(1.2) translateY(-100px);
-        -moz-transform: rotate(10deg) scale(1.2) translateY(-100px);
-        -ms-transform: rotate(10deg) scale(1.2) translateY(-100px);
-        -o-transform: rotate(10deg) scale(1.2) translateY(-100px);
-        transform: rotate(10deg) scale(1.2) translateY(-100px);
-    }
-    46% {
-        -webkit-transform: rotate(0deg) translateY(-100px);
-        -moz-transform: rotate(0deg) translateY(-100px);
-        -ms-transform: rotate(0deg) translateY(-100px);
-        -o-transform: rotate(0deg) translateY(-100px);
-        transform: rotate(0deg) translateY(-100px);
-    }
-    69% {
-        -webkit-transform: rotate(-10deg) scale(1.2) translateY(-100px);
-        -moz-transform: rotate(-10deg) scale(1.2) translateY(-100px);
-        -ms-transform: rotate(-10deg) scale(1.2) translateY(-100px);
-        -o-transform: rotate(-10deg) scale(1.2) translateY(-100px);
-        transform: rotate(-10deg) scale(1.2) translateY(-100px);
-    }
-    100% {
-        -webkit-transform: rotate(0deg) translateY(-100px);
-        -moz-transform: rotate(0deg) translateY(-100px);
-        -ms-transform: rotate(0deg) translateY(-100px);
-        -o-transform: rotate(0deg) translateY(-100px);
-        transform: rotate(0deg) translateY(-100px);
-    }
-}
+    @keyframes tilt {
+        0% {
+            -webkit-transform: rotate(0deg) translateY(-100px);
+            -moz-transform: rotate(0deg) translateY(-100px);
+            -ms-transform: rotate(0deg) translateY(-100px);
+            -o-transform: rotate(0deg) translateY(-100px);
+            transform: rotate(0deg) translateY(-100px);
+        }
 
-/*...Ranking...*/
+        23% {
+            -webkit-transform: rotate(10deg) scale(1.2) translateY(-100px);
+            -moz-transform: rotate(10deg) scale(1.2) translateY(-100px);
+            -ms-transform: rotate(10deg) scale(1.2) translateY(-100px);
+            -o-transform: rotate(10deg) scale(1.2) translateY(-100px);
+            transform: rotate(10deg) scale(1.2) translateY(-100px);
+        }
+
+        46% {
+            -webkit-transform: rotate(0deg) translateY(-100px);
+            -moz-transform: rotate(0deg) translateY(-100px);
+            -ms-transform: rotate(0deg) translateY(-100px);
+            -o-transform: rotate(0deg) translateY(-100px);
+            transform: rotate(0deg) translateY(-100px);
+        }
+
+        69% {
+            -webkit-transform: rotate(-10deg) scale(1.2) translateY(-100px);
+            -moz-transform: rotate(-10deg) scale(1.2) translateY(-100px);
+            -ms-transform: rotate(-10deg) scale(1.2) translateY(-100px);
+            -o-transform: rotate(-10deg) scale(1.2) translateY(-100px);
+            transform: rotate(-10deg) scale(1.2) translateY(-100px);
+        }
+
+        100% {
+            -webkit-transform: rotate(0deg) translateY(-100px);
+            -moz-transform: rotate(0deg) translateY(-100px);
+            -ms-transform: rotate(0deg) translateY(-100px);
+            -o-transform: rotate(0deg) translateY(-100px);
+            transform: rotate(0deg) translateY(-100px);
+        }
+    }
+
+    /*...Ranking...*/
 .Ranking {
-    width: 100%;
-    height: 1350px;
-    margin-top: 20px;
-}
+        width: 100%;
+        height: 1350px;
+        margin-top: 20px;
+    }
 
-.Ranking-banner-Squad    {
+.Ranking-banner-Squad {
     width: 100%;
     height: 528px;
     position: relative;
 }
-
-
 .Ranking-banner-Squad .Ranking-banner-bg {
     width: 100%;
     height: 397px;
     background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad bottom.png");
     background-repeat: round;
 }
-
 .Ranking-banner-Squad .Ranking-banner-selectContainer {
     width: 100%;
     height: 225px;
-    position:absolute;
-    left:0%;
-    top:58%;
-}
-.Ranking-banner-select {
-    width: 100%;
-    height: 100%;
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-1.png");
-    background-repeat: round;
-    position:relative;
+    position: absolute;
+    left: 0%;
+    top: 58%;
 }
 
-.Ranking-banner-Squad .Bar {
-    width:538px;
-    height:65px;
-    position:absolute;
-    left:19.58%;
-    top:42.22%;
-}
-.Ranking-banner-Squad .BarButton {
-    width: 22.99px;
-    height: 43.5px;
-    position:absolute;
-    left: 35.40%;
-    top: 47.44%;
+@media (max-width: 1500px) {
+    .Ranking-banner-Squad {
+        height: 405px;
+    }
+
+    .Ranking-banner-Squad .Ranking-banner-bg {
+        height: 315px;
+    }
+
+    .Ranking-banner-Squad .Ranking-banner-selectContainer {
+        height: 180px;
+    }
 }
 
-.Ranking-Date {
-    width:818px;
-    height:88px;
-    margin-bottom:60px;
+@media (max-width: 1024px) {
+    .Ranking {
+        height: 1600px;
+    }
+    .Ranking-banner-Squad {
+        height: 270px;
+    }
+
+    .Ranking-banner-Squad .Ranking-banner-bg {
+        height: 210px;
+    }
+
+    .Ranking-banner-Squad .Ranking-banner-selectContainer {
+        height: 120px;
+    }
+
+ 
 }
 
+@media (max-width: 768px) {
+    .Ranking-banner-Squad {
+        height: 180px;
+    }
+
+    .Ranking-banner-Squad .Ranking-banner-bg {
+        height: 140px;
+    }
+
+    .Ranking-banner-Squad .Ranking-banner-selectContainer {
+        height: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Ranking-banner-Squad {
+        height: 135px;
+    }
+    .Ranking-banner-Squad .Ranking-banner-bg {
+        height: 105px;
+    }
+
+    .Ranking-banner-Squad .Ranking-banner-selectContainer {
+        height: 60px;
+    }
+
+}
+
+
+    .Ranking-banner-select {
+        width: 100%;
+        height: 100%;
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-1.png");
+        background-repeat: round;
+        position: relative;
+    }
+
+    .Ranking-banner-Squad .Bar {
+        width: 27.08%;
+        height: 50px;
+        position: absolute;
+        left: 19.58%;
+        top: 43%;
+    }
+
+    .Ranking-Date {
+        width: 42.60%;
+        height: 88px;
+        margin-bottom: 60px;
+    }
+
+@media (max-width: 1024px) {
+    .Ranking-banner-Squad .Bar {
+        height: 27px;
+    }
+
+    .Ranking-Date {
+        height: 45px;
+    }
+}
+@media (max-width: 768px) {
+    .Ranking-banner-Squad .Bar {
+        height: 18px;
+    }
+    .Ranking-Date {
+        height: 36px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Ranking-Date {
+        height: 22px;
+    }
+}
+
+
+    .Ranking-Place-left {
+        float: left;
+        width: 50%;
+        height: 610px;
+    }
+
+    .Ranking_First {
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_First.png");
+        background-repeat: round;
+        width: 95%;
+        height: 230px;
+    }
+
+    .Ranking_Second {
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_Second.png");
+        background-repeat: round;
+        width: 91%;
+        height: 180px;
+        margin-top: 30px;
+    }
+
+    .Ranking_third {
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_third.png");
+        background-repeat: round;
+        width: 88%;
+        height: 140px;
+        margin-top: 30px;
+    }
+
+    .Ranking-Place-right {
+        float: right;
+        width: 50%;
+        padding-left: 136px;
+    }
+
+    .Ranking-Place-Other {
+        width: 527px;
+        height: 610px;
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_Other place.png");
+        background-repeat: round;
+    }
+@media (max-width: 1500px) {
+    .Ranking_First {
+        height: 191px;
+    }
+
+    .Ranking_Second {
+        height: 150px;
+    }
+
+    .Ranking_third {
+        height: 117px;
+    }
+}
+@media (max-width: 1024px) {
 .Ranking-Place-left {
-    float:left;
-    width:50%;
-    height:610px;
-    
-}
-
-.Ranking_First {
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_First.png");
-    background-repeat: round;
     width: 100%;
-    height: 230px;
-  
-}
-.Ranking_Second {
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_Second.png");
-    background-repeat:round;
-    width: 96%;
-    height: 180px;
-    margin-top:30px;
-}
-.Ranking_third {
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_third.png");
-    background-repeat: round;
-    width: 93%;
-    height: 140px;
-    margin-top: 30px;
+    height: 600px;
 }
 
 .Ranking-Place-right {
-    float: right;
-    width: 50%;
-    padding-left:136px;
-}
-.Ranking-Place-Other {
-    width: 527px;
-    height: 610px;
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_Other place.png");
-    background-repeat: round;
-}
-
-/*...Schedule...*/
-.Schedule {
-    background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_bottom.png");
-    background-repeat:round;
-    width:100%;
-    height: 1259px;
-}
-
-.Schedule h2 {
-    margin: 0 auto 87px auto;
-    padding-top: 200px;
-    font-size: 48px;
-    color: #203240;
-    text-align: center;
-    font-family: Microsoft JhengHei;
-}
-
-.Schedule-BG {
-    width: 773px;
-    height: 728px;
-    background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_ Calender  base.png");
-    background-repeat: round;
-    margin: 0 auto;
-}
-
-.Schedule-Month {
     width: 100%;
-    height: 100px;   
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    
-}
-.Schedule-Month p {
-    width: 100px;
-    color: #203240;
-    text-align: center;
-    font-size: 26.88px;
-    font-family: Microsoft JhengHei;
-}
-.ScheduleMonth-prev {
-    transform: rotate(180deg);
+    padding-left: 36px;
 }
 
-.Schedule-Week {
-    width: 90%;
-    height: 50px;
-    margin: 0 auto;
 }
 
-.Schedule-Week p {
-    color: #898989;
-    font-size: 20.16px;
-    font-family: Microsoft JhengHei;
-    float: left;
-    width:56px;
-    height:27px;
-    margin-right:50px;
-}
-.Schedule-Week p:last-child {
-        color: red;
-     
-        margin-right: 0px;
+
+    @media (max-width: 768px) {
+        .Ranking-Place-left {
+            height: 450px;
+        }
+            .Ranking_First {
+            height: 153px;
+        }
+
+        .Ranking_Second {
+            height: 120px;
+        }
+
+        .Ranking_third {
+            height: 94px;
+        }
+
+       
+        .Ranking-Place-Other {
+            width: 527px;
+            height: 500px;
+            background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_Other place.png");
+            background-repeat: round;
+        }
     }
 
-.Schedule-Carousel {
-    width: 773px;
-    height: 550px;
-    border: 1px solid red;
-}
-.ACLS3ScheduleCarousel {
-    width: 773px;
-    height: 550px;
-}
+    @media (max-width: 576px) {
+        .Ranking-Place-left {
+            height: 350px;
+        }
 
-.ACLS3ScheduleCarousel .item {
-    width: 773px;
-    height: 550px;
-}
+        .Ranking_First {
+            height: 102px;
+        }
 
-/*...Notice...*/
-.Notice_TopTitle {
-    margin: 36px 0 53px 0;
-    font-family: Microsoft JhengHei;
-    font-size: 48px;
-    color: #fff;
-    text-align: center;
-}
-.Notice-Container {
-    width: 1272px;
-    height: 701px;
-    background: #fff;
-    border-radius: 27px;
-    padding: 10px 10px 10px 40px;
-    margin: 0 auto;
-  
-}
+        .Ranking_Second {
+            height: 80px;
+        }
 
-.Notice-content {
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    overflow-y:auto;
-}
-
-.Notice-content h2 {
-    /*font-size: 24px;
-    color: #69ADA2;
-    text-align: center ;
-    font-family: Microsoft JhengHei;*/
-}
-
-
-
-.Notice-content::-webkit-scrollbar {
-    width: 20px !important;
-    background: #fff !important;
-    -webkit-box-shadow: none !important;
-    border: 0 !important;
-}
-    
-.Notice-content::-webkit-scrollbar-thumb {
-    background: url("/images/AsiaChampionsLeague/S3/Notice/Notice_Bar.png") !important;
-    background-repeat: round !important;
-    width: 15px !important;
-}
-
-
-.notice_title {
-    font-size: 30px;
-    color: #648ea1 !important;
-    margin: 20px 0 10px !important;
-    text-align: center;
-    line-height: 36px;
-}
-
-
-.txt_title {
-    color: #648ea1 !important;
-    font-size: 24px;
-    margin: 40px 0 10px 0;
-}
-
-.event_note {
-    font-size: 14px;
-    text-align: start;
-}
-
-.event_txt {
-    font-size: 20px;
-    margin: 20px 0 0px;
-    padding: 0 10px;
-    /* text-indent: -1em;  */
-    /* margin-left: 2em;   */
-}
-.title_border {
-    width: 90%;
-    border: 1px solid #dee3e6 !important;
-    height:1px;
-}
-
-.event_txt02 {
-    font-size: 18px;
-    margin: 10px 0 0px;
-    padding: 0 15px 0 40px;
-    text-indent: -1em;
-    line-height: 33px;
-}
-
-
-.event_txt03 {
-    font-size: 16px;
-    padding: 0 30px;
-    margin-left: 2em;
-    text-indent: -1em;
-}
-
-.event_txt04 {
-    font-size: 16px;
-    padding: 0 30px;
-    margin-left: 3em;
-    text-indent: -1em;
-}
-
-.event_txt05 {
-    font-size: 16px;
-    padding: 0 30px;
-    margin-left: 4em;
-    text-indent: -1em;
-}
-
-
-@media (max-width: 1200px) {
-    .notice_title {
-        font-size: 28px;
+        .Ranking_third {
+            height: 62px;
+        }
     }
 
-    .event_txt {
-        font-size: 18px;
+
+    /*...Schedule...*/
+    .Schedule {
+        background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_bottom.png");
+        background-repeat: round;
+        width: 100%;
+        height: 1259px;
     }
 
-    .event_txt02 {
-        font-size: 16px;
+        .Schedule h2 {
+            margin: 0 auto 87px auto;
+            padding-top: 200px;
+            font-size: 48px;
+            color: #203240;
+            text-align: center;
+            font-family: Microsoft JhengHei;
+        }
+
+    .Schedule-BG {
+        width: 773px;
+        height: 728px;
+        background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_ Calender  base.png");
+        background-repeat: round;
+        margin: 0 auto;
     }
 
-    .event_note {
-        font-size: 14px;
-        text-align: start;
+    .Schedule-Month {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .txt_title {
-        font-size: 22px;
-    }
-}
+        .Schedule-Month p {
+            width: 100px;
+            color: #203240;
+            text-align: center;
+            font-size: 26.88px;
+            font-family: Microsoft JhengHei;
+        }
 
-@media all and (max-width: 800px) {
-    .notice_title {
-        font-size: 26px;
-    }
-
-    .notice {
-        padding: 30px 20px 30px 10px;
+    .ScheduleMonth-prev {
+        transform: rotate(180deg);
     }
 
-    .event_note {
-        padding: 0 15px 0 15px;
+    .Schedule-Week {
+        width: 90%;
+        height: 50px;
+        margin: 0 auto;
     }
 
-    .txt_title {
-        font-size: 20px;
-    }
-}
+        .Schedule-Week p {
+            color: #898989;
+            font-size: 20.16px;
+            font-family: Microsoft JhengHei;
+            float: left;
+            width: 56px;
+            height: 27px;
+            margin-right: 50px;
+        }
 
-@media (max-width: 600px) {
-    .notice_title {
-        font-size: 24px;
-        margin: 10px 0 10px;
-    }
+            .Schedule-Week p:last-child {
+                color: red;
+                margin-right: 0px;
+            }
 
-    .event_note {
-        text-align: start;
-        padding: 0 10px 0 15px;
-        line-height: 23px;
-    }
-}
-
-@media (max-width: 400px) {
-    .notice_title {
-        font-size: 20px;
+    .Schedule-Carousel {
+        width: 773px;
+        height: 550px;
+        border: 1px solid red;
     }
 
-    .event_txt {
-        font-size: 16px;
-        margin: 10px 0 0px;
+    .ACLS3ScheduleCarousel {
+        width: 773px;
+        height: 550px;
     }
 
-    .event_txt02 {
-        margin: 5px 0 0px;
+        .ACLS3ScheduleCarousel .item {
+            width: 773px;
+            height: 550px;
+        }
+
+    /*...Notice...*/
+    .Notice_TopTitle {
+        margin: 36px 0 53px 0;
+        font-family: Microsoft JhengHei;
+        font-size: 48px;
+        color: #fff;
+        text-align: center;
     }
 
-    .txt_title {
-        font-size: 18px;
+    .Notice-Container {
+        width: 1272px;
+        height: 701px;
+        background: #fff;
+        border-radius: 27px;
+        padding: 10px 10px 10px 40px;
+        margin: 0 auto;
     }
 
-    .event_txt03 {
-        font-size: 14px;
-    }
-}
+    @media (max-width: 1500px) {
+        .Notice-Container {
+            width: 90%;
+        }
+
+
+        .Notice-content {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            overflow-y: auto;
+        }
+
+            .Notice-content h2 {
+                /*font-size: 24px;
+color: #69ADA2;
+text-align: center ;
+font-family: Microsoft JhengHei;*/
+            }
+
+
+
+            .Notice-content::-webkit-scrollbar {
+                width: 20px !important;
+                background: #fff !important;
+                -webkit-box-shadow: none !important;
+                border: 0 !important;
+            }
+
+            .Notice-content::-webkit-scrollbar-thumb {
+                background: url("/images/AsiaChampionsLeague/S3/Notice/Notice_Bar.png") !important;
+                background-repeat: round !important;
+                width: 15px !important;
+            }
+
+
+        .notice_title {
+            font-size: 30px;
+            color: #648ea1 !important;
+            margin: 20px 0 10px !important;
+            text-align: center;
+            line-height: 36px;
+        }
+
+
+        .txt_title {
+            color: #648ea1 !important;
+            font-size: 24px;
+            margin: 40px 0 10px 0;
+        }
+
+        .event_note {
+            font-size: 14px;
+            text-align: start;
+        }
+
+        .event_txt {
+            font-size: 20px;
+            margin: 20px 0 0px;
+            padding: 0 10px;
+            /* text-indent: -1em;  */
+            /* margin-left: 2em;   */
+        }
+
+        .title_border {
+            width: 90%;
+            border: 1px solid #dee3e6 !important;
+            height: 1px;
+        }
+
+        .event_txt02 {
+            font-size: 18px;
+            margin: 10px 0 0px;
+            padding: 0 15px 0 40px;
+            text-indent: -1em;
+            line-height: 33px;
+        }
+
+
+        .event_txt03 {
+            font-size: 16px;
+            padding: 0 30px;
+            margin-left: 2em;
+            text-indent: -1em;
+        }
+
+        .event_txt04 {
+            font-size: 16px;
+            padding: 0 30px;
+            margin-left: 3em;
+            text-indent: -1em;
+        }
+
+        .event_txt05 {
+            font-size: 16px;
+            padding: 0 30px;
+            margin-left: 4em;
+            text-indent: -1em;
+        }
+
+
+        @media (max-width: 1200px) {
+            .notice_title {
+                font-size: 28px;
+            }
+
+            .event_txt {
+                font-size: 18px;
+            }
+
+            .event_txt02 {
+                font-size: 16px;
+            }
+
+            .event_note {
+                font-size: 14px;
+                text-align: start;
+            }
+
+            .txt_title {
+                font-size: 22px;
+            }
+        }
+
+        @media all and (max-width: 800px) {
+            .notice_title {
+                font-size: 26px;
+            }
+
+            .notice {
+                padding: 30px 20px 30px 10px;
+            }
+
+            .event_note {
+                padding: 0 15px 0 15px;
+            }
+
+            .txt_title {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .notice_title {
+                font-size: 24px;
+                margin: 10px 0 10px;
+            }
+
+            .event_note {
+                text-align: start;
+                padding: 0 10px 0 15px;
+                line-height: 23px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .notice_title {
+                font-size: 20px;
+            }
+
+            .event_txt {
+                font-size: 16px;
+                margin: 10px 0 0px;
+            }
+
+            .event_txt02 {
+                margin: 5px 0 0px;
+            }
+
+            .txt_title {
+                font-size: 18px;
+            }
+
+            .event_txt03 {
+                font-size: 14px;
+            }
+        }
 
 
 
 
-.tg {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
 
-.tg td {  
-    border-style: solid;
-    border-width: 1px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    overflow: hidden;
-    padding: 10px 5px;
-    word-break: normal;
-}
+            .tg td {
+                border-style: solid;
+                border-width: 1px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                overflow: hidden;
+                padding: 10px 5px;
+                word-break: normal;
+            }
 
-table {
-    margin: 20px 0px 50px;
-    width: 50%;
-}
+        table {
+            margin: 20px 0px 50px;
+            width: 50%;
+        }
 
-table, tr, th, td {
-    border: 1px solid #d2e1e9;
-    text-align: center;
-    font-size: 16px;
-    padding: 2px 4px;
-}
+        table, tr, th, td {
+            border: 1px solid #d2e1e9;
+            text-align: center;
+            font-size: 16px;
+            padding: 2px 4px;
+        }
 
-td {
-    width: 20%;
-}
+        td {
+            width: 20%;
+        }
 
-@media (max-width: 500px) {
-    td {
-        font-size: 13px;
-    }
-}
+        @media (max-width: 500px) {
+            td {
+                font-size: 13px;
+            }
+        }
 
-/*...Footer...*/
+        /*...Footer...*/
 
-.ACLIndexS3-Footer {
-    background: #67ada2;
-    width:100%;
-    height:500px;
-}
+        .ACLIndexS3-Footer {
+            background: #67ada2;
+            width: 100%;
+            height: 500px;
+        }
 
 
 
