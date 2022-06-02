@@ -500,7 +500,7 @@
 .IfNoCard{
     width: 100%;
     display: inline-block;
-    margin-top: 20px;
+    margin: 20px 0 160px;
 }
 .IfNoCard a{
     color: var(--green-2);
