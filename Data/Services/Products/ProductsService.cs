@@ -358,7 +358,7 @@ namespace SnakeAsianLeague.Data.Services.Products
             var molecular = (Wapon + Pet) * 0.01;
             var denominator = BattleDataAttackSpeed - (Wapon + Pet) * 0.01;
 
-            string result = string.Format(" {0} %", BattleDataAttackSpeed  / denominator * 100 );  //Wapon + Pet;
+            string result = Convert.ToDouble(  (BattleDataAttackSpeed / denominator * 100).ToString() ).ToString("0.00") + "%";    //Wapon + Pet;
             return result;
         }
 
