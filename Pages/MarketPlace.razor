@@ -341,7 +341,7 @@
                                                 <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
                                                 <div class="NFT-Number"  >@item.Number</div>
                                             </div>
-                                            <div class="NFT-Name">
+                                            <div class="NFT-Name" data-i18n="TestTest">
                                                
                                                 @item.serialNumber</div>
                                             
@@ -358,7 +358,7 @@
                                             <div class="NFT-Label-block">
                                                 <div class="NFT-Label">@item.RarityValue</div>
                                                 <div class="NFT-Label">@item.ClassValue</div>
-                                                <div class="NFT-Label">Survival master</div>
+                                                <div class="NFT-Label" data-i18n="TestTest">TestTest</div>
                                             </div>
                                         </div>
                                     </div>
@@ -697,7 +697,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Refresh();
+        @* await Refresh(); *@
     }
 
     private async Task Refresh()
@@ -727,6 +727,7 @@
     {
         if (firstRender)
         {
+            await Refresh();
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterButtonClick");

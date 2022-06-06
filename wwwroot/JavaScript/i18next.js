@@ -1,6 +1,6 @@
 window.LanguageSwitch = async function (lang) {
     await i18next.changeLanguage(lang);
-    await installI18nRider.changeLanguage(lang)
+    // await installI18nRider.changeLanguage(lang)
   $("body").localize().attr('class', `i18n-${lang}`);
 }
 
