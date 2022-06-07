@@ -1,3 +1,5 @@
+/* css引入時須放在最前 */
+
 :root {
     --blue-1: #253B4B;
     --blue-2: #4B8B8B;
@@ -173,7 +175,7 @@
     text-shadow: 2px 2px 5px #24242431;
 }
 .Secend-Inner{
-    border-bottom: 1px solid var(--green-2);
+    
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -222,56 +224,6 @@
     font-size: 24px;
 }
 
-.Secend-Block-Inventory{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin: 25px;
-    border: 2px solid var(--green-2);
-    border-radius: 20px;
-    margin: 0px 30px 30px 0;
-    padding: 5px 20px;
-    color: var(--green-2);
-    font-size: 24px;
-    width: 240px;
-    height: 70px;
-
-    cursor: pointer;
-    transition: all .05s ease-in;
-}
-/* Inventory 當前區塊頁籤顯示 */
-.Inventory-hover-Click{
-    background-color: var(--bg-3);
-    color: var(--font-1);
-}
-.Inventory-hover a{
-    display: contents;
-    /* border: 1px solid red; */
-    color: var(--green-2);
-}
-.Inventory-hover:hover{
-    transform: scale(1.02);
-    background-color: var(--bg-3);
-    color: var(--font-1);
-    /* transition: all .1s ease-in; */
-}
-.Filter-Icon{
-    fill: #69ada2;
-    /* transition: all .1s ease-in; */
-}
-.Inventory-hover:hover .Filter-Icon{
-    fill: white;
-}
-
-.Secend-Inventory-Icon{
-    width: 56px;
-}
-
-.Inventory-Name{
-    margin: 0 30px 0 20px;
-    line-height: 30px;
-    white-space: nowrap;
-}
 
 .Inventory-PPSR-Block{
     /* border: 1px solid red; */
@@ -292,7 +244,16 @@
 }
 
 /* Inventory-PPSR-Filter-Sidebar 篩選器*/
-
+.Inventory-PPSR-Filter-Sidebar .marketPlaceSidebar-scroll{
+    height: 100%;
+}
+.Filter-Icon{
+    fill: #69ada2;
+    /* transition: all .1s ease-in; */
+}
+.Inventory-hover:hover .Filter-Icon{
+    fill: white;
+}
 .Inventory-PPSR-Filter-Block{
     /* border: 1px solid red; */
     position: relative;
@@ -394,17 +355,10 @@
     .MyCerrency-Detail{
         font-size: 22px;
     }
-    .Secend-Block-Inventory{
-        /* font-size: 22px; */
-        width: 220px;
-    }
 
-    .Secend-Inventory-Icon {
-        width: 54px;
-    }
-    .Inventory-Name{
-        margin: 0 20px 0 10px;
-    }
+
+
+
     .Inventory-PPSR-Select{
         align-items: flex-end;
         flex-direction: column;
@@ -421,12 +375,12 @@
         left: unset;
     }
 }
+
+
+
 @media all and (max-width: 700px){
     #Secend-Block-MyCerrency{
         justify-content: center;
-    }
-    .Secend-Block-Inventory{
-        margin: 0px 15px 25px;
     }
 
     .Secend-Inner{

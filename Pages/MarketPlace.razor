@@ -10,6 +10,7 @@
     <title>PonPonSnake 碰碰蛇｜MarketPlace</title>
     <link href="css/MarketPlace.css" rel="stylesheet" />
     <link href="css/Pagination.css" rel="stylesheet" />
+    <link href="css/NFTFilter.css" rel="stylesheet" />
 </head>
 
 
@@ -283,21 +284,21 @@
 
     <main class="marketPlaceMain">
         <section class="marketPlaceHeader">
-            <div class="marketPlaceTitle">PonPonSnake's NFTs<br>@PPSRsCount PPSRs</div>
-            <div class="d-flex flex-column align-items-end" style="align-self: flex-end;">
+            
+            <div class="marketPlaceTitle-Block ">
+                <div class="marketPlaceTitle">PonPonSnake's NFTs<br>@PPSRsCount PPSRs</div>
                 <button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea">Buy on Opensea</a ></button>
-
-                <select class="sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))"   >
-                    <option disabled="" value="Sort" selected="" hidden="">Sort</option>
-                    <option value="Highest Earned">Highest Earned</option>
-                    <option value="Lowest Earned">Lowest Earned</option>
-                    <option value="Highest Price">Highest Price</option>
-                    <option value="Lowest Price">Lowest Price</option>
-                    <option value="Newest">Newest</option>
-                    <option value="Oldest">Oldest</option>
-                </select>
-
             </div>
+            <NFT_Type/>
+            <select class="sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))"   >
+                <option disabled="" value="Sort" selected="" hidden="">Sort</option>
+                <option value="Highest Earned">Highest Earned</option>
+                <option value="Lowest Earned">Lowest Earned</option>
+                <option value="Highest Price">Highest Price</option>
+                <option value="Lowest Price">Lowest Price</option>
+                <option value="Newest">Newest</option>
+                <option value="Oldest">Oldest</option>
+            </select>
         </section>
         <section class="marketPlaceCardBLock">
             
@@ -341,7 +342,7 @@
                                                 <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
                                                 <div class="NFT-Number"  >@item.Number</div>
                                             </div>
-                                            <div class="NFT-Name" data-i18n="TestTest">
+                                            <div class="NFT-Name">
                                                
                                                 @item.serialNumber</div>
                                             
@@ -358,7 +359,7 @@
                                             <div class="NFT-Label-block">
                                                 <div class="NFT-Label">@item.RarityValue</div>
                                                 <div class="NFT-Label">@item.ClassValue</div>
-                                                <div class="NFT-Label" data-i18n="TestTest">TestTest</div>
+                                                @* <div class="NFT-Label" data-i18n="TestTest">TestTest</div> *@
                                             </div>
                                         </div>
                                     </div>

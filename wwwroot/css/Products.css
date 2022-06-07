@@ -225,7 +225,7 @@
     flex-wrap: nowrap;
     /* align-items: center; */
     align-items: flex-start;
-
+    cursor: context-menu;
 }
 .products-owned span{
 
@@ -235,6 +235,14 @@
     word-wrap: break-word; 
     word-break: break-all;
     white-space: normal;
+    width: 40%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    /* 不給點擊 */
+    cursor: context-menu;
+    text-decoration: none;
 }
 
 .products-section{
