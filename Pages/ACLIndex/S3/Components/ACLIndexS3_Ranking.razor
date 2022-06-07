@@ -11,10 +11,13 @@
         @*Squad*@
         <div class="Ranking-banner squadBanner">
             <div class="Ranking-banner-bg">
-                <div class="Ranking-banner-selectContainer">     
+                 <img src="/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.png">
+                 <button @onclick="()=>chaneBanner(false)"></button>                
+            </div> 
+                  <div class="Ranking-banner-selectContainer">     
                     
                     <div class="Ranking-banner-select"> 
-                         <button @onclick="()=>chaneBanner(false)"></button>
+                        
                         <img class ="Bar" src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.png" />    
                         <select>
                             <option>Silver #W1 2022/07/23</option>
@@ -30,18 +33,20 @@
                         </select>
                     </div>
                 </div>
-            </div> 
         </div>
     }
     else
     {
         @*solo*@
         <div class="Ranking-banner soloBanner">
-            <div class="Ranking-banner-bg">
-                <div class="Ranking-banner-selectContainer">  
+            <div class="Ranking-banner-bg">              
+                 <img src="/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.png">
+                 <button @onclick="()=>chaneBanner(true)"></button>
+            </div> 
+               <div class="Ranking-banner-selectContainer">  
                
                     <div class="Ranking-banner-select"> 
-                        <button @onclick="()=>chaneBanner(true)"></button>
+                       
                         <img class ="Bar" src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.png" />    
                         <select>
                             <option>Charity #F1 2022/07/20</option>
@@ -60,7 +65,6 @@
                         </select>
                     </div>
                  </div>
-            </div> 
         </div>
     }    
     @*Date*@

@@ -363,9 +363,11 @@
 
 .content {
     width: 100%;
-    height: 9500px;   
+    height: 10000px;   
     background: url("/images/AsiaChampionsLeague/S3/background/background_board.png");
 }
+
+
 @media (max-width: 1024px) {
     .content {
         height: 9000px;      
@@ -746,6 +748,9 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         .poster-container {
             width: 100%;
             height: 519px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
         }
 
             .poster-container:first-child {
@@ -753,18 +758,20 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             }
 
         .poster img {
-            width: 100%;
-            height: 519px;
+            width: 550px;
+            height: 404px;
+            margin:0 auto;
         }
     }
 
     @media (max-width: 576px) {
         .poster-container {
-            height: 371px;
+            height: 300px;
         }
 
         .poster img {
-            height: 371px;
+            width: 350px;
+            height: 257px;
         }
     }
 
@@ -813,7 +820,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     /*...Rules...*/
     .Rules {
         width: 100%;
-        height: 1300px;
+        height: 1500px;
         background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Bottom.png");
         background-repeat: round;
     }
@@ -835,7 +842,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
     .Rules-owl-Container {
         width: 1340px;
-        height: 720px;
+        height: 1000px;
         margin: 0 auto;
         background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Screen Frame.png");
         background-repeat: round;
@@ -848,8 +855,8 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
     .ACLS3RulesCarousel .item {
         width: 1340px;
-        height: 720px;
-        padding: 50px 100px;
+        height: 1000px;
+        padding: 50px 160px;
     }
 
     .TypewriterPage2Mobile {
@@ -863,31 +870,28 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
         .ACLS3RulesCarousel .item {
             width: 1000px;
-            padding: 50px 80px;
+           
         }
     }
 
     @media (max-width: 1024px) {
         .ACLS3RulesCarousel p {
-            font-size: 16px;
+            font-size: 24px;
         }
 
         .Rules-owl-Container {
             width: 90%;
-            height: 650px;
+            height: 1000px;
         }
 
         .ACLS3RulesCarousel .item {
             width: 90%;
-            height: 650px;
+            height: 1000px;
             padding: 50px 80px;
         }
     }
 
-    @media (max-width: 768px) {
-        .ACLS3RulesCarousel p {
-            font-size: 14px;
-        }
+    @media (max-width: 768px) {      
 
         .ACLS3RulesCarousel .item {
             padding: 50px 40px;
@@ -900,7 +904,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
 @media (max-width: 576px) {
     .ACLS3RulesCarousel p {
-        font-size: 10px;
+        font-size: 20px;
     }
     .ACLS3RulesCarousel .item {
         padding: 50px 0 50px 20px;
@@ -914,12 +918,12 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
         .Rules-owl-Container {
             width: 95%;
-            height: 500px;
+            height: 850px;
         }
 
         .ACLS3RulesCarousel .item {
             width: 95%;
-            height: 500px;
+            height: 850px;
         }
     }
 
@@ -936,9 +940,9 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         width: 201px !important;
         height: 147px !important;
         position: absolute;
-        transform: translate(-50%,-50%);
-        bottom: -8%;
+        transform: translate(-50%,-50%);       
         left: 50%;
+         bottom:0%;
     }
 
     @media (max-width: 768px) {
@@ -1207,76 +1211,88 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     /*...Ranking...*/
     .Ranking {
         width: 100%;
-        height: 1350px;
+        height: 1600px;
         margin-top: 20px;
     }
 
-    .Ranking-banner {
+.Ranking-banner {
+    width: 100%;
+    height: 700px;
+    
+}
+
+    .Ranking-banner .Ranking-banner-bg {
         width: 100%;
-        height: 528px;
+        height:420px;
         position: relative;
     }
 
-        .Ranking-banner .Ranking-banner-bg {
-            width: 100%;
-            height: 397px;
-        }
+.squadBanner .Ranking-banner-bg {
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad bottom.png");
+    /*background-repeat: round;*/
+    background-size: cover;
+}
 
-    .squadBanner .Ranking-banner-bg {
-        background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad bottom.png");
-        background-repeat: round;
-    }
+.soloBanner .Ranking-banner-bg {
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo bottom.png");
+    /*background-repeat: round;*/
+    background-size: cover;
+}
 
-    .soloBanner .Ranking-banner-bg {
-        background: url("/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo bottom.png");
-        background-repeat: round;
-    }
 
-    .Ranking-banner .Ranking-banner-selectContainer {
-        width: 100%;
-        height: 225px;
-        position: absolute;
-        left: 0%;
-        top: 58%;
-    }
 
-    .Ranking-banner-selectContainer button {
-        background: none;
-        position: absolute;
-        border: 0;
-    }
+.Ranking-banner-bg img {
+    bottom: 0%;
+    left: 0%;
+    width: 46%;
+    height: 91px;
+    position:absolute;
+}
 
-    .squadBanner button {
-        top: 0%;
-        left: 0;
-        width: 26.5%;
-        height: 91px;
-    }
+.Ranking-banner-bg button {
+    background: none;
+    position: absolute;
+    border: 0;
+    height: 91px;
+}
 
-    .soloBanner button {
-        top: 0%;
-        left: 25%;
-        width: 19.5%;
-        height: 91px;
-    }
+.squadBanner button {
+    bottom: 0%;
+    left: 0;
+    width: 26.5%;
+  
+}
 
-    .Ranking-banner-selectContainer select {
-        top: 43.5%;
-        left: 19.7%;
-        width: 336px;
-        height: 46.5px;
-        position: absolute;
-        border: 0px;
-        background: none;
-        border-radius: 20px;
-        font-size: 20px;
-        font-family: Arial;
-        padding-left: 1.5%;
-        outline: none;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-animation: none;
-    }
+.soloBanner button {
+    bottom: 0%;
+    left: 28%;
+    width: 19.5%;
+    
+}
+
+.Ranking-banner .Ranking-banner-selectContainer {
+    width: 100%;
+    height: 230px;
+    position: relative;
+}
+
+.Ranking-banner-selectContainer select {
+    top: 15%;
+    left: 19.7%;
+    width: 336px;
+    height: 46.5px;
+    position: absolute;
+    border: 0px;
+    background: none;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: Arial;
+    padding-left: 1.5%;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-animation: none;
+}
 
     .squadBanner select {
         color: #B97DF2;
@@ -1286,37 +1302,44 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         color: #85b1f8;
     }
 
-    @media (max-width: 1500px) {
-        .Ranking-banner {
-            height: 360px;
-            margin-bottom: 20px;
-        }
-
-            .Ranking-banner .Ranking-banner-bg {
-                height: 280px;
-            }
-
-            .Ranking-banner .Ranking-banner-selectContainer {
-                height: 180px;
-            }
+@media (max-width: 1500px) {
+    .Ranking {
+        height: 1800px;
     }
+.Ranking-banner {
+    height: 430px;
+    margin-bottom: 20px;
+}
+
+.Ranking-banner .Ranking-banner-bg {
+    height: 280px;
+}
+
+.Ranking-banner .Ranking-banner-selectContainer {
+    height: 180px;
+}
+}
 
     @media (max-width: 1024px) {
-        .Ranking {
-            height: 1600px;
-        }
+
 
         .Ranking-banner {
-            height: 270px;
+            height: 350px;         
         }
 
             .Ranking-banner .Ranking-banner-bg {
                 height: 210px;
             }
+        .Ranking-banner-bg img {
+            height:50px;
+        }
 
-            .Ranking-banner .Ranking-banner-selectContainer {
-                height: 120px;
-            }
+        .Ranking-banner-bg button {       
+            height: 50px;
+        }
+        .Ranking-banner .Ranking-banner-selectContainer {
+            height: 120px;
+        }
 
         .Ranking-banner-selectContainer select {
             width: 179px;
@@ -1331,16 +1354,21 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
 
         .Ranking-banner {
-            height: 180px;
+            height: 230px;
         }
 
             .Ranking-banner .Ranking-banner-bg {
                 height: 140px;
             }
+        .Ranking-banner-bg img {
+            height: 36px;
+        }
 
-            .Ranking-banner .Ranking-banner-selectContainer {
-                height: 80px;
-            }
+        .Ranking-banner-bg button {
+
+            height: 36px;
+        }
+   
 
         .Ranking-banner-selectContainer select {
             height: 15px;
@@ -1350,17 +1378,20 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
     @media (max-width: 576px) {
-        .Ranking-banner {
-            height: 135px;
-        }
+       
 
             .Ranking-banner .Ranking-banner-bg {
                 height: 105px;
             }
+        .Ranking-banner-bg img {
+            height: 24px;
+        }
 
-            .Ranking-banner .Ranking-banner-selectContainer {
-                height: 60px;
-            }
+        .Ranking-banner-bg button {
+     
+            height: 24px;
+        }
+   
     }
 
 
@@ -1370,22 +1401,23 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         position: relative;
     }
 
-    .squadBanner .Ranking-banner-select {
-        background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-1.png");
-        background-repeat: round;
-    }
+.squadBanner .Ranking-banner-select {
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-2.png");
+    background-size: cover;
+}
 
-    .soloBanner .Ranking-banner-select {
-        background: url("/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-1.png");
-        background-repeat: round;
-    }
+.soloBanner .Ranking-banner-select {
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-2.png");
+    /*background-repeat: round;*/
+    background-size:cover;
+}
 
     .Ranking-banner .Bar {
         width: 519px;
         height: 50px;
         position: absolute;
         left: 19.58%;
-        top: 43%;
+        top: 15%;
     }
 
     .Ranking-Date {
@@ -1418,37 +1450,37 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
     @media (max-width: 576px) {
-        .Ranking-Date {
-            height: 22px;
+        .Ranking-Date {         
+            width: 60%;
         }
     }
 
+    /*.......排名...........*/
+.Ranking-Place-left {
+    float: left;
+    width: 750px;
+    height: 610px;
+    position: relative;
+}
 
-    .Ranking-Place-left {
-        float: left;
-        width: 50%;
-        height: 610px;
-        position: relative;
+    .Ranking-Place-left h3 {
+        position: absolute;
+        font-family: Microsoft JhengHei;
     }
 
-        .Ranking-Place-left h3 {
-            position: absolute;
-            font-family: Microsoft JhengHei;
-        }
-
-        .Ranking-Place-left p {
-            position: absolute;
-            font-family: Microsoft JhengHei;
-        }
-
-    .Ranking_First {
-        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_First.png");
-        background-repeat: round;
-        width: 95%;
-        height: 230px;
+    .Ranking-Place-left p {
+        position: absolute;
+        font-family: Microsoft JhengHei;
     }
 
-        .Ranking_First img {
+.Ranking_First {
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_First.png");
+    background-repeat: round;
+    width: 95%;
+    height: 230px;
+}
+
+    .Ranking_First img {
             position: absolute;
             left: 21%;
             top: 6%;
@@ -1457,17 +1489,20 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
 
     @media (max-width: 1500px) {
+        .Ranking-Place-left {
+            width:50%;
+        }
         .Ranking_First img {
             width: 133px;
             height: 130px;
         }
     }
 
-    @media (max-width: 1024px) {
-        .Ranking_First img {
-            left: 25%;
-        }
+@media (max-width: 1100px) {
+    .Ranking_First img {
+        left: 25%;  
     }
+}
 
     @media (max-width: 768px) {
         .Ranking_First img {
@@ -1557,11 +1592,11 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             font-size: 24px;
         }
 
-    .Ranking-Place-right {
-        float: right;
-        width: 50%;
-        padding-left: 136px;
-    }
+.Ranking-Place-right {
+    float: right;
+    width: 750px;
+    padding-left: 136px;
+}
 
     .Ranking-Place-Other {
         width: 527px;
@@ -1596,6 +1631,11 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
 
     @media (max-width: 1500px) {
+        .Ranking-Place-right {
+            padding-left: 0px;
+            width:50%;
+        }
+
         .Ranking_First {
             height: 191px;
         }
@@ -1635,7 +1675,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1100px) {
         .Ranking-Place-left {
             width: 100%;
             height: 600px;
@@ -1686,7 +1726,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
 
         .Ranking-Place-Other {
-            width: 300px;
+            width: 360px;
             height: 500px;
         }
     }
@@ -1743,7 +1783,8 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     /*...Schedule...*/
     .Schedule {
         background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_bottom.png");
-        background-repeat: round;
+        background-repeat: no-repeat;
+        background-size: cover;
         width: 100%;
         height: 1550px;
     }
@@ -2458,7 +2499,7 @@ font-family: Microsoft JhengHei;*/
 
 
     .notice_title {
-        font-size: 30px;
+        font-size: 42px;
         color: #648ea1 !important;
         margin: 20px 0 10px !important;
         text-align: center;
@@ -2468,7 +2509,7 @@ font-family: Microsoft JhengHei;*/
 
     .txt_title {
         color: #648ea1 !important;
-        font-size: 24px;
+        font-size: 36px;
         margin: 40px 0 10px 0;
     }
 
@@ -2478,7 +2519,7 @@ font-family: Microsoft JhengHei;*/
     }
 
     .event_txt {
-        font-size: 20px;
+        font-size: 36px;
         margin: 20px 0 0px;
         padding: 0 10px;
         /* text-indent: -1em;  */
@@ -2492,7 +2533,7 @@ font-family: Microsoft JhengHei;*/
     }
 
     .event_txt02 {
-        font-size: 18px;
+        font-size: 32px;
         margin: 10px 0 0px;
         padding: 0 15px 0 40px;
         text-indent: -1em;
@@ -2500,26 +2541,26 @@ font-family: Microsoft JhengHei;*/
     }
 
 
-    .event_txt03 {
-        font-size: 16px;
-        padding: 0 30px;
-        margin-left: 2em;
-        text-indent: -1em;
-    }
+.event_txt03 {
+    font-size: 28px;
+    padding: 0 30px;
+    margin-left: 2em;
+    text-indent: -1em;
+}
 
-    .event_txt04 {
-        font-size: 16px;
-        padding: 0 30px;
-        margin-left: 3em;
-        text-indent: -1em;
-    }
+.event_txt04 {
+    font-size: 28px;
+    padding: 0 30px;
+    margin-left: 3em;
+    text-indent: -1em;
+}
 
-    .event_txt05 {
-        font-size: 16px;
-        padding: 0 30px;
-        margin-left: 4em;
-        text-indent: -1em;
-    }
+.event_txt05 {
+    font-size: 28px;
+    padding: 0 30px;
+    margin-left: 4em;
+    text-indent: -1em;
+}
 
 
     @media (max-width: 1200px) {
@@ -2611,7 +2652,7 @@ font-family: Microsoft JhengHei;*/
             border-style: solid;
             border-width: 1px;
             font-family: Arial, sans-serif;
-            font-size: 14px;
+            font-size: 24px;
             overflow: hidden;
             padding: 10px 5px;
             word-break: normal;
@@ -2625,7 +2666,7 @@ font-family: Microsoft JhengHei;*/
     table, tr, th, td {
         border: 1px solid #d2e1e9;
         text-align: center;
-        font-size: 16px;
+        font-size: 28px;
         padding: 2px 4px;
     }
 
