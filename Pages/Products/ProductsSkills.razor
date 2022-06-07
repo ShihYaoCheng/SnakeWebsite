@@ -1,29 +1,68 @@
-<section class="products-section" id="products-Skills">
-    <div class="products-block">
-        <div class="products-block-title">Skills</div>
-        <div class="products-block-02" id="products-block-02-Skills">
-            <div class="products-box-block">
-                @* icon及實際屬性及值由後端串接生成 *@
-                <div class="products-block-02" id="products-Skills">
-                    <img class="products-skills-icon" src="/images/Products/products-skills-01.png" alt="">
-                    <div class="skills-info">
-                        <div class="skills-type">Skill’s name </div> @*(後端串接)*@
-                        <div class="skills-value">CD: 12s </div>
-                        <div class="skills-content"> Here is some description of skill. In this area, this div would be adjusted with the texts. Here is some description of skill. In this area, this div would be adjusted with the texts. </div>
-                    </div>
-                </div>
-                <div class="products-block-02" id="products-Skills">
-                    <img class="products-skills-icon" src="/images/Products/products-skills-02.png" alt="">
-                    <div class="skills-info">
-                        <div class="skills-type">Skill’s name </div>@*(後端串接)*@
-                        <div class="skills-value">CD: 12s</div> @*(後端串接)*@
-                        <div class="skills-content"> Here is some description of skill. In this area, this div would be adjusted with the texts. Here is some description of skill. In this area, this div would be adjusted with the texts. </div>
-                    </div>
-                </div>
-            </div>
 
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services.Products
+@inject ProductsService ProductsService;
+
+@if( Ridder.Skills != null)
+{
+    <section class="products-section" id="products-Skills">
+        <div class="products-block">
+            <div class="products-block-title">Skills</div>
+            <div class="products-block-02" id="products-block-02-Skills">
+                <div class="products-box-block">
+                    @* icon及實際屬性及值由後端串接生成 *@
+
+                    @foreach( Skill item  in Ridder.Skills)
+                    {
+                    
+                        <div class="products-block-02" id="products-Skills">
+                            <img class="products-skills-icon" src="@item.SkillsIcon" alt="" style="width:145px; height:145px;">
+                            <div class="skills-info">
+                                <div class="skills-type" data-i18n="[html]@item.SkillsName"> @item.SkillsName </div> 
+                                <div class="skills-value">CD: 12s </div>
+                                <div class="skills-content" data-i18n="[html]@item.Description" > @item.Description  </div>
+                            </div>
+                        </div>
+                    }
+
+                    @*<div class="products-block-02" id="products-Skills">
+                        <img class="products-skills-icon" src="/images/Products/products-skills-01.png" alt="">
+                        <div class="skills-info">
+                            <div class="skills-type">Skill’s name </div> 
+                            <div class="skills-value">CD: 12s </div>
+                            <div class="skills-content"> Here is some description of skill. In this area, this div would be adjusted with the texts. Here is some description of skill. In this area, this div would be adjusted with the texts. </div>
+                        </div>
+                    </div>
+                    <div class="products-block-02" id="products-Skills">
+                        <img class="products-skills-icon" src="/images/Products/products-skills-02.png" alt="">
+                        <div class="skills-info">
+                            <div class="skills-type">Skill’s name </div>
+                            <div class="skills-value">CD: 12s</div> 
+                            <div class="skills-content"> Here is some description of skill. In this area, this div would be adjusted with the texts. Here is some description of skill. In this area, this div would be adjusted with the texts. </div>
+                        </div>
+                    </div>*@
+                </div>
+
+            </div>
         </div>
-    </div>
 
 
 </section>
+}
+
+
+@code{
+     [Parameter]
+    public RiderIntroduce Ridder { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        
+        await Refresh();
+    }
+
+    private async Task Refresh()
+    {       
+        Ridder =await ProductsService.Get_RiderIntroduce();
+        StateHasChanged();
+    }
+}
