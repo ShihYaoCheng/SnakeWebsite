@@ -236,9 +236,9 @@
     word-break: break-all;
     white-space: normal;
     width: 40%;
-    overflow: hidden;
+    /* overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
 
     /* 不給點擊 */
     cursor: context-menu;
