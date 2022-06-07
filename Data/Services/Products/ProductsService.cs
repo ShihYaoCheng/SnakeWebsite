@@ -477,7 +477,10 @@ namespace SnakeAsianLeague.Data.Services.Products
 
         //    public int knightID { get; set; }
         //}
-
+        public void GetValue()
+        {
+            
+        }
 
 
     }

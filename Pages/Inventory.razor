@@ -514,7 +514,7 @@
 
         AppState.StateChanged += async (Source, Property)
         => await InvokeAsync(StateHasChanged);
-        await Refresh();
+     
     }
 
     private async Task Refresh()
@@ -554,6 +554,7 @@
     {
         if (firstRender)
         {
+            await Refresh();
             @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");
