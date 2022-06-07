@@ -1,4 +1,3 @@
-
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Services.Products
 @inject ProductsService ProductsService;
@@ -19,7 +18,7 @@
                             <img class="products-skills-icon" src="@item.SkillsIcon" alt="" style="width:145px; height:145px;">
                             <div class="skills-info">
                                 <div class="skills-type" data-i18n="[html]@item.SkillsName"> @item.SkillsName </div> 
-                                <div class="skills-value">CD: 12s </div>
+                               @*<div class="skills-value">CD: 12s </div>*@
                                 <div class="skills-content" data-i18n="[html]@item.Description" > @item.Description  </div>
                             </div>
                         </div>
