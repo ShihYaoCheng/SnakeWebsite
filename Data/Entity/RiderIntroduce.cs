@@ -110,7 +110,7 @@
 
     public class Skill
     {
-        public string SkillsNmae { get; set; }
+        public string SkillsName { get; set; }
 
         public double CD { get; set; }
 

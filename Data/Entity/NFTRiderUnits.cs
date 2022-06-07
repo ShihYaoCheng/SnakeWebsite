@@ -65,6 +65,9 @@
         public string contractAddress { get; set; }
 
 
-        
+        /// <summary>
+        /// 遊戲端是否顯示
+        /// </summary>
+        public bool isAvailableInGame { get; set; }
     }
 }

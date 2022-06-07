@@ -136,6 +136,11 @@ namespace SnakeAsianLeague.Data.Services.Products
                     {
                         /*Owned*/
                         Rider.Owned = result.castings[0].owner;
+                        if (Rider.Owned.Length > 20)
+                        {
+                            Rider.Owned = string.Format("{0}...{1}", Rider.Owned.Substring(0, 5), Rider.Owned.Substring(Rider.Owned.Length - 4, 4));
+                        }
+
                         /*Income*/
                         Rider.Income = new NowRentAndTotalRevenue();
                         Rider.Income = await Get_NowRentAndTotalRevenue("#" +TokenID);
@@ -143,14 +148,17 @@ namespace SnakeAsianLeague.Data.Services.Products
                     else
                     {
                         /*Owned*/
-                        Rider.Owned = asset_contract_address;
+                        //Rider.Owned = asset_contract_address;
+
+
+                        Rider.Owned = string.Format("{0}...{1}", asset_contract_address.Substring(0, 5), asset_contract_address.Substring(asset_contract_address.Length - 4, 4));
                         /*Income*/
                         Rider.Income = new NowRentAndTotalRevenue();
                     }
 
                     /*ImgPath*/
                     Rider.Name = SerialNumber;
-                    Rider.ImgPath = string.Format(ImgPath, SerialNumber);
+                    Rider.ImgPath = string.Format(ImgPath,"ppsr", SerialNumber);
                     /*Attrbutes*/
                     Rider.Attrbutes = new Attrbutes();
                     List<string> RarityElements = result.serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
@@ -181,15 +189,56 @@ namespace SnakeAsianLeague.Data.Services.Products
                     Rider.Stats.ElementEffect = Cal_ElementEffect(result);
                     /*Avatars*/
                     Rider.Avatars = new Avatars();
-                    Rider.Avatars.Ridder = result.knight == null ? "" : result.knight.name;
-                    Rider.Avatars.Pet = result.pet == null ? "" : result.pet.name;
-                    Rider.Avatars.Weapon = result.weapon == null ? "" : result.weapon.name;
-                    Rider.Avatars.Snake = result.snake == null ? "" : result.snake.name;
+                    Rider.Avatars.Ridder = result.knight == null ? "" : result.knight.serialNumber;
+                    Rider.Avatars.Pet = result.pet == null ? "" : result.pet.serialNumber;
+                    Rider.Avatars.Weapon = result.weapon == null ? "" : result.weapon.serialNumber;
+                    Rider.Avatars.Snake = result.snake == null ? "" : result.snake.serialNumber;
                     /*skills*/
                     Rider.Skills = new List<Skill>();
-                    Skill skill = new Skill();
-                    skill.SkillsNmae = result.knight == null ? "" : result.knight.name;
-                    Rider.Skills.Add(skill);
+                    if (result.knight != null)
+                    {
+                        if (result.knight.skill != "")
+                        {
+                            Skill skill = new Skill();
+                            skill.SkillsName = string.Format("{0}.Name", result.knight.skill);
+                            skill.SkillsIcon = string.Format(ImgPath, "skill", result.knight.skill);
+                            skill.Description = string.Format("{0}.Description", result.knight.skill);
+                            Rider.Skills.Add(skill);
+                        }
+                    }
+                    if (result.snake != null)
+                    {
+                        if (result.snake.skill != "")
+                        {
+                            Skill skill = new Skill();
+                            skill.SkillsName = string.Format("{0}.Name", result.snake.skill);
+                            skill.SkillsIcon = string.Format(ImgPath, "skill", result.snake.skill);
+                            skill.Description = string.Format("{0}.Description", result.snake.skill);
+                            Rider.Skills.Add(skill);
+                        }
+                    }
+                    if (result.weapon != null)
+                    {
+                        if (result.weapon.skill != "")
+                        {
+                            Skill skill = new Skill();
+                            skill.SkillsName = string.Format("{0}.Name", result.weapon.skill);
+                            skill.SkillsIcon = string.Format(ImgPath, "skill", result.weapon.skill);
+                            skill.Description = string.Format("{0}.Description", result.weapon.skill);
+                            Rider.Skills.Add(skill);
+                        }
+                    }
+                    if (result.pet != null)
+                    {
+                        if (result.pet.skill != "")
+                        {
+                            Skill skill = new Skill();
+                            skill.SkillsName = string.Format("{0}.Name", result.pet.skill);
+                            skill.SkillsIcon = string.Format(ImgPath, "skill", result.pet.skill);
+                            skill.Description = string.Format("{0}.Description", result.pet.skill);
+                            Rider.Skills.Add(skill);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -428,7 +477,10 @@ namespace SnakeAsianLeague.Data.Services.Products
 
         //    public int knightID { get; set; }
         //}
-
+        public void GetValue()
+        {
+            
+        }
 
 
     }

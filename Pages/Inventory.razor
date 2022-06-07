@@ -317,7 +317,7 @@
                                                             <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
                                                             <div class="NFT-Number"  >@item.Number</div>
                                                         </div>
-                                                        <div class="NFT-Name">
+                                                        <div class="NFT-Name"  data-i18n=@item.serialNumber>
                                                
                                                             @item.serialNumber</div>
                                             
@@ -374,7 +374,7 @@
                                                         
                                                         @* </button> *@
                                                         <div class="NFT-Number">#PPSR @item.Number</div>
-                                                        <div class="NFT-Name">@item.Name</div>
+                                                        <div class="NFT-Name"  data-i18n=@item.serialNumber>@item.serialNumber</div>
                                                         <div class="NFT-PriceBlock">
                                                             <div class="NFT-PriceMain">
                                             
@@ -416,7 +416,7 @@
                                                     <div class="NFT-cardText">
 
                                                         <div class="NFT-Number">#@item.Number</div>
-                                                        <div class="NFT-Name">@item.Name</div>
+                                                        <div class="NFT-Name" data-i18n=@item.serialNumber >@item.serialNumber</div>
                                                         @*<div class="NFT-PriceBlock">
                                                             <div class="NFT-PriceMain">
                                                                 <div class="NFT-PriceIcon-Border">
@@ -507,7 +507,7 @@
 
         AppState.StateChanged += async (Source, Property)
         => await InvokeAsync(StateHasChanged);
-        await Refresh();
+     
     }
 
     private async Task Refresh()
@@ -547,6 +547,7 @@
     {
         if (firstRender)
         {
+            await Refresh();
             @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");

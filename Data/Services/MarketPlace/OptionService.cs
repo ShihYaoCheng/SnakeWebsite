@@ -213,7 +213,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                     Rarity = RarityElements[2].Substring(0, 1);
                     Elements = RarityElements[2].Substring(1, 1);
                 }
-                data.ImgPath = string.Format(ImgPath, NFT_Riders[i].serialNumber);
+                data.ImgPath = string.Format(ImgPath,"ppsr", NFT_Riders[i].serialNumber);
                 data.LinkURL = string.Format(LinkURL, asset_contract_address, NFT_Riders[i].castings[0].tokenId);
                 data.RarityKey = Rarity;
                 data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;

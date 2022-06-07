@@ -363,452 +363,462 @@
 
 .content {
     width: 100%;
-    height: 9000px;   
+    height: 9500px;   
     background: url("/images/AsiaChampionsLeague/S3/background/background_board.png");
 }
-
-/*...Event-Info...*/
-.Event-Info {
-    height: 2200px;
-    width: 100%; 
-}
-
 @media (max-width: 1024px) {
-    .Event-Info {
-        height: 2000px;      
+    .content {
+        height: 9000px;      
     }
 }
 @media (max-width: 576px) {
-    .Event-Info {
-        height: 1600px;
+    .content {
+        height:7700px;
     }
 }
+    /*...Event-Info...*/
+    .Event-Info {
+        height: 2200px;
+        width: 100%;
+    }
 
-.Event-Info h2 {
-    color: #67ADA2;
-    text-align: center;
-    font-size: 48px;
-    margin: 106px auto 80px auto;
-    font-weight: 500;
-    font-family: Microsoft JhengHei;
-}
+    @media (max-width: 1024px) {
+        .Event-Info {
+            height: 2000px;
+        }
+    }
 
-.Event-Info p {
-    color: #FFA81D;
-    text-align: center;
-    font-size: 35px;
-    font-family: Microsoft JhengHei;
-    margin-bottom: 20px;
-}
+    @media (max-width: 576px) {
+        .Event-Info {
+            height: 1600px;
+        }
+    }
 
-@media (max-width: 768px) {
     .Event-Info h2 {
-        font-size: 40px;
+        color: #67ADA2;
+        text-align: center;
+        font-size: 48px;
+        margin: 106px auto 80px auto;
+        font-weight: 500;
+        font-family: Microsoft JhengHei;
     }
 
     .Event-Info p {
-        font-size: 20px;
+        color: #FFA81D;
+        text-align: center;
+        font-size: 35px;
+        font-family: Microsoft JhengHei;
+        margin-bottom: 20px;
     }
-}
 
-.ticket {
-    width: 100%;
-    height: 1041px;
-    margin-bottom: 157px;
-}
+    @media (max-width: 768px) {
+        .Event-Info h2 {
+            font-size: 40px;
+        }
 
-.ticket-container {
-    width: 1000px;
-    height: 100%;
-    position: relative;
-    margin: 0 auto;
-    text-align: center;
-}
+        .Event-Info p {
+            font-size: 20px;
+        }
+    }
 
-.ticket-img {
-    width: 100%;
-    height: 347px;
-    display: block;
-}
-
-.ticketMobile {
-    display: none;
-}
-
-.ticket-MobileImg {
-    width: 150px;
-    height: 497px;
-    display: inline-block;
-    margin: 0 7px;
-}
-
-@media (max-width: 1024px) {
     .ticket {
-        height: 750px;
+        width: 100%;
+        height: 1041px;
+        margin-bottom: 157px;
     }
 
     .ticket-container {
-        width: 800px;
+        width: 1000px;
+        height: 100%;
         position: relative;
+        margin: 0 auto;
+        text-align: center;
     }
 
     .ticket-img {
-        height: 247px;
-    }
-}
-
-@media (max-width: 768px) {
-    .ticket {
-        height: 400px;
-    }
-
-    .ticket-container {
-        width: 600px;
-    }
-
-    .ticketComputer {
-        display: none;
+        width: 100%;
+        height: 347px;
+        display: block;
     }
 
     .ticketMobile {
-        display: block;
-    }
-}
-
-@media (max-width: 578px) {
-    .ticket {
-        height: 350px;
-        margin-bottom: 50px;
-    }
-
-    .ticket-container {
-        width: 370px;
+        display: none;
     }
 
     .ticket-MobileImg {
-        width: 100px;
-        height: 331px;
+        width: 150px;
+        height: 497px;
+        display: inline-block;
+        margin: 0 7px;
     }
-}
 
-.ticket-star {
-    position: absolute;
-    transform: scale(0.8);
-    filter: drop-shadow(0px 0px 10px rgba(254, 236, 151, 0.7));
-}
-@media (max-width: 768px) {
+    @media (max-width: 1024px) {
+        .ticket {
+            height: 750px;
+        }
+
+        .ticket-container {
+            width: 800px;
+            position: relative;
+        }
+
+        .ticket-img {
+            height: 247px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .ticket {
+            height: 400px;
+        }
+
+        .ticket-container {
+            width: 600px;
+        }
+
+        .ticketComputer {
+            display: none;
+        }
+
+        .ticketMobile {
+            display: block;
+        }
+    }
+
+    @media (max-width: 578px) {
+        .ticket {
+            height: 350px;
+            margin-bottom: 50px;
+        }
+
+        .ticket-container {
+            width: 370px;
+        }
+
+        .ticket-MobileImg {
+            width: 100px;
+            height: 331px;
+        }
+    }
+
     .ticket-star {
-        transform: scale(0.6);
-   }
-}
+        position: absolute;
+        transform: scale(0.8);
+        filter: drop-shadow(0px 0px 10px rgba(254, 236, 151, 0.7));
+    }
 
-/*.ticket-star::after {
+    @media (max-width: 768px) {
+        .ticket-star {
+            transform: scale(0.6);
+        }
+    }
+
+    /*.ticket-star::after {
 box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 }*/
 
-.star-1 {
-    top: -1%;
-    left: 5%;
-    animation: starAni 3s infinite linear;
-    -webkit-animation-: starAni 3s infinite linear;
-}
+    .star-1 {
+        top: -1%;
+        left: 5%;
+        animation: starAni 3s infinite linear;
+        -webkit-animation-: starAni 3s infinite linear;
+    }
 
-.star-2 {
-    top: 25%;
-    left: 8%;
-   
-    animation: starAni 2.8s infinite linear;
-    -webkit-animation-: starAni 2.8s infinite linear;
-}
-
-.star-3 {
-    top: -4%;
-    right: 10%;
-    animation-delay: 1s;
-    animation: starAni 3.5s infinite linear;
-    -webkit-animation-: starAni 3.5s infinite linear;
-}
-
-.star-4 {
-    top: 18%;
-    left: 25%;
-    animation-delay: 1.5s;
-    animation: starAni 3.8s infinite linear;
-    -webkit-animation-: starAni 3s infinite linear;
-}
-
-.star-5 {
-    top: 25%;
-    right: 2%;
-    animation-delay: 2.5s;
-    animation: starAni 3.2s infinite linear;
-    -webkit-animation-: starAni 3.2s infinite linear;
-}
-
-.star-6 {
-    top: -1%;
-    left: 5%;
-    animation: starAni 3s infinite linear;
-    -webkit-animation-: starAni 3s infinite linear;
-}
-
-.star-7 {
-    top: 40%;
-    left: 8%;    
-    animation: starAni 2.8s infinite linear;
-    -webkit-animation-: starAni 2.8s infinite linear;
-}
-
-.star-8 {
-    top: 25%;
-    left: 25%;  
-    animation: starAni 3.5s infinite linear;
-    -webkit-animation-: starAni 3.5s infinite linear;
-}
-
-.star-9 {
-    top: 80%;
-    left: 30%;
-    animation: starAni 3.8s infinite linear;
-    -webkit-animation-: starAni 3.8s infinite linear;
-}
-
-.star-10 {
-    top: 110%;
-    left: 8%;
-    animation: starAni 3.2s infinite linear;
-    -webkit-animation-: starAni 3.2s infinite linear;
-}
-
-@media (max-width: 1024px) {
     .star-2 {
-        top: 18%;
+        top: 25%;
+        left: 8%;
+        animation: starAni 2.8s infinite linear;
+        -webkit-animation-: starAni 2.8s infinite linear;
+    }
+
+    .star-3 {
+        top: -4%;
+        right: 10%;
+        animation-delay: 1s;
+        animation: starAni 3.5s infinite linear;
+        -webkit-animation-: starAni 3.5s infinite linear;
     }
 
     .star-4 {
-        top: 11%;
+        top: 18%;
+        left: 25%;
+        animation-delay: 1.5s;
+        animation: starAni 3.8s infinite linear;
+        -webkit-animation-: starAni 3s infinite linear;
     }
 
     .star-5 {
-        top: 18%;
+        top: 25%;
+        right: 2%;
+        animation-delay: 2.5s;
+        animation: starAni 3.2s infinite linear;
+        -webkit-animation-: starAni 3.2s infinite linear;
     }
-}
 
-@media (max-width: 576px) {
     .star-6 {
-        left: 0%;
+        top: -1%;
+        left: 5%;
+        animation: starAni 3s infinite linear;
+        -webkit-animation-: starAni 3s infinite linear;
     }
 
     .star-7 {
-        top: 35%;
-        left: -3%;
+        top: 40%;
+        left: 8%;
+        animation: starAni 2.8s infinite linear;
+        -webkit-animation-: starAni 2.8s infinite linear;
+    }
+
+    .star-8 {
+        top: 25%;
+        left: 25%;
+        animation: starAni 3.5s infinite linear;
+        -webkit-animation-: starAni 3.5s infinite linear;
     }
 
     .star-9 {
-        top: 50%;
-        left: 18%;
+        top: 80%;
+        left: 30%;
+        animation: starAni 3.8s infinite linear;
+        -webkit-animation-: starAni 3.8s infinite linear;
     }
 
     .star-10 {
-        top: 73%;
+        top: 110%;
         left: 8%;
-    }
-}
-
-@keyframes starAni {
-    0% {
-        transform: scale(0.8);
+        animation: starAni 3.2s infinite linear;
+        -webkit-animation-: starAni 3.2s infinite linear;
     }
 
-    25% {
-        transform: scale(0.5);
+    @media (max-width: 1024px) {
+        .star-2 {
+            top: 18%;
+        }
+
+        .star-4 {
+            top: 11%;
+        }
+
+        .star-5 {
+            top: 18%;
+        }
     }
 
-    50% {
-        transform: scale(0.2);
+    @media (max-width: 576px) {
+        .star-6 {
+            left: 0%;
+        }
+
+        .star-7 {
+            top: 35%;
+            left: -3%;
+        }
+
+        .star-9 {
+            top: 50%;
+            left: 18%;
+        }
+
+        .star-10 {
+            top: 73%;
+            left: 8%;
+        }
     }
 
-    75% {
-        transform: scale(0.5);
+    @keyframes starAni {
+        0% {
+            transform: scale(0.8);
+        }
+
+        25% {
+            transform: scale(0.5);
+        }
+
+        50% {
+            transform: scale(0.2);
+        }
+
+        75% {
+            transform: scale(0.5);
+        }
+
+        100% {
+            transform: scale(0.8);
+        }
     }
 
-    100% {
-        transform: scale(0.8);
-    }
-}
 
-
-.poster {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 58px;
-    overflow: hidden
-}
-
-.poster-container {
-    width: 692px;
-    height: 514px;
-    position: relative;
-}
-
-    .poster-container:first-child {
-        margin-right: 110px;
-    }
-
-.poster-shine {
-    position: absolute;
-    top: 0;
-    left: -350px;
-    width: 300px;
-    height: 514px;
-    background: rgba(255, 255, 255, 0.05);
-    pointer-events: none;
-    animation: posterShine 4s ease-out infinite;
-    -webkit-animation-: posterShine 4s ease-out infinite;
-}
-/*反光移動*/
-@keyframes posterShine {
-    0% {
-        transform: skewX(10deg) translateX(0);
-    }
-
-    10% {
-        transform: skewX(10deg) translateX(2000px);
-    }
-
-    100% {
-        transform: skewX(10deg) translateX(2000px);
-    }
-}
-
-.poster img {
-    /* */
-    width: 692px;
-    height: 514px;
-    animation: posterImg 4s ease-out infinite;
-    -webkit-animation-: posterImg 4s ease-out infinite;
-}
-/*圖片變亮*/
-@keyframes posterImg {
-    0% {
-        opacity: 0.9;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.9;
-    }
-}
-
-@media (max-width: 1500px) {
-    .poster-container {
-        width: 500px;
-        height: 371px;
-    }
-
-    .poster img {
-        width: 500px;
-        height: 371px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .poster-container {
-        width: 400px;
-        height: 297px;
-    }
-
-    .poster img {
-        width: 400px;
-        height: 297px;
-    }
-}
-
-@media (max-width: 768px) {
     .poster {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 58px;
+        overflow: hidden
     }
 
     .poster-container {
-        width: 100%;
-        height: 519px;
+        width: 692px;
+        height: 514px;
+        position: relative;
     }
 
         .poster-container:first-child {
-            margin-bottom: 40px
+            margin-right: 110px;
         }
 
+    .poster-shine {
+        position: absolute;
+        top: 0;
+        left: -350px;
+        width: 300px;
+        height: 514px;
+        background: rgba(255, 255, 255, 0.05);
+        pointer-events: none;
+        animation: posterShine 4s ease-out infinite;
+        -webkit-animation-: posterShine 4s ease-out infinite;
+    }
+    /*反光移動*/
+    @keyframes posterShine {
+        0% {
+            transform: skewX(10deg) translateX(0);
+        }
+
+        10% {
+            transform: skewX(10deg) translateX(2600px);
+        }
+
+        100% {
+            transform: skewX(10deg) translateX(2600px);
+        }
+    }
+
     .poster img {
+        /* */
+        width: 692px;
+        height: 514px;
+        animation: posterImg 4s ease-out infinite;
+        -webkit-animation-: posterImg 4s ease-out infinite;
+    }
+    /*圖片變亮*/
+    @keyframes posterImg {
+        0% {
+            opacity: 0.9;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0.9;
+        }
+    }
+
+    @media (max-width: 1500px) {
+        .poster-container {
+            width: 500px;
+            height: 371px;
+        }
+
+        .poster img {
+            width: 500px;
+            height: 371px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .poster-container {
+            width: 400px;
+            height: 297px;
+        }
+
+        .poster img {
+            width: 400px;
+            height: 297px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .poster {
+            display: block;
+        }
+
+        .poster-container {
+            width: 100%;
+            height: 519px;
+        }
+
+            .poster-container:first-child {
+                margin-bottom: 40px
+            }
+
+        .poster img {
+            width: 100%;
+            height: 519px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .poster-container {
+            height: 371px;
+        }
+
+        .poster img {
+            height: 371px;
+        }
+    }
+
+
+    .button-container {
         width: 100%;
-        height: 519px;
-    }
-}
-
-@media (max-width: 576px) {
-    .poster-container {
-        height: 371px;
-    }
-
-    .poster img {
-        height: 371px;
-    }
-}
-
-
-.button-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 40px 0;
-}
-
-.Event-Info button {
-    border: 0px;
-    background: url("/images/AsiaChampionsLeague/S3/More Info/More info_button.png");
-    background-repeat: round;
-    font-size: 24px;
-    font-family: Microsoft JhengHei;
-}
-
-.ticket-button-1 {
-    display: none;
-}
-
-    .ticket-button-1 button {
-        height: 60px;
-        width: 266px;
-        font-size: 20px;
-    }
-
-.ticket-button-2 button {
-    height: 115px;
-    width: 448px;
-}
-
-@media (max-width: 768px) {
-    .ticket-button-1 {
         display: flex;
+        justify-content: center;
+        margin: 40px 0;
     }
 
-    .ticket-button-2 {
+    .Event-Info button {
+        border: 0px;
+        background: url("/images/AsiaChampionsLeague/S3/More Info/More info_button.png");
+        background-repeat: round;
+        font-size: 24px;
+        font-family: Microsoft JhengHei;
+    }
+
+    .ticket-button-1 {
         display: none;
     }
-}
+
+        .ticket-button-1 button {
+            height: 60px;
+            width: 266px;
+            font-size: 20px;
+        }
+
+    .ticket-button-2 button {
+        height: 115px;
+        width: 448px;
+    }
+
+    @media (max-width: 768px) {
+        .ticket-button-1 {
+            display: flex;
+        }
+
+        .ticket-button-2 {
+            display: none;
+        }
+    }
 
 
     /*...Rules...*/
-.Rules {
+    .Rules {
         width: 100%;
         height: 1300px;
         background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Bottom.png");
         background-repeat: round;
     }
 
-.Rules h2 {
+        .Rules h2 {
             color: #fff;
             font-size: 48px;
             padding-top: 186px;
@@ -816,91 +826,93 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             font-family: Microsoft JhengHei;
             text-align: center;
         }
-@media (max-width: 768px) {
-    .Rules h2 { 
-        font-size: 40px;
-    }
-}
 
-.Rules-owl-Container {
-    width: 1340px;
-    height: 720px;
-    margin: 0 auto;
-    background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Screen Frame.png");
-    background-repeat: round;
-}
-
-.ACLS3RulesCarousel p {
-    font-size: 24px;
-    color: rgba(225,225,225,0.6);
-}
-
-.ACLS3RulesCarousel .item {
-    width: 1340px;
-    height: 720px;
-    padding: 50px 100px;
-}
-
-.TypewriterPage2Mobile {
-    display:none;
-}
-
-@media (max-width: 1500px) {
-    .Rules-owl-Container {
-        width: 1000px;     
-    }
-    .ACLS3RulesCarousel .item {
-        width: 1000px;       
-        padding: 50px 80px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .ACLS3RulesCarousel p {
-        font-size: 16px;   
+    @media (max-width: 768px) {
+        .Rules h2 {
+            font-size: 40px;
+        }
     }
 
     .Rules-owl-Container {
-        width: 90%;
-        height: 650px;
+        width: 1340px;
+        height: 720px;
+        margin: 0 auto;
+        background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Screen Frame.png");
+        background-repeat: round;
+    }
+
+    .ACLS3RulesCarousel p {
+        font-size: 24px;
+        color: rgba(225,225,225,0.6);
     }
 
     .ACLS3RulesCarousel .item {
-        width: 90%;
-        height: 650px;
-        padding: 50px 80px;      
-        
+        width: 1340px;
+        height: 720px;
+        padding: 50px 100px;
     }
-}
-@media (max-width: 768px) {
-    .ACLS3RulesCarousel p {
-        font-size: 12px;
-    }
-    .ACLS3RulesCarousel .item {
-        padding: 50px 20px;
-    }
- 
+
     .TypewriterPage2Mobile {
-        display: block;
+        display: none;
     }
 
-}
-@media (max-width: 450px) {
-    .ACLS3RulesCarousel .item {
-        padding: 50px 0px 0px 5px;
+    @media (max-width: 1500px) {
+        .Rules-owl-Container {
+            width: 1000px;
+        }
+
+        .ACLS3RulesCarousel .item {
+            width: 1000px;
+            padding: 50px 80px;
+        }
     }
 
-    .Rules-owl-Container {
-        width: 95%;
-        height: 500px;
+    @media (max-width: 1024px) {
+        .ACLS3RulesCarousel p {
+            font-size: 16px;
+        }
+
+        .Rules-owl-Container {
+            width: 90%;
+            height: 650px;
+        }
+
+        .ACLS3RulesCarousel .item {
+            width: 90%;
+            height: 650px;
+            padding: 50px 80px;
+        }
     }
 
-    .ACLS3RulesCarousel .item {
-        width: 95%;
-        height: 500px;
+    @media (max-width: 768px) {
+        .ACLS3RulesCarousel p {
+            font-size: 12px;
+        }
+
+        .ACLS3RulesCarousel .item {
+            padding: 50px 20px;
+        }
+
+        .TypewriterPage2Mobile {
+            display: block;
+        }
     }
 
-}
+    @media (max-width: 450px) {
+        .ACLS3RulesCarousel .item {
+            padding: 50px 0px 0px 5px;
+        }
+
+        .Rules-owl-Container {
+            width: 95%;
+            height: 500px;
+        }
+
+        .ACLS3RulesCarousel .item {
+            width: 95%;
+            height: 500px;
+        }
+    }
 
     .Rule_Icon {
         width: 164px !important;
@@ -911,14 +923,14 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         left: 50%;
     }
 
-.Rule_Team {
-    width: 201px !important;
-    height: 147px !important;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    bottom: -8%;
-    left: 50%;
-}
+    .Rule_Team {
+        width: 201px !important;
+        height: 147px !important;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        bottom: -8%;
+        left: 50%;
+    }
 
     @media (max-width: 768px) {
 
@@ -1220,14 +1232,14 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         position: relative;
     }
 
-        .Ranking-banner-Squad .Ranking-banner-bg {
-            width: 100%;
-            height: 397px;
-            background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad bottom.png");
-            background-repeat: round;
-        }
+    .Ranking-banner-Squad .Ranking-banner-bg {
+        width: 100%;
+        height: 397px;
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad bottom.png");
+        background-repeat: round;
+    }
 
-        .Ranking-banner-Squad .Ranking-banner-selectContainer {
+    .Ranking-banner-Squad .Ranking-banner-selectContainer {
             width: 100%;
             height: 225px;
             position: absolute;
@@ -1346,39 +1358,95 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
 
-.Ranking-Place-left {
-    float: left;
-    width: 50%;
-    height: 610px;
-    position: relative;
-}
-    .Ranking-Place-left h3 {
-       
-        position: absolute;
-        font-family: Microsoft JhengHei;
+    .Ranking-Place-left {
+        float: left;
+        width: 50%;
+        height: 610px;
+        position: relative;
     }
-    .Ranking-Place-left p {
-     
-        position: absolute;
-        font-family: Microsoft JhengHei;
-    }
+
+        .Ranking-Place-left h3 {
+            position: absolute;
+            font-family: Microsoft JhengHei;
+        }
+
+        .Ranking-Place-left p {
+            position: absolute;
+            font-family: Microsoft JhengHei;
+        }
+
     .Ranking_First {
         background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_First.png");
         background-repeat: round;
         width: 95%;
         height: 230px;
-     
     }
-        .Ranking_First h3 {
-            left: 50%;
-            top: 10%;
-            font-size: 60px;
+
+        .Ranking_First img {
+            position: absolute;
+            left: 21%;
+            top: 6%;
+            width: 171px;
+            height: 167px;
         }
-        .Ranking_First p {
-            left: 50%;
-            top: 28%;
-            font-size: 30px;
+@media (max-width: 1500px) {
+    .Ranking_First img {     
+        width: 133px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Ranking_First img {     
+        left: 25%;     
+    }
+}
+@media (max-width: 768px) {
+    .Ranking_First img {
+        left: 24%;
+        width: 100px;
+        height: 97px;
+    }
+}
+@media (max-width: 576px) {
+    .Ranking_First img {
+        left: 24%;
+        top: 3%;
+        width: 80px;
+        height: 77px;
+    }
+}
+
+    .shineCrown {
+        animation: shineCrown 1s infinite linear;
+        -webkit-animation-: shineCrown 1s infinite linear;
+    }
+
+    @keyframes shineCrown {
+        0% {
+            transform: scale(1)
         }
+
+        50% {
+            transform: scale(1.5)
+        }
+
+        0% {
+            transform: scale(1)
+        }
+    }
+
+    .Ranking_First h3 {
+        left: 50%;
+        top: 10%;
+        font-size: 60px;
+    }
+
+    .Ranking_First p {
+        left: 50%;
+        top: 28%;
+        font-size: 30px;
+    }
 
     .Ranking_Second {
         background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_Second.png");
@@ -1386,18 +1454,17 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         width: 91%;
         height: 180px;
         margin-top: 30px;
-       
     }
 
         .Ranking_Second h3 {
             left: 50%;
-            top: 49%;
+            top: 51%;
             font-size: 48px;
         }
 
         .Ranking_Second p {
             left: 50%;
-            top: 64%;
+            top: 65%;
             font-size: 24px;
         }
 
@@ -1407,7 +1474,6 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         width: 88%;
         height: 140px;
         margin-top: 30px;
-     
     }
 
         .Ranking_third h3 {
@@ -1440,13 +1506,39 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             height: 191px;
         }
 
+            .Ranking_First h3 {
+                top: 7%;
+            }
+
+            .Ranking_First p {
+                top: 24%;
+            }
+
+
         .Ranking_Second {
             height: 150px;
         }
 
+            .Ranking_Second h3 {
+                top: 42%;
+            }
+
+            .Ranking_Second p {
+                top: 55%;
+            }
+
         .Ranking_third {
             height: 117px;
         }
+
+
+            .Ranking_third h3 {
+                top: 68%;
+            }
+
+            .Ranking_third p {
+                top: 79%;
+            }
     }
 
     @media (max-width: 1024px) {
@@ -1479,6 +1571,25 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             height: 94px;
         }
 
+        .Ranking_First h3 {
+            top: 5%;
+        }
+
+        .Ranking_Second h3 {
+            top: 44%;
+        }
+
+        .Ranking_Second p {
+            top: 60%;
+        }
+
+        .Ranking_third h3 {
+            top: 75%;
+        }
+
+        .Ranking_third p {
+            top: 88%;
+        }
 
         .Ranking-Place-Other {
             width: 527px;
@@ -1504,35 +1615,152 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         .Ranking_third {
             height: 62px;
         }
+
+        .Ranking_First h3 {
+            top: 2%;
+            font-size: 48px;
+        }
+
+        .Ranking_First p {
+            top: 20%;
+            font-size: 20px;
+        }
+
+        .Ranking_Second h3 {
+            top: 39%;
+            font-size: 36px;
+        }
+
+        .Ranking_Second p {
+            top: 53%;
+            font-size: 20px;
+        }
+
+        .Ranking_third h3 {
+            top: 68%;
+            font-size: 36px;
+        }
+
+        .Ranking_third p {
+            top: 80%;
+            font-size: 20px;
+        }
     }
 
 
     /*...Schedule...*/
- .Schedule {
+    .Schedule {
         background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_bottom.png");
         background-repeat: round;
         width: 100%;
-        height: 1259px;
+        height: 1550px;
     }
 
-.Schedule h2 {
-            margin: 0 auto 87px auto;
-            padding-top: 200px;
-            font-size: 48px;
-            color: #203240;
-            text-align: center;
-            font-family: Microsoft JhengHei;
+    @media (max-width: 576px) {
+        .Schedule {
+            height: 1200px;
         }
+    }
 
-.Schedule-BG {
+    .Schedule h2 {
+        margin: 0 auto 87px auto;
+        padding-top: 200px;
+        font-size: 48px;
+        color: #203240;
+        text-align: center;
+        font-family: Microsoft JhengHei;
+    }
+
+    .Schedule-BG-Container {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .Schedule-BG {
         width: 773px;
-        height: 728px;
+        height: 840px;
         background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_ Calender  base.png");
         background-repeat: round;
+    }
+
+    .Schedule-Group {
+        width: 213px;
+        height: 211px;
+        margin-right: 10px;
+    }
+
+    .Schedule-Group-2 {
+        width: 213px;
+        height: 211px;
+        display: none;
         margin: 0 auto;
     }
 
-.Schedule-Month {
+    @media (max-width: 1024px) {
+        .Schedule-BG-Container {
+            margin: 0 auto;
+            display: block;
+        }
+
+        .Schedule-BG {
+            margin: 0 auto;
+        }
+
+        .Schedule-Group {
+            display: none;
+        }
+
+        .Schedule-Group-2 {
+            display: block;
+        }
+    }
+
+    .ACLS3ScheduleCarousel {
+        width: 773px;
+        height: 550px;
+    }
+
+        .ACLS3ScheduleCarousel .item {
+            width: 773px;
+            height: 550px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+    @media (max-width: 768px) {
+        .Schedule-BG {
+            width: 500px;
+            height: 600px;
+        }
+
+        .ACLS3ScheduleCarousel {
+            width: 500px;
+            height: 600px;
+        }
+
+            .ACLS3ScheduleCarousel .item {
+                width: 500px;
+                height: 600px;
+            }
+    }
+
+    @media (max-width: 576px) {
+        .Schedule-BG {
+            width: 350px;
+            height: 450px;
+        }
+
+        .ACLS3ScheduleCarousel {
+            width: 350px;
+        }
+
+            .ACLS3ScheduleCarousel .item {
+                width: 350px;
+            }
+    }
+
+    .Schedule-Month {
         width: 100%;
         height: 100px;
         display: flex;
@@ -1540,83 +1768,557 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         align-items: center;
     }
 
-.Schedule-Month p {
-            width: 100px;
+        .Schedule-Month p {
+            margin: 0 10px;
             color: #203240;
             text-align: center;
             font-size: 26.88px;
             font-family: Microsoft JhengHei;
         }
 
-.ScheduleMonth-prev {
+    .ScheduleMonth-prev {
         transform: rotate(180deg);
+        width: 16px !important;
+        height: 19px;
     }
 
-.Schedule-Week {
-        width: 90%;
+    .ScheduleMonth-next {
+        width: 16px !important;
+        height: 19px;
+    }
+
+    .Schedule-Week {
+        width: 95%;
         height: 50px;
         margin: 0 auto;
     }
 
-.Schedule-Week p {
+        .Schedule-Week p {
             color: #898989;
             font-size: 20.16px;
             font-family: Microsoft JhengHei;
             float: left;
             width: 56px;
             height: 27px;
-            margin-right: 50px;
+            margin-right: 47px;
+            text-align: center;
         }
 
-.Schedule-Week p:last-child {
+            .Schedule-Week p:last-child {
                 color: red;
                 margin-right: 0px;
             }
 
-.Schedule-Carousel {
+    .Schedule-Carousel {
         width: 773px;
         height: 550px;
-        border: 1px solid red;
+        /*   border: 1px solid red;*/
     }
 
-.ACLS3ScheduleCarousel {
-        width: 773px;
-        height: 550px;
+    @media (max-width: 768px) {
+        .Schedule-Week {
+            margin: 0;
+        }
+
+            .Schedule-Week p {
+                width: 47px;
+                font-size: 18px;
+                margin-right: 20px;
+            }
+
+        .Schedule-Carousel {
+            width: 500px;
+            height: 550px;
+            /*   border: 1px solid red;*/
+        }
     }
 
-.ACLS3ScheduleCarousel .item {
-    width: 773px;
-    height: 550px;
-    padding-left:20px;
-}
+    @media (max-width: 576px) {
+        .Schedule-Week p {
+            width: 41px;
+            font-size: 12px;
+            margin-right: 4px;
+        }
 
-.DaySquare {
-    height: 94px;
-    width: 94px;
-    float: left;
-    margin-right: 12px;
-    margin-bottom: 12px;
-    
-}
+        .Schedule-Carousel {
+            width: 350px;
+            /*   border: 1px solid red;*/
+        }
+    }
 
-.DaySquareColor {
-    background: #E6E6E6;
-    border: 1px solid #707070;
-}
+    .DaySquare {
+        height: 94px;
+        width: 94px;
+        float: left;
+        margin-right: 12px;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: start;
+        align-items: end;
+        color: #898989;
+        font-size: 18px;
+        padding: 0 10px;
+        font-family: Arial;
+    }
 
+        .DaySquare p {
+            font-size: 15px;
+            text-align: center;
+            float: left;
+        }
 
-.DaySquare:last-child {
-    margin-right: 0px;
-}
+    @media (max-width: 768px) {
+        .DaySquare {
+            height: 55px;
+            width: 55px;
+            font-size: 14px;
+        }
 
-/*...Notice...*/
-.Notice_TopTitle {
-    margin: 36px 0 53px 0;
-    font-family: Microsoft JhengHei;
-    font-size: 48px;
-    color: #fff;
-    text-align: center;
-}
+            .DaySquare p {
+                font-size: 10px;
+                text-align: center;
+                float: left;
+                width: 40px;
+                height: 30px;
+                line-height: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                box-sizing: border-box;
+            }
+    }
+
+    @media (max-width: 576px) {
+        .DaySquare {
+            height: 35px;
+            width: 35px;
+            font-size: 10px;
+        }
+
+            .DaySquare p {
+                width: 20px;
+                height: 15px;
+            }
+    }
+
+    .DaySquareColor {
+        background: #E6E6E6;
+        border: 1px solid #707070;
+    }
+
+    .DaySquareMatchColor {
+        border: 1px solid #707070;
+        color: #404040;
+        background: #E6E6E6;
+    }
+
+    .DaySquareFinalsDate {
+        background: #C7B69A;
+        background-image: url("../../../images/AsiaChampionsLeague/S3/Calender/Calender_ Final Icon.png");
+        background-repeat: round;
+    }
+
+    .DaySquare:last-child {
+        margin-right: 0px;
+    }
+
+    .ScheduleBannerBlock {
+        position: absolute;
+        color: #fff;
+        font-family: Microsoft JhengHei;
+        height: 30px;
+        text-align: center;
+        font-size: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        box-sizing: border-box;
+    }
+
+    .soloBannerBlock {
+        background: #6CB9E4;
+        width: 200px;
+    }
+
+    .squadBannerBlock {
+        background: #a86ce3;
+        width: 518px;
+    }
+
+    .charityBannerBlock {
+        width: 200px;
+        background: #81D298;
+    }
+
+    /*..七月..*/
+    .soloBlock-0 {
+        top: 109.5%;
+        left: 16.3%;
+    }
+
+    .squadBlock-0 {
+        top: 85%;
+    }
+
+    .squadBlock-1 {
+        top: 104%;
+    }
+
+    .charityBlock-0 {
+        top: 90.5%;
+        left: 16.4%;
+    }
+    /*..八月..*/
+    .soloBlock-1 {
+        top: 33%;
+        left: 16.3%;
+    }
+
+    .soloBlock-2 {
+        top: 46.5%;
+    }
+
+    .soloBlock-3 {
+        top: 91%;
+    }
+
+    .soloBlock-4 {
+        top: 110%;
+    }
+
+    .squadBlock-2 {
+        top: 27%;
+    }
+
+    .squadBlock-3 {
+        top: 65.7%;
+    }
+
+    .squadBlock-4 {
+        top: 85%;
+    }
+
+    .squadBlock-5 {
+        width: 306px;
+        top: 104%;
+    }
+
+    .charityBlock-1 {
+        background: #81D298;
+        top: 52.5%;
+        width: 200px;
+    }
+
+    /*..九月..*/
+    .soloBlock-5 {
+        top: 46.5%;
+    }
+
+    .soloBlock-6 {
+        top: 91%;
+    }
+
+    .soloBlock-7 {
+        top: 110%;
+    }
+
+    .squadBlock-6 {
+        top: 27.2%;
+        left: 43.8%;
+        width: 200px;
+    }
+
+    .squadBlock-7 {
+        top: 65.2%;
+    }
+
+    .squadBlock-8 {
+        top: 85%;
+    }
+
+    .squadBlock-9 {
+        top: 104%;
+    }
+
+    .charityBlock-2 {
+        top: 71.2%;
+    }
+    /*..十月..*/
+
+    .soloBlock-8 {
+        top: 46.2%;
+    }
+
+    .soloBlock-9 {
+        top: 71%;
+    }
+
+    .squadBlock-10 {
+        top: 65.2%;
+    }
+
+    @media (max-width: 768px) {
+
+        .ScheduleBannerBlock {
+            height: 18px;
+            font-size: 14px;
+        }
+
+        .soloBannerBlock {
+            width: 122px;
+        }
+
+        .squadBannerBlock {
+            width: 324px;
+        }
+
+        .charityBannerBlock {
+            width: 122px;
+        }
+
+        /*..七月..*/
+        .soloBlock-0 {
+            top: 73%;
+            left: 17.4%;
+        }
+
+        .squadBlock-0 {
+            top: 58.5%;
+        }
+
+        .squadBlock-1 {
+            top: 69.8%;
+        }
+
+        .charityBlock-0 {
+            top: 61.7%;
+            left: 17.4%;
+        }
+        /*..八月..*/
+        .soloBlock-1 {
+            top: 27.4%;
+            left: 17.4%;
+        }
+
+        .soloBlock-2 {
+            top: 36.3%;
+        }
+
+        .soloBlock-3 {
+            top: 61.7%;
+        }
+
+        .soloBlock-4 {
+            top: 72.7%;
+        }
+
+        .squadBlock-2 {
+            top: 24%;
+        }
+
+        .squadBlock-3 {
+            top: 47%;
+        }
+
+        .squadBlock-4 {
+            top: 58.5%;
+        }
+
+        .squadBlock-5 {
+            width: 189px;
+            top: 69.5%;
+        }
+
+        .charityBlock-1 {
+            top: 40%;
+        }
+
+        /*..九月..*/
+        .soloBlock-5 {
+            top: 35.5%;
+        }
+
+        .soloBlock-6 {
+            top: 61.5%;
+        }
+
+        .soloBlock-7 {
+            top: 72.5%;
+        }
+
+        .squadBlock-6 {
+            top: 25%;
+            left: 43.8%;
+            width: 124px;
+        }
+
+        .squadBlock-7 {
+            top: 47.2%;
+        }
+
+        .squadBlock-8 {
+            top: 58.2%;
+        }
+
+        .squadBlock-9 {
+            top: 69.2%;
+        }
+
+        .charityBlock-2 {
+            top: 50.5%;
+        }
+        /*..十月..*/
+
+        .soloBlock-8 {
+            top: 36.2%;
+        }
+
+        .soloBlock-9 {
+            top: 50.5%;
+        }
+
+        .squadBlock-10 {
+            top: 47.2%;
+        }
+    }
+
+    @media (max-width: 576px) {
+
+        .ScheduleBannerBlock {
+            height: 14px;
+            font-size: 10px;
+        }
+
+        .soloBannerBlock {
+            width: 82px;
+        }
+
+        .squadBannerBlock {
+            width: 223px;
+        }
+
+        .charityBannerBlock {
+            width: 82px;
+        }
+
+        /*..七月..*/
+        .soloBlock-0 {
+            top: 59%;
+            left: 19.4%;
+        }
+
+        .squadBlock-0 {
+            top: 48.4%;
+        }
+
+        .squadBlock-1 {
+            top: 56%;
+        }
+
+        .charityBlock-0 {
+            top: 51%;
+            left: 19.4%;
+        }
+        /*..八月..*/
+        .soloBlock-1 {
+            top: 27%;
+            left: 19.4%;
+        }
+
+        .soloBlock-2 {
+            top: 32.8%;
+        }
+
+        .soloBlock-3 {
+            top: 51%;
+        }
+
+        .soloBlock-4 {
+            top: 59%;
+        }
+
+        .squadBlock-2 {
+            top: 24%;
+        }
+
+        .squadBlock-3 {
+            top: 40.5%;
+        }
+
+        .squadBlock-4 {
+            top: 48.5%;
+        }
+
+        .squadBlock-5 {
+            width: 129px;
+            top: 56%;
+        }
+
+        .charityBlock-1 {
+            top: 35.5%;
+        }
+
+        /*..九月..*/
+        .soloBlock-5 {
+            top: 32.5%;
+        }
+
+        .soloBlock-6 {
+            top: 51%;
+        }
+
+        .soloBlock-7 {
+            top: 59%;
+        }
+
+        .squadBlock-6 {
+            top: 25%;
+            left: 45.8%;
+            width: 84px;
+        }
+
+        .squadBlock-7 {
+            top: 40.5%;
+        }
+
+        .squadBlock-8 {
+            top: 48.2%;
+        }
+
+        .squadBlock-9 {
+            top: 56.2%;
+        }
+
+        .charityBlock-2 {
+            top: 43.5%;
+        }
+        /*..十月..*/
+
+        .soloBlock-8 {
+            top: 33%;
+        }
+
+        .soloBlock-9 {
+            top: 48.5%;
+        }
+
+        .squadBlock-10 {
+            top: 40.2%;
+        }
+    }
+
+    /*...Notice...*/
+    .Notice_TopTitle {
+        margin: 36px 0 53px 0;
+        font-family: Microsoft JhengHei;
+        font-size: 48px;
+        color: #fff;
+        text-align: center;
+    }
 
     .Notice-Container {
         width: 1272px;
@@ -1627,55 +2329,118 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         margin: 0 auto;
     }
 
-@media (max-width: 1500px) {
-    .Notice-Container {
-        width: 90%;
-    }
-}
-
-        .Notice-content {
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            overflow-y: auto;
+    @media (max-width: 1500px) {
+        .Notice-Container {
+            width: 90%;
         }
+    }
 
-            .Notice-content h2 {
-                /*font-size: 24px;
+    .Notice-content {
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        overflow-y: auto;
+    }
+
+        .Notice-content h2 {
+            /*font-size: 24px;
 color: #69ADA2;
 text-align: center ;
 font-family: Microsoft JhengHei;*/
-            }
-
-
-
-            .Notice-content::-webkit-scrollbar {
-                width: 20px !important;
-                background: #fff !important;
-                -webkit-box-shadow: none !important;
-                border: 0 !important;
-            }
-
-            .Notice-content::-webkit-scrollbar-thumb {
-                background: url("/images/AsiaChampionsLeague/S3/Notice/Notice_Bar.png") !important;
-                background-repeat: round !important;
-                width: 15px !important;
-            }
-
-
-        .notice_title {
-            font-size: 30px;
-            color: #648ea1 !important;
-            margin: 20px 0 10px !important;
-            text-align: center;
-            line-height: 36px;
         }
 
 
-        .txt_title {
-            color: #648ea1 !important;
-            font-size: 24px;
-            margin: 40px 0 10px 0;
+
+        .Notice-content::-webkit-scrollbar {
+            width: 20px !important;
+            background: #fff !important;
+            -webkit-box-shadow: none !important;
+            border: 0 !important;
+        }
+
+        .Notice-content::-webkit-scrollbar-thumb {
+            background: url("/images/AsiaChampionsLeague/S3/Notice/Notice_Bar.png") !important;
+            background-repeat: round !important;
+            width: 15px !important;
+        }
+
+
+    .notice_title {
+        font-size: 30px;
+        color: #648ea1 !important;
+        margin: 20px 0 10px !important;
+        text-align: center;
+        line-height: 36px;
+    }
+
+
+    .txt_title {
+        color: #648ea1 !important;
+        font-size: 24px;
+        margin: 40px 0 10px 0;
+    }
+
+    .event_note {
+        font-size: 14px;
+        text-align: start;
+    }
+
+    .event_txt {
+        font-size: 20px;
+        margin: 20px 0 0px;
+        padding: 0 10px;
+        /* text-indent: -1em;  */
+        /* margin-left: 2em;   */
+    }
+
+    .title_border {
+        width: 90%;
+        border: 1px solid #dee3e6 !important;
+        height: 1px;
+    }
+
+    .event_txt02 {
+        font-size: 18px;
+        margin: 10px 0 0px;
+        padding: 0 15px 0 40px;
+        text-indent: -1em;
+        line-height: 33px;
+    }
+
+
+    .event_txt03 {
+        font-size: 16px;
+        padding: 0 30px;
+        margin-left: 2em;
+        text-indent: -1em;
+    }
+
+    .event_txt04 {
+        font-size: 16px;
+        padding: 0 30px;
+        margin-left: 3em;
+        text-indent: -1em;
+    }
+
+    .event_txt05 {
+        font-size: 16px;
+        padding: 0 30px;
+        margin-left: 4em;
+        text-indent: -1em;
+    }
+
+
+    @media (max-width: 1200px) {
+        .notice_title {
+            font-size: 28px;
+        }
+
+        .event_txt {
+            font-size: 18px;
+        }
+
+        .event_txt02 {
+            font-size: 16px;
         }
 
         .event_note {
@@ -1683,175 +2448,112 @@ font-family: Microsoft JhengHei;*/
             text-align: start;
         }
 
-        .event_txt {
-            font-size: 20px;
-            margin: 20px 0 0px;
-            padding: 0 10px;
-            /* text-indent: -1em;  */
-            /* margin-left: 2em;   */
+        .txt_title {
+            font-size: 22px;
+        }
+    }
+
+    @media all and (max-width: 800px) {
+        .notice_title {
+            font-size: 26px;
         }
 
-        .title_border {
-            width: 90%;
-            border: 1px solid #dee3e6 !important;
-            height: 1px;
+        .notice {
+            padding: 30px 20px 30px 10px;
+        }
+
+        .event_note {
+            padding: 0 15px 0 15px;
+        }
+
+        .txt_title {
+            font-size: 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .notice_title {
+            font-size: 24px;
+            margin: 10px 0 10px;
+        }
+
+        .event_note {
+            text-align: start;
+            padding: 0 10px 0 15px;
+            line-height: 23px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .notice_title {
+            font-size: 20px;
+        }
+
+        .event_txt {
+            font-size: 16px;
+            margin: 10px 0 0px;
         }
 
         .event_txt02 {
-            font-size: 18px;
-            margin: 10px 0 0px;
-            padding: 0 15px 0 40px;
-            text-indent: -1em;
-            line-height: 33px;
+            margin: 5px 0 0px;
         }
 
+        .txt_title {
+            font-size: 18px;
+        }
 
         .event_txt03 {
-            font-size: 16px;
-            padding: 0 30px;
-            margin-left: 2em;
-            text-indent: -1em;
+            font-size: 14px;
+        }
+    }
+
+
+
+
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+        .tg td {
+            border-style: solid;
+            border-width: 1px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
         }
 
-        .event_txt04 {
-            font-size: 16px;
-            padding: 0 30px;
-            margin-left: 3em;
-            text-indent: -1em;
-        }
+    table {
+        margin: 20px 0px 50px;
+        width: 50%;
+    }
 
-        .event_txt05 {
-            font-size: 16px;
-            padding: 0 30px;
-            margin-left: 4em;
-            text-indent: -1em;
-        }
+    table, tr, th, td {
+        border: 1px solid #d2e1e9;
+        text-align: center;
+        font-size: 16px;
+        padding: 2px 4px;
+    }
 
+    td {
+        width: 20%;
+    }
 
-        @media (max-width: 1200px) {
-            .notice_title {
-                font-size: 28px;
-            }
-
-            .event_txt {
-                font-size: 18px;
-            }
-
-            .event_txt02 {
-                font-size: 16px;
-            }
-
-            .event_note {
-                font-size: 14px;
-                text-align: start;
-            }
-
-            .txt_title {
-                font-size: 22px;
-            }
-        }
-
-        @media all and (max-width: 800px) {
-            .notice_title {
-                font-size: 26px;
-            }
-
-            .notice {
-                padding: 30px 20px 30px 10px;
-            }
-
-            .event_note {
-                padding: 0 15px 0 15px;
-            }
-
-            .txt_title {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .notice_title {
-                font-size: 24px;
-                margin: 10px 0 10px;
-            }
-
-            .event_note {
-                text-align: start;
-                padding: 0 10px 0 15px;
-                line-height: 23px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .notice_title {
-                font-size: 20px;
-            }
-
-            .event_txt {
-                font-size: 16px;
-                margin: 10px 0 0px;
-            }
-
-            .event_txt02 {
-                margin: 5px 0 0px;
-            }
-
-            .txt_title {
-                font-size: 18px;
-            }
-
-            .event_txt03 {
-                font-size: 14px;
-            }
-        }
-
-
-
-
-        .tg {
-            border-collapse: collapse;
-            border-spacing: 0;
-        }
-
-            .tg td {
-                border-style: solid;
-                border-width: 1px;
-                font-family: Arial, sans-serif;
-                font-size: 14px;
-                overflow: hidden;
-                padding: 10px 5px;
-                word-break: normal;
-            }
-
-        table {
-            margin: 20px 0px 50px;
-            width: 50%;
-        }
-
-        table, tr, th, td {
-            border: 1px solid #d2e1e9;
-            text-align: center;
-            font-size: 16px;
-            padding: 2px 4px;
-        }
-
+    @media (max-width: 500px) {
         td {
-            width: 20%;
+            font-size: 13px;
         }
+    }
 
-        @media (max-width: 500px) {
-            td {
-                font-size: 13px;
-            }
-        }
+    /*...Footer...*/
 
-        /*...Footer...*/
-
-        .ACLIndexS3-Footer {
-            background: #67ada2;
-            width: 100%;
-            height: 500px;
-        }
+    .ACLIndexS3-Footer {
+        background: #67ada2;
+        width: 100%;
+        height: 500px;
+    }
 
 
 

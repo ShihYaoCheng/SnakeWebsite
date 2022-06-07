@@ -24,11 +24,11 @@
     </div>
     <div class="products-main">
         <ProductsTopBid TokenID =@TokenID />
-        <ProductsIncome />
+        <ProductsIncome Ridder =@Ridder TokenID =@TokenID />
         <ProductsAttributes Ridder =@Ridder />
         <ProductsStats Ridder =@Ridder/>
         <ProductsAvatars Ridder =@Ridder/>
-        @*<ProductsSkills />*@
+        <ProductsSkills Ridder =@Ridder/>
     </div>
     <ProductsPopup />
 </div>
@@ -66,7 +66,7 @@
 
        
 
-        await Refresh();
+       
     }
 
     private async Task Refresh()
@@ -80,6 +80,7 @@
     {
         if (firstRender)
         {
+            await Refresh();
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("TippyInit");
             await JS.InvokeVoidAsync("heartClick");
