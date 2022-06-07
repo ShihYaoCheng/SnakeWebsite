@@ -19,9 +19,10 @@ export function Feedback (Feedback) {
                 $('#userNickname').val("");
                 $('#email').val("");
                 $('#phone').val("");
+                $('#feedbackType').val("");                
                 $('#textarea#content').val("");
                 $('#content').val("");
-                alert("感謝您的回饋，我們會持續努力做出好遊戲");
+                //alert("感謝您的回饋，我們會持續努力做出好遊戲");
                 
             },
             error: function (jqXHR, textStatus, errorThrown) {
