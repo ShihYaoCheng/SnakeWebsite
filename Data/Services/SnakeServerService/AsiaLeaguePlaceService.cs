@@ -32,7 +32,7 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
             restRequest.Parameters.Clear();
             restRequest.AddParameter("Station", station);
             restRequest.AddParameter("IsGuild", isGuild);
-            restRequest.AddParameter("SeasonNum", 1);
+            restRequest.AddParameter("SeasonNum", (int)Season);
 
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(restRequest);
 

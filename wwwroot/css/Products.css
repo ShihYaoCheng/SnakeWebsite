@@ -225,16 +225,24 @@
     flex-wrap: nowrap;
     /* align-items: center; */
     align-items: flex-start;
-
+    cursor: context-menu;
 }
 .products-owned span{
 
 }
-.products-owned a{
+.products-owned-address{
     color: var(--blue-3);
     word-wrap: break-word; 
     word-break: break-all;
     white-space: normal;
+    width: 40%;
+    /* overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
+
+    /* 不給點擊 */
+    cursor: context-menu;
+    text-decoration: none;
 }
 
 .products-section{
@@ -592,10 +600,15 @@
         flex-wrap: wrap;
         white-space: normal;
     }
-
+    .products-header{
+        margin-bottom: 50px;
+    }
 
 }
 @media all and (max-width: 600px){
+    .products-header{
+        margin-bottom: 30px;
+    }
     .products-wrapper{
         margin: 120px auto;
     }

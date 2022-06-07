@@ -160,7 +160,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 data.RarityKey = Rarity;
                 data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
                 data.Elements = Elements;
-                data.ElementsIcon = string.Format("/images/MarketPlace/Element-{0}.png", ElementsList.Where(m => m.Key == Elements).First().Value);
+                data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.png", ElementsList.Where(m => m.Key == Elements).First().Value);
                 //data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
                 //data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
 

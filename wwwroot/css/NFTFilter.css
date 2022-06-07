@@ -1,0 +1,481 @@
+/* marketPlaceSidebar 側邊欄 */
+
+.range-Input{
+    /* border: 1px solid red; */
+    width: 100%;
+    max-width: 250px;
+}
+#PriceRange{
+    width: 100%;
+}
+.range-Text{
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 250px;
+}
+.ra-range{
+    font-size: 14px;
+}
+
+#textInputRange{
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #253A4B;
+    background-color: #253A4B;
+    outline: none;
+    color: white;
+    border: 2px solid var(--green-2); 
+    outline: none; 
+    /* border: 0; 
+    background: none; */
+}
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+-webkit-appearance: none;
+appearance: none;
+background: transparent;
+cursor: pointer;
+width: 100%;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+background-color: #69ada2;
+border-radius: 0.5rem;
+height: 3px;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none; /* Override default look */
+appearance: none;
+margin-top: -6px; /* Centers thumb on the track */
+background-color: #ffffff;
+border-radius: 0.5rem;
+height: 14px;
+width: 14px;
+}
+
+
+input[type="range"]:focus::-webkit-slider-thumb {
+background-color: #0075ff;
+outline: 2px solid #ffffff;
+outline-offset: -0.125rem;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+background-color: #69ada2;
+border-radius: 0.5rem;
+height: 3px;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+background-color: #ffffff;
+border: none; /*Removes extra border that FF applies*/
+border-radius: 0.5rem;
+height: 14px;
+width: 14px;
+}
+
+input[type="range"]:focus::-moz-range-thumb{
+background-color: #0075ff;
+outline: 2px solid #ffffff;
+outline-offset: -0.125rem;
+}
+
+
+
+
+
+
+
+
+.Filter-Radio{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 10px;
+}
+
+.bodyType-radio{
+    /* border: 1px solid red; */
+    /* width: 100%; */
+}
+.ra{
+    width: 15px;
+    height: 15px;
+    /* width: calc(100% / 7); */
+}
+.ra+.ra {
+    margin-left: 1.25rem;
+    /* width: calc(100% / 7); */
+}
+.bodyType-label{
+    /* border: 1px solid red;  */
+    width: 105%;
+    line-height: 12px;
+    white-space: nowrap;
+}
+.ra-label{
+    /* border: 1px solid red; */
+    color: var(--green-2);
+    font-size: 14px;
+    /* width: 23px; */
+    width: calc(90.5% / 7);
+    text-align: center;
+}
+.ra-label+.ra-label{
+
+    /* width: calc(100% / 7); */
+}
+
+
+input[type="radio"] {
+    /* visibility: hidden; */
+    /* opacity: 0; */
+}
+
+
+.bgBorder::after {
+    position: absolute;
+    height: 3px;
+    content: '';
+    background: var(--green-2);
+    top: 40%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -2;
+    width: 100%;
+}
+
+
+.ra:checked::after {
+    position: absolute;
+    height: 4px;
+    content: '';
+    background: white;
+    top: 40%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+    width: calc(var(--step)* 16%);
+}
+
+
+
+
+
+.marketPlaceSidebar{
+    /* border: 1px solid red; */
+    width: 300px;
+    /* min-height: calc(100vh - 70px); */
+    /* min-height: 100vh; */
+    background-color: var(--green-1);
+    z-index: 50;
+    position: fixed;
+    margin-top: 69px;
+    height: calc(100vh - 70px);
+    /* box-shadow: 5px 5px 10px #1414142e; */
+    box-shadow: 0px 2px 8px #06060663;
+    z-index: 9;
+
+
+    /* display: none; */
+}
+
+
+
+@media all and (min-width: 1000px){
+    .marketPlaceSidebar-Web{
+        display: block !important;
+    }
+}
+
+#Filter-mobile{
+    font-size: 26px;
+    margin-top: 69px;
+    background-color: var(--green-1);
+    width: 100%;
+    color: var(--green-2);
+    font-weight: bold;
+    padding: 5px 18px 3px;
+    border-bottom: 1.8px solid var(--green-2);
+    box-shadow: 5px 5px 10px #1414142e;
+    position: fixed;
+    z-index: 10;
+    cursor: pointer;
+
+    display: none;
+}
+
+@media all and (max-width: 1000px){
+    #Filter-mobile{
+        display: block;
+    }
+    .marketPlaceSidebar{
+        margin-top: 117px;
+        display: none;
+    }
+}
+@media all and (max-width: 500px){
+    #Filter-mobile{
+        margin-top: 57px;
+    }
+    .marketPlaceSidebar{
+        margin-top: 100px;
+        height: calc(100vh - 57px);
+    }
+}
+
+
+.marketPlaceSidebar-scroll{
+    overflow-y: auto;
+
+    height: calc(100vh - 190px);
+
+    
+    display: block;
+}
+
+/* 改scrollbar樣式 */
+.marketPlaceSidebar-scroll::-webkit-scrollbar {
+    width: 6px  !important;
+}
+
+.marketPlaceSidebar-scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px  !important;
+    background-color: var(--green-2) !important;
+    border: none  !important;
+}
+
+.marketPlaceSidebar-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px  !important;
+    background: var(--green-1) !important;
+}
+
+
+.Sidebar-Filter-Block{
+    /* border: 1px solid blue; */
+    border-bottom: 1.8px solid var(--green-2);
+    color: var(--green-2);
+    /* font-size: 20px; */
+    font-weight: bold;
+    padding: 10px 18px;
+}
+.Filter-Web .Filter-Icon{
+    display: block;
+}
+#Filter-Icon-Web{
+    display: none;
+}
+
+@media all and (min-width: 1000px){
+    #Filter-Icon-Web{
+        width: 25px;
+        margin: 0 10px 0 0;
+        display: block;
+    }
+
+}
+
+.Filter-mobile-slide{
+    /* border: 1px solid blue; */
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    /* justify-content: flex-end; */
+}
+.Sidebar-checkbox-label{
+    font-size: 18px;
+    line-height: 26px;
+
+}
+
+
+.Sidebar-checkbox-label {
+    padding: 0;
+    cursor: pointer;
+}
+.Sidebar-checkbox[type="checkbox"] {
+    display: none;
+}
+.Sidebar-checkbox[type="checkbox"]+span {
+    display: inline-block;
+    padding-left: 26px;
+    line-height: 24px;
+    background: url(/images/MarketPlace/checkbox.png) no-repeat left 2px;
+    user-select: none;
+}
+.Sidebar-checkbox[type="checkbox"]:checked+span {
+    background: url(/images/MarketPlace/checkbox_checked.png) no-repeat left 2px;
+}
+
+
+#Filter-Header{
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.Filter-Header-Block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Filter-Header-Block .Filter-Button{
+    margin: 5px;
+}
+
+
+.Filter-arrow{
+    transition: all .1s ease-in-out;
+    transform: rotate(180deg);
+}
+.Filter-arrow-toggle{
+    transition: all .1s ease-in-out;
+    transform: rotate(0deg) !important;
+}
+.Filter-mobile-arrow {
+    margin: 5px;
+    transition: all .1s ease-in-out;
+    transform: rotate(00deg);
+    width: 16px;
+    height: 13px;
+    
+}
+
+.Filter-mobile-arrow-toggle {
+    transition: all .1s ease-in-out;
+    transform: rotate(180deg) !important;
+}
+.Filter-web-arrow{
+    /* display: none; */
+}
+
+
+
+
+
+.height-unset{
+    height: unset !important;
+    background-color: unset !important;
+    box-shadow: unset !important;
+}
+@media all and (min-width: 1000px){
+    .Filter-Web{
+        /* border: 1px solid red; */
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: all .1s ease-in-out;
+    }
+    .Filter-web-arrow{
+        margin: 5px;
+        transition: all .1s ease-in-out;
+        transform: rotate(180deg);
+        width: 16px;
+        height: 13px;
+        cursor: pointer;
+        display: block;
+    }
+    .Filter-web-arrow-toggle{
+        transition: all .1s ease-in-out;
+        transform: rotate(00deg) !important;
+    }
+}
+@media all and (max-width: 1000px){
+
+    .Filter-web-arrow{
+        display: none;
+    }  
+
+}
+
+.marketPlaceSidebar-scroll-Web{
+    display: block;
+}
+
+
+
+.Filter-Title-Block{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.Filter-Button{
+    border: 2px solid var(--green-2);
+    color:  var(--green-2);
+    background: none;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 10px;
+    transition: all .05s ease-in-out;
+    margin: 0 5px 11px 0;
+    min-width: 65px;
+    cursor: pointer;
+    z-index: 5;
+    text-align: center;
+}
+.Filter-Button:hover{
+    /* color: var(--green-1); */
+    opacity: 0.8;
+    /* background-color:  var(--green-2); */
+    transform: scale(1.05);
+}
+.Filter-Button-Click{
+    /* border: 2px solid var(--green-2); */
+    transition: all .05s ease-in-out;
+    color: white;
+    background-color:  var(--green-2);
+}
+.Filter-Button-checkbox[type="checkbox"] {
+    /* border: 1px solid red; */
+    display: none;
+}
+
+
+.Filter-heart{
+    width: 34px;
+    fill: none;
+    stroke: var(--green-2);
+    margin: 5px;
+}
+
+.Filter-Title{
+    /* border: 1px solid rgb(255, 255, 255); */
+    cursor: pointer;
+    display: inline-block;
+    /* align-items: baseline; */
+    font-size: 24px;
+    /* margin-bottom: 10px; */
+}
+
+.Filter-Options{
+    margin-top: 10px;
+}
+
+
