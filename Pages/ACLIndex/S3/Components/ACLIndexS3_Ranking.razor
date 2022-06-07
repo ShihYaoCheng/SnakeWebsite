@@ -1,4 +1,9 @@
-﻿<div id="Ranking" class="Ranking">     
+﻿@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Services.SnakeServerService
+
+@inject AsiaLeaguePlaceService AsiaLeaguePlaceService
+
+<div id="Ranking" class="Ranking">     
     @*Banner*@
 
     @if (bannerToggle)
@@ -112,11 +117,22 @@
     </div>
 </div>
 @code {
+    public List<AsiaLeaguePlace> Places;
     public Boolean bannerToggle = true;
     public void chaneBanner(Boolean value)
     {
         bannerToggle = value;
     }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {   
+        if (firstRender){
+            Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesByIsGuildAndStation(AsiaLeagueSeasons.AsiaLeagueS3,false,1);
+            Console.WriteLine("test");
+        }
+        
+    }
+
 
     public string[][] otherRanking = new string[5][]
     {

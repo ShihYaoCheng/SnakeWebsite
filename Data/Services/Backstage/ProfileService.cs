@@ -91,10 +91,10 @@ namespace SnakeAsianLeague.Data.Services.Backstage
                 RiderList lists = JsonSerializer.Deserialize<RiderList>(restResponse.Content) ?? new RiderList();
 
                 //自有
-                //result  = lists.selfUnits.Where(m => m.isNFT == true).ToList().Count;
+                result  = lists.selfUnits.Where(m => m.isNFT == true).ToList().Count;
 
                 //租任
-                result = lists.leaseUnits.Where(m => m.isNFT == true).ToList().Count;
+                //result = lists.leaseUnits.Where(m => m.isNFT == true).ToList().Count;
                 return result;
             }
             return result;

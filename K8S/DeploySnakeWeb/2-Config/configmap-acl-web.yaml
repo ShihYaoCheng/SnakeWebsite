@@ -8,7 +8,7 @@ data:
   MySQL-Connection: "Server=snake-backstage-db;Port=3306;database=SnakeBackstage;user id=root;password=cqig7777"
 
   # NFT
-  GoogleApis: "https://storage.googleapis.com/pps-nft/ppsr/{0}.png"
+  GoogleApis: "https://storage.googleapis.com/pps-nft/{0}/{1}.png"
   OpenSeaURL: "https://testnets.opensea.io/collection/character-w7pmtkc0wg"
   OpenSeaLink: "https://testnets.opensea.io/assets/{0}/{1}"
   XApiKey: "7dc2ebcab71e414db6a5c97d91d902ad"
