@@ -1,56 +1,135 @@
 ﻿<div id="Ranking" class="Ranking">     
     @*Banner*@
-    <div class="Ranking-banner-Squad">
-        <div class="Ranking-banner-bg">
-            <div class="Ranking-banner-selectContainer">                   
-                <div class="Ranking-banner-select"> 
-                    <img class ="Bar" src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.png" />
-       
-                </div>
-             </div>
-        </div> 
-    </div>
 
+    @if (bannerToggle)
+    {
+        @*Squad*@
+        <div class="Ranking-banner squadBanner">
+            <div class="Ranking-banner-bg">
+                <div class="Ranking-banner-selectContainer">     
+                    
+                    <div class="Ranking-banner-select"> 
+                         <button @onclick="()=>chaneBanner(false)"></button>
+                        <img class ="Bar" src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.png" />    
+                        <select>
+                            <option>Silver #W1 2022/07/23</option>
+                            <option>Silver #W2 2022/07/30</option>
+                            <option>Diamond #M1 2022/08/06</option>
+                            <option>Silver #W3 2022/08/20</option>
+                            <option>Silver #W4 2022/08/27</option>
+                            <option>Diamond #M2 2022/09/03</option>
+                            <option>Silver #W5 2022/09/17</option>
+                            <option>Silver #W6 2022/09/24</option>
+                            <option>Diamond #M3 2022/10/01</option>
+                            <option>Master #S1 2022/10/16</option>
+                        </select>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    }
+    else
+    {
+        @*solo*@
+        <div class="Ranking-banner soloBanner">
+            <div class="Ranking-banner-bg">
+                <div class="Ranking-banner-selectContainer">  
+               
+                    <div class="Ranking-banner-select"> 
+                        <button @onclick="()=>chaneBanner(true)"></button>
+                        <img class ="Bar" src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.png" />    
+                        <select>
+                            <option>Charity #F1 2022/07/20</option>
+                            <option>Silver #W1 2022/07/27</option>
+                            <option>Silver #W2 2022/08/03</option>
+                            <option>Diamond #M1 2022/08/09</option>
+                            <option>Charity #F2 2022/08/16</option>
+                            <option>Silver #W3 2022/08/23</option>
+                            <option>Silver #W4 2022/08/30</option>
+                            <option>Diamond #M2 2022/09/06</option>
+                            <option>Charity #F3 2022/09/13</option>
+                            <option>Silver #W5 2022/09/20</option>
+                            <option>Silver #W6 2022/09/27</option>
+                            <option>Diamond #M3 2022/10/04</option>
+                            <option>Master #S1 2022/10/11</option>
+                        </select>
+                    </div>
+                 </div>
+            </div> 
+        </div>
+    }    
     @*Date*@
     <img class="Ranking-Date" src="./images/AsiaChampionsLeague/S3/Ranking/Ranking_Date.png" />
                 
     @*Place*@
     <div class="Ranking-Place">
         <div class="Ranking-Place-left">
+            @*第一名*@
             <div class="Ranking_First">
                 <img class="shineCrown" src="/images/AsiaChampionsLeague/S3/Ranking/Place/pngegg.png"/>
                 <img  src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠1.png"/>
                 <h3>
-                    Player ID
+                    @topThree[0][0]
                 </h3>
                 <p>
-                    # Rider NFT number
+                    @topThree[0][1]
                 </p>
             </div>
+            @*第二名*@
             <div class="Ranking_Second">
                 <h3>
-                    Player ID
+                    @topThree[1][0]
                 </h3>
                 <p>
-                    # Rider NFT number
+                    @topThree[1][1]
                 </p>
             </div>
+            @*第三名*@
             <div class="Ranking_third">
                 <h3>
-                    Player ID
+                    @topThree[2][0]
                 </h3>
                 <p>
-                    # Rider NFT number
+                    @topThree[2][1]
                 </p>
             </div>
         </div>
         <div class="Ranking-Place-right">
             <div class="Ranking-Place-Other">
-
+                @foreach(var name  in otherRanking)
+                {
+                    <div class="Place-Other-container">                  
+                        <h3>
+                            @name[0]
+                        </h3>
+                        <p>
+                            @name[1]
+                        </p>
+                    </div>
+                }          
             </div>
         </div>
     </div>
 </div>
 @code {
+    public Boolean bannerToggle = true;
+    public void chaneBanner(Boolean value)
+    {
+        bannerToggle = value;
+    }
 
+    public string[][] otherRanking = new string[5][]
+    {
+        new string[]{ "第四名ID","第四名騎士"},
+        new string[]{ "第五名ID","第五名騎士"},
+        new string[]{ "第六名ID","第六名騎士"},
+        new string[]{ "第七名ID","第七名騎士"},
+        new string[]{ "第八名ID","第八名騎士"},
+    };
+   public string[][] topThree= new string[3][]
+    {
+        new string[]{ "第一名ID","第一名騎士"},
+        new string[]{ "第二名ID","第二名騎士"},
+        new string[]{ "第三名ID","第三名騎士"},
+    };
 }
