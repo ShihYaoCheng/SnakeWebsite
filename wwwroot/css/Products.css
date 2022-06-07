@@ -230,7 +230,7 @@
 .products-owned span{
 
 }
-.products-owned a{
+.products-owned-address{
     color: var(--blue-3);
     word-wrap: break-word; 
     word-break: break-all;
@@ -600,10 +600,15 @@
         flex-wrap: wrap;
         white-space: normal;
     }
-
+    .products-header{
+        margin-bottom: 50px;
+    }
 
 }
 @media all and (max-width: 600px){
+    .products-header{
+        margin-bottom: 30px;
+    }
     .products-wrapper{
         margin: 120px auto;
     }
