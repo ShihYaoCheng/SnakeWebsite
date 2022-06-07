@@ -166,7 +166,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                     {
                         Rider.Attrbutes.Rarity = RarityList.Where(m => m.Key == RarityElements[2].Substring(0, 1)).First().Value;
                         Rider.Attrbutes.Element = ElementsList.Where(m => m.Key == RarityElements[2].Substring(1, 1)).First().Value;
-                        Rider.Attrbutes.ElementImgPath = string.Format("/images/Products/Element-{0}.png", Rider.Attrbutes.Element);
+                        Rider.Attrbutes.ElementImgPath = string.Format("/images/Products/ElementsIcon-{0}.png", Rider.Attrbutes.Element);
                     }
 
                     if (result.knight != null)
