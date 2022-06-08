@@ -1420,22 +1420,41 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         top: 15%;
     }
 
+.Ranking-Date {
+    width: 785px;
+    height: 88px;
+    margin-bottom: 60px;
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/Ranking_Date.png");
+    background-repeat:no-repeat;
+    display:flex;
+    justify-content:end;
+    align-items:center;
+    padding-right:30px;
+}
+    .Ranking-Date p {
+        color: #478588;
+        font-size: 30px;
+        font-family:Arial;
+    }
+  
+@media (max-width: 2000px) {
     .Ranking-Date {
+        background-repeat: round;
         width: 42.60%;
-        height: 88px;
-        margin-bottom: 60px;
+    }
+}
+@media (max-width: 1024px) {
+    .Ranking-banner .Bar {
+        height: 27px;
+        width: 284px;
     }
 
-    @media (max-width: 1024px) {
-        .Ranking-banner .Bar {
-            height: 27px;
-            width: 284px;
-        }
-
-        .Ranking-Date {
-            height: 45px;
-        }
+    .Ranking-Date {
+        height: 60px;
+        width: 60%;
     }
+  
+}
 
     @media (max-width: 768px) {
         .Ranking-banner .Bar {
@@ -1443,77 +1462,84 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             width: 210px;
         }
 
-        .Ranking-Date {
-            height: 36px;
+        .Ranking-Date {          
             margin-bottom: 30px;
+            width: 80%;
         }
     }
 
     @media (max-width: 576px) {
-        .Ranking-Date {         
-            width: 60%;
+        .Ranking-Date {
+            width: 95%;
+        }
+        .Ranking-Date p {
+            font-size: 22px;
         }
     }
 
     /*.......排名...........*/
-.Ranking-Place-left {
-    float: left;
-    width: 750px;
-    height: 610px;
-    position: relative;
-}
-
-    .Ranking-Place-left h3 {
-        position: absolute;
-        font-family: Microsoft JhengHei;
+    .Ranking-Place-left {
+        float: left;
+        width: 750px;
+        height: 610px;
+        position: relative;
     }
 
-    .Ranking-Place-left p {
-        position: absolute;
-        font-family: Microsoft JhengHei;
+        .Ranking-Place-left h3 {
+            position: absolute;
+            font-family: Microsoft JhengHei;
+        }
+
+        .Ranking-Place-left p {
+            position: absolute;
+            font-family: Microsoft JhengHei;
+        }
+
+    .Ranking_First {
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_First.png");
+        background-repeat: round;
+        width: 95%;
+        height: 230px;
     }
 
-.Ranking_First {
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_First.png");
-    background-repeat: round;
-    width: 95%;
-    height: 230px;
-}
-.Ranking-Place-left img {
-    position: absolute;    
-}
+    .Ranking-Place-left img {
+        position: absolute;
+    }
 
-.Ranking_First img {
-    left: 17%;
-    top: 6%;
-    width: 171px;
-    height: 167px;
-}
-.Ranking_Second img {
-    top: 48%;
-    left: 20%;
-    width: 118px;
-    height: 95px;
-}
-.Ranking_third img {
-    top: 80%;
-    left: 21%;
-    width: 98px;
-    height: 79px;
-}
+    .Ranking_First img {
+        left: 14%;
+        top: 5.5%;
+        width: 178px;
+        height: 167px;
+    }
+
+    .Ranking_Second img {
+        top: 48%;
+        left: 20%;
+        width: 118px;
+        height: 95px;
+    }
+
+    .Ranking_third img {
+        top: 80%;
+        left: 21%;
+        width: 98px;
+        height: 79px;
+    }
+
     @media (max-width: 1500px) {
         .Ranking-Place-left {
-            width:50%;
+            width: 50%;
         }
+
         .Ranking_First img {
             top: 4%;
-            
             transform: scale(0.7)
         }
 
         .Ranking_Second img {
             top: 41%;
-            left: 19%;           
+            left: 19%;
             transform: scale(0.9)
         }
 
@@ -1524,28 +1550,43 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
     }
 
-@media (max-width: 1100px) {
+@media (max-width: 768px) {
     .Ranking_First img {
-        left: 25%;  
+        top: -1%;
+ 
+    }
+
+    .Ranking_Second img {
+        top: 44%;    
+        transform: scale(0.8)
+    }
+
+    .Ranking_third img {
+        top: 76%;
+        left: 20%;
+        transform: scale(0.8)
     }
 }
 
-    @media (max-width: 768px) {
-        .Ranking_First img {
-            left: 24%;
-            width: 100px;
-            height: 97px;
-        }
+@media (max-width: 576px) {
+    .Ranking_First img {
+        top: -10%;
+        left: 9.5%;
+        transform: scale(0.5)
     }
 
-    @media (max-width: 576px) {
-        .Ranking_First img {
-            left: 24%;
-            top: 3%;
-            width: 80px;
-            height: 77px;
-        }
+    .Ranking_Second img {
+        top: 36%;
+        left: 16%;
+        transform: scale(0.6)
     }
+
+    .Ranking_third img {
+        top: 66%;
+        left: 18%;
+        transform: scale(0.6)
+    }
+}
 
     .shineCrown {
         animation: shineCrown 1s infinite linear;
@@ -1558,13 +1599,29 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
 
         50% {
-            transform: scale(1.5)
+            transform: scale(1.3)
         }
 
         0% {
             transform: scale(1)
         }
     }
+
+@media (max-width: 768px) {
+    @keyframes shineCrown {
+        0% {
+            transform: scale(0.8)
+        }
+
+        50% {
+            transform: scale(1)
+        }
+
+        0% {
+            transform: scale(0.8)
+        }
+    }
+}
 
     .Ranking_First h3 {
         left: 50%;
@@ -1618,11 +1675,11 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             font-size: 24px;
         }
 
-.Ranking-Place-right {
-    float: right;
-    width: 750px;
-    padding-left: 136px;
-}
+    .Ranking-Place-right {
+        float: right;
+        width: 750px;
+        padding-left: 136px;
+    }
 
     .Ranking-Place-Other {
         width: 527px;
@@ -1659,7 +1716,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     @media (max-width: 1500px) {
         .Ranking-Place-right {
             padding-left: 0px;
-            width:50%;
+            width: 50%;
         }
 
         .Ranking_First {
@@ -1756,13 +1813,13 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             height: 500px;
         }
 
-        .Place-Other-container h3 {          
-            top: 20%;        
-        }
-        .Place-Other-container p {           
-            bottom: 10%;   
+        .Place-Other-container h3 {
+            top: 20%;
         }
 
+        .Place-Other-container p {
+            bottom: 10%;
+        }
     }
 
     @media (max-width: 576px) {
@@ -2575,26 +2632,26 @@ font-family: Microsoft JhengHei;*/
     }
 
 
-.event_txt03 {
-    font-size: 28px;
-    padding: 0 30px;
-    margin-left: 2em;
-    text-indent: -1em;
-}
+    .event_txt03 {
+        font-size: 28px;
+        padding: 0 30px;
+        margin-left: 2em;
+        text-indent: -1em;
+    }
 
-.event_txt04 {
-    font-size: 28px;
-    padding: 0 30px;
-    margin-left: 3em;
-    text-indent: -1em;
-}
+    .event_txt04 {
+        font-size: 28px;
+        padding: 0 30px;
+        margin-left: 3em;
+        text-indent: -1em;
+    }
 
-.event_txt05 {
-    font-size: 28px;
-    padding: 0 30px;
-    margin-left: 4em;
-    text-indent: -1em;
-}
+    .event_txt05 {
+        font-size: 28px;
+        padding: 0 30px;
+        margin-left: 4em;
+        text-indent: -1em;
+    }
 
 
     @media (max-width: 1200px) {
@@ -2717,24 +2774,27 @@ font-family: Microsoft JhengHei;*/
         font-size: 28px;
         padding: 2px 4px;
     }
-@media all and (max-width: 800px) {
-    .tg td {  
-        font-size: 16px;  
-    }
-    table, tr, th, td {
-        font-size: 18px;   
-    }
-}
 
-@media all and (max-width: 576px) {
-    .tg td {
-        font-size: 12px;
+    @media all and (max-width: 800px) {
+        .tg td {
+            font-size: 16px;
+        }
+
+        table, tr, th, td {
+            font-size: 18px;
+        }
     }
 
-    table, tr, th, td {
-        font-size: 14px;
+    @media all and (max-width: 576px) {
+        .tg td {
+            font-size: 12px;
+        }
+
+        table, tr, th, td {
+            font-size: 14px;
+        }
     }
-}
+
     td {
         width: 20%;
     }

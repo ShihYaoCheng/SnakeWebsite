@@ -12,7 +12,7 @@
         <div class="Ranking-banner squadBanner">
             <div class="Ranking-banner-bg">
                  <img src="/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.png">
-                 <button @onclick="()=>chaneBanner(false)"></button>                
+                 <button @onclick="()=>changeBanner(false)"></button>                
             </div> 
                   <div class="Ranking-banner-selectContainer">     
                     
@@ -20,16 +20,10 @@
                         
                         <img class ="Bar" src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.png" />    
                         <select>
-                            <option>Silver #W1 2022/07/23</option>
-                            <option>Silver #W2 2022/07/30</option>
-                            <option>Diamond #M1 2022/08/06</option>
-                            <option>Silver #W3 2022/08/20</option>
-                            <option>Silver #W4 2022/08/27</option>
-                            <option>Diamond #M2 2022/09/03</option>
-                            <option>Silver #W5 2022/09/17</option>
-                            <option>Silver #W6 2022/09/24</option>
-                            <option>Diamond #M3 2022/10/01</option>
-                            <option>Master #S1 2022/10/16</option>
+                            @foreach(var date in squadOption)
+                            {
+                                    <option>@date</option>
+                            }         
                         </select>
                     </div>
                 </div>
@@ -41,7 +35,7 @@
         <div class="Ranking-banner soloBanner">
             <div class="Ranking-banner-bg">              
                  <img src="/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.png">
-                 <button @onclick="()=>chaneBanner(true)"></button>
+                 <button @onclick="()=>changeBanner(true)"></button>
             </div> 
                <div class="Ranking-banner-selectContainer">  
                
@@ -49,26 +43,20 @@
                        
                         <img class ="Bar" src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.png" />    
                         <select>
-                            <option>Charity #F1 2022/07/20</option>
-                            <option>Silver #W1 2022/07/27</option>
-                            <option>Silver #W2 2022/08/03</option>
-                            <option>Diamond #M1 2022/08/09</option>
-                            <option>Charity #F2 2022/08/16</option>
-                            <option>Silver #W3 2022/08/23</option>
-                            <option>Silver #W4 2022/08/30</option>
-                            <option>Diamond #M2 2022/09/06</option>
-                            <option>Charity #F3 2022/09/13</option>
-                            <option>Silver #W5 2022/09/20</option>
-                            <option>Silver #W6 2022/09/27</option>
-                            <option>Diamond #M3 2022/10/04</option>
-                            <option>Master #S1 2022/10/11</option>
+                        @foreach(var date in soloOption)
+                        {
+                             <option>@date</option>
+                        }                       
                         </select>
                     </div>
                  </div>
         </div>
     }    
     @*Date*@
-    <img class="Ranking-Date" src="./images/AsiaChampionsLeague/S3/Ranking/Ranking_Date.png" />
+    
+    <div class="Ranking-Date" >
+        <p>Qualification Date : 5/29 ~ 5/28</p>
+    </div>
                 
     @*Place*@
     <div class="Ranking-Place">
@@ -107,7 +95,7 @@
         </div>
         <div class="Ranking-Place-right">
             <div class="Ranking-Place-Other">
-                @foreach(var name  in otherRanking)
+                @foreach(var name in otherRanking)
                 {
                     <div class="Place-Other-container">                  
                         <h3>
@@ -125,7 +113,8 @@
 @code {
     public List<AsiaLeaguePlace> Places;
     public Boolean bannerToggle = true;
-    public void chaneBanner(Boolean value)
+
+    public void changeBanner(Boolean value)
     {
         bannerToggle = value;
     }
@@ -135,11 +124,42 @@
         if (firstRender){
             Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesByIsGuildAndStation(AsiaLeagueSeasons.AsiaLeagueS3,false,1);
             Console.WriteLine("test");
-        }
-        
+        }        
     }
 
+    /*BannerOption*/
+    public string[] squadOption = new string[]
+    {
+        "Silver #W1 2022/07/23",
+        "Silver #W2 2022/07/30",
+        "Diamond #M1 2022/08/06",
+        "Silver #W3 2022/08/20",
+        "Silver #W4 2022/08/27",
+        "Diamond #M2 2022/09/03",
+        "Silver #W5 2022/09/17",
+        "Silver #W6 2022/09/24",
+        "Diamond #M3 2022/10/01",
+        "Master #S1 2022/10/16",
+    };
 
+    public string[] soloOption = new string[]
+    {
+        "Charity #F1 2022/07/20",
+        "Silver #W1 2022/07/27",
+        "Silver #W2 2022/08/03",
+        "Diamond #M1 2022/08/09",
+        "Charity #F2 2022/08/16",
+        "Silver #W3 2022/08/23",
+        "Silver #W4 2022/08/30",
+        "Diamond #M2 2022/09/06",
+        "Charity #F3 2022/09/13",
+        "Silver #W5 2022/09/20",
+        "Silver #W6 2022/09/27",
+        "Diamond #M3 2022/10/04",
+        "Master #S1 2022/10/11",
+    };
+
+    /*排名name*/
     public string[][] otherRanking = new string[5][]
     {
         new string[]{ "第四名ID","第四名騎士"},
@@ -154,4 +174,6 @@
         new string[]{ "第二名ID","第二名騎士"},
         new string[]{ "第三名ID","第三名騎士"},
     };
+
+
 }
