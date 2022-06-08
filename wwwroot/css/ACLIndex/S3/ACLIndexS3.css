@@ -526,28 +526,28 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         -webkit-animation-: starAni 3s infinite linear;
     }
 
-    .star-2 {
-        top: 25%;
-        left: 8%;
-        animation: starAni 2.8s infinite linear;
-        -webkit-animation-: starAni 2.8s infinite linear;
-    }
+.star-2 {
+    top: 25%;
+    left: 8%;
+    animation: starAni-1 2.8s infinite linear;
+    -webkit-animation-: starAni-1 2.8s infinite linear;
+}
 
-    .star-3 {
-        top: -4%;
-        right: 10%;
-        animation-delay: 1s;
-        animation: starAni 3.5s infinite linear;
-        -webkit-animation-: starAni 3.5s infinite linear;
-    }
+.star-3 {
+    top: -4%;
+    right: 10%;
+    animation-delay: 1s;
+    animation: starAni-1 3.5s infinite linear;
+    -webkit-animation-: starAni-1 3.5s infinite linear;
+}
 
-    .star-4 {
-        top: 18%;
-        left: 25%;
-        animation-delay: 1.5s;
-        animation: starAni 3.8s infinite linear;
-        -webkit-animation-: starAni 3s infinite linear;
-    }
+.star-4 {
+    top: 18%;
+    left: 25%;
+    animation-delay: 1.5s;
+    animation: starAni-1 3.8s infinite linear;
+    -webkit-animation-: starAni-1 3s infinite linear;
+}
 
     .star-5 {
         top: 25%;
@@ -557,12 +557,12 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         -webkit-animation-: starAni 3.2s infinite linear;
     }
 
-    .star-6 {
-        top: -1%;
-        left: 5%;
-        animation: starAni 3s infinite linear;
-        -webkit-animation-: starAni 3s infinite linear;
-    }
+.star-6 {
+    top: -1%;
+    left: 5%;
+    animation: starAni-1 3s infinite linear;
+    -webkit-animation-: starAni-1 3s infinite linear;
+}
 
     .star-7 {
         top: 40%;
@@ -571,12 +571,12 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         -webkit-animation-: starAni 2.8s infinite linear;
     }
 
-    .star-8 {
-        top: 25%;
-        left: 25%;
-        animation: starAni 3.5s infinite linear;
-        -webkit-animation-: starAni 3.5s infinite linear;
-    }
+.star-8 {
+    top: 25%;
+    left: 25%;
+    animation: starAni-1 3.5s infinite linear;
+    -webkit-animation-: starAni-1 3.5s infinite linear;
+}
 
     .star-9 {
         top: 80%;
@@ -585,12 +585,12 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         -webkit-animation-: starAni 3.8s infinite linear;
     }
 
-    .star-10 {
-        top: 110%;
-        left: 8%;
-        animation: starAni 3.2s infinite linear;
-        -webkit-animation-: starAni 3.2s infinite linear;
-    }
+.star-10 {
+    top: 110%;
+    left: 8%;
+    animation: starAni-1 3.2s infinite linear;
+    -webkit-animation-: starAni-1 3.2s infinite linear;
+}
 
     @media (max-width: 1024px) {
         .star-2 {
@@ -618,7 +618,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
         .star-9 {
             top: 50%;
-            left: 18%;
+            left: 24%;
         }
 
         .star-10 {
@@ -648,6 +648,28 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             transform: scale(0.8);
         }
     }
+
+@keyframes starAni-1 {
+    0% {
+        transform: scale(0.5);
+    }
+
+    25% {
+        transform: scale(0.2);
+    }
+
+    50% {
+        transform: scale(0.1);
+    }
+
+    75% {
+        transform: scale(0.2);
+    }
+
+    100% {
+        transform: scale(0.5);
+    }
+}
 
 
     .poster {
@@ -960,14 +982,15 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
 
-    .ACLS3RulesCarousel .owl-dot span {
-        background: #fff !important;
-    }
+.ACLS3RulesCarousel .owl-dot span {
+    background: none !important;
+    border: 1px solid #fff;
+}
 
-    .ACLS3RulesCarousel .active span {
-        background: none !important;
-        border: 1px solid #fff;
-    }
+.ACLS3RulesCarousel .active span {
+    background: #fff !important;
+   
+}
 
     .Typewriter-blank {
         width: 1px;
@@ -1171,7 +1194,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     height: 1943px;
     background: url("/images/AsiaChampionsLeague/S3/Reward/Banner/texture-1.png");
     transform-origin: center;
-    animation: rotate1 10s infinite linear;
+    animation: rotate1 50s infinite linear;
     position: absolute;
     transform: translate(-50%,-50%);
     top: 50%;
@@ -1507,21 +1530,21 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
     .Ranking_First img {
-        left: 14%;
-        top: 5.5%;
+        left: 15%;
+        top: 6%;
         width: 178px;
         height: 167px;
     }
 
     .Ranking_Second img {
-        top: 48%;
+        top: 50%;
         left: 20%;
         width: 118px;
         height: 95px;
     }
 
     .Ranking_third img {
-        top: 80%;
+        top: 83%;
         left: 21%;
         width: 98px;
         height: 79px;
@@ -1533,18 +1556,18 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
 
         .Ranking_First img {
-            top: 4%;
+            top: 5%;
             transform: scale(0.7)
         }
 
         .Ranking_Second img {
-            top: 41%;
+            top: 43%;
             left: 19%;
             transform: scale(0.9)
         }
 
         .Ranking_third img {
-            top: 69%;
+            top: 71%;
             left: 20%;
             transform: scale(0.9)
         }
@@ -1552,17 +1575,17 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
 @media (max-width: 768px) {
     .Ranking_First img {
-        top: -1%;
+        top: 1%;
  
     }
 
     .Ranking_Second img {
-        top: 44%;    
+        top: 46%;    
         transform: scale(0.8)
     }
 
     .Ranking_third img {
-        top: 76%;
+        top: 78%;
         left: 20%;
         transform: scale(0.8)
     }
@@ -1570,19 +1593,19 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
 @media (max-width: 576px) {
     .Ranking_First img {
-        top: -10%;
+        top: -7%;
         left: 9.5%;
         transform: scale(0.5)
     }
 
     .Ranking_Second img {
-        top: 36%;
+        top: 38%;
         left: 16%;
         transform: scale(0.6)
     }
 
     .Ranking_third img {
-        top: 66%;
+        top: 68%;
         left: 18%;
         transform: scale(0.6)
     }
@@ -2544,14 +2567,15 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         text-align: center;
     }
 
-    .Notice-Container {
-        width: 1272px;
-        height: 701px;
-        background: #fff;
-        border-radius: 27px;
-        padding: 10px 10px 10px 40px;
-        margin: 0 auto;
-    }
+.Notice-Container {
+    width: 1272px;
+    height: 701px;
+    background: #fff;
+    border-radius: 27px;
+    padding: 10px 10px 10px 40px;
+    margin: 0 auto;
+    font-family: Microsoft JhengHei;
+}
 
     @media (max-width: 1500px) {
         .Notice-Container {
@@ -2559,12 +2583,13 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
     }
 
-    .Notice-content {
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        overflow-y: auto;
-    }
+.Notice-content {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
         .Notice-content h2 {
             /*font-size: 24px;
@@ -2590,7 +2615,7 @@ font-family: Microsoft JhengHei;*/
 
 
     .notice_title {
-        font-size: 42px;
+        font-size: 36px;
         color: #648ea1 !important;
         margin: 20px 0 10px !important;
         text-align: center;
@@ -2600,17 +2625,17 @@ font-family: Microsoft JhengHei;*/
 
     .txt_title {
         color: #648ea1 !important;
-        font-size: 36px;
+        font-size: 24px;
         margin: 40px 0 10px 0;
     }
 
     .event_note {
         font-size: 14px;
-        text-align: start;
+     
     }
 
     .event_txt {
-        font-size: 36px;
+        font-size: 24px;
         margin: 20px 0 0px;
         padding: 0 10px;
         /* text-indent: -1em;  */
@@ -2624,7 +2649,7 @@ font-family: Microsoft JhengHei;*/
     }
 
     .event_txt02 {
-        font-size: 32px;
+        font-size: 24px;
         margin: 10px 0 0px;
         padding: 0 15px 0 40px;
         text-indent: -1em;
@@ -2633,21 +2658,21 @@ font-family: Microsoft JhengHei;*/
 
 
     .event_txt03 {
-        font-size: 28px;
+        font-size: 18px;
         padding: 0 30px;
         margin-left: 2em;
         text-indent: -1em;
     }
 
     .event_txt04 {
-        font-size: 28px;
+        font-size: 18px;
         padding: 0 30px;
         margin-left: 3em;
         text-indent: -1em;
     }
 
     .event_txt05 {
-        font-size: 28px;
+        font-size: 18px;
         padding: 0 30px;
         margin-left: 4em;
         text-indent: -1em;
@@ -2711,10 +2736,35 @@ font-family: Microsoft JhengHei;*/
 
     @media (max-width: 600px) {
         .notice_title {
-            font-size: 24px;
+            font-size: 14px;
             margin: 10px 0 10px;
         }
 
+        .event_txt {
+            font-size: 12px;
+            margin: 10px 0 0px;
+        }
+
+        .event_txt02 {
+            font-size: 14px;
+            margin: 5px 0 0px;
+        }
+
+        .txt_title {
+            font-size: 12px;
+        }
+
+        .event_txt04 {
+            font-size: 10px;
+        }
+
+        .event_txt05 {
+            font-size: 10px;
+        }
+
+        .event_txt03 {
+            font-size: 10px;
+        }
         .event_note {
             text-align: start;
             padding: 0 10px 0 15px;
@@ -2723,26 +2773,7 @@ font-family: Microsoft JhengHei;*/
     }
 
     @media (max-width: 400px) {
-        .notice_title {
-            font-size: 20px;
-        }
-
-        .event_txt {
-            font-size: 16px;
-            margin: 10px 0 0px;
-        }
-
-        .event_txt02 {
-            margin: 5px 0 0px;
-        }
-
-        .txt_title {
-            font-size: 18px;
-        }
-
-        .event_txt03 {
-            font-size: 14px;
-        }
+      
     }
 
 
@@ -2787,11 +2818,11 @@ font-family: Microsoft JhengHei;*/
 
     @media all and (max-width: 576px) {
         .tg td {
-            font-size: 12px;
+            font-size: 10px;
         }
 
         table, tr, th, td {
-            font-size: 14px;
+            font-size: 10px;
         }
     }
 
