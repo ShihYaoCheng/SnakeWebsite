@@ -43,7 +43,7 @@
                                         if (finalsDate[j].Contains(nowDay ))
                                         {
 
-                                            <div class="DaySquare DaySquareMatchColor DaySquareFinalsDate"  @onclick="SchedulePop" >
+                                            <div class="DaySquare DaySquareMatchColor DaySquareFinalsDate"   >
                                                 <div>                                               
                                                    
                                                     <p class="finals-DaySquare-Title">@finalsString[finalsNum][0]</p>
@@ -171,8 +171,8 @@
     public  int finalsNum = 0 ;
     public string[][]  finalsString= new string[][]
     {
-    new string[] {"W1 Silver Final (Squad)" ,"PopR"},
-    new string[] {"W2 Silver Final (Squad)","PopR"},
+     new string[] {"W1 Silver Final (Squad)" ,"PopR"},
+     new string[] {"W2 Silver Final (Squad)","PopR"},
      new string[] {"M1 Diamond Final (Squad)","PopR"},
      new string[] {"W3 Silver Final (Squad)","PopR"},
      new string[] {"W4 Silver Final (Squad)","PopR"},
@@ -185,30 +185,7 @@
 
     public int nowDay;
 
-    @*...日曆...*@
-
-    private IJSObjectReference? SchedulePopJS;
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {         
-            SchedulePopJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/SchedulePop.js");
-
-        }
-
-    }
-
-
-    private async Task SchedulePop()
-    {      
-        if (SchedulePopJS != null)
-        {
-            await SchedulePopJS.InvokeVoidAsync("SchedulePop");        
-        }
-    }
-
- 
-
-
+  
+   
 
 }
