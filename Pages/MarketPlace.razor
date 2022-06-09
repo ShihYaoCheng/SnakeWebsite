@@ -366,6 +366,7 @@
                                 </a>
 
                             </div>
+                            
                         }
                         else
                         {
@@ -409,6 +410,7 @@
 
                         </div>
                         }
+                        @* if (item == NFTDataList.Last()) AfterRenderLocalize(1); *@
                     }
                     else
                     {
@@ -461,8 +463,11 @@
                         </a> 
 
                         </div>
+
                     }
+
                 }
+                AfterRenderLocalize();
             }
 
             @if(NFTDataList != null && false ){
@@ -637,15 +642,15 @@
                         }
 
                     }
-
+                    @* if (item == NFTDataList.Last()) AfterRenderLocalize(); *@
                 }
-            }
+            } 
 
           
 
         </section>
         <div class="Pagination-Block">
-             <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage" />
+            <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage" />
         </div>
     </main>
 
@@ -745,7 +750,6 @@
 
     private async Task DoStuff(ChangeEventArgs e)
     {
-
         PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( e.Value.ToString() ,1 ,10);
 
         MetaData =  pagelist.MetaData;
@@ -770,6 +774,11 @@
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;
+    }
+
+    private async Task AfterRenderLocalize()
+    {
+        await JS.InvokeVoidAsync("Localize");
     }
 
 

@@ -1,4 +1,5 @@
 window.LanguageSwitch = async function (lang) {
+  console.log('LanguageSwitch');
   await i18next.changeLanguage(lang);
   // await installI18nRider.changeLanguage(lang)
   $("body").localize().attr('class', `i18n-${lang}`);
@@ -22,6 +23,7 @@ window.installI18n = async function () {
       jqueryI18next.init(i18next, $);
       $("body").localize();
       $("#Language_Select").val(lang ? lang : defaultLang)
+      console.log('installI18n');
     }
   );
   $("#Language_Select").unbind('change').on("change", (e) => {
@@ -30,8 +32,12 @@ window.installI18n = async function () {
   });
 }
 
-window.NFTcardLocalize = async function () {
-  $("NFTcard ").localize();
+window.Localize = async function () {
+  if ($('.NFTcard').length === 0) return
+  setTimeout(() => {
+    $('.NFTcard').localize();
+
+  }, 0);
 }
 
 
