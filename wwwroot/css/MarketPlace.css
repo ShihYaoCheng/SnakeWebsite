@@ -98,8 +98,12 @@
     right: 8px;
     z-index: 5;
     cursor: pointer;
+    transition: all .9s ease-in-out;
 }
-
+.heart:hover .heart__path{
+    /* fill: var(--red-1) !important; */
+    stroke: var(--red-1) !important;
+}
 
 .heartClickRed .heart__path {
     fill: var(--red-1) !important;

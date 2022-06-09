@@ -64,7 +64,7 @@
             
             <div class="Filter-Header-Block">
                 <button  hidden="@(true)" class="Filter-Button" id="Filter-Button-Reset">Reset</button>
-                <button  hidden="@(true)" class="Filter-heart btn p-0" @onclick=FilterLove>
+                <button  hidden="@(true)" class="Filter-heart btn p-0 tippy-pop" data-content="Favorite" @onclick=FilterLove>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                         <path class="heart__path"
                             d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
@@ -319,7 +319,7 @@
                         {
                             @* 1.沒有顯示價格的版本 - 官方首拍 紅色*@
                             <div class="NFTcard card-bg-red">
-                                <div class="heart btn p-0  @(IsLove ? "heartClickRed" : "") "    @onclick="eventArgs => { HeartToggleButton(  TokenID ,IsLove, eventArgs); }" >
+                                <div class="heart btn p-0 tippy-pop  @(IsLove ? "heartClickRed" : "") " data-content="Favorite"    @onclick="eventArgs => { HeartToggleButton(  TokenID ,IsLove, eventArgs); }" >
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005" >
                                         <path class="heart__path"
                             d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
@@ -376,7 +376,7 @@
 
                             @* 3. 沒有顯示價格的版本 - 尚未開始拍賣 灰色 *@
                             <div class="NFTcard card-bg-grey">
-                                <div class="heart btn p-0  @(IsLove ? "heartClickRed" : "") "    @onclick="eventArgs => { HeartToggleButton(  TokenID ,IsLove, eventArgs); }" >
+                                <div class="heart btn p-0 tippy-pop @(IsLove ? "heartClickRed" : "") " data-content="Favorite"   @onclick="eventArgs => { HeartToggleButton(  TokenID ,IsLove, eventArgs); }" >
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                                     <path class="heart__path"
                             d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
@@ -417,7 +417,7 @@
 
                         @* 2. 沒有顯示價格的版本 - 其他玩家擁有 綠色*@
                         <div class="NFTcard card-bg-green">
-                            <div class="heart btn p-0">
+                            <div class="heart btn p-0 tippy-pop" data-content="Favorite" >
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                                 <path class="heart__path"
                             d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
@@ -475,7 +475,7 @@
                         {
                             /*官方 販售中NFT*/
                             <div class="NFTcard card-bg-red">
-                                <div class="heart btn p-0">
+                                <div class="heart btn p-0 tippy-pop" data-content="Favorite" >
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                                         <path class="heart__path"
                                         d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
@@ -516,7 +516,7 @@
                         {
                             /*官方 預定販售NFT*/
                             <div class="NFTcard card-bg-grey">
-                                <div class="heart btn p-0">
+                                <div class="heart btn p-0 tippy-pop" data-content="Favorite" >
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                                         <path class="heart__path"
                                         d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
@@ -558,7 +558,7 @@
                         if (@item.IsOpen)
                         {
                             <div class="NFTcard card-bg-green">
-                                <div class="heart btn p-0">
+                                <div class="heart btn p-0 tippy-pop" data-content="Favorite" >
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                                         <path class="heart__path"
                                         d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
@@ -597,7 +597,7 @@
                         else
                         {
                             <div class="NFTcard card-bg-green">
-                                <div class="heart btn p-0">
+                                <div class="heart btn p-0 tippy-pop" data-content="Favorite">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                                         <path class="heart__path"
                                         d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
