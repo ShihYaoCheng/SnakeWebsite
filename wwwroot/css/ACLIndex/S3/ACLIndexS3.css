@@ -1241,7 +1241,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 .Ranking-banner {
     width: 100%;
     height: 700px;
-    
+    margin-bottom:80px;
 }
 
     .Ranking-banner .Ranking-banner-bg {
@@ -1297,6 +1297,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     width: 100%;
     height: 230px;
     position: relative;
+  
 }
 
 .Ranking-banner-selectContainer select {
@@ -1329,10 +1330,9 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     .Ranking {
         height: 1800px;
     }
-.Ranking-banner {
-    height: 430px;
-    margin-bottom: 20px;
-}
+    .Ranking-banner {
+        height:540px;
+    }
 
 .Ranking-banner .Ranking-banner-bg {
     height: 280px;
@@ -1347,7 +1347,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
 
         .Ranking-banner {
-            height: 350px;         
+            height: 450px;         
         }
 
             .Ranking-banner .Ranking-banner-bg {
@@ -1377,7 +1377,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
 
         .Ranking-banner {
-            height: 230px;
+            height: 300px;
         }
 
             .Ranking-banner .Ranking-banner-bg {
@@ -1401,7 +1401,9 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
     @media (max-width: 576px) {
-       
+        .Ranking-banner {
+            height: 240px;
+        }
 
             .Ranking-banner .Ranking-banner-bg {
                 height: 105px;
@@ -1444,40 +1446,38 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
 .Ranking-Date {
-    width: 785px;
+    width: 100%;
     height: 88px;
-    margin-bottom: 60px;
     background: url("/images/AsiaChampionsLeague/S3/Ranking/Ranking_Date.png");
-    background-repeat:no-repeat;
-    display:flex;
-    justify-content:end;
-    align-items:center;
-    padding-right:30px;
+    background-repeat: round;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 30px;
+    position: absolute;
+    top: -20%;
+    left: 0%;
 }
     .Ranking-Date p {
         color: #478588;
         font-size: 30px;
         font-family:Arial;
     }
-  
-@media (max-width: 2000px) {
-    .Ranking-Date {
-        background-repeat: round;
-        width: 42.60%;
-    }
-}
-@media (max-width: 1024px) {
-    .Ranking-banner .Bar {
-        height: 27px;
-        width: 284px;
-    }
-
+@media (max-width: 1100px) {
     .Ranking-Date {
         height: 60px;
-        width: 60%;
+        width: 80%;
     }
-  
 }
+
+    @media (max-width: 1024px) {
+        .Ranking-banner .Bar {
+            height: 27px;
+            width: 284px;
+        }
+
+
+    }
 
     @media (max-width: 768px) {
         .Ranking-banner .Bar {
@@ -1485,9 +1485,8 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             width: 210px;
         }
 
-        .Ranking-Date {          
+        .Ranking-Date {
             margin-bottom: 30px;
-            width: 80%;
         }
     }
 
@@ -1495,15 +1494,21 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         .Ranking-Date {
             width: 95%;
         }
-        .Ranking-Date p {
-            font-size: 22px;
-        }
+
+            .Ranking-Date p {
+                font-size: 22px;
+            }
     }
 
     /*.......排名...........*/
+.Ranking-Place {
+    width: 1900px;
+    margin: 0 auto;
+}
+
     .Ranking-Place-left {
         float: left;
-        width: 750px;
+        width: 1050px;
         height: 610px;
         position: relative;
     }
@@ -1530,7 +1535,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
     .Ranking_First img {
-        left: 15%;
+        left: 17%;
         top: 6%;
         width: 178px;
         height: 167px;
@@ -1549,8 +1554,24 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         width: 98px;
         height: 79px;
     }
+@media (max-width: 1800px) {
+    .Ranking-Place {
+        width: 1500px;
+    }
+    .Ranking-Place-left {       
+        width: 750px;     
+    }
 
+    .Ranking_First img {
+        left: 15%;
+        top: 6%;       
+    }
+}
     @media (max-width: 1500px) {
+        .Ranking-Place {
+            width: 100%;
+        }
+
         .Ranking-Place-left {
             width: 50%;
         }
@@ -1573,43 +1594,42 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
     }
 
-@media (max-width: 768px) {
-    .Ranking_First img {
-        top: 1%;
- 
+    @media (max-width: 768px) {
+        .Ranking_First img {
+            top: 1%;
+        }
+
+        .Ranking_Second img {
+            top: 46%;
+            transform: scale(0.8)
+        }
+
+        .Ranking_third img {
+            top: 78%;
+            left: 20%;
+            transform: scale(0.8)
+        }
     }
 
-    .Ranking_Second img {
-        top: 46%;    
-        transform: scale(0.8)
-    }
+    @media (max-width: 576px) {
+        .Ranking_First img {
+            top: -7%;
+            left: 9.5%;
+            transform: scale(0.5)
+        }
 
-    .Ranking_third img {
-        top: 78%;
-        left: 20%;
-        transform: scale(0.8)
-    }
-}
+        .Ranking_Second img {
+            top: 38%;
+            left: 16%;
+            transform: scale(0.6)
+        }
 
-@media (max-width: 576px) {
-    .Ranking_First img {
-        top: -7%;
-        left: 9.5%;
-        transform: scale(0.5)
+        .Ranking_third img {
+            top: 68%;
+            left: 18%;
+            transform: scale(0.6)
+        }
     }
-
-    .Ranking_Second img {
-        top: 38%;
-        left: 16%;
-        transform: scale(0.6)
-    }
-
-    .Ranking_third img {
-        top: 68%;
-        left: 18%;
-        transform: scale(0.6)
-    }
-}
 
     .shineCrown {
         animation: shineCrown 1s infinite linear;
@@ -1630,21 +1650,21 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
     }
 
-@media (max-width: 768px) {
-    @keyframes shineCrown {
-        0% {
-            transform: scale(0.8)
-        }
+    @media (max-width: 768px) {
+        @keyframes shineCrown {
+            0% {
+                transform: scale(0.8)
+            }
 
-        50% {
-            transform: scale(1)
-        }
+            50% {
+                transform: scale(1)
+            }
 
-        0% {
-            transform: scale(0.8)
+            0% {
+                transform: scale(0.8)
+            }
         }
     }
-}
 
     .Ranking_First h3 {
         left: 50%;
@@ -2108,11 +2128,11 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         font-family: Arial;
     }
 
-        .DaySquare p {
-            font-size: 15px;
-            text-align: center;
-            float: left;
-        }
+.finals-DaySquare-Title {
+    font-size: 15px;
+    text-align: center;
+    float: left;
+}
 
     @media (max-width: 768px) {
         .DaySquare {
@@ -2121,20 +2141,20 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             font-size: 14px;
         }
 
-            .DaySquare p {
-                font-size: 10px;
-                text-align: center;
-                float: left;
-                width: 40px;
-                height: 30px;
-                line-height: normal;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                box-sizing: border-box;
-            }
+        .finals-DaySquare-Title {
+            font-size: 10px;
+            text-align: center;
+            float: left;
+            width: 40px;
+            height: 30px;
+            line-height: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            box-sizing: border-box;
+        }
     }
 
     @media (max-width: 576px) {
@@ -2144,10 +2164,10 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
             font-size: 10px;
         }
 
-            .DaySquare p {
-                width: 20px;
-                height: 15px;
-            }
+        .finals-DaySquare-Title {
+            width: 20px;
+            height: 15px;
+        }
     }
 
     .DaySquareColor {
@@ -2161,30 +2181,93 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         background: #E6E6E6;
     }
 
-    .DaySquareFinalsDate {
-        background: #C7B69A;
-        background-image: url("../../../images/AsiaChampionsLeague/S3/Calender/Calender_ Final Icon.png");
-        background-repeat: round;
-    }
+.DaySquareFinalsDate {
+    background: #C7B69A;
+    background-image: url("../../../images/AsiaChampionsLeague/S3/Calender/Calender_ Final Icon.png");
+    background-repeat: round;
+    position: relative;
 
-    .DaySquare:last-child {
+}
+.DaySquareFinalsDate:hover .finals-Data-Pop {
+    display:block;
+}
+
+
+.DaySquare:last-child {
         margin-right: 0px;
     }
 
-    .ScheduleBannerBlock {
-        position: absolute;
-        color: #fff;
-        font-family: Microsoft JhengHei;
-        height: 30px;
-        text-align: center;
-        font-size: 20px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        box-sizing: border-box;
+.finals-Data-Pop {
+    transform: translate(0,-50%);
+    position: absolute;
+    top: 50%;
+    width: 350px;
+    height: 230px;
+    z-index: 100;
+    padding: 20px 40px 0px 20px;
+    display: none;
+}
+
+.PopL {
+    background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_Notice_clickBG.png");
+    background-repeat: round;
+    left: 50%
+}
+.PopR {
+    background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_Notice_clickBG-1.png");
+    background-repeat: round;
+    right: 50%
+}
+
+
+
+
+.finals-Data-Pop-title {
+    color: #465461;
+    font-size: 24px;
+    width: 100%;
+    border-bottom: 1px solid #cacaca;
+    
+    padding-bottom: 10px;
+    font-family: "Microsoft JhengHei";
+    text-align: center;
+  
+}
+.finals-Data-Popt-Time {
+    padding: 20px 20px 0px 20px;
+}
+.finals-Data-Popt-Time p {
+    width: 100%;
+    margin-bottom:10px;
+    
+}
+
+@media (max-width: 576px) {
+    .finals-Data-Pop {
+        width: 233px;
+        height: 153px;
     }
+    .finals-Data-Pop-title {
+        font-size:14px;
+    }
+    .finals-Data-Popt-Time p {
+        font-size: 10px
+    }
+    }
+.ScheduleBannerBlock {
+    position: absolute;
+    color: #fff;
+    font-family: Microsoft JhengHei;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    box-sizing: border-box;
+}
 
     .soloBannerBlock {
         background: #6CB9E4;
@@ -2567,15 +2650,15 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         text-align: center;
     }
 
-.Notice-Container {
-    width: 1272px;
-    height: 701px;
-    background: #fff;
-    border-radius: 27px;
-    padding: 10px 10px 10px 40px;
-    margin: 0 auto;
-    font-family: Microsoft JhengHei;
-}
+    .Notice-Container {
+        width: 1272px;
+        height: 701px;
+        background: #fff;
+        border-radius: 27px;
+        padding: 10px 10px 10px 40px;
+        margin: 0 auto;
+        font-family: Microsoft JhengHei;
+    }
 
     @media (max-width: 1500px) {
         .Notice-Container {
@@ -2583,13 +2666,13 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
     }
 
-.Notice-content {
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+    .Notice-content {
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 
         .Notice-content h2 {
             /*font-size: 24px;
@@ -2631,7 +2714,6 @@ font-family: Microsoft JhengHei;*/
 
     .event_note {
         font-size: 14px;
-     
     }
 
     .event_txt {
@@ -2765,6 +2847,7 @@ font-family: Microsoft JhengHei;*/
         .event_txt03 {
             font-size: 10px;
         }
+
         .event_note {
             text-align: start;
             padding: 0 10px 0 15px;
@@ -2773,7 +2856,6 @@ font-family: Microsoft JhengHei;*/
     }
 
     @media (max-width: 400px) {
-      
     }
 
 
