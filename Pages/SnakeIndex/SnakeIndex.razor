@@ -74,7 +74,7 @@
 
 @code {
     private IJSObjectReference? BannerJS;
-    private IJSObjectReference? dayjsInitJS;   
+    @* private IJSObjectReference? dayjsInitJS; *@
 
 
     private async Task LanguageSwitchClick()
@@ -88,9 +88,9 @@
     {   
         if(firstRender){
             BannerJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SnakeIndex/Banner.js");
-            dayjsInitJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SnakeIndex/Day.js");
+            @* dayjsInitJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SnakeIndex/Day.js"); *@
             await BannerJS.InvokeVoidAsync("BannerMove");
-            await dayjsInitJS.InvokeVoidAsync("dayjsInit"); 
+            @* await dayjsInitJS.InvokeVoidAsync("dayjsInit");  *@
 
     
             await JS.InvokeVoidAsync("Carousel");
