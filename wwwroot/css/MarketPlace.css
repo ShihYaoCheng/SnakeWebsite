@@ -98,10 +98,11 @@
     right: 8px;
     z-index: 5;
     cursor: pointer;
-    transition: all .9s ease-in-out;
+
 }
 .heart:hover .heart__path{
     /* fill: var(--red-1) !important; */
+    transition: all .4s ease-in-out;
     stroke: var(--red-1) !important;
 }
 
@@ -293,7 +294,8 @@
 }
 
 .NFTcard:hover{
-    transform: scale(1.01);
+    /* transform: scale(1.01); */
+    transform: translateY(-1.5%);
 }
 
 .NFT-Link{
