@@ -59,7 +59,6 @@
 
 @code {
 
-    private IJSObjectReference? TypewriterJS;   
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -68,8 +67,7 @@
             await JS.InvokeVoidAsync("ACLS3ScheduleCarousel");
             await JS.InvokeVoidAsync("ACLS3RulesCarousel");   
             await JS.InvokeVoidAsync("installI18n");
-            TypewriterJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/Typewriter.js");
-            await TypewriterJS.InvokeVoidAsync("TypeWriter");                  
+           
         }
     }
 

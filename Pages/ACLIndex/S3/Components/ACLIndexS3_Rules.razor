@@ -63,6 +63,16 @@
 
 
 @code {
-  
-   
+    private IJSObjectReference? TypewriterJS;   
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {      
+           TypewriterJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/Typewriter.js");
+           await TypewriterJS.InvokeVoidAsync("TypeWriter");                  
+        
+        }
+     }
 }
+

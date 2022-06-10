@@ -1,7 +1,7 @@
 ﻿export function TypeWriter() {
     window.ACLS3RulesCarousel = true
     window.addEventListener('scroll', () => {
-        
+        if (window.location.pathname != "/ACLIndexS3") return
         var visibleHeight = window.innerHeight //可視介面高度
         var nowHeight = document.documentElement.scrollTop //現在高度
         // var allHeight = document.body.scrollHeight //所有高度
