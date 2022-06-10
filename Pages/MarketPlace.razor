@@ -754,6 +754,7 @@
         MetaData =  pagelist.MetaData;
         NFTDataList = pagelist;
         PPSRsCount = MetaData.TotalCount;
+        await JS.InvokeVoidAsync("installI18n");
     }
 
 
@@ -773,6 +774,7 @@
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;
+        await JS.InvokeVoidAsync("installI18n");
     }
 
     private async Task AfterRenderLocalize()
@@ -894,6 +896,7 @@
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;
+        await JS.InvokeVoidAsync("installI18n");
     }
 
 
@@ -936,6 +939,7 @@
         CheckBoxElements.RemoveRange(0 ,CheckBoxElements.Count);
         CheckBoxClass.RemoveRange(0 ,CheckBoxClass.Count);
         CheckBoxCountry.RemoveRange(0 ,CheckBoxCountry.Count);
+        await JS.InvokeVoidAsync("installI18n");
 
    
     }
