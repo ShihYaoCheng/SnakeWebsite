@@ -1,0 +1,1397 @@
+{
+    "TestTest": "測試",
+    "NFT_Unit9_2a_1": "經典克雷亞",
+    "NFT_Unit10_2d_1": "經典西利卡",
+    "NFT_Unit5_2b_1": "經典溫蒂妮",
+    "NFT_Unit3_2c_2": "好優米維納斯",
+    "NFT_Unit0_1b_2": "白雪公主",
+    "NFT_Unit3_2d_1": "經典維納斯",
+    "NFT_Unit0_1c_5": "機甲娘",
+    "NFT_Unit4_3a_1": "二階路西法",
+    "NFT_Unit0_1a_9": "骸骨龍",
+    "NFT_Unit0_1d_1": "哈士奇",
+    "NFT_Unit3_3b_1": "二階維納斯",
+    "NFT_Unit8_3b_2": "加勒比海盜妃莉絲",
+    "NFT_Unit3_2a_1": "經典維納斯",
+    "NFT_Unit4_2c_1": "經典路西法",
+    "NFT_Unit11_4c_1": "齊天大聖孫悟空",
+    "NFT_Unit9_2d_1": "經典克雷亞",
+    "NFT_Unit10_2b_1": "經典西利卡",
+    "NFT_Unit10_2d_2": "好優米西莉卡",
+    "NFT_Unit5_3d_1": "二階溫蒂妮",
+    "NFT_Unit8_3b_1": "二階妃莉絲",
+    "NFT_Unit0_1d_9": "骸骨龍",
+    "NFT_Unit0_1d_5": "機甲娘",
+    "NFT_Unit8_3d_2": "加勒比海盜妃莉絲",
+    "NFT_Unit4_3b_1": "二階路西法",
+    "NFT_Unit0_1c_2": "白雪公主",
+    "NFT_Unit8_2a_1": "經典妃莉絲",
+    "NFT_Unit0_1b_4": "經典貪吃蛇",
+    "NFT_Unit5_2c_1": "經典溫蒂妮",
+    "NFT_Unit9_2b_1": "經典克雷亞",
+    "NFT_Unit0_1a_5": "機甲娘",
+    "NFT_Unit3_3a_2": "布偶麋鹿維納斯",
+    "NFT_Unit4_3c_2": "布偶黑熊路西法",
+    "NFT_Unit0_1b_7": "好優米貪食蛇",
+    "NFT_Unit11_4b_1": "齊天大聖孫悟空",
+    "NFT_Unit0_1c_6": "好優米餅乾列車",
+    "NFT_Unit10_4a_1": "天使西利卡",
+    "NFT_Unit0_1b_1": "哈士奇",
+    "NFT_Unit8_2c_1": "經典妃莉絲",
+    "NFT_Unit9_3a_1": "二階克雷亞",
+    "NFT_Unit12_3d_1": "二階楊戩",
+    "NFT_Unit10_3d_1": "二階西利卡",
+    "NFT_Unit3_3d_2": "布偶麋鹿維納斯",
+    "NFT_Unit5_2b_2": "好優米溫蒂妮",
+    "NFT_Unit5_3b_2": "梅花旗袍溫蒂妮",
+    "NFT_Unit10_4b_1": "天使西利卡",
+    "NFT_Unit8_2d_2": "好優米妃莉絲",
+    "NFT_Unit9_2a_2": "好優米克雷亞",
+    "NFT_Unit11_3c_4": "好優米孫悟空",
+    "NFT_Unit8_4b_3": "好優米玩偶妃莉絲",
+    "NFT_Unit0_1a_8": "好優米小怪獸",
+    "NFT_Knight3_2a_1": "經典1階",
+    "NFT_Knight3_2b_1": "經典1階",
+    "NFT_Knight3_2c_1": "經典1階",
+    "NFT_Knight3_2d_1": "經典1階",
+    "NFT_Knight3_2c_2": "好優米維納斯",
+    "NFT_Knight3_3a_1": "經典2階",
+    "NFT_Knight3_3b_1": "經典2階",
+    "NFT_Knight3_3c_1": "經典2階",
+    "NFT_Knight3_3d_1": "經典2階",
+    "NFT_Knight3_3a_2": "布偶麋鹿",
+    "NFT_Knight3_3b_2": "布偶麋鹿",
+    "NFT_Knight3_3c_2": "布偶麋鹿",
+    "NFT_Knight3_3d_2": "布偶麋鹿",
+    "NFT_Knight3_3a_3": "醫生服",
+    "NFT_Knight3_3b_3": "醫生服",
+    "NFT_Knight3_3c_3": "醫生服",
+    "NFT_Knight3_3d_3": "醫生服",
+    "NFT_Knight3_4a_1": "聖光騎士",
+    "NFT_Knight3_4b_1": "聖光騎士",
+    "NFT_Knight3_4c_1": "聖光騎士",
+    "NFT_Knight3_4d_1": "聖光騎士",
+    "NFT_Knight3_4a_2": "女僕裝",
+    "NFT_Knight3_4b_2": "女僕裝",
+    "NFT_Knight3_4c_2": "女僕裝",
+    "NFT_Knight3_4d_2": "女僕裝",
+    "NFT_Knight4_2a_1": "經典1階",
+    "NFT_Knight4_2b_1": "經典1階",
+    "NFT_Knight4_2c_1": "經典1階",
+    "NFT_Knight4_2d_1": "經典1階",
+    "NFT_Knight4_3a_1": "經典2階",
+    "NFT_Knight4_3b_1": "經典2階",
+    "NFT_Knight4_3c_1": "經典2階",
+    "NFT_Knight4_3d_1": "經典2階",
+    "NFT_Knight4_3a_2": "布偶黑熊",
+    "NFT_Knight4_3b_2": "布偶黑熊",
+    "NFT_Knight4_3c_2": "布偶黑熊",
+    "NFT_Knight4_3d_2": "布偶黑熊",
+    "NFT_Knight4_3a_3": "搞笑工人",
+    "NFT_Knight4_3b_3": "搞笑工人",
+    "NFT_Knight4_3c_3": "搞笑工人",
+    "NFT_Knight4_3d_3": "搞笑工人",
+    "NFT_Knight4_4a_1": "黑暗騎士",
+    "NFT_Knight4_4b_1": "黑暗騎士",
+    "NFT_Knight4_4c_1": "黑暗騎士",
+    "NFT_Knight4_4d_1": "黑暗騎士",
+    "NFT_Knight4_4a_2": "粒子科幻",
+    "NFT_Knight4_4b_2": "粒子科幻",
+    "NFT_Knight4_4c_2": "粒子科幻",
+    "NFT_Knight4_4d_2": "粒子科幻",
+    "NFT_Knight5_2a_1": "經典1階",
+    "NFT_Knight5_2b_1": "經典1階",
+    "NFT_Knight5_2c_1": "經典1階",
+    "NFT_Knight5_2d_1": "經典1階",
+    "NFT_Knight5_2b_2": "好優米溫蒂妮",
+    "NFT_Knight5_3a_1": "經典2階",
+    "NFT_Knight5_3b_1": "經典2階",
+    "NFT_Knight5_3c_1": "經典2階",
+    "NFT_Knight5_3d_1": "經典2階",
+    "NFT_Knight5_3a_2": "梅花旗袍",
+    "NFT_Knight5_3b_2": "梅花旗袍",
+    "NFT_Knight5_3c_2": "梅花旗袍",
+    "NFT_Knight5_3d_2": "梅花旗袍",
+    "NFT_Knight5_3a_3": "護士服",
+    "NFT_Knight5_3b_3": "護士服",
+    "NFT_Knight5_3c_3": "護士服",
+    "NFT_Knight5_3d_3": "護士服",
+    "NFT_Knight5_4a_1": "精靈女王",
+    "NFT_Knight5_4b_1": "精靈女王",
+    "NFT_Knight5_4c_1": "精靈女王",
+    "NFT_Knight5_4d_1": "精靈女王",
+    "NFT_Knight5_4a_2": "海軍服",
+    "NFT_Knight5_4b_2": "海軍服",
+    "NFT_Knight5_4c_2": "海軍服",
+    "NFT_Knight5_4d_2": "海軍服",
+    "NFT_Knight8_2a_1": "經典1階",
+    "NFT_Knight8_2b_1": "經典1階",
+    "NFT_Knight8_2c_1": "經典1階",
+    "NFT_Knight8_2d_1": "經典1階",
+    "NFT_Knight8_2d_2": "好優米妃莉絲",
+    "NFT_Knight8_3a_1": "經典2階",
+    "NFT_Knight8_3b_1": "經典2階",
+    "NFT_Knight8_3c_1": "經典2階",
+    "NFT_Knight8_3d_1": "經典2階",
+    "NFT_Knight8_3a_2": "加勒比海盜",
+    "NFT_Knight8_3b_2": "加勒比海盜",
+    "NFT_Knight8_3c_2": "加勒比海盜",
+    "NFT_Knight8_3d_2": "加勒比海盜",
+    "NFT_Knight8_3a_3": "西部牛仔",
+    "NFT_Knight8_3b_3": "西部牛仔",
+    "NFT_Knight8_3c_3": "西部牛仔",
+    "NFT_Knight8_3d_3": "西部牛仔",
+    "NFT_Knight8_4a_1": "沙漠玫瑰",
+    "NFT_Knight8_4b_1": "沙漠玫瑰",
+    "NFT_Knight8_4c_1": "沙漠玫瑰",
+    "NFT_Knight8_4d_1": "沙漠玫瑰",
+    "NFT_Knight8_4a_2": "埃及豔后",
+    "NFT_Knight8_4b_2": "埃及豔后",
+    "NFT_Knight8_4c_2": "埃及豔后",
+    "NFT_Knight8_4d_2": "埃及豔后",
+    "NFT_Knight8_4b_3": "好優米玩偶妃莉絲",
+    "NFT_Knight9_2a_1": "經典1階",
+    "NFT_Knight9_2b_1": "經典1階",
+    "NFT_Knight9_2c_1": "經典1階",
+    "NFT_Knight9_2d_1": "經典1階",
+    "NFT_Knight9_2a_2": "好優米克雷亞",
+    "NFT_Knight9_3a_1": "經典2階",
+    "NFT_Knight9_3b_1": "經典2階",
+    "NFT_Knight9_3c_1": "經典2階",
+    "NFT_Knight9_3d_1": "經典2階",
+    "NFT_Knight9_3a_2": "布偶浣熊",
+    "NFT_Knight9_3b_2": "布偶浣熊",
+    "NFT_Knight9_3c_2": "布偶浣熊",
+    "NFT_Knight9_3d_2": "布偶浣熊",
+    "NFT_Knight9_3a_3": "吸血鬼",
+    "NFT_Knight9_3b_3": "吸血鬼",
+    "NFT_Knight9_3c_3": "吸血鬼",
+    "NFT_Knight9_3d_3": "吸血鬼",
+    "NFT_Knight9_4a_1": "鎖鏈惡魔",
+    "NFT_Knight9_4b_1": "鎖鏈惡魔",
+    "NFT_Knight9_4c_1": "鎖鏈惡魔",
+    "NFT_Knight9_4d_1": "鎖鏈惡魔",
+    "NFT_Knight9_4a_2": "日本武士",
+    "NFT_Knight9_4b_2": "日本武士",
+    "NFT_Knight9_4c_2": "日本武士",
+    "NFT_Knight9_4d_2": "日本武士",
+    "NFT_Knight10_2a_1": "經典1階",
+    "NFT_Knight10_2b_1": "經典1階",
+    "NFT_Knight10_2c_1": "經典1階",
+    "NFT_Knight10_2d_1": "經典1階",
+    "NFT_Knight10_2d_2": "好優米西莉卡",
+    "NFT_Knight10_3a_1": "經典2階",
+    "NFT_Knight10_3b_1": "經典2階",
+    "NFT_Knight10_3c_1": "經典2階",
+    "NFT_Knight10_3d_1": "經典2階",
+    "NFT_Knight10_3a_2": "布偶石虎",
+    "NFT_Knight10_3b_2": "布偶石虎",
+    "NFT_Knight10_3c_2": "布偶石虎",
+    "NFT_Knight10_3d_2": "布偶石虎",
+    "NFT_Knight10_3a_3": "吸血鬼",
+    "NFT_Knight10_3b_3": "吸血鬼",
+    "NFT_Knight10_3c_3": "吸血鬼",
+    "NFT_Knight10_3d_3": "吸血鬼",
+    "NFT_Knight10_4a_1": "熾愛天使",
+    "NFT_Knight10_4b_1": "熾愛天使",
+    "NFT_Knight10_4c_1": "熾愛天使",
+    "NFT_Knight10_4d_1": "熾愛天使",
+    "NFT_Knight10_4a_2": "日本武士",
+    "NFT_Knight10_4b_2": "日本武士",
+    "NFT_Knight10_4c_2": "日本武士",
+    "NFT_Knight10_4d_2": "日本武士",
+    "NFT_Knight11_2a_1": "經典1階",
+    "NFT_Knight11_2b_1": "經典1階",
+    "NFT_Knight11_2c_1": "經典1階",
+    "NFT_Knight11_2d_1": "經典1階",
+    "NFT_Knight11_3a_1": "經典2階",
+    "NFT_Knight11_3b_1": "經典2階",
+    "NFT_Knight11_3c_1": "經典2階",
+    "NFT_Knight11_3d_1": "經典2階",
+    "NFT_Knight11_3a_2": "特級廚師",
+    "NFT_Knight11_3b_2": "特級廚師",
+    "NFT_Knight11_3c_2": "特級廚師",
+    "NFT_Knight11_3d_2": "特級廚師",
+    "NFT_Knight11_3a_3": "搞笑工人",
+    "NFT_Knight11_3b_3": "搞笑工人",
+    "NFT_Knight11_3c_3": "搞笑工人",
+    "NFT_Knight11_3d_3": "搞笑工人",
+    "NFT_Knight11_3c_4": "好優米孫悟空",
+    "NFT_Knight11_4a_1": "齊天大聖",
+    "NFT_Knight11_4b_1": "齊天大聖",
+    "NFT_Knight11_4c_1": "齊天大聖",
+    "NFT_Knight11_4d_1": "齊天大聖",
+    "NFT_Knight11_4a_2": "現代警察",
+    "NFT_Knight11_4b_2": "現代警察",
+    "NFT_Knight11_4c_2": "現代警察",
+    "NFT_Knight11_4d_2": "現代警察",
+    "NFT_Pet3_3a_1": "拉維亞鷹",
+    "NFT_Pet3_3b_1": "拉維亞鷹",
+    "NFT_Pet3_3c_1": "拉維亞鷹",
+    "NFT_Pet3_3d_1": "拉維亞鷹",
+    "NFT_Pet3_3a_2": "聖誕迷鹿",
+    "NFT_Pet3_3b_2": "聖誕迷鹿",
+    "NFT_Pet3_3c_2": "聖誕迷鹿",
+    "NFT_Pet3_3d_2": "聖誕迷鹿",
+    "NFT_Pet3_3a_3": "圓蜜蜂",
+    "NFT_Pet3_3b_3": "圓蜜蜂",
+    "NFT_Pet3_3c_3": "圓蜜蜂",
+    "NFT_Pet3_3d_3": "圓蜜蜂",
+    "NFT_Pet3_4a_1": "法蘭皇鷹",
+    "NFT_Pet3_4b_1": "法蘭皇鷹",
+    "NFT_Pet3_4c_1": "法蘭皇鷹",
+    "NFT_Pet3_4d_1": "法蘭皇鷹",
+    "NFT_Pet3_4a_2": "執事企鵝",
+    "NFT_Pet3_4b_2": "執事企鵝",
+    "NFT_Pet3_4c_2": "執事企鵝",
+    "NFT_Pet3_4d_2": "執事企鵝",
+    "NFT_Pet4_3a_1": "伊格尼",
+    "NFT_Pet4_3b_1": "伊格尼",
+    "NFT_Pet4_3c_1": "伊格尼",
+    "NFT_Pet4_3d_1": "伊格尼",
+    "NFT_Pet4_3a_2": "玩偶熊",
+    "NFT_Pet4_3b_2": "玩偶熊",
+    "NFT_Pet4_3c_2": "玩偶熊",
+    "NFT_Pet4_3d_2": "玩偶熊",
+    "NFT_Pet4_3a_3": "鑽地鼠",
+    "NFT_Pet4_3b_3": "鑽地鼠",
+    "NFT_Pet4_3c_3": "鑽地鼠",
+    "NFT_Pet4_3d_3": "鑽地鼠",
+    "NFT_Pet4_4a_1": "鎧甲龍",
+    "NFT_Pet4_4b_1": "鎧甲龍",
+    "NFT_Pet4_4c_1": "鎧甲龍",
+    "NFT_Pet4_4d_1": "鎧甲龍",
+    "NFT_Pet4_4a_2": "電魔方",
+    "NFT_Pet4_4b_2": "電魔方",
+    "NFT_Pet4_4c_2": "電魔方",
+    "NFT_Pet4_4d_2": "電魔方",
+    "NFT_Pet5_3a_1": "布魯布魯",
+    "NFT_Pet5_3b_1": "布魯布魯",
+    "NFT_Pet5_3c_1": "布魯布魯",
+    "NFT_Pet5_3d_1": "布魯布魯",
+    "NFT_Pet5_3a_2": "人蔘寶寶",
+    "NFT_Pet5_3b_2": "人蔘寶寶",
+    "NFT_Pet5_3c_2": "人蔘寶寶",
+    "NFT_Pet5_3d_2": "人蔘寶寶",
+    "NFT_Pet5_3a_3": "棉花球",
+    "NFT_Pet5_3b_3": "棉花球",
+    "NFT_Pet5_3c_3": "棉花球",
+    "NFT_Pet5_3d_3": "棉花球",
+    "NFT_Pet5_4a_1": "水晶龜",
+    "NFT_Pet5_4b_1": "水晶龜",
+    "NFT_Pet5_4c_1": "水晶龜",
+    "NFT_Pet5_4d_1": "水晶龜",
+    "NFT_Pet5_4a_2": "獨角鯨",
+    "NFT_Pet5_4b_2": "獨角鯨",
+    "NFT_Pet5_4c_2": "獨角鯨",
+    "NFT_Pet5_4d_2": "獨角鯨",
+    "NFT_Pet8_3a_1": "黑貓",
+    "NFT_Pet8_3b_1": "黑貓",
+    "NFT_Pet8_3c_1": "黑貓",
+    "NFT_Pet8_3d_1": "黑貓",
+    "NFT_Pet8_3a_2": "燈籠魚",
+    "NFT_Pet8_3b_2": "燈籠魚",
+    "NFT_Pet8_3c_2": "燈籠魚",
+    "NFT_Pet8_3d_2": "燈籠魚",
+    "NFT_Pet8_3a_3": "仙人掌",
+    "NFT_Pet8_3b_3": "仙人掌",
+    "NFT_Pet8_3c_3": "仙人掌",
+    "NFT_Pet8_3d_3": "仙人掌",
+    "NFT_Pet8_4a_1": "耳廓狐",
+    "NFT_Pet8_4b_1": "耳廓狐",
+    "NFT_Pet8_4c_1": "耳廓狐",
+    "NFT_Pet8_4d_1": "耳廓狐",
+    "NFT_Pet8_4a_2": "雙尾黑貓",
+    "NFT_Pet8_4b_2": "雙尾黑貓",
+    "NFT_Pet8_4c_2": "雙尾黑貓",
+    "NFT_Pet8_4d_2": "雙尾黑貓",
+    "NFT_Pet8_4b_3": "好優米玩偶",
+    "NFT_Pet9_3a_1": "倉鼠",
+    "NFT_Pet9_3b_1": "倉鼠",
+    "NFT_Pet9_3c_1": "倉鼠",
+    "NFT_Pet9_3d_1": "倉鼠",
+    "NFT_Pet9_3a_2": "機智浣熊",
+    "NFT_Pet9_3b_2": "機智浣熊",
+    "NFT_Pet9_3c_2": "機智浣熊",
+    "NFT_Pet9_3d_2": "機智浣熊",
+    "NFT_Pet9_3a_3": "眼球蝙蝠",
+    "NFT_Pet9_3b_3": "眼球蝙蝠",
+    "NFT_Pet9_3c_3": "眼球蝙蝠",
+    "NFT_Pet9_3d_3": "眼球蝙蝠",
+    "NFT_Pet9_4a_1": "黑龍",
+    "NFT_Pet9_4b_1": "黑龍",
+    "NFT_Pet9_4c_1": "黑龍",
+    "NFT_Pet9_4d_1": "黑龍",
+    "NFT_Pet9_4a_2": "武士倉鼠",
+    "NFT_Pet9_4b_2": "武士倉鼠",
+    "NFT_Pet9_4c_2": "武士倉鼠",
+    "NFT_Pet9_4d_2": "武士倉鼠",
+    "NFT_Pet10_3a_1": "啵啵龍",
+    "NFT_Pet10_3b_1": "啵啵龍",
+    "NFT_Pet10_3c_1": "啵啵龍",
+    "NFT_Pet10_3d_1": "啵啵龍",
+    "NFT_Pet10_3a_2": "胖虎",
+    "NFT_Pet10_3b_2": "胖虎",
+    "NFT_Pet10_3c_2": "胖虎",
+    "NFT_Pet10_3d_2": "胖虎",
+    "NFT_Pet10_3a_3": "小惡魔",
+    "NFT_Pet10_3b_3": "小惡魔",
+    "NFT_Pet10_3c_3": "小惡魔",
+    "NFT_Pet10_3d_3": "小惡魔",
+    "NFT_Pet10_4a_1": "獅鳩獸",
+    "NFT_Pet10_4b_1": "獅鳩獸",
+    "NFT_Pet10_4c_1": "獅鳩獸",
+    "NFT_Pet10_4d_1": "獅鳩獸",
+    "NFT_Pet10_4a_2": "武士飛鳥",
+    "NFT_Pet10_4b_2": "武士飛鳥",
+    "NFT_Pet10_4c_2": "武士飛鳥",
+    "NFT_Pet10_4d_2": "武士飛鳥",
+    "NFT_Pet11_3a_1": "無畏喵",
+    "NFT_Pet11_3b_1": "無畏喵",
+    "NFT_Pet11_3c_1": "無畏喵",
+    "NFT_Pet11_3d_1": "無畏喵",
+    "NFT_Pet11_3a_2": "匠人甲蟲",
+    "NFT_Pet11_3b_2": "匠人甲蟲",
+    "NFT_Pet11_3c_2": "匠人甲蟲",
+    "NFT_Pet11_3d_2": "匠人甲蟲",
+    "NFT_Pet11_3a_3": "紅章魚",
+    "NFT_Pet11_3b_3": "紅章魚",
+    "NFT_Pet11_3c_3": "紅章魚",
+    "NFT_Pet11_3d_3": "紅章魚",
+    "NFT_Pet11_3c_4": "好優米寶",
+    "NFT_Pet11_4a_1": "雲豹",
+    "NFT_Pet11_4b_1": "雲豹",
+    "NFT_Pet11_4c_1": "雲豹",
+    "NFT_Pet11_4d_1": "雲豹",
+    "NFT_Pet11_4a_2": "警犬柯基",
+    "NFT_Pet11_4b_2": "警犬柯基",
+    "NFT_Pet11_4c_2": "警犬柯基",
+    "NFT_Pet11_4d_2": "警犬柯基",
+    "NFT_Weapon3_2a_1": "經典一階長槍",
+    "NFT_Weapon3_2b_1": "經典一階長槍",
+    "NFT_Weapon3_2c_1": "經典一階長槍",
+    "NFT_Weapon3_2d_1": "經典一階長槍",
+    "NFT_Weapon3_2c_2": "好優米長槍",
+    "NFT_Weapon3_3a_1": "經典二階長槍",
+    "NFT_Weapon3_3b_1": "經典二階長槍",
+    "NFT_Weapon3_3c_1": "經典二階長槍",
+    "NFT_Weapon3_3d_1": "經典二階長槍",
+    "NFT_Weapon3_3a_2": "布偶長槍",
+    "NFT_Weapon3_3b_2": "布偶長槍",
+    "NFT_Weapon3_3c_2": "布偶長槍",
+    "NFT_Weapon3_3d_2": "布偶長槍",
+    "NFT_Weapon3_3a_3": "醫療長槍",
+    "NFT_Weapon3_3b_3": "醫療長槍",
+    "NFT_Weapon3_3c_3": "醫療長槍",
+    "NFT_Weapon3_3d_3": "醫療長槍",
+    "NFT_Weapon3_4a_1": "聖光騎士長槍",
+    "NFT_Weapon3_4b_1": "聖光騎士長槍",
+    "NFT_Weapon3_4c_1": "聖光騎士長槍",
+    "NFT_Weapon3_4d_1": "聖光騎士長槍",
+    "NFT_Weapon3_4a_2": "女僕長槍",
+    "NFT_Weapon3_4b_2": "女僕長槍",
+    "NFT_Weapon3_4c_2": "女僕長槍",
+    "NFT_Weapon3_4d_2": "女僕長槍",
+    "NFT_Weapon4_2a_1": "經典一階巨劍",
+    "NFT_Weapon4_2b_1": "經典一階巨劍",
+    "NFT_Weapon4_2c_1": "經典一階巨劍",
+    "NFT_Weapon4_2d_1": "經典一階巨劍",
+    "NFT_Weapon4_3a_1": "經典二階巨劍",
+    "NFT_Weapon4_3b_1": "經典二階巨劍",
+    "NFT_Weapon4_3c_1": "經典二階巨劍",
+    "NFT_Weapon4_3d_1": "經典二階巨劍",
+    "NFT_Weapon4_3a_2": "布偶巨劍",
+    "NFT_Weapon4_3b_2": "布偶巨劍",
+    "NFT_Weapon4_3c_2": "布偶巨劍",
+    "NFT_Weapon4_3d_2": "布偶巨劍",
+    "NFT_Weapon4_3a_3": "工具巨劍",
+    "NFT_Weapon4_3b_3": "工具巨劍",
+    "NFT_Weapon4_3c_3": "工具巨劍",
+    "NFT_Weapon4_3d_3": "工具巨劍",
+    "NFT_Weapon4_4a_1": "黑暗騎士巨劍",
+    "NFT_Weapon4_4b_1": "黑暗騎士巨劍",
+    "NFT_Weapon4_4c_1": "黑暗騎士巨劍",
+    "NFT_Weapon4_4d_1": "黑暗騎士巨劍",
+    "NFT_Weapon4_4a_2": "粒子科幻巨劍",
+    "NFT_Weapon4_4b_2": "粒子科幻巨劍",
+    "NFT_Weapon4_4c_2": "粒子科幻巨劍",
+    "NFT_Weapon4_4d_2": "粒子科幻巨劍",
+    "NFT_Weapon5_2a_1": "經典一階魔法球",
+    "NFT_Weapon5_2b_1": "經典一階魔法球",
+    "NFT_Weapon5_2c_1": "經典一階魔法球",
+    "NFT_Weapon5_2d_1": "經典一階魔法球",
+    "NFT_Weapon5_2b_2": "好優米海灘球",
+    "NFT_Weapon5_3a_1": "經典二階魔法球",
+    "NFT_Weapon5_3b_1": "經典二階魔法球",
+    "NFT_Weapon5_3c_1": "經典二階魔法球",
+    "NFT_Weapon5_3d_1": "經典二階魔法球",
+    "NFT_Weapon5_3a_2": "梅花魔法球",
+    "NFT_Weapon5_3b_2": "梅花魔法球",
+    "NFT_Weapon5_3c_2": "梅花魔法球",
+    "NFT_Weapon5_3d_2": "梅花魔法球",
+    "NFT_Weapon5_3a_3": "醫療魔法球",
+    "NFT_Weapon5_3b_3": "醫療魔法球",
+    "NFT_Weapon5_3c_3": "醫療魔法球",
+    "NFT_Weapon5_3d_3": "醫療魔法球",
+    "NFT_Weapon5_4a_1": "精靈魔法球",
+    "NFT_Weapon5_4b_1": "精靈魔法球",
+    "NFT_Weapon5_4c_1": "精靈魔法球",
+    "NFT_Weapon5_4d_1": "精靈魔法球",
+    "NFT_Weapon5_4a_2": "海軍魔法球",
+    "NFT_Weapon5_4b_2": "海軍魔法球",
+    "NFT_Weapon5_4c_2": "海軍魔法球",
+    "NFT_Weapon5_4d_2": "海軍魔法球",
+    "NFT_Weapon8_2a_1": "經典一階槍砲",
+    "NFT_Weapon8_2b_1": "經典一階槍砲",
+    "NFT_Weapon8_2c_1": "經典一階槍砲",
+    "NFT_Weapon8_2d_1": "經典一階槍砲",
+    "NFT_Weapon8_2d_2": "好優米槍砲",
+    "NFT_Weapon8_3a_1": "經典二階槍砲",
+    "NFT_Weapon8_3b_1": "經典二階槍砲",
+    "NFT_Weapon8_3c_1": "經典二階槍砲",
+    "NFT_Weapon8_3d_1": "經典二階槍砲",
+    "NFT_Weapon8_3a_2": "海盜槍砲",
+    "NFT_Weapon8_3b_2": "海盜槍砲",
+    "NFT_Weapon8_3c_2": "海盜槍砲",
+    "NFT_Weapon8_3d_2": "海盜槍砲",
+    "NFT_Weapon8_3a_3": "西部牛仔槍砲",
+    "NFT_Weapon8_3b_3": "西部牛仔槍砲",
+    "NFT_Weapon8_3c_3": "西部牛仔槍砲",
+    "NFT_Weapon8_3d_3": "西部牛仔槍砲",
+    "NFT_Weapon8_4a_1": "沙漠玫瑰槍砲",
+    "NFT_Weapon8_4b_1": "沙漠玫瑰槍砲",
+    "NFT_Weapon8_4c_1": "沙漠玫瑰槍砲",
+    "NFT_Weapon8_4d_1": "沙漠玫瑰槍砲",
+    "NFT_Weapon8_4a_2": "埃及黃金槍砲",
+    "NFT_Weapon8_4b_2": "埃及黃金槍砲",
+    "NFT_Weapon8_4c_2": "埃及黃金槍砲",
+    "NFT_Weapon8_4d_2": "埃及黃金槍砲",
+    "NFT_Weapon8_4b_3": "好優米玩偶槍砲",
+    "NFT_Weapon9_2a_1": "經典一階黑暗長槍",
+    "NFT_Weapon9_2b_1": "經典一階黑暗長槍",
+    "NFT_Weapon9_2c_1": "經典一階黑暗長槍",
+    "NFT_Weapon9_2d_1": "經典一階黑暗長槍",
+    "NFT_Weapon9_2a_2": "好優米長槍",
+    "NFT_Weapon9_3a_1": "經典二階黑暗長槍",
+    "NFT_Weapon9_3b_1": "經典二階黑暗長槍",
+    "NFT_Weapon9_3c_1": "經典二階黑暗長槍",
+    "NFT_Weapon9_3d_1": "經典二階黑暗長槍",
+    "NFT_Weapon9_3a_2": "布偶黑暗長槍",
+    "NFT_Weapon9_3b_2": "布偶黑暗長槍",
+    "NFT_Weapon9_3c_2": "布偶黑暗長槍",
+    "NFT_Weapon9_3d_2": "布偶黑暗長槍",
+    "NFT_Weapon9_3a_3": "暗夜長槍",
+    "NFT_Weapon9_3b_3": "暗夜長槍",
+    "NFT_Weapon9_3c_3": "暗夜長槍",
+    "NFT_Weapon9_3d_3": "暗夜長槍",
+    "NFT_Weapon9_4a_1": "鎖鏈惡魔長槍",
+    "NFT_Weapon9_4b_1": "鎖鏈惡魔長槍",
+    "NFT_Weapon9_4c_1": "鎖鏈惡魔長槍",
+    "NFT_Weapon9_4d_1": "鎖鏈惡魔長槍",
+    "NFT_Weapon9_4a_2": "武士黑暗長槍",
+    "NFT_Weapon9_4b_2": "武士黑暗長槍",
+    "NFT_Weapon9_4c_2": "武士黑暗長槍",
+    "NFT_Weapon9_4d_2": "武士黑暗長槍",
+    "NFT_Weapon10_2a_1": "經典一階光明長槍",
+    "NFT_Weapon10_2b_1": "經典一階光明長槍",
+    "NFT_Weapon10_2c_1": "經典一階光明長槍",
+    "NFT_Weapon10_2d_1": "經典一階光明長槍",
+    "NFT_Weapon10_2d_2": "好優米光明長槍",
+    "NFT_Weapon10_3a_1": "經典二階光明長槍",
+    "NFT_Weapon10_3b_1": "經典二階光明長槍",
+    "NFT_Weapon10_3c_1": "經典二階光明長槍",
+    "NFT_Weapon10_3d_1": "經典二階光明長槍",
+    "NFT_Weapon10_3a_2": "布偶光明長槍",
+    "NFT_Weapon10_3b_2": "布偶光明長槍",
+    "NFT_Weapon10_3c_2": "布偶光明長槍",
+    "NFT_Weapon10_3d_2": "布偶光明長槍",
+    "NFT_Weapon10_3a_3": "薔薇長槍",
+    "NFT_Weapon10_3b_3": "薔薇長槍",
+    "NFT_Weapon10_3c_3": "薔薇長槍",
+    "NFT_Weapon10_3d_3": "薔薇長槍",
+    "NFT_Weapon10_4a_1": "熾愛天使長槍",
+    "NFT_Weapon10_4b_1": "熾愛天使長槍",
+    "NFT_Weapon10_4c_1": "熾愛天使長槍",
+    "NFT_Weapon10_4d_1": "熾愛天使長槍",
+    "NFT_Weapon10_4a_2": "武士光明長槍",
+    "NFT_Weapon10_4b_2": "武士光明長槍",
+    "NFT_Weapon10_4c_2": "武士光明長槍",
+    "NFT_Weapon10_4d_2": "武士光明長槍",
+    "NFT_Weapon11_2a_1": "金箍棒",
+    "NFT_Weapon11_2b_1": "金箍棒",
+    "NFT_Weapon11_2c_1": "金箍棒",
+    "NFT_Weapon11_2d_1": "金箍棒",
+    "NFT_Weapon11_3a_1": "進階金箍棒",
+    "NFT_Weapon11_3b_1": "進階金箍棒",
+    "NFT_Weapon11_3c_1": "進階金箍棒",
+    "NFT_Weapon11_3d_1": "進階金箍棒",
+    "NFT_Weapon11_3a_2": "工具金箍棒",
+    "NFT_Weapon11_3b_2": "工具金箍棒",
+    "NFT_Weapon11_3c_2": "工具金箍棒",
+    "NFT_Weapon11_3d_2": "工具金箍棒",
+    "NFT_Weapon11_3a_3": "料理金箍棒",
+    "NFT_Weapon11_3b_3": "料理金箍棒",
+    "NFT_Weapon11_3c_3": "料理金箍棒",
+    "NFT_Weapon11_3d_3": "料理金箍棒",
+    "NFT_Weapon11_3c_4": "好優米金箍棒",
+    "NFT_Weapon11_4a_1": "如意金箍棒",
+    "NFT_Weapon11_4b_1": "如意金箍棒",
+    "NFT_Weapon11_4c_1": "如意金箍棒",
+    "NFT_Weapon11_4d_1": "如意金箍棒",
+    "NFT_Weapon11_4a_2": "警用金箍棒",
+    "NFT_Weapon11_4b_2": "警用金箍棒",
+    "NFT_Weapon11_4c_2": "警用金箍棒",
+    "NFT_Weapon11_4d_2": "警用金箍棒",
+    "NFT_Snake0_1a_1": "哈士奇",
+    "NFT_Snake0_1b_1": "哈士奇",
+    "NFT_Snake0_1c_1": "哈士奇",
+    "NFT_Snake0_1d_1": "哈士奇",
+    "NFT_Snake0_1a_2": "白雪公主",
+    "NFT_Snake0_1b_2": "白雪公主",
+    "NFT_Snake0_1c_2": "白雪公主",
+    "NFT_Snake0_1d_2": "白雪公主",
+    "NFT_Snake0_1a_3": "小雞",
+    "NFT_Snake0_1b_3": "小雞",
+    "NFT_Snake0_1c_3": "小雞",
+    "NFT_Snake0_1d_3": "小雞",
+    "NFT_Snake0_1a_4": "經典蛇",
+    "NFT_Snake0_1b_4": "經典蛇",
+    "NFT_Snake0_1c_4": "經典蛇",
+    "NFT_Snake0_1d_4": "經典蛇",
+    "NFT_Snake0_1a_5": "機甲娘",
+    "NFT_Snake0_1b_5": "機甲娘",
+    "NFT_Snake0_1c_5": "機甲娘",
+    "NFT_Snake0_1d_5": "機甲娘",
+    "NFT_Snake0_1c_6": "好優米餅乾列車",
+    "NFT_Snake0_1b_7": "好優米貪食蛇",
+    "NFT_Snake0_1a_8": "好優米哈士奇",
+    "NFT_Snake0_1a_9": "骸骨龍",
+    "NFT_Snake0_1b_9": "骸骨龍",
+    "NFT_Snake0_1c_9": "骸骨龍",
+    "NFT_Snake0_1d_9": "骸骨龍",
+    "NFT_Snake3_2a_1": "經典一階蛇",
+    "NFT_Snake3_2b_1": "經典一階蛇",
+    "NFT_Snake3_2c_1": "經典一階蛇",
+    "NFT_Snake3_2d_1": "經典一階蛇",
+    "NFT_Snake3_2c_2": "好優米蛇",
+    "NFT_Snake3_3a_1": "經典二階蛇",
+    "NFT_Snake3_3b_1": "經典二階蛇",
+    "NFT_Snake3_3c_1": "經典二階蛇",
+    "NFT_Snake3_3d_1": "經典二階蛇",
+    "NFT_Snake3_3a_2": "布偶蛇",
+    "NFT_Snake3_3b_2": "布偶蛇",
+    "NFT_Snake3_3c_2": "布偶蛇",
+    "NFT_Snake3_3d_2": "布偶蛇",
+    "NFT_Snake3_3a_3": "醫療蛇",
+    "NFT_Snake3_3b_3": "醫療蛇",
+    "NFT_Snake3_3c_3": "醫療蛇",
+    "NFT_Snake3_3d_3": "醫療蛇",
+    "NFT_Snake3_4a_1": "聖光騎士蛇",
+    "NFT_Snake3_4b_1": "聖光騎士蛇",
+    "NFT_Snake3_4c_1": "聖光騎士蛇",
+    "NFT_Snake3_4d_1": "聖光騎士蛇",
+    "NFT_Snake3_4a_2": "女僕裝蛇",
+    "NFT_Snake3_4b_2": "女僕裝蛇",
+    "NFT_Snake3_4c_2": "女僕裝蛇",
+    "NFT_Snake3_4d_2": "女僕裝蛇",
+    "NFT_Snake4_2a_1": "經典一階蛇",
+    "NFT_Snake4_2b_1": "經典一階蛇",
+    "NFT_Snake4_2c_1": "經典一階蛇",
+    "NFT_Snake4_2d_1": "經典一階蛇",
+    "NFT_Snake4_3a_1": "經典二階蛇",
+    "NFT_Snake4_3b_1": "經典二階蛇",
+    "NFT_Snake4_3c_1": "經典二階蛇",
+    "NFT_Snake4_3d_1": "經典二階蛇",
+    "NFT_Snake4_3a_2": "布偶蛇",
+    "NFT_Snake4_3b_2": "布偶蛇",
+    "NFT_Snake4_3c_2": "布偶蛇",
+    "NFT_Snake4_3d_2": "布偶蛇",
+    "NFT_Snake4_3a_3": "搞笑工人蛇",
+    "NFT_Snake4_3b_3": "搞笑工人蛇",
+    "NFT_Snake4_3c_3": "搞笑工人蛇",
+    "NFT_Snake4_3d_3": "搞笑工人蛇",
+    "NFT_Snake4_4a_1": "黑暗騎士蛇",
+    "NFT_Snake4_4b_1": "黑暗騎士蛇",
+    "NFT_Snake4_4c_1": "黑暗騎士蛇",
+    "NFT_Snake4_4d_1": "黑暗騎士蛇",
+    "NFT_Snake4_4a_2": "粒子科幻蛇",
+    "NFT_Snake4_4b_2": "粒子科幻蛇",
+    "NFT_Snake4_4c_2": "粒子科幻蛇",
+    "NFT_Snake4_4d_2": "粒子科幻蛇",
+    "NFT_Snake5_2a_1": "經典一階蛇",
+    "NFT_Snake5_2b_1": "經典一階蛇",
+    "NFT_Snake5_2c_1": "經典一階蛇",
+    "NFT_Snake5_2d_1": "經典一階蛇",
+    "NFT_Snake5_3a_1": "經典二階蛇",
+    "NFT_Snake5_3b_1": "經典二階蛇",
+    "NFT_Snake5_3c_1": "經典二階蛇",
+    "NFT_Snake5_3d_1": "經典二階蛇",
+    "NFT_Snake5_3a_2": "梅花蛇",
+    "NFT_Snake5_3b_2": "梅花蛇",
+    "NFT_Snake5_3c_2": "梅花蛇",
+    "NFT_Snake5_3d_2": "梅花蛇",
+    "NFT_Snake5_3a_3": "護士蛇",
+    "NFT_Snake5_3b_3": "護士蛇",
+    "NFT_Snake5_3c_3": "護士蛇",
+    "NFT_Snake5_3d_3": "護士蛇",
+    "NFT_Snake5_4a_1": "精靈女王蛇",
+    "NFT_Snake5_4b_1": "精靈女王蛇",
+    "NFT_Snake5_4c_1": "精靈女王蛇",
+    "NFT_Snake5_4d_1": "精靈女王蛇",
+    "NFT_Snake5_4a_2": "海軍蛇",
+    "NFT_Snake5_4b_2": "海軍蛇",
+    "NFT_Snake5_4c_2": "海軍蛇",
+    "NFT_Snake5_4d_2": "海軍蛇",
+    "NFT_Snake8_2a_1": "經典一階蛇",
+    "NFT_Snake8_2b_1": "經典一階蛇",
+    "NFT_Snake8_2c_1": "經典一階蛇",
+    "NFT_Snake8_2d_1": "經典一階蛇",
+    "NFT_Snake8_3a_1": "經典二階蛇",
+    "NFT_Snake8_3b_1": "經典二階蛇",
+    "NFT_Snake8_3c_1": "經典二階蛇",
+    "NFT_Snake8_3d_1": "經典二階蛇",
+    "NFT_Snake8_3a_2": "海盜蛇",
+    "NFT_Snake8_3b_2": "海盜蛇",
+    "NFT_Snake8_3c_2": "海盜蛇",
+    "NFT_Snake8_3d_2": "海盜蛇",
+    "NFT_Snake8_3a_3": "西部牛仔蛇",
+    "NFT_Snake8_3b_3": "西部牛仔蛇",
+    "NFT_Snake8_3c_3": "西部牛仔蛇",
+    "NFT_Snake8_3d_3": "西部牛仔蛇",
+    "NFT_Snake8_4a_1": "沙漠玫瑰蛇",
+    "NFT_Snake8_4b_1": "沙漠玫瑰蛇",
+    "NFT_Snake8_4c_1": "沙漠玫瑰蛇",
+    "NFT_Snake8_4d_1": "沙漠玫瑰蛇",
+    "NFT_Snake8_4a_2": "埃及神蛇",
+    "NFT_Snake8_4b_2": "埃及神蛇",
+    "NFT_Snake8_4c_2": "埃及神蛇",
+    "NFT_Snake8_4d_2": "埃及神蛇",
+    "NFT_Snake8_4b_3": "好優米玩偶蛇",
+    "NFT_Snake9_2a_1": "經典一階蛇",
+    "NFT_Snake9_2b_1": "經典一階蛇",
+    "NFT_Snake9_2c_1": "經典一階蛇",
+    "NFT_Snake9_2d_1": "經典一階蛇",
+    "NFT_Snake9_2a_2": "好優米蛇",
+    "NFT_Snake9_3a_1": "經典二階蛇",
+    "NFT_Snake9_3b_1": "經典二階蛇",
+    "NFT_Snake9_3c_1": "經典二階蛇",
+    "NFT_Snake9_3d_1": "經典二階蛇",
+    "NFT_Snake9_3a_2": "布偶蛇",
+    "NFT_Snake9_3b_2": "布偶蛇",
+    "NFT_Snake9_3c_2": "布偶蛇",
+    "NFT_Snake9_3d_2": "布偶蛇",
+    "NFT_Snake9_3a_3": "吸血鬼蛇",
+    "NFT_Snake9_3b_3": "吸血鬼蛇",
+    "NFT_Snake9_3c_3": "吸血鬼蛇",
+    "NFT_Snake9_3d_3": "吸血鬼蛇",
+    "NFT_Snake9_4a_1": "鎖鏈惡魔蛇",
+    "NFT_Snake9_4b_1": "鎖鏈惡魔蛇",
+    "NFT_Snake9_4c_1": "鎖鏈惡魔蛇",
+    "NFT_Snake9_4d_1": "鎖鏈惡魔蛇",
+    "NFT_Snake9_4a_2": "武士蛇",
+    "NFT_Snake9_4b_2": "武士蛇",
+    "NFT_Snake9_4c_2": "武士蛇",
+    "NFT_Snake9_4d_2": "武士蛇",
+    "NFT_Snake10_2a_1": "經典一階蛇",
+    "NFT_Snake10_2b_1": "經典一階蛇",
+    "NFT_Snake10_2c_1": "經典一階蛇",
+    "NFT_Snake10_2d_1": "經典一階蛇",
+    "NFT_Snake10_2d_2": "好優米蛇",
+    "NFT_Snake10_3a_1": "經典二階蛇",
+    "NFT_Snake10_3b_1": "經典二階蛇",
+    "NFT_Snake10_3c_1": "經典二階蛇",
+    "NFT_Snake10_3d_1": "經典二階蛇",
+    "NFT_Snake10_3a_2": "布偶蛇",
+    "NFT_Snake10_3b_2": "布偶蛇",
+    "NFT_Snake10_3c_2": "布偶蛇",
+    "NFT_Snake10_3d_2": "布偶蛇",
+    "NFT_Snake10_3a_3": "吸血鬼蛇",
+    "NFT_Snake10_3b_3": "吸血鬼蛇",
+    "NFT_Snake10_3c_3": "吸血鬼蛇",
+    "NFT_Snake10_3d_3": "吸血鬼蛇",
+    "NFT_Snake10_4a_1": "熾愛天使蛇",
+    "NFT_Snake10_4b_1": "熾愛天使蛇",
+    "NFT_Snake10_4c_1": "熾愛天使蛇",
+    "NFT_Snake10_4d_1": "熾愛天使蛇",
+    "NFT_Snake10_4a_2": "武士蛇",
+    "NFT_Snake10_4b_2": "武士蛇",
+    "NFT_Snake10_4c_2": "武士蛇",
+    "NFT_Snake10_4d_2": "武士蛇",
+    "NFT_Snake11_2a_1": "經典一階蛇",
+    "NFT_Snake11_2b_1": "經典一階蛇",
+    "NFT_Snake11_2c_1": "經典一階蛇",
+    "NFT_Snake11_2d_1": "經典一階蛇",
+    "NFT_Snake11_3a_1": "經典二階蛇",
+    "NFT_Snake11_3b_1": "經典二階蛇",
+    "NFT_Snake11_3c_1": "經典二階蛇",
+    "NFT_Snake11_3d_1": "經典二階蛇",
+    "NFT_Snake11_3a_2": "搞笑工人蛇",
+    "NFT_Snake11_3b_2": "搞笑工人蛇",
+    "NFT_Snake11_3c_2": "搞笑工人蛇",
+    "NFT_Snake11_3d_2": "搞笑工人蛇",
+    "NFT_Snake11_3a_3": "特級廚師蛇",
+    "NFT_Snake11_3b_3": "特級廚師蛇",
+    "NFT_Snake11_3c_3": "特級廚師蛇",
+    "NFT_Snake11_3d_3": "特級廚師蛇",
+    "NFT_Snake11_3c_4": "好優米蛇",
+    "NFT_Snake11_4a_1": "大聖蛇",
+    "NFT_Snake11_4b_1": "大聖蛇",
+    "NFT_Snake11_4c_1": "大聖蛇",
+    "NFT_Snake11_4d_1": "大聖蛇",
+    "NFT_Snake11_4a_2": "警察蛇",
+    "NFT_Snake11_4b_2": "警察蛇",
+    "NFT_Snake11_4c_2": "警察蛇",
+    "NFT_Snake11_4d_2": "警察蛇",
+    "Knight_SK1": {
+        "Name": "夜幕包覆I",
+        "Description": "獲得能吸收{1}點傷害的強力護盾。"
+    },
+    "Knight_SK2": {
+        "Name": "夜幕包覆II",
+        "Description": "獲得能吸收{1}點傷害的強力護盾。"
+    },
+    "Knight_SK3": {
+        "Name": "夜幕包覆III",
+        "Description": "獲得能吸收{1}點傷害的強力護盾。"
+    },
+    "Knight_SK4": {
+        "Name": "破曉之耀I",
+        "Description": "短暫集氣後，發射一枚貫穿敵人的祕法光彈，造成{1}點傷害，持續{2}秒。(穿透)"
+    },
+    "Knight_SK5": {
+        "Name": "破曉之耀II",
+        "Description": "短暫集氣後，發射一枚貫穿敵人的祕法光彈，造成{1}點傷害，持續{2}秒。"
+    },
+    "Knight_SK6": {
+        "Name": "天空之眼I",
+        "Description": "提高對戰鬥的敏銳，使自身暴擊率增加{1}%，持續{2}秒。"
+    },
+    "Knight_SK7": {
+        "Name": "天空之眼II",
+        "Description": "提高對戰鬥的敏銳，使自身暴擊率增加{1}%，持續{2}秒。"
+    },
+    "Knight_SK8": {
+        "Name": "治療水球I",
+        "Description": "投擲治療水球，回復我方{1}點生命。"
+    },
+    "Knight_SK9": {
+        "Name": "治療水球II",
+        "Description": "投擲治療水球，回復我方{1}點生命。"
+    },
+    "Knight_SK10": {
+        "Name": "重力裂痕I",
+        "Description": "向前方揮砍，造成{1}點傷害，同時產生一道裂痕，持續{2}秒，裂痕中的敵人移動速度降低{3}%。"
+    },
+    "Knight_SK11": {
+        "Name": "重力裂痕II",
+        "Description": "向前方揮砍，造成{1}點傷害，同時產生一道裂痕，持續{2}秒，裂痕中的敵人移動速度降低{3}%。"
+    },
+    "Knight_SK12": {
+        "Name": "部屬砲塔I",
+        "Description": "建造一個造成{1}點傷害的小型砲塔，持續{2}秒。"
+    },
+    "Knight_SK13": {
+        "Name": "部屬砲塔II",
+        "Description": "建造一個造成{1}點傷害的小型砲塔，持續{2}秒。"
+    },
+    "Knight_SK14": {
+        "Name": "火眼金睛I",
+        "Description": "發現敵人弱點，自身攻擊速度提高{1}%，傷害提高{2}%，持續{3}秒。"
+    },
+    "Knight_SK15": {
+        "Name": "火眼金睛II",
+        "Description": "發現敵人弱點，自身攻擊速度提高{1}%，傷害提高{2}%，持續{3}秒。"
+    },
+    "Snake_SK1": {
+        "Name": "放電力場I",
+        "Description": "自身周圍產生閃電，每{1}秒對{2}範圍內的敵人造成{3}點傷害，持續{4}秒。"
+    },
+    "Snake_SK2": {
+        "Name": "吃蘋果",
+        "Description": "吃下一顆蘋果，自身回復{1}點生命。"
+    },
+    "Snake_SK3": {
+        "Name": "暗影強襲I",
+        "Description": "跳向目標區域，對{1}範圍內所有敵人造成{2}點的傷害。"
+    },
+    "Snake_SK4": {
+        "Name": "雞蛋炸彈",
+        "Description": "孵出一顆雞蛋炸彈，{1}秒後爆炸或是敵方觸碰時爆炸，{2}範圍內的敵人造成{3}點傷害。"
+    },
+    "Snake_SK5": {
+        "Name": "燃油噴焰I",
+        "Description": "向前方噴射火焰，造成{1}點傷害，同時遺留一攤焦油，持續{2}秒，焦油中的敵人移動速度降低{3}%。"
+    },
+    "Snake_SK6": {
+        "Name": "燃油噴焰II",
+        "Description": "向前方噴射火焰，造成{1}點傷害，同時遺留一攤焦油，持續{2}秒，焦油中的敵人移動速度降低{3}%。"
+    },
+    "Snake_SK7": {
+        "Name": "破曉噴擊",
+        "Description": "發射一枚祕法光彈，對{1}範圍內所有敵人造成{2}點爆炸傷害。"
+    },
+    "Snake_SK8": {
+        "Name": "儲備糧食I",
+        "Description": "藏在嘴裡的食物終於派上用場了，自身獲得{1}點能量使身體增長。"
+    },
+    "Weapon_SK1 ": {
+        "Name": "奪魂擊I",
+        "Description": "強化下一次的普通攻擊，造成的傷害將{1}%轉換為自己的生命。"
+    },
+    "Weapon_SK2": {
+        "Name": "奪魂擊II",
+        "Description": "強化下一次的普通攻擊，造成的傷害將{1}%轉換為自己的生命。"
+    },
+    "Weapon_SK3": {
+        "Name": "格擋I",
+        "Description": "格擋所有傷害，持續{1}秒，受到的傷害降低{2}%。"
+    },
+    "Weapon_SK4": {
+        "Name": "格擋II",
+        "Description": "格擋所有傷害，持續{1}秒，受到的傷害降低{2}%。"
+    },
+    "Weapon_SK5": {
+        "Name": "格擋III",
+        "Description": "格擋所有傷害，持續{1}秒，受到的傷害降低{2}%。"
+    },
+    "Weapon_SK6": {
+        "Name": "導彈支援I",
+        "Description": "延遲{1}秒後,對自身{2}範圍內的敵人發射追蹤導彈，造成{3}點傷害。"
+    },
+    "Weapon_SK7": {
+        "Name": "導彈支援II",
+        "Description": "延遲{1}秒後,對自身{2}範圍內的敵人發射追蹤導彈，造成{3}點傷害。"
+    },
+    "Weapon_SK8": {
+        "Name": "導彈支援III",
+        "Description": "延遲{1}秒後,對自身{2}範圍內的敵人發射追蹤導彈，造成{3}點傷害。"
+    },
+    "Weapon_SK9": {
+        "Name": "大聖歸來I",
+        "Description": "延遲{1}秒後，以直線路徑劈砍地面，造成{2}點傷害，並彈開所有角色。"
+    },
+    "Weapon_SK10": {
+        "Name": "大聖歸來II",
+        "Description": "延遲{1}秒後，以直線路徑劈砍地面，造成{2}點傷害，並產生阻礙通行的石錐，彈開所有角色，持續{3}秒。"
+    },
+    "Snake_PS1": {
+        "Name": "防禦衝擊I",
+        "Description": "衝撞成功後，自身獲得一個100點護盾，護盾持續5秒。"
+    },
+    "Snake_PS2": {
+        "Name": "防禦衝擊II",
+        "Description": "衝撞成功後，自身獲得一個300點護盾，護盾持續5秒。"
+    },
+    "Snake_PS3": {
+        "Name": "防禦衝擊III",
+        "Description": "衝撞成功後，自身獲得一個500點護盾，護盾持續5秒。"
+    },
+    "Snake_PS4": {
+        "Name": "衝擊韻律I",
+        "Description": "衝撞成功後，體力回復5%。"
+    },
+    "Snake_PS5": {
+        "Name": "衝擊韻律II",
+        "Description": "衝撞成功後，體力回復15%。"
+    },
+    "Snake_PS6": {
+        "Name": "衝擊韻律III",
+        "Description": "衝撞成功後，體力回復25%。"
+    },
+    "Snake_PS7": {
+        "Name": "吸血衝擊I",
+        "Description": "衝撞成功後，吸收對方生命100點。"
+    },
+    "Snake_PS8": {
+        "Name": "吸血衝擊II",
+        "Description": "衝撞成功後，吸收對方生命300點。"
+    },
+    "Snake_PS9": {
+        "Name": "吸血衝擊III",
+        "Description": "衝撞成功後，吸收對方生命600點。"
+    },
+    "Snake_PS10": {
+        "Name": "衝擊快走I",
+        "Description": "衝撞成功後，自身移動速度提高100%，持續3秒。"
+    },
+    "Snake_PS11": {
+        "Name": "衝擊快走II",
+        "Description": "衝撞成功後，自身移動速度提高150%，持續3秒。"
+    },
+    "Snake_PS12": {
+        "Name": "衝擊快走III",
+        "Description": "衝撞成功後，自身移動速度提高200%，持續3秒。"
+    },
+    "Snake_PS13": {
+        "Name": "戰意衝擊I",
+        "Description": "衝撞成功後，獲得{1}%攻擊力提升加成，持續{2}秒。"
+    },
+    "Snake_PS14": {
+        "Name": "戰意衝擊II",
+        "Description": "衝撞成功後，獲得{1}%攻擊力提升加成，持續{2}秒。"
+    },
+    "Snake_PS15": {
+        "Name": "戰意衝擊III",
+        "Description": "衝撞成功後，獲得{1}%攻擊力提升加成，持續{2}秒。"
+    },
+    "Snake_PS16": {
+        "Name": "治療衝擊I",
+        "Description": "衝撞成功後，自身生命恢復100點。"
+    },
+    "Snake_PS17": {
+        "Name": "治療衝擊II",
+        "Description": "衝撞成功後，自身生命恢復300點。"
+    },
+    "Snake_PS18": {
+        "Name": "治療衝擊III",
+        "Description": "衝撞成功後，自身生命恢復600點。"
+    },
+    "Snake_PS19": {
+        "Name": "爆炸衝擊I",
+        "Description": "衝撞成功後，自身受到{1}點傷害，對{2}範圍內所有敵人造成{3}點的爆炸傷害。"
+    },
+    "Snake_PS20": {
+        "Name": "爆炸衝擊II",
+        "Description": "衝撞成功後，自身受到{1}點傷害，對{2}範圍內所有敵人造成{3}點的爆炸傷害。"
+    },
+    "Snake_PS21": {
+        "Name": "爆炸衝擊III",
+        "Description": "衝撞成功後，自身受到{1}點傷害，對{2}範圍內所有敵人造成{3}點的爆炸傷害。"
+    },
+    "Snake_PS22": {
+        "Name": "犧牲衝擊I",
+        "Description": "衝撞成功後，自身扣除生命25點。"
+    },
+    "Snake_PS23": {
+        "Name": "犧牲衝擊II",
+        "Description": "衝撞成功後，自身扣除生命15點。"
+    },
+    "Snake_PS24": {
+        "Name": "犧牲衝擊III",
+        "Description": "衝撞成功後，自身扣除生命5點。"
+    },
+    "Snake_PS25": {
+        "Name": "快打衝擊I",
+        "Description": "衝撞成功後，自身獲得一個{1}%攻速加成，持續{2}秒。"
+    },
+    "Snake_PS26": {
+        "Name": "快打衝擊II",
+        "Description": "衝撞成功後，自身獲得一個{1}%攻速加成，持續{2}秒。"
+    },
+    "Snake_PS27": {
+        "Name": "快打衝擊III",
+        "Description": "衝撞成功後，自身獲得一個{1}%攻速加成，持續{2}秒。"
+    },
+    "Snake_PS28": {
+        "Name": "自殘I",
+        "Description": "每秒自身受到20點傷害。"
+    },
+    "Snake_PS29": {
+        "Name": "自殘II",
+        "Description": "每秒自身受到10點傷害。"
+    },
+    "Snake_PS30": {
+        "Name": "自殘III",
+        "Description": "每秒自身受到5點傷害。"
+    },
+    "Snake_PS31": {
+        "Name": "毒液分泌I",
+        "Description": "移動時在地板產生一攤攤的毒液，黏液持續{1}秒，敵人碰觸後產生中毒持續{2}秒，每秒受到{3}點傷害。"
+    },
+    "Snake_PS32": {
+        "Name": "毒液分泌II",
+        "Description": "移動時在地板產生一攤攤的毒液，黏液持續{1}秒，敵人碰觸後產生中毒持續{2}秒，每秒受到{3}點傷害。"
+    },
+    "Snake_PS33": {
+        "Name": "毒液分泌III",
+        "Description": "移動時在地板產生一攤攤的毒液，黏液持續{1}秒，敵人碰觸後產生中毒持續{2}秒，每秒受到{3}點傷害。"
+    },
+    "Snake_PS34": {
+        "Name": "黏液分泌I",
+        "Description": "移動時在地板產生一攤攤的黏液，黏液持續5秒，敵人碰觸後產生緩速10%持續0.5秒。"
+    },
+    "Snake_PS35": {
+        "Name": "黏液分泌II",
+        "Description": "移動時在地板產生一攤攤的黏液，黏液持續5秒，敵人碰觸後產生緩速15%持續0.5秒。"
+    },
+    "Snake_PS36": {
+        "Name": "黏液分泌III",
+        "Description": "移動時在地板產生一攤攤的黏液，黏液持續5秒，敵人碰觸後產生緩速20%持續0.5秒。"
+    },
+    "Snake_PS37": {
+        "Name": "焰禪I",
+        "Description": "自身產生圍繞在身體周圍的火焰波，接近的敵人將造成小量傷害。"
+    },
+    "Snake_PS38": {
+        "Name": "焰禪II",
+        "Description": "自身產生圍繞在身體周圍的火焰波，接近的敵人將造成中量傷害。"
+    },
+    "Snake_PS39": {
+        "Name": "焰禪III",
+        "Description": "自身產生圍繞在身體周圍的火焰波，接近的敵人將造成大量傷害。"
+    },
+    "Snake_PS40": {
+        "Name": "以體養血I",
+        "Description": "以體養血,當體力回滿後緩慢增加生命，每秒增加5點生命。"
+    },
+    "Snake_PS41": {
+        "Name": "以體養血II",
+        "Description": "以體養血,當體力回滿後緩慢增加生命，每秒增加8點生命。"
+    },
+    "Snake_PS42": {
+        "Name": "以體養血III",
+        "Description": "以體養血,當體力回滿後緩慢增加生命，每秒增加10點生命。"
+    },
+    "Snake_PS43": {
+        "Name": "調整呼吸I",
+        "Description": "加速時減緩體力流失15%。"
+    },
+    "Snake_PS44": {
+        "Name": "調整呼吸II",
+        "Description": "加速時減緩體力流失30%。"
+    },
+    "Snake_PS45": {
+        "Name": "調整呼吸III",
+        "Description": "加速時減緩體力流失50%。"
+    },
+    "Snake_PS46": {
+        "Name": "刺蝟防禦I",
+        "Description": "受到攻擊後，噴發15根尖刺向周圍敵人刺擊，每根傷害15點，CD30秒。"
+    },
+    "Snake_PS47": {
+        "Name": "刺蝟防禦II",
+        "Description": "受到攻擊後，噴發15根尖刺向周圍敵人刺擊，每根傷害30點，CD30秒。"
+    },
+    "Snake_PS48": {
+        "Name": "刺蝟防禦III",
+        "Description": "受到攻擊後，噴發15根尖刺向周圍敵人刺擊，每根傷害50點，CD30秒。"
+    },
+    "Snake_PS49": {
+        "Name": "生命之水I",
+        "Description": "每隔{1}秒，回復{2}範圍內我方全體{3}點生命。"
+    },
+    "Snake_PS50": {
+        "Name": "生命之水II",
+        "Description": "每隔{1}秒，回復{2}範圍內我方全體{3}點生命。"
+    },
+    "Snake_PS51": {
+        "Name": "生命之水III",
+        "Description": "每隔{1}秒，回復{2}範圍內我方全體{3}點生命。"
+    },
+    "Snake_PS52": {
+        "Name": "衝鋒金身I",
+        "Description": "衝鋒時減免傷害{1}%。"
+    },
+    "Snake_PS53": {
+        "Name": "衝鋒金身II",
+        "Description": "衝鋒狀態時減免傷害{1}%。"
+    },
+    "Snake_PS54": {
+        "Name": "衝鋒金身III",
+        "Description": "衝鋒狀態時減免傷害{1}%。"
+    },
+    "Pet_PS1": {
+        "Name": "烏雲閃電I",
+        "Description": "產生追蹤的烏雲，隨機追隨一名敵人，{1}秒後烏雲短暫停留落下區域閃電，造成{2}點傷害，持續{3}秒。"
+    },
+    "Pet_PS2": {
+        "Name": "烏雲閃電II",
+        "Description": "產生追蹤的烏雲，隨機追隨一名敵人，{1}秒後烏雲短暫停留落下區域閃電，造成{2}點傷害，持續{3}秒。"
+    },
+    "Pet_PS3": {
+        "Name": "烏雲閃電III",
+        "Description": "產生追蹤的烏雲，隨機追隨一名敵人，{1}秒後烏雲短暫停留落下區域閃電，造成{2}點傷害，持續{3}秒。"
+    },
+    "Pet_PS4": {
+        "Name": "靈魂彈I",
+        "Description": "隨機向一名敵人，發射一顆會追蹤的靈魂彈，造成{1}點傷害。"
+    },
+    "Pet_PS5": {
+        "Name": "靈魂彈II",
+        "Description": "隨機向一名敵人，發射一顆會追蹤的靈魂彈，造成{1}點傷害。"
+    },
+    "Pet_PS6": {
+        "Name": "靈魂彈III",
+        "Description": "隨機向一名敵人，發射一顆會追蹤的靈魂彈，造成{1}點傷害。"
+    },
+    "Pet_PS7": {
+        "Name": "緩速衝擊I",
+        "Description": "隨機向一名，敵人發射帶有緩速的飛彈，造成{1}點傷害，緩速{2}%持續{3}秒。"
+    },
+    "Pet_PS8": {
+        "Name": "緩速衝擊II",
+        "Description": "隨機向一名，敵人發射帶有緩速的飛彈，造成{1}點傷害，緩速{2}%持續{3}秒。"
+    },
+    "Pet_PS9": {
+        "Name": "緩速衝擊III",
+        "Description": "隨機向一名，敵人發射帶有緩速的飛彈，造成{1}點傷害，緩速{2}%持續{3}秒。"
+    },
+    "Pet_PS10": {
+        "Name": "能量補給I",
+        "Description": "每{1}秒寵物產生治療能量丸在地面上，我方捨取後獲得{2}點生命。"
+    },
+    "Pet_PS11": {
+        "Name": "能量補給II",
+        "Description": "每{1}秒寵物產生治療能量丸在地面上，我方捨取後獲得{2}點生命。"
+    },
+    "Pet_PS12": {
+        "Name": "能量補給III",
+        "Description": "每{1}秒寵物產生治療能量丸在地面上，我方捨取後獲得{2}點生命。"
+    },
+    "Pet_PS13": {
+        "Name": "環繞尖球I",
+        "Description": "產生圍繞在寵物身邊的尖刺圓球，碰撞後造成{1}點傷害。"
+    },
+    "Pet_PS14": {
+        "Name": "環繞尖球II",
+        "Description": "產生圍繞在寵物身邊的尖刺圓球，碰撞後造成{1}點傷害。"
+    },
+    "Pet_PS15": {
+        "Name": "環繞尖球III",
+        "Description": "產生圍繞在寵物身邊的尖刺圓球，碰撞後造成{1}點傷害。"
+    },
+    "Pet_PS16": {
+        "Name": "加護I",
+        "Description": "自身獲得一個{1}點護盾，持續{2}秒。"
+    },
+    "Pet_PS17": {
+        "Name": "加護II",
+        "Description": "自身獲得一個{1}點護盾，持續{2}秒。"
+    },
+    "Pet_PS18": {
+        "Name": "加護III",
+        "Description": "自身獲得一個{1}點護盾，持續{2}秒。"
+    },
+    "Pet_PS19": {
+        "Name": "治療光波I",
+        "Description": "沒有受到傷害{1}秒後,每秒持續受到{2}點生命治療。"
+    },
+    "Pet_PS20": {
+        "Name": "治療光波II",
+        "Description": "沒有受到傷害{1}秒後,每秒持續受到{2}點生命治療。"
+    },
+    "Pet_PS21": {
+        "Name": "治療光波III",
+        "Description": "沒有受到傷害{1}秒後,每秒持續受到{2}點生命治療。"
+    },
+    "Pet_PS22": {
+        "Name": "治療光波IV",
+        "Description": "沒有受到傷害{1}秒後,每秒持續受到{2}點生命治療。"
+    },
+    "Pet_PS23": {
+        "Name": "揮砍I",
+        "Description": "寵物對附近的敵人進行揮砍，造成{1}點傷害。"
+    },
+    "Pet_PS24": {
+        "Name": "揮砍II",
+        "Description": "寵物對附近的敵人進行揮砍，造成{1}點傷害。"
+    },
+    "Pet_PS25": {
+        "Name": "揮砍III",
+        "Description": "寵物對附近的敵人進行揮砍，造成{1}點傷害。"
+    },
+    "Pet_PS26": {
+        "Name": "血祭震盪I",
+        "Description": "犧牲自身{1}點生命，向一名敵人發動震盪攻擊，造成{2}點傷害，緩速{3}%持續{4}秒。"
+    },
+    "Pet_PS27": {
+        "Name": "血祭震盪II",
+        "Description": "犧牲自身{1}點生命，向一名敵人發動震盪攻擊，造成{2}點傷害，緩速{3}%持續{4}秒。"
+    },
+    "Pet_PS28": {
+        "Name": "血祭震盪III",
+        "Description": "犧牲自身{1}點生命，向一名敵人發動震盪攻擊，造成{2}點傷害，緩速{3}%持續{4}秒。"
+    },
+    "Pet_PS29": {
+        "Name": "炸彈客I",
+        "Description": "向自身附近投擲一枚炸彈，持續{1}秒後爆炸。"
+    },
+    "Pet_PS30": {
+        "Name": "炸彈客II",
+        "Description": "向自身附近投擲一枚炸彈，持續{1}秒後爆炸。"
+    },
+    "Pet_PS31": {
+        "Name": "炸彈客III",
+        "Description": "向自身附近投擲一枚炸彈，持續{1}秒後爆炸。"
+    },
+    "Pet_PS32": {
+        "Name": "狂戰士I",
+        "Description": "寵物會衝向敵人進行連續攻擊，造成{1}點傷害，流血持續{2}秒。"
+    },
+    "Pet_PS33": {
+        "Name": "狂戰士II",
+        "Description": "寵物會衝向敵人進行連續攻擊，造成{1}點傷害，流血持續{2}秒。"
+    },
+    "Pet_PS34": {
+        "Name": "狂戰士III",
+        "Description": "寵物會衝向敵人進行連續攻擊，造成{1}點傷害，流血持續{2}秒。"
+    },
+    "Pet_PS35": {
+        "Name": "緩速詛咒I",
+        "Description": "隨機向一名敵人，進行詛咒，速度降低{1}%，持續{2}秒。"
+    },
+    "Pet_PS36": {
+        "Name": "緩速詛咒II",
+        "Description": "隨機向一名敵人，進行詛咒，速度降低{1}%，持續{2}秒。"
+    },
+    "Pet_PS37": {
+        "Name": "緩速詛咒III",
+        "Description": "隨機向一名敵人，進行詛咒，速度降低{1}%，持續{2}秒。"
+    },
+    "Pet_PS38": {
+        "Name": "衰竭詛咒I",
+        "Description": "隨機向一名敵人，進行詛咒，傷害降低{1}%，持續{2}秒。"
+    },
+    "Pet_PS39": {
+        "Name": "衰竭詛咒II",
+        "Description": "隨機向一名敵人，進行詛咒，傷害降低{1}%，持續{2}秒。"
+    },
+    "Pet_PS40": {
+        "Name": "衰竭詛咒III",
+        "Description": "隨機向一名敵人，進行詛咒，傷害降低{1}%，持續{2}秒。"
+    },
+    "Pet_PS41": {
+        "Name": "加速I",
+        "Description": "每隔一段時間，移動速度增加{1}%，持續{2}秒。"
+    },
+    "Pet_PS42": {
+        "Name": "加速II",
+        "Description": "每隔一段時間，移動速度增加{1}%，持續{2}秒。"
+    },
+    "Pet_PS43": {
+        "Name": "加速III",
+        "Description": "每隔一段時間，移動速度增加{1}%，持續{2}秒。"
+    },
+    "Pet_PS44": {
+        "Name": "黏液陷阱I",
+        "Description": "每隔一段時間，向自身附近投擲一枚黏液陷阱，持續{1}秒消失，當觸碰到後造成緩速{2}%持續{3}秒。"
+    },
+    "Pet_PS45": {
+        "Name": "黏液陷阱II",
+        "Description": "每隔一段時間，向自身附近投擲一枚黏液陷阱，持續{1}秒消失，當觸碰到後造成緩速{2}%持續{3}秒。"
+    },
+    "Pet_PS46": {
+        "Name": "黏液陷阱III",
+        "Description": "每隔一段時間，向自身附近投擲一枚黏液陷阱，持續{1}秒消失，當觸碰到後造成緩速{2}%持續{3}秒。"
+    },
+    "Pet_PS47": {
+        "Name": "衝擊警覺I",
+        "Description": "自身受到傷害時候，向前方產生衝擊波，造成{0}點傷害，並擊退敵方。"
+    },
+    "Pet_PS48": {
+        "Name": "衝擊警覺II",
+        "Description": "自身受到傷害時候，向前方產生衝擊波，造成{0}點傷害，並擊退敵方。"
+    },
+    "Pet_PS49": {
+        "Name": "衝擊警覺III",
+        "Description": "自身受到傷害時候，向前方產生衝擊波，造成{0}點傷害，並擊退敵方。"
+    },
+    "Pet_PS50": {
+        "Name": "震盪警覺I",
+        "Description": "自身受到傷害時候，向周圍產生衝擊波，造成{0}點傷害，並擊退敵方。"
+    },
+    "Pet_PS51": {
+        "Name": "震盪警覺II",
+        "Description": "自身受到傷害時候，向周圍產生衝擊波，造成{0}點傷害，並擊退敵方。"
+    },
+    "Pet_PS52": {
+        "Name": "震盪警覺III",
+        "Description": "自身受到傷害時候，向周圍產生衝擊波，造成{0}點傷害，並擊退敵方。"
+    },
+    "Pet_PS53": {
+        "Name": "冰錐警覺I",
+        "Description": "自身受到傷害時候，隨機向附近敵人發射冰錐，造成{1}點傷害，CD1秒。"
+    },
+    "Pet_PS54": {
+        "Name": "冰錐警覺II",
+        "Description": "自身受到傷害時候，隨機向附近敵人發射冰錐，造成{1}點傷害，CD1秒。"
+    },
+    "Pet_PS55": {
+        "Name": "冰錐警覺III",
+        "Description": "自身受到傷害時候，隨機向附近敵人發射冰錐，造成{1}點傷害，CD1秒。"
+    },
+    "Pet_PS56": {
+        "Name": "烈火警覺I",
+        "Description": "自身受到傷害時候，自身周圍產生烈火衝擊，造成{1}點傷害。"
+    },
+    "Pet_PS57": {
+        "Name": "烈火警覺II",
+        "Description": "自身受到傷害時候，自身周圍產生烈火衝擊，造成{1}點傷害。"
+    },
+    "Pet_PS58": {
+        "Name": "烈火警覺III",
+        "Description": "自身受到傷害時候，自身周圍產生烈火衝擊，造成{1}點傷害。"
+    },
+    "Pet_PS59": {
+        "Name": "體力援助I",
+        "Description": "體力耗盡時，給予{1}點體力。"
+    },
+    "Pet_PS60": {
+        "Name": "體力援助II",
+        "Description": "體力耗盡時，給予{1}點體力。"
+    },
+    "Pet_PS61": {
+        "Name": "體力援助III",
+        "Description": "體力耗盡時，給予{1}點體力。"
+    },
+    "Pet_PS62": {
+        "Name": "戰魂援助I",
+        "Description": "生命低於{1}%時，自身傷害提高{2}%。(增加自身傷害)"
+    },
+    "Pet_PS63": {
+        "Name": "戰魂援助II",
+        "Description": "生命低於{30}%時，自身傷害提高{2}%。(增加自身傷害)"
+    },
+    "Pet_PS64": {
+        "Name": "戰魂援助III",
+        "Description": "生命低於{1}%時，自身傷害提高{2}%。(增加自身傷害)"
+    },
+    "Pet_PS65": {
+        "Name": "背水一戰I",
+        "Description": "生命低於{1}%時，自身傷害提高{2}%，持續{3}秒。"
+    },
+    "Pet_PS66": {
+        "Name": "背水一戰II",
+        "Description": "生命低於{1}%時，自身傷害提高{2}%，持續{3}秒。"
+    },
+    "Pet_PS67": {
+        "Name": "背水一戰III",
+        "Description": "生命低於{1}%時，自身傷害提高{2}%，持續{3}秒。"
+    },
+    "Pet_PS68": {
+        "Name": "救命稻草I",
+        "Description": "生命低於{1}%時，獲得吸收{2}點傷害的護盾，持續8秒。"
+    },
+    "Pet_PS69": {
+        "Name": "救命稻草II",
+        "Description": "生命低於{1}%時，獲得吸收{2}點傷害的護盾，持續8秒。"
+    },
+    "Pet_PS70": {
+        "Name": "救命稻草III",
+        "Description": "生命低於{1}%時，獲得吸收{2}點傷害的護盾，持續8秒。"
+    },
+    "Pet_PS71": {
+        "Name": "最後一刻I",
+        "Description": "生命低於{1}%時，處於無敵狀態，持續{2}秒後死亡。"
+    },
+    "Pet_PS72": {
+        "Name": "最後一刻II",
+        "Description": "生命低於{1}%時，處於無敵狀態，持續{2}秒後死亡。"
+    },
+    "Pet_PS73": {
+        "Name": "最後一刻III",
+        "Description": "生命低於{1}%時，處於無敵狀態，持續{2}秒後死亡。"
+    },
+    "Pet_PS74": {
+        "Name": "自爆I",
+        "Description": "生命低於{1}%時，寵物原地自爆，造成{2}點傷害。"
+    },
+    "Pet_PS75": {
+        "Name": "自爆II",
+        "Description": "生命低於{1}%時，寵物原地自爆，造成{2}點傷害。"
+    },
+    "Pet_PS76": {
+        "Name": "自爆III",
+        "Description": "生命低於{1}%時，寵物原地自爆，造成{2}點傷害。"
+    }
+}
