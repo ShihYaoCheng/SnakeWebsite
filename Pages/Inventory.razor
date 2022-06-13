@@ -317,10 +317,9 @@
                                                             <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
                                                             <div class="NFT-Number"  >@item.Number</div>
                                                         </div>
-                                                        <div class="NFT-Name"  data-i18n=@item.serialNumber>
-                                               
-                                                            @item.serialNumber</div>
-                                            
+                                                        <div class="NFT-Name"  data-i18n=NFT_data:@item.serialNumber>
+                                                            @item.serialNumber
+                                                        </div>
                                                         <div class="NFT-Income-Block">
                                                              @*<div class="NFT-Income-Block-title">Total Income</div>
                                                             <div class="NFT-Income-Main">
@@ -371,7 +370,9 @@
                                                 
                                                     <div class="NFT-cardText">
                                                         <div class="NFT-Number">#PPSR @item.Number</div>
-                                                        <div class="NFT-Name"  data-i18n=@item.serialNumber>@item.serialNumber</div>
+                                                        <div class="NFT-Name"  data-i18n=NFT_data:@item.serialNumber>
+                                                            @item.serialNumber
+                                                        </div>
                                                         <div class="NFT-PriceBlock">
                                                             <div class="NFT-PriceMain">
                                             
@@ -413,7 +414,9 @@
                                                     <div class="NFT-cardText">
 
                                                         <div class="NFT-Number">#@item.Number</div>
-                                                        <div class="NFT-Name" data-i18n=@item.serialNumber >@item.serialNumber</div>
+                                                        <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber >
+                                                            @item.serialNumber
+                                                        </div>
                                                         @*<div class="NFT-PriceBlock">
                                                             <div class="NFT-PriceMain">
                                                                 <div class="NFT-PriceIcon-Border">
