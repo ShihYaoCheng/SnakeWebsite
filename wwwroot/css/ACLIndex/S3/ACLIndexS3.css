@@ -896,7 +896,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
         .ACLS3RulesCarousel .item {
             width: 1000px;
-           
+            padding: 50px 120px;
         }
     }
 
@@ -1007,17 +1007,26 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         white-space: nowrap;
         display: none;
     }
-
-    .TypewriterShow {
+    .Typewriter-small {
+        display:none;
+    }
+@media (max-width: 1024px) {
+    .Typewriter-small {
         display: block;
     }
-
-    .Typewriter-1Ani {
-        animation-iteration-count: 1;
-        animation-name: TypewriterAnimate;
-        animation-duration: 0.8s;
-        animation-timing-function: steps(100);
+    .Typewriter-big {
+        display: none;
     }
+}
+
+
+
+.Typewriter-1Ani {
+    animation-iteration-count: 1;
+    animation-name: TypewriterAnimate;
+    animation-duration: 0.8s;
+    animation-timing-function: steps(100);
+}
 
 
     @keyframes TypewriterAnimate {
