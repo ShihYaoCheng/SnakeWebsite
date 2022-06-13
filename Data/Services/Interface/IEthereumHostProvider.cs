@@ -18,6 +18,8 @@ namespace SnakeAsianLeague.Data.Services.Interface
 
         Task<string> EnableProviderAsync();
 
+        Task<bool> MetamaskAddTokenAsync();
+
 
     }
 }

@@ -6,6 +6,7 @@ namespace SnakeAsianLeague.Data.Services.Interface
     {
         ValueTask<string> EnableEthereumAsync();
         ValueTask<bool> CheckMetamaskAvailability();
+        ValueTask<bool> MetamaskAddToken();
 
 
     }

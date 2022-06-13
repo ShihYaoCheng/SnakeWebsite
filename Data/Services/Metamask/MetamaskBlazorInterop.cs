@@ -23,5 +23,10 @@ namespace SnakeAsianLeague.Data.Services.Metamask
         {
             return await _jsRuntime.InvokeAsync<bool>("NethereumMetamaskInterop.IsMetamaskAvailable");
         }
+
+        public async ValueTask<bool> MetamaskAddToken()
+        {
+            return await _jsRuntime.InvokeAsync<bool>("NethereumMetamaskInterop.AddToken");
+        }
     }
 }

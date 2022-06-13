@@ -61,5 +61,11 @@ namespace SnakeAsianLeague.Data.Services.Metamask
                 await AvailabilityChanged.Invoke(available);
             }
         }
+
+        public async Task<bool> MetamaskAddTokenAsync()
+        {
+            var result = await _metamaskInterop.MetamaskAddToken();
+            return result;
+        }
     }
 }

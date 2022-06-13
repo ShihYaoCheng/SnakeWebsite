@@ -97,13 +97,10 @@
         => await InvokeAsync(StateHasChanged);
         _metamaskHostProvider.SelectedAccountChanged += MetamaskHostProvider_SelectedAccountChanged;
 
+        // Add Token
+        //bool asdqwe = await _metamaskHostProvider.MetamaskAddTokenAsync();
+
         displayEditProfileWindow = false;
-
-
- 
-        //var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        //LoginUser = authState.User;
-
     }
 
 

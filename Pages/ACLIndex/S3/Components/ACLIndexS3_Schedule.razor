@@ -31,8 +31,10 @@
                             <p>SUN</p>
                         </div>
                     
+                        
                             @for(int i = 1  ; i < daySquare[j][0] ;i++)
-                            {             
+                            {    
+                                
                                 @*是否為當月日期*@
                                 @if(daySquare[j][2]<=i && daySquare[j][2]+daySquare[j][1] > i ){
                                     nowDay =  i-daySquare[j][2]+1;
