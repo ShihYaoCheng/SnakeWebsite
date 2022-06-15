@@ -22,7 +22,7 @@
     <div class="BannerBlock">
         <div class="BannerBlockMain">
             <div class="BannerImg" id="BannerImg">
-                <img src="/images/AsiaChampionsLeague/S2/ACL_S2_BG.jpeg" alt="">
+                <img data-src="/images/AsiaChampionsLeague/S2/ACL_S2_BG.jpeg" alt="">
             </div>
             
             <ACLIndexS3_Title />
@@ -58,15 +58,17 @@
 
 
 @code {
-
+    private IJSObjectReference? lazyloadingJS;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
-        {      
+        {            
             await JS.InvokeVoidAsync("ACLS3ScheduleCarousel");
             await JS.InvokeVoidAsync("ACLS3RulesCarousel");   
             await JS.InvokeVoidAsync("installI18n");
+            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+            await lazyloadingJS.InvokeVoidAsync("LazyLoading");
            
         }
     }
