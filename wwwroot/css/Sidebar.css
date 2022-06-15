@@ -71,7 +71,7 @@ ul.accountManagementUl a li{
 }
 ul.accountManagementUl a ::before{
     content: "";
-    background-image: url(/images/myprofile/SidebarArrow.png);
+    background-image: url(/images/myprofile/SidebarArrow-white.png);
     background-size: contain;
     background-repeat: no-repeat;
     width: 35px;
