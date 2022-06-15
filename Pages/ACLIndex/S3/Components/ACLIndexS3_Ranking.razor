@@ -11,14 +11,14 @@
         @*Squad*@
         <div class="Ranking-banner squadBanner">
             <div class="Ranking-banner-bg">
-                 <img src="/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.png">
+                 <img data-src="/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.png">
                  <button @onclick="()=>changeBanner(false)"></button>                
             </div> 
                   <div class="Ranking-banner-selectContainer">     
                     
                     <div class="Ranking-banner-select"> 
                         
-                        <img class ="Bar" src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.png" />    
+                        <img class ="Bar" data-src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.png" />    
                         <select>
                             @foreach(var date in squadOption)
                             {
@@ -34,14 +34,14 @@
         @*solo*@
         <div class="Ranking-banner soloBanner">
             <div class="Ranking-banner-bg">              
-                 <img src="/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.png">
+                 <img data-src="/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.png">
                  <button @onclick="()=>changeBanner(true)"></button>
             </div> 
                <div class="Ranking-banner-selectContainer">  
                
                     <div class="Ranking-banner-select"> 
                        
-                        <img class ="Bar" src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.png" />    
+                        <img class ="Bar" data-src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.png" />    
                         <select>
                         @foreach(var date in soloOption)
                         {
@@ -64,8 +64,8 @@
             </div>
             @*第一名*@
             <div class="Ranking_First">
-                <img class="shineCrown" src="/images/AsiaChampionsLeague/S3/Ranking/Place/pngegg.png"/>
-                <img  src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠1.png"/>
+                <img class="shineCrown" data-src="/images/AsiaChampionsLeague/S3/Ranking/Place/pngegg.png"/>
+                <img  data-src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠1.png"/>
                 <h3>
                     @topThree[0][0]
                 </h3>
@@ -75,7 +75,7 @@
             </div>
             @*第二名*@
             <div class="Ranking_Second">
-                <img  src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠2.png"/>
+                <img  data-src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠2.png"/>
                 <h3>
                     @topThree[1][0]
                 </h3>
@@ -85,7 +85,7 @@
             </div>
             @*第三名*@
             <div class="Ranking_third">
-                <img  src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠3.png"/>
+                <img  data-src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠3.png"/>
                 <h3>
                     @topThree[2][0]
                 </h3>
