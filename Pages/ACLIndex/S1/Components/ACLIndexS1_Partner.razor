@@ -24,51 +24,76 @@
 
     <div class="partner_all">
 
-        @if (BIGSponsors == null && SmallSponsors == null)
-        {
 
-        }
-        else
-        {
             <div class="partner_banner_all">
-
-                @foreach (var view in BIGSponsors)
-                {
+                @*
+                    後端撈資料(待刪)
+                    @foreach (var view in BIGSponsors)
+                    {
                     <Partner_banner view=@view/>
-                }
-
+                    }
+                *@
+                <div class="partner_banner" data-aos-duration="500" data-aos="zoom-in-down">
+                    <a href="@posterData[0,0]" target="_blank">
+                        @* <img src="@view.ImgUrl" width="900" height="300" /> *@
+                        <img src="@posterData[0,1]" />
+                    </a>
+                </div>
 
             </div>
-            
+
 
             <div class="partner_poster_all">
                 @*<div class="poster">
                     <a href="" target="_blank">
-                        <img src="/images/Partner/test_banner_424x318.jpeg" alt="">
+                    <img src="/images/Partner/test_banner_424x318.jpeg" alt="">
                     </a>
-                </div>*@
+                    </div>*@
 
+                @*
+                    後端撈資料(待刪)
+                    @if (SmallSponsors == null)
+                    {
 
-                @if (SmallSponsors == null)
-                {
-
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     @foreach (var view in SmallSponsors)
                     {
-                        <Partner_Poster view=@view/>
+                    <Partner_Poster view=@view/>
                     }
-                }
+                    }
+                *@
+
+                <div class="poster" data-aos-duration="500" data-aos="zoom-in-down">
+                    <a href="@posterData[1,0]" target="_blank">
+                        @* <img src="@view.ImgUrl" width="300" height="400" /> *@
+                        <img src="@posterData[1,1]" />
+                    </a>
+                </div>
+                <div class="poster" data-aos-duration="500" data-aos="zoom-in-down">
+                    <a href="@posterData[2,0]" target="_blank">
+                        @* <img src="@view.ImgUrl" width="300" height="400" /> *@
+                        <img src="@posterData[2,1]" />
+                    </a>
+                </div>
+
             </div>
-        }
+        
     </div>
 </div>
 
 
 
 @code{
+    private string[,] posterData = new string[,]
+    {
+         {"https://bit.ly/3ls41hh", "./images/Index/parner/partner1.webp"}, 
+         {"https://sshop.com.tw/joinus", "./images/Index/parner/partner2.webp"},
+         {"https://store.asus.com/tw/category/D5976", "./images/Index/parner/partner3.webp"}
+    };
 
+    /*....................*/
     List<Sponsor> BIGSponsors;
     List<Sponsor> SmallSponsors;
 
