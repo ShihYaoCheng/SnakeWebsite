@@ -9,7 +9,7 @@
 #description_01{
     /* border: 1px solid brown; */
     width: 100%;
-    background-image: url(/images/Description/description_bg1.png);
+    background-image: url(/images/Description/description_bg1.webp);
     background-size: cover;
     background-position: bottom center;
     background-repeat: no-repeat;
@@ -37,7 +37,7 @@
     border-radius: 35px;
     width: 200px;
     /* height: 258px; */
-    background-image: url(/images/Prize/prize_fixed.png);
+    background-image: url(/images/Prize/prize_fixed.webp);
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -88,7 +88,7 @@
     height: 80px;
     border-radius: 25px;
     background: none;
-    background-image: url(/images/Prize/prize_fixed_button.png);
+    background-image: url(/images/Prize/prize_fixed_button.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -385,7 +385,7 @@
 
 #watchLive_button{
     border-radius: 50px;
-    /* background-image: url(/images/Index/watchLive_button.png); */
+    /* background-image: url(/images/Index/watchLive_button.webp); */
     background-position: top center;
     max-width: 203px;
     width: 100%;
@@ -472,7 +472,7 @@
     border-left: none;
     border-right: none;
     width: 100%;
-    background-image: url(/images/Description/description_bg2.png);
+    background-image: url(/images/Description/description_bg2.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -706,7 +706,7 @@
     border-left: none;
     border-right: none;
     width: 100%;
-    background-image: url(/images/Description/description_bg3.png);
+    background-image: url(/images/Description/description_bg3.webp);
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -733,7 +733,7 @@
     /* margin: 72px 0 0 0; */
     /* max-width: 1920px; */
     width: 100%;
-    background-image: url(/images/Prize/BANNER_bg.png);
+    background-image: url(/images/Prize/BANNER_bg.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -776,7 +776,7 @@
 
 #prize_signUpEvent_button{
     border-radius: 50px;
-    /* background-image: url(/images/Index/signUpEvent_button.png); */
+    /* background-image: url(/images/Index/signUpEvent_button.webp); */
     max-width: 300px;
     width: 90%;
     color: #ffffff;
@@ -1057,7 +1057,7 @@
     align-items: center;
     max-width: 437px;
     width: 90%;
-    /* background-image: url(/images/Description/download_bg.png);
+    /* background-image: url(/images/Description/download_bg.webp);
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat; */
@@ -1295,7 +1295,7 @@
     border-left: none;
     border-right: none;
     width: 100%;
-    background-image: url(/images/Description/description_bg4.png);
+    background-image: url(/images/Description/description_bg4.webp);
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -1474,7 +1474,7 @@
     border-left: none;
     border-right: none;
     width: 100%;
-    background-image: url(/images/Description/line_bg.png);
+    background-image: url(/images/Description/line_bg.webp);
     background-size: contain;
     background-position: center top;
     background-repeat: repeat;
@@ -1570,7 +1570,7 @@
 .card_background{
     /* border: 1px solid red;  */
     border-radius: 40px;
-    background-image: url(/images/Description/rank_list_bg.png);
+    background-image: url(/images/Description/rank_list_bg.webp);
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -1679,15 +1679,15 @@
 }
 
 .line_01{
-    background-image: url(/images/Rank/award_line01.png);
+    background-image: url(/images/Rank/award_line01.webp);
     filter: drop-shadow(5px 5px 7px rgba(253, 170, 27, 0.24));
 }
 .line_02{
-    background-image: url(/images/Rank/award_line02.png);
+    background-image: url(/images/Rank/award_line02.webp);
     filter: drop-shadow(5px 5px 7px rgba(157, 157, 157, 0.212));
 }
 .line_03{
-    background-image: url(/images/Rank/award_line03.png);
+    background-image: url(/images/Rank/award_line03.webp);
     filter: drop-shadow(5px 5px 7px rgba(157, 157, 157, 0.486));
 }
 
@@ -1799,7 +1799,7 @@
 
 /* nav 當頁顯示 */
 .nav-item:hover{
-    background-image: url(/images/Other/nav_hover.png) !important;
+    background-image: url(/images/Other/nav_hover.webp) !important;
     background-color: #aad4cd00;
 }
 .nav_hover_bottom{
@@ -1809,7 +1809,7 @@
     background: none;
 }
 .bg-dark{
-    background-image: url(/images/Other/nav_banner_acl.png);
+    background-image: url(/images/Other/nav_banner_acl.webp);
 }
 .text-light {
     color: #ffffff !important;
@@ -1823,7 +1823,7 @@ a.text-light:focus, a.text-light:hover {
 
 #nav-description, #nav-ACLIndex{
     color: white;
-    background-image: url(/images/Other/nav_hover_acl.png);
+    background-image: url(/images/Other/nav_hover_acl.webp);
     background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -1850,7 +1850,7 @@ a.text-light:focus, a.text-light:hover {
 
 #nav_ul-description{
     color: white;
-    background-image: url(/images/Other/nav_hover_acl.png);
+    background-image: url(/images/Other/nav_hover_acl.webp);
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -1872,7 +1872,7 @@ html{
 
 #PDF_download_button{
     border-radius: 50px;
-    /* background-image: url(/images/Index/watchLive_button.png); */
+    /* background-image: url(/images/Index/watchLive_button.webp); */
     background-position: top center;
     max-width: 203px;
     width: 100%;

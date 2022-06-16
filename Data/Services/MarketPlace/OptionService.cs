@@ -218,7 +218,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 data.RarityKey = Rarity;
                 data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
                 data.Elements = Elements;
-                data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.png", ElementsList.Where(m => m.Key == Elements).First().Value);
+                data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.webp", ElementsList.Where(m => m.Key == Elements).First().Value);
                 data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
                 data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
                 //data.Country = CountryList[CountryInt].ToString();
@@ -237,7 +237,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             //data1.Name = "Coming Soon";
             //data1.IsOpen = false;
             //data1.IsOfficial = true;
-            //data1.ImgPath = data1.ImgPath==null ? "/images/MarketPlace/NFTproduct.png" : data1.ImgPath;
+            //data1.ImgPath = data1.ImgPath==null ? "/images/MarketPlace/NFTproduct.webp" : data1.ImgPath;
             //datas.Add(data1);
 
             datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();

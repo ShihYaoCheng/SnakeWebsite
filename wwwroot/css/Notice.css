@@ -1,7 +1,7 @@
 .notice_block{
     border: 1px solid #a52a2a00;
     width: 100%;
-    background-image: url(/images/Notice/notice_bg.jpg);
+    background-image: url(/images/Notice/notice_bg.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -122,7 +122,7 @@
 
 /* nav 當頁顯示 */
 .nav-item:hover{
-    background-image: url(/images/Other/nav_hover.png) !important;
+    background-image: url(/images/Other/nav_hover.webp) !important;
     background-color: #aad4cd00;
 }
 .nav_hover_bottom{
@@ -132,7 +132,7 @@
     background: none;
 }
 .bg-dark{
-    background-image: url(/images/Other/nav_banner_acl.png);
+    background-image: url(/images/Other/nav_banner_acl.webp);
 }
 .text-light {
     color: #ffffff !important;
@@ -145,7 +145,7 @@ a.text-light:focus, a.text-light:hover {
 }
 #nav-notice, #nav-ACLIndex{
     color: white;
-    background-image: url(/images/Other/nav_hover_acl.png);
+    background-image: url(/images/Other/nav_hover_acl.webp);
     background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -172,7 +172,7 @@ a.text-light:focus, a.text-light:hover {
 
 #nav_ul-notice{
     color: white;
-    background-image: url(/images/Other/nav_hover_acl.png);
+    background-image: url(/images/Other/nav_hover_acl.webp);
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -188,7 +188,7 @@ a.text-light:focus, a.text-light:hover {
 
 #PDF_download_button{
     border-radius: 50px;
-    /* background-image: url(/images/Index/watchLive_button.png); */
+    /* background-image: url(/images/Index/watchLive_button.webp); */
     background-position: top center;
     max-width: 203px;
     width: 100%;

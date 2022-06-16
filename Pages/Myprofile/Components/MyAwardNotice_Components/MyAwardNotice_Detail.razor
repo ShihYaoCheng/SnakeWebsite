@@ -48,7 +48,7 @@
                             @if (model.Season == AsiaLeagueSeasons.AsiaLeagueS1)
                             {
                                 <div class="receive_signUpEvent_button receive_over">
-                                    <img src="/images/Index/receive_over.png" alt="">
+                                    <img src="/images/Index/receive_over.webp" alt="">
                                     <span>申請已結束</span>
                                 </div>
                             }
@@ -58,7 +58,7 @@
                                 if (model.AwardNoticeViews == null || model.AwardNoticeViews.Count == 0)
                                 {
                                     <div class="receive_signUpEvent_button receive_over">
-                                        <img src="/images/Index/receive_over.png" alt="">
+                                        <img src="/images/Index/receive_over.webp" alt="">
                                         <span>尚未獲獎</span>
                                     </div>
 
@@ -70,7 +70,7 @@
                                         case 0:
 
                                             <div class="receive_signUpEvent_button" @onclick="@S2ApplyAwardFormButtonOnClick">
-                                                <img src="/images/Index/signUpEvent_button.png" alt="">
+                                                <img src="/images/Index/signUpEvent_button.webp" alt="">
                                                 <span>申請領獎</span>
                                             </div>
 
@@ -78,14 +78,14 @@
                                         case 1:
 
                                             <div class="receive_signUpEvent_button" @onclick="@S2ApplyAwardFormButtonOnClick">
-                                                <img src="/images/Index/signUpEvent_button.png" alt="">
+                                                <img src="/images/Index/signUpEvent_button.webp" alt="">
                                                 <span>編輯申請資訊</span>
                                             </div>
 
                                             break;
                                         case 2:
                                             <div class="receive_signUpEvent_button receive_over">
-                                                <img src="/images/Index/receive_over.png" alt="">
+                                                <img src="/images/Index/receive_over.webp" alt="">
                                                 <span>申請已結束</span>
                                             </div>
                                             break;
@@ -107,7 +107,7 @@
                             else
                             {
                                 <div class="receive_signUpEvent_button receive_over">
-                                    <img src="/images/Index/receive_over.png" alt="">
+                                    <img src="/images/Index/receive_over.webp" alt="">
                                     <span>尚未開放領獎</span>
                                 </div>
                             }
@@ -121,17 +121,17 @@
                     <div class="progress_bar">
                         <div class="progress_bar_step" id="progress_bar_step_01">
                             @* <span>填寫申請表</span> *@
-                            <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_01.png" alt="">
+                            <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_01.webp" alt="">
                         </div>
                         <div class="progress_bar_border"></div>
                         <div class="progress_bar_step" id="progress_bar_step_02">
                             @* <span>審核資料</span> *@
-                            <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_02.png" alt="">
+                            <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_02.webp" alt="">
                         </div>
                         <div class="progress_bar_border"></div>
                         <div class="progress_bar_step" id="progress_bar_step_03">
                             @* <span>寄送完成</span> *@
-                            <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_03.png" alt="">
+                            <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_03.webp" alt="">
                         </div>
                     </div>
 
@@ -195,7 +195,7 @@
                                                             {
 
                                                                 <div class="receive_signUpEvent_button" @onclick="@(e => ApplyAwardButtonOnClick(e, notice))">
-                                                                    <img src="/images/Index/signUpEvent_button.png" alt="">
+                                                                    <img src="/images/Index/signUpEvent_button.webp" alt="">
                                                                     <span> @((notice.AwardStatus == 0) ? "申請領獎" : "編輯申請資訊") </span>
                                                                 </div>
                                                             }
@@ -337,7 +337,7 @@
 
 
                 <button type="submit" id="application_window_submit" class="window_submit">
-                    <img src="/images/Index/signUpEvent_button.png" alt="">
+                    <img src="/images/Index/signUpEvent_button.webp" alt="">
                     <span>送出</span>
                 </button>
 
@@ -417,7 +417,7 @@
 
 
                 <button type="submit" id="application_window_submit" class="window_submit">
-                    <img src="/images/Index/signUpEvent_button.png" alt="">
+                    <img src="/images/Index/signUpEvent_button.webp" alt="">
                     <span>送出</span>
                 </button>
 
@@ -432,11 +432,11 @@
     <!-- 送出成功-->
     <div class="window @(displaySuccessWindow ? "window_open" : "")" id="submit_success_bg">
         <div class="window_bg" id="submit_success">
-            <img src="/images/Myaccount/submit_success.png" id="submit_success_icon" alt="">
+            <img src="/images/Myaccount/submit_success.webp" id="submit_success_icon" alt="">
             <h1>申請成功</h1>
             <span id="submit_success_span">我們將會盡速審查</span>
             <div id="success_window_close" class="window_submit" @onclick="successWindowClose">
-                <img src="/images/Index/signUpEvent_button.png" alt="">
+                <img src="/images/Index/signUpEvent_button.webp" alt="">
                 <span>關閉</span>
             </div>
         </div>

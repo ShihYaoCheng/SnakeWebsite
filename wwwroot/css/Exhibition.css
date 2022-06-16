@@ -2,7 +2,7 @@
 
 #nav-Exhibition{
     color: white;
-    /* background-image: url(/images/Other/nav_hover.png);*/
+    /* background-image: url(/images/Other/nav_hover.webp);*/
 background-color: #aad4cd;
     background-size: contain;
     background-position: bottom;
@@ -31,10 +31,10 @@ background-color: #aad4cd;
 
 .exhibition_block_bg{
     width: 100%;
-    /* background-image: url(/images/Exhibition/exhibition_bg.png); */
+    /* background-image: url(/images/Exhibition/exhibition_bg.webp); */
     background-position: center;
     /* background-repeat: repeat; */
-    background-image: linear-gradient(#3b82c994, #e7b83830), url(/images/Exhibition/exhibition_bg2.png);
+    background-image: linear-gradient(#3b82c994, #e7b83830), url(/images/Exhibition/exhibition_bg2.webp);
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;

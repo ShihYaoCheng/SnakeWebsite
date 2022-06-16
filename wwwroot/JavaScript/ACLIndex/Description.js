@@ -1305,7 +1305,7 @@
                                     <div class="awards_line line_01">
                                         <div class="awards_line_title">
                                             <div class="awards_icon_text">
-                                                <img class="awards_icon" src="/images/Description/crown01.png" alt="">
+                                                <img class="awards_icon" src="/images/Description/crown01.webp" alt="">
                                                 <p class="awards_text">冠軍</p>
                                             </div>
                                             <div class="awards_text_all">
@@ -1335,7 +1335,7 @@
                                     <div class="awards_line line_02">
                                         <div class="awards_line_title">
                                             <div class="awards_icon_text">
-                                                <img class="awards_icon" src="/images/Description/crown02.png" alt="">
+                                                <img class="awards_icon" src="/images/Description/crown02.webp" alt="">
                                                 <p class="awards_text">亞軍</p>
                                             </div>
                                             <div class="awards_text_all">
@@ -1365,7 +1365,7 @@
                                     <div class="awards_line line_03">
                                         <div class="awards_line_title">
                                             <div class="awards_icon_text">
-                                                <img class="awards_icon" src="/images/Description/crown03.png" alt="">
+                                                <img class="awards_icon" src="/images/Description/crown03.webp" alt="">
                                                 <p class="awards_text">季軍</p>
                                             </div>
                                             <div class="awards_text_all">

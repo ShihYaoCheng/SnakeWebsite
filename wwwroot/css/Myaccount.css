@@ -4,7 +4,7 @@ html{
 
 
 .myaccount_login{
-    background-image: url(/images/Description/description_bg2.png);
+    background-image: url(/images/Description/description_bg2.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -146,7 +146,7 @@ html{
 
 /* 個人資訊 */
 .personal_information{
-    background-image: url(/images/Myaccount/shp_01.png);
+    background-image: url(/images/Myaccount/shp_01.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -391,7 +391,7 @@ html{
 
 
 .my_match_bg{
-    /* background-image: url(/images/Myaccount/my_match.png);
+    /* background-image: url(/images/Myaccount/my_match.webp);
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat; */
@@ -669,7 +669,7 @@ html{
 /* 申請獎金按鈕 */
 #receive_signUpEvent_button{
     border-radius: 50px;
-    /* background-image: url(/images/Index/signUpEvent_button.png); */
+    /* background-image: url(/images/Index/signUpEvent_button.webp); */
     max-width: 300px;
     width: 90%;
     color: #ffffff;
@@ -727,7 +727,7 @@ html{
 /* 個別得獎細項裡的按鈕 */
 .receive_signUpEvent_button{
     border-radius: 50px;
-    /* background-image: url(/images/Index/signUpEvent_button.png); */
+    /* background-image: url(/images/Index/signUpEvent_button.webp); */
     max-width: 220px;
     width: 90%;
     color: #ffffff;
@@ -1492,7 +1492,7 @@ input[type="checkbox"]:disabled + .receive_label::after{
 }
 
 .window_bg{
-    background-image: url(/images/Myaccount/award_application.png);
+    background-image: url(/images/Myaccount/award_application.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -1516,7 +1516,7 @@ input[type="checkbox"]:disabled + .receive_label::after{
 }
 
 .window_title{
-    background-image: url(/images/Myaccount/window_title.png);
+    background-image: url(/images/Myaccount/window_title.webp);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top;
@@ -2129,7 +2129,7 @@ input[type="radio"]+.edit_label2{
         text-align: start;
     }
     .window_title {
-        background-image: url(/images/Myaccount/window_title.png);
+        background-image: url(/images/Myaccount/window_title.webp);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: top;

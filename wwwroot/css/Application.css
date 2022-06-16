@@ -328,7 +328,7 @@ input:focus {
 .winners_login {
     border: 1px rgb(13, 9, 240) solid;
     background-color: #41505b;
-    background-image: url(./snake/images/window/winners_login_bg.png);
+    background-image: url(./snake/images/window/winners_login_bg.webp);
     background-repeat: no-repeat;
     max-width: 706px;
     width: 95%;
@@ -699,7 +699,7 @@ textarea:-ms-input-placeholder {
     max-height: 250px;
     height: 100%;
     background-color: #41505b;
-    background-image: url(./snake/images/window/login_bg.png);
+    background-image: url(./snake/images/window/login_bg.webp);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -811,7 +811,7 @@ textarea:-ms-input-placeholder {
     white-space: nowrap;
     margin: 0 10px;
     text-align: center;
-    background-image: url(/images/Other/login.png);
+    background-image: url(/images/Other/login.webp);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -881,7 +881,7 @@ textarea:-ms-input-placeholder {
 
 .nav-item ul li:hover{
     color: white;
-    background-image: url(/images/Other/nav_hover_acl.png);
+    background-image: url(/images/Other/nav_hover_acl.webp);
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -940,7 +940,7 @@ textarea:-ms-input-placeholder {
 
 .login {
     /* border: 1px red solid; */
-    background-image: url(/images/Other/login_bg.png);
+    background-image: url(/images/Other/login_bg.webp);
     background-repeat: no-repeat;
     max-width: 706px;
     width: 90%;

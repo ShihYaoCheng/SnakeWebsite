@@ -96,7 +96,7 @@
 }
 
 .InventoryNotLogin{
-    background-image: url(/images/Description/description_bg2.png);
+    background-image: url(/images/Description/description_bg2.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -121,7 +121,7 @@
 .inventory-Background{
     width: 100%;
     height: 100vh;
-    /* background-image: url(/images/Myaccount/my_match.png);
+    /* background-image: url(/images/Myaccount/my_match.webp);
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;*/

@@ -41,7 +41,7 @@
 
 .GameFiBackground {
     width: 100%;
-    /* background: url(/images/myprofile/line_background.png), linear-gradient(to bottom, #3F5D7F 0%,#4B7D74 100%) repeat fixed center; */
+    /* background: url(/images/myprofile/line_background.webp), linear-gradient(to bottom, #3F5D7F 0%,#4B7D74 100%) repeat fixed center; */
     height: 100vh;
     position: fixed;
     overflow-y: auto;
@@ -198,14 +198,14 @@
     opacity: 0.8;
 }
 .swiper-button-prev{
-    background-image: url(/images/GameFi/button-prev.png);
+    background-image: url(/images/GameFi/button-prev.webp);
     left: 0px !important;
 }
 .swiper-button-prev:after{
     content: ''!important;
 }
 .swiper-button-next{
-    background-image: url(/images/GameFi/button-next.png);
+    background-image: url(/images/GameFi/button-next.webp);
     right: 0px !important;
 }
 .swiper-button-next:after{
@@ -1453,16 +1453,16 @@ html.noscroll {
 }
 
 #Roadmap-Item-Block-01{
-    background-image: url(/images/GameFi/06-2022Q1.png);
+    background-image: url(/images/GameFi/06-2022Q1.webp);
 }
 #Roadmap-Item-Block-02{
-    background-image: url(/images/GameFi/06-2022Q2.png);
+    background-image: url(/images/GameFi/06-2022Q2.webp);
 }
 #Roadmap-Item-Block-03{
-    background-image: url(/images/GameFi/06-2022Q3.png);
+    background-image: url(/images/GameFi/06-2022Q3.webp);
 }
 #Roadmap-Item-Block-04{
-    background-image: url(/images/GameFi/06-2022Q4.png);
+    background-image: url(/images/GameFi/06-2022Q4.webp);
 }
 
 .Roadmap-Item-List{

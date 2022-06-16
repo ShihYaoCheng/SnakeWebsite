@@ -97,7 +97,7 @@
     transition: all .05s ease-in-out;
 }
 .Icon-FB {
-    background: url("../images/Footer/FB-Icon.png");
+    background: url("../images/Footer/FB-Icon.webp");
     height: 100%;
     width: 19px;
     background-repeat: round;
@@ -106,7 +106,7 @@
 }
 
 .Icon-YT {
-    background: url("../images/Footer/YT-Icon.png");
+    background: url("../images/Footer/YT-Icon.webp");
     height: 85%;
     width: 43px;
     background-repeat: round;
@@ -114,7 +114,7 @@
 }
 
 .Icon-Twitch {
-    background: url("../images/Footer/Twitch-Icon.png");
+    background: url("../images/Footer/Twitch-Icon.webp");
     height: 90%;
     width: 39px;
     background-repeat: round;
@@ -122,7 +122,7 @@
 }
 
 .Icon-Discord {
-    background: url("../images/Footer/Discord-Icon.png");
+    background: url("../images/Footer/Discord-Icon.webp");
     height: 90%;
     width: 43px;
     background-repeat: round;
@@ -539,7 +539,7 @@
         display: inline-block;
         width: 19px;
         height: 38px;
-        background: url("../images/Footer/FB-Icon.png");
+        background: url("../images/Footer/FB-Icon.webp");
         background-repeat: round;
         border: 0px;
         margin-top: 15px;

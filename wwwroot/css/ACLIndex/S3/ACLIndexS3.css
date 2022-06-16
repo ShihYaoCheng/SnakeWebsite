@@ -120,7 +120,7 @@
     -moz-appearance: none;
     appearance: none;
     -webkit-appearance: none;
-    background-image: url(/images/Other/select-arrow.png);
+    background-image: url(/images/Other/select-arrow.webp);
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: auto;
@@ -811,7 +811,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
         .Event-Info button {
             border: 0px;
-            background: url("/images/AsiaChampionsLeague/S3/More Info/More info_button.png");
+            background: url("/images/AsiaChampionsLeague/S3/More Info/More info_button.webp");
             background-repeat: round;
             font-size: 24px;
             font-family: Microsoft JhengHei;
@@ -847,7 +847,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     .Rules {
         width: 100%;
         height: 1500px;
-        background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Bottom.png");
+        background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Bottom.webp");
         background-repeat: round;
     }
 
@@ -870,7 +870,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         width: 1340px;
         height: 1000px;
         margin: 0 auto;
-        background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Screen Frame.png");
+        background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Screen Frame.webp");
         background-repeat: round;
     }
 
@@ -1205,7 +1205,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     opacity: 0.6;
     width: 1975px;
     height: 1943px;
-    background: url("/images/AsiaChampionsLeague/S3/Reward/Banner/texture-1.png");
+    background: url("/images/AsiaChampionsLeague/S3/Reward/Banner/texture-1.webp");
     transform-origin: center;
     animation: rotate1 50s infinite linear;
     position: absolute;
@@ -1264,13 +1264,13 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
 .squadBanner .Ranking-banner-bg {
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad bottom.png");
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad bottom.webp");
     /*background-repeat: round;*/
     background-size: cover;
 }
 
 .soloBanner .Ranking-banner-bg {
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo bottom.png");
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo bottom.webp");
     /*background-repeat: round;*/
     background-size: cover;
 }
@@ -1440,12 +1440,12 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
 .squadBanner .Ranking-banner-select {
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-2.png");
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-2.webp");
     background-size: cover;
 }
 
 .soloBanner .Ranking-banner-select {
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-2.png");
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-2.webp");
     /*background-repeat: round;*/
     background-size:cover;
 }
@@ -1461,7 +1461,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 .Ranking-Date {
     width: 100%;
     height: 88px;
-    background: url("/images/AsiaChampionsLeague/S3/Ranking/Ranking_Date.png");
+    background: url("/images/AsiaChampionsLeague/S3/Ranking/Ranking_Date.webp");
     background-repeat: round;
     display: flex;
     justify-content: end;
@@ -1537,7 +1537,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
 
     .Ranking_First {
-        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_First.png");
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_First.webp");
         background-repeat: round;
         width: 95%;
         height: 230px;
@@ -1692,7 +1692,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
     .Ranking_Second {
-        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_Second.png");
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_Second.webp");
         background-repeat: round;
         width: 91%;
         height: 180px;
@@ -1712,7 +1712,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
 
     .Ranking_third {
-        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_third.png");
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_third.webp");
         background-repeat: round;
         width: 88%;
         height: 140px;
@@ -1740,7 +1740,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     .Ranking-Place-Other {
         width: 527px;
         height: 610px;
-        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_Other place.png");
+        background: url("/images/AsiaChampionsLeague/S3/Ranking/Place/Ranking_Other place.webp");
         background-repeat: round;
     }
 
@@ -2705,7 +2705,7 @@ font-family: Microsoft JhengHei;*/
         }
 
         .Notice-content::-webkit-scrollbar-thumb {
-            background: url("/images/AsiaChampionsLeague/S3/Notice/Notice_Bar.png") !important;
+            background: url("/images/AsiaChampionsLeague/S3/Notice/Notice_Bar.webp") !important;
             background-repeat: round !important;
             width: 15px !important;
         }

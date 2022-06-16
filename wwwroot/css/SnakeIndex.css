@@ -299,7 +299,7 @@
     /* max-width: 1920px; */
     width: 100%;
     /* height: 1046px; */
-    background-image: url(/images/OfficialWeb/curve_BG02_event.png);
+    background-image: url(/images/OfficialWeb/curve_BG02_event.webp);
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -629,7 +629,7 @@
 
 #signUpEvent_button{
     border-radius: 50px;
-    /* background-image: url(/images/Index/signUpEvent_button.png); */
+    /* background-image: url(/images/Index/signUpEvent_button.webp); */
     max-width: 356px;
     width: 90%;
     color: #ffffff;
@@ -769,19 +769,19 @@
 }
 
 #character_bg_1{
-    background-image: url(/images/OfficialWeb/character_bg_1.png);
+    background-image: url(/images/OfficialWeb/character_bg_1.webp);
 }
 #character_bg_2{
-    background-image: url(/images/OfficialWeb/character_bg_2.png);
+    background-image: url(/images/OfficialWeb/character_bg_2.webp);
 }
 #character_bg_3{
-    background-image: url(/images/OfficialWeb/character_bg_3.png);
+    background-image: url(/images/OfficialWeb/character_bg_3.webp);
 }
 #character_bg_4{
-    background-image: url(/images/OfficialWeb/character_bg_4.png);
+    background-image: url(/images/OfficialWeb/character_bg_4.webp);
 }
 #character_bg_5{
-    background-image: url(/images/OfficialWeb/character_bg_5.png);
+    background-image: url(/images/OfficialWeb/character_bg_5.webp);
 }
 
 
@@ -833,7 +833,7 @@
 
 .NewStory03_right_txt_02::before{
     content:"";
-    background-image:url(/images/OfficialWeb/diamond.png);
+    background-image:url(/images/OfficialWeb/diamond.webp);
     width: 12px;
     height: 12px;
     background-repeat: no-repeat;
@@ -847,7 +847,7 @@
 
 .NewStory03_right_txt_02::after{
     content:"";
-    background-image:url(/images/OfficialWeb/diamond.png);
+    background-image:url(/images/OfficialWeb/diamond.webp);
     width: 12px;
     height: 12px;
     background-repeat: no-repeat;
@@ -1210,7 +1210,7 @@
 .newBlock04_1{
     /* border: 1px solid red; */
     width: 100%;
-    background-image: url(/images/OfficialWeb/04_knight_bg_A.png);
+    background-image: url(/images/OfficialWeb/04_knight_bg_A.webp);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1267,7 +1267,7 @@
 
 .newBlock04_2{
     width: 100%;
-    background-image: url(/images/OfficialWeb/04_knight_bg_B.png);
+    background-image: url(/images/OfficialWeb/04_knight_bg_B.webp);
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1541,7 +1541,7 @@
 .video05{
     width: 100%;
     /* height: 1499px; */
-    background-image: url(/images/OfficialWeb/curve_BG05_video.png);
+    background-image: url(/images/OfficialWeb/curve_BG05_video.webp);
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1725,7 +1725,7 @@ footer .copyright p{
     background-image:   
     linear-gradient(to top right, rgba(69, 114, 111, 0.8) 0%, 
    rgba(35, 68, 108,0.9) 30%, 
-   rgba(35, 68, 108, 0.8) 70%, rgba(69, 114, 111,0.8)100%),url(/images/AsiaChampionsLeague/S2/ACL_S2_BG_02.png);
+   rgba(35, 68, 108, 0.8) 70%, rgba(69, 114, 111,0.8)100%),url(/images/AsiaChampionsLeague/S2/ACL_S2_BG_02.webp);
     background-size: cover;
     background-position: bottom right;
     width: 100%;

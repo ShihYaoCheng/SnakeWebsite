@@ -21,7 +21,7 @@
 </head>
 
 @* <div class="rank_block_1">
-    <img src="/images/Other/stay_banner.png" alt="" id="stay_banner">
+    <img src="/images/Other/stay_banner.webp" alt="" id="stay_banner">
     <h1>COMING SOON...</h1>
     </div> *@
 
@@ -37,14 +37,14 @@
             <div class="@((RankIsGuild? "tab_button" : "tab_button tab_button_clicked"))"
                  @onclick="@(e => ToggleIsGuild(e, false))">
 
-                <img src="/images/Rank/tab_button.png" alt="">
+                <img src="/images/Rank/tab_button.webp" alt="">
                 <span>個&nbsp;&nbsp;人</span>
 
             </div>
             <div class="@((RankIsGuild? "tab_button tab_button_clicked" : "tab_button"))"
                  @onclick="@(e => ToggleIsGuild(e, true))">
 
-                <img src="/images/Rank/tab_button.png" alt="">
+                <img src="/images/Rank/tab_button.webp" alt="">
                 <span>隊&nbsp;&nbsp;伍</span>
 
             </div>
@@ -61,7 +61,7 @@
 
                         @* 標題 *@
                         <div class="list_title_block title_Silver">
-                            <img class="rank_list_icon" src="/images/Rank/team_icon.png" alt="">
+                            <img class="rank_list_icon" src="/images/Rank/team_icon.webp" alt="">
                             <div class="title_and_date">
                                 <div class="rank_title_text">白銀四強決賽 #D1</div>
                                 <div class="rank_date rank_date_Diamond">9月7日</div>
@@ -119,11 +119,11 @@
                             <div class="list_title_block @GetRankClassByType("title",rk.Type)">
                                 @if (RankIsGuild)
                                 {
-                                    <img class="rank_list_icon" src="/images/Rank/team_icon.png" alt="">
+                                    <img class="rank_list_icon" src="/images/Rank/team_icon.webp" alt="">
                                 }
                                 else
                                 {
-                                    <img class="rank_list_icon" id="personal_icon" src="/images/Rank/personal_icon.png" alt="">
+                                    <img class="rank_list_icon" id="personal_icon" src="/images/Rank/personal_icon.webp" alt="">
                                 }
                                 <div class="title_and_date">
                                     <div class="rank_title_text">@rk.Title</div>
@@ -151,17 +151,17 @@
                                                         @switch (p.Place.Place)
                                                         {
                                                             case 1:
-                                                                <img class="rank_awards_icon icon_01" src="/images/Rank/crown01.png" alt="">
+                                                                <img class="rank_awards_icon icon_01" src="/images/Rank/crown01.webp" alt="">
                                                                 <p class="rank_awards_text">冠軍</p>
                                                                 <p class="rank_awards_name">@p.Place.WinnerName</p>
                                                                 break;
                                                             case 2:
-                                                                <img class="rank_awards_icon" src="/images/Rank/crown02.png" alt="">
+                                                                <img class="rank_awards_icon" src="/images/Rank/crown02.webp" alt="">
                                                                 <p class="rank_awards_text">亞軍</p>
                                                                 <p class="rank_awards_name">@p.Place.WinnerName</p>
                                                                 break;
                                                             case 3:
-                                                                <img class="rank_awards_icon" src="/images/Rank/crown03.png" alt="">
+                                                                <img class="rank_awards_icon" src="/images/Rank/crown03.webp" alt="">
                                                                 <p class="rank_awards_text">季軍</p>
                                                                 <p class="rank_awards_name">@p.Place.WinnerName</p>
                                                                 break;

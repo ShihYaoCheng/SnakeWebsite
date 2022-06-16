@@ -189,7 +189,7 @@ a, .btn-link {
 .nav-item:hover {
     /* background-color: rgba(255,255,255,0.1); */
     color: white;
-    /* background-image: url(/images/Other/nav_hover.png);*/
+    /* background-image: url(/images/Other/nav_hover.webp);*/
     /* background-color: #aad4cd; */
     background-size: cover;
     background-position: bottom;
@@ -344,7 +344,7 @@ a, .btn-link {
     -moz-appearance: none;
     appearance: none;
     -webkit-appearance: none;
-    background-image: url(/images/Other/Language_Select.png);
+    background-image: url(/images/Other/Language_Select.webp);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -423,7 +423,7 @@ a, .btn-link {
     white-space: nowrap;
     margin: 0 10px;
     text-align: center;
-    background-image: url(/images/Other/login.png);
+    background-image: url(/images/Other/login.webp);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -478,7 +478,7 @@ a, .btn-link {
 
 .nav-item ul li:hover{
     color: white;
-    /* background-image: url(/images/Other/nav_hover.png);*/
+    /* background-image: url(/images/Other/nav_hover.webp);*/
 background-color: #aad4cd;
     background-size: cover;
     background-position: bottom;
@@ -538,7 +538,7 @@ background-color: #aad4cd;
 
 .login {
     /* border: 1px red solid; */
-    background-image: url(/images/Other/login_bg.png);
+    background-image: url(/images/Other/login_bg.webp);
     background-repeat: no-repeat;
     max-width: 600px;
     width: 90%;
@@ -978,7 +978,7 @@ position: relative;
 #acl_footer {
     text-align: center;
     width: 100%;
-    background-image: url(/images/Footer/footer_bg.png);
+    background-image: url(/images/Footer/footer_bg.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1273,7 +1273,7 @@ position: relative;
     -moz-appearance: none;
     appearance: none;
     -webkit-appearance: none;
-    background-image: url(/images/Other/select-arrow-s.png);
+    background-image: url(/images/Other/select-arrow-s.webp);
     background-repeat: no-repeat;
     background-position: right 0.25rem center;
     background-size: auto;
@@ -1401,7 +1401,7 @@ position: relative;
         display: block;
     }
     .nav-others:hover{
-        /* background-image: url(/images/Other/nav_hover.png);*/
+        /* background-image: url(/images/Other/nav_hover.webp);*/
         /* background-color: #aad4cd; */
     }
 }

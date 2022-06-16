@@ -10,7 +10,7 @@
   "lines": "This is line 1.<br>This is line 2.<br>This is line 3.",
 
   "nav": {
-    "snakelogo": "./images/Other/LOGO.png",
+    "snakelogo": "./images/Other/LOGO.webp",
     "Ponponsnake": "碰碰蛇",
     "Home": "首頁",
     "NewEvent": "最新活動",
@@ -69,7 +69,7 @@
     "Failed": "登入失敗，請重新登入"
   },
 
-  "SnakeIndexlogo": "/images/OfficialWeb/LOGO.png",
+  "SnakeIndexlogo": "/images/OfficialWeb/LOGO.webp",
 
   "introduce_01": "碰碰蛇是一款在貪吃蛇為基礎的遊戲玩法上全新進化出獨特戰鬥玩法的3D角色扮演遊戲。",
   "introduce_02": "初代勇者為了拯救世界而耗盡生命並與邪惡共同逝去，儘管他們的犧牲帶來了一段時間的和平，邪惡依然在暗處滋養茁壯，一對在森林迷路的兄妹即將繼承身為勇者的宿命以及接受先代勇者們的祝福，為了斯內克大陸的和平奉獻自己的力量。",
@@ -79,7 +79,7 @@
   "gameName": "▼ 掃瞄或點擊下載 ▼",
 
 
-  "eventTitle": "/images/OfficialWeb/SnakeACL_kimlan.png",
+  "eventTitle": "/images/OfficialWeb/SnakeACL_kimlan.webp",
   "grandPrize_Title": "總獎金高達 172.5 萬元!!",
   "button_txt": "前往亞洲聯賽",
 

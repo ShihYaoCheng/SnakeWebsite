@@ -237,7 +237,7 @@
     appearance: none;
     -webkit-appearance: none;
     border: 1px solid #253A4B;
-    background-image: url(/images/MarketPlace/MP-arrow.png);
+    background-image: url(/images/MarketPlace/MP-arrow.webp);
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: auto;
@@ -400,7 +400,7 @@
     position: relative;
 }
 .card-bg-red::before{
-    content: url('/images/MarketPlace/NFT-Debut.png');
+    content: url('/images/MarketPlace/NFT-Debut.webp');
     position: absolute;
     top: 0;
     left: 0;
@@ -550,7 +550,7 @@
         /* height: 100%; */
     }
     .card-bg-red::before{
-        content: url(/images/MarketPlace/NFT-Debut-s.png);
+        content: url(/images/MarketPlace/NFT-Debut-s.webp);
     }
     .heart{
         width: 24px;

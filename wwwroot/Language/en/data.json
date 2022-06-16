@@ -9,7 +9,7 @@
   "lines": "This is line 1.<br>This is line 2.<br>This is line 3.",
 
   "nav": {
-    "snakelogo": "./images/Other/LOGO_EN.png",
+    "snakelogo": "./images/Other/LOGO_EN.webp",
     "Ponponsnake": "PonPonSnake",
     "Home": "Home",
     "NewEvent": "New Event",
@@ -68,7 +68,7 @@
     "Failed": "Login failure, please try again."
   },
 
-  "SnakeIndexlogo": "/images/OfficialWeb/LOGO_EN.png",
+  "SnakeIndexlogo": "/images/OfficialWeb/LOGO_EN.webp",
 
   "introduce_01": "<div class=\"index01_introduce_EN\">PonPonSnake is a 3D role-playing game based on the classic arcade snake but evolved with a unique play style.</div>",
   "introduce_02": "<div class=\"index01_introduce_EN\">The great hero sacrificed themself to protect the world and drive the evil back away to the darkness. Although their dedication and exertion have brought temporary peace to the Itza world. But the evil hiding in the shadow still seeks for change to rise again. As for the new hope, a young twin who was lost in the forest is about to carry the duty of heroes who all came before them and accept it as their destiny.</div>",
@@ -76,7 +76,7 @@
   "introduce_04": "<div class=\"index01_introduce_EN\">Choose your favorite Snake Rider and enjoy your adventure at the Great Snake World!</div>",
   "gameName": "▼ Scan or tap to download ▼",
 
-  "eventTitle": "/images/OfficialWeb/SnakeACL_kimlan_EN.png",
+  "eventTitle": "/images/OfficialWeb/SnakeACL_kimlan_EN.webp",
   "grandPrize_Title": "Prize fund TWD 1.72 Million!!",
   "button_txt": "ENTER",
 

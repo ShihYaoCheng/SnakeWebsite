@@ -3,7 +3,7 @@
 .indexBG{
     /* border: 1px solid brown; */
     width: 100%;
-    background-image: url(/images/Index/index_BG.png);
+    background-image: url(/images/Index/index_BG.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -85,7 +85,7 @@
 
 #signUpEvent_button{
     border-radius: 50px;
-    /* background-image: url(/images/Index/signUpEvent_button.png); */
+    /* background-image: url(/images/Index/signUpEvent_button.webp); */
     /* max-width: 356px; */
     width: 90%;
     color: #ffffff;
@@ -151,7 +151,7 @@
 
 #watchLive_button{
     border-radius: 50px;
-    /* background-image: url(/images/Index/watchLive_button.png); */
+    /* background-image: url(/images/Index/watchLive_button.webp); */
     background-position: top center;
     max-width: 200px;
     width: 100%;
@@ -243,7 +243,7 @@
     border-radius: 35px;
     width: 200px;
     /* height: 258px; */
-    background-image: url(/images/Prize/prize_fixed.png);
+    background-image: url(/images/Prize/prize_fixed.webp);
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -295,7 +295,7 @@
     height: 80px;
     border-radius: 25px;
     background: none;
-    background-image: url(/images/Prize/prize_fixed_button.png);
+    background-image: url(/images/Prize/prize_fixed_button.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -508,7 +508,7 @@
 /* 摘要區塊 */
 .summary_bg{
     width: 100%;
-    background-image: url(/images/Index/summary_bg.png);
+    background-image: url(/images/Index/summary_bg.webp);
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -651,7 +651,7 @@
 #summary_cube_personal{
     margin-top: 50px;
     background-color: #FD8917;
-    background-image: url(/images/Index/summary_personal.png);
+    background-image: url(/images/Index/summary_personal.webp);
     box-shadow: inset 0px 0px 20px 6px rgb(102 67 34 / 84%), 6px 4px 5px 1px rgb(12 9 9 / 21%)
 
 }
@@ -670,7 +670,7 @@
 
 #summary_cube_team{
     background-color: #BF3522;
-    background-image: url(/images/Index/summary_team.png);
+    background-image: url(/images/Index/summary_team.webp);
     box-shadow: inset 0px 0px 20px 6px rgb(98 16 16 / 84%), 6px 4px 5px 1px rgb(12 9 9 / 21%)
 }
 
@@ -1066,7 +1066,7 @@
 /* 影片區塊 */
 .videoBG{
     width: 100%;
-    background-image: url(/images/Index/video_BG.png);
+    background-image: url(/images/Index/video_BG.webp);
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -1300,7 +1300,7 @@
 
 /* nav 當頁顯示 */
 .nav-item:hover{
-    background-image: url(/images/Other/nav_hover.png) !important;
+    background-image: url(/images/Other/nav_hover.webp) !important;
     background-color: #aad4cd00;
 }
 .nav_hover_bottom{
@@ -1314,7 +1314,7 @@
 }
 
 .bg-dark{
-    background-image: url(/images/Other/nav_banner_acl.png);
+    background-image: url(/images/Other/nav_banner_acl.webp);
 }
 .text-light {
     color: #ffffff !important;
@@ -1327,7 +1327,7 @@ a.text-light:focus, a.text-light:hover {
 }
 #nav-index, #nav-Arena{
     color: white;
-    background-image: url(/images/Other/nav_hover_acl.png);
+    background-image: url(/images/Other/nav_hover_acl.webp);
     background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -1346,7 +1346,7 @@ a.text-light:focus, a.text-light:hover {
 }
 #nav_ul-ACLIndex{
     color: white;
-    background-image: url(/images/Other/nav_hover_acl.png);
+    background-image: url(/images/Other/nav_hover_acl.webp);
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -1453,7 +1453,7 @@ a.text-light:focus, a.text-light:hover {
     height: 3px;
     background-size: cover;
     background-position: right;
-    background-image: url(/images/Index/live_line.png);
+    background-image: url(/images/Index/live_line.webp);
 }
 
 .guest_block{
