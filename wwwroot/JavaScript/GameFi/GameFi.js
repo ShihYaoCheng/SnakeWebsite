@@ -199,57 +199,58 @@ export function chartInit() {
             $(window).unbind('scroll')
         }
     }
-}
-
-export function GameFiCharts() {
-    var chartDom = document.querySelector('.Pie-Chart')
-    window.myChart = echarts.init(chartDom);
-    var option;
-
-    option = {
-        series: [
-            {
-                name: 'Access From',
-                type: 'pie',
-                // selectedMode: 'single',
-                // radius: '90%',
-                radius: ['100%', '20%'],
-                label: {
-                    // show : false,
-                    position: 'inner',
-                    fontSize: 40,
-                    color: "#1F3240",
-                },
-                labelLine: {
-                    show: false,
-                    length: 10,
-                    normal: {
-                        lineStyle: {
-                            color: '#69ADA2',
-                            width: 8,
+    function GameFiCharts() {
+        var chartDom = document.querySelector('.Pie-Chart')
+        window.myChart = echarts.init(chartDom);
+        var option;
+    
+        option = {
+            series: [
+                {
+                    name: 'Access From',
+                    type: 'pie',
+                    // selectedMode: 'single',
+                    // radius: '90%',
+                    radius: ['100%', '20%'],
+                    label: {
+                        // show : false,
+                        position: 'inner',
+                        fontSize: 40,
+                        color: "#1F3240",
+                    },
+                    labelLine: {
+                        show: false,
+                        length: 10,
+                        normal: {
+                            lineStyle: {
+                                color: '#69ADA2',
+                                width: 8,
+                            },
                         },
                     },
-                },
-                color: ['#F2CE8F', '#EF9B8F'],
-                itemStyle: {
-                    borderColor: '#1F3240',
-                    borderWidth: 5
-                },
-                data: [
-                    { value: 45, name: '45%' },
-                    { value: 55, name: '55%' },
-                ],
-                emphasis: {
+                    color: ['#F2CE8F', '#EF9B8F'],
                     itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        borderColor: '#1F3240',
+                        borderWidth: 5
+                    },
+                    data: [
+                        { value: 45, name: '45%' },
+                        { value: 55, name: '55%' },
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
                     }
                 }
-            }
-        ]
-    };
-
-    option && myChart.setOption(option);
-
+            ]
+        };
+    
+        option && myChart.setOption(option);
+    
+    }
 }
+
+
