@@ -60,6 +60,7 @@
 
 
 @code {
+    private IJSObjectReference? lazyloadingJS;
 
     List<S2Prize> AllPrizes;
     List<AsiaLeaguePlace> S4Places;
@@ -91,5 +92,8 @@
             await JS.InvokeVoidAsync("Lightbox");          
             await JS.InvokeVoidAsync("installI18n");
         }
+        lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+        await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+    
     }
 }

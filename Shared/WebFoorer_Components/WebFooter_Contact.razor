@@ -39,8 +39,8 @@
              </div>
                  <button class="contact-FB" href="https://www.facebook.com/PonponSnake" />
            </div>
-           <img src ="/images/Footer/open-envelope.webp"  class="open-envelop" id="openEnvelop"/>
-            <img src ="/images/Footer/close-envelope.webp" class=" close-envelop" id="closeEnvelop" />
+           <img data-src ="/images/Footer/open-envelope.webp"  class="open-envelop" id="openEnvelop"/>
+            <img data-src ="/images/Footer/close-envelope.webp" class=" close-envelop" id="closeEnvelop" />
         </div>
    
        
@@ -50,7 +50,7 @@
                 We appreciate your feed back.
             </div>
             <button class="appreciate-goback" @onclick="@(()=>clickClose())" id ="appreciateGoback">
-               <img src="/images/Footer/GoBack.webp" />
+               <img data-src="/images/Footer/GoBack.webp" />
                 <span>
                    &nbsp Go back
                 </span>
@@ -68,7 +68,7 @@
   
 
         <div class ="contact-close" id = "contactClose" @onclick="@(()=>clickClose())">
-            <img src="/images/Footer/arrow.webp" @onclick="@(()=>clickClose())"/>
+            <img data-src="/images/Footer/arrow.webp" @onclick="@(()=>clickClose())"/>
         </div>
        </div>
 </div>

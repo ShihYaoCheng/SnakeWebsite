@@ -34,6 +34,8 @@
 <ACLIndexS1_Footer />
 
 @code {
+    private IJSObjectReference? lazyloadingJS;
+
     [Parameter]
     public string router { get; set; } = "index";
 
@@ -59,6 +61,8 @@
             await JS.InvokeVoidAsync("selectChangeLocation");
             await JS.InvokeVoidAsync("installI18n");
         }
+        lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+        await lazyloadingJS.InvokeVoidAsync("LazyLoading");
     }
 
 }
