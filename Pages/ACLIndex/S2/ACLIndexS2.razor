@@ -13,14 +13,14 @@
     <div class="BannerBlock">
         <div class="BannerBlockMain">
             <div class="BannerImg" id="BannerImg">
-                <img src="/images/AsiaChampionsLeague/S2/ACL_S2_BG.webp" alt="">
+                <img data-src="/images/AsiaChampionsLeague/S2/ACL_S2_BG.webp" alt="">
             </div>
 
             <div class="BannerBlockTitle">
                 <p data-aos="zoom-in-down" data-aos-duration="800">ASIA CHAMPIONS LEAGUE </p>
                 <p data-aos="flip-left" data-aos-duration="1000" data-aos-delay="500">2022</p>
                 <div class="BannerBlockNavLogo" data-aos="fade-down" data-aos-duration="800" data-aos-delay="800">
-                    <img src="/images/AsiaChampionsLeague/S2/ACL_S2_LOGO.webp" alt="">
+                    <img data-src="/images/AsiaChampionsLeague/S2/ACL_S2_LOGO.webp" alt="">
                 </div>
             </div>
 
@@ -656,7 +656,7 @@
     <div class="EventInfo">
         <div class="S2Title">Event Info</div>
         <div class="ComingSoon" id="ComingSoon">
-            <img src="/images/AsiaChampionsLeague/S2/info_Vague.webp" alt="">
+            <img data-src="/images/AsiaChampionsLeague/S2/info_Vague.webp" alt="">
         </div>
     </div>
 
@@ -665,11 +665,14 @@
 
 @code {
     private IJSObjectReference? AnimateJS;
+    private IJSObjectReference? lazyloadingJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
+            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");           
             AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
+            await lazyloadingJS.InvokeVoidAsync("LazyLoading");
             await AnimateJS.InvokeVoidAsync("Animate");
             await JS.InvokeVoidAsync("selectChangeLocation");
             await JS.InvokeVoidAsync("installI18n");
