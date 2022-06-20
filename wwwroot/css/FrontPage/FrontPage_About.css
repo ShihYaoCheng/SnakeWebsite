@@ -1,0 +1,141 @@
+﻿.About {
+    width: 100%;
+    height: 1139px;
+    background: linear-gradient(to top, #727272,#fff);
+}
+
+
+.About-Container {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/FrontPage/About/堡壘競技場3.png");
+    background-repeat: round;
+    opacity: 1;
+}
+
+
+.topCloud {
+    width:100%;
+    height:111px;
+
+}
+
+/*...文字敘述...*/
+.text-Container {
+    width:100%;
+    height:838px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+   
+}
+/*卷軸*/
+.reel-Container {
+    position: relative;
+    width: 978px;
+    height: 100%;    
+}
+.reel-Bar {
+    width: 100%;
+    height: 48px;
+    position:absolute;
+    top:0%;
+    left:0%;
+}
+
+.reel-Paper {
+    position: absolute;
+    top: 2.5%;
+    left: 1.5%;
+    /*overflow:hidden;*/
+}
+
+.Paper-BG {
+    background-image: url("/images/FrontPage/About/Paper.png");
+    width: 947px;
+    height: 806px;
+    background-repeat: round;
+}
+
+.Paper-BG h3 {
+    color: #93653C;
+    width: 100%;
+    height: 181px;
+    padding-top: 82px;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    font-family: Arial;
+}
+.Paper-BG-Line {
+    width:100%;
+    text-align:center;
+}
+.Paper-BG img {
+    width: 789px;
+}
+.Paper-BG p {
+    width: 722px;
+    height: 488px;
+    margin: 48px auto;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: Arial;
+    line-height:28px;
+}
+
+.reel-grandpa {
+    position:absolute;
+    right:-10%;
+    bottom:0%;
+    width:319px;
+    height:280px;
+}
+/*對話*/
+.dialog {
+    width: 373px;
+    height: 225px;
+    background-image: url("../../images/FrontPage/About/Base.webp");
+    background-repeat: round;
+    display: flex;
+    align-items: center;
+    animation-name: withWind;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes withWind {
+    0% {
+        transform: translateY(15px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(15px);
+    }
+}
+.dialog-Container {
+    width:100%;
+    height:62px;
+}
+
+.dialog p {
+    font-weight: 400;
+    font-size: 24px;
+    font-family: Arial;
+}
+.pl-center{
+    padding-left:5rem;
+}
+.pl-end {
+    padding-left: 9.5rem;
+}
+
+.about-bottom {
+    width: 100%;
+    margin-top: 90px;
+}
