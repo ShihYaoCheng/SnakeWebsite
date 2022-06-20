@@ -311,16 +311,33 @@
     border-radius: 15px;
     overflow: hidden;
     background-color: var(--blue-1);
-
+    position: relative;
 }
 
 .NFT-cardImg img{
     object-fit: contain; 
     width: 100%;
     height: 100%;
-
+    font-size: 0;
 }
 
+.NFTcard-remark{
+    /* border: 1px solid red; */
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    background-color: #eaeaead4;
+    color: #858585;
+    text-align: center;
+    padding: 0px;
+    font-size: 20px;
+
+}
+@media all and (max-width: 1500px){
+    .NFTcard-remark{
+        font-size: 12px;
+    }
+}
 .NFT-cardText{
     /* border: 1px solid red; */
     width: 100%;
@@ -404,6 +421,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 .card-bg-red .heart__path {
     fill: none;
