@@ -1,10 +1,36 @@
 ﻿.Start { 
     width: 100%;
     height: 1024px;
-    padding-top: 70px;
+    padding-top: 47px;
 }
 
 .Start-Container {
     width: 100%;
     height: 100%;
+    background: url("../../images/FrontPage/Start/S3_SkyBox.webp");
+    background-repeat:round;
+}
+
+.block {
+    width: 100%;
+    height: 1000px;
+}
+
+.redBlock {
+    width: 0;
+    height: 200px;
+    background: red;
+    font-size: 100px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 1s;
+    margin: 0 auto;
+}
+
+.redBlock.show {
+    opacity: 1;
+    width: 100%;
 }

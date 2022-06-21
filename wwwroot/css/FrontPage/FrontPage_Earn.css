@@ -1,0 +1,147 @@
+﻿.Earn {
+    width: 100%;
+    height: 1500px;
+    padding-top:100px;
+}
+.Earn-Title {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:167px;
+    width:100%;
+
+}
+
+.Earn-Title div{
+    background-image:url("/images/FrontPage/Earn/Group 8534.png");
+    background-repeat:round;
+
+    height: 167px;
+    width: 1179px;
+}
+
+/*旗子區*/
+.flagZone {
+    margin-top:103px;
+    width:100%;
+    height:786px;
+    display:flex;
+    justify-content:center;
+
+}
+/*跳錢旗子*/
+.bonusFlag {
+    background-image: url("/images/FrontPage/Earn/flag.png");
+    width:452px;
+    height:786px;
+
+
+}
+/*旗子中間線*/
+.FlagLine {
+    position:relative;
+    width:49px;
+    height:400px;
+
+}
+
+.FlagLine img {
+    position: absolute;
+    left: 0;
+    width: 68px;
+    height: 12px;
+}
+
+
+.FlagLine-1  {
+    top:30%
+}
+
+.FlagLine-2 {
+    bottom: 1%
+}
+/*卷軸*/
+.flagReel-Container {
+    position: relative;
+    width: 735px;
+    height: 540px;
+}
+
+.flagReel-Bar {
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.flagReel-Paper {
+    position: absolute;
+    top: 2.5%;
+    left: 2.5%;
+    /*overflow:hidden;*/
+}
+
+.flagPaper-BG {
+    background-image: url("/images/FrontPage/About/Paper.png");
+    width: 698px;
+    height: 530px;
+    background-repeat: round;
+}
+
+.flagPaper-BG h3 {
+    color: #93653C;
+    width: 100%;
+    height: 80px;
+    padding-top: 35px;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    font-family: Arial;
+}
+
+.flagPaper-BG-Line {
+    width: 100%;
+    text-align: center;
+}
+
+.flagPaper-BG img {
+    width: 619px;
+}
+
+.flagReel-Text {
+    width: 588px;
+    height: 168px;
+    margin: 30px auto;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: Arial;
+    line-height: 28px;
+}
+
+.flagReel-LearnMore {
+    color: #93653C;
+    font-weight: 400;
+    font-size: 24px;
+    font-family: Arial;
+    width: 588px;
+    margin: 0 auto;
+}
+.flagPaper-BG-button {
+    width: 100%;
+    margin-top: 45px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.flagPaper-BG-button button {
+    margin: 0 auto;
+    width: 237px;
+    height: 60px;
+    background: none;
+    border: 1px solid #B58F60;
+    border-radius: 5px;
+    color: #B58F60;
+    font-size: 24px;
+    font-weight: 400;
+}

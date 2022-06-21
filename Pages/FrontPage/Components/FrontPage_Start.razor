@@ -1,14 +1,30 @@
-﻿0<head>
+﻿@inject IJSRuntime JS
+
+<head>
     <link href="/css/FrontPage/FrontPage_Start.css" rel="stylesheet" />
+ 
 </head>
 
 <div class="Start">
     <div class="Start-Container">
-    
+            <div class="block"></div>
+            <div class="redBlock">Red</div>
+
     </div>
 
 </div>
+   
+
 
 @code {
+    private IJSObjectReference? ScrollMagicSetJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            ScrollMagicSetJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/FrontPage/ScrollMagicSet.js");
+            await ScrollMagicSetJS.InvokeVoidAsync("ScrollMagicSet");
+        }
+    }
 
 }
