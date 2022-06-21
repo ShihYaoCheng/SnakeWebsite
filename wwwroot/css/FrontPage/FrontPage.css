@@ -1,14 +1,11 @@
 ﻿/*...Start...*/
-
+body {
+    background: #253A4B;
+}
 /*...About...*/
 
 /*...Earn...*/
-.Earn {
-    background: #253A4B;
-    width: 100%;
-    height: 1000px;
-    padding-top: 70px;
-}
+
 
 /*...Travel...*/
 .Travel {
