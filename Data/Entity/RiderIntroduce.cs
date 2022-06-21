@@ -16,6 +16,11 @@
 
         public string ImgPath { get; set; }
 
+        /// <summary>
+        /// 是否遊戲端是否顯示
+        /// </summary>
+        public bool isAvailableInGame { get; set; }
+
         public Attrbutes Attrbutes { get; set; }
 
         public Stats Stats { get; set; }
@@ -24,6 +29,8 @@
         public Avatars Avatars { get; set; }
 
         public List<Skill> Skills { get; set; }
+
+
     }
 
 

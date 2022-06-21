@@ -227,6 +227,9 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 data.EndTime = DateTime.Now.AddDays(value);
                 data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
                                + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
+
+                data.isAvailableInGame = NFT_Riders[i].castings[0].isAvailableInGame;
+
                 datas.Add(data);
             }
 

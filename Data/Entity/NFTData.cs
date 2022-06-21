@@ -74,5 +74,10 @@
         /// 擁有者是否為官方
         /// </summary>
         public bool IsOfficial { get; set; }
+
+        /// <summary>
+        /// 是否遊戲端是否顯示
+        /// </summary>
+        public bool isAvailableInGame { get; set; }
     }
 }

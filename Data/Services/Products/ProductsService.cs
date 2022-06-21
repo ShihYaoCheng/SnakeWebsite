@@ -144,6 +144,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                         /*Income*/
                         Rider.Income = new NowRentAndTotalRevenue();
                         Rider.Income = await Get_NowRentAndTotalRevenue("#" +TokenID);
+                        Rider.isAvailableInGame = result.castings[0].isAvailableInGame;
                     }
                     else
                     {
@@ -154,6 +155,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                         Rider.Owned = string.Format("{0}...{1}", asset_contract_address.Substring(0, 5), asset_contract_address.Substring(asset_contract_address.Length - 4, 4));
                         /*Income*/
                         Rider.Income = new NowRentAndTotalRevenue();
+                        Rider.isAvailableInGame = false;
                     }
 
                     /*ImgPath*/
