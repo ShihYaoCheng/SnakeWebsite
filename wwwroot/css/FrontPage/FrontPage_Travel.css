@@ -1,3 +1,14 @@
 .Travel{
+    background-color: #253A4B;
+
+
+}
+
+.Travel_block{
+    border: 1px solid red;
     height: 500px;
+    padding: 200px 0;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
