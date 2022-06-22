@@ -1,14 +1,79 @@
-.Travel{
+.FrontPage_Travel{
     background-color: #253A4B;
-
-
 }
 
-.Travel_block{
+.Travel-block{
     border: 1px solid red;
-    height: 500px;
-    padding: 200px 0;
+    /* height: 500px; */
+    padding: 150px 0 150px;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+}
+
+/* 地區徽章 */
+.around_the_world{
+    border: 1px solid rgb(251, 183, 183);
+}
+
+.RegionalBadge-block{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 100px auto 65px;
+}
+.RegionalBadge-icon-block{
+    /* border: 1px solid red; */
+    position: relative;
+    margin: 16px;
+    max-width: 90px;
+    width: 20%;
+    cursor: pointer;
+}
+
+.RegionalBadge-icon{
+    width: 100%;
+    transition: all .1s ease-in;
+}
+
+.RegionalBadge-name{
+    position: absolute;
+    bottom: -45px;
+    transform: translateX(-50%);
+    left: 50%;
+    transition: all .1s ease-in-out;
+    opacity: 0;
+}
+.RegionalBadge-icon-block:hover .RegionalBadge-icon{
+    transform: scale(1.05);
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.7));
+}
+.RegionalBadge-icon-block:hover .RegionalBadge-name{
+    opacity: 1;
+    text-shadow: #cacaca 0px 0px 10px;
+}
+
+/* 世界地圖 */
+.TravelMap-block{
+    border: 1px solid yellow;
+}
+
+.TravelMap-round{
+    /* border: 1px solid rgb(255, 81, 0); */
+    max-width: 1000px;
+    width: 95%;
+    border-radius: 336.5px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.TravelMap-round img{
+    width: 100%;
+}
+
+.RegionalBadge-name{
+    color: var(--white);
+    font-size: 24px;
 }
