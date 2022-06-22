@@ -1,36 +1,77 @@
-﻿.Start { 
+﻿.Start {
     width: 100%;
-    height: 1024px;
+    height: 3300px; /*Container高度跟動畫高度*/
     padding-top: 47px;
+    overflow:hidden;
 }
-
+/*跟場景*/
 .Start-Container {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: url("../../images/FrontPage/Start/S3_SkyBox.webp");
-    background-repeat:round;
+    background-size:cover;
+    position:relative;
+}
+.airship {
+    width: 740px;
+    height: 533px;
+    position: absolute;
+    left: -5%;
+    top: 20%;
+    z-index: 3
 }
 
-.block {
+.StartQRcode {
+    width: 170px;
+    height: 516px;
+    background: url("../../images/FrontPage/Start/test123.png");
+    background-repeat: round;
+    position: absolute;
+    top: 30%;
+    right: 16.15%;
+    z-index: 3
+}
+
+.StartMount {
+    z-index: 1;
+    position: absolute;
+    bottom: -22%;
+    width: 125%;
+    height: 890px;
+    left: -5%;    
+}
+
+.StartCity {
+    z-index: 2;
+    position: absolute;
     width: 100%;
-    height: 1000px;
+    height: 890px;
+    bottom: -49%;
+  
 }
 
-.redBlock {
-    width: 0;
-    height: 200px;
-    background: red;
-    font-size: 100px;
-    color: white;
+.buttonCloud {
+    width: 100%;
+    height: 388px;
+    position: absolute;
+    z-index: 3;
+    bottom: -39%;
+    
+}
+/*不跟場景*/
+.StartLogo {
+    width: 100%;
+    height: 418px;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    transition: 1s;
-    margin: 0 auto;
+    position: absolute;
+    left: 0%;
+    top: 31%;
+    z-index: 3;
 }
 
-.redBlock.show {
-    opacity: 1;
-    width: 100%;
+.StartLogo img {
+    width: 747px;
+    height: 418px;
 }
