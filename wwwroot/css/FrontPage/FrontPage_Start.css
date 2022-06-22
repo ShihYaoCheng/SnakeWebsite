@@ -2,8 +2,9 @@
     width: 100%;
     height: 3300px; /*Container高度跟動畫高度*/
     padding-top: 47px;
+    overflow:hidden;
 }
-
+/*跟場景*/
 .Start-Container {
     width: 100%;
     height: 100vh;
@@ -15,21 +16,62 @@
     width: 740px;
     height: 533px;
     position: absolute;
-    left:-5%;
-    top:20%;
+    left: -5%;
+    top: 20%;
+    z-index: 3
 }
 
-.Start-logo {
+.StartQRcode {
+    width: 170px;
+    height: 516px;
+    background: url("../../images/FrontPage/Start/test123.png");
+    background-repeat: round;
+    position: absolute;
+    top: 30%;
+    right: 16.15%;
+    z-index: 3
+}
+
+.StartMount {
+    z-index: 1;
+    position: absolute;
+    bottom: -22%;
+    width: 125%;
+    height: 890px;
+    left: -5%;    
+}
+
+.StartCity {
+    z-index: 2;
+    position: absolute;
     width: 100%;
-    height: 418px; 
+    height: 890px;
+    bottom: -49%;
+  
+}
+
+.buttonCloud {
+    width: 100%;
+    height: 388px;
+    position: absolute;
+    z-index: 3;
+    bottom: -39%;
+    
+}
+/*不跟場景*/
+.StartLogo {
+    width: 100%;
+    height: 418px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     left: 0%;
-    top: 20%;
+    top: 31%;
+    z-index: 3;
 }
-.Start-logo img {
+
+.StartLogo img {
     width: 747px;
     height: 418px;
 }
