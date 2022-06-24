@@ -1,4 +1,6 @@
-﻿<head>
+﻿@inject IJSRuntime JS
+
+<head>
     <link href="/css/FrontPage/FrontPage_Earn.css" rel="stylesheet" /> 
 </head>
 
@@ -14,6 +16,9 @@
     </div> *@
     <div class="flagZone">
         <div class="bonusFlag">
+            <div class="jumpMomey">
+
+            </div>
         </div>
         <div class="FlagLine">
             <img class="FlagLine-1" src="/images/FrontPage/Earn/Line 75.png"/>
@@ -54,5 +59,13 @@
 
 </div>
 @code {
-
+    private IJSObjectReference? jumpMoneyJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            jumpMoneyJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/FrontPage/jumpMoney.js");
+            await jumpMoneyJS.InvokeVoidAsync("jumpMoney",10000,20000);
+        }
+    }
 }
