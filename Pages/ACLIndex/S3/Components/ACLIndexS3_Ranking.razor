@@ -1,7 +1,10 @@
 ﻿@using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Services.SnakeServerService
+@using SnakeAsianLeague.Data.Entity.View
 
 @inject AsiaLeaguePlaceService AsiaLeaguePlaceService
+@inject AsiaLeagueScheduleService AsiaLeagueScheduleService
+@inject GuildMemberService GuildMemberService
 
 <div id="Ranking" class="Ranking">     
     @*Banner*@
@@ -112,7 +115,7 @@
     </div>
 </div>
 @code {
-    public List<AsiaLeaguePlace> Places;
+
     public Boolean bannerToggle = true;
 
     public void changeBanner(Boolean value)
@@ -120,13 +123,7 @@
         bannerToggle = value;
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {   
-        if (firstRender){
-            Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesByIsGuildAndStation(AsiaLeagueSeasons.AsiaLeagueS3,false,1);
-            Console.WriteLine("test");
-        }        
-    }
+
 
     /*BannerOption*/
     public string[] squadOption = new string[]
@@ -169,12 +166,68 @@
         new string[]{ "第七名ID","第七名騎士"},
         new string[]{ "第八名ID","第八名騎士"},
     };
-   public string[][] topThree= new string[3][]
+    public string[][] topThree= new string[3][]
     {
         new string[]{ "第一名ID","第一名騎士"},
         new string[]{ "第二名ID","第二名騎士"},
         new string[]{ "第三名ID","第三名騎士"},
     };
+
+
+
+
+    RankView RankView;
+    Boolean RankOptionIsGuild;
+    int RankOptionStation;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {   
+        if (firstRender){
+            RankOptionIsGuild = false;
+            RankOptionStation = 1;
+            
+            await LoadRanks();
+        }        
+    }
+
+    protected async Task LoadRanks()
+    {
+        RankView = new RankView();
+
+        List<AsiaLeagueSchedule> Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
+        AsiaLeagueSchedule schedule = AsiaLeagueScheduleService.GetOneScheduleByIsGuildAndStation(RankOptionIsGuild,RankOptionStation);
+
+        RankView.IsGuild = RankOptionIsGuild;
+        RankView.Station = RankOptionStation;
+        RankView.Title = RankOptionIsGuild ? schedule.GuildSchedule : schedule.IndividualSchedule;
+        
+
+
+        List<AsiaLeaguePlace> Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesByIsGuildAndStation(AsiaLeagueSeasons.AsiaLeagueS3,RankOptionIsGuild,RankOptionStation);
+        List<AsiaLeaguePlaceView> PlacesViews = new List<AsiaLeaguePlaceView>();
+
+        foreach (AsiaLeaguePlace p in Places)
+        {
+            if (RankOptionIsGuild)
+            {
+                List<GuildMember> members = await GuildMemberService.GetGuildMembersByGuildId(p.WinnerId);
+                PlacesViews.Add(new AsiaLeaguePlaceView(p, members));
+            }
+            else
+            {
+                PlacesViews.Add(new AsiaLeaguePlaceView(p, null));
+            }
+
+
+
+        }
+        RankView.Places = PlacesViews;
+
+        RankView.MatchDate = schedule.Date;
+        RankView.QualifyingDates = AsiaLeagueScheduleService.GetQualifyingDates(RankOptionIsGuild, RankOptionStation);
+
+
+    }
 
 
 }

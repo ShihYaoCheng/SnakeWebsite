@@ -299,9 +299,7 @@
             int station = isGuild ? s.GuildStation : s.IndStation;
             if (station < 1) continue;
 
-            
-
-
+            rank.Station = station;
             rank.IsGuild = isGuild;
             rank.Type = isGuild ? s.GuildFinalType : s.IndFinalType;
             rank.Title = isGuild ? s.GuildSchedule : s.IndividualSchedule;
