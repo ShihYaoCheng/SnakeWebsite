@@ -1,11 +1,16 @@
 ﻿@inject IJSRuntime JS
 
+<head>
+        <link href="css/ACLIndex/S3/S3calendar.css" rel="stylesheet" />
+</head>
+
 <div class="Schedule">
-    <h2 id="Schedule" >- Schedule -</h2>
+    <h2 id="Schedule" class="Schedule-title" >- Schedule -</h2>
     <div class="Schedule-BG-Container">
         <img class="Schedule-Group" data-src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
         <div class="Schedule-BG">
-    
+               <div id='S3calendar'></div>
+    <!--
             <div class="Schedule-Carousel">        
                 <div class="owl-carousel owl-theme ACLS3ScheduleCarousel">
                     @{finalsNum=0;}
@@ -136,7 +141,7 @@
             
                
                 </div>
-            </div>
+            </div>-->
         </div>
         <img class="Schedule-Group-2" data-src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
     </div>
@@ -144,6 +149,21 @@
 
 
 @code {
+
+
+
+    private IJSObjectReference? S3CalendarJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {          
+            
+            S3CalendarJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/S3Calendar.js");
+            await S3CalendarJS.InvokeVoidAsync("S3Calendar");
+           
+        }
+    }
+
   @*  public int daySquare = 42;*@
     public int[][] daySquare = new int[][]
     {

@@ -1,0 +1,276 @@
+﻿/*...Notice...*/
+.Notice_TopTitle {
+    margin: 36px 0 53px 0;
+    font-family: Microsoft JhengHei;
+    font-size: 48px;
+    color: #fff;
+    text-align: center;
+}
+
+.Notice-Container {
+    width: 1272px;
+    height: 701px;
+    background: #fff;
+    border-radius: 27px;
+    padding: 10px 10px 10px 40px;
+    margin: 0 auto;
+    font-family: Microsoft JhengHei;
+}
+
+@media (max-width: 1500px) {
+    .Notice-Container {
+        width: 90%;
+    }
+}
+
+.Notice-content {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+    .Notice-content h2 {
+        /*font-size: 24px;
+color: #69ADA2;
+text-align: center ;
+font-family: Microsoft JhengHei;*/
+    }
+
+
+
+    .Notice-content::-webkit-scrollbar {
+        width: 20px !important;
+        background: #fff !important;
+        -webkit-box-shadow: none !important;
+        border: 0 !important;
+    }
+
+    .Notice-content::-webkit-scrollbar-thumb {
+        background: url("/images/AsiaChampionsLeague/S3/Notice/Notice_Bar.webp") !important;
+        background-repeat: round !important;
+        width: 15px !important;
+    }
+
+
+.notice_title {
+    font-size: 36px;
+    color: #648ea1 !important;
+    margin: 20px 0 10px !important;
+    text-align: center;
+    line-height: 36px;
+}
+
+
+.txt_title {
+    color: #648ea1 !important;
+    font-size: 24px;
+    margin: 40px 0 10px 0;
+}
+
+.event_note {
+    font-size: 14px;
+}
+
+.event_txt {
+    font-size: 24px;
+    margin: 20px 0 0px;
+    padding: 0 10px;
+    /* text-indent: -1em;  */
+    /* margin-left: 2em;   */
+}
+
+.title_border {
+    width: 90%;
+    border: 1px solid #dee3e6 !important;
+    height: 1px;
+}
+
+.event_txt02 {
+    font-size: 24px;
+    margin: 10px 0 0px;
+    padding: 0 15px 0 40px;
+    text-indent: -1em;
+    line-height: 33px;
+}
+
+
+.event_txt03 {
+    font-size: 18px;
+    padding: 0 30px;
+    margin-left: 2em;
+    text-indent: -1em;
+}
+
+.event_txt04 {
+    font-size: 18px;
+    padding: 0 30px;
+    margin-left: 3em;
+    text-indent: -1em;
+}
+
+.event_txt05 {
+    font-size: 18px;
+    padding: 0 30px;
+    margin-left: 4em;
+    text-indent: -1em;
+}
+
+
+@media (max-width: 1200px) {
+    .notice_title {
+        font-size: 28px;
+    }
+
+    .event_txt {
+        font-size: 24px;
+    }
+
+    .event_txt02 {
+        font-size: 22px;
+    }
+
+
+    .event_txt03 {
+        font-size: 22px;
+    }
+
+    .event_txt04 {
+        font-size: 22px;
+    }
+
+    .event_txt05 {
+        font-size: 22px;
+    }
+
+
+    .event_note {
+        font-size: 22px;
+        text-align: start;
+    }
+
+    .txt_title {
+        font-size: 24px;
+    }
+}
+
+@media all and (max-width: 800px) {
+    .notice_title {
+        font-size: 26px;
+    }
+
+    .notice {
+        padding: 30px 20px 30px 10px;
+    }
+
+    .event_note {
+        padding: 0 15px 0 15px;
+    }
+
+    .txt_title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .notice_title {
+        font-size: 14px;
+        margin: 10px 0 10px;
+    }
+
+    .event_txt {
+        font-size: 12px;
+        margin: 10px 0 0px;
+    }
+
+    .event_txt02 {
+        font-size: 14px;
+        margin: 5px 0 0px;
+    }
+
+    .txt_title {
+        font-size: 12px;
+    }
+
+    .event_txt04 {
+        font-size: 10px;
+    }
+
+    .event_txt05 {
+        font-size: 10px;
+    }
+
+    .event_txt03 {
+        font-size: 10px;
+    }
+
+    .event_note {
+        text-align: start;
+        padding: 0 10px 0 15px;
+        line-height: 23px;
+    }
+}
+
+@media (max-width: 400px) {
+}
+
+
+
+
+.Notice-Container .tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    .Notice-Container .tg td {
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+    }
+
+.Notice-Container table {
+    margin: 20px 0px 50px;
+    width: 50%;
+}
+
+.Notice-Container table, .Notice-Container tr, .Notice-Container th, .Notice-Container td {
+    border: 1px solid #d2e1e9;
+    text-align: center;
+    font-size: 28px;
+    padding: 2px 4px;
+}
+
+@media all and (max-width: 800px) {
+    .Notice-Container .tg td {
+        font-size: 16px;
+    }
+
+    .Notice-Container table, .Notice-Container tr, .Notice-Container th, .Notice-Container td {
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .Notice-Container .tg td {
+        font-size: 10px;
+    }
+
+    .Notice-Container table, .Notice-Container tr, .Notice-Container th, .Notice-Container td {
+        font-size: 10px;
+    }
+}
+
+.Notice-Container td {
+    width: 20%;
+}
+
+@media (max-width: 500px) {
+    .Notice-Container td {
+        font-size: 13px;
+    }
+}
