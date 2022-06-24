@@ -1,4 +1,8 @@
-﻿@inject IJSRuntime JS
+﻿@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Services.SnakeServerService
+
+@inject IJSRuntime JS
+@inject AsiaLeagueScheduleService AsiaLeagueScheduleService
 
 <head>
         <link href="css/ACLIndex/S3/S3calendar.css" rel="stylesheet" />
@@ -207,7 +211,14 @@
 
     public int nowDay;
 
-  
-   
+    List<AsiaLeagueSchedule> Schedules;
+
+   protected override async Task OnAfterRenderAsync(bool firstRender)
+    {   
+        if (firstRender){
+            Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
+            Console.WriteLine(Schedules.Count);
+        }        
+    }
 
 }

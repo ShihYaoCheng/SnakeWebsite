@@ -14,6 +14,11 @@ namespace SnakeAsianLeague.Data.Entity.View
         public Boolean IsGuild { get; set; }
 
         /// <summary>
+        /// 第幾站
+        /// </summary>
+        public int Station { get; set; }
+
+        /// <summary>
         /// 冠軍賽種類
         /// </summary>
         public int Type { get; set; }
