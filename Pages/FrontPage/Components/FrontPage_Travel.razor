@@ -11,69 +11,109 @@
     <div class="Travel-block">
         @* 主標題 *@
         <div class="FrontPage-Title" id="FrontPage-Title-02">
-            <img src="/images/FrontPage/FrontPage-Title-02.webp" alt="">
+            <img src="/images/FrontPage/FrontPage-Title-02.webp" alt="">      
         </div>
 
         @* 地區徽章 *@
         <div class="around_the_world">
             <div class="RegionalBadge-block">
                 <div class="RegionalBadge-icon-block">
-                    <img class="RegionalBadge-icon" id="RegionalBadge-01-Della"
-                        src="/images/FrontPage/Travel/RegionalBadge-01-Della.png" alt="">
+                    <img class="RegionalBadge-icon" id="RegionalBadge-01"
+                        src="/images/FrontPage/Travel/RegionalBadge-01.png" alt="">
                     <div class="RegionalBadge-name">Della</div>
                 </div>
                 <div class="RegionalBadge-icon-block">
-                    <img class="RegionalBadge-icon" id="RegionalBadge-02-Potronis"
-                        src="/images/FrontPage/Travel/RegionalBadge-02-Potronis.png" alt="">
+                    <img class="RegionalBadge-icon" id="RegionalBadge-02"
+                        src="/images/FrontPage/Travel/RegionalBadge-02.png" alt="">
                     <div class="RegionalBadge-name">Potronis</div>
                 </div>
                 <div class="RegionalBadge-icon-block">
-                    <img class="RegionalBadge-icon" id="RegionalBadge-03-Nord"
-                        src="/images/FrontPage/Travel/RegionalBadge-03-Nord.png" alt="">
+                    <img class="RegionalBadge-icon" id="RegionalBadge-03"
+                        src="/images/FrontPage/Travel/RegionalBadge-03.png" alt="">
                     <div class="RegionalBadge-name">Nord</div>
                 </div>
 
                 <div class="RegionalBadge-icon-block">
-                    <img class="RegionalBadge-icon" id="RegionalBadge-04-Chaoyang"
-                        src="/images/FrontPage/Travel/RegionalBadge-04-Chaoyang.png" alt="">
+                    <img class="RegionalBadge-icon" id="RegionalBadge-04"
+                        src="/images/FrontPage/Travel/RegionalBadge-04.png" alt="">
                     <div class="RegionalBadge-name">Chaoyang</div>
                 </div>
 
                 <div class="RegionalBadge-icon-block">
-                    <img class="RegionalBadge-icon" id="RegionalBadge-05-Faline"
-                        src="/images/FrontPage/Travel/RegionalBadge-05-Faline.png" alt="">
+                    <img class="RegionalBadge-icon" id="RegionalBadge-05"
+                        src="/images/FrontPage/Travel/RegionalBadge-05.png" alt="">
                     <div class="RegionalBadge-name">Faline</div>
                 </div>
                 <div class="RegionalBadge-icon-block">
 
-                    <img class="RegionalBadge-icon" id="RegionalBadge-06-Ruins"
-                        src="/images/FrontPage/Travel/RegionalBadge-06-Ruins.png" alt="">
+                    <img class="RegionalBadge-icon" id="RegionalBadge-06"
+                        src="/images/FrontPage/Travel/RegionalBadge-06.png" alt="">
                     <div class="RegionalBadge-name">Ruins</div>
                 </div>
             </div>
-        </div>
 
-        @* 世界地圖 *@
-        <div class="TravelMap-block">
-            <div class="TravelMap">
-                <div class="TravelMap-round">
-                    <img src="/images/FrontPage/Travel/TravelMap.webp" alt="">
-                </div>
+            @* 世界地圖 *@
+            <div class="TravelMap-block">
+                <div class="TravelMap TravelMap-01-Della">
+                    <div class="TravelMap-hidden">
+                        <div class="TravelMap-round">
+                            <img src="/images/FrontPage/Travel/TravelMap.webp" alt="">
+                        </div>
+                        
+                        @* 區域內容顯示 *@
+                        <div class="Area-display-block ">
+                            @* 探照鏡 *@
+                            <div class="TelescopicSight" id="TelescopicSight">
+                                <div class="TravelMap-circle">
+                                    <svg class="TravelMap-circle-line" xmlns="http://www.w3.org/2000/svg" width="285" height="285"
+                                        viewBox="0 0 285 285">
+                                        <g id="" data-name="" fill="none" stroke="#dcbd71" stroke-width="2.5">
+                                            <circle cx="142.5" cy="142.5" r="142.5" stroke="none" />
+                                            <circle cx="142.5" cy="142.5" r="141.25" fill="none" />
+                                        </g>
+                                    </svg>
+                                    <svg class="TravelMap-circle-ball TravelMap-circle-ball-show" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                        viewBox="0 0 35 35">
+                                        <circle id="" data-name="" cx="17.5" cy="17.5" r="17.5" fill="#dcbd71" />
+                                    </svg>
+                                </div>
+                                @* 地標 *@
+                                <div class="TravelMap-landmark">
+                                    <img  class="TravelMap-landmark-icon" src="/images/FrontPage/Travel/landmark-01.png" alt="">
+                                </div>
+                            </div>
 
-                @* 指針 *@
-                <div class="TravelMap-compass">
-                    <img id="compass_inside" src="/images/FrontPage/Travel/compass_inside.png" alt="">
-                    <img id="compass_outside" src="/images/FrontPage/Travel/compass_outside.png" alt="">
-                </div>
+                            @* 地域旗幟 *@
+                            <div class="RegionalFlag">
+                                @* <img src="/images/FrontPage/Travel/knight_icon_01.webp" alt=""> *@
+                                <img src="/images/FrontPage/Travel/knight_icon_01.png" alt="">
+                                <img src="/images/FrontPage/Travel/RegionalFlag-title-BG.png" alt="">
+                            </div>
+                            
+                            
+                        </div>
+                        
+                    </div>
 
-                @* 雲霧 *@
-                <div class="TravelMap-cloud">
-                    <img class="TravelMap-cloud-control" id="TravelMap-cloud-01" src="/images/FrontPage/Travel/TravelMap-cloud-01.webp" alt="">
-                    <img class="TravelMap-cloud-control" id="TravelMap-cloud-02" src="/images/FrontPage/Travel/TravelMap-cloud-01.webp" alt="">
-                    <img class="TravelMap-cloud-control" id="TravelMap-cloud-03" src="/images/FrontPage/Travel/TravelMap-cloud-02.webp" alt="">
+                    @* 指針 *@
+                    <div class="TravelMap-compass">
+                        <img id="compass_inside" src="/images/FrontPage/Travel/compass_inside.png" alt="">
+                        <img id="compass_outside" src="/images/FrontPage/Travel/compass_outside.png" alt="">
+                    </div>
+
+                    @* 雲霧 *@
+                    <div class="TravelMap-cloud">
+                        <img class="TravelMap-cloud-control" id="TravelMap-cloud-01" src="/images/FrontPage/Travel/TravelMap-cloud-01.png" alt="">
+                        <img class="TravelMap-cloud-control" id="TravelMap-cloud-02" src="/images/FrontPage/Travel/TravelMap-cloud-02.png" alt="">
+                        <img class="TravelMap-cloud-control" id="TravelMap-cloud-03" src="/images/FrontPage/Travel/TravelMap-cloud-03.png" alt="">
+                    </div>
+
+                    
                 </div>
             </div>
         </div>
+
+
 
 
     </div>
@@ -84,5 +124,14 @@
 
 
 @code {
+    private IJSObjectReference? ScrollMagicSetJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            ScrollMagicSetJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/FrontPage/TravelMap.js");
+            await ScrollMagicSetJS.InvokeVoidAsync("telescopicSightMove");
+        }
+    }
 
 }
