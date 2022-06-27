@@ -361,30 +361,30 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <returns></returns>
         private async Task<List<NFTRiderUnits>> GetNFTRiderUnits()
         {
-            var LoginRestRequest = new RestRequest($"NFT/Units");
-            LoginRestRequest.AddHeader("Authorization", Authenticate());
+            //var LoginRestRequest = new RestRequest($"NFT/Units");
+            //LoginRestRequest.AddHeader("Authorization", Authenticate());
 
-            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
-            if (restResponse.StatusCode == HttpStatusCode.OK)
-            {
-                List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
-                return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
-            }
-            return  new List<NFTRiderUnits>();
-
-
-            //string URL = @"http://104.199.196.10/api/user/NFT/Units";
-
-            //var mLoginRestRequest = new RestRequest(URL);
-            //mLoginRestRequest.AddHeader("Authorization", Authenticate());
-
-            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(mLoginRestRequest);
+            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
             //if (restResponse.StatusCode == HttpStatusCode.OK)
             //{
             //    List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
             //    return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
             //}
             //return  new List<NFTRiderUnits>();
+
+
+            string URL = @"https://dev.ponponsnake.com/api/user/NFT/Units";
+
+            var mLoginRestRequest = new RestRequest(URL);
+            mLoginRestRequest.AddHeader("Authorization", Authenticate());
+
+            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(mLoginRestRequest);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
+                return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
+            }
+            return new List<NFTRiderUnits>();
         }
 
 

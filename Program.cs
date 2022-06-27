@@ -52,6 +52,7 @@ builder.Services.AddSingleton<NFTService>();
 builder.Services.AddSingleton<OptionService>();
 builder.Services.AddSingleton<InventoryService>();
 builder.Services.AddSingleton<ProductsService>();
+builder.Services.AddSingleton<SnakeTableService>();
 
 
 builder.Services.Configure<ExternalServers>(builder.Configuration.GetSection("ExternalServers"));

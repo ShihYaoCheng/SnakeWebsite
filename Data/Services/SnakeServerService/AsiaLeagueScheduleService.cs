@@ -21,47 +21,84 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
         private readonly RestRequest ApiGetS2Schedule = new RestRequest("Table/Unity/AsiaLeagueS2Schedule", Method.GET);
         private readonly RestRequest ApiGetS3Schedule = new RestRequest("Table/Unity/AsiaLeagueS3Schedule", Method.GET);
 
+        private SnakeTableService snakeTableService;
+
         public AsiaLeagueScheduleService(IOptions<ExternalServers> myConfiguration)
         {
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.TableServer);
-            //restRequest = new RestRequest($"Table/Unity/AsiaLeagueS1Schedule");
+
+            snakeTableService = new SnakeTableService(myConfiguration);
+
 
         }
 
         public async Task<List<AsiaLeagueSchedule>> GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons season) 
         {
-            var request = new RestRequest();
-            switch (season) 
+            //var request = new RestRequest();
+            //switch (season) 
+            //{
+            //    case AsiaLeagueSeasons.AsiaLeagueS1:
+            //        request = new RestRequest(ApiGetS1Schedule.Resource, ApiGetS1Schedule.Method);
+            //        break;
+
+            //    case AsiaLeagueSeasons.Xmas2021:
+            //        request = new RestRequest(ApiGetS2Schedule.Resource, ApiGetS2Schedule.Method);
+            //        break;
+
+            //    case AsiaLeagueSeasons.NewYear2021:
+            //        request = new RestRequest(ApiGetS3Schedule.Resource, ApiGetS3Schedule.Method);
+            //        break;
+            //    default:
+            //        return null;
+            //}
+
+            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
+
+            //if (restResponse.StatusCode == HttpStatusCode.OK)
+            //{
+            //    var jsonResult = JsonConvert.DeserializeObject(restResponse.Content).ToString();
+            //    Schedules = JsonConvert.DeserializeObject<List<AsiaLeagueSchedule>>(jsonResult);
+            //}
+
+            //return Schedules;
+
+            string sheetName;
+            switch (season)
             {
                 case AsiaLeagueSeasons.AsiaLeagueS1:
-                    request = new RestRequest(ApiGetS1Schedule.Resource, ApiGetS1Schedule.Method);
+                    sheetName = "AsiaLeagueS1Schedule";
                     break;
 
                 case AsiaLeagueSeasons.Xmas2021:
-                    request = new RestRequest(ApiGetS2Schedule.Resource, ApiGetS2Schedule.Method);
+                    sheetName = "AsiaLeagueS2Schedule";
                     break;
 
                 case AsiaLeagueSeasons.NewYear2021:
-                    request = new RestRequest(ApiGetS3Schedule.Resource, ApiGetS3Schedule.Method);
+                    sheetName = "AsiaLeagueS3Schedule";
+                    break;
+                case AsiaLeagueSeasons.AsiaLeagueS3:
+                    sheetName = "AsiaLeagueS7Schedule";
                     break;
                 default:
                     return null;
             }
 
-            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
-
-            if (restResponse.StatusCode == HttpStatusCode.OK)
+            ServerResponce resp = await snakeTableService.GetSheetFromTableServerAsync(sheetName);
+            if (resp.Success)
             {
-
-
-                //1.12.1.1
-                var jsonResult = JsonConvert.DeserializeObject(restResponse.Content).ToString();
+                var jsonResult = JsonConvert.DeserializeObject(resp.Content).ToString();
                 Schedules = JsonConvert.DeserializeObject<List<AsiaLeagueSchedule>>(jsonResult);
+                return Schedules;
+            }
+            else
+            {
+                return null;
             }
 
-            return Schedules;
+
         }
+
 
         public AsiaLeagueSchedule GetOneSchedulesByDate(DateTime queryDate) 
         {

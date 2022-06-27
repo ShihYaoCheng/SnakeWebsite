@@ -69,6 +69,7 @@
             await JS.InvokeVoidAsync("installI18n");
             lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
             await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+     
            
         }
     }

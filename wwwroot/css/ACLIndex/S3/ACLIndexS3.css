@@ -1928,28 +1928,32 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
 
     /*...Schedule...*/
-    .Schedule {
-        background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_bottom.webp");
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
-        height: 1550px;
-    }
+.Schedule a {
+    color:black;
+}
+
+.Schedule {
+    background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_bottom.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 1550px;
+}
 
     @media (max-width: 576px) {
         .Schedule {
-            height: 1200px;
+            height: 1300px;
         }
     }
 
-    .Schedule h2 {
-        margin: 0 auto 87px auto;
-        padding-top: 200px;
-        font-size: 48px;
-        color: #203240;
-        text-align: center;
-        font-family: Microsoft JhengHei;
-    }
+.Schedule-title {
+    margin: 0 auto 87px auto;
+    padding-top: 200px;
+    font-size: 48px;
+    color: #203240;
+    text-align: center;
+    font-family: Microsoft JhengHei;
+}
 
     .Schedule-BG-Container {
         margin: 0 auto;
@@ -1957,18 +1961,204 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         justify-content: center;
     }
 
-    .Schedule-BG {
-        width: 773px;
-        height: 840px;
-        background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_ Calender  base.webp");
-        background-repeat: round;
+.Schedule-BG {
+    width: 773px;
+    height: 840px;
+    background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_ Calender  base.webp");
+    background-repeat: round;
+    padding-top: 30px;
+    font-family: Microsoft JhengHei !important;
+}
+
+
+    /*....行事曆套件..........*/
+    /*總高度  外層，內層*/
+    .fc fc-media-screen {
+        height: 756px !important;
     }
 
-    .Schedule-Group {
-        width: 213px;
-        height: 211px;
-        margin-right: 10px;
+    .fc-scrollgrid-sync-table {
+        height: 653px !important;
     }
+
+    @media (max-width: 768px) {
+        .fc fc-media-screen {
+            height: 650px !important;
+        }
+
+        .fc-scrollgrid-sync-table {
+            height: 460px !important;
+        }
+    }
+    /*標題 點選按鈕*/
+    .fc-toolbar-chunk div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #203240;
+    }
+
+    
+    .fc-button-primary {
+        width: 16px !important;
+        height: 19px !important;
+        background: url('../../../images/AsiaChampionsLeague/S3/Calender/Calender_ Month button icon.webp');
+        background-repeat: round;
+        margin: 0 30px !important;
+    }
+@media (max-width: 576px) {
+    .fc-button-primary {
+        width: 12px !important;
+        height: 15px !important;
+
+    }
+    .fc-toolbar-title {
+        font-size:1.2em !important;
+    }
+}
+    .fc-prev-button {
+        transform: rotate(180deg);
+    }
+@media (max-width: 576px) {
+    .fc-toolbar.fc-header-toolbar {
+        margin-bottom: 0 !important;
+    }
+}
+    /*星期*/
+
+    .fc-col-header-cell-cushion {
+        color: #898989 !important;
+        font-size: 20.16px !important;
+        font-family: Microsoft JhengHei !important;
+        text-align: center;
+        font-weight: 300;
+    }
+@media (max-width: 576px) {
+    .fc-col-header-cell-cushion { 
+        font-size: 16.16px !important;
+
+    }
+}
+
+    .fc-day-sun .fc-col-header-cell-cushion {
+        color: red !important;
+    }
+
+    /*今天*/
+    .fc .fc-daygrid-day.fc-day-today {
+        background-color: #fff !important;
+    }
+    /**/
+    .fc .fc-button-primary, .fc .fc-button-primary:hover {
+        color: #fff !important;
+        background-color: #fff !important;
+        border: 0 !important;
+    }
+
+        .fc .fc-button-primary span {
+            display: none !important;
+        }
+
+    .fc-theme-standard .fc-scrollgrid {
+        border: 0 !important;
+    }
+
+    .fc-theme-standard th {
+        border: 0 !important;
+    }
+
+    /* 每一格的間距 */
+    .fc-theme-standard td {
+        border: 0 !important;
+        padding: 0 10px 10px 0 !important;
+    }
+
+        .fc-theme-standard td:first-child {
+            padding-left: 10px !important;
+        }
+
+    @media (max-width: 576px) {
+        .fc-theme-standard td:first-child {
+            padding-left: 2px !important;
+        }
+
+        .fc-theme-standard td:last-child {
+            padding-left: 0px !important;
+        }
+    }
+
+    .fc .fc-daygrid-day-frame {
+        background: #E6E6E6;
+        color: #898989;
+    }
+
+    /*時間*/
+    .fc-event-time {
+        display: none;
+    }
+    /* 日期 */
+    .fc-daygrid-day-top {
+        flex-direction: row !important;
+        position: absolute;
+        bottom: 0%;
+        padding: 2px 10px 0px 10px;
+        color: #898989;
+        font-size: 16px;
+    }
+
+    /*事件背景透明拿掉*/
+    .fc-bg-event {
+        opacity: 1 !important;
+        background-image: url("../../../images/AsiaChampionsLeague/S3/Calender/Calender_ Final Icon.webp") !important;
+        background-repeat: round !important;
+        background-size: cover !important;
+    }
+        /*決賽格子*/
+        .fc-bg-event .fc-event-title {
+            color: #000 !important;
+            font-size: 20px !important;
+            text-align: center !important;
+            line-height: normal !important;
+            font-style: normal !important;
+        }
+
+    @media (max-width: 768px) {
+        .fc-bg-event .fc-event-title {
+            font-size: 13px !important;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .fc-bg-event .fc-event-title {
+            font-size: 10px !important;
+            line-height: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            box-sizing: border-box;
+        }
+
+        .fc-scroller-liquid-absolute {
+            left: 3% !important;
+        }
+    }
+
+    /*hover提升*/
+.fc-daygrid-bg-harness {
+    z-index:100
+}
+
+.FinalTime:hover .finals-Data-Pop {
+    display:block
+}
+/*....行事曆套件End..........*/
+.Schedule-Group {
+    width: 213px;
+    height: 211px;
+    margin-right: 10px;
+}
 
     .Schedule-Group-2 {
         width: 213px;
@@ -2010,8 +2200,8 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 
     @media (max-width: 768px) {
         .Schedule-BG {
-            width: 500px;
-            height: 600px;
+            width: 550px;
+            height: 650px;
         }
 
         .ACLS3ScheduleCarousel {
@@ -2028,7 +2218,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     @media (max-width: 576px) {
         .Schedule-BG {
             width: 350px;
-            height: 450px;
+            height: 600px;
         }
 
         .ACLS3ScheduleCarousel {
@@ -2141,12 +2331,12 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         font-family: Arial;
     }
 
-.finals-DaySquare-Title {
-    font-size: 15px;
-    text-align: center;
-    float: left;
-    line-height: normal;    
-}
+    .finals-DaySquare-Title {
+        font-size: 15px;
+        text-align: center;
+        float: left;
+        line-height: normal;
+    }
 
     @media (max-width: 768px) {
         .DaySquare {
@@ -2195,19 +2385,19 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         background: #E6E6E6;
     }
 
-.DaySquareFinalsDate {
-    background: #C7B69A;
-    background-image: url("../../../images/AsiaChampionsLeague/S3/Calender/Calender_ Final Icon.webp");
-    background-repeat: round;
-    position: relative;
+    .DaySquareFinalsDate {
+        background: #C7B69A;
+        background-image: url("../../../images/AsiaChampionsLeague/S3/Calender/Calender_ Final Icon.webp");
+        background-repeat: round;
+        position: relative;
+    }
 
-}
-.DaySquareFinalsDate:hover .finals-Data-Pop {
-    display:block;
-}
+        .DaySquareFinalsDate:hover .finals-Data-Pop {
+            display: block;
+        }
 
 
-.DaySquare:last-child {
+    .DaySquare:last-child {
         margin-right: 0px;
     }
 
@@ -2220,68 +2410,72 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     z-index: 100;
     padding: 20px 40px 0px 20px;
     display: none;
+
 }
 
-.PopL {
-    background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_Notice_clickBG.webp");
-    background-repeat: round;
-    left: 50%
-}
-.PopR {
-    background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_Notice_clickBG-1.webp");
-    background-repeat: round;
-    right: 50%
-}
-
-
-
-
-.finals-Data-Pop-title {
-    color: #465461;
-    font-size: 24px;
-    width: 100%;
-    border-bottom: 1px solid #cacaca;
-    
-    padding-bottom: 10px;
-    font-family: "Microsoft JhengHei";
-    text-align: center;
-  
-}
-.finals-Data-Popt-Time {
-    padding: 20px 20px 0px 20px;
-}
-.finals-Data-Popt-Time p {
-    width: 100%;
-    margin-bottom:10px;
-    
-}
-
-@media (max-width: 576px) {
-    .finals-Data-Pop {
-        width: 233px;
-        height: 153px;
+    .PopL {
+        background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_Notice_clickBG.webp");
+        background-repeat: round;
+        left: 50%
     }
+
+    .PopR {
+        background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_Notice_clickBG-1.webp");
+        background-repeat: round;
+        right: 79%
+    }
+
+
+
+
     .finals-Data-Pop-title {
-        font-size:14px;
+        color: #465461;
+        font-size: 24px;
+        width: 100%;
+        border-bottom: 1px solid #cacaca;
+        padding-bottom: 10px;
+        font-family: "Microsoft JhengHei";
+        text-align: center;
     }
-    .finals-Data-Popt-Time p {
-        font-size: 10px
+
+    .finals-Data-Popt-Time {
+        padding: 20px 20px 0px 20px;
     }
+
+        .finals-Data-Popt-Time p {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+    @media (max-width: 576px) {
+        .finals-Data-Pop {
+            width: 233px;
+            height: 153px;
+        }
+
+        .finals-Data-Pop-title {
+            font-size: 14px;
+        }
+
+        .finals-Data-Popt-Time p {
+            font-size: 10px
+        }
     }
-.ScheduleBannerBlock {
-    position: absolute;
-    color: #fff;
-    font-family: Microsoft JhengHei;
-    height: 30px;
-    text-align: center;
-    font-size: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    box-sizing: border-box;
-}
+
+    .ScheduleBannerBlock {
+        position: absolute;
+        color: #fff;
+        font-family: Microsoft JhengHei;
+        height: 30px;
+        text-align: center;
+        font-size: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        box-sizing: border-box;
+    }
 
     .soloBannerBlock {
         background: #6CB9E4;
@@ -2655,282 +2849,7 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
         }
     }
 
-    /*...Notice...*/
-    .Notice_TopTitle {
-        margin: 36px 0 53px 0;
-        font-family: Microsoft JhengHei;
-        font-size: 48px;
-        color: #fff;
-        text-align: center;
-    }
 
-    .Notice-Container {
-        width: 1272px;
-        height: 701px;
-        background: #fff;
-        border-radius: 27px;
-        padding: 10px 10px 10px 40px;
-        margin: 0 auto;
-        font-family: Microsoft JhengHei;
-    }
-
-    @media (max-width: 1500px) {
-        .Notice-Container {
-            width: 90%;
-        }
-    }
-
-    .Notice-content {
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-        .Notice-content h2 {
-            /*font-size: 24px;
-color: #69ADA2;
-text-align: center ;
-font-family: Microsoft JhengHei;*/
-        }
-
-
-
-        .Notice-content::-webkit-scrollbar {
-            width: 20px !important;
-            background: #fff !important;
-            -webkit-box-shadow: none !important;
-            border: 0 !important;
-        }
-
-        .Notice-content::-webkit-scrollbar-thumb {
-            background: url("/images/AsiaChampionsLeague/S3/Notice/Notice_Bar.webp") !important;
-            background-repeat: round !important;
-            width: 15px !important;
-        }
-
-
-    .notice_title {
-        font-size: 36px;
-        color: #648ea1 !important;
-        margin: 20px 0 10px !important;
-        text-align: center;
-        line-height: 36px;
-    }
-
-
-    .txt_title {
-        color: #648ea1 !important;
-        font-size: 24px;
-        margin: 40px 0 10px 0;
-    }
-
-    .event_note {
-        font-size: 14px;
-    }
-
-    .event_txt {
-        font-size: 24px;
-        margin: 20px 0 0px;
-        padding: 0 10px;
-        /* text-indent: -1em;  */
-        /* margin-left: 2em;   */
-    }
-
-    .title_border {
-        width: 90%;
-        border: 1px solid #dee3e6 !important;
-        height: 1px;
-    }
-
-    .event_txt02 {
-        font-size: 24px;
-        margin: 10px 0 0px;
-        padding: 0 15px 0 40px;
-        text-indent: -1em;
-        line-height: 33px;
-    }
-
-
-    .event_txt03 {
-        font-size: 18px;
-        padding: 0 30px;
-        margin-left: 2em;
-        text-indent: -1em;
-    }
-
-    .event_txt04 {
-        font-size: 18px;
-        padding: 0 30px;
-        margin-left: 3em;
-        text-indent: -1em;
-    }
-
-    .event_txt05 {
-        font-size: 18px;
-        padding: 0 30px;
-        margin-left: 4em;
-        text-indent: -1em;
-    }
-
-
-    @media (max-width: 1200px) {
-        .notice_title {
-            font-size: 28px;
-        }
-
-        .event_txt {
-            font-size: 24px;
-        }
-
-        .event_txt02 {
-            font-size: 22px;
-        }
-
-
-        .event_txt03 {
-            font-size: 22px;
-        }
-
-        .event_txt04 {
-            font-size: 22px;
-        }
-
-        .event_txt05 {
-            font-size: 22px;
-        }
-
-
-        .event_note {
-            font-size: 22px;
-            text-align: start;
-        }
-
-        .txt_title {
-            font-size: 24px;
-        }
-    }
-
-    @media all and (max-width: 800px) {
-        .notice_title {
-            font-size: 26px;
-        }
-
-        .notice {
-            padding: 30px 20px 30px 10px;
-        }
-
-        .event_note {
-            padding: 0 15px 0 15px;
-        }
-
-        .txt_title {
-            font-size: 20px;
-        }
-    }
-
-    @media (max-width: 600px) {
-        .notice_title {
-            font-size: 14px;
-            margin: 10px 0 10px;
-        }
-
-        .event_txt {
-            font-size: 12px;
-            margin: 10px 0 0px;
-        }
-
-        .event_txt02 {
-            font-size: 14px;
-            margin: 5px 0 0px;
-        }
-
-        .txt_title {
-            font-size: 12px;
-        }
-
-        .event_txt04 {
-            font-size: 10px;
-        }
-
-        .event_txt05 {
-            font-size: 10px;
-        }
-
-        .event_txt03 {
-            font-size: 10px;
-        }
-
-        .event_note {
-            text-align: start;
-            padding: 0 10px 0 15px;
-            line-height: 23px;
-        }
-    }
-
-    @media (max-width: 400px) {
-    }
-
-
-
-
-    .tg {
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
-
-        .tg td {
-            border-style: solid;
-            border-width: 1px;
-            font-family: Arial, sans-serif;
-            font-size: 24px;
-            overflow: hidden;
-            padding: 10px 5px;
-            word-break: normal;
-        }
-
-    table {
-        margin: 20px 0px 50px;
-        width: 50%;
-    }
-
-    table, tr, th, td {
-        border: 1px solid #d2e1e9;
-        text-align: center;
-        font-size: 28px;
-        padding: 2px 4px;
-    }
-
-    @media all and (max-width: 800px) {
-        .tg td {
-            font-size: 16px;
-        }
-
-        table, tr, th, td {
-            font-size: 18px;
-        }
-    }
-
-    @media all and (max-width: 576px) {
-        .tg td {
-            font-size: 10px;
-        }
-
-        table, tr, th, td {
-            font-size: 10px;
-        }
-    }
-
-    td {
-        width: 20%;
-    }
-
-    @media (max-width: 500px) {
-        td {
-            font-size: 13px;
-        }
-    }
 
     /*...Footer...*/
 
