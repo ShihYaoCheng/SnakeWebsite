@@ -129,4 +129,7 @@
         })
     }
 
+    $('.fc-prev-button').on('click', hoverDiv)
+    $('.fc-next-button').on('click', hoverDiv)
+
 }

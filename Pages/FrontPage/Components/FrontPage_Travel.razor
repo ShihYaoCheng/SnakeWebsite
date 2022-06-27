@@ -124,13 +124,13 @@
 
 
 @code {
-    private IJSObjectReference? ScrollMagicSetJS;
+    private IJSObjectReference? telescopicSightMoveJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            ScrollMagicSetJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/FrontPage/TravelMap.js");
-            await ScrollMagicSetJS.InvokeVoidAsync("telescopicSightMove");
+            telescopicSightMoveJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/FrontPage/TravelMap.js");
+            await telescopicSightMoveJS.InvokeVoidAsync("telescopicSightMove");
         }
     }
 
