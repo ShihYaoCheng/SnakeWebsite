@@ -157,16 +157,7 @@
 
 
     private IJSObjectReference? S3CalendarJS;
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {          
-            
-            S3CalendarJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/S3Calendar.js");
-            await S3CalendarJS.InvokeVoidAsync("S3Calendar");
-           
-        }
-    }
+
 
   @*  public int daySquare = 42;*@
     public int[][] daySquare = new int[][]
@@ -217,7 +208,11 @@
     {   
         if (firstRender){
             Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
-            Console.WriteLine(Schedules.Count);
+            Console.WriteLine(Schedules);
+
+            S3CalendarJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/S3Calendar.js");
+            await S3CalendarJS.InvokeVoidAsync("S3Calendar",Schedules);
+        
         }        
     }
 
