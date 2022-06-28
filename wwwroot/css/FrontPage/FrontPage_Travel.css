@@ -413,12 +413,12 @@
     transform: translate(-50%,-50%);
     left: 50%;
     top: 50%;
-    
+    width: 110px;
     overflow: hidden;
 }
 
 .TravelMap-landmark-icon{
-
+    width: 100%;
     opacity: 0;
     z-index: -1;
 
