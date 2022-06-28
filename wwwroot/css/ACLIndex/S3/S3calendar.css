@@ -318,13 +318,20 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     right: 0;
     left: 0;
     bottom: 0;
+    overflow: unset !important;
   }
 .fc .fc-scroller-harness {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     direction: ltr;
       /* hack for chrome computing the scroller's right/left wrong for rtl. undone below... */
       /* TODO: demonstrate in codepen */
+  }
+  .fc .fc-button-primary:focus{
+    box-shadow:none !important;
+  }
+  .fc .fc-button:focus{
+    box-shadow:none !important;
   }
 .fc .fc-scroller-harness-liquid {
     height: 100%;
