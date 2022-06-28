@@ -2149,9 +2149,11 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 .fc-daygrid-bg-harness {
     z-index:100
 }
-
+/*.fc-daygrid-day {
+    position:relative;
+}*/
 .FinalTime:hover .finals-Data-Pop {
-    display:block
+    display: block
 }
 /*....行事曆套件End..........*/
 .Schedule-Group {

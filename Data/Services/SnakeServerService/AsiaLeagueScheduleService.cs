@@ -90,6 +90,7 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
                 var jsonResult = JsonConvert.DeserializeObject(resp.Content).ToString();
                 Schedules = JsonConvert.DeserializeObject<List<AsiaLeagueSchedule>>(jsonResult);
                 return Schedules;
+                
             }
             else
             {

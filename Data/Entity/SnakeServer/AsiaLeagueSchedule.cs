@@ -77,5 +77,12 @@ namespace SnakeAsianLeague.Data.Entity.SnakeServer
         public string GuildFinalFirstPlaceTime { get; set; }
 
         // 2021-8-13新增
+
+        //2022-06-28 S7 更改為統一時間欄位
+        ///<summary> 個人決賽時間 </summary>
+        public string IndFinalTime { get; set; }
+
+        ///<summary> 團體決賽時間 </summary>
+        public string GuildFinalTime { get; set; }
     }
 }
