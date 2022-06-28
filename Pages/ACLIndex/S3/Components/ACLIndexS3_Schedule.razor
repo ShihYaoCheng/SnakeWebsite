@@ -154,9 +154,9 @@
 </div>
 
 
+
 @code {
-
-
+    private bool pop;
 
     private IJSObjectReference? S3CalendarJS;
 
@@ -205,7 +205,7 @@
     public int nowDay;
 
     List<AsiaLeagueSchedule> Schedules;
-
+    
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if (firstRender){
