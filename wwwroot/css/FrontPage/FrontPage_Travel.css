@@ -435,13 +435,86 @@
 }
 
 /* 地域旗幟 */
-.RegionalFlag{
-    border: 1px solid red;
+.RegionalFlag-block{
+    /* border: 1px solid red; */
     position: absolute;
-    display: none;
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+
+}
+.RegionalFlag{
+    /* border: 1px solid red; */
+    z-index: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.RegionalFlag-BG{
+    border: 1px solid rgb(187, 255, 0);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.71);
+    filter: blur(10px);
+    z-index: -1;
+}
+.RegionalFlag::before{
+    content: "";
+    background-image: url(/images/FrontPage/Travel/flagpole.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 110%;
+    height: 15px;
+    z-index: 1;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.RegionalFlag::after{
+    content: "";
+    background-image: url(/images/FrontPage/Travel/flagpole.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 110%;
+    height: 15px;
+    z-index: 1;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* 旗幟 */
+.RegionalFlag-icon{
+    width: 90%;
+    z-index: 10;
+    margin: 10px 0px;
+    /* position: absolute; */
+}
+.RegionalFlag-name{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url(/images/FrontPage/Travel/RegionalFlag-title-BG.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70px; */
+    margin-top: 10px;
+}
+.RegionalFlag-name p{
+    position: absolute;
+    color: #FFF7D7;
+    font-size: 24px;
 }
 
-.TravelMap-01-Della .RegionalFlag{
-    top: 20%;
+
+.TravelMap-01-Della .RegionalFlag-block{
+    top: 25%;
     left: 15%;
 }

@@ -121,8 +121,4 @@
           
         })
     }
-    /* 
-    function hoverDivtest(var objdata) {
-
 }
-*/
