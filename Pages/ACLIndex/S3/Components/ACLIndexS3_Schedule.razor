@@ -1,5 +1,7 @@
-﻿@using SnakeAsianLeague.Data.Entity.SnakeServer
+﻿
+@using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Services.SnakeServerService
+@using System.Text.Json
 
 @inject IJSRuntime JS
 @inject AsiaLeagueScheduleService AsiaLeagueScheduleService
@@ -204,16 +206,79 @@
 
     List<AsiaLeagueSchedule> Schedules;
 
-   protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if (firstRender){
-            Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
-            Console.WriteLine(Schedules);
+       
+                List<AsiaLeagueSchedule> objList = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
 
+            Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
+           @*Console.WriteLine(objList);
+
+            List<EventObject> mobjList = new List<EventObject>();
+
+
+            var GroupList  = objList.Where(m=>m.GuildStation != -1).GroupBy(m => m.GuildStation).ToList();
+
+            var mGroupList  = objList.Where(m=>m.IndStation != -1 ).GroupBy(m => m.IndStation).ToList();
+
+
+            foreach (var item in GroupList)
+            {
+                EventObject obj = new EventObject();
+                obj.title = item.First().GuildSchedule +"~" +item.Last().GuildSchedule;
+                obj.start = item.First().Date.ToString();
+                obj.end = item.Last().Date.ToString();
+                mobjList.Add(obj);
+            }
+            
+           
+            
+
+            string jsonString = JsonSerializer.Serialize(mobjList);    *@
+            Console.Write(Schedules);
             S3CalendarJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/S3Calendar.js");
-            await S3CalendarJS.InvokeVoidAsync("S3Calendar",Schedules);
-        
+            await S3CalendarJS.InvokeVoidAsync("S3Calendar",Schedules);        
+           
+
         }        
     }
 
+    @*
+    public class WeatherForecast
+    {
+        public DateTimeOffset Date { get; set; }
+        public int TemperatureCelsius { get; set; }
+        public string? Summary { get; set; }
+    }
+
+    public class EventObject
+    {
+         public string id	             { get; set; }
+        public string groupId	         { get; set; }
+        public string allDay	         { get; set; }
+        public string start	             { get; set; }
+        public string end	             { get; set; }
+        public string startStr	         { get; set; }
+        public string endStr	         { get; set; }
+        public string title	             { get; set; }
+        public string url	             { get; set; }
+        public string classNames	     { get; set; }
+        public string editable	         { get; set; }
+        public string startEditable	     { get; set; }
+        public string durationEditable	 { get; set; }
+        public string resourceEditable	 { get; set; }
+        public string display	         { get; set; }
+        public string overlap	         { get; set; }
+        public string constraint	     { get; set; }
+        public string backgroundColor	 { get; set; }
+        public string borderColor	     { get; set; }
+        public string textColor	         { get; set; }
+        public string extendedProps	     { get; set; }
+        public string source	         { get; set; }
+    }
+    *@
+
+
+  
 }
