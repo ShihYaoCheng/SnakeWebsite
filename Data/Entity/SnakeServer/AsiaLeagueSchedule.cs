@@ -17,10 +17,10 @@ namespace SnakeAsianLeague.Data.Entity.SnakeServer
         public DateTime Date { get; set; }
 
         ///<summary> 個人賽賽程文字 </summary>
-        public string IndividualSchedule { get; set; }
+        public string? IndividualSchedule { get; set; }
 
         ///<summary> 團體賽賽程文字 </summary>
-        public string GuildSchedule { get; set; }
+        public string? GuildSchedule { get; set; }
 
         // 2021-8-13新增
         ///<summary> 個人賽站數 </summary>
@@ -53,36 +53,36 @@ namespace SnakeAsianLeague.Data.Entity.SnakeServer
 
         // 2021-8-13新增 
         ///<summary> 個人決賽，由資格賽第一名打第四名的時間 </summary>
-        public string IndFinal1V4Time { get; set; }
+        public string? IndFinal1V4Time { get; set; }
 
         ///<summary> 個人決賽，由資格賽第二名打第三名的時間 </summary>
-        public string IndFinal2V3Time { get; set; }
+        public string? IndFinal2V3Time { get; set; }
 
         ///<summary> 個人決賽的季軍賽時間 </summary>
-        public string IndFinalThirdPlaceTime { get; set; }
+        public string? IndFinalThirdPlaceTime { get; set; }
 
         ///<summary> 個人決賽的冠軍賽時間 </summary>
-        public string IndFinalFirstPlaceTime { get; set; }
+        public string? IndFinalFirstPlaceTime { get; set; }
 
         ///<summary> 團體決賽，由資格賽第一名打第四名的時間 </summary>
-        public string GuildFinal1V4Time { get; set; }
+        public string? GuildFinal1V4Time { get; set; }
 
         ///<summary> 團體決賽，由資格賽第二名打第三名的時間 </summary>
-        public string GuildFinal2V3Time { get; set; }
+        public string? GuildFinal2V3Time { get; set; }
 
         ///<summary> 團體決賽的季軍賽時間 </summary>
-        public string GuildFinalThirdPlaceTime { get; set; }
+        public string? GuildFinalThirdPlaceTime { get; set; }
 
         ///<summary> 團體決賽的冠軍賽時間 </summary>
-        public string GuildFinalFirstPlaceTime { get; set; }
+        public string? GuildFinalFirstPlaceTime { get; set; }
 
         // 2021-8-13新增
 
         //2022-06-28 S7 更改為統一時間欄位
         ///<summary> 個人決賽時間 </summary>
-        public string IndFinalTime { get; set; }
+        public string? IndFinalTime { get; set; }
 
         ///<summary> 團體決賽時間 </summary>
-        public string GuildFinalTime { get; set; }
+        public string? GuildFinalTime { get; set; }
     }
 }
