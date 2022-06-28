@@ -1,6 +1,8 @@
 ﻿export function S3Calendar(SchedulesData) {
     //整理資料
     console.log(SchedulesData)
+    if (SchedulesData == null) return
+    console.log(SchedulesData)
     var eventsData = []
     var GuildData = []
     var FinalTime= [] 
@@ -32,20 +34,7 @@
                         className: 'FinalTime',
                         GuildFinalTime: e.GuildFinalTime,
                         id: GuildData.length,
-                        innerHTML: `
-
-                        <div class="fc-event-title"> ${e.guildSchedule} </div>
-
-                        <div class="finals-Data-Pop PopR">
-
-                            <p class="finals-Data-Pop-title"> ${e.guildSchedule} </p>
-                            <div class="finals-Data-Popt-Time">
-                                <p> Starting Time：</p>
-                                <p>${e.guildSchedule} </p>
-                            </div>
-
-                        </div>
-                        `
+                       
 
                     }
                 )
@@ -98,12 +87,16 @@
             center: 'prev,title,next',
             right:''
         },    
-        events: eventsData
+        events: eventsData,
+        eventDidMount: function (info) {
+           // hoverDivtest(info);
+        }
     });
+   
    
     calendar.render();
     console.log(calendar.title)
-    hoverDiv()
+   // hoverDiv()
 
     function hoverDiv() {
         console.log(document.querySelectorAll('.FinalTime'))
@@ -128,5 +121,10 @@
           
         })
     }
+    /* 
+    function hoverDivtest(var objdata) {
 
+        //div id hide false
+    }
+    */
 }
