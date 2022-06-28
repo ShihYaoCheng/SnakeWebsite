@@ -180,11 +180,15 @@
     Boolean RankOptionIsGuild;
     int RankOptionStation;
 
+    List<AsiaLeagueSchedule> Schedules;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if (firstRender){
             RankOptionIsGuild = false;
             RankOptionStation = 1;
+
+            Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
             
             await LoadRanks();
         }        
@@ -194,7 +198,6 @@
     {
         RankView = new RankView();
 
-        List<AsiaLeagueSchedule> Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
         AsiaLeagueSchedule schedule = AsiaLeagueScheduleService.GetOneScheduleByIsGuildAndStation(RankOptionIsGuild,RankOptionStation);
 
         RankView.IsGuild = RankOptionIsGuild;
