@@ -124,7 +124,4 @@
     /* 
     function hoverDivtest(var objdata) {
 
-        //div id hide false
-    }
-    */
 }
