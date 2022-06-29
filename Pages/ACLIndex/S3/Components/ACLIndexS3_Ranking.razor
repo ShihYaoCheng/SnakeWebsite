@@ -133,7 +133,7 @@
     public void selectChange(ChangeEventArgs e)
     {
         Console.WriteLine();
-     
+
         RankOptionStation = int.Parse( e.Value.ToString());
         LoadRanks();
     }
@@ -142,7 +142,7 @@
     public List<string> squadOption = new List<string>();
 
     public List<string> soloOption = new List<string>();  
-  
+
 
     /*排名name*/
     public string[] otherRanking = new string[5]
@@ -176,36 +176,85 @@
             RankOptionIsGuild = false;
             RankOptionStation = 1;
 
-            Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);          
-            
-            squadOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(true);
-            soloOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(false);
-            int i = 0;
-            foreach (var date in squadOptionDate)
-            {
-                squadOption.Add( date.Date.ToString());
-                i++;
-            }
-            i = 0;
-            foreach (var date in soloOptionDate)
-            {
-                soloOption.Add( date.Date.ToString());
-                i++;
-            }
+            Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
 
+            LoadOptions();
             await LoadRanks();
+            await InvokeAsync(StateHasChanged);
         }        
+    }
+
+    public enum RankType
+    {
+        Silver,
+        Diamond,
+        Master,
+        Charity
+    }
+
+    public string GetRankOptionByType(int type , string name,  string date)
+    {
+        string optionString = "";
+
+        int i = name.IndexOf("#");
+        string subName = name.Substring(i);
+
+        switch (type)
+        {
+            case 0:
+            case 1:
+                optionString = RankType.Silver + " " +  subName + " " + date;
+                break;
+            case 2:
+                optionString = RankType.Diamond + " " +  subName + " " + date;
+                break;
+            case 3:
+                optionString = RankType.Master + " " +  subName + " " + date;
+                break;
+            case 4:
+                optionString = RankType.Charity + " " +  subName + " " + date;
+                break;
+            default:
+                break;
+        }
+        return optionString;
+    }
+
+    protected void LoadOptions()
+    {
+        squadOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(true);
+
+
+        foreach (var s in squadOptionDate)
+        {
+            string optionStr = GetRankOptionByType(s.GuildFinalType, s.GuildSchedule , s.Date.ToString("yyyy/MM/dd"));
+            squadOption.Add( optionStr);
+
+        }
+
+
+        soloOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(false);
+        foreach (var s in soloOptionDate)
+        {
+            string optionStr = GetRankOptionByType(s.IndFinalType, s.IndividualSchedule , s.Date.ToString("yyyy/MM/dd"));
+            soloOption.Add( optionStr);
+
+        }
     }
 
     protected async Task LoadRanks()
     {
         RankView = new RankView();
+        RankView.IsGuild = RankOptionIsGuild;
+        RankView.Station = RankOptionStation;
 
         AsiaLeagueSchedule schedule = AsiaLeagueScheduleService.GetOneScheduleByIsGuildAndStation(RankOptionIsGuild,RankOptionStation);
      
-        RankView.IsGuild = RankOptionIsGuild;
-        RankView.Station = RankOptionStation;
-        RankView.Title = RankOptionIsGuild ? schedule.GuildSchedule : schedule.IndividualSchedule;
+        if (schedule != null)
+        {
+            RankView.Title = RankOptionIsGuild ? schedule.GuildSchedule : schedule.IndividualSchedule;
+            RankView.MatchDate = schedule.Date;
+        }
 
       
 
@@ -223,13 +272,9 @@
             {
                 PlacesViews.Add(new AsiaLeaguePlaceView(p, null));
             }
-
-
-
         }
         RankView.Places = PlacesViews;
-
-        RankView.MatchDate = schedule.Date;
+        
         RankView.QualifyingDates = AsiaLeagueScheduleService.GetQualifyingDates(RankOptionIsGuild, RankOptionStation);
 
 
