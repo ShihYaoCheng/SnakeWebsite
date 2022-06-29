@@ -292,11 +292,11 @@
             {
                 if (i < 3)
                 {
-                    topThree[i] = RankView.Places[i].Place.WinnerName = "SamAlpha".ToString();
+                    topThree[i] = RankView.Places[i].Place.WinnerName.ToString();
                 }
                 else
                 {
-                   topThree[i-3] = RankView.Places[i].Place.ToString();
+                   otherRanking[i-3] = RankView.Places[i].Place.ToString();
                 }
             }
         }
