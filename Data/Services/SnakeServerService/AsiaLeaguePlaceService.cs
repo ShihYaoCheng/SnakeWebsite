@@ -41,6 +41,7 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
             {
                 //places = JsonSerializer.Deserialize<List<AsiaLeaguePlace>>(restResponse.Content);
                 places = JsonConvert.DeserializeObject<List<AsiaLeaguePlace>>(restResponse.Content);
+                places = places.OrderBy(p => p.Place).ToList();
             }
 
             return places;

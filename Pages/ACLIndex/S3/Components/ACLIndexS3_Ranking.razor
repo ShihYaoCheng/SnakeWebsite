@@ -14,14 +14,14 @@
         @*Squad*@
         <div class="Ranking-banner squadBanner">
             <div class="Ranking-banner-bg">
-                 <img data-src="/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.webp">
+                 <img data-src="/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.webp" src="/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.webp">
                  <button @onclick="()=>changeBanner(false)"></button>                
             </div> 
                   <div class="Ranking-banner-selectContainer">     
                     
                     <div class="Ranking-banner-select"> 
                         
-                        <img class ="Bar" data-src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.webp" />    
+                        <img class ="Bar" data-src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.webp" src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.webp" />    
                         <select>
                             @foreach(var date in squadOption)
                             {
@@ -37,14 +37,14 @@
         @*solo*@
         <div class="Ranking-banner soloBanner">
             <div class="Ranking-banner-bg">              
-                 <img data-src="/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.webp">
+                 <img data-src="/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.webp" src="/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.webp">
                  <button @onclick="()=>changeBanner(true)"></button>
             </div> 
                <div class="Ranking-banner-selectContainer">  
                
                     <div class="Ranking-banner-select"> 
                        
-                        <img class ="Bar" data-src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.webp" />    
+                        <img class ="Bar" data-src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.webp" src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.webp" />    
                         <select>
                         @foreach(var date in soloOption)
                         {
@@ -180,11 +180,15 @@
     Boolean RankOptionIsGuild;
     int RankOptionStation;
 
+    List<AsiaLeagueSchedule> Schedules;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if (firstRender){
             RankOptionIsGuild = false;
             RankOptionStation = 1;
+
+            Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
             
             await LoadRanks();
         }        
@@ -194,7 +198,6 @@
     {
         RankView = new RankView();
 
-        List<AsiaLeagueSchedule> Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
         AsiaLeagueSchedule schedule = AsiaLeagueScheduleService.GetOneScheduleByIsGuildAndStation(RankOptionIsGuild,RankOptionStation);
 
         RankView.IsGuild = RankOptionIsGuild;
