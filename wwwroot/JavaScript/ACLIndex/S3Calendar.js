@@ -86,7 +86,7 @@
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         timeZone: 'local',
-        initialDate: '2022-07-01', // will be parsed as local
+        initialDate: '2022-08-01', // will be parsed as local
         //navLinks: true,
         height: 1000,
 
@@ -108,8 +108,9 @@
     //hoverDiv()
 
     function hoverDiv(info) {
+        console.log(info, info.event._def.title, info.event._instance.range.start)
         var nowDate = new Date(info.event._instance.range.start)
-        var StartingTime = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDay()
+        var StartingTime = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate()
         //.parentNode.parentNode.parentNode.parentNode
         info.el.innerHTML = `
                 <div class="finals-Data-Pop PopR">
