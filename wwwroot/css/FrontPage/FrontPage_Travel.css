@@ -311,18 +311,7 @@
     20% {
         transform: translate(-50%, -50%) rotate(100deg);
     }
-    /* 10% {
-        transform: translate(-50%, -50%) rotate(-20deg);
-    }
-    20% {
-        transform: translate(-50%, -50%) rotate(80deg);
-    } */
-    /* 20% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    30% {
-        transform: translate(-50%, -50%) rotate(100deg);
-    } */
+
     40% {
         transform: translate(-50%, -50%) rotate(40deg);
     }
@@ -423,11 +412,16 @@
     z-index: -1;
 
     transform: translateY(100%);
-    animation: TravelMap-landmark-display 0.5s ease-in 1.5s forwards;
+    animation: TravelMap-landmark-display 0.4s ease-in-out 1.4s forwards;
 }
 
 @keyframes TravelMap-landmark-display {
-    to {
+    0% {
+        opacity: 0;
+        z-index: -1;
+        transform: translateY(100%);
+    }
+    100% {
         opacity: 1;
         z-index: 1;
         transform: translateY(0%);
@@ -450,19 +444,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+
 }
-.RegionalFlag-BG{
-    border: 1px solid rgb(187, 255, 0);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.71);
-    filter: blur(10px);
-    z-index: -1;
-}
+
 .RegionalFlag::before{
+    /* border: 1px solid rgb(187, 255, 0); */
     content: "";
     background-image: url(/images/FrontPage/Travel/flagpole.png);
     background-repeat: no-repeat;
@@ -474,8 +461,10 @@
     top: -5px;
     left: 50%;
     transform: translateX(-50%);
+    animation: RegionalFlag-display 0.3s ease-in 1.2s forwards;
 }
 .RegionalFlag::after{
+    /* border: 1px solid rgb(187, 255, 0); */
     content: "";
     background-image: url(/images/FrontPage/Travel/flagpole.png);
     background-repeat: no-repeat;
@@ -487,14 +476,106 @@
     bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
+    animation: RegionalFlag-display 0.3s ease-in 1.2s forwards;
 }
-/* 旗幟 */
-.RegionalFlag-icon{
+@keyframes RegionalFlag-display {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        filter: blur(10px);
+        opacity: 0;
+        z-index: -1;
+    }
+}
+.RegionalFlag-BG{
+    border: 1px solid rgb(187, 255, 0);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.71);
+    /* filter: blur(10px); */
+    z-index: -1;
+
+    animation: RegionalFlag-BG-display 1.5s ease-in 0s forwards;
+}
+@keyframes RegionalFlag-BG-display {
+    0% {
+        filter: blur(5px);
+    }
+
+    20% {
+        filter: blur(10px);
+    }
+
+    50% {
+        filter: blur(15px);
+        opacity: 1;
+    }
+    90% {
+        /* filter: blur(45px); */
+        /* opacity: 0.5; */
+    }
+    100% {
+        /* filter: blur(50px); */
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+/* 旗幟圖案 */
+.RegionalFlag-icon-block{
+    /* border: 1px solid rgb(187, 255, 0);  */
     width: 90%;
     z-index: 10;
-    margin: 10px 0px;
-    /* position: absolute; */
+    margin: 15px 0px 3px;
+    overflow: hidden;
+
+    /* 控制 */
+    max-height: 50px;
+    animation: RegionalFlag-icon-display 1.5s ease-in 0s forwards,
+    RegionalFlag-overflow-unset 0.1s forwards 1.4s;
+
 }
+
+@keyframes RegionalFlag-icon-display {
+    0% {
+        max-height: 50px;
+    }
+
+    100% {
+        max-height: 265px; 
+    }
+}
+@keyframes RegionalFlag-overflow-unset {
+    0% {
+    }
+
+    100% {
+        overflow: unset;
+    }
+}
+.RegionalFlag-icon{
+    width: 100%;
+    animation: RegionalFlag-icon-filter 1s ease-in-out 1.5s forwards;
+}
+@keyframes RegionalFlag-icon-filter {
+    0% {
+        filter: drop-shadow(0px 0px 0px rgba(255, 255, 255, 0.2));
+    }
+
+    30% {
+        filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 1));
+    }
+    100% {
+        filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.5));
+    }
+}
+
+
+/* 地區名稱 */
 .RegionalFlag-name{
     width: 100%;
     position: relative;
@@ -506,13 +587,28 @@
     background-size: cover;
     height: 70px; */
     margin-top: 10px;
+    opacity: 0;
+    z-index: -1;
+
+    animation: RegionalFlag-name-display 0.5s ease-in 1.4s forwards;
 }
 .RegionalFlag-name p{
     position: absolute;
     color: #FFF7D7;
     font-size: 24px;
+    margin-bottom: 3px;
 }
+@keyframes RegionalFlag-name-display {
+    0% {
+        opacity: 0;
+        z-index: -1;
+    }
 
+    100% {
+        opacity: 1;
+        z-index: 1;
+    }
+}
 
 .TravelMap-01-Della .RegionalFlag-block{
     top: 25%;
