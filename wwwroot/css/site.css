@@ -280,6 +280,7 @@ a, .btn-link {
 .nav-li-normal{
     display: flex;
     flex-direction: row;
+    margin: 0 3px;
 }
 .NotLoggedIn{
     display: flex;
@@ -299,14 +300,11 @@ a, .btn-link {
     align-items: center;
     justify-content: center;
     width: 80px;
-    padding: 6px 10px;
-    padding: 0;
     border: 3px solid #aad4cd;
     box-shadow: 2px 2px 4px 0px #1c4c581e;
     transition: all .1s ease-in;
 }
 #nav-ConnectWallet a{
-    padding: 0px;
     padding: 6px 10px;
     font-size: 14px;
     color: #ffffff;
@@ -333,6 +331,7 @@ a, .btn-link {
 @media (max-width: 1000px) {
     .nav-li-normal{
         flex-direction: column;
+        margin: 0;
     }
 }
 
