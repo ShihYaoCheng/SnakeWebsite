@@ -29,9 +29,25 @@
 
     </Authorized>
     <NotAuthorized>
-        <div class="myprofileLogin">
+        @* <div class="myprofileLogin">
             <h1>Please Login First</h1>
-        </div>
+        </div> *@
+        <MyprofileSidebar /> 
+        @switch (router)
+        {
+            case "index":
+                <MyProfile_Index />
+                break;
+            case "mymatch":
+                <MyProfile_MyMatch />
+                break;
+            case "myawardnotice":
+                 <MyProfile_MyAwardNotice/>
+                break;      
+            case "inventory":
+                 <Inventory/>
+                break;      
+        }
     </NotAuthorized>
 </AuthorizeView>
 

@@ -295,14 +295,10 @@
 .TravelMap-01-Della{
 
 }
-.TravelMap-01-Della .TelescopicSight{
-    bottom: 7%;
-    left: 52%;
-}
+
 .TravelMap-01-Della #compass_outside{
     /* transform:  translate(-50%, -50%) rotate(70.5deg); */
     animation: compass-shake-01 1.8s ease-in  forwards;
-
 }
 @keyframes compass-shake-01 {
     0% {
@@ -404,15 +400,24 @@
     top: 50%;
     width: 110px;
     overflow: hidden;
+    animation: overflow 0.1s ease-in-out 1.8s forwards;
 }
-
+@keyframes overflow {
+    0% {
+        overflow: hidden;
+    }
+    100% {
+        overflow: unset;
+    }
+}
 .TravelMap-landmark-icon{
     width: 100%;
     opacity: 0;
     z-index: -1;
 
     transform: translateY(100%);
-    animation: TravelMap-landmark-display 0.4s ease-in-out 1.4s forwards;
+    animation: TravelMap-landmark-display 0.4s ease-in-out 1.4s forwards,
+               TravelMap-landmark-float 2s linear 1.8s infinite;
 }
 
 @keyframes TravelMap-landmark-display {
@@ -425,6 +430,20 @@
         opacity: 1;
         z-index: 1;
         transform: translateY(0%);
+    }
+}
+@keyframes TravelMap-landmark-float {
+    0% {
+        /* transform: translateY(0%); */
+        /* margin-top: 0px; */
+    }
+    50% {
+        transform: translateY(4%);
+        /* margin-top: 10px; */
+    }
+    100% {
+        /* transform: translateY(0%); */
+        /* margin-top: 0px; */
     }
 }
 
@@ -609,8 +628,21 @@
         z-index: 1;
     }
 }
+.TravelMap-01-Della .TelescopicSight{
+    bottom: 7%;
+    left: 52%;
+}
 
 .TravelMap-01-Della .RegionalFlag-block{
+    top: 25%;
+    left: 15%;
+}
+.TravelMap-02-Potronis .TelescopicSight{
+    top: 21%;
+    left: 60%;
+}
+
+.TravelMap-02-Potronis .RegionalFlag-block{
     top: 25%;
     left: 15%;
 }

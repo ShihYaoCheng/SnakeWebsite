@@ -281,11 +281,52 @@ a, .btn-link {
     display: flex;
     flex-direction: row;
 }
-
+.NotLoggedIn{
+    display: flex;
+    flex-direction: row;
+    
+}
 .LoginUser{
-    /* display: flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+#nav-ConnectWallet{
+    background-color: #4baab2;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center; */
+    width: 80px;
+    padding: 6px 10px;
+    padding: 0;
+    border: 3px solid #aad4cd;
+    box-shadow: 2px 2px 4px 0px #1c4c581e;
+    transition: all .1s ease-in;
+}
+#nav-ConnectWallet a{
+    padding: 0px;
+    padding: 6px 10px;
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 16px ;
+    text-decoration: none;
+    text-align: center;
+    white-space: unset;
+}
+#nav-ConnectWallet:hover{
+    transform: translateY(-1px);
+}
+@media (max-width: 1000px){
+    .LoginUser {
+        flex-direction: column;
+        padding: 8px 15px;
+    }
+    #nav-ConnectWallet{
+        width: 50%;
+        margin-bottom: 10px;
+    }
 }
 
 /* RWD */
@@ -419,7 +460,7 @@ a, .btn-link {
     color: #ffffff;
     font-size: 16px;
     outline: none;
-    font-size: 16px;
+    font-size: 14px;
     white-space: nowrap;
     margin: 0 10px;
     text-align: center;

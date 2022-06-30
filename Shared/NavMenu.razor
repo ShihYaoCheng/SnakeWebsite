@@ -127,7 +127,7 @@
                         @* <a class="nav-link text-light" href="" data-i18n="nav.Ponponsnake" Match="NavLinkMatch.All">碰碰蛇</a> *@
                         <img class="nav_hover_bottom" id="snakeIndex_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
                         <div class="slide_button">
-                            <img data-src="./images/Other/chevron-down.webp" alt="">
+                            <img data-src="./images/Other/chevron-down.webp" src="./images/Other/chevron-down.webp"alt="">
                         </div>
                     
                         <ul class="nav_ul_slide">
@@ -262,9 +262,17 @@
                 }
                 else
                 {
+                    
+                    <li class="nav-item" id="nav-ConnectWallet">
+                         @* data-i18n="nav.ConnectWallet" *@
+                        <a class="" href="myprofile/index">Connect Wallet</a>
+                        <img class="nav_hover_bottom" id="ConnectWallet_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                    </li>
+
                     <li class="nav-item" id="">
                         <button id="login_button" class="" @onclick="loginButtonClick" data-i18n="[html]nav.signIn">Sign<br>In</button>
                     </li>
+
                 }
                 
             </div>    
