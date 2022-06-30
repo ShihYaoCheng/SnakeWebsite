@@ -290,7 +290,6 @@ a, .btn-link {
 .LoginUser{
     display: flex;
     flex-direction: row;
-    align-items: center
 }
 
 #nav-ConnectWallet{
@@ -303,6 +302,7 @@ a, .btn-link {
     border: 3px solid #aad4cd;
     box-shadow: 2px 2px 4px 0px #1c4c581e;
     transition: all .1s ease-in;
+    margin: 0 auto;
 }
 #nav-ConnectWallet a{
     padding: 6px 10px;
@@ -319,7 +319,7 @@ a, .btn-link {
 @media (max-width: 1000px){
     .LoginUser {
         flex-direction: column;
-        padding: 8px 15px;
+
     }
     #nav-ConnectWallet{
         width: 50%;
