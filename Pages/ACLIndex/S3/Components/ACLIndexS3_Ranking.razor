@@ -22,11 +22,14 @@
                     <div class="Ranking-banner-select"> 
                         
                         <img class ="Bar" data-src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.webp" src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.webp" />    
-                        <select>
-                            @foreach(var date in squadOption)
-                            {
-                                    <option>@date</option>
-                            }         
+                        <select @onchange = "(e)=>selectChange(e)" >
+                             @{int i = 0;}
+                        @foreach(var date in squadOption )
+                        {
+                               i++;
+                                <option value= "@i">@date</option>
+                             
+                        }         
                         </select>
                     </div>
                 </div>
@@ -45,10 +48,13 @@
                     <div class="Ranking-banner-select"> 
                        
                         <img class ="Bar" data-src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.webp" src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.webp" />    
-                        <select>
+                        <select   @onchange = "(e)=>selectChange(e)">
+                        @{int i = 0;}
                         @foreach(var date in soloOption)
                         {
-                             <option>@date</option>
+                              i++;
+                             <option value="@i" >@date</option>
+                           
                         }                       
                         </select>
                     </div>
@@ -69,47 +75,59 @@
             <div class="Ranking_First">
                 <img class="shineCrown" data-src="/images/AsiaChampionsLeague/S3/Ranking/Place/pngegg.webp"/>
                 <img  data-src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠1.webp"/>
-                <h3>
-                    @topThree[0][0]
-                </h3>
-                <p>
+                @if (RankingView)
+                {
+                    <h3>
+                            @topThree[0]
+                    </h3>
+                }
+              @*<p>
                     @topThree[0][1]
-                </p>
+                </p>*@ 
             </div>
             @*第二名*@
             <div class="Ranking_Second">
                 <img  data-src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠2.webp"/>
-                <h3>
-                    @topThree[1][0]
-                </h3>
-                <p>
+                @if (RankingView)
+                {
+                    <h3>
+                        @topThree[1]
+                    </h3>
+                }
+              @*<p>
                     @topThree[1][1]
-                </p>
+                </p>*@ 
             </div>
             @*第三名*@
             <div class="Ranking_third">
                 <img  data-src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠3.webp"/>
-                <h3>
-                    @topThree[2][0]
-                </h3>
-                <p>
+                 @if (RankingView)
+                {               
+                    <h3>
+                        @topThree[2]
+                    </h3>
+                }
+              @*<p>
                     @topThree[2][1]
-                </p>
+                </p>*@ 
             </div>
         </div>
         <div class="Ranking-Place-right">
             <div class="Ranking-Place-Other">
+                @if (RankingView) { 
+               
                 @foreach(var name in otherRanking)
                 {
                     <div class="Place-Other-container">                  
                         <h3>
-                            @name[0]
+                            @name
                         </h3>
-                        <p>
+                        @*<p>
                             @name[1]
-                        </p>
+                        </p>*@
                     </div>
                 }          
+                }
             </div>
         </div>
     </div>
@@ -117,60 +135,35 @@
 @code {
 
     public Boolean bannerToggle = true;
-
+    public Boolean RankingView = false; 
     public void changeBanner(Boolean value)
     {
         bannerToggle = value;
+        RankOptionIsGuild = value;
+        RankOptionStation = 1;
+        LoadRanks();
     }
 
-
+    public void selectChange(ChangeEventArgs e)
+    {
+        RankOptionStation = int.Parse( e.Value.ToString());
+        LoadRanks();
+    }
 
     /*BannerOption*/
-    public string[] squadOption = new string[]
-    {
-        "Silver #W1 2022/07/23",
-        "Silver #W2 2022/07/30",
-        "Diamond #M1 2022/08/06",
-        "Silver #W3 2022/08/20",
-        "Silver #W4 2022/08/27",
-        "Diamond #M2 2022/09/03",
-        "Silver #W5 2022/09/17",
-        "Silver #W6 2022/09/24",
-        "Diamond #M3 2022/10/01",
-        "Master #S1 2022/10/16",
-    };
+    public List<string> squadOption = new List<string>();
 
-    public string[] soloOption = new string[]
-    {
-        "Charity #F1 2022/07/20",
-        "Silver #W1 2022/07/27",
-        "Silver #W2 2022/08/03",
-        "Diamond #M1 2022/08/09",
-        "Charity #F2 2022/08/16",
-        "Silver #W3 2022/08/23",
-        "Silver #W4 2022/08/30",
-        "Diamond #M2 2022/09/06",
-        "Charity #F3 2022/09/13",
-        "Silver #W5 2022/09/20",
-        "Silver #W6 2022/09/27",
-        "Diamond #M3 2022/10/04",
-        "Master #S1 2022/10/11",
-    };
+    public List<string> soloOption = new List<string>();  
+
 
     /*排名name*/
-    public string[][] otherRanking = new string[5][]
+    public string[] otherRanking = new string[5]
     {
-        new string[]{ "第四名ID","第四名騎士"},
-        new string[]{ "第五名ID","第五名騎士"},
-        new string[]{ "第六名ID","第六名騎士"},
-        new string[]{ "第七名ID","第七名騎士"},
-        new string[]{ "第八名ID","第八名騎士"},
+       "","", "","",""
     };
-    public string[][] topThree= new string[3][]
+    public string[] topThree= new string[3]
     {
-        new string[]{ "第一名ID","第一名騎士"},
-        new string[]{ "第二名ID","第二名騎士"},
-        new string[]{ "第三名ID","第三名騎士"},
+       "","", ""
     };
 
 
@@ -181,29 +174,95 @@
     int RankOptionStation;
 
     List<AsiaLeagueSchedule> Schedules;
+    List<AsiaLeagueSchedule> squadOptionDate;
+    List<AsiaLeagueSchedule> soloOptionDate;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if (firstRender){
-            RankOptionIsGuild = false;
+            RankOptionIsGuild = true;
             RankOptionStation = 1;
 
             Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
-            
+
+            LoadOptions();
             await LoadRanks();
+            await InvokeAsync(StateHasChanged);
         }        
+    }
+
+    public enum RankType
+    {
+        Silver,
+        Diamond,
+        Master,
+        Charity
+    }
+
+    public string GetRankOptionByType(int type , string name,  string date)
+    {
+        string optionString = "";
+
+        int i = name.IndexOf("#");
+        string subName = name.Substring(i);
+
+        switch (type)
+        {
+            case 0:
+            case 1:
+                optionString = RankType.Silver + " " +  subName + " " + date;
+                break;
+            case 2:
+                optionString = RankType.Diamond + " " +  subName + " " + date;
+                break;
+            case 3:
+                optionString = RankType.Master + " " +  subName + " " + date;
+                break;
+            case 4:
+                optionString = RankType.Charity + " " +  subName + " " + date;
+                break;
+            default:
+                break;
+        }
+        return optionString;
+    }
+
+    protected void LoadOptions()
+    {
+        squadOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(true);
+
+
+        foreach (var s in squadOptionDate)
+        {
+            string optionStr = GetRankOptionByType(s.GuildFinalType, s.GuildSchedule , s.Date.ToString("yyyy/MM/dd"));
+            squadOption.Add( optionStr);
+
+        }
+
+
+        soloOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(false);
+        foreach (var s in soloOptionDate)
+        {
+            string optionStr = GetRankOptionByType(s.IndFinalType, s.IndividualSchedule , s.Date.ToString("yyyy/MM/dd"));
+            soloOption.Add( optionStr);
+
+        }
     }
 
     protected async Task LoadRanks()
     {
         RankView = new RankView();
+        RankView.IsGuild = RankOptionIsGuild;
+        RankView.Station = RankOptionStation;
 
         AsiaLeagueSchedule schedule = AsiaLeagueScheduleService.GetOneScheduleByIsGuildAndStation(RankOptionIsGuild,RankOptionStation);
 
-        RankView.IsGuild = RankOptionIsGuild;
-        RankView.Station = RankOptionStation;
-        RankView.Title = RankOptionIsGuild ? schedule.GuildSchedule : schedule.IndividualSchedule;
-        
+        if (schedule != null)
+        {
+            RankView.Title = RankOptionIsGuild ? schedule.GuildSchedule : schedule.IndividualSchedule;
+            RankView.MatchDate = schedule.Date;
+        }
+
 
 
         List<AsiaLeaguePlace> Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesByIsGuildAndStation(AsiaLeagueSeasons.AsiaLeagueS3,RankOptionIsGuild,RankOptionStation);
@@ -220,16 +279,31 @@
             {
                 PlacesViews.Add(new AsiaLeaguePlaceView(p, null));
             }
-
-
-
         }
         RankView.Places = PlacesViews;
+        if (RankView.Places.Count == 0)
+        {
+            RankingView = false;
+        }
+        else
+        {
+            RankingView = true;
+            for (var i = 0; i < RankView.Places.Count; i++)
+            {
+                if (i < 3)
+                {
+                    topThree[i] = RankView.Places[i].Place.WinnerName.ToString();
+                }
+                else
+                {
+                   otherRanking[i-3] = RankView.Places[i].Place.ToString();
+                }
+            }
+        }
 
-        RankView.MatchDate = schedule.Date;
         RankView.QualifyingDates = AsiaLeagueScheduleService.GetQualifyingDates(RankOptionIsGuild, RankOptionStation);
 
-
+        await InvokeAsync(StateHasChanged);
     }
 
 

@@ -15,6 +15,7 @@ namespace SnakeAsianLeague.Data.Entity.SnakeServer
 
         ///<summary> 日期 </summary>
         public DateTime Date { get; set; }
+      
 
         ///<summary> 個人賽賽程文字 </summary>
         public string? IndividualSchedule { get; set; }
