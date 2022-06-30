@@ -32,26 +32,10 @@
 </head>
 
 
-    <div>      
+<!-- 主畫面-->
+<Index_main MetamaskAvailable=@MetamaskAvailable EditProfileButtonOnClick=@EditProfileButtonOnClick EnableEthereumAsync=@EnableEthereumAsync/>
 
-        @* <aside class="myprofileSidebar">
-            <div class="myprofileSidebarButton">
-                <img src="/images/Myprofile/sidebarLine.webp" alt="">
-            </div>
-            <div class="myprofileSidebarBlock">
-                <div class="accountManagement">Account<br>Management</div>
-                <ul class="accountManagementUl">
-                    <a href="myprofile#Account" id="accountManagementUl-Account" class="current_page"><li data-i18n="Sidebar.Account">Account</li></a>
-                    <a href="mymatch" id="accountManagementUl-eSport"><li data-i18n="Sidebar.Esports">eSport</li></a>
-                    <a href="myawardnotice" id="accountManagementUl-Reward"><li data-i18n="Sidebar.Reward">Reward</li></a>
-                </ul>
-            </div>
-        </aside> *@
-        <!-- 主畫面-->
-        <Index_main MetamaskAvailable=@MetamaskAvailable EditProfileButtonOnClick=@EditProfileButtonOnClick EnableEthereumAsync=@EnableEthereumAsync/>
-        
-    </div>    
-   
+
 <!-- 編輯個人資料-->
 <Index_edit displayEditProfileWindow=@displayEditProfileWindow  profile=@profile selectedBeInterviewed=@selectedBeInterviewed selectedOpenAwardInfo=@selectedOpenAwardInfo  selectedGender=@selectedGender EditProfileSubmit=@EditProfileSubmit/>
 
