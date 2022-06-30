@@ -1270,7 +1270,8 @@ position: relative;
 }
 .MarketPlaceButton:hover{
     text-decoration: none;
-    transform: scale(1.01);
+    /* transform: scale(1.01); */
+    transform: translateY(-1px);
 }
 .MarketPlaceButton img{
     width: 30px;
