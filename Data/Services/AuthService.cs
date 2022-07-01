@@ -134,6 +134,18 @@ namespace SnakeAsianLeague.Data.Services
                 return new SnakeAccount() { userID = loginResp.userID, name = loginResp.name, phone = loginResp.phoneID, walletAddress = loginResp.walletAddress };
             }
             return new SnakeAccount();
+
+
+        }
+
+        public LoginRequest DecodeLoginRequest(string EncodedString)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(EncodedString);
+            string decodeString = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+
+            LoginRequest loginReq = JsonSerializer.Deserialize<LoginRequest>(decodeString);
+
+            return loginReq;
         }
     }
 }

@@ -185,9 +185,14 @@
 
             Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
 
-            LoadOptions();
-            await LoadRanks();
-            await InvokeAsync(StateHasChanged);
+            if (Schedules != null)
+            {
+                LoadOptions();
+                await LoadRanks();
+                await InvokeAsync(StateHasChanged);
+                
+            }
+            
         }        
     }
 
