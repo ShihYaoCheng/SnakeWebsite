@@ -71,7 +71,7 @@
     }
 }
 
-@media all and (max-width: 576px) {
+@media all and (max-width: 670px) {
     .airship {
         width: 150px;
         height: 111px;
@@ -85,7 +85,7 @@
 }
 
 
-@media all and (max-width: 376px) {
+@media all and (max-width: 450px) {
     .airship {
         top: 50%;
     }
