@@ -3,6 +3,24 @@
     height: 1500px;
     padding-top:100px;
 }
+
+@media all and (max-width: 1500px) {
+    .Earn {
+        height: 1170px;
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .Earn {
+        height: 795px;
+    }
+}
+@media all and (max-width: 768px) {
+    .Earn {
+        height: 1500px;
+    }
+}
+
 .Earn-Title {
     display:flex;
     justify-content:center;
@@ -29,28 +47,84 @@
     justify-content:center;
 
 }
+@media all and (max-width: 768px) {
+    .flagZone {
+        display: block;
+        height:1300px;
+    }
+}
+
 /*跳錢旗子*/
 .bonusFlag {
     background-image: url("/images/FrontPage/Earn/flag.png");
-    width:452px;
-    height:786px;
-    display:flex;
-
+    width: 452px;
+    height: 786px;
+    display: block;
+    background-repeat: round;
+    z-index: 10;
 }
+
+
 .jumpMomey {
     width: 100%;
     height: 50px;
-    display:flex;
-    justify-content:center;
-    align-items:end;
+    display: flex;
+    justify-content: center;
+    align-items: end;
     font-size: 51px;
     color: #F9E590;
     font-weight: 900;
-    font-family: 'Roboto';
-    height:479px;
-
-
+    font-family: Arial;
+    height: 479px;
 }
+.bonusFlag p {
+    font-family: Arial;
+    font-size: 24px;
+    font-weight: 400;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: #F9E590;
+}
+@media all and (max-width: 1500px) {
+    .bonusFlag {
+        width: 353px;
+        height: 614px;
+    }
+
+    .jumpMomey {
+        height: 374px;
+        font-size: 39.78px;
+    }
+
+    .bonusFlag p {
+   
+        font-size: 18px;    
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .bonusFlag {
+        width: 240px;
+        height: 417px;
+    }
+
+    .jumpMomey {
+        height: 254px;
+        font-size: 26px;
+    }
+
+    .bonusFlag p {      
+        font-size: 14px;  
+    }
+}
+
+@media all and (max-width: 768px) {
+    .bonusFlag {
+        margin:0 auto;
+    }
+}
+
 /*旗子中間線*/
 .FlagLine {
     position: relative;
@@ -60,25 +134,136 @@
 
 .FlagLine img {
     position: absolute;
-    left: 0;
+ 
     width: 68px;
     height: 12px;
+    z-index:1
+
+}
+
+@media all and (max-width: 1500px) {
+    .FlagLine {
+        width: 38px;
+    }
+
+    .FlagLine img {
+        width: 56px;
+    }
+}
+@media all and (max-width: 1024px) {
+    .FlagLine {
+        width: 25px;
+    }
+
+    .FlagLine img {
+        width: 36px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .FlagLine {
+        margin: 0 auto;
+        width: 100%;
+        height: 26px;
+    }
+       
+
+}
+@media all and (max-width: 576px) {
+    .FlagLine img {
+        height: 10px;
+        width:34px;
+    }
 }
 
 
-.FlagLine-1  {
-    top:30%
+
+.FlagLine-1 {
+    top: 30% ;
+    left: -1%;
 }
 
 .FlagLine-2 {
-    bottom: 1%
+    bottom: 1%;
+    left: -1%;
 }
+
+@media all and (max-width: 1500px) {
+    .FlagLine-1 {
+        top: 22%
+    }
+
+    .FlagLine-2 {
+        bottom: 9%
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .FlagLine-1 {
+        top: 12%
+    }
+
+    .FlagLine-2 {
+        bottom: 25%
+    }
+}
+
+@media all and (max-width: 768px) {
+    .FlagLine-1 {
+        top: 15%;
+        right: 35%;
+        left: unset;
+        transform: rotate(90deg)
+    }
+
+    .FlagLine-2 {
+        top: 15%;
+        left: 35%;
+        transform: rotate(90deg)
+    }
+}
+
+
+
+
 /*卷軸*/
 .flagReel-Container {
     position: relative;
     width: 735px;
     height: 540px;
+    z-index:10
 }
+
+@media all and (max-width: 1500px) {
+    .flagReel-Container {
+        width: 573px;
+        height: 421px;
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .flagReel-Container {   
+        width: 389px;
+        height: 286px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .flagReel-Container {
+        width: 389px;
+        height: 355px;
+        margin: 0 auto;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .flagReel-Container {
+        width:291px;
+        height: 355px;
+        margin: 0 auto;
+    }
+}
+
 
 .flagReel-Bar {
     width: 100%;
@@ -86,6 +271,11 @@
     position: absolute;
     top: 0%;
     left: 0%;
+}
+@media all and (max-width: 1024px) {
+    .flagReel-Bar {  
+        height: 17px;
+    }
 }
 
 .flagReel-Paper {
@@ -100,6 +290,27 @@
     width: 698px;
     height: 530px;
     background-repeat: round;
+}
+
+@media all and (max-width: 1500px) {
+    .flagPaper-BG {
+        width: 544px;
+        height: 413px;
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .flagPaper-BG {
+        width: 369px;
+        height: 340px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .flagPaper-BG {
+        width: 276px;
+        height: 340px;
+    }
 }
 
 .flagPaper-BG h3 {
@@ -122,6 +333,43 @@
     width: 619px;
 }
 
+@media all and (max-width: 1500px) {
+
+    .flagPaper-BG h3 {
+        height: 62px;
+        padding-top: 27px;
+        text-align: center;
+        font-size: 37.44px;
+    }
+
+    .flagPaper-BG img {
+        width: 482px;
+    }
+
+}
+
+@media all and (max-width: 1024px) {
+
+    .flagPaper-BG h3 {
+        height: 42px;
+        padding-top: 18px;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .flagPaper-BG img {
+        width: 327px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .flagPaper-BG img {
+        width: 245px;
+    }
+}
+
+
+
 .flagReel-Text {
     width: 588px;
     height: 168px;
@@ -140,6 +388,54 @@
     width: 588px;
     margin: 0 auto;
 }
+
+@media all and (max-width: 1500px) {
+
+    .flagReel-Text {
+        width: 458px;
+        height: 131px;
+        margin: 23px auto;
+        font-size: 18px;  
+        line-height: 21px;
+    }
+
+    .flagReel-LearnMore {
+        font-size: 18px; 
+        width: 458px;    
+    }
+}
+
+@media all and (max-width: 1024px) {
+
+    .flagReel-Text {
+        width: 312px;
+        height: 120px;
+        margin: 15px auto;
+        font-size: 14px;
+        line-height: 21px;
+    }
+
+    .flagReel-LearnMore {
+        font-size: 14px;
+        width: 312px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .flagReel-Text {
+        width: 234px;
+        height: 140px;
+        margin: 15px auto;
+        font-size: 14px;
+        line-height: 21px;
+    }
+
+    .flagReel-LearnMore {
+        font-size: 14px;
+        width: 234px;
+    }
+}
+
 .flagPaper-BG-button {
     width: 100%;
     margin-top: 45px;
@@ -157,4 +453,56 @@
     color: #B58F60;
     font-size: 24px;
     font-weight: 400;
+}
+
+
+@media all and (max-width: 1500px) {
+
+    .flagPaper-BG-button { 
+        margin-top: 35px;
+    }
+
+    .flagPaper-BG-button button {
+
+        width: 184px;
+        height: 46px;
+        font-size: 18px;
+        font-weight: 400;
+    }
+}
+
+
+@media all and (max-width: 1024px) {
+    .flagPaper-BG-button {
+        margin-top: 22px;
+    }
+
+    .flagPaper-BG-button button {
+        width: 140px;
+        height: 40px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+
+
+
+.flag-768-up {
+    display:flex;
+}
+
+@media all and (max-width: 768px) {
+    .flag-768-up {
+        display: none;
+    }
+}
+
+.flag-768-down {
+    display: none;
+}
+
+@media all and (max-width: 768px) {
+    .flag-768-down {
+        display: block;
+    }
 }

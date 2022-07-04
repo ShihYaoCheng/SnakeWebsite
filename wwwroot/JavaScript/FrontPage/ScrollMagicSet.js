@@ -1,30 +1,89 @@
 ﻿export function ScrollMagicSet() {
+
+	var ScenesHeight = 0
+	var nowWindownsWidth = document.body.clientWidth
+
+	var airshipEndY = 100
+	var airshipX = 1
+	var airshipTop = '41%'
+	var airshipScale = 1
+	var QRCodeMoveY = 1
+	var QRCodeMoveX = 1
+	var CityX = 1
+	var CityY = 1
+	//響應式
+	if (nowWindownsWidth >= 1500) {
+		ScenesHeight = 1500
+	} else if (nowWindownsWidth < 1500 && nowWindownsWidth >= 1200 )  {
+		ScenesHeight = 1000
+		airshipEndY= 150
+		airshipScale = 1
+		QRCodeMoveY = 0.5
+		QRCodeMoveX = 0.5
+		airshipTop = '45%'
+		CityX= 0.9
+	} else if (nowWindownsWidth < 1200 && nowWindownsWidth >= 768) {
+		ScenesHeight = 1000
+		airshipEndY = 300
+		airshipX =0.5
+		airshipScale = 1.1
+		QRCodeMoveY = -1
+		QRCodeMoveX = 0.4
+		airshipTop = '57%'
+		CityX=0.8
+	} else if (nowWindownsWidth < 768 && nowWindownsWidth >= 564) {
+		ScenesHeight = 700
+		airshipEndY = 350
+		airshipX = 0.3
+		airshipScale = 1
+		QRCodeMoveY = -1
+		QRCodeMoveX = 0.3
+		airshipTop = '60%'
+		CityX= 0.7
+	} else if (nowWindownsWidth < 564 ) {
+		ScenesHeight = 500
+		airshipEndY = 350
+		airshipX = 0.3
+		airshipScale = 1
+		QRCodeMoveY = -1
+		QRCodeMoveX = 0
+		airshipTop = '60%'
+		CityX =0.6
+	}
+
+	if (nowWindownsWidth < 376) {
+		CityX = 0.09
+		CityY = 0.3
+		airshipX = 0.1
+		QRCodeMoveY = -0.5
+	}
+
 	//設定start的高度	
-	$(".Start").height($(window).height() + 3000)
+	$(".Start").height($(window).height() + ScenesHeight)
 
 	var airshipPath = {
 		entry: {			
 			autoRotate: false,
 			values: [
-				{ scale: 1.05 ,x: 100, y:100 },
-				{ scale: 1.1, x: 200, y:80},
-				{ scale: 1.15, x: 300, y: 150 },
+				{ scale: airshipScale * 1.05, x: airshipX* 100, y:100 },
+				{ scale: airshipScale * 1.1, x: airshipX* 200, y:80},
+				{ scale: airshipScale * 1.15, x: airshipX*300, y: 150 },
 			]
 		},
 		step1: {
 			autoRotate: false,
 			values: [
-				{ scale: 1.2, y: 150 },
-				{ scale: 1.25, y: 100 },
-				{ scale: 1.3, y: 150 },
+				{ scale: airshipScale*1.2, y: 150 },
+				{ scale: airshipScale*1.25, y: 100 },
+				{ scale: airshipScale*1.3, y: 150 },
 			]
 		},
 		End: {
 			curviness: 1.25,
 			autoRotate: false,
 			values: [
-			
-				{ scale: 1.5,y: 100 },
+
+				{ scale: airshipScale * 1.5, y: 0, top: airshipTop },
 			]
 		}
 	
@@ -33,9 +92,9 @@
 		entry: {
 			autoRotate: false,
 			values: [
-				{ x: 200, y: -90 },
-				{ x: 250, y: -150 },
-				{ x: 300, y: -180 },
+				{ x: QRCodeMoveX * 150, y: QRCodeMoveY*-90 },
+				{ x: QRCodeMoveX * 200, y: QRCodeMoveY*-150 },
+				{ x: QRCodeMoveX * 250, y: QRCodeMoveY*-180 },
 			]
 		},
 	/*	step1: {
@@ -68,9 +127,9 @@
 		step1: {
 			autoRotate: false,
 			values: [
-				{  x: -5, y: -115, width: $(window).width()*1.2},
-				{  x: 5, y: -105, width: $(window).width() * 1.15 },
-				{  x: 0, y: -100, width: $(window).width() * 1.1 },
+				{  x: -5, y: -115, width: $(window).width()*1.1},
+				{  x: 5, y: -105, width: $(window).width() * 1.05 },
+				{  x: 0, y: -100, width: $(window).width() * 1.07 },
 			]
 		},
 		End: {
@@ -86,22 +145,22 @@
 		entry: {
 			autoRotate: false,
 			values: [
-				{ y: -200, x: 5},
-				{ y: -450, x: 0},
+				{ y: -200 * CityY, x: 5},
+				{ y: -450 * CityY, x: 0},
 			]
 		},
 		step1: {
 			autoRotate: false,
 			values: [
-				{ scale: 1.1, x: -50, scale: 1.1},
-				{ scale: 1.2, x: -80, scale: 1.2 },
-				{ scale: 1.3, x: -100, scale: 1.5 },
+				{ scale: 1.1, x: CityX*-50, scale: 1.1},
+				{ scale: 1.2, x: CityX*-80, scale: 1.2 },
+				{ scale: 1.3, x: CityX*-100, scale: 1.5 },
 			]
 		},
 		End: {
 			autoRotate: false,
 			values: [			
-				{ x: -200, bottom: "5%", y: 0, scale: 1.6 },
+				{ x: CityX* -200, bottom: "5%", y: 0, scale: 1.6 },
 			]
 		}
 	}
@@ -109,48 +168,56 @@
 		entry: {
 			autoRotate: false,
 			values: [
-				{ y: -200 },
+				{ y: -200, scale: 4 },
+				{ y: -300, scale: 3 },
+			]
+		},
+		step1: {
+			autoRotate: false,
+			values: [
+				{ y: -300, scale:2},	
 			]
 		},
 		End: {
 			autoRotate: false,
 			values: [
-				{ bottom: "-1%", y: 0, width: $(window).width() },
+				{ bottom: "-1%", y: 0, width: $(window).width(), scale: 1},
 			]
 		}
 	}
 
 	// create tween
 	var airshipTween = new TimelineMax()
-		.add(TweenMax.to($(".airship"), 3, { css: { bezier: airshipPath.entry }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".airship"), 7, { css: { bezier: airshipPath.entry }, ease: Power1.easeInOut }))
 		.add(TweenMax.to($(".airship"), 4, { css: { bezier: airshipPath.step1 }, ease: Power1.easeInOut }))
 		.add(TweenMax.to($(".airship"), 10, { css: { bezier: airshipPath.End }, ease: Power1.easeInOut }))
 
 	var QRCodeTween = new TimelineMax()
-		.add(TweenMax.to($(".StartQRcode"), 3, { css: { bezier: QRCodePath.entry }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".StartQRcode"), 7, { css: { bezier: QRCodePath.entry }, ease: Power1.easeInOut }))
 	/*	.add(TweenMax.to($(".StartQRcode"), 4, { css: { bezier: QRCodePath.step1 }, ease: Power1.easeInOut }))
 		.add(TweenMax.to($(".StartQRcode"), 10, { css: { bezier: QRCodePath.End }, ease: Power1.easeInOut }))*/
 
 	var MountTween = new TimelineMax()
-		.add(TweenMax.to($(".StartMount"), 3, { css: { bezier: MountPath.entry }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".StartMount"), 7, { css: { bezier: MountPath.entry }, ease: Power1.easeInOut }))
 		.add(TweenMax.to($(".StartMount"), 4, { css: { bezier: MountPath.step1 }, ease: Power1.easeInOut }))
 		.add(TweenMax.to($(".StartMount"), 10, { css: { bezier: MountPath.End }, ease: Power1.easeInOut }))
 
 	var City = new TimelineMax()
-		.add(TweenMax.to($(".StartCity"), 3, { css: { bezier: CityPath.entry }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".StartCity"), 7, { css: { bezier: CityPath.entry }, ease: Power1.easeInOut }))
 		.add(TweenMax.to($(".StartCity"), 4, { css: { bezier: CityPath.step1 }, ease: Power1.easeInOut }))
 		.add(TweenMax.to($(".StartCity"), 10, { css: { bezier: CityPath.End }, ease: Power1.easeInOut }))
 
 	var Cloud = new TimelineMax()
 		.add(TweenMax.to($(".buttonCloud"), 5, { css: { bezier: CloudPath.entry }, ease: Power1.easeInOut }))
-		.add(TweenMax.to($(".buttonCloud"), 12, { css: { bezier: CloudPath.End }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".buttonCloud"), 5, { css: { bezier: CloudPath.step1 }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".buttonCloud"), 9, { css: { bezier: CloudPath.End }, ease: Power1.easeInOut }))
 
 
 	// 製作場景
     var controller = new ScrollMagic.Controller();
 	var airshipScene = new ScrollMagic.Scene({
         triggerElement: ".Start-Container",
-		duration: 3000,		
+		duration: ScenesHeight,
         triggerHook:0     
     })
     //.setClassToggle(".redBlock", "show")  //增加class
@@ -161,7 +228,7 @@
 
 	var MountScene = new ScrollMagic.Scene({
 		triggerElement: ".Start-Container",
-		duration: 3000,
+		duration: ScenesHeight,
 		offset: 0,
 		triggerHook: 0
 	})
@@ -170,7 +237,7 @@
 
 	var CityScene = new ScrollMagic.Scene({
 		triggerElement: ".Start-Container",
-		duration:3000,
+		duration: ScenesHeight,
 		triggerHook: 0
 	})		
 		.setTween(City)
@@ -178,7 +245,7 @@
 
 	var CloudScene = new ScrollMagic.Scene({
 		triggerElement: ".Start-Container",
-		duration: 3000,
+		duration: ScenesHeight,
 		offset:0,
 		triggerHook:0
 	})	
@@ -195,8 +262,6 @@
 		.addTo(controller);
 
 
-
-	
 
 }
 
