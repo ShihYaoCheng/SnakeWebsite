@@ -1,8 +1,8 @@
-.FrontPage_Travel{
+.FrontPage_Travel {
     background-color: #253A4B;
 }
 
-.Travel-block{
+.Travel-block {
     border: 1px solid red;
     /* height: 500px; */
     padding: 150px 0 150px;
@@ -12,11 +12,12 @@
 }
 
 
-.around_the_world{
+.around_the_world {
     border: 1px solid rgb(251, 183, 183);
 }
+
 /* 地區徽章 */
-.RegionalBadge-block{
+.RegionalBadge-block {
     /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
@@ -26,7 +27,8 @@
     margin: 100px auto 65px;
     z-index: 10;
 }
-.RegionalBadge-icon-block{
+
+.RegionalBadge-icon-block {
     /* border: 1px solid red; */
     position: relative;
     margin: 16px;
@@ -35,12 +37,12 @@
     cursor: pointer;
 }
 
-.RegionalBadge-icon{
+.RegionalBadge-icon {
     width: 100%;
     transition: all .1s ease-in;
 }
 
-.RegionalBadge-name{
+.RegionalBadge-name {
     position: absolute;
     bottom: -45px;
     transform: translateX(-50%);
@@ -48,35 +50,40 @@
     transition: all .1s ease-in-out;
     opacity: 0;
 }
-.RegionalBadge-icon-block:hover .RegionalBadge-icon{
+
+.RegionalBadge-icon-block:hover .RegionalBadge-icon {
     transform: scale(1.05);
     filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.7));
 }
-.RegionalBadge-icon-block:hover .RegionalBadge-name{
+
+.RegionalBadge-icon-block:hover .RegionalBadge-name {
     opacity: 1;
     text-shadow: #cacaca 0px 0px 10px;
 }
 
 /* 世界地圖 */
-.TravelMap-block{
+.TravelMap-block {
     border: 1px solid rgb(30, 255, 0);
     margin: 0 auto;
     width: 100%;
 }
-.TravelMap{
+
+.TravelMap {
     border: 1px solid yellow;
     position: relative;
     max-width: 1100px;
     margin: 0 auto;
     width: 100%;
 }
-.TravelMap-hidden{
+
+.TravelMap-hidden {
     /* border: 1px solid rgb(0, 183, 255); */
     border-radius: 336.5px;
     overflow: hidden;
     position: relative;
 }
-.TravelMap-round{
+
+.TravelMap-round {
     /* border: 1px solid rgb(255, 81, 0); */
     /* max-width: 1000px; */
     width: 100%;
@@ -84,17 +91,18 @@
     overflow: hidden;
 
 }
-.TravelMap-round img{
+
+.TravelMap-round img {
     width: 100%;
 }
 
-.RegionalBadge-name{
+.RegionalBadge-name {
     color: var(--white);
     font-size: 24px;
 }
 
 /* 指針 */
-.TravelMap-compass{
+.TravelMap-compass {
     /* border: 1px solid rgb(33, 237, 91); */
     position: absolute;
     max-width: 117px;
@@ -104,33 +112,195 @@
     left: 3%;
     z-index: 10;
 }
-#compass_inside{
+
+#compass_inside {
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-   width: 70px;
+    width: 70px;
 }
-#compass_outside{
+
+#compass_outside {
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     width: 118px;
 }
 
+
+.TravelMap-01-Della #compass_outside {
+    /* transform:  translate(-50%, -50%) rotate(70.5deg); */
+    animation: compass-shake-01 1.8s ease-in forwards;
+}
+
+@keyframes compass-shake-01 {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-50%, -50%) rotate(280deg);
+    }
+
+    40% {
+        transform: translate(-50%, -50%) rotate(-40deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(100deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(70deg);
+    }
+}
+.TravelMap-02-Potronis #compass_outside {
+    /* transform:  translate(-50%, -50%) rotate(70.5deg); */
+    animation: compass-shake-02 1.8s ease-in forwards;
+}
+
+@keyframes compass-shake-02 {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-50%, -50%) rotate(280deg);
+    }
+
+    40% {
+        transform: translate(-50%, -50%) rotate(-40deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(100deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(60deg);
+    }
+}
+
+.TravelMap-03-Nord #compass_outside {
+    /* transform:  translate(-50%, -50%) rotate(70.5deg); */
+    animation: compass-shake-03 1.8s ease-in forwards;
+}
+
+@keyframes compass-shake-03 {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-50%, -50%) rotate(280deg);
+    }
+
+    40% {
+        transform: translate(-50%, -50%) rotate(-40deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(100deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+.TravelMap-04-Chaoyang #compass_outside {
+    /* transform:  translate(-50%, -50%) rotate(70.5deg); */
+    animation: compass-shake-04 1.8s ease-in forwards;
+}
+
+@keyframes compass-shake-04 {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-50%, -50%) rotate(280deg);
+    }
+
+    40% {
+        transform: translate(-50%, -50%) rotate(-40deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(100deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+.TravelMap-05-Faline #compass_outside {
+    /* transform:  translate(-50%, -50%) rotate(70.5deg); */
+    animation: compass-shake-05 1.8s ease-in forwards;
+}
+
+@keyframes compass-shake-05 {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-50%, -50%) rotate(280deg);
+    }
+
+    40% {
+        transform: translate(-50%, -50%) rotate(-40deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(100deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(20deg);
+    }
+}
+.TravelMap-06-Ruins #compass_outside {
+    /* transform:  translate(-50%, -50%) rotate(70.5deg); */
+    animation: compass-shake-06 1.8s ease-in forwards;
+}
+
+@keyframes compass-shake-06 {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-50%, -50%) rotate(280deg);
+    }
+
+    40% {
+        transform: translate(-50%, -50%) rotate(-40deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(100deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(60deg);
+    }
+}
 /* 雲霧 */
-.TravelMap-cloud{
+.TravelMap-cloud {
     border: 1px solid rgb(159, 33, 237);
     width: 100%;
     height: 100%;
     /* position: relative; */
 }
-.TravelMap-cloud-control{
+
+.TravelMap-cloud-control {
     position: absolute;
 
 }
-#TravelMap-cloud-01{
+
+#TravelMap-cloud-01 {
     bottom: 8%;
     left: -28%;
     max-width: 650px;
@@ -138,144 +308,146 @@
     animation: TravelMap-cloud-01-a1 2s,
                TravelMap-cloud-01-a2 30s infinite 2s;
 }
-@keyframes TravelMap-cloud-01-a1{
-    0%{ 
+
+@keyframes TravelMap-cloud-01-a1 {
+    0% {
         transform: translateX(0);
     }
-    100%{
+
+    100% {
         transform: translateX(-30%);
     }
 }
-@keyframes TravelMap-cloud-01-a2{
-    0%{ 
-        transform: translate(-30%,0);
+
+@keyframes TravelMap-cloud-01-a2 {
+    0% {
+        transform: translate(-30%, 0);
     }
-    20%{ 
-        transform: translate(-30%,10%) scale(0.8);
-        opacity:0.8;
+
+    20% {
+        transform: translate(-30%, 10%) scale(0.8);
+        opacity: 0.8;
     }
-    40%{
-        transform: translate(-40%,20%);
+
+    40% {
+        transform: translate(-40%, 20%);
     }
-    60%{
-        transform: translate(-30%,10%);
+
+    60% {
+        transform: translate(-30%, 10%);
     }
-    80%{
-        transform: translate(-40%,-10%);
+
+    80% {
+        transform: translate(-40%, -10%);
     }
-    100%{ 
-        transform: translate(-30%,0);
+
+    100% {
+        transform: translate(-30%, 0);
     }
 }
 
-#TravelMap-cloud-02{
+#TravelMap-cloud-02 {
     bottom: -12%;
     right: 5%;
     max-width: 440px;
     width: 55%;
     animation: TravelMap-cloud-02-a1 2s,
-               TravelMap-cloud-02-a2 30s infinite 2s;
+        TravelMap-cloud-02-a2 30s infinite 2s;
 }
 
-@keyframes TravelMap-cloud-02-a1{
-    0%{ 
+@keyframes TravelMap-cloud-02-a1 {
+    0% {
         transform: translateX(0);
     }
-    100%{
+
+    100% {
         transform: translateX(50%) scale(0.8);
     }
 }
-@keyframes TravelMap-cloud-02-a2{
-    0%{ 
-        transform: translate(50%,0) scale(0.8);
+
+@keyframes TravelMap-cloud-02-a2 {
+    0% {
+        transform: translate(50%, 0) scale(0.8);
     }
-    25%{ 
-        transform: translate(50%,30%) scale(0.9);
-        opacity:0.8;
+
+    25% {
+        transform: translate(50%, 30%) scale(0.9);
+        opacity: 0.8;
     }
-    45%{
-        transform: translate(40%,20%) scale(1);
+
+    45% {
+        transform: translate(40%, 20%) scale(1);
     }
-    70%{
-        transform: translate(50%,10%) scale(0.9);
+
+    70% {
+        transform: translate(50%, 10%) scale(0.9);
     }
-    90%{
-        transform: translate(60%,10%) scale(0.9);
+
+    90% {
+        transform: translate(60%, 10%) scale(0.9);
     }
-    100%{ 
-        transform: translate(50%,0) scale(0.8);
+
+    100% {
+        transform: translate(50%, 0) scale(0.8);
     }
 }
 
-#TravelMap-cloud-03{
+#TravelMap-cloud-03 {
     bottom: 9%;
     right: -20%;
     max-width: 450px;
     width: 55%;
     animation: TravelMap-cloud-03-a1 1.5s,
-               TravelMap-cloud-03-a2 30s infinite 1.5s;
+        TravelMap-cloud-03-a2 30s infinite 1.5s;
 }
-@keyframes TravelMap-cloud-03-a1{
-    0%{ 
+
+@keyframes TravelMap-cloud-03-a1 {
+    0% {
         transform: translateX(0);
     }
-    100%{
+
+    100% {
         transform: translateX(30%);
     }
 }
-@keyframes TravelMap-cloud-03-a2{
-    0%{ 
-        transform: translate(30%,0);
-    }
-    20%{ 
-        transform: translate(20%,10%);
-    }
-    44%{
-        transform: translate(40%,-20%);
-    }
-    65%{
-        transform: translate(30%,-10%);
-    }
-    85%{
-        transform: translate(20%,10%) scale(0.9);
-        opacity:0.8;
-    }
-    100%{ 
-        transform: translate(30%,0);
-    }
-}
-.a1 {
-    animation: a1 1s,a2 1s infinite 1s;
-}
 
-@keyframes a1 {
+@keyframes TravelMap-cloud-03-a2 {
     0% {
-        opacity: 0;
+        transform: translate(30%, 0);
     }
+
+    20% {
+        transform: translate(20%, 10%);
+    }
+
+    44% {
+        transform: translate(40%, -20%);
+    }
+
+    65% {
+        transform: translate(30%, -10%);
+    }
+
+    85% {
+        transform: translate(20%, 10%) scale(0.9);
+        opacity: 0.8;
+    }
+
     100% {
-        opacity: 1;
+        transform: translate(30%, 0);
     }
 }
 
-@keyframes a2 {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
+
 
 /* 區域內容顯示 */
-.Area-display-block{
+.Area-display-block {
     border: 1px solid red;
     /* display: none; */
 }
+
 /* 探照鏡 */
-.TelescopicSight{
+.TelescopicSight {
     position: relative;
     position: absolute;
     width: 250px;
@@ -286,40 +458,15 @@
 
     box-shadow: 0px 0px 0px 2000px #00000070;
 
-    /* transition: 0.2s ease-in-out; */
+    transition: 0.5s ease-in-out;
 
 
     /* display: none; */
 }
 
-.TravelMap-01-Della{
-
-}
-
-.TravelMap-01-Della #compass_outside{
-    /* transform:  translate(-50%, -50%) rotate(70.5deg); */
-    animation: compass-shake-01 1.8s ease-in  forwards;
-}
-@keyframes compass-shake-01 {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    20% {
-        transform: translate(-50%, -50%) rotate(100deg);
-    }
-
-    40% {
-        transform: translate(-50%, -50%) rotate(40deg);
-    }
-    60% {
-        transform: translate(-50%, -50%) rotate(100deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(70deg);
-    }
-}
 
 
+/* 探照鏡 */
 .TravelMap-circle {
     /* border: 1px solid red; */
     width: 285px;
@@ -329,11 +476,12 @@
     transform: translate(-50%, -50%) rotate(180.5deg);
     top: 50%;
     left: 50%;
-    /* 目前 0.5s + 0.7s，共1.2s */
-    animation: TravelMap-circle-rotate 0.5s ease-in 0.7s forwards;
+    /* 目前 s + s，共s */
+    /* animation: TravelMap-circle-rotate 0.5s ease-in 0.7s forwards; */
 
 
 }
+
 @keyframes TravelMap-circle-rotate {
     to {
         transform: translate(-50%, -50%) rotate(360.5deg);
@@ -350,7 +498,7 @@
 .TravelMap-circle-line circle {
     stroke-dasharray: 830;
     /* stroke-dashoffset: 0; */
-    animation: TravelMap-circle 0.7s linear forwards;
+    /* animation: TravelMap-circle 0.7s linear forwards; */
 }
 
 @keyframes TravelMap-circle {
@@ -369,10 +517,10 @@
     left: 50%;
     transform: translate(-50%, 50%);
     /* transition: all 0.1s ease-in-out 1s forwards; */
-    animation: circle-ball-display 0.3s ease-in 0.5s forwards;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-
+    /* -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; */
+    /* animation: circle-ball-display 0.3s ease-in 0.5s forwards; */
+    
     opacity: 0;
     z-index: -1;
 }
@@ -384,40 +532,36 @@
     }
 }
 
-/* .TravelMap-circle-ball-show {
-    opacity: 1 !important;
-    z-index: 10 !important;
-    display: block !important;
-    transition: all 0.1s ease-in-out ;
-    transition-delay: 0.4s;
-} */
 
-.TravelMap-landmark{
+.TravelMap-landmark {
     /* border: 1px solid red; */
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
-    width: 110px;
+    width: 100px;
     overflow: hidden;
-    animation: overflow 0.1s ease-in-out 1.8s forwards;
+    /* animation: overflow 0.1s ease-in-out 1.8s forwards; */
 }
+
 @keyframes overflow {
     0% {
         overflow: hidden;
     }
+
     100% {
         overflow: unset;
     }
 }
-.TravelMap-landmark-icon{
+
+.TravelMap-landmark-icon {
     width: 100%;
     opacity: 0;
     z-index: -1;
 
     transform: translateY(100%);
-    animation: TravelMap-landmark-display 0.4s ease-in-out 1.4s forwards,
-               TravelMap-landmark-float 2s linear 1.8s infinite;
+    /* animation: TravelMap-landmark-display 0.4s ease-in-out 1.4s forwards,
+        TravelMap-landmark-float 2s linear 1.8s infinite; */
 }
 
 @keyframes TravelMap-landmark-display {
@@ -426,21 +570,25 @@
         z-index: -1;
         transform: translateY(100%);
     }
+
     100% {
         opacity: 1;
         z-index: 1;
         transform: translateY(0%);
     }
 }
+
 @keyframes TravelMap-landmark-float {
     0% {
         /* transform: translateY(0%); */
         /* margin-top: 0px; */
     }
+
     50% {
         transform: translateY(4%);
         /* margin-top: 10px; */
     }
+
     100% {
         /* transform: translateY(0%); */
         /* margin-top: 0px; */
@@ -448,26 +596,25 @@
 }
 
 /* 地域旗幟 */
-.RegionalFlag-block{
+.RegionalFlag-block {
     /* border: 1px solid red; */
     position: absolute;
     display: flex;
     flex-direction: column;
     max-width: 250px;
-
+    /* transition: 0.5s ease-in-out; */
 }
-.RegionalFlag{
+
+.RegionalFlag {
     /* border: 1px solid red; */
     z-index: 0;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
-.RegionalFlag::before{
+.RegionalFlag::before {
     /* border: 1px solid rgb(187, 255, 0); */
     content: "";
     background-image: url(/images/FrontPage/Travel/flagpole.png);
@@ -480,9 +627,10 @@
     top: -5px;
     left: 50%;
     transform: translateX(-50%);
-    animation: RegionalFlag-display 0.3s ease-in 1.2s forwards;
+    /* animation: RegionalFlag-display 0.3s ease-in 1.2s forwards; */
 }
-.RegionalFlag::after{
+
+.RegionalFlag::after {
     /* border: 1px solid rgb(187, 255, 0); */
     content: "";
     background-image: url(/images/FrontPage/Travel/flagpole.png);
@@ -495,19 +643,22 @@
     bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
-    animation: RegionalFlag-display 0.3s ease-in 1.2s forwards;
+    /* animation: RegionalFlag-display 0.3s ease-in 1.2s forwards; */
 }
+
 @keyframes RegionalFlag-display {
     0% {
         opacity: 1;
     }
+
     100% {
         filter: blur(10px);
         opacity: 0;
         z-index: -1;
     }
 }
-.RegionalFlag-BG{
+
+.RegionalFlag-BG {
     border: 1px solid rgb(187, 255, 0);
     width: 100%;
     height: 100%;
@@ -518,8 +669,9 @@
     /* filter: blur(10px); */
     z-index: -1;
 
-    animation: RegionalFlag-BG-display 1.5s ease-in 0s forwards;
+    /* animation: RegionalFlag-BG-display 1.5s ease-in 0s forwards; */
 }
+
 @keyframes RegionalFlag-BG-display {
     0% {
         filter: blur(5px);
@@ -533,10 +685,12 @@
         filter: blur(15px);
         opacity: 1;
     }
+
     90% {
         /* filter: blur(45px); */
         /* opacity: 0.5; */
     }
+
     100% {
         /* filter: blur(50px); */
         opacity: 0;
@@ -545,7 +699,7 @@
 }
 
 /* 旗幟圖案 */
-.RegionalFlag-icon-block{
+.RegionalFlag-icon-block {
     /* border: 1px solid rgb(187, 255, 0);  */
     width: 90%;
     z-index: 10;
@@ -554,8 +708,8 @@
 
     /* 控制 */
     max-height: 50px;
-    animation: RegionalFlag-icon-display 1.5s ease-in 0s forwards,
-    RegionalFlag-overflow-unset 0.1s forwards 1.4s;
+    /* animation: RegionalFlag-icon-display 1.5s ease-in 0s forwards,
+        RegionalFlag-overflow-unset 0.1s forwards 1.4s; */
 
 }
 
@@ -565,21 +719,23 @@
     }
 
     100% {
-        max-height: 265px; 
+        max-height: 265px;
     }
 }
+
 @keyframes RegionalFlag-overflow-unset {
-    0% {
-    }
+    0% {}
 
     100% {
         overflow: unset;
     }
 }
-.RegionalFlag-icon{
+
+.RegionalFlag-icon {
     width: 100%;
-    animation: RegionalFlag-icon-filter 1s ease-in-out 1.5s forwards;
+    /* animation: RegionalFlag-icon-filter 1s ease-in-out 1.5s forwards; */
 }
+
 @keyframes RegionalFlag-icon-filter {
     0% {
         filter: drop-shadow(0px 0px 0px rgba(255, 255, 255, 0.2));
@@ -588,6 +744,7 @@
     30% {
         filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 1));
     }
+
     100% {
         filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.5));
     }
@@ -595,7 +752,7 @@
 
 
 /* 地區名稱 */
-.RegionalFlag-name{
+.RegionalFlag-name {
     width: 100%;
     position: relative;
     display: flex;
@@ -609,14 +766,16 @@
     opacity: 0;
     z-index: -1;
 
-    animation: RegionalFlag-name-display 0.5s ease-in 1.4s forwards;
+    /* animation: RegionalFlag-name-display 0.5s ease-in 1.4s forwards; */
 }
-.RegionalFlag-name p{
+
+.RegionalFlag-name p {
     position: absolute;
     color: #FFF7D7;
     font-size: 24px;
     margin-bottom: 3px;
 }
+
 @keyframes RegionalFlag-name-display {
     0% {
         opacity: 0;
@@ -628,21 +787,127 @@
         z-index: 1;
     }
 }
-.TravelMap-01-Della .TelescopicSight{
+
+.TravelMap-01-Della .TelescopicSight {
     bottom: 7%;
     left: 52%;
 }
 
-.TravelMap-01-Della .RegionalFlag-block{
+.TravelMap-01-Della .RegionalFlag-block {
     top: 25%;
     left: 15%;
 }
-.TravelMap-02-Potronis .TelescopicSight{
+
+.TravelMap-02-Potronis .TelescopicSight {
     top: 21%;
     left: 60%;
 }
 
-.TravelMap-02-Potronis .RegionalFlag-block{
+.TravelMap-02-Potronis .RegionalFlag-block {
     top: 25%;
     left: 15%;
+}
+
+.TravelMap-03-Nord .TelescopicSight {
+    top: 3%;
+    left: 35.5%;
+}
+
+.TravelMap-03-Nord .RegionalFlag-block {
+    top: 27%;
+    left: 66%;
+}
+
+.TravelMap-04-Chaoyang .TelescopicSight {
+    top: 40%;
+    left: 22%;
+}
+
+.TravelMap-04-Chaoyang .RegionalFlag-block {
+    top: 27%;
+    left: 60%;
+}
+
+.TravelMap-05-Faline .TelescopicSight {
+    top: 12%;
+    left: 8.5%;
+}
+
+.TravelMap-05-Faline .RegionalFlag-block {
+    top: 19%;
+    left: 50%;
+}
+
+.TravelMap-06-Ruins .TelescopicSight {
+    top: 31%;
+    left: 43%;
+}
+
+.TravelMap-06-Ruins .RegionalFlag-block {
+    top: 18%;
+    left: 11%;
+}
+
+/* animate_start */
+
+/* 雲 TravelMap-cloud */
+/* .animate_start #TravelMap-cloud-01 {
+    animation: TravelMap-cloud-01-a1 2s,
+        TravelMap-cloud-01-a2 30s infinite 2s;
+}
+.animate_start #TravelMap-cloud-02 {
+    animation: TravelMap-cloud-02-a1 2s,
+    TravelMap-cloud-02-a2 30s infinite 2s;
+}
+.animate_start #TravelMap-cloud-03 {
+    animation: TravelMap-cloud-03-a1 1.5s,
+    TravelMap-cloud-03-a2 30s infinite 1.5s;
+} */
+
+/* 指針 */
+.animate_start .TravelMap-01-Della #compass_outside {
+    /* animation: compass-shake-01 1.8s ease-in forwards; */
+}
+
+
+
+/* 探照鏡 */
+.animate_start .TravelMap-circle {
+    animation: TravelMap-circle-rotate 0.5s ease-in 0.7s forwards;
+}
+
+.animate_start .TravelMap-circle-line circle {
+    animation: TravelMap-circle 0.7s linear forwards;
+}
+
+.animate_start .TravelMap-circle-ball {
+    animation: circle-ball-display 0.3s ease-in 0.5s forwards;
+}
+.animate_start .TravelMap-landmark {
+    animation: overflow 0.1s ease-in-out 1.8s forwards;
+}
+.animate_start .TravelMap-landmark-icon {
+    animation: TravelMap-landmark-display 0.4s ease-in-out 1.4s forwards,
+    TravelMap-landmark-float 2s linear 1.8s infinite;
+}
+
+/* 地域旗幟 */
+.animate_start .RegionalFlag::before {
+    animation: RegionalFlag-display 0.3s ease-in 1.2s forwards;
+}
+.animate_start .RegionalFlag::after {
+    animation: RegionalFlag-display 0.3s ease-in 1.2s forwards;
+}
+.animate_start .RegionalFlag-BG {
+    animation: RegionalFlag-BG-display 1.5s ease-in 0s forwards;
+}
+.animate_start .RegionalFlag-icon-block {
+    animation: RegionalFlag-icon-display 1.5s ease-in 0s forwards,
+    RegionalFlag-overflow-unset 0.1s forwards 1.4s;
+}
+.animate_start .RegionalFlag-icon {
+    animation: RegionalFlag-icon-filter 1s ease-in-out 1.5s forwards;
+}
+.animate_start .RegionalFlag-name {
+    animation: RegionalFlag-name-display 0.5s ease-in 1.4s forwards;
 }
