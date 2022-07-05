@@ -67,7 +67,7 @@
 			values: [
 				{ scale: airshipScale * 1.05, x: airshipX* 100, y:100 },
 				{ scale: airshipScale * 1.1, x: airshipX* 200, y:80},
-				{ scale: airshipScale * 1.15, x: airshipX*300, y: 150 },
+				{ scale: airshipScale * 1.15, x: airshipX*850, y: 150 },
 			]
 		},
 		step1: {
