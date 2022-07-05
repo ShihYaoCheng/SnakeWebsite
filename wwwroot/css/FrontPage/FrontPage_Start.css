@@ -13,24 +13,88 @@
     position:relative;
 }
 .airship {
-    width: 555px;
-    height: 400px;
+    width: 500px;
+    height: 373px;
     position: absolute;
     left: -5%;
     top: 20%;
     z-index: 3
 }
 
+
+
 .StartQRcode {
-    width: 170px;
-    height: 516px;
-    background: url("../../images/FrontPage/Start/test123.png");
+    width: 150px;
+    height:680px;
+    background: url("../../images/FrontPage/Start/test1234.png");
     background-repeat: round;
     position: absolute;
     top: 30%;
     right: 16.15%;
     z-index: 3
 }
+
+
+@media all and (max-width: 1500px) {
+    .airship {
+        width: 390px;
+        height: 290px;
+    }
+
+    .StartQRcode {
+        width: 117px;
+        height: 530px;
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .airship {
+        width: 260px;
+        height: 193px;
+    }
+
+    .StartQRcode {
+        width: 95px;
+        height: 421px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .airship {
+        width: 260px;
+        height: 193px;
+    }
+
+    .StartQRcode {
+        width: 95px;
+        height: 421px;
+    }
+}
+
+@media all and (max-width: 670px) {
+    .airship {
+        width: 150px;
+        height: 111px;
+    }
+
+    .StartQRcode {
+        width: 52px;
+        height: 214px;
+        right: 10.15%;
+    }
+}
+
+
+@media all and (max-width: 450px) {
+    .airship {
+        top: 50%;
+    }
+
+    .StartQRcode {
+        top: 42%;
+    }
+}
+
 
 .StartMount {
     z-index: 1;
@@ -58,13 +122,75 @@
     bottom: -39%;
     
 }
+
+@media all and (max-width: 1500px) {
+    .StartMount {
+        height: 800px;
+    }
+
+    .StartCity {
+        height: 800px;
+    }
+
+    .buttonCloud {
+        height: 300px;
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .StartMount {
+        height: 551px;
+        bottom: -10%;
+    }
+
+    .StartCity {
+        height: 551px;   
+    }
+
+    .buttonCloud {
+        height: 240px;
+   
+    }
+
+
+}
+
+@media all and (max-width: 1000px) {
+    .StartMount {
+        height: 462px;
+        bottom: -7%;
+    }
+
+    .StartCity {
+        height: 500px;
+    }
+
+    .buttonCloud {
+        height: 201px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .StartMount {
+        height: 267px;
+        bottom:-5%;
+    }
+
+    .StartCity {
+        height: 267px;
+    }
+
+    .buttonCloud {
+        height: 116px;
+    }
+}
+
 /*不跟場景*/
 .StartLogo {
     width: 100%;
     height: 418px;
     display: flex;
     justify-content: center;
-    align-items: center;
     position: absolute;
     left: 0%;
     top: 31%;
@@ -74,4 +200,32 @@
 .StartLogo img {
     width: 747px;
     height: 418px;
+}
+
+@media all and (max-width: 1500px) {
+    .StartLogo img {
+        width: 582px;
+        height: 326px;
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .StartLogo img {
+        width: 388px;
+        height: 217px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .StartLogo img {
+        width: 298px;
+        height: 167px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .StartLogo img {
+        width: 224px;
+        height: 125px;
+    }
 }

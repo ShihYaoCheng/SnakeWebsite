@@ -7,5 +7,7 @@ namespace SnakeAsianLeague.Data.Services
         Task<SnakeAccount> AuthLogin(LoginRequest loginRequest);
         Task AuthLogout();
         Task<SnakeAccount> AuthLoginByUserId(string userId);
+
+        LoginRequest DecodeLoginRequest(string EncodedString);
     }
 }

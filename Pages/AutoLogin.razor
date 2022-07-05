@@ -1,0 +1,65 @@
+﻿@page "/autologin/{encrypt?}"
+
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Entity
+
+@implements IDisposable
+@inject NavigationManager NavigationManager
+@inject AppState AppState
+@inject IAuthService authService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h3>AutoLogin</h3>
+
+@code {
+
+    [Parameter]
+    public string? encrypt { get; set; }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            NavigationManager.LocationChanged += HandleLocationChanged;
+            AppState.StateChanged += async (Source, Property)
+                => await InvokeAsync(StateHasChanged);
+
+
+            //登出舊儲存帳號
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var LoginUser = authState.User;
+            if (LoginUser != null && LoginUser.Identities.Count() != 0)
+            {
+                await authService.AuthLogout();
+            }
+
+            //解碼
+            Console.WriteLine(encrypt);
+            //encrypt = "eyJwaG9uZSI6ICIwOTcyNzk1MzYzIiwicGFzc3dvcmQiOiAiMTIzNDU2In0=";
+
+            LoginRequest loginRequest = new LoginRequest();
+            loginRequest = authService.DecodeLoginRequest(encrypt);
+
+
+            SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest);
+            AppState.UpdateLoginStatus(this, snakeAccount);
+
+            NavigationManager.NavigateTo("/myprofile/index",true);
+        }
+        
+    }
+
+    private void HandleLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        Console.WriteLine("URL of new location: {Location}", e.Location);
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= HandleLocationChanged;
+        AppState.StateChanged -= async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+    }
+
+
+}
