@@ -43,7 +43,7 @@
 
             moneyData.old += moneyData.unity
             if (moneyData.old + moneyData.unity  >= moneyData.newMoney) {
-                moneyData.unity = 1 
+                moneyData.unity = 3
                 jumpTime += 20
                 if (moneyData.old >= moneyData.newMoney) jumpTime = 1
             }
