@@ -30,7 +30,7 @@
     background-repeat: round;
     position: absolute;
     top: 30%;
-    right: 16.15%;
+    right: 1%;
     z-index: 3
 }
 
@@ -80,7 +80,7 @@
     .StartQRcode {
         width: 52px;
         height: 214px;
-        right: 10.15%;
+        right: 5%;
     }
 }
 
@@ -91,7 +91,7 @@
     }
 
     .StartQRcode {
-        top: 42%;
+        top: 50%;
     }
 }
 
@@ -196,6 +196,12 @@
     top: 31%;
     z-index: 3;
 }
+@media all and (max-width: 768px) {
+    .StartLogo {
+        height: 200px;
+    }
+}
+
 
 .StartLogo img {
     width: 747px;

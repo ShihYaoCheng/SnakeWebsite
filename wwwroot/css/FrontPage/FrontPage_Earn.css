@@ -21,6 +21,12 @@
     }
 }
 
+@media all and (max-width: 576px) {
+    .Earn {
+        height: 1100px;
+    }
+}
+
 .Earn-Title {
     display:flex;
     justify-content:center;
@@ -50,7 +56,14 @@
 @media all and (max-width: 768px) {
     .flagZone {
         display: block;
-        height:1300px;
+        height: 1300px;
+        margin-top: 50px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .flagZone {      
+        height: 1000px;    
     }
 }
 

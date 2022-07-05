@@ -92,9 +92,9 @@
 		entry: {
 			autoRotate: false,
 			values: [
-				{ x: QRCodeMoveX * 150, y: QRCodeMoveY*-90 },
+				/*{ x: QRCodeMoveX * 150, y: QRCodeMoveY*-90 },
 				{ x: QRCodeMoveX * 200, y: QRCodeMoveY*-150 },
-				{ x: QRCodeMoveX * 250, y: QRCodeMoveY*-180 },
+				{ x: QRCodeMoveX * 250, y: QRCodeMoveY*-180 },*/
 			]
 		},
 	/*	step1: {
@@ -193,7 +193,7 @@
 		.add(TweenMax.to($(".airship"), 10, { css: { bezier: airshipPath.End }, ease: Power1.easeInOut }))
 
 	var QRCodeTween = new TimelineMax()
-		.add(TweenMax.to($(".StartQRcode"), 7, { css: { bezier: QRCodePath.entry }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".StartQRcode"), 1, { css: { bezier: QRCodePath.entry }, ease: Power1.easeInOut }))
 	/*	.add(TweenMax.to($(".StartQRcode"), 4, { css: { bezier: QRCodePath.step1 }, ease: Power1.easeInOut }))
 		.add(TweenMax.to($(".StartQRcode"), 10, { css: { bezier: QRCodePath.End }, ease: Power1.easeInOut }))*/
 

@@ -19,9 +19,9 @@
 
 
     function startJump(old, newMoney) {
-        console.log('1')
+
         //第一次設定
-        var unity = (newMoney - old) / 300
+        var unity = (newMoney - old) / 200
         var jumpTime = 1
         var element = document.querySelector('.jumpMomey');
         var jumpTimeout
@@ -42,7 +42,7 @@
             }
 
             moneyData.old += moneyData.unity
-            if (moneyData.old + moneyData.unity * 15 >= moneyData.newMoney) {
+            if (moneyData.old + moneyData.unity * 5 >= moneyData.newMoney) {
                 jumpTime += 40
                 if (moneyData.old >= moneyData.newMoney) jumpTime = 1
             }
