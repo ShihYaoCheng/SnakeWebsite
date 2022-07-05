@@ -145,7 +145,7 @@
 }
 
 .reelMove {
-     animation: reelMoveAnimate 3s 1 linear;
+     animation: reelMoveAnimate 1s 1 linear;
 }
 
 @keyframes reelMoveAnimate {
@@ -346,6 +346,7 @@
 
 .pl-end {
     padding-left: 9.5rem;
+    color: #93653C;
 }
 
 @media all and (max-width: 1500px) {

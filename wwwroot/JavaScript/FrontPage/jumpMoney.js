@@ -1,5 +1,5 @@
 ﻿export function jumpMoney(old, newMoney) {
-
+    if (window.location.pathname != '/') return
     window.jumpMomey = true
     var controller = new ScrollMagic.Controller();
     var jumpMoneyScroll = new ScrollMagic.Scene({
@@ -19,9 +19,9 @@
 
 
     function startJump(old, newMoney) {
-
+        if (window.location.pathname != '/') return
         //第一次設定
-        var unity = (newMoney - old) / 200
+        var unity = (newMoney - old) / 100
         var jumpTime = 1
         var element = document.querySelector('.jumpMomey');
         var jumpTimeout
@@ -42,8 +42,9 @@
             }
 
             moneyData.old += moneyData.unity
-            if (moneyData.old + moneyData.unity * 5 >= moneyData.newMoney) {
-                jumpTime += 40
+            if (moneyData.old + moneyData.unity  >= moneyData.newMoney) {
+                moneyData.unity = 1 
+                jumpTime += 20
                 if (moneyData.old >= moneyData.newMoney) jumpTime = 1
             }
 

@@ -13,9 +13,9 @@
 	var CityY = 1
 	//響應式
 	if (nowWindownsWidth >= 1500) {
-		ScenesHeight = 1500
+		ScenesHeight = 400
 	} else if (nowWindownsWidth < 1500 && nowWindownsWidth >= 1200 )  {
-		ScenesHeight = 1000
+		ScenesHeight = 400
 		airshipEndY= 150
 		airshipScale = 1
 		QRCodeMoveY = 0.5
@@ -23,7 +23,7 @@
 		airshipTop = '45%'
 		CityX= 0.9
 	} else if (nowWindownsWidth < 1200 && nowWindownsWidth >= 768) {
-		ScenesHeight = 1000
+		ScenesHeight = 400
 		airshipEndY = 300
 		airshipX =0.5
 		airshipScale = 1.1
@@ -32,7 +32,7 @@
 		airshipTop = '57%'
 		CityX=0.8
 	} else if (nowWindownsWidth < 768 && nowWindownsWidth >= 564) {
-		ScenesHeight = 700
+		ScenesHeight = 400
 		airshipEndY = 350
 		airshipX = 0.3
 		airshipScale = 1
@@ -41,7 +41,7 @@
 		airshipTop = '60%'
 		CityX= 0.7
 	} else if (nowWindownsWidth < 564 ) {
-		ScenesHeight = 500
+		ScenesHeight = 400
 		airshipEndY = 350
 		airshipX = 0.3
 		airshipScale = 1
@@ -221,10 +221,15 @@
         triggerHook:0     
     })
     //.setClassToggle(".redBlock", "show")  //增加class
-    .setPin('.Start-Container')
+	.setPin('.Start-Container')
+	.setClassToggle(".airship", ".withWind")
 	.setTween(airshipTween)
 	//.addIndicators({ name: "airship" })
 	.addTo(controller);
+
+
+
+
 
 	var MountScene = new ScrollMagic.Scene({
 		triggerElement: ".Start-Container",
@@ -268,12 +273,12 @@
 
 
 export function AboutReel() {
-
+	if (window.location.pathname != '/') return
 	// 製作場景
 	var controller = new ScrollMagic.Controller();
-	 AboutReel = new ScrollMagic.Scene({
+	 var AboutReel = new ScrollMagic.Scene({
 		triggerElement: ".reel-Container",		
-		triggerHook: 1,//1,
+	
 		duration: 1000,
 	})		
 		.setClassToggle(".Paper-BG", "reelMove")		
@@ -285,9 +290,10 @@ export function AboutReel() {
 		AboutReel.enabled(false);
 		setTimeout(() => {
 			document.querySelector(".Paper-BG").classList.add("Paper-BG-show")			
-		}, 3000)
+		}, 1000)
 			
 	
 	})
+
 
 }

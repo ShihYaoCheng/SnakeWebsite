@@ -33,11 +33,11 @@
                             <br/>
                             Also, ERNC owners have rights to decide the future of the game!
                         </p>
-                        <p class="flagReel-LearnMore">
+                        @*<p class="flagReel-LearnMore">
                             Learn more >>
-                        </p>
+                        </p>*@
                         <div class="flagPaper-BG-button">
-                             <button>Earn more ERNC</button>
+                              <a href ="/GameFi"> <button>Earn more ERNC</button></a>   
                         </div>
                        
                     </div>
@@ -56,7 +56,7 @@
             <div class="jumpMomey" id= 'jumpMomey'>
 
             </div>
-            <p>Totol Supply</p>
+            <p>Total Supply</p>
         </div>
         <div class="flag-768-up">
             <div class="FlagLine">
@@ -81,11 +81,11 @@
                             <br/>
                             Also, ERNC owners have rights to decide the future of the game!
                         </p>
-                        <p class="flagReel-LearnMore">
+                      @*<p class="flagReel-LearnMore">
                             Learn more >>
-                        </p>
+                        </p>*@  
                         <div class="flagPaper-BG-button">
-                             <button>Earn more ERNC</button>
+                           <a href ="/GameFi"> <button>Earn more ERNC</button></a>   
                         </div>
                        
                     </div>
@@ -106,7 +106,7 @@
         if (firstRender)
         {
             jumpMoneyJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/FrontPage/jumpMoney.js");
-            await jumpMoneyJS.InvokeVoidAsync("jumpMoney",10000,20000);
+            await jumpMoneyJS.InvokeVoidAsync("jumpMoney",269990000,270000000);
         }
     }
 }
