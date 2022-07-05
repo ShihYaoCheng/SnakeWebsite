@@ -67,7 +67,6 @@
 
 .jumpMomey {
     width: 100%;
-    height: 50px;
     display: flex;
     justify-content: center;
     align-items: end;
@@ -75,7 +74,8 @@
     color: #F9E590;
     font-weight: 900;
     font-family: Arial;
-    height: 479px;
+    height: 254px;
+    margin-top:225px
 }
 .bonusFlag p {
     font-family: Arial;
@@ -93,7 +93,7 @@
     }
 
     .jumpMomey {
-        height: 374px;
+        margin-top:120px;
         font-size: 39.78px;
     }
 
@@ -110,7 +110,7 @@
     }
 
     .jumpMomey {
-        height: 254px;
+        margin-top: 0px;
         font-size: 26px;
     }
 
