@@ -13,7 +13,7 @@
 	var CityY = 1
 	//響應式
 	if (nowWindownsWidth >= 1500) {
-		ScenesHeight = 400
+		ScenesHeight = 800
 	} else if (nowWindownsWidth < 1500 && nowWindownsWidth >= 1200 )  {
 		ScenesHeight = 400
 		airshipEndY= 150
@@ -65,17 +65,17 @@
 		entry: {			
 			autoRotate: false,
 			values: [
-				{ scale: airshipScale * 1.05, x: airshipX* 100, y:100 },
-				{ scale: airshipScale * 1.1, x: airshipX* 200, y:80},
-				{ scale: airshipScale * 1.15, x: airshipX*850, y: 150 },
+				{ scale: airshipScale * 1.05, y:60 },
+				{ scale: airshipScale * 1.1, x: airshipX * 100, y:80},
+				{ scale: airshipScale * 1.15, x: airshipX * 300, y: 150 },
 			]
 		},
 		step1: {
 			autoRotate: false,
 			values: [
-				{ scale: airshipScale*1.2, y: 150 },
-				{ scale: airshipScale*1.25, y: 100 },
-				{ scale: airshipScale*1.3, y: 150 },
+				{ scale: airshipScale * 1.2, x: airshipX *400,y: 180 },
+				{ scale: airshipScale * 1.25, x: airshipX * 500, y: 250 },
+				{ scale: airshipScale * 1.3, x: airshipX * 850, y: 280 },
 			]
 		},
 		End: {
@@ -188,8 +188,8 @@
 
 	// create tween
 	var airshipTween = new TimelineMax()
-		.add(TweenMax.to($(".airship"), 7, { css: { bezier: airshipPath.entry }, ease: Power1.easeInOut }))
-		.add(TweenMax.to($(".airship"), 4, { css: { bezier: airshipPath.step1 }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".airship"), 5, { css: { bezier: airshipPath.entry }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".airship"), 6, { css: { bezier: airshipPath.step1 }, ease: Power1.easeInOut }))
 		.add(TweenMax.to($(".airship"), 10, { css: { bezier: airshipPath.End }, ease: Power1.easeInOut }))
 
 	var QRCodeTween = new TimelineMax()

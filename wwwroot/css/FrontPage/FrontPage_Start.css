@@ -218,6 +218,14 @@
     top: 31%;
     z-index: 3;
 }
+.Start-snake {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.startSnake-Container {
+}
+
 @media all and (max-width: 768px) {
     .StartLogo {
         height: 200px;
