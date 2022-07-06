@@ -196,8 +196,26 @@
 			]
 		}
 	}
-
+	var SnakemovePath = {
+		entry: {
+			autoRotate: true,
+			values: [
+				{ rotation: 0 },
+				{ rotation: 4 },
+				{ rotation: 8 },
+				{ rotation: 4 },
+				{ rotation: 0 },
+				{ rotation: -4 },
+				{ rotation: -8 },
+				{ rotation: -4 },
+				{ rotation: 0 },
+			]
+		},	
+	}
 	// create tween
+	var SnakeMoveTween = new TimelineMax({ repeat:-1})
+		.add(TweenMax.to($(".snake-img"), 0.8, { css: { bezier: SnakemovePath.entry }, ease: Power1.easeInOut }))
+
 	var StartLogoTween = new TimelineMax()
 		.add(TweenMax.to($(".StartLogo"), 3, { css: { bezier: StartLogoPath.entry }, ease: Power1.easeInOut }))
 
