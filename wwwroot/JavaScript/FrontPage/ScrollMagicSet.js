@@ -214,7 +214,7 @@
 	}
 	// create tween
 	var SnakeMoveTween = new TimelineMax({ repeat:-1})
-		.add(TweenMax.to($(".snake-img"), 0.8, { css: { bezier: SnakemovePath.entry }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".snake-Icon"), 0.8, { css: { bezier: SnakemovePath.entry }, ease: Power1.easeInOut }))
 
 	var StartLogoTween = new TimelineMax()
 		.add(TweenMax.to($(".StartLogo"), 3, { css: { bezier: StartLogoPath.entry }, ease: Power1.easeInOut }))
