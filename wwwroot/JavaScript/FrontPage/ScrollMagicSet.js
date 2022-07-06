@@ -60,21 +60,30 @@
 
 	//設定start的高度	
 	$(".Start").height($(window).height() + ScenesHeight)
-
+	var StartLogoPath = {
+		entry: {
+			autoRotate: false,
+			values: [
+				{ scale: airshipScale * 0.7, y: -100 },
+				{ scale: airshipScale * 0.4, y: -200 },
+				{ scale: airshipScale * 0.1, y: -300 },
+			]
+		},
+	}
 	var airshipPath = {
 		entry: {			
 			autoRotate: false,
 			values: [
-				{ scale: airshipScale * 1.05, y:60 },
-				{ scale: airshipScale * 1.1, x: airshipX * 100, y:80},
-				{ scale: airshipScale * 1.15, x: airshipX * 300, y: 150 },
+				{ scale: airshipScale * 1.05,x: airshipX * 20, y:100 },
+				{ scale: airshipScale * 1.1, x: airshipX * 60, y:150},
+				{ scale: airshipScale * 1.15, x: airshipX * 100, y: 200 },
 			]
 		},
 		step1: {
 			autoRotate: false,
 			values: [
-				{ scale: airshipScale * 1.2, x: airshipX *400,y: 180 },
-				{ scale: airshipScale * 1.25, x: airshipX * 500, y: 250 },
+				{ scale: airshipScale * 1.2, x: airshipX *550,y: 200 },
+				{ scale: airshipScale * 1.25, x: airshipX * 700, y: 250 },
 				{ scale: airshipScale * 1.3, x: airshipX * 850, y: 280 },
 			]
 		},
@@ -187,9 +196,12 @@
 	}
 
 	// create tween
+	var StartLogoTween = new TimelineMax()
+		.add(TweenMax.to($(".StartLogo"), 3, { css: { bezier: StartLogoPath.entry }, ease: Power1.easeInOut }))
+
 	var airshipTween = new TimelineMax()
-		.add(TweenMax.to($(".airship"), 5, { css: { bezier: airshipPath.entry }, ease: Power1.easeInOut }))
-		.add(TweenMax.to($(".airship"), 6, { css: { bezier: airshipPath.step1 }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".airship"), 2, { css: { bezier: airshipPath.entry }, ease: Power1.easeInOut }))
+		.add(TweenMax.to($(".airship"), 9, { css: { bezier: airshipPath.step1 }, ease: Power1.easeInOut }))
 		.add(TweenMax.to($(".airship"), 10, { css: { bezier: airshipPath.End }, ease: Power1.easeInOut }))
 
 	var QRCodeTween = new TimelineMax()
@@ -214,7 +226,19 @@
 
 
 	// 製作場景
-    var controller = new ScrollMagic.Controller();
+	var controller = new ScrollMagic.Controller();
+
+
+	var StartLogoScene = new ScrollMagic.Scene({
+		triggerElement: ".Start-Container",
+		duration: ScenesHeight,
+		triggerHook: 0
+	})
+		//.setClassToggle(".redBlock", "show")  //增加class	
+		.setTween(StartLogoTween)
+		//.addIndicators({ name: "airship" })
+		.addTo(controller);
+
 	var airshipScene = new ScrollMagic.Scene({
         triggerElement: ".Start-Container",
 		duration: ScenesHeight,
