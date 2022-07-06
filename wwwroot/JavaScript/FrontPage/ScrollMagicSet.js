@@ -11,6 +11,7 @@
 	var QRCodeMoveX = 1
 	var CityX = 1
 	var CityY = 1
+	var CityBottom = '-10%'
 	//響應式
 	if (nowWindownsWidth >= 1500) {
 		ScenesHeight = 800
@@ -21,7 +22,8 @@
 		QRCodeMoveY = 0.5
 		QRCodeMoveX = 0.5
 		airshipTop = '45%'
-		CityX= 0.9
+		CityX = 0.9
+		CityBottom = '-11%'
 	} else if (nowWindownsWidth < 1200 && nowWindownsWidth >= 768) {
 		ScenesHeight = 400
 		airshipEndY = 300
@@ -42,8 +44,8 @@
 		CityX= 0.7
 	} else if (nowWindownsWidth < 564 ) {
 		ScenesHeight = 400
-		airshipEndY = 350
-		airshipX = 0.3
+		airshipEndY = 300
+		airshipX = 0.08
 		airshipScale = 1
 		QRCodeMoveY = -1
 		QRCodeMoveX = 0
@@ -74,17 +76,17 @@
 		entry: {			
 			autoRotate: false,
 			values: [
-				{ scale: airshipScale * 1.05,x: airshipX * 20, y:100 },
-				{ scale: airshipScale * 1.1, x: airshipX * 60, y:150},
-				{ scale: airshipScale * 1.15, x: airshipX * 100, y: 200 },
+				{ scale: airshipScale * 1.05,x: airshipX * 20, y:150 },
+				{ scale: airshipScale * 1.1, x: airshipX * 60, y:200},
+				{ scale: airshipScale * 1.15, x: airshipX * 100, y: 250 },
 			]
 		},
 		step1: {
 			autoRotate: false,
 			values: [
-				{ scale: airshipScale * 1.2, x: airshipX *550,y: 200 },
-				{ scale: airshipScale * 1.25, x: airshipX * 700, y: 250 },
-				{ scale: airshipScale * 1.3, x: airshipX * 850, y: 280 },
+				{ scale: airshipScale * 1.2, x: airshipX * 400, y: 250 },
+				{ scale: airshipScale * 1.25, x: airshipX * 600, y: 300 },
+				{ scale: airshipScale * 1.3, x: airshipX * 700, y: 350 },
 			]
 		},
 		End: {
@@ -92,7 +94,7 @@
 			autoRotate: false,
 			values: [
 
-				{ scale: airshipScale * 1.5, y: 0, top: airshipTop },
+				{ scale: airshipScale * 1.3, y: 0, top: airshipTop },
 			]
 		}
 	
@@ -161,15 +163,15 @@
 		step1: {
 			autoRotate: false,
 			values: [
-				{ scale: 1.1, x: CityX*-50, scale: 1.1},
-				{ scale: 1.2, x: CityX*-80, scale: 1.2 },
-				{ scale: 1.3, x: CityX*-100, scale: 1.5 },
+				{ scale: 1.1, x: CityX*-10, scale: 1.1},
+				{ scale: 1.2, x: CityX*-20, scale: 1.2 },
+				{ scale: 1.3, x: CityX*-40, scale: 1.5 },
 			]
 		},
 		End: {
 			autoRotate: false,
 			values: [			
-				{ x: CityX* -200, bottom: "5%", y: 0, scale: 1.6 },
+				{ x: CityX * -200, bottom: CityBottom, y: 0, scale: 1.5 },
 			]
 		}
 	}
@@ -190,7 +192,7 @@
 		End: {
 			autoRotate: false,
 			values: [
-				{ bottom: "-1%", y: 0, width: $(window).width(), scale: 1},
+				{ bottom: "-5%", y: 0, width: $(window).width(), scale: 1},
 			]
 		}
 	}

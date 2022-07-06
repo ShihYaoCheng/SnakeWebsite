@@ -15,10 +15,11 @@
 .airship {
     position: absolute;
     left: -5%;
-    top: 20%;
+    top: 10%;
     z-index: 3;
     width: 500px;
     height: 373px;
+    transform:scale(0.7)
 }
 .withWind {
     width: 100%;
@@ -148,10 +149,12 @@
 @media all and (max-width: 1500px) {
     .StartMount {
         height: 800px;
+        bottom: -15%;
     }
 
     .StartCity {
         height: 800px;
+
     }
 
     .buttonCloud {
@@ -191,7 +194,7 @@
         height: 201px;
     }
 }
-
+/*
 @media all and (max-width: 576px) {
     .StartMount {
         height: 267px;
@@ -206,7 +209,7 @@
         height: 116px;
     }
 }
-
+    */
 /*不跟場景*/
 .StartLogo {
     width: 100%;
@@ -217,6 +220,7 @@
     left: 0%;
     top: 29%;
     z-index: 3;
+    transform:scale(0.8)
 }
 .Start-snake {
     display:flex;
