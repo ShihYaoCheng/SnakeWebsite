@@ -140,12 +140,20 @@ namespace SnakeAsianLeague.Data.Services
 
         public LoginRequest DecodeLoginRequest(string EncodedString)
         {
-            var base64EncodedBytes = System.Convert.FromBase64String(EncodedString);
-            string decodeString = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+            
+            try {
+                var base64EncodedBytes = System.Convert.FromBase64String(EncodedString);
+                string decodeString = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+                LoginRequest loginReq = JsonSerializer.Deserialize<LoginRequest>(decodeString);
 
-            LoginRequest loginReq = JsonSerializer.Deserialize<LoginRequest>(decodeString);
-
-            return loginReq;
+                return loginReq;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+            
         }
     }
 }

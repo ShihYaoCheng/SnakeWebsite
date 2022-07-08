@@ -40,11 +40,15 @@
             LoginRequest loginRequest = new LoginRequest();
             loginRequest = authService.DecodeLoginRequest(encrypt);
 
+            if (loginRequest != null)
+            {
+                SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest);
+                AppState.UpdateLoginStatus(this, snakeAccount);
 
-            SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest);
-            AppState.UpdateLoginStatus(this, snakeAccount);
+                NavigationManager.NavigateTo("/myprofile/index",true);
+            }
 
-            NavigationManager.NavigateTo("/myprofile/index",true);
+            
         }
         
     }
