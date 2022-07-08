@@ -1,0 +1,39 @@
+@page "/"
+@inject IJSRuntime JS
+@using SnakeAsianLeague.Pages.NFTindex.Components
+
+<head>
+    <title>PonPonSnake 碰碰蛇｜NFTindex</title>
+    <link href="/css/NFTindex/NFTindex.css" rel="stylesheet" />
+</head>
+
+<div class="NFTindex">
+    <div class="NFTindex_BG">
+
+        <NFTindex_Collect/>
+        <NFTindex_Video/>
+    </div>
+</div>
+
+
+
+@code {
+private IJSObjectReference? GameFiJS;
+    private IJSObjectReference? lazyloadingJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+
+        {
+            GameFiJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/GameFi/GameFi.js");
+            await GameFiJS.InvokeVoidAsync("RiderHover");            
+
+
+            await JS.InvokeVoidAsync("installI18n");
+
+        }
+
+    }
+}
