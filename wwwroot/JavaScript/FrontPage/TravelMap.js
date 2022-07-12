@@ -1,6 +1,7 @@
 function animateReset() {
     $('.TravelMap').removeClass('animate_start')
     $('.TelescopicSight').removeClass('TelescopicSight-move')
+    $('.RegionalBadge-name').css("opacity","0");
     setTimeout(() => $('.TravelMap').addClass('animate_start'), 10)
 }
 
@@ -28,6 +29,7 @@ export function telescopicSightMove() {
         const id = $(this).attr('id')
         const num = id.slice(id.length - 1)
         travelMapMove(num)
+        $(this).siblings('.RegionalBadge-name').css("opacity","1");
     })
 }
 
@@ -38,7 +40,7 @@ function TravelMapAll() {
 
         const rect = $('.TravelMapAll')[0].getBoundingClientRect()
         //控制rect出現頁面高度 ex: (...) - 100
-        position = (rect.top - rect.height) - 200
+        position = (rect.top - rect.height) 
     });
 
     $(window).on('scroll', init)
