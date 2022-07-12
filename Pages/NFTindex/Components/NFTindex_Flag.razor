@@ -1,3 +1,5 @@
+@inject IJSRuntime JS
+
 <head>
     <link href="/css/NFTindex/NFTindex_Flag.css" rel="stylesheet" />
 </head>
@@ -7,30 +9,64 @@
         <img src="/images/NFTindex/NFTindex_Flag/Longbar.png" alt="">
     </div>
     <div class="Flag-BlockAll">
-        <div class="Flag-Block" id="Flag-Block-01">
-            <div class="Flag-icon">
-                <img src="/images/NFTindex/NFTindex_Flag/Icon-01-snake.png" alt="">
-            </div>
-            <div class="Flag-title">Classic Snake Game</div>
-            <div class="Flag-text">It's easy to learn and master. Come experiment with the evolution.
-            </div>
-        </div>
-        <div class="Flag-Block" id="Flag-Block-02">
-            <div class="Flag-icon">
-                <img src="/images/NFTindex/NFTindex_Flag/Icon-02-money.png" alt="">
-            </div>
-            <div class="Flag-title">A steady Eco-system</div>
-            <div class="Flag-text">"Play to Earn" becomes reality for gamers who want to join the GameFi
-                community.
+        <div class="Flag-Block-OuterLayer" id="Flag-Block-OuterLayer-01">
+            <div class="Flag-Block" id="Flag-Block-01">
+                <div class="Flag-Block-InnerLayer" id="Flag-Block-InnerLayer-01">
+                    <div class="Flag-icon">
+                        <img src="/images/NFTindex/NFTindex_Flag/Icon-01-snake.png" alt="">
+                    </div>
+                    <div class="Flag-title">Everyone can win!</div>
+                    <div class="Flag-text">Nokia's "Snake" started an age in which anybody can play mobile games. PonPonSnake now recreates classics with 3D technology & stunning visuals.
+                    </div>
+                    <a href="" disabled>
+                        <button class="Flag-button">Whitepaper</button>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="Flag-Block" id="Flag-Block-03">
-            <div class="Flag-icon">
-                <img src="/images/NFTindex/NFTindex_Flag/Icon-03-corea.png" alt="">
+        <div class="Flag-Block-OuterLayer" id="Flag-Block-OuterLayer-01">
+            <div class="Flag-Block" id="Flag-Block-02">
+                <div class="Flag-Block-InnerLayer" id="Flag-Block-InnerLayer-02">
+                    <div class="Flag-icon">
+                        <img src="/images/NFTindex/NFTindex_Flag/Icon-02-money.png" alt="">
+                    </div>
+                    <div class="Flag-title">ERNC<br> scattered around!</div>
+                    <div class="Flag-text">Big rewards for a tiny cost. We're giving away 270 Million ERNCs! The winner will be able to dominate the PonPonSnake universe.
+                    </div>
+                    <a href="" disabled>
+                        <button class="Flag-button">ERNC</button>
+                    </a>
+                </div>
             </div>
-            <div class="Flag-title">Fast Update NFT</div>
-            <div class="Flag-text">Offers a high level of development quality. We upgrade our NFTs and gameplay monthly.
+        </div>
+
+        <div class="Flag-Block-OuterLayer" id="Flag-Block-OuterLayer-01">
+            <div class="Flag-Block" id="Flag-Block-03">
+                <div class="Flag-Block-InnerLayer" id="Flag-Block-InnerLayer-03">
+                    <div class="Flag-icon">
+                        <img src="/images/NFTindex/NFTindex_Flag/Icon-03-corea.png" alt="">
+                    </div>
+                    <div class="Flag-title">PPSR going wild in the market!</div>
+                    <div class="Flag-text">Utility PPSR is tradeable on OpenSea. Own and receive SRC every day. We are developing the most expensive PPSR in the largest NFT market.
+                    </div>
+                    <a href="Marketplace" target="_blank" >
+                        <button class="Flag-button">NFT Marketplace</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+@code {
+    private IJSObjectReference? NFTindexFlagJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            NFTindexFlagJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/NFTindex/NFTindexFlag.js");
+            await NFTindexFlagJS.InvokeVoidAsync("NFTindexFlagReel");
+        }
+    }
+
+}
