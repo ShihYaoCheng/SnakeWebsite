@@ -155,5 +155,52 @@ namespace SnakeAsianLeague.Data.Services
             }
             
         }
+
+        public async Task<ServerResponce> PhoneSendVerifyCode(string CountryCode, string PhoneNumber)
+        {
+            ServerResponce serverResponce = new ServerResponce();
+
+            try {
+                PhoneMemberSendSmsDTO dto = new PhoneMemberSendSmsDTO();
+                if (PhoneNumber.Substring(0, 1) == "0")
+                {
+                    PhoneNumber = PhoneNumber.Substring(1);
+                }
+                dto.PhoneNumber = "+" + CountryCode + PhoneNumber;
+                dto.SmsType = SmsType.CreateByPhone;
+                string jsonData = JsonSerializer.Serialize(dto);
+
+
+
+                var request = new RestRequest($"User/SMS/VerifyCode", Method.POST);
+
+
+                request.AddJsonBody(jsonData);
+                request.AddHeader("Authorization", Authenticate());
+
+                IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+                
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    serverResponce.Success = true;
+                }
+                else
+                {
+                    serverResponce.Success = false;
+                    serverResponce.Content = restResponse.Content;
+
+                }
+            }
+            catch(Exception e) 
+            {
+                serverResponce.Success = false;
+                serverResponce.Content = e.Message;
+
+            }
+            return serverResponce;
+
+
+
+        }
     }
 }

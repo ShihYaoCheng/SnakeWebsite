@@ -1,0 +1,174 @@
+﻿
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Entity.SnakeServer
+
+@inject IAuthService AuthService
+
+@* 註冊按鈕 *@
+<div class="login_form">
+    <input type="text" class="login_input" id="address" name="address" placeholder="國碼" @bind=@CountryCode  >
+    
+    <input type="text" class="login_input" id="address" name="address" placeholder="手機" @bind=@PhoneNum  >
+
+    <div id="login_submit" @onclick="@RegisterOnclick">                
+        <img data-src="/images/Index/signUpEvent_button.webp" src="/images/Index/signUpEvent_button.webp"alt="">
+        <span data-i18n="[html]signInWindows.Rigister">Register</span>                
+    </div>
+
+</div>
+
+
+@* 談窗 *@
+<div class="login_block" id="login_block">
+
+    <div class="login" id="login_window">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24.122" height="24.12" viewBox="0 0 24.122 24.12"
+             id="login_close" @onclick="EditFormCancel">
+            <path id="" data-name="合体 5" d="M-12484-1752l-11,11,11-11-11-11,11,11,11-11-11,11,11,11Z"
+                  transform="translate(12496.062 1764.06)" fill="none" stroke="#e0eeff" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="3" />
+        </svg>
+        <p class="window_p" data-i18n="[html]signInWindows.PonPonSnake">註冊碰碰蛇帳號</p>
+        <div class="login_pictuer_block">
+            <img id="login_pictuer" data-src="images\Other\login_picture.webp" src="images\Other\login_picture.webp"alt="">
+        </div>       
+        <div class="input_block">
+            <div class="login_form">
+                <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">手機</label>
+                <input type="text" class="login_input" id="address" name="address" placeholder="" @bind=RegisterDTO.PhoneNumber  required>
+            </div>
+            <div class="login_form">
+                <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">驗證碼</label>
+                <input type="text" class="login_input" id="address" name="address" placeholder="" @bind=RegisterDTO.VerifyCode  required>
+            </div>
+            <div class="login_form" style="margin-bottom: 20px;">
+                <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">密碼</label>
+                <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=RegisterDTO.Password required>
+            </div>
+            <div class="login_form" style="margin-bottom: 20px;">
+                <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">密碼</label>
+                <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=PasswordCheck required>
+            </div>
+            @*<div type="text" class="login_error" hidden="@(!loginErrorShow)"  data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>*@
+            <div id="login_submit" @onclick="@RegisterSubmit">                
+                <img data-src="/images/Index/signUpEvent_button.webp" src="/images/Index/signUpEvent_button.webp"alt="">
+                <span data-i18n="[html]signInWindows.Rigister">註冊</span>                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="window @(displayForm ? "window_open" : "")" id="edit_info_window">
+    <div class="window_bg" id="edit_info">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24.122" height="24.12" viewBox="0 0 24.122 24.12"
+            class="window_close" id="edit_info_close" @onclick="EditFormCancel">
+            <path id="" data-name="合体 5" d="M-12484-1752l-11,11,11-11-11-11,11,11,11-11-11,11,11,11Z"
+                transform="translate(12496.062 1764.06)" fill="none" stroke="#e0eeff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="3" />
+        </svg>
+
+        <div class="window_title">
+            <p>註冊碰碰蛇帳號</p>
+        </div>
+
+
+        <EditForm Model="@RegisterDTO" class="window_input_block">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+        
+            <div class="form_row only_show_row">
+                <div class="window_row_title only_show_title">手機號碼</div>
+                <div class="window_row_show only_show_input" id="edit_phone">@PhoneNum</div>
+            </div>
+
+            <div class="form_row">
+                <label class="window_row_title" for="edit_realname">驗證碼</label>
+                <div class="window_row_show">
+                    <input type="text" class="window_input" id="edit_realname" name="edit_realname" placeholder=""required @bind-value="RegisterDTO.VerifyCode">
+                </div>
+            </div>
+
+            <div class="form_row">
+                <label class="window_row_title" for="edit_sns">密碼</label>
+                <div class="window_row_show">
+                    <input type="text" class="window_input" id="edit_sns" name="edit_sns" placeholder=""
+                            @bind-value="RegisterDTO.Password">
+                </div>
+            </div>
+
+            <div class="form_row">
+                <label class="window_row_title" for="edit_email">確認密碼</label>
+                <div class="window_row_show">
+                    <input type="text" class="window_input" id="edit_email" name="edit_email" placeholder="" required
+                            @bind-value="PasswordCheck">
+                </div>
+            </div>
+        
+            <div type="text" class="edit_error">紅框欄請填寫資訊</div>
+
+            <div id="edit_info_window_submit" class="window_submit" @onclick="RegisterSubmit">
+
+                <img src="/images/Index/signUpEvent_button.webp" alt="">
+                <span>註冊</span>
+
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+
+
+@code {
+
+    bool displayForm = false;
+    void EditFormShow() => displayForm = true;
+    void EditFormCancel() => displayForm = false;
+
+    public PhoneMemberRegisterDTO RegisterDTO { get; set; } = new PhoneMemberRegisterDTO();
+
+
+    public string CountryCode { get; set;}
+    public string PhoneNum { get; set;}
+    public string PasswordCheck { get; set;}
+
+
+    private async Task RegisterOnclick()
+    {
+
+        ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
+        if (resp.Success == true)
+        {
+            displayForm = true;
+
+        }
+        else
+        {
+            Console.WriteLine(resp.Content);
+        }
+
+    }
+
+    private async Task RegisterSubmit()
+    {
+
+        //SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest);
+        //AppState.UpdateLoginStatus(this, snakeAccount);
+        //if (AppState.LoginStatus.IsLogin == true)
+        //{
+        //    loginErrorShow = false;
+        //    await loginCloseClick();
+        //    await JS.InvokeVoidAsync("myprofileSidebar");
+        //    await JS.InvokeVoidAsync("installI18n");
+        //    await JS.InvokeVoidAsync("navbarSlide");
+        //    //HandleClick();
+
+        //}
+        //else
+        //{
+        //    loginErrorShow = true;
+        //}
+
+    }
+
+
+}

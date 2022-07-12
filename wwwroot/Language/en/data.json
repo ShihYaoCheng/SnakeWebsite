@@ -67,7 +67,8 @@
     "PhoneNumber": "<div class=\"signInWindows\">Phone Number</div>",
     "Password": "<div class=\"signInWindows\">Password</div>",
     "SignIn": "Sign In",
-    "Failed": "Login failure, please try again."
+    "Failed": "Login failure, please try again.",
+    "Rigister": "Rigister"
   },
 
   "SnakeIndexlogo": "/images/OfficialWeb/LOGO_EN.webp",
