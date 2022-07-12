@@ -24,7 +24,7 @@
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    margin: 100px auto 65px;
+    margin: 100px auto 50px;
     z-index: 10;
 }
 
@@ -305,8 +305,8 @@
     left: -28%;
     max-width: 650px;
     width: 65%;
-    animation: TravelMap-cloud-01-a1 2s,
-               TravelMap-cloud-01-a2 30s infinite 2s;
+    /* animation: TravelMap-cloud-01-a1 2s,
+               TravelMap-cloud-01-a2 30s infinite 2s; */
 }
 
 @keyframes TravelMap-cloud-01-a1 {
@@ -351,8 +351,8 @@
     right: 5%;
     max-width: 440px;
     width: 55%;
-    animation: TravelMap-cloud-02-a1 2s,
-        TravelMap-cloud-02-a2 30s infinite 2s;
+    /* animation: TravelMap-cloud-02-a1 2s,
+        TravelMap-cloud-02-a2 30s infinite 2s; */
 }
 
 @keyframes TravelMap-cloud-02-a1 {
@@ -397,8 +397,8 @@
     right: -20%;
     max-width: 450px;
     width: 55%;
-    animation: TravelMap-cloud-03-a1 1.5s,
-        TravelMap-cloud-03-a2 30s infinite 1.5s;
+    /* animation: TravelMap-cloud-03-a1 1.5s,
+        TravelMap-cloud-03-a2 30s infinite 1.5s; */
 }
 
 @keyframes TravelMap-cloud-03-a1 {
@@ -464,8 +464,49 @@
     /* display: none; */
 }
 
+/* 探照鏡初始移動 */
+.TelescopicSight-move{
+    /* top: 40%; */
+    /* left: 30%; */
+    offset-path: path('M 10 80 C 80 10, 130 10, 190 80 S 300 150, 360 80');
+    animation: TelescopicSight-move 20s infinite 1s linear;
+}
 
+@keyframes TelescopicSight-move {
+    0% {
+        top: 20%;
+        left: 0%;
+        offset-distance: 0%;
+    }
+    33% {
+        top: 80%;
+        left: 60%;
+        offset-distance: 100%;
+    }
+    66% {
+        top: 10%;
+        left: 50%;
+        offset-distance: 100%;
+    }
+    100% {
+        top: 20%;
+        left: 0%;
+        offset-distance: 0%;
+    }
+}
+.TelescopicSight-move .TravelMap-circle-ball{
+    animation: circle-ball-display 0.3s ease-in 0.5s forwards;
+}
+.TelescopicSight-move .TravelMap-circle {
+    animation: TravelMap-circle-rotate 10s infinite  linear;
+    transform: translate(-50%, -50%) rotate(0);
+}
 
+@keyframes TravelMap-circle-rotate {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
 /* 探照鏡 */
 .TravelMap-circle {
     /* border: 1px solid red; */
@@ -493,6 +534,8 @@
     top: 0;
     left: 0;
     transform: rotate(101.5deg);
+    width: 285px;
+    height: 285px;
 }
 
 .TravelMap-circle-line circle {
@@ -851,18 +894,18 @@
 /* animate_start */
 
 /* 雲 TravelMap-cloud */
-/* .animate_start #TravelMap-cloud-01 {
-    animation: TravelMap-cloud-01-a1 2s,
-        TravelMap-cloud-01-a2 30s infinite 2s;
+.animate_start #TravelMap-cloud-01 {
+    animation: TravelMap-cloud-01-a1 3s ease-in-out ,
+        TravelMap-cloud-01-a2 30s infinite 3s;
 }
 .animate_start #TravelMap-cloud-02 {
-    animation: TravelMap-cloud-02-a1 2s,
-    TravelMap-cloud-02-a2 30s infinite 2s;
+    animation: TravelMap-cloud-02-a1 3s ease-in-out,
+    TravelMap-cloud-02-a2 30s infinite 3s;
 }
 .animate_start #TravelMap-cloud-03 {
-    animation: TravelMap-cloud-03-a1 1.5s,
-    TravelMap-cloud-03-a2 30s infinite 1.5s;
-} */
+    animation: TravelMap-cloud-03-a1 2s ease-in-out,
+    TravelMap-cloud-03-a2 30s infinite 2s;
+}
 
 /* 指針 */
 .animate_start .TravelMap-01-Della #compass_outside {
@@ -910,4 +953,23 @@
 }
 .animate_start .RegionalFlag-name {
     animation: RegionalFlag-name-display 0.5s ease-in 1.4s forwards;
+}
+
+
+@media all and (max-width: 1920px){
+    .TravelMap {
+        max-width: 900px;
+    }
+    .TelescopicSight{
+        width: 200px;
+        height: 200px;
+    }
+    .TravelMap-circle{
+        width: 225px;
+        height: 225px;
+    }
+    .TravelMap-circle-line{
+        width: 225px;
+        height: 225px;
+    }
 }

@@ -1,5 +1,6 @@
 function animateReset() {
     $('.TravelMap').removeClass('animate_start')
+    $('.TelescopicSight').removeClass('TelescopicSight-move')
     setTimeout(() => $('.TravelMap').addClass('animate_start'), 10)
 }
 
@@ -21,10 +22,33 @@ function travelMapMove(num) {
 
 
 export function telescopicSightMove() {
+    TravelMapAll()
     console.log('telescopicSightMove')
     $('.RegionalBadge-icon-block img').on('click', function () {
         const id = $(this).attr('id')
         const num = id.slice(id.length - 1)
         travelMapMove(num)
     })
+}
+
+function TravelMapAll() {
+    console.log('TravelMapAll')
+    let position = ''
+    $(document).ready(function () {
+
+        const rect = $('.TravelMapAll')[0].getBoundingClientRect()
+        //控制rect出現頁面高度 ex: (...) - 100
+        position = (rect.top - rect.height) - 200
+    });
+
+    $(window).on('scroll', init)
+
+    function init() {
+        console.log('NFTindexFlagReel scrollY')
+        if (window.scrollY > position) {
+            // 滑到此處雲開始移動
+            $('.TravelMap-cloud').addClass('animate_start')
+            $(window).unbind('scroll')
+        }
+    }
 }
