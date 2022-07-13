@@ -3,9 +3,18 @@
 @using SnakeAsianLeague.Data.Entity.SnakeServer
 
 @inject IAuthService AuthService
+@inject IJSRuntime JS
+
+<head>
+    <link href="/css/NFTindex/NFTindex_Poster.css" rel="stylesheet" />
+</head>
+
+<div class="NFTindex_Poster">
+    @* <img src="/images/NFTindex/NFTindex_Poster/Botton_UI.png" alt=""> *@
+</div>
 
 @* 註冊按鈕 *@
-<div class="login_form">
+<div class="login_form" hidden="@true">
     <input type="text" class="login_input" id="address" name="address" placeholder="國碼" @bind=@CountryCode  >
     
     <input type="text" class="login_input" id="address" name="address" placeholder="手機" @bind=@PhoneNum  >
@@ -18,8 +27,8 @@
 </div>
 
 
-@* 談窗 *@
-<div class="login_block" id="login_block">
+@* 彈窗 *@
+<div class="login_block" id="login_block" hidden="@true">
 
     <div class="login" id="login_window">
         <svg xmlns="http://www.w3.org/2000/svg" width="24.122" height="24.12" viewBox="0 0 24.122 24.12"
