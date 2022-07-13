@@ -1,9 +1,27 @@
 .NFTindex_Banner{
-    border:  1px solid red;
+    /* border:  1px solid red; */
     /* height: 1000px; */
     width: 100%;
+    background-color: #203240;
 }
+.NFTindex_BG{
 
+}
 .NFTindex_Banner img{
     width: 100%;
+}
+.NFTindexBanner-title{
+    position: absolute;
+    top: 12%;
+    max-width: 550px;
+    width: 40%;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    left: 51%;
+}
+
+@media all and (max-width: 1500px){
+    .NFTindexBanner-title{
+        display: none;
+    }
 }

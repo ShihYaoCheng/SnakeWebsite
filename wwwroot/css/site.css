@@ -31,6 +31,7 @@ a, .btn-link {
     padding: 0px;
     background: #276170;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 /* RWD NAV */
@@ -121,19 +122,19 @@ a, .btn-link {
 }
 
 #SnakeACL-Logo{
-    max-width: 90px;
-    margin: 10px 5px 10px 15px;
+    max-width: 70px;
+    margin: 6px 5px 6px 15px;
     /* width: 100%; */
 }
 #kimlan-Logo{
-    margin: 10px 3px 10px 15px;
+    margin: 6px 3px 6px 15px;
 }
 #YOMI-Logo{
-    margin: 10px 3px;
+    margin: 6px 3px;
 }
 
 .logo img{
-    max-height: 50px;
+    max-height: 40px;
 }
 
 .ACLnaming{
@@ -263,8 +264,12 @@ a, .btn-link {
 
 .navbar-toggler {
     background-color: rgb(106 125 133 / 50%);
+    margin: 6px 15px;
 }
-
+.navbar-toggler-icon{
+    width: 1.2em;
+    height: 1.2em;
+}
 .valid.modified:not([type=checkbox]) {
     /* outline: 1px solid #26b050; */
 }
@@ -302,7 +307,8 @@ a, .btn-link {
     border: 3px solid #aad4cd;
     box-shadow: 2px 2px 4px 0px #1c4c581e;
     transition: all .1s ease-in;
-    margin: 0 auto;
+    margin: 3px auto;
+    height: 50px;
 }
 #nav-ConnectWallet a{
     padding: 6px 10px;
@@ -359,7 +365,7 @@ a, .btn-link {
         margin: 10px 3px 10px 0px;
     }
     #SnakeACL-Logo{
-        margin: 10px 0px 10px 4px;
+        margin: 6px 0px 6px 4px;
     }
 }
 
@@ -1333,7 +1339,7 @@ position: relative;
     /* border: 1px solid red; */
     width: 100%;
     position: fixed;
-    top: 69px;
+    top: 54px;
     z-index: 20;
     background-color: rgba(67, 128, 150, 0.877);
     box-shadow: 0px 2px 8px #06060663;
@@ -1397,7 +1403,7 @@ position: relative;
 }
 @media all and (max-width: 500px){
     .ACLIndexNavbar{
-        top: 54px;
+        top: 50px;
     }
     .ACLIndexNavbar ul li a{
         font-size: 16px;

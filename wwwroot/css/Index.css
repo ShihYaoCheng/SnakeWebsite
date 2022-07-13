@@ -1314,7 +1314,7 @@
 }
 
 .bg-dark{
-    background-image: url(/images/Other/nav_banner_acl.webp);
+    /* background-image: url(/images/Other/nav_banner_acl.webp); */
 }
 .text-light {
     color: #ffffff !important;
