@@ -162,11 +162,7 @@ namespace SnakeAsianLeague.Data.Services
 
             try {
                 PhoneMemberSendSmsDTO dto = new PhoneMemberSendSmsDTO();
-                if (PhoneNumber.Substring(0, 1) == "0")
-                {
-                    PhoneNumber = PhoneNumber.Substring(1);
-                }
-                dto.PhoneNumber = "+" + CountryCode + PhoneNumber;
+                dto.PhoneNumber = PhoneNumberCombination( CountryCode , PhoneNumber);
                 dto.SmsType = SmsType.CreateByPhone;
                 string jsonData = JsonSerializer.Serialize(dto);
 
@@ -201,6 +197,87 @@ namespace SnakeAsianLeague.Data.Services
 
 
 
+        }
+
+        public async Task<ServerResponce> PhoneRegister(string CountryCode, string PhoneNumber,PhoneMemberRegisterDTO phoneMemberRegisterDTO, string UserName)
+        {
+            ServerResponce serverResponce = new ServerResponce();
+
+            try
+            {
+                phoneMemberRegisterDTO.PhoneNumber = PhoneNumberCombination(CountryCode, PhoneNumber);
+                phoneMemberRegisterDTO.SmsType = SmsType.CreateByPhone;
+                phoneMemberRegisterDTO.DeviceID = phoneMemberRegisterDTO.PhoneNumber;
+                string jsonData = JsonSerializer.Serialize(phoneMemberRegisterDTO);
+
+
+                var request = new RestRequest($"User/SMS/Register", Method.POST);
+
+
+                request.AddJsonBody(jsonData);
+                request.AddHeader("Authorization", Authenticate());
+
+                IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    serverResponce.Success = true;
+                    SnakeAccount account = JsonSerializer.Deserialize<SnakeAccount>(restResponse.Content);
+
+                    //更改暱稱
+                    ServerResponce rsp = await UserNameModify(account.userID, UserName);
+
+                    
+                }
+                else
+                {
+                    serverResponce.Success = false;
+                    serverResponce.Content = restResponse.Content;
+
+                }
+            }
+            catch (Exception e)
+            {
+                serverResponce.Success = false;
+                serverResponce.Content = e.Message;
+
+            }
+            return serverResponce;
+        }
+
+        public string PhoneNumberCombination (string CountryCode, string PhoneNumber)
+        {
+            string str = "";
+            if (PhoneNumber.Substring(0, 1) == "0")
+            {
+                PhoneNumber = PhoneNumber.Substring(1);
+            }
+            str = "+" + CountryCode + PhoneNumber;
+            return str;
+
+        }
+
+        public async Task<ServerResponce> UserNameModify(uint userId,string name)
+        {
+            ServerResponce serverResponce = new ServerResponce();
+            var request = new RestRequest($"User/Name", Method.GET);
+            request.AddQueryParameter("UserID", userId.ToString());
+            request.AddQueryParameter("Name", name);
+            request.AddHeader("Authorization", Authenticate());
+
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                serverResponce.Success = true;
+            }
+            else
+            {
+                serverResponce.Success = false;
+                serverResponce.Content = restResponse.Content;
+
+            }
+
+            return serverResponce;
         }
     }
 }
