@@ -29,6 +29,11 @@
 .Flag-Block-OuterLayer {
     /* border: 1px solid red; */
     overflow: hidden;
+    transition: all .2s ease-in-out;
+}
+.Flag-Block-OuterLayer:hover{
+    transition: all .2s ease-in-out;
+    filter: drop-shadow(2px 10px 20px rgba(255, 254, 225, 0.633));
 }
 
 .Flag-Block {
@@ -89,6 +94,7 @@
         filter: drop-shadow(0px 0px 10px rgba(34, 33, 33, 0.797));
     }
 }
+
 
 .Flag-Block-InnerLayer {
     /* border: 1px solid red; */
@@ -227,7 +233,7 @@
     transition: all .1s ease-in;
 }
 .Flag-button:hover{
-    transform: translateY(-1px);
+    transform: translateY(-2px) scale(1.01);
 }
 
 
@@ -266,16 +272,16 @@
         height: 50px;
         font-size: 20px;
     }
-}
-@media all and (max-width: 1500px) {
-    .Flag-BlockAll {
-        max-width: 1200px;
+    .Flag-Block-OuterLayer:hover{
+        transition: all .2s ease-in-out;
+        filter: drop-shadow(2px 10px 15px rgba(255, 254, 225, 0.633));
     }
 }
 
+
 @media all and (max-width: 1500px) {
     .Flag-BlockAll {
- 
+        max-width: 1200px;
     }
 
     .Flag-Block {
@@ -308,6 +314,10 @@
         width: 200px;
         height: 40px;
         font-size: 16px;
+    }
+    .Flag-Block-OuterLayer:hover{
+        transition: all .2s ease-in-out;
+        filter: drop-shadow(2px 10px 15px rgba(255, 254, 225, 0.562));
     }
 }
 
