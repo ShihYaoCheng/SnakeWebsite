@@ -1,9 +1,13 @@
-﻿@page "/NFTindex_Poster"
+﻿@page "/Poster"
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Entity
 
 @inject IAuthService AuthService
 @inject IJSRuntime JS
+@inject AppState AppState
+@implements IDisposable
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 <head>
     <link href="/css/NFTindex/NFTindex_Poster.css" rel="stylesheet" />
@@ -29,257 +33,99 @@
 
 </div>
 
+
 @* 新暫時彈窗 *@
-<section class="products-popup-bg products-popup-open" id="products-popupblock-Name">
+    <section class="products-popup-bg @(displayForm ? "products-popup-open" : "") " id="products-popupblock-Name">
+        <div class="products-popupblock">
 
-    <div class="products-popupblock">
-        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
-            <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
-                fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
-        </svg>
+            <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="EditFormCancel">
+                <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
+                    fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+            </svg>
 
-        <div class="products-popup-title">註冊碰碰蛇帳號</div>
-        <div class="products-popup-content">
-            <div class="products-popup-text">Pleas Click the Save to change your Rider's name.</div>
-            <div class="popup-low">
-                <label class="popup-label" for="name">姓名</label>
-                <input class="products-popup-inputText" id="name" type="text" value=""
-                    placeholder="The 20 character limit input 看要顯示什麼">
-            </div>
-            <div class="popup-low">
-                <label class="popup-label" for="phone">手機</label>
-                <input class="products-popup-inputText" id="phone" type="text" value=""
-                    placeholder="看要顯示什麼">
-            </div>
-            <div class="products-popup-error">(字數超過或有問題時可出現)The number of characters is limited to 20.</div>
+            <div class="products-popup-title">Register Account</div>
 
-            <button class="products-popup-submit" type="submit">SAVE</button>
-        </div>
-    </div>
-</section>
+            <EditForm Model="@RegisterDTO" class="window_input_block">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
 
+                <div class="products-popup-content">
+                    <div class="products-popup-text">Please check the verification code with your mobile phone.</div>
 
+                    <div class="popup-low">
+                        <label class="popup-label" for="phone">Phone Number</label>
+                        <label class="popup-label" for="phone">@PhoneNum</label>
+                        
+                    </div>
 
-@* 彈窗 可刪掉 *@
-<div class="login_block" id="login_block" hidden="@false">
+                    <div class="popup-low">
+                        <label class="popup-label" for="name">VerifyCode</label>
+                        <input class="products-popup-inputText" id="name" type="text" @bind-value="RegisterDTO.VerifyCode"
+                            placeholder="">
+                    </div>
 
-    <div class="login" id="login_window">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24.122" height="24.12" viewBox="0 0 24.122 24.12"
-            id="login_close" @onclick="EditFormCancel">
-            <path id="" data-name="合体 5" d="M-12484-1752l-11,11,11-11-11-11,11,11,11-11-11,11,11,11Z"
-                transform="translate(12496.062 1764.06)" fill="none" stroke="#e0eeff" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="3" />
-        </svg>
-        <p class="window_p" data-i18n="[html]signInWindows.PonPonSnake">註冊碰碰蛇帳號</p>
-        <div class="login_pictuer_block">
-            <img id="login_pictuer" data-src="images\Other\login_picture.webp" src="images\Other\login_picture.webp"
-                alt="">
-        </div>
-        <div class="input_block">
-            <div class="login_form">
-                <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">手機</label>
-                <input type="text" class="login_input" id="address" name="address" placeholder=""
-                    @bind=RegisterDTO.PhoneNumber required>
-            </div>
-            <div class="login_form">
-                <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">驗證碼</label>
-                <input type="text" class="login_input" id="address" name="address" placeholder=""
-                    @bind=RegisterDTO.VerifyCode required>
-            </div>
-            <div class="login_form" style="margin-bottom: 20px;">
-                <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">密碼</label>
-                <input type="password" class="login_input" id="password" name="password" placeholder=""
-                    　@bind=RegisterDTO.Password required>
-            </div>
-            <div class="login_form" style="margin-bottom: 20px;">
-                <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">密碼</label>
-                <input type="password" class="login_input" id="password" name="password" placeholder=""
-                    　@bind=PasswordCheck required>
-            </div>
-            @*<div type="text" class="login_error" hidden="@(!loginErrorShow)"
-                data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>*@
-            <div id="login_submit" @onclick="@RegisterSubmit">
-                <img data-src="/images/Index/signUpEvent_button.webp" src="/images/Index/signUpEvent_button.webp"
-                    alt="">
-                <span data-i18n="[html]signInWindows.Rigister">註冊</span>
-            </div>
-        </div>
-    </div>
-</div>
+                    <div class="popup-low">
+                        <label class="popup-label" for="name">Password</label>
+                        <input class="products-popup-inputText" id="password" type="text" @bind-value="RegisterDTO.Password"
+                            placeholder="">
+                    </div>
 
-@* 彈窗 可刪掉 *@
-<div class="window @(displayForm ? "window_open" : "")" id="edit_info_window">
-    <div class="window_bg" id="edit_info">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24.122" height="24.12" viewBox="0 0 24.122 24.12"
-            class="window_close" id="edit_info_close" @onclick="EditFormCancel">
-            <path id="" data-name="合体 5" d="M-12484-1752l-11,11,11-11-11-11,11,11,11-11-11,11,11,11Z"
-                transform="translate(12496.062 1764.06)" fill="none" stroke="#e0eeff" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="3" />
-        </svg>
+                    <div class="popup-low">
+                        <label class="popup-label" for="name">Confirm Password</label>
+                        <input class="products-popup-inputText" id="passwordcheck" type="text" @bind-value="PasswordCheck"
+                            placeholder="">
+                    </div>
 
-        <div class="window_title">
-            <p>註冊碰碰蛇帳號</p>
-        </div>
+                    <div class="popup-low">
+                        <label class="popup-label" for="name">User Name</label>
+                        <input class="products-popup-inputText" id="username" type="text" @bind-value="UserName"
+                            placeholder="">
+                    </div>
+                    
+                    <div class="products-popup-error">@ErrorString</div>
 
-
-        <EditForm Model="@RegisterDTO" class="window_input_block">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-
-            <div class="form_row only_show_row">
-                <div class="window_row_title only_show_title">手機號碼</div>
-                <div class="window_row_show only_show_input" id="edit_phone">@PhoneNum</div>
-            </div>
-
-            <div class="form_row">
-                <label class="window_row_title" for="edit_realname">驗證碼</label>
-                <div class="window_row_show">
-                    <input type="text" class="window_input" id="edit_realname" name="edit_realname" placeholder=""
-                        required @bind-value="RegisterDTO.VerifyCode">
+                    <button class="products-popup-submit" type="submit" @onclick="RegisterSubmit">Register</button>
                 </div>
-            </div>
 
-            <div class="form_row">
-                <label class="window_row_title" for="edit_sns">密碼</label>
-                <div class="window_row_show">
-                    <input type="text" class="window_input" id="edit_sns" name="edit_sns" placeholder=""
-                        @bind-value="RegisterDTO.Password">
-                </div>
-            </div>
+            </EditForm>
 
-            <div class="form_row">
-                <label class="window_row_title" for="edit_email">確認密碼</label>
-                <div class="window_row_show">
-                    <input type="text" class="window_input" id="edit_email" name="edit_email" placeholder="" required
-                        @bind-value="PasswordCheck">
-                </div>
-            </div>
+        </div>
+    </section>
 
-            <div type="text" class="edit_error">紅框欄請填寫資訊</div>
 
-            <div id="edit_info_window_submit" class="window_submit" @onclick="RegisterSubmit">
 
-                <img src="/images/Index/signUpEvent_button.webp" alt="">
-                <span>註冊</span>
 
-            </div>
-        </EditForm>
-    </div>
-</div>
 
 
 
 @code {
 
 
-
-
-
-
-
     bool displayForm = false;
-
-
-
     void EditFormShow() => displayForm = true;
-
-
-
     void EditFormCancel() => displayForm = false;
-
-
-
-
-
 
 
     public PhoneMemberRegisterDTO RegisterDTO { get; set; } = new PhoneMemberRegisterDTO();
 
-
-
-
-
-
-
-
-
-
-
     public string CountryCode { get; set; }
-
-
-
     public string PhoneNum { get; set; }
-
-
-
     public string PasswordCheck { get; set; }
-
-
-
-
-
-
-
-
-
+    public string ErrorString { get; set; }
+    public string UserName { get; set; }
 
 
     private async Task RegisterOnclick()
-
-
-
     {
-
-
-
-
-
-
-
         ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
-
-
-
         if (resp.Success == true)
-
-
-
         {
-
-
-
-            displayForm = true;
-
-
-
-
-
-
-
+            EditFormShow();
         }
-
-
-
         else
-
-
-
         {
-
-
-
             Console.WriteLine(resp.Content);
-
-
-
         }
-
-
-
-
-
-
 
     }
 
@@ -290,117 +136,59 @@
 
 
     private async Task RegisterSubmit()
-
-
-
     {
+        if (PasswordCheck != RegisterDTO.Password)
+        {
+            return;
+        }
 
 
+        ServerResponce resp = await AuthService.PhoneRegister(CountryCode, PhoneNum,RegisterDTO, UserName);
+        if (resp.Success == true)
+        {
+          
+            //登出舊儲存帳號
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var LoginUser = authState.User;
+            if (LoginUser != null && LoginUser.Identities.Count() != 0)
+            {
+                await AuthService.AuthLogout();
+            }
 
 
+            //登入
+            LoginRequest loginRequest = new LoginRequest();
+            loginRequest.phone = PhoneNum;
+            loginRequest.password = PasswordCheck;
+            SnakeAccount snakeAccount = await AuthService.AuthLogin(loginRequest);
+            AppState.UpdateLoginStatus(this, snakeAccount);
 
+            EditFormCancel();
 
-
-        //SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest);
-
-
-
-        //AppState.UpdateLoginStatus(this, snakeAccount);
-
-
-
-        //if (AppState.LoginStatus.IsLogin == true)
-
-
-
-        //{
-
-
-
-        // loginErrorShow = false;
-
-
-
-        // await loginCloseClick();
-
-
-
-        // await JS.InvokeVoidAsync("myprofileSidebar");
-
-
-
-        // await JS.InvokeVoidAsync("installI18n");
-
-
-
-        // await JS.InvokeVoidAsync("navbarSlide");
-
-
-
-        // //HandleClick();
-
-
-
-
-
-
-
-        //}
-
-
-
-        //else
-
-
-
-        //{
-
-
-
-        // loginErrorShow = true;
-
-
-
-        //}
-
-
-
-
-
-
+        }
+        else
+        {
+            Console.WriteLine(resp.Content);
+        }
 
     }
 
 
 
-
-
-
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
-
-
-
     {
-
-
-
         if (firstRender)
-
-
-
         {
             @* await JS.InvokeVoidAsync("Popup"); *@
 
-
-
+            AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
         }
-
-
-
-
-
-
-
+    }
+    void IDisposable.Dispose()
+    {
+        //AppState.OnChange -= StateHasChanged;
+        AppState.StateChanged -= async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
     }
 }

@@ -11,6 +11,9 @@ namespace SnakeAsianLeague.Data.Services
 
         LoginRequest DecodeLoginRequest(string EncodedString);
         Task<ServerResponce> PhoneSendVerifyCode(string CountryCode, string PhoneNumber);
+        Task<ServerResponce> PhoneRegister(string CountryCode, string PhoneNumber, PhoneMemberRegisterDTO phoneMemberRegisterDTO, string UserName);
+
+        Task<ServerResponce> UserNameModify(uint userId, string name);
 
     }
 }
