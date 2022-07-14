@@ -93,28 +93,24 @@
 </section>
 
 @* 送出成功/失敗 彈窗 *@
-<section class="products-popup-bg" id="products-popupblock-result">
+<section class="products-popup-bg @(displayAlert ? "products-popup-open" : "") " id="products-popupblock-result">
     <div class="products-popupblock">
 
-        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="EditFormCancel">
+        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="AlertCancel">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
                 fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
         </svg>
 
-        <div class="products-popup-title">送出成功/失敗</div>
+        <div class="products-popup-title">@AlertTitle</div>
 
         <EditForm Model="@RegisterDTO" class="window_input_block">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
+            
 
             <div class="products-popup-content">
-                <div class="products-popup-text">敘述</div>
-
-
+                <div class="products-popup-text">@AlertContent</div>
                 
-                <div class="products-popup-error">@ErrorString</div>
 
-                <button class="products-popup-submit" type="submit" @onclick="RegisterSubmit">close</button>
+                <button class="products-popup-submit" type="submit" @onclick="AlertCancel">close</button>
             </div>
 
         </EditForm>
@@ -129,10 +125,15 @@
 
 @code {
 
-
     bool displayForm = false;
     void EditFormShow() => displayForm = true;
     void EditFormCancel() => displayForm = false;
+
+    bool displayAlert = false;
+    public string? AlertTitle { get; set; }
+    public string? AlertContent { get; set; }
+    void AlertShow() => displayAlert = true;
+    void AlertCancel() => displayAlert = false;
 
 
     public PhoneMemberRegisterDTO RegisterDTO { get; set; } = new PhoneMemberRegisterDTO();
@@ -140,8 +141,8 @@
     public string CountryCode { get; set; }
     public string PhoneNum { get; set; }
     public string PasswordCheck { get; set; }
-    public string ErrorString { get; set; }
     public string UserName { get; set; }
+    public string ErrorString { get; set; }
 
 
     private async Task RegisterOnclick()
@@ -154,13 +155,12 @@
         else
         {
             Console.WriteLine(resp.Content);
+            AlertTitle = "Sending verification code failed";
+            AlertContent = resp.Content + ". Please check the input is correct. ";
+            AlertShow();
         }
 
     }
-
-
-
-
 
 
 
@@ -192,12 +192,20 @@
             SnakeAccount snakeAccount = await AuthService.AuthLogin(loginRequest);
             AppState.UpdateLoginStatus(this, snakeAccount);
 
+            AlertTitle = "Register successed";
+            AlertContent = "";
+            AlertShow();
+
             EditFormCancel();
+
+
 
         }
         else
         {
-            Console.WriteLine(resp.Content);
+            AlertTitle = "Register failed";
+            AlertContent = resp.Content;
+            AlertShow();
         }
 
     }
