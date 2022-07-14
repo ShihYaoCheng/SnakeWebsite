@@ -26,7 +26,7 @@
 
     <input type="text" class="login_input" id="address" name="address" placeholder="手機" @bind=@PhoneNum>
 
-    <div id="login_submit" @onclick="@RegisterOnclick">
+    <div id="login_submit" @onclick="@SendVerifyCode">
         <img data-src="/images/Index/signUpEvent_button.webp" src="/images/Index/signUpEvent_button.webp" alt="">
         <span data-i18n="[html]signInWindows.Rigister">Register</span>
     </div>
@@ -63,6 +63,8 @@
                     <input class="products-popup-inputText" id="name" type="text" @bind-value="RegisterDTO.VerifyCode"
                         placeholder="">
                 </div>
+                <label class="popup-label" for="name">@TimeLeft</label>
+                <button disabled=@TimerIsRunning  @onclick="SendVerifyCode" >Resend Verify Code </button>
 
                 <div class="popup-low">
                     <label class="popup-label" for="name">Password</label>
@@ -125,10 +127,12 @@
 
 @code {
 
+    //註冊彈窗
     bool displayForm = false;
     void EditFormShow() => displayForm = true;
     void EditFormCancel() => displayForm = false;
 
+    //提醒彈窗
     bool displayAlert = false;
     public string? AlertTitle { get; set; }
     public string? AlertContent { get; set; }
@@ -145,11 +149,34 @@
     public string ErrorString { get; set; }
 
 
-    private async Task RegisterOnclick()
+    //倒數計時
+    bool TimerIsRunning = false;
+    TimeSpan TimeLeft = new TimeSpan();
+
+    async Task Timer()
+    {
+        while (TimeLeft > new TimeSpan())
+        {
+            await Task.Delay(1000);
+            TimeLeft = TimeLeft.Subtract(new TimeSpan(0,0,1));
+            StateHasChanged();
+        }
+        TimerIsRunning = false;
+        StateHasChanged();
+    }
+
+
+
+
+
+    private async Task SendVerifyCode()
     {
         ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
         if (resp.Success == true)
         {
+            TimerIsRunning = true;
+            TimeLeft = new TimeSpan(0,0,20);
+            Timer();
             EditFormShow();
         }
         else
