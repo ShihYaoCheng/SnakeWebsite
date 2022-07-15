@@ -394,7 +394,7 @@
     z-index: 17;
     animation: treasureChest-light 2s ease-in-out infinite;
 }
-@media all and (min-width: 1920px){
+/* @media all and (min-width: 1920px){
     .NFTindexBanner_BG{
         height: 1500px;
     }
@@ -414,7 +414,7 @@
     .NFTindexBanner_BG{
         height:unset;
     }
-}
+} */
 @media all and (max-width: 500px){
     .CenterBlock{
         top: 43px;
