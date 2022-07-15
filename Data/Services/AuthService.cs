@@ -183,7 +183,7 @@ namespace SnakeAsianLeague.Data.Services
                 else
                 {
                     serverResponce.Success = false;
-                    serverResponce.Content = restResponse.Content;
+                    serverResponce.Content = restResponse.StatusCode.ToString();
 
                 }
             }
