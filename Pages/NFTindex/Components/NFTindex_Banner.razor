@@ -10,14 +10,110 @@
 </head>
 
 
-<div class="NFTindex_Banner">
+<div class="NFTindex_Banner" hidden="@true">
     <div class="NFTindexBanner_BG">
-        <img  class=""src="/images/NFTindex/NFTindex_Banner/test.png" alt="">
+        <img class="" src="/images/NFTindex/NFTindex_Banner/test.png" alt="">
     </div>
     @* <div class="NFTindexBanner-BG">
         <img src="/images/NFTindex/NFTindex_Banner/background.png" alt="">
-    </div> *@
+        </div> *@
     <div class="NFTindexBanner-title">
         <img src="/images/NFTindex/NFTindex_Banner/Eat-Fight-and-Earn.png" alt="">
     </div>
 </div>
+
+<div class="NFTindex_Banner" hidden="@false">
+    <div class="NFTindexBanner_block">
+        <div class="NFTindexBanner_BG">
+            @* <img class="" src="/images/NFTindex/NFTindex_Banner/test.png" alt=""> *@
+            @* 藍天背景 *@
+            <img class="" src="/images/NFTindex/NFTindex_Banner/background.png" alt="">
+        </div>
+        @* 號角 *@
+        <div class="horn_block">
+            <img class="horn" id="horn-01" src="/images/NFTindex/NFTindex_Banner/horn-01.png" alt="">
+            <img class="horn" id="horn-02" src="/images/NFTindex/NFTindex_Banner/horn-02.png" alt="">
+            <img class="horn" id="horn-03" src="/images/NFTindex/NFTindex_Banner/horn-03.png" alt="">
+            <img class="horn" id="horn-04" src="/images/NFTindex/NFTindex_Banner/horn-04.png" alt="">
+        </div>
+
+        @* 中心主角示意圖 *@
+        @* <img class="centralProtagonist" src="/images/NFTindex/NFTindex_Banner/centralProtagonist.png" alt=""> *@
+
+        <div class="CenterBlock">
+            @* 水果 parallax *@
+            <div id="fruit_block" class="">
+                <img class="absolute-t0l0-w100" id="fruit-01" src="/images/NFTindex/NFTindex_Banner/fruit-01.png"
+                    alt="">
+                <img class="absolute-t0l0-w100" id="fruit-02" src="/images/NFTindex/NFTindex_Banner/fruit-02.png"
+                    alt="">
+            </div>
+
+            @* 光圈 *@
+            <div id="halo" class="absolute-t0l0-w100">
+                <img class="w100" src="/images/NFTindex/NFTindex_Banner/halo.png" alt="">
+            </div>
+
+            @* 黃色閃亮亮 kirakira *@
+            <div id="yellow-kirakira" class="absolute-t0l0-w100">
+                <img class="w100" src="/images/NFTindex/NFTindex_Banner/yellow-kirakira.png" alt="">
+            </div>
+
+            @* 蛇蛇與頭紗 *@
+            <div id="snake-veil" class="">
+                <img class="absolute-t0l0-w100" id="veil" src="/images/NFTindex/NFTindex_Banner/veil.png"
+                    alt="">
+                <img class="absolute-t0l0-w100" id="snake" src="/images/NFTindex/NFTindex_Banner/snake.png"
+                    alt="">
+            </div>
+
+            @* 寶箱 *@
+            <div id="treasureChest" class="">
+                <img class="absolute-t0l0-w100" id="treasureChest" src="/images/NFTindex/NFTindex_Banner/treasureChest.png" alt="">
+                <img class="absolute-t0l0-w100" id="treasureChest-light" src="/images/NFTindex/NFTindex_Banner/treasureChest-light.png" alt="">
+            </div>
+
+            @* 女主角騎士 *@
+            <div id="rider-block" class="">
+                <img class="absolute-t0l0-w100" id="airShadow" src="/images/NFTindex/NFTindex_Banner/airShadow.png" alt="">
+                <img class="absolute-t0l0-w100" id="rider" src="/images/NFTindex/NFTindex_Banner/rider.png" alt="">
+                <img class="absolute-t0l0-w100" id="white-kirakira" src="/images/NFTindex/NFTindex_Banner/white-kirakira.png" alt="">
+            </div>
+
+            @* 氣氛光線 *@
+            <div id="ambientLight-block" class="">
+                <img class="absolute-t0l0-w100"  id="stage-light" src="/images/NFTindex/NFTindex_Banner/stage-light.png" alt="">
+                <img class="absolute-t0l0-w100" id="natural-light" src="/images/NFTindex/NFTindex_Banner/natural-light.png" alt="">
+                <img class="absolute-t0l0-w100" id="rainbow" src="/images/NFTindex/NFTindex_Banner/rainbow.png" alt="">
+                <img class="absolute-t0l0-w100" id="ring-rainbow" src="/images/NFTindex/NFTindex_Banner/ring-rainbow.png" alt="">
+            </div>
+
+            @* ERNC *@
+            <div id="ERNC-block" class="">
+                <img class="absolute-t0l0-w100"  id="ERNC" src="/images/NFTindex/NFTindex_Banner/ERNC.png" alt="">
+                <img class="absolute-t0l0-w100" id="treasureChest-kirakira" src="/images/NFTindex/NFTindex_Banner/treasureChest-kirakira.png" alt="">
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+@code {
+    private IJSObjectReference? NFTindexBannerJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            NFTindexBannerJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/NFTindex/NFTindexBanner.js");
+            await NFTindexBannerJS.InvokeVoidAsync("NFTindexBanner");
+        }
+    }
+
+}

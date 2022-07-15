@@ -5,7 +5,7 @@ export function NFTindexFlagReel() {
 
         const rect = $('.Flag-BlockAll')[0].getBoundingClientRect()
         //控制rect出現頁面高度 ex: (...) - 100
-        position = (rect.top - rect.height) - 200
+        position = (rect.top - rect.height) - 500
     });
 
     $(window).on('scroll', init)

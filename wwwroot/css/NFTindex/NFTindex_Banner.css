@@ -3,12 +3,11 @@
     /* height: 1000px; */
     width: 100%;
     background-color: #203240;
-}
-.NFTindex_BG{
 
 }
+
 .NFTindex_Banner img{
-    width: 100%;
+    /* width: 100%; */
 }
 .NFTindexBanner-title{
     position: absolute;
@@ -24,4 +23,191 @@
     .NFTindexBanner-title{
         display: none;
     }
+}
+
+.NFTindexBanner-BG{
+    border: 1px solid red;
+    background-image: url("/images/NFTindex/NFTindex_Banner/background.png");
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 2000px;
+}
+
+/* 正式 */
+.NFTindexBanner_block{
+    border: 1px solid rgb(101, 238, 23);
+    width: 100%;
+}
+/* 藍天背景 */
+.NFTindexBanner_BG{
+    border: 1px solid rgb(101, 238, 23);
+    width: 100%;
+    opacity: 1;
+    position: relative;
+}
+.NFTindexBanner_BG img{
+    width: 100%;
+}
+
+
+/* 號角 */
+.horn_block{
+    border: 1px solid rgb(208, 59, 59);
+    width: 100%;
+    /* height: 1500px;
+    position: absolute;
+    top: 0; */
+}
+.horn{
+    position: absolute;
+    width: 14.5%;
+    z-index: 30;
+}
+#horn-01{
+    max-width: 300px;
+    /* top: 150px; */
+    top: 14%;
+    left: 0;
+}
+#horn-02{
+    max-width: 306px;
+    /* top: 580px; */
+    top: 56.5%;
+    left: 0;
+}
+#horn-03{
+    max-width: 300px;
+    /* top: 150px; */
+    top: 14%;
+    right: 0;
+}
+#horn-04{
+    max-width: 306px;
+    /* top: 580px; */
+    top: 56.5%;
+    right: 0;
+}
+/* 中心主角示意圖 */
+.centralProtagonist{
+    position: absolute;
+    top: 56px;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 0.5;
+    max-width: 1300px;
+    width: 100%;
+
+
+}
+
+.CenterBlock{
+    border: 1px solid rgb(228, 237, 43);
+    max-width: 1300px;
+    width: 100%;
+    height: 1300px;
+    position: absolute;
+    top: 56px;
+    left: 50%;
+    transform: translate(-50%);
+    pointer-events: none;
+}
+
+/* 定位 */
+.absolute-t0l0-w100{
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+.w100{
+    width: 100%;
+}
+
+/* 水果 */
+#fruit_block{
+
+}
+#fruit-01{
+    z-index: 1;
+}
+#fruit-02{
+    z-index: 2;
+}
+
+/* 光圈 */
+#halo{
+    /* border: 1px solid red; */
+    z-index: 3;
+    overflow: hidden;
+    border-radius: 50%;
+}
+#halo img{
+    animation: halo 70s linear infinite;
+}
+ 
+@keyframes halo {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+/* 黃色閃亮亮 kirakira */
+#yellow-kirakira{
+    z-index: 4;
+}
+
+/* 蛇蛇與頭紗 */
+#veil{
+    z-index: 5;
+}
+#snake{
+    z-index: 6;
+}
+
+/* 寶箱 */
+#treasureChest{
+    z-index: 7;
+}
+#treasureChest-light{
+    z-index: 8;
+}
+
+/* 女主角騎士 */
+#airShadow{
+    z-index: 9;
+}
+#rider{
+    z-index: 10;
+}
+#white-kirakira{
+    z-index: 11;
+}
+
+/* 氣氛光線 */
+#stage-light{
+    z-index: 12;
+}
+#natural-light{
+    z-index: 13;
+    width: 99vw;
+    transform: translateX(-50%);
+    left: 50%;
+}
+#rainbow{
+    z-index: 14;
+}
+#ring-rainbow{
+    z-index: 15;
+}
+
+
+/* ERNC  */
+#ERNC{
+    z-index: 16;
+}
+#treasureChest-kirakira{
+    z-index: 17;
 }
