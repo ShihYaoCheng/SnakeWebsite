@@ -26,7 +26,7 @@
 }
 
 .NFTindexBanner-BG{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-image: url("/images/NFTindex/NFTindex_Banner/background.png");
     width: 100%;
     background-size: contain;
@@ -36,15 +36,18 @@
 
 /* 正式 */
 .NFTindexBanner_block{
-    border: 1px solid rgb(101, 238, 23);
+    /* border: 1px solid rgb(101, 238, 23); */
     width: 100%;
+    position: relative;
+    /* overflow: hidden; */
 }
 /* 藍天背景 */
 .NFTindexBanner_BG{
-    border: 1px solid rgb(101, 238, 23);
+    /* border: 1px solid rgb(101, 238, 23); */
     width: 100%;
     opacity: 1;
     position: relative;
+
 }
 .NFTindexBanner_BG img{
     width: 100%;
@@ -53,41 +56,109 @@
 
 /* 號角 */
 .horn_block{
-    border: 1px solid rgb(208, 59, 59);
+    /* border: 1px solid rgb(208, 59, 59); */
     width: 100%;
-    /* height: 1500px;
     position: absolute;
-    top: 0; */
+    top: 0px;
+    height: 1438px;
+    pointer-events: none;
+    overflow: hidden;
+
 }
-.horn{
+.horn-hidden{
+    /* border: 1px solid rgb(208, 59, 59); */
+    overflow: hidden;
     position: absolute;
     width: 14.5%;
     z-index: 30;
+    opacity: 0.8;
+}
+.horn{
+    width: 100%;
+
+}
+
+#horn-hidden-01{
+    max-width: 270px;
+    /* top: 150px; */
+    top: 14%;
+    left: -30px;
 }
 #horn-01{
-    max-width: 300px;
-    /* top: 150px; */
-    top: 14%;
-    left: 0;
+    transform-origin: top left;
+    animation: horn-left 5s ease-in-out 0s infinite;
+}
+
+#horn-hidden-02{
+    max-width: 276px;
+    /* top: 580px; */
+    top: 56.5%;
+    left: -30px;
 }
 #horn-02{
-    max-width: 306px;
-    /* top: 580px; */
-    top: 56.5%;
-    left: 0;
+    transform-origin: top left;
+    animation: horn-left 5s ease-in-out 0s infinite;
 }
-#horn-03{
-    max-width: 300px;
+
+#horn-hidden-03{
+    max-width: 270px;
     /* top: 150px; */
     top: 14%;
-    right: 0;
+    right: -10px;
 }
-#horn-04{
-    max-width: 306px;
+#horn-03{
+    transform-origin: top right;
+    animation: horn-right 5s ease-in-out 0s infinite;
+}
+
+#horn-hidden-04{
+    max-width: 276px;
     /* top: 580px; */
     top: 56.5%;
-    right: 0;
+    right: -10px;
 }
+#horn-04{
+    transform-origin: top right;
+    animation: horn-right 5s ease-in-out 0s infinite;
+}
+
+@keyframes horn-left {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-8deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes horn-right {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(8deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
 /* 中心主角示意圖 */
 .centralProtagonist{
     position: absolute;
@@ -102,10 +173,10 @@
 }
 
 .CenterBlock{
-    border: 1px solid rgb(228, 237, 43);
+    /* border: 1px solid rgb(228, 237, 43); */
     max-width: 1300px;
     width: 100%;
-    height: 1300px;
+    height: 1500px;
     position: absolute;
     top: 56px;
     left: 50%;
@@ -126,13 +197,15 @@
 
 /* 水果 */
 #fruit_block{
-
+    /* opacity: 0.5; */
 }
 #fruit-01{
     z-index: 1;
+    opacity: 0.7;
 }
 #fruit-02{
     z-index: 2;
+    opacity: 0.3;
 }
 
 /* 光圈 */
@@ -141,6 +214,8 @@
     z-index: 3;
     overflow: hidden;
     border-radius: 50%;
+    /* opacity: 0.5; */
+    
 }
 #halo img{
     animation: halo 70s linear infinite;
@@ -157,22 +232,93 @@
 /* 黃色閃亮亮 kirakira */
 #yellow-kirakira{
     z-index: 4;
+    opacity: 0;
+    animation: yellow-kirakira 7s ease-in-out infinite;
+}
+ 
+@keyframes yellow-kirakira {
+    0% {
+        opacity: 0;
+        transform: translate(0,0);
+    }
+    25% {
+        opacity: 0.7;
+        transform: translate(0,0);
+    }
+    40% {
+        opacity: 0;
+        transform: translate(0,0);
+    }
+    50% {
+        opacity: 0;
+        transform: translate(0,0);
+    }
+    55% {
+        opacity: 0;
+        transform: translate(-25px,-25px);
+    }
+    75% {
+        opacity: 0.7;
+        transform: translate(-25px,-25px);
+    }
+    90% {
+        opacity: 0;
+        transform: translate(-25px,-25px);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0,0);
+    }
 }
 
 /* 蛇蛇與頭紗 */
 #veil{
     z-index: 5;
+    filter: drop-shadow(5px 5px 30px rgba(28, 28, 28, 0.882));
+    animation: veil 30s ease-in-out infinite;
+}
+@keyframes veil {
+    0% {
+        transform: translate(0px,0px) rotate(0deg);
+    }
+    25% {
+        transform: translate(-10px,5px) rotate(10deg);
+    }
+    50% {
+        transform: translate(10px,10px) rotate(0deg);
+    }
+    75% {
+        transform: translate(-10px,5px) rotate(10deg);
+    }
+    100% {
+        transform: translate(0px,0px) rotate(0deg);
+    }
 }
 #snake{
     z-index: 6;
+    filter: drop-shadow(5px 5px 30px rgba(28, 28, 28, 0.882));
 }
 
 /* 寶箱 */
 #treasureChest{
     z-index: 7;
+    filter: drop-shadow(5px 5px 10px rgba(28, 28, 28, 0.882));
 }
 #treasureChest-light{
     z-index: 8;
+    animation: treasureChest-light 5s ease-in-out infinite;
+}
+ 
+@keyframes treasureChest-light {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.3;
+    }
 }
 
 /* 女主角騎士 */
@@ -181,14 +327,26 @@
 }
 #rider{
     z-index: 10;
+    filter: drop-shadow(5px 5px 30px rgba(28, 28, 28, 0.487));
 }
 #white-kirakira{
     z-index: 11;
+    animation: treasureChest-light 2s ease-in-out infinite;
 }
 
 /* 氣氛光線 */
 #stage-light{
     z-index: 12;
+    opacity: 0;
+    animation: stage-light 1s ease-in 1s forwards;
+}
+@keyframes stage-light {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.7;
+    }
 }
 #natural-light{
     z-index: 13;
@@ -198,16 +356,67 @@
 }
 #rainbow{
     z-index: 14;
+    opacity: 0;
+    animation: rainbow 2s ease-in-out 2s forwards;
+}
+ 
+@keyframes rainbow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 #ring-rainbow{
     z-index: 15;
 }
 
 
-/* ERNC  */
-#ERNC{
+/* 寶箱-ERNC  */
+#treasureChest-ERNC{
     z-index: 16;
+    animation: treasureChest-ERNC 5s ease-in-out infinite;
+}
+ 
+@keyframes treasureChest-ERNC {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 #treasureChest-kirakira{
     z-index: 17;
+    animation: treasureChest-light 2s ease-in-out infinite;
+}
+@media all and (min-width: 1920px){
+    .NFTindexBanner_BG{
+        height: 1500px;
+    }
+}
+@media all and (max-width: 1920px){
+    .NFTindexBanner_BG{
+        height: 1000px;
+    }
+}
+@media all and (max-width: 1000px){
+    .horn_block{
+        display: none;
+    }
+}
+
+@media all and (max-width: 1400px){
+    .NFTindexBanner_BG{
+        height:unset;
+    }
+}
+@media all and (max-width: 500px){
+    .CenterBlock{
+        top: 43px;
+    }
 }

@@ -27,14 +27,23 @@
         <div class="NFTindexBanner_BG">
             @* <img class="" src="/images/NFTindex/NFTindex_Banner/test.png" alt=""> *@
             @* 藍天背景 *@
-            <img class="" src="/images/NFTindex/NFTindex_Banner/background.png" alt="">
+            @* <img class="" src="/images/NFTindex/NFTindex_Banner/background.png" alt=""> *@
+            <img class="" src="/images/NFTindex/NFTindex_Banner/background-01.png" alt="">
         </div>
         @* 號角 *@
         <div class="horn_block">
-            <img class="horn" id="horn-01" src="/images/NFTindex/NFTindex_Banner/horn-01.png" alt="">
-            <img class="horn" id="horn-02" src="/images/NFTindex/NFTindex_Banner/horn-02.png" alt="">
-            <img class="horn" id="horn-03" src="/images/NFTindex/NFTindex_Banner/horn-03.png" alt="">
-            <img class="horn" id="horn-04" src="/images/NFTindex/NFTindex_Banner/horn-04.png" alt="">
+            <div class="horn-hidden" id="horn-hidden-01">
+                <img class="horn" id="horn-01" src="/images/NFTindex/NFTindex_Banner/horn-01.png" alt="">
+            </div>
+            <div class="horn-hidden" id="horn-hidden-02">
+                <img class="horn" id="horn-02" src="/images/NFTindex/NFTindex_Banner/horn-02.png" alt="">
+            </div>
+            <div class="horn-hidden" id="horn-hidden-03">
+                <img class="horn" id="horn-03" src="/images/NFTindex/NFTindex_Banner/horn-03.png" alt="">
+            </div>
+            <div class="horn-hidden" id="horn-hidden-04">
+                <img class="horn" id="horn-04" src="/images/NFTindex/NFTindex_Banner/horn-04.png" alt="">
+            </div>
         </div>
 
         @* 中心主角示意圖 *@
@@ -42,10 +51,10 @@
 
         <div class="CenterBlock">
             @* 水果 parallax *@
-            <div id="fruit_block" class="">
-                <img class="absolute-t0l0-w100" id="fruit-01" src="/images/NFTindex/NFTindex_Banner/fruit-01.png"
+            <div id="fruit_block" class="parallax_block">
+                <img class="absolute-t0l0-w100 ParallaxMove" id="fruit-01"  data-depth="0.5" src="/images/NFTindex/NFTindex_Banner/fruit-01.png"
                     alt="">
-                <img class="absolute-t0l0-w100" id="fruit-02" src="/images/NFTindex/NFTindex_Banner/fruit-02.png"
+                <img class="absolute-t0l0-w100 ParallaxMove" id="fruit-02"  data-depth="0.2" src="/images/NFTindex/NFTindex_Banner/fruit-02.png"
                     alt="">
             </div>
 
@@ -68,7 +77,7 @@
             </div>
 
             @* 寶箱 *@
-            <div id="treasureChest" class="">
+            <div id="treasureChest-block" class="">
                 <img class="absolute-t0l0-w100" id="treasureChest" src="/images/NFTindex/NFTindex_Banner/treasureChest.png" alt="">
                 <img class="absolute-t0l0-w100" id="treasureChest-light" src="/images/NFTindex/NFTindex_Banner/treasureChest-light.png" alt="">
             </div>
@@ -90,7 +99,7 @@
 
             @* ERNC *@
             <div id="ERNC-block" class="">
-                <img class="absolute-t0l0-w100"  id="ERNC" src="/images/NFTindex/NFTindex_Banner/ERNC.png" alt="">
+                <img class="absolute-t0l0-w100"  id="treasureChest-ERNC" src="/images/NFTindex/NFTindex_Banner/ERNC.png" alt="">
                 <img class="absolute-t0l0-w100" id="treasureChest-kirakira" src="/images/NFTindex/NFTindex_Banner/treasureChest-kirakira.png" alt="">
             </div>
 
