@@ -31,7 +31,7 @@
     width: 100%;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 2000px;
+    /* height: 2000px; */
 }
 
 /* 正式 */
@@ -60,7 +60,7 @@
     width: 100%;
     position: absolute;
     top: 0px;
-    height: 1438px;
+    height: 1400px;
     pointer-events: none;
     overflow: hidden;
 
@@ -69,7 +69,7 @@
     /* border: 1px solid rgb(208, 59, 59); */
     overflow: hidden;
     position: absolute;
-    width: 14.5%;
+    width: 12.5%;
     z-index: 30;
     opacity: 0.8;
 }
@@ -79,7 +79,7 @@
 }
 
 #horn-hidden-01{
-    max-width: 270px;
+    max-width: 290px;
     /* top: 150px; */
     top: 14%;
     left: -30px;
@@ -90,18 +90,19 @@
 }
 
 #horn-hidden-02{
-    max-width: 276px;
+    max-width: 296px;
     /* top: 580px; */
-    top: 56.5%;
+    top: 54.5%;
     left: -30px;
 }
 #horn-02{
+    margin-top: 20px;
     transform-origin: top left;
     animation: horn-left 5s ease-in-out 0s infinite;
 }
 
 #horn-hidden-03{
-    max-width: 270px;
+    max-width: 290px;
     /* top: 150px; */
     top: 14%;
     right: -10px;
@@ -112,12 +113,13 @@
 }
 
 #horn-hidden-04{
-    max-width: 276px;
+    max-width: 296px;
     /* top: 580px; */
-    top: 56.5%;
+    top: 54.5%;
     right: -10px;
 }
 #horn-04{
+    margin-top: 20px;
     transform-origin: top right;
     animation: horn-right 5s ease-in-out 0s infinite;
 }
@@ -160,23 +162,21 @@
 }
 
 /* 中心主角示意圖 */
-.centralProtagonist{
+/* .centralProtagonist{
     position: absolute;
     top: 56px;
     left: 50%;
     transform: translate(-50%);
     opacity: 0.5;
-    max-width: 1300px;
+    max-width: 1500px;
     width: 100%;
-
-
-}
+} */
 
 .CenterBlock{
     /* border: 1px solid rgb(228, 237, 43); */
-    max-width: 1300px;
+    max-width: 1500px;
     width: 100%;
-    height: 1500px;
+    /* height: 1500px; */
     position: absolute;
     top: 56px;
     left: 50%;
@@ -350,9 +350,10 @@
 }
 #natural-light{
     z-index: 13;
-    width: 99vw;
+    width: 100vw;
     transform: translateX(-50%);
     left: 50%;
+    opacity: 0.6;
 }
 #rainbow{
     z-index: 14;

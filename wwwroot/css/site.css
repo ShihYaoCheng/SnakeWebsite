@@ -31,7 +31,7 @@ a, .btn-link {
     padding: 0px;
     background: #276170;
     border-radius: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* RWD NAV */
@@ -43,12 +43,12 @@ a, .btn-link {
         background: #276170;
         list-style: none;
         padding: 0px;
-        margin-top: 6px;
+        /* margin-top: 6px; */
         position: fixed;
         text-decoration: none;
         border: 2px solid #cdf5ee82;
         box-shadow: 0px 2px 8px #06060663;
-        overflow: hidden;
+        /* overflow: hidden; */
     }
 
 
@@ -60,11 +60,11 @@ a, .btn-link {
     border-right: 3px solid black; */
     background-color: #ffebe7;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    width: 23px;
+    height: 23px;
     position: absolute;
     right: 23px;
-    top: 24px;
+    top: 21px;
     /* pointer-events: none; */
     justify-content: center;
     align-items: center;
@@ -98,7 +98,7 @@ a, .btn-link {
 }
 
 .nav_ul_slide li a{
-    font-size: 18px;
+    font-size: 16px;
 }
 
 
@@ -120,12 +120,20 @@ a, .btn-link {
     display: flex;
     align-items: center;
 }
-
-#SnakeACL-Logo{
-    max-width: 70px;
+#PonPonSnake-Logo{
+    /* border: 1px solid red; */
     margin: 6px 5px 6px 15px;
-    /* width: 100%; */
+    position: relative;
+    width: 110px;
+    /* height: 79px; */
+
 }
+#PonPonSnake-Logo img{
+    position: fixed;
+    width: 110px;
+    top: 5px;
+}
+
 #kimlan-Logo{
     margin: 6px 3px 6px 15px;
 }
@@ -133,7 +141,7 @@ a, .btn-link {
     margin: 6px 3px;
 }
 
-.logo img{
+.ACLnaming img{
     max-height: 40px;
 }
 
@@ -165,13 +173,14 @@ a, .btn-link {
     /* height: 3.5rem; */
     display: flex;
     justify-content: center;
-    line-height: 3.5rem;
+    /* line-height: 3.5rem; */
+    line-height: 3rem;
     white-space: nowrap;
     text-decoration: none;
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: 0.8px;
     cursor: pointer;
@@ -346,6 +355,11 @@ a, .btn-link {
     .navbar-toggler {
         display: none;
     }   
+    .nav-link{
+        height: 40px;
+        margin: 5px 0;
+    }
+
 }
 
 @media screen and (min-width: 700px) and (max-width: 800px){
@@ -354,13 +368,13 @@ a, .btn-link {
     .navbar-expand-sm .navbar-nav .nav-link{
         padding-right: 1rem;
         padding-left: 1rem;
+
+
     }
 }
 
 @media all and (max-width:500px){
-    .logo img {
-        max-height: 30px;
-    }
+
     #kimlan-Logo {
         margin: 10px 3px 10px 0px;
     }
@@ -374,11 +388,12 @@ a, .btn-link {
     display: flex;
     align-items: center; 
     justify-content: center;
+    font-size: 16px;
 }
 
 #Language_Select{
-    width: 115px;
-    height: 32px;
+    width: 95px;
+    height: 30px;
     margin-left: 5px;
     outline: none;
     /* padding: 3px; */
@@ -397,10 +412,13 @@ a, .btn-link {
     /* padding: 1px; */
     outline: 0;
     text-align: center;
+    font-size: 16px;
 }
 
 .Language_option{
     border: none;
+    text-align: center;
+    padding-left: 5px;
 }
 
 .Language_option:hover{
@@ -431,13 +449,14 @@ a, .btn-link {
     /* height: 3.5rem; */
     display: flex;
     justify-content: center;
-    line-height: 3.5rem;
+    /* line-height: 3.5rem; */
+    line-height: 3rem;
     white-space: nowrap;
     text-decoration: none;
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: 0.8px;
     border-radius: 10px;

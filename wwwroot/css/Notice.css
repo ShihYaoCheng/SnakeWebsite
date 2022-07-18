@@ -132,7 +132,13 @@
     background: none;
 }
 .bg-dark{
-    background-image: url(/images/Other/nav_banner_acl.webp);
+    /* background-image: url(/images/Other/nav_banner_acl.webp); */
+}
+#PonPonSnake-Logo{
+    width: 70px;
+}
+#PonPonSnake-Logo img{
+    width: 70px;
 }
 .text-light {
     color: #ffffff !important;
