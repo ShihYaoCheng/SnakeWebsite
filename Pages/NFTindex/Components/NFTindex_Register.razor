@@ -11,27 +11,25 @@
 
 <head>
     <link href="/css/NFTindex/NFTindex_Register.css" rel="stylesheet" />
-    @* <link href="css/Popup.css" rel="stylesheet" /> *@ 
-
-
 </head>
 
-<div class="NFTindex_Register">
-    @* <img src="/images/NFTindex/NFTindex_Register/Botton_UI.png" alt=""> *@
-</div>
+
+
 
 @* 註冊按鈕 *@
-<div class="login_form" hidden="@false">
-    <input type="text" class="login_input" id="address" name="address" placeholder="國碼" @bind=@CountryCode>
+<div class="NFTindex_Register" hidden="@false">
+    <div class="Register-input-row">
+        <input type="text" class="Register-input tippy-pop" id="CountryCode" name="CountryCode" placeholder="+886" data-content="CountryCode" @bind=@CountryCode>
 
-    <input type="text" class="login_input" id="address" name="address" placeholder="手機" @bind=@PhoneNum>
-
-    <div id="login_submit" @onclick="@SendVerifyCode">
-        <img data-src="/images/Index/signUpEvent_button.webp" src="/images/Index/signUpEvent_button.webp" alt="">
-        <span data-i18n="[html]signInWindows.Rigister">Register</span>
+        <input type="text" class="Register-input tippy-pop" id="PhoneNum" name="PhoneNum" placeholder="Phone Number" data-content="Enter Your Phone Number" @bind=@PhoneNum>
+    </div>
+    <div class="Register-submit button-hover" @onclick="@SendVerifyCode">
+        <span >Register</span>
     </div>
 
 </div>
+
+
 
 
 @* 新暫時彈窗 *@
@@ -40,7 +38,7 @@
 
         <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="EditFormCancel">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
-                fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+                fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
         </svg>
 
         <div class="products-popup-title">Register Account</div>
@@ -50,43 +48,50 @@
             <ValidationSummary />
 
             <div class="products-popup-content">
-                <div class="products-popup-text">Please check the verification code with your mobile phone.</div>
+                <div class="products-popup-scroll">
+                    <div class="products-popup-text">Enter the 6-digit verify code sent to <br>
+                        <span class="popup-RegisterPhone">@CountryCode-@PhoneNum</span>
+                    </div>
 
-                <div class="popup-low">
-                    <label class="popup-label" for="phone">Phone Number</label>
-                    <label class="popup-label" for="phone">@PhoneNum</label>
+
+                    <div class="popup-low">
+                        <div class="popup-label-02">
+                            <label class="popup-label" for="name">VerifyCode</label>
+                            <div class="TimeLeft">
+                                <apan class="">@TimeLeft</apan>
+                                <button class="button-hover" disabled=@TimerIsRunning  @onclick="SendVerifyCode" >Resend</button>
+                            </div>
+                        </div>
+                        <input class="products-popup-inputText" id="name" type="text" @bind-value="RegisterDTO.VerifyCode"
+                            placeholder="">
+                        
+                    </div>
                     
-                </div>
+                                    <div class="popup-low">
+                        <label class="popup-label" for="name">User Name</label>
+                        <input class="products-popup-inputText" id="username" type="text" @bind-value="UserName"
+                            placeholder="">
+                    </div>
 
-                <div class="popup-low">
-                    <label class="popup-label" for="name">VerifyCode</label>
-                    <input class="products-popup-inputText" id="name" type="text" @bind-value="RegisterDTO.VerifyCode"
-                        placeholder="">
-                </div>
-                <label class="popup-label" for="name">@TimeLeft</label>
-                <button disabled=@TimerIsRunning  @onclick="SendVerifyCode" >Resend Verify Code </button>
+                    <div class="popup-low">
+                        <label class="popup-label" for="name">Password</label>
+                        <input class="products-popup-inputText" id="password" type="text" @bind-value="RegisterDTO.Password"
+                            placeholder="">
+                    </div>
 
-                <div class="popup-low">
-                    <label class="popup-label" for="name">Password</label>
-                    <input class="products-popup-inputText" id="password" type="text" @bind-value="RegisterDTO.Password"
-                        placeholder="">
-                </div>
+                    <div class="popup-low">
+                        <label class="popup-label" for="name">Confirm Password</label>
+                        <input class="products-popup-inputText" id="passwordcheck" type="text" @bind-value="PasswordCheck"
+                            placeholder="">
+                    </div>
 
-                <div class="popup-low">
-                    <label class="popup-label" for="name">Confirm Password</label>
-                    <input class="products-popup-inputText" id="passwordcheck" type="text" @bind-value="PasswordCheck"
-                        placeholder="">
-                </div>
 
-                <div class="popup-low">
-                    <label class="popup-label" for="name">User Name</label>
-                    <input class="products-popup-inputText" id="username" type="text" @bind-value="UserName"
-                        placeholder="">
-                </div>
+                    
+                    <div class="products-popup-error">@ErrorString</div>
+
+                    <button class="products-popup-submit button-hover" type="submit" @onclick="RegisterSubmit">Register</button>
                 
-                <div class="products-popup-error">@ErrorString</div>
-
-                <button class="products-popup-submit" type="submit" @onclick="RegisterSubmit">Register</button>
+                </div>
             </div>
 
         </EditForm>
@@ -100,7 +105,7 @@
 
         <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="AlertCancel">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
-                fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+                fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
         </svg>
 
         <div class="products-popup-title">@AlertTitle</div>
@@ -112,13 +117,15 @@
                 <div class="products-popup-text">@AlertContent</div>
                 
 
-                <button class="products-popup-submit" type="submit" @onclick="AlertCancel">close</button>
+                <button class="products-popup-submit button-hover" type="submit" @onclick="AlertCancel">Close</button>
             </div>
 
         </EditForm>
 
     </div>
 </section>
+
+
 
 
 
@@ -219,7 +226,7 @@
             SnakeAccount snakeAccount = await AuthService.AuthLogin(loginRequest);
             AppState.UpdateLoginStatus(this, snakeAccount);
 
-            AlertTitle = "Register successed";
+            AlertTitle = "Register Successed";
             AlertContent = "";
             AlertShow();
 
@@ -230,7 +237,7 @@
         }
         else
         {
-            AlertTitle = "Register failed";
+            AlertTitle = "Register Failed";
             AlertContent = resp.Content;
             AlertShow();
         }
@@ -244,6 +251,7 @@
         if (firstRender)
         {
             @* await JS.InvokeVoidAsync("Popup"); *@
+            await JS.InvokeVoidAsync("TippyInit");
 
             AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);

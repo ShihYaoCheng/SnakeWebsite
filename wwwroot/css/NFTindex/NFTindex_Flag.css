@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap');
+
 .NFTindex_Flag {
     /* border: 1px solid red; */
     width: 100%;
     background-color: #203240;
-    padding: 200px 0 150px;
+    padding: 120px 0 150px;
 }
 
 .LongBar {
@@ -20,7 +22,7 @@
 .Flag-BlockAll {
     /* border: 1px solid red; */
     width: 100%;
-    max-width: 1500px;
+    max-width: 1200px;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -29,7 +31,8 @@
 
 .Flag-Block-OuterLayer {
     /* border: 1px solid red; */
-    /* overflow: hidden; */
+    overflow: hidden;
+    padding-top: 40px;
     transition: all .2s ease-in-out;
 }
 .Flag-Block-OuterLayer:hover{
@@ -40,14 +43,14 @@
 .Flag-Block {
     /* border: 1px solid red; */
     position: relative;
-    max-width: 400px;
+    max-width: 300px;
     /* height: 1000px; */
-    height: 900px;
+    height: 680px;
     width: 100%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top center;
-    padding: 60px 35px 0px 35px;
+    padding: 50px 30px 0px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,7 +68,7 @@
     background-image: url("/images/NFTindex/NFTindex_Flag/Longbar-01.png");
     /* max-width: 380px; */
     width: 115%;
-    height: 45px;
+    height: 35px;
     position: absolute;
     top: 5px;
     transform: translate(-50%, -50%);
@@ -76,7 +79,7 @@
 
 @keyframes NFTindexFlag-display {
     0% {
-        transform: translateY(-440px);
+        transform: translateY(-340px);
         opacity: 0;
         z-index: 0;
     }
@@ -188,7 +191,7 @@
 .Flag-icon {
     max-width: 200px;
     width: 50%;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     /* opacity: 0.9; */
     filter: drop-shadow(1px 1px 15px rgba(47, 46, 46, 0.665));
 }
@@ -202,18 +205,18 @@
     /* background-image: linear-gradient(to top, #fff, #afafaf, #fff, #dedede), linear-gradient(to bottom, #203240, #203240); */
     background-image: linear-gradient(to top, #fff, #eeeeee, #fff, #dedede), linear-gradient(to bottom, #e7e7e7, #dfdfdf);
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
-    font-size: 28px;
+    font-size: 23px;
     font-weight: 600;
     line-height: 1.08;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-align: left;
     color: #203240;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
     text-align: center;
-    min-height: 65px;
+    min-height: 50px;
     /* white-space: nowrap; */
 }
 
@@ -222,23 +225,23 @@
     /* background-image: linear-gradient(to top, #fff, #afafaf, #fff, #dedede), linear-gradient(to bottom, #203240, #203240); */
     background-image: linear-gradient(to top, #fff, #eeeeee, #fff, #dedede), linear-gradient(to bottom, #e7e7e7, #dfdfdf);
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
-    font-size: 21px;
+    font-size: 16px;
     font-weight: 600;
-    line-height: 1.5;
-    letter-spacing: 2px;
+    line-height: 1.4;
+    letter-spacing: 1.5px;
     text-align: center;
     color: #203240;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    min-height: 200px;
-    margin-bottom: 40px;
+    min-height: 140px;
+    margin-bottom: 30px;
 }
 
 .Flag-button {
-    width: 250px;
-    height: 50px;
-    font-size: 20px;
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
     letter-spacing: 2.4px;
     color: #fff;
     border: none;
@@ -249,48 +252,53 @@
     transition: all .1s ease-in;
 }
 .Flag-button:hover{
+    transition: all .2s ease-in-out;
     transform: translateY(-2px) scale(1.01);
 }
 
 
 
-@media all and (max-width: 1500px) {
+@media all and (max-width: 1400px) {
+    .NFTindex_Flag{
+        padding: 100px 0 100px;
+    }
     .Flag-BlockAll {
-        max-width: 1200px;
+        max-width: 900px;
+        width: 95%;
     }
 
     .Flag-Block {
-        padding: 50px 30px 0px 30px;
-        height: 680px;
-        max-width: 300px;
+        padding: 35px 23px 0px 23px;
+        height: 500px;
+        max-width: 220px;
     }
 
     .Flag-Block::before{
         height: 35px;
     }
     .Flag-icon {
-        margin-bottom: 35px;
-        width: 50%;
+        margin-bottom: 20px;
+        width: 38%;
     }
 
     .Flag-title {
-        font-size: 23px;
+        font-size: 18px;
         letter-spacing: 2px;
-        margin-bottom: 30px;
-        min-height: 50px;
+        margin-bottom: 16px;
+        min-height: 42px;
     }
 
     .Flag-text {
-        font-size: 16px;
+        font-size: 13px;
         letter-spacing: 1.5px;
         line-height: 1.4;
-        min-height: 140px;
-        margin-bottom: 30px;
+        min-height: 130px;
+        margin-bottom: 20px;
     }
     .Flag-button{
-        width: 200px;
-        height: 40px;
-        font-size: 16px;
+        width: 155px;
+        height: 30px;
+        font-size: 12px;
     }
     .Flag-Block-OuterLayer:hover{
         transition: all .2s ease-in-out;
@@ -298,7 +306,7 @@
     }
 }
 
-@media all and (max-width: 1100px) {
+@media all and (max-width: 900px) {
     .NFTindex_Flag {
         padding: 55px 0;
     }
@@ -307,7 +315,9 @@
         flex-direction: column;
         align-items: center
     }
-
+    .Flag-Block-OuterLayer{
+        padding-top: 20px;
+    }
     .Flag-Block {
         margin: 30px 30px;
     }
