@@ -15,7 +15,7 @@
 </head>
 
 
-<div class="NFTindex_Banner" hidden="@false">
+<div class="NFTindex_Banner">
     <div class="NFTindexBanner_block">
         <div class="NFTindexBanner_BG">
             @* <img class="" src="/images/NFTindex/NFTindex_Banner/test.png" alt=""> *@
@@ -44,17 +44,17 @@
             </div>
         </div>
         @* 號角 *@
-        <div class="horn_block">
-            <div class="horn-hidden" id="horn-hidden-01" width="150">
+        <div class="horn_block popupblockTest">
+            <div class="horn-hidden" id="horn-hidden-01">
                 <img width="150" class="horn" id="horn-01" src="/images/NFTindex/NFTindex_Banner/horn-01.png" alt="">
             </div>
-            <div class="horn-hidden" id="horn-hidden-02" width="150">
+            <div class="horn-hidden" id="horn-hidden-02">
                 <img width="150" class="horn" id="horn-02" src="/images/NFTindex/NFTindex_Banner/horn-02.png" alt="">
             </div>
-            <div class="horn-hidden" id="horn-hidden-03" width="150">
+            <div class="horn-hidden" id="horn-hidden-03">
                 <img width="150" class="horn" id="horn-03" src="/images/NFTindex/NFTindex_Banner/horn-03.png" alt="">
             </div>
-            <div class="horn-hidden" id="horn-hidden-04" width="150">
+            <div class="horn-hidden" id="horn-hidden-04">
                 <img width="150" class="horn" id="horn-04" src="/images/NFTindex/NFTindex_Banner/horn-04.png" alt="">
             </div>
         </div>
@@ -164,7 +164,7 @@
 
 @* 新暫時彈窗 *@
 <section class="products-popup-bg @(displayForm ? "products-popup-open" : "") " id="products-popupblock-Name">
-    <div class="products-popupblock">
+    <div class="products-popupblock popupblockTest" >
 
         <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="EditFormCancel">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
@@ -231,7 +231,7 @@
 
 @* 送出成功/失敗 彈窗 *@
 <section class="products-popup-bg @(displayAlert ? "products-popup-open" : "") " id="products-popupblock-result">
-    <div class="products-popupblock">
+    <div class="products-popupblock popupblockTest">
 
         <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="AlertCancel">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"

@@ -10,20 +10,16 @@
 </head>
 
 <div class="NFTindex">
-    <div class="NFTindex_BG" hidden="@true">
-        <NFTindex_Collect/>
-        <NFTindex_Video/>
-    </div>    
-        @* <NFTindex_Register/> *@
-        <NFTindex_Banner/>
-        <NFTindex_Flag/>
-    
+    @* <NFTindex_Register/> *@
+    <NFTindex_Banner />
+    <NFTindex_Flag />
+
 </div>
 
 
 
 @code {
-private IJSObjectReference? GameFiJS;
+    private IJSObjectReference? GameFiJS;
     private IJSObjectReference? lazyloadingJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
 
@@ -33,7 +29,7 @@ private IJSObjectReference? GameFiJS;
 
         {
             GameFiJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/GameFi/GameFi.js");
-            await GameFiJS.InvokeVoidAsync("RiderHover");            
+            await GameFiJS.InvokeVoidAsync("RiderHover");
 
 
             await JS.InvokeVoidAsync("installI18n");
