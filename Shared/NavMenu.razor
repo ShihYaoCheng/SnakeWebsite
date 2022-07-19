@@ -66,7 +66,7 @@
                             </li>
 
                             <li id="nav_GameFi">
-                                <a href="GameFi" data-i18n="nav.GameFi">GameFi</a>
+                                <a href="GameFi" data-i18n="nav.ERNC">ERNC</a>
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
                             
@@ -168,7 +168,7 @@
                     </li>
 
                     <li class="nav-item" id="nav-GameFi">
-                        <a class="nav-link text-light" href="GameFi" data-i18n="nav.GameFi">GameFi</a>
+                        <a class="nav-link text-light" href="GameFi" data-i18n="nav.ERNC">ERNC</a>
                         <img class="nav_hover_bottom" id="GameFi_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
                     </li>
 
@@ -316,15 +316,14 @@
 
         if(LoginUser != null  && LoginUser.Identities.Count() !=0 )
         {
-            @*SnakeAccount snakeAccount = new SnakeAccount();
-            snakeAccount.userID = Convert.ToUInt32( LoginUser.FindFirst("UserID")?.Value);
-            snakeAccount.name = LoginUser.FindFirst("Name")?.Value;
-            snakeAccount.phone = LoginUser.FindFirst("Phone")?.Value;
-            snakeAccount.walletAddress = LoginUser.FindFirst("walletAddress")?.Value;*@
 
             SnakeAccount snakeAccount = await authService.AuthLoginByUserId(LoginUser.FindFirst("UserID")?.Value);
             AppState.UpdateLoginStatus(this, snakeAccount);
         }
+
+
+        @*SnakeAccount test = await authService.AuthLoginByUserId("10009");
+        AppState.UpdateLoginStatus(this, test);*@
     }
 
     void IDisposable.Dispose()
