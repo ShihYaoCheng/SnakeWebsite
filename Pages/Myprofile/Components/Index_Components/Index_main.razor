@@ -66,6 +66,17 @@
                                 <div id="copyTip">複製成功</div>
                             </div>
                         }
+						
+						  <div hidden>
+                     <button type="button" id="connect_button" @onclick="web3Button">
+                            Connect Wallet
+                       </button>
+
+                       <section id="wallet_info" hidden>
+                            <h1 id="wallet_address"></h1>
+                            <h2> balance : <span id="wallet_balance"> </span></h2>
+                       </section>
+                </div>
 
                     </div>
                 </div>
@@ -314,5 +325,10 @@
     private async Task loginButtonClick()
     {
         await JS.InvokeVoidAsync("loginButton", "loginButton");
+    }
+	
+	    private async Task web3Button()
+    {
+        await JS.InvokeVoidAsync("web3button");
     }
 }
