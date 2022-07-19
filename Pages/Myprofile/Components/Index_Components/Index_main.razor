@@ -40,8 +40,8 @@
                                 {
 
                                     <button class="btnMetamask" disabled>
-                                        <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"
-                                        target="_blank">
+                                       
+                                        <a id="myAnchor" href="https://metamask.app.link/dapp/" target="_blank">
                                             <span style="margin: 5px 20px;" data-i18n="myprofile.installMetamask">Please
                                                 Install Metamask</span>
                                         </a>
@@ -67,8 +67,8 @@
                             </div>
                         }
 						
-						  <div >
-                            <button type="button" id="connect_button" @onclick="web3Button">
+						 @* <div hidden >
+                            <button type="button" id="connect_button" >
                             Connect Wallet
                             </button>
 
@@ -82,7 +82,7 @@
                                 <h4> <span id="err"> </span></h4>
                                 <a id="url" href="https://metamask.app.link/dapp/dev.ponponsnake.com/myprofile/index">metamask.app.link</a>
                            </section>
-                         </div>
+                         </div>*@
 
                     </div>
                 </div>
@@ -315,6 +315,7 @@
     protected override async Task OnInitializedAsync()
     {
         NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+        await JS.InvokeVoidAsync("setMateMaskLink");
     }
 
 
@@ -333,8 +334,17 @@
         await JS.InvokeVoidAsync("loginButton", "loginButton");
     }
 	
-	    private async Task web3Button()
-    {
-        await JS.InvokeVoidAsync("web3button");
-    }
+
+    //protected override async Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    if (firstRender)
+    //    {
+    //        await JS.InvokeVoidAsync("setMateMaskLink");
+    //    }
+
+    //}
+	//private async Task web3Button()
+ //   {
+ //       await JS.InvokeVoidAsync("web3button");
+ //   }
 }
