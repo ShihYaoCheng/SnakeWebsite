@@ -196,6 +196,17 @@ window.web3button = function () {
     }
 
 
+    function handleAccountsChanged(accounts) {
+        console.log(accounts);
+    }
+
+    ethereum.on('accountsChanged', handleAccountsChanged);
+
+    // Later
+
+    ethereum.removeListener('accountsChanged', handleAccountsChanged);
+
+
     
        // const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
         //ethereum.autoRefreshOnNetworkChange = false;
