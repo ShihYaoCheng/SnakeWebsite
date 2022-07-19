@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap');
 
 .NFTindex_Banner{
-    border:  1px solid rgba(255, 0, 0, 0);
+    /* border:  1px solid rgba(255, 0, 0, 0); */
     /* height: 1000px; */
     width: 100%;
     background-color: #203240;
@@ -56,7 +56,7 @@
     background-position: center top;
     background-size: contain; */
     background: no-repeat center top / 100% 100%;
-	background-image: linear-gradient(to bottom,  #20324000 0%,  #20324000 85%,  #203240 100%), url("/images/NFTindex/NFTindex_Banner/background.png")
+	background-image: linear-gradient(to bottom,  #20324000 0%,  #20324000 80%,  #203240 100%), url("/images/NFTindex/NFTindex_Banner/background.png")
 }
 .NFTindexBanner_BG img{
     width: 100%;
@@ -73,6 +73,7 @@
     pointer-events: none;
     overflow: hidden;
 
+
 }
 .horn-hidden{
     /* border: 1px solid rgb(208, 59, 59); */
@@ -80,12 +81,12 @@
     position: absolute;
     width: 12.5%;
     z-index: 30;
-    opacity: 0.8;
-    filter: drop-shadow(5px 5px 30px rgba(61, 69, 104, 0.483));
+
 }
 .horn{
     width: 100%;
-
+    filter: drop-shadow(5px 5px 30px rgba(61, 69, 104, 0.483));
+    opacity: 0;
 }
 
 #horn-hidden-01{
@@ -96,7 +97,8 @@
 }
 #horn-01{
     transform-origin: top left;
-    animation: horn-left 5s ease-in-out 0s infinite;
+    animation: horn-display 1s ease-in-out 0.5s forwards,
+               horn-left 5s ease-in-out 0s infinite;
 }
 
 #horn-hidden-02{
@@ -108,7 +110,8 @@
 #horn-02{
     margin-top: 20px;
     transform-origin: top left;
-    animation: horn-left 5s ease-in-out 0s infinite;
+    animation: horn-display 1s ease-in-out 0.5s forwards,
+                horn-left 5s ease-in-out 0s infinite;
 }
 
 #horn-hidden-03{
@@ -119,7 +122,8 @@
 }
 #horn-03{
     transform-origin: top right;
-    animation: horn-right 5s ease-in-out 0s infinite;
+    animation: horn-display 1s ease-in-out 0.5s forwards,
+               horn-right 5s ease-in-out 0s infinite;
 }
 
 #horn-hidden-04{
@@ -131,9 +135,17 @@
 #horn-04{
     margin-top: 20px;
     transform-origin: top right;
-    animation: horn-right 5s ease-in-out 0s infinite;
+    animation: horn-display 1s ease-in-out 0.5s forwards,
+               horn-right 5s ease-in-out 0s infinite;
 }
-
+@keyframes horn-display {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
 @keyframes horn-left {
     0% {
         transform: rotate(0deg);
@@ -454,7 +466,6 @@
     /* bottom: 0px; */
     transform: translate(-50%);
     left: 50%;
-    filter: drop-shadow(5px 0px 20px rgba(28, 28, 28, 0.689));
 }
 .StepsBlock{
     /* border: 1px solid red; */
@@ -464,11 +475,14 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    filter: drop-shadow(0px -10px 30px rgba(28, 28, 28, 0.689));
 
 }
 .Steps{
     /* width: 100%; */
     position: relative;
+    /* filter: drop-shadow(0px 0px 30px rgba(28, 28, 28, 0.689)); */
+
 }
 #Steps-01{
     margin-right: -10px;
@@ -483,7 +497,7 @@
 }
 .Steps-bg{
     width: 100%;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 #Steps-01{
@@ -500,9 +514,9 @@
     
     top: 0;
     transform: translate(-50%);
-    transition: all .2s ease-in-out;
+    transition: all .15s ease-in-out;
 
-    filter: drop-shadow(5px 0px 20px rgba(28, 28, 28, 0.689));
+    filter: drop-shadow(0px 10px 20px rgba(28, 28, 28, 0.689));
 
 }
 
@@ -525,7 +539,7 @@
 .Steps-button-bg{
     width: 100%;
     opacity: 0.9;
-    transition: all .2s ease-in-out;
+    transition: all .15s ease-in-out;
 }
 .Steps-button:hover .Steps-button-bg{
     opacity: 1;
@@ -567,20 +581,24 @@
     position: absolute;
 }
 #leaf-01{
+    max-width: 220px;
     width: 13%;
     position: absolute;
     left: 0px;
     bottom: 0;
     z-index: 9;
-    opacity: 0.9;
+    opacity: 0.8;
+    filter: drop-shadow(0px 0px 20px rgba(17, 64, 14, 0.7));
 }
 #leaf-02{
+    max-width: 220px;
     width: 13%;
     position: absolute;
     right: 0;
     bottom: 0;
     z-index: 9;
-    opacity: 0.9;
+    opacity: 0.8;
+    filter: drop-shadow(0px 0px 20px rgba(17, 64, 14, 0.7));
 }
 
 

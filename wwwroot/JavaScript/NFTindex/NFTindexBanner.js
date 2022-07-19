@@ -5,4 +5,9 @@ export function NFTindexBanner() {
     var parallaxInstance = new Parallax(scene,{
         selector: '.ParallaxMove'
     });
+
+
+    setTimeout(() => {
+        $('.products-popupblock').show();
+    }, 1000);
 }
