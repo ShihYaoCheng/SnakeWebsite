@@ -6,7 +6,7 @@ window.Carousel = function (Carousel) {
         loop: true,
         nav: true,
     });
-    console.log('Carousel init1');
+    // console.log('Carousel init1');
 }
 
 window.ACLS3RulesCarousel = function () {
@@ -27,7 +27,7 @@ window.ACLS3RulesCarousel = function () {
     owl.on('dragged.owl.carousel', function (event) {
         Typewriter()
     })
-    //¥´¦r°Êµe
+    //ï¿½ï¿½ï¿½rï¿½Êµe
     function Typewriter() {
         var Typewriter = document.querySelectorAll(".Typewriter")
         var TimeSave = []
