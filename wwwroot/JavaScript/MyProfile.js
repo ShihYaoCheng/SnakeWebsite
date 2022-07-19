@@ -128,9 +128,18 @@ window.web3button = function () {
     //42：Kovan测试链
 
     console.log(ethereum.networkVersion);
+    document.getElementById("networkVersion").innerHTML = "networkVersion : " + ethereum.networkVersion;
 
     //ethereum.isMetaMask返回true或false，表示当前用户是否安装了MetaMask。
     console.log('MetaMask installed ? ', ethereum.isMetaMask);
+
+
+    document.getElementById("installed").innerHTML = "MetaMask installed ?  : " + ethereum.isMetaMask;
+
+
+    console.log(ethereum.isConnected());
+    document.getElementById("isConnected").innerHTML = "ethereum isConnected ?  : " + ethereum.isConnected();
+    
 
     if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
 
@@ -167,8 +176,11 @@ window.web3button = function () {
                         // EIP-1193 userRejectedRequest error
                         // If this happens, the user rejected the connection request.
                         console.log('Please connect to MetaMask.');
+
+                        document.getElementById("err").innerHTML = "Please connect to MetaMask.";
                     } else {
                         console.error(err);
+                        document.getElementById("err").innerHTML = err;
                     }
                 });
 
@@ -179,6 +191,7 @@ window.web3button = function () {
 
         } catch (error) {
             console.log(error);
+            document.getElementById("err").innerHTML = error;
         }
     }
 

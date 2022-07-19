@@ -68,15 +68,21 @@
                         }
 						
 						  <div hidden>
-                     <button type="button" id="connect_button" @onclick="web3Button">
+                            <button type="button" id="connect_button" @onclick="web3Button">
                             Connect Wallet
-                       </button>
+                            </button>
 
-                       <section id="wallet_info" hidden>
-                            <h1 id="wallet_address"></h1>
-                            <h2> balance : <span id="wallet_balance"> </span></h2>
-                       </section>
-                </div>
+                           <section id="wallet_info" >
+                                <h1 id="wallet_address"></h1>
+                                <h2><span id="wallet_balance"> </span></h2>
+
+                                <h4> 當前狀態是否連線 <span id="isConnected"> </span></h4>
+                                <h4> MetaMask chainid <span id="networkVersion"></span></h4>
+                                <h4> 是否安裝 MetaMask  <span id="installed"> </span></h4>
+                                <h4> <span id="err"> </span></h4>
+                            
+                           </section>
+                         </div>
 
                     </div>
                 </div>

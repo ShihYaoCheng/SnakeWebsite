@@ -382,6 +382,8 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
+                Console.WriteLine(" api 抓到比數 :" + nFTRiderUnits.Where(m => m.mintCount > 0).ToList().Count);
+
                 return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
             }
             return new List<NFTRiderUnits>();
