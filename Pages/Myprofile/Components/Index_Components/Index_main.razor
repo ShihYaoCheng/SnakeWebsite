@@ -312,11 +312,17 @@
     /// </summary>
     int NFT_Rider_Count = 0;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool first)
     {
-        NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
-        await JS.InvokeVoidAsync("setMateMaskLink");
+        if (first)
+        {
+            NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+            await JS.InvokeVoidAsync("setMateMaskLink");
+            
+        }
     }
+
+    
 
 
     public void EnableEthereum()
