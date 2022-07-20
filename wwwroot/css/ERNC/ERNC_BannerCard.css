@@ -3,6 +3,7 @@
     width: 100%;
     position: relative;
     overflow: hidden;
+    background-color: #6a7079;
 }
 .ERNCBanner-Gradient{
     position: absolute;
@@ -20,8 +21,13 @@
 .ERNCBanner-BG{
     width: 100%;
     z-index: 3;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
-
+.ERNCBanner-BG img{
+    width: 100%;
+}
 .ERNCBanner-Content-BG{
     width: 100%;
 
@@ -31,6 +37,7 @@
     /* opacity: 0.4; */
     background-color: hsla(0, 48%, 5%, 0.4);
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+    z-index: 3;
 }
 .ERNCBanner-Content{
     max-width: 1490px;
@@ -86,6 +93,7 @@
     border-radius: 25px;
     background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%);
     padding: 16px;
+    box-shadow: 3px 3px 8px 4.5px #17171780
 }
 
 .Card-Inner{
@@ -256,6 +264,12 @@
     .ERNCBanner-Content{
         padding: 20px 0 30px;
     }
+
+}
+@media all and (max-width: 1300px){
+    .ERNCBanner-BG img{
+        width: 105%;  
+    }
 }
 @media all and (max-width: 1200px){
     .ERNCBanner-Content-BG {
@@ -271,11 +285,39 @@
         line-height: 1.6;
         letter-spacing: 2px;
     }
+    .ERNCBanner-BG img{
+        width: 110%;  
+    }
 }
 .Card-flex{
     display: flex;
 }
 @media all and (max-width: 1000px){
+    .ERNCBanner-Content-BG {
+        top: 65px;
+    }
+    .ERNCBanner-Content {
+        /* padding: 10px 0 22px; */
+    }
+    .Content-Title {
+        font-size: 25px;
+        letter-spacing: 1.5px;
+        margin-bottom: 16px;
+    }
+    .Content-Text {
+        font-size: 15px;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+    }
+    .Content-Title span {
+        padding-bottom: 2.5px;
+        border-bottom: 2px solid white;
+    }
+    .ERNCBanner-BG img{
+        width: 120%;  
+    }
+
+
     .ERNC-Card {
         padding: 80px 0;
     }
@@ -287,7 +329,42 @@
         margin: 30px;
     }
 }
+@media all and (max-width: 900px){
+    .ERNCBanner-BG img{
+        width: 140%;  
+    }
+    .ERNCBanner-Content {
+        padding: 10px 0 22px;
+        width: 85%;
+    }
+}
 @media all and (max-width: 750px){
+    .Content-Title {
+        font-size: 22px;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+    .Content-Text {
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+    }
+    .Content-Title span {
+        padding-bottom: 2.5px;
+        border-bottom: 2px solid white;
+    }
+    .ERNCBanner-BG img{
+        width: 140%;  
+    }
+    .ERNCBanner-Content {
+        padding: 12px 0 22px;
+        width: 85%;
+    }
+    .ERNCBanner-BG img{
+        width: 160%;  
+    }
+
+
     .ERNC-Card-All{
         flex-direction: column;
     }
@@ -295,5 +372,115 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+}
+@media all and (max-width: 700px){
+    .ERNCBanner-Content {
+        padding: 12px 0 21px;
+        width: 95%;
+    }
+    .Content-Title {
+        font-size: 21px;
+        letter-spacing: 1.5px;
+        margin-bottom: 13px;
+    }
+    .Content-Text {
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+    }
+}
+@media all and (max-width: 650px){
+    .ERNCBanner-Content {
+        padding: 12px 0 21px;
+        width: 95%;
+    }
+    .Content-Title {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        margin-bottom: 13px;
+    }
+    .Content-Text {
+        font-size: 13px;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+    }
+
+}
+@media all and (max-width: 600px){
+    .ERNCBanner-BG img{
+        width: 180%;  
+    }
+    .ERNCBanner-Content {
+        padding: 12px 0 21px;
+        width: 95%;
+    }
+    .Content-Title {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+        margin-bottom: 14px;
+    }
+    .Content-Text {
+        font-size: 12px;
+        line-height: 1.5;
+        letter-spacing: 1.4px;
+    }
+}
+@media all and (max-width: 550px){
+    .ERNCBanner{
+
+    }
+
+    .ERNCBanner-BG img{
+        width: 160%;
+    }
+    .ERNCBanner-Content {
+        padding: 12px 0 21px;
+        width: 90%;
+    }
+    .Content-Title {
+        font-size: 22px;
+        letter-spacing: 1.5px;
+        margin-bottom: 18px;
+    }
+    .Content-Text {
+        font-size: 15px;
+        line-height: 1.5;
+        letter-spacing: 1.4px;
+    }
+    .ERNCBanner-BG{
+        padding-bottom: 200px;
+    }
+
+    .ERNCBanner-Content-BG{
+        top: unset;
+        bottom: 0px;
+        background-color: hsl(0deg 48% 5% / 0%);
+    }
+    .ERNCBanner-Gradient {
+        background-image: linear-gradient(to bottom, #15283700 0%, #1528371a 55%, #1528374a 60%, #152837c4 65%, #152837 70%,#152837 100%);
+    }
+
+    .ERNC-Card {
+        padding: 50px 0;
+    }
+}
+
+@media all and (max-width: 450px){
+    .ERNCBanner-BG img{
+        width: 170%;
+    }
+    .Content-Title {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        margin-bottom: 18px;
+    }
+    .Content-Text {
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 1.2px;
+    }
+    .ERNCBanner-Content-BG {
+        bottom: -15px;
     }
 }

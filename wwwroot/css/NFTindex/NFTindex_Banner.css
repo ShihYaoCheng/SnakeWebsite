@@ -64,7 +64,7 @@
 
 
 /* 號角 */
-.horn_block{
+.horn-block{
     /* border: 1px solid rgb(208, 59, 59); */
     width: 100%;
     position: absolute;
@@ -73,7 +73,7 @@
     pointer-events: none;
     overflow: hidden;
 
-
+    
 }
 .horn-hidden{
     /* border: 1px solid rgb(208, 59, 59); */
@@ -736,7 +736,7 @@
     .NFTindexBanner_title{
         font-size: 32px;
     }
-    .horn_block{
+    .horn-block{
         display: none;
     }
 }

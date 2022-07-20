@@ -133,7 +133,21 @@ a, .btn-link {
     width: 100px;
     top: 5px;
 }
-
+@media all and (max-width: 500px){
+    #PonPonSnake-Logo{
+        /* border: 1px solid red; */
+        margin: 2px;
+        position: unset;
+        width: 60px;
+        z-index: 20;
+    
+    }
+    #PonPonSnake-Logo img{
+        position: unset;
+        width: 60px;
+        top: unset;
+    }
+}
 #kimlan-Logo{
     margin: 6px 3px 6px 15px;
 }
