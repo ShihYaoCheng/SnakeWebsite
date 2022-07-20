@@ -14,10 +14,12 @@
     height: 100%;
     background: no-repeat center top / 100% 100%;
     background-image: linear-gradient(to bottom,  #15283700 0%, #1528371a 85%, #15283744 90%, #152837 100%);
-    z-index: 2;
+    z-index: 15;
     /* display: none; */
 }
 
+
+/* 靜態 ERNC Banner  */
 .ERNCBanner-BG{
     width: 100%;
     z-index: 3;
@@ -28,6 +30,77 @@
 .ERNCBanner-BG img{
     width: 100%;
 }
+
+/* 動畫 ERNC Banner */
+
+.ERNCBanner-BG-animation{
+    width: 100%;
+    position: relative;
+
+    display: none;
+}
+
+.ERNCBanner-BG-animation img{
+
+}
+
+.ERNC-banner{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.ERNC-banner-icon{
+    width: 100%;
+}
+
+#ERNC-banner-01{
+    z-index: 1;
+}
+#ERNC-banner-02-ERNC{
+    
+    z-index: 2;
+
+    animation: ERNC-banner-00-ERNC 1s ease-in-out forwards;
+
+    /* display: none; */
+}
+
+@keyframes ERNC-banner-00-ERNC {
+    0% {
+        opacity: 0;
+        z-index: -1;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        z-index: 2;
+        transform: translateY(0px);
+    }
+}
+
+#ERNC-banner-03{
+    z-index: 3;
+}
+#ERNC-banner-04{
+    z-index: 4;
+}
+
+#ERNC-banner-05{
+    z-index: 5;
+}
+
+#ERNC-banner-06{
+    z-index: 6;
+}
+
+
+
+
+
+
+
+
 .ERNCBanner-Content-BG{
     width: 100%;
 
@@ -37,7 +110,7 @@
     /* opacity: 0.4; */
     background-color: hsla(0, 48%, 5%, 0.4);
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
-    z-index: 3;
+    z-index: 20;
 }
 .ERNCBanner-Content{
     max-width: 1490px;
