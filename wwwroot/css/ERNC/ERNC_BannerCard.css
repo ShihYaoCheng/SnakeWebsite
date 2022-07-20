@@ -93,9 +93,13 @@
     border-radius: 25px;
     background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%);
     padding: 16px;
-    box-shadow: 3px 3px 8px 4.5px #17171780
+    box-shadow: 3px 3px 8px 4.5px #17171780;
+    transition: all .2s ease-in-out;
 }
-
+.Card-BG:hover {
+    transition: all .2s ease-in-out;
+    box-shadow: 0px 0px 25px 5px #ffe8a280;
+}
 .Card-Inner{
     border: 1px solid #fad35fc5; 
     background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%);
