@@ -1,3 +1,5 @@
+@inject IJSRuntime JS
+
 <head>
     <link href="/css/NFTindex/NFTindex_Collect.css" rel="stylesheet" />
     <link href="/css/PPSR_animation.css" rel="stylesheet" />
@@ -211,3 +213,21 @@
         </div>
     </div>
 </div>
+
+
+@* @code {
+    private IJSObjectReference? GameFiJS;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+
+        {
+            GameFiJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/GameFi/GameFi.js");
+            await GameFiJS.InvokeVoidAsync("RiderHover");
+        }
+
+    }
+} *@

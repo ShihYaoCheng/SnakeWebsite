@@ -710,7 +710,7 @@
     private async Task Refresh()
     {
 
-        
+
 
         RarityList = await OptionService.Get_Default_Rarity();
         ElementsList = await OptionService.Get_Default_Elements();
@@ -720,6 +720,7 @@
 
 
         PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageList( 1,10);
+        Console.WriteLine(pagelist.Count);
         NFTDataList = pagelist;
 
         MetaData =  pagelist.MetaData;

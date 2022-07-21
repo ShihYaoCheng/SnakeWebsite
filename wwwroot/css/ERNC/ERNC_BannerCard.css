@@ -1,0 +1,563 @@
+/* Banner */
+.ERNCBanner{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #6a7079;
+}
+.ERNCBanner-Gradient{
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    background: no-repeat center top / 100% 100%;
+    background-image: linear-gradient(to bottom,  #15283700 0%, #1528371a 85%, #15283744 90%, #152837 100%);
+    z-index: 15;
+    /* display: none; */
+}
+
+
+/* 靜態 ERNC Banner  */
+.ERNCBanner-BG{
+    width: 100%;
+    z-index: 3;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+.ERNCBanner-BG img{
+    width: 100%;
+}
+
+/* 動畫 ERNC Banner */
+
+.ERNCBanner-BG-animation{
+    width: 100%;
+    position: relative;
+
+    display: none;
+}
+
+.ERNCBanner-BG-animation img{
+
+}
+
+.ERNC-banner{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.ERNC-banner-icon{
+    width: 100%;
+}
+
+#ERNC-banner-01{
+    z-index: 1;
+}
+#ERNC-banner-02-ERNC{
+    
+    z-index: 2;
+
+    animation: ERNC-banner-00-ERNC 1s ease-in-out forwards;
+
+    /* display: none; */
+}
+
+@keyframes ERNC-banner-00-ERNC {
+    0% {
+        opacity: 0;
+        z-index: -1;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        z-index: 2;
+        transform: translateY(0px);
+    }
+}
+
+#ERNC-banner-03{
+    z-index: 3;
+}
+#ERNC-banner-04{
+    z-index: 4;
+}
+
+#ERNC-banner-05{
+    z-index: 5;
+}
+
+#ERNC-banner-06{
+    z-index: 6;
+}
+
+
+
+
+
+
+
+
+.ERNCBanner-Content-BG{
+    width: 100%;
+
+    position: absolute;
+    top: 100px;
+    left: 0;
+    /* opacity: 0.4; */
+    background-color: hsla(0, 48%, 5%, 0.4);
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+    z-index: 20;
+}
+.ERNCBanner-Content{
+    max-width: 1490px;
+    margin: 0 auto 0px;
+    width: 90%;
+    padding: 26px 0 40px;
+}
+.Content-Title{
+    color: #fff;
+    font-size: 58px;
+    letter-spacing: 6px;
+    text-align: center;
+    margin-bottom: 36px;
+}
+.Content-Title span{
+    padding-bottom: 3px;
+    border-bottom: 3px solid white;
+}
+.Content-Text{
+    font-size: 30px;
+    line-height: 2.1;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #fff;
+}
+
+
+/* 卡片區 */
+.ERNC-Card{
+    /* border: 1px solid red; */
+    background-image: url("/images/ERNC/ERNC_BannerCard/diamond_BG.png");
+    background-position: top center;
+    /* height: 2000px; */
+    padding: 150px 0;
+}
+.ERNC-Card-All{
+    /* border: 1px solid red;  */
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.Card-BG{
+    /* border: 1px solid red;  */
+    margin: 30px 40px;
+    max-width: 295px;
+    width: 100%;
+    border-radius: 25px;
+    background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%);
+    padding: 16px;
+    box-shadow: 3px 3px 8px 4.5px #17171780;
+    transition: all .2s ease-in-out;
+}
+.Card-BG:hover {
+    transition: all .2s ease-in-out;
+    box-shadow: 0px 0px 25px 5px #ffe8a280;
+}
+.Card-Inner{
+    border: 1px solid #fad35fc5; 
+    background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%);
+    border-radius: 15px;
+    box-shadow: 0px 0px 8px 4.5px #fad35fd9;
+    padding: 30px 20px;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.Card-Inner::before{
+    content: "";
+    background-image: url("/images/ERNC/ERNC_BannerCard/rolequality.png");
+    /* max-width: 380px; */
+    width: 26px;
+    height: 36px;
+    position: absolute;
+    top: -2%;
+    left: -2.5%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.Card-Inner::after{
+    content: "";
+    background-image: url("/images/ERNC/ERNC_BannerCard/rolequality.png");
+    /* max-width: 380px; */
+    width: 26px;
+    height: 36px;
+    position: absolute;
+    top: -2%;
+    right: -2.5%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.IconBlock{
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: 200px; */
+    width: 100%;
+    /* height: 200px; */
+    padding: 40px 0 15px;
+    margin: 0 auto 24px;
+    box-shadow: inset 0px 0px 20px 5px #fad35fb0;
+}
+.IconBlock-Img{
+    /* border: 1px solid red;  */
+    /* width: 120px; */
+    height: 100px;
+    margin-bottom: 8px;
+}
+.IconBlock-Img img{
+    /* width: 100%; */
+    height: 100%;
+}
+
+.IconBlock-Text{
+    color: #ab6749;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+}
+
+.Card-Inner-Text{
+    width: 100%;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: 1.6px;
+    text-align: center;
+    color: #feffff;
+    height: 185px;
+}
+
+
+@media all and (max-width: 1920px){
+    .ERNCBanner-Content-BG{
+        top: 85px;
+    }
+    .ERNCBanner-Content{
+        width: 70%;
+    }
+    .Content-Title{
+        font-size: 46px;
+        letter-spacing: 4px;
+        margin-bottom: 26px;
+    }
+    .Content-Text {
+        font-size: 24px;
+        line-height: 1.8;
+        letter-spacing: 2.8px;
+    }
+
+    .ERNC-Card{
+        padding: 130px 0;
+    }
+}
+@media all and (max-width: 1600px){
+    .ERNCBanner-Content-BG{
+        top: 80px;
+    }
+    .Content-Title{
+        font-size: 38px;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+    }
+    .Content-Text {
+        font-size: 20px;
+        line-height: 1.7;
+        letter-spacing: 2.6px;
+    }
+
+    .ERNC-Card-All{
+        max-width: 1000px;
+        width: 95%;
+    }
+    .ERNC-Card {
+        padding: 80px 0;
+    }
+    .Card-BG{
+        max-width: 265px;
+        margin: 30px;
+    }
+    .Card-Inner{
+        padding: 20px 18px;
+    }
+    .IconBlock-Img{
+        height: 77px;
+        margin-bottom: 5px;
+    }
+    .IconBlock-Text{
+        font-size: 22px;
+        letter-spacing: 1.4px;
+    }
+    .IconBlock{
+        margin: 0 auto 20px;
+        padding: 30px 0 15px;
+    }
+    .Card-Inner-Text {
+        font-size: 15px;
+        line-height: 20px;
+        height: 200px;
+    }
+}
+@media all and (max-width: 1400px){
+    .ERNCBanner-Content-BG {
+        top: 77px;
+    }
+
+    .Content-Title {
+        font-size: 32px;
+        letter-spacing: 2.8px;
+    }
+    .Content-Text {
+        font-size: 18px;
+        line-height: 1.6;
+        letter-spacing: 2.4px;
+    }
+    .ERNCBanner-Content{
+        padding: 20px 0 30px;
+    }
+
+}
+@media all and (max-width: 1300px){
+    .ERNCBanner-BG img{
+        width: 105%;  
+    }
+}
+@media all and (max-width: 1200px){
+    .ERNCBanner-Content-BG {
+        top: 73px;
+    }
+    .Content-Title {
+        font-size: 28px;
+        letter-spacing: 2.6px;
+        margin-bottom: 18px;
+    }
+    .Content-Text {
+        font-size: 16px;
+        line-height: 1.6;
+        letter-spacing: 2px;
+    }
+    .ERNCBanner-BG img{
+        width: 110%;  
+    }
+}
+.Card-flex{
+    display: flex;
+}
+@media all and (max-width: 1000px){
+    .ERNCBanner-Content-BG {
+        top: 65px;
+    }
+    .ERNCBanner-Content {
+        /* padding: 10px 0 22px; */
+    }
+    .Content-Title {
+        font-size: 25px;
+        letter-spacing: 1.5px;
+        margin-bottom: 16px;
+    }
+    .Content-Text {
+        font-size: 15px;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+    }
+    .Content-Title span {
+        padding-bottom: 2.5px;
+        border-bottom: 2px solid white;
+    }
+    .ERNCBanner-BG img{
+        width: 120%;  
+    }
+
+
+    .ERNC-Card {
+        padding: 80px 0;
+    }
+    .ERNC-Card-All{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .Card-BG {
+        margin: 30px;
+    }
+}
+@media all and (max-width: 900px){
+    .ERNCBanner-BG img{
+        width: 140%;  
+    }
+    .ERNCBanner-Content {
+        padding: 10px 0 22px;
+        width: 85%;
+    }
+}
+@media all and (max-width: 750px){
+    .Content-Title {
+        font-size: 22px;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+    .Content-Text {
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+    }
+    .Content-Title span {
+        padding-bottom: 2.5px;
+        border-bottom: 2px solid white;
+    }
+    .ERNCBanner-BG img{
+        width: 140%;  
+    }
+    .ERNCBanner-Content {
+        padding: 12px 0 22px;
+        width: 85%;
+    }
+    .ERNCBanner-BG img{
+        width: 160%;  
+    }
+
+
+    .ERNC-Card-All{
+        flex-direction: column;
+    }
+    .Card-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media all and (max-width: 700px){
+    .ERNCBanner-Content {
+        padding: 12px 0 21px;
+        width: 95%;
+    }
+    .Content-Title {
+        font-size: 21px;
+        letter-spacing: 1.5px;
+        margin-bottom: 13px;
+    }
+    .Content-Text {
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+    }
+}
+@media all and (max-width: 650px){
+    .ERNCBanner-Content {
+        padding: 12px 0 21px;
+        width: 95%;
+    }
+    .Content-Title {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        margin-bottom: 13px;
+    }
+    .Content-Text {
+        font-size: 13px;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+    }
+
+}
+@media all and (max-width: 600px){
+    .ERNCBanner-BG img{
+        width: 180%;  
+    }
+    .ERNCBanner-Content {
+        padding: 12px 0 21px;
+        width: 95%;
+    }
+    .Content-Title {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+        margin-bottom: 14px;
+    }
+    .Content-Text {
+        font-size: 12px;
+        line-height: 1.5;
+        letter-spacing: 1.4px;
+    }
+}
+@media all and (max-width: 550px){
+    .ERNCBanner{
+
+    }
+
+    .ERNCBanner-BG img{
+        width: 160%;
+    }
+    .ERNCBanner-Content {
+        padding: 12px 0 21px;
+        width: 90%;
+    }
+    .Content-Title {
+        font-size: 22px;
+        letter-spacing: 1.5px;
+        margin-bottom: 18px;
+    }
+    .Content-Text {
+        font-size: 15px;
+        line-height: 1.5;
+        letter-spacing: 1.4px;
+    }
+    .ERNCBanner-BG{
+        padding-bottom: 200px;
+    }
+
+    .ERNCBanner-Content-BG{
+        top: unset;
+        bottom: 0px;
+        background-color: hsl(0deg 48% 5% / 0%);
+    }
+    .ERNCBanner-Gradient {
+        background-image: linear-gradient(to bottom, #15283700 0%, #1528371a 55%, #1528374a 60%, #152837c4 65%, #152837 70%,#152837 100%);
+    }
+
+    .ERNC-Card {
+        padding: 50px 0;
+    }
+}
+
+@media all and (max-width: 450px){
+    .ERNCBanner-BG img{
+        width: 170%;
+    }
+    .Content-Title {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        margin-bottom: 18px;
+    }
+    .Content-Text {
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 1.2px;
+    }
+    .ERNCBanner-Content-BG {
+        bottom: -15px;
+    }
+}

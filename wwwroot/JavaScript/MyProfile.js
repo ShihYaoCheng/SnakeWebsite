@@ -109,3 +109,11 @@ window.CardAmountLinkDisplay = function (){
 
     });
 }
+
+window.setMateMaskLink = function () {
+    var URL = "https://metamask.app.link/dapp/" + document.location.host + document.location.pathname;
+
+    if (document.getElementById("myAnchor") != null) {
+        document.getElementById("myAnchor").href = URL;
+    }
+};

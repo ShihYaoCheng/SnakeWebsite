@@ -155,30 +155,30 @@
 
 
 .animate_start #Flag-Block-01 {
-    animation: NFTindexFlag-display 0.8s ease-in 0s forwards,
-        NFTindexFlag-filter 1.2s ease-in-out 0.8s forwards;
+    animation: NFTindexFlag-display 0.5s ease-in 0s forwards,
+        NFTindexFlag-filter 1.2s ease-in-out 0.4s forwards;
 }
 
 .animate_start #Flag-Block-02 {
-    animation: NFTindexFlag-display 0.8s ease-in 0.5s forwards,
-        NFTindexFlag-filter 1.2s ease-in-out 1.3s forwards;
+    animation: NFTindexFlag-display 0.5s ease-in 0.5s forwards,
+        NFTindexFlag-filter 1.2s ease-in-out 0.9s forwards;
 }
 
 .animate_start #Flag-Block-03 {
-    animation: NFTindexFlag-display 0.8s ease-in 1s forwards,
-        NFTindexFlag-filter 1.2s ease-in-out 1.9s forwards;
+    animation: NFTindexFlag-display 0.5s ease-in 1s forwards,
+        NFTindexFlag-filter 1.2s ease-in-out 1.4s forwards;
 }
 
 .animate_start #Flag-Block-InnerLayer-01 {
-    animation: NFTindexFlag-InnerLayer-display 1s ease-in 0.8s forwards
+    animation: NFTindexFlag-InnerLayer-display 1s ease-in 0.3s forwards
 }
 
 .animate_start #Flag-Block-InnerLayer-02 {
-    animation: NFTindexFlag-InnerLayer-display 1s ease-in 1.3s forwards
+    animation: NFTindexFlag-InnerLayer-display 1s ease-in 0.8s forwards
 }
 
 .animate_start #Flag-Block-InnerLayer-03 {
-    animation: NFTindexFlag-InnerLayer-display 1s ease-in 1.9s forwards
+    animation: NFTindexFlag-InnerLayer-display 1s ease-in 1.3s forwards
 }
 
 .Flag-BG {

@@ -42,8 +42,9 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             
             externalServersConfig = myConfiguration.Value;
             
-            ServerClient = new RestClient(externalServersConfig.UserServer);
-
+            //ServerClient = new RestClient(externalServersConfig.UserServer);
+            ServerClient = new RestClient("https://rel.ponponsnake.com/api/user");
+            Console.WriteLine("ServerClient.BaseUrl: " + ServerClient.BaseUrl);
             OptionKeyValue option = new OptionKeyValue();
             RarityList = option.Get_Default_Rarity();
             ElementsList = option.Get_Default_Elements();
@@ -122,7 +123,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             string asset_contract_address = _config.GetValue<string>("asset_contract_address");
 
             List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits();
-
+            Console.WriteLine("GetNFTRiderUnits: " + NFT_Riders.Count);
             datas = new List<NFTData>();
 
 
@@ -361,30 +362,35 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <returns></returns>
         private async Task<List<NFTRiderUnits>> GetNFTRiderUnits()
         {
-            //var LoginRestRequest = new RestRequest($"NFT/Units");
-            //LoginRestRequest.AddHeader("Authorization", Authenticate());
+            var LoginRestRequest = new RestRequest($"NFT/Units");
+            LoginRestRequest.AddHeader("Authorization", Authenticate());
 
-            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
-            //if (restResponse.StatusCode == HttpStatusCode.OK)
-            //{
-            //    List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
-            //    return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
-            //}
-            //return  new List<NFTRiderUnits>();
-
-
-            string URL = @"https://dev.ponponsnake.com/api/user/NFT/Units";
-
-            var mLoginRestRequest = new RestRequest(URL);
-            mLoginRestRequest.AddHeader("Authorization", Authenticate());
-
-            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(mLoginRestRequest);
+            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
+            Console.WriteLine(" ResponseUri :" + restResponse.ResponseUri);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
+                Console.WriteLine(" api 抓到比數 :" + nFTRiderUnits.Where(m => m.mintCount > 0).ToList().Count);
+
                 return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
             }
             return new List<NFTRiderUnits>();
+
+
+            //string URL = $"NFT/Units";
+
+            //var mLoginRestRequest = new RestRequest(URL);
+            //mLoginRestRequest.AddHeader("Authorization", Authenticate());
+
+            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(mLoginRestRequest);
+            //if (restResponse.StatusCode == HttpStatusCode.OK)
+            //{
+            //    List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
+            //    Console.WriteLine(" api 抓到比數 :" + nFTRiderUnits.Where(m => m.mintCount > 0).ToList().Count);
+
+            //    return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
+            //}
+            //return new List<NFTRiderUnits>();
         }
 
 
