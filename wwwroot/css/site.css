@@ -173,11 +173,14 @@ a, .btn-link {
     padding: 0px 2px;
     position: relative;
     transition: all .2s ease-out;
+    display: flex;
+    justify-content: center;
 }
 
 @media all and (max-width: 1000px){
     .nav-item{
         padding: 8px 15px;
+        flex-direction: column;
     }
 }
 
