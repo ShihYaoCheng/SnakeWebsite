@@ -382,11 +382,14 @@
     }
 
 
-
+    private IJSObjectReference? NFTindexBannerJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
+            NFTindexBannerJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/NFTindex/NFTindexBanner.js");
+            await NFTindexBannerJS.InvokeVoidAsync("NFTindexBanner");
+
             @* await JS.InvokeVoidAsync("Popup"); *@
             await JS.InvokeVoidAsync("TippyInit");
 
