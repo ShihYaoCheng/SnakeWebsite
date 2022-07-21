@@ -18,9 +18,33 @@
     padding-top: 20px;
     line-height:18px;
     font-size:14px;
+    font-weight:600;
 }
 
 
 .stepText:not(:last-child) {
     margin-right: 55px;
+}
+@media all and (max-width: 1024px) {
+
+    .stepText-Container {
+        width: 656px;  
+        height: 57px;
+    }
+    .stepText {
+        width: 165px;
+        font-size: 12px;
+    }
+    .stepText:not(:last-child) {
+        margin-right: 55px;
+    }
+}
+
+@media all and (max-width: 768px) {
+
+    .stepText-Container {
+        display:none;
+    }
+
+
 }

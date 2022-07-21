@@ -36,3 +36,34 @@
     color: #fff;
     font-size: 16px;
 }
+
+
+@media all and (max-width: 1024px) {
+
+    .img-zone {
+        width: 306px;
+        height: 135px;
+       /* margin: 26px 0;*/
+    }
+
+    .Logo-metamask {
+        width: 100px;
+    }
+
+    .Logo-x {
+        width: 39px;
+        margin: 0 13px;
+    }
+
+    .Logo-ponponsnake {
+        width: 110px;
+    }
+
+
+    .ConnectGameAccount-container button {
+        width: 158px;
+        height: 34px;
+        margin-bottom: 10px;
+        font-size: 10px
+    }
+}

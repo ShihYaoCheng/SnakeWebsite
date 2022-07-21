@@ -38,3 +38,34 @@
     justify-content: center;
     align-items: center;
 }
+
+@media all and (max-width: 1024px) {
+    .TeachNavBar-container {
+        margin-top: 64px;
+        height: 220px;
+    }
+    .img-Container {
+        width: 656px;
+        margin: 0 auto;
+        height: 87px;
+        position: relative;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .TeachNavBar-container {
+        height: 100px;
+    }
+
+    .img-Container {
+        width: 419px;
+        height: 39px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .img-Container {
+        width: 319px;
+        height: 39px;
+    }
+}

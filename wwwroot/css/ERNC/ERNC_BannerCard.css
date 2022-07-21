@@ -144,8 +144,35 @@
     background-image: url("/images/ERNC/ERNC_BannerCard/diamond_BG.png");
     background-position: top center;
     /* height: 2000px; */
-    padding: 150px 0;
+    padding: 100px 0 150px;
 }
+
+.ERNC-Block-Info{
+    /* border: 1px solid red; */
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto 25px; 
+    color: white;
+    text-align: center;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+
+}
+.ERNC-Block-InfoTitle{
+    font-size: 30px;
+    margin-bottom: 15px;
+    
+}
+.ERNC-Block-InfoTitle span{
+    padding-bottom: 3px;
+    border-bottom: 3px solid white;
+    letter-spacing: 1.5px;
+}
+.ERNC-Block-InfoText{
+    font-size: 22px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
 .ERNC-Card-All{
     /* border: 1px solid red;  */
     max-width: 1200px;
@@ -274,7 +301,18 @@
     }
 
     .ERNC-Card{
-        padding: 130px 0;
+        padding: 100px 0 130px;
+    }
+
+    .ERNC-Block-Info {
+        max-width: 850px;
+    }
+    .ERNC-Block-InfoTitle {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    .ERNC-Block-InfoText {
+        font-size: 18px;
     }
 }
 @media all and (max-width: 1600px){
@@ -365,7 +403,19 @@
     .ERNCBanner-BG img{
         width: 110%;  
     }
+    .ERNC-Block-Info{
+        max-width: 750px;
+    }
+    .ERNC-Block-InfoTitle {
+        font-size: 26px;
+        /* margin-bottom: 20px; */
+    }
+    .ERNC-Block-InfoText{
+        font-size: 16px;
+    }
 }
+
+
 .Card-flex{
     display: flex;
 }
@@ -404,6 +454,15 @@
     }
     .Card-BG {
         margin: 30px;
+    }
+
+
+    .ERNC-Block-Info {
+        max-width: 600px;
+    }
+    .ERNC-Block-InfoTitle span{
+        padding-bottom: 2.5px;
+        border-bottom: 2px solid white;
     }
 }
 @media all and (max-width: 900px){
@@ -450,6 +509,14 @@
         flex-direction: column;
         align-items: center;
     }
+
+    .ERNC-Block-InfoTitle{
+        font-size: 20px;
+    }
+    .ERNC-Block-InfoText{
+        font-size: 14px;
+    }
+    
 }
 @media all and (max-width: 700px){
     .ERNCBanner-Content {
@@ -482,7 +549,10 @@
         line-height: 1.5;
         letter-spacing: 1.5px;
     }
-
+    
+    .ERNC-Block-InfoText {
+        font-size: 13px;
+    }
 }
 @media all and (max-width: 600px){
     .ERNCBanner-BG img{
