@@ -2,6 +2,19 @@
     width: 100%;
     text-align: center;
     color: #1c5968;
-    padding-top:60px;
-    font-size:24px;
+    padding-top: 60px;
+    font-size: 24px;
+    font-weight: 700;
+}
+@media all and (max-width: 1024px) {
+    .Main_Title {
+        font-size: 20px;
+      
+    }
+}
+
+@media all and (max-width: 768px) {
+    .Main_Title {
+        padding-top: 20px;
+    }
 }

@@ -22,3 +22,24 @@
     font-size: 16px
 
 }
+
+@media all and (max-width: 1024px) {
+
+    .CreatePonPonSnakeGame-Container {
+        width: 331px;
+        height: 325px;    
+    }
+
+
+    .CreatePonPonSnakeGame-Container img {
+        width: 331px;
+        height: 204px;
+    }
+
+    .CreatePonPonSnakeGame-Container button {
+        width: 158px;
+        height: 34px;
+        margin-bottom: 10px;
+        font-size: 10px
+    }
+}
