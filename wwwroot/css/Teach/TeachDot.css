@@ -1,0 +1,24 @@
+﻿.TeachDot-Container {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+
+}
+
+
+.TeachDot-Container button {
+    width: 35px;
+    height:35px;
+    border:none;
+   
+    background-size:cover;
+    margin:18px;
+}
+.TeachDot-Container-BG1 {
+    background: url('../../images/Teach/dot1.png');
+}
+
+.TeachDot-Container-BG2 {
+    background: url('../../images/Teach/dot2.png');
+}
