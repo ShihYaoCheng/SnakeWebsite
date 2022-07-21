@@ -173,11 +173,14 @@ a, .btn-link {
     padding: 0px 2px;
     position: relative;
     transition: all .2s ease-out;
+    display: flex;
+    justify-content: center;
 }
 
 @media all and (max-width: 1000px){
     .nav-item{
         padding: 8px 15px;
+        flex-direction: column;
     }
 }
 
@@ -331,7 +334,7 @@ a, .btn-link {
     box-shadow: 2px 2px 4px 0px #1c4c581e;
     transition: all .1s ease-in;
     margin: 3px auto;
-    height: 50px;
+    height: 45px;
 }
 #nav-ConnectWallet a{
     padding: 6px 10px;

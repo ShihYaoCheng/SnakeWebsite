@@ -158,13 +158,15 @@
 
 
     </div>
-@* <NFTindex_Register/> *@
 
 </div>
 
+@* <NFTindex_Register/> *@
+
+
 @* 新暫時彈窗 *@
 <section class="products-popup-bg @(displayForm ? "products-popup-open" : "") " id="products-popupblock-Name">
-    <div class="products-popupblock popupblockTest" >
+    <div class="products-popupblock">
 
         <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="EditFormCancel">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
@@ -231,7 +233,7 @@
 
 @* 送出成功/失敗 彈窗 *@
 <section class="products-popup-bg @(displayAlert ? "products-popup-open" : "") " id="products-popupblock-result">
-    <div class="products-popupblock popupblockTest">
+    <div class="products-popupblock">
 
         <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="AlertCancel">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
@@ -255,10 +257,9 @@
     </div>
 </section>
 
-
 @code {
-    @* private IJSObjectReference? NFTindexBannerJS; *@
-    @* protected override async Task OnAfterRenderAsync(bool firstRender)
+    @* private IJSObjectReference? NFTindexBannerJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
@@ -267,7 +268,8 @@
         }
     } *@
 
-    
+
+    @code {
 
     //註冊彈窗
     bool displayForm = false;
@@ -380,16 +382,13 @@
     }
 
 
-    private IJSObjectReference? NFTindexBannerJS;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             @* await JS.InvokeVoidAsync("Popup"); *@
             await JS.InvokeVoidAsync("TippyInit");
-
-            NFTindexBannerJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/NFTindex/NFTindexBanner.js");
-            await NFTindexBannerJS.InvokeVoidAsync("NFTindexBanner");
 
             AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
@@ -401,5 +400,8 @@
         AppState.StateChanged -= async (Source, Property)
             => await InvokeAsync(StateHasChanged);
     }
+}
 
+
+    
 }
