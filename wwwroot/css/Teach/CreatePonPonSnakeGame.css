@@ -1,0 +1,24 @@
+﻿.CreatePonPonSnakeGame-Container {
+    width:510px;
+    height:500px;
+    text-align:center;
+}
+
+
+.CreatePonPonSnakeGame-Container img {
+    width: 510px;
+    height: 315px;
+}
+
+.CreatePonPonSnakeGame-Container button {
+       
+    background:url("../../images/Teach/Button.png");
+    background-size: cover;
+    width: 248px;
+    height: 53px;
+    margin-top: 20px;
+    border: none;
+    color: #fff;
+    font-size: 16px
+
+}

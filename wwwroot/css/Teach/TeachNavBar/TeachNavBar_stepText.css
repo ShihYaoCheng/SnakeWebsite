@@ -1,0 +1,26 @@
+﻿
+/*..stepText...*/
+
+.stepText-Container {
+    width: 1025px;
+    margin: 0 auto;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stepText {
+    width: 160px;
+    height: 100%;
+    text-align: center;
+    color: #1c5968;
+    padding-top: 20px;
+    line-height:18px;
+    font-size:14px;
+}
+
+
+.stepText:not(:last-child) {
+    margin-right: 55px;
+}

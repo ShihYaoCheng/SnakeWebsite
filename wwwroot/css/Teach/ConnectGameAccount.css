@@ -1,0 +1,38 @@
+﻿.ConnectGameAccount-container {
+    text-align:center;
+}
+
+.img-zone {
+    background: url('../../images/Teach/PAGE4_OUTLINE.png');
+    background-size: cover;
+    width: 471px;
+    height: 208px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 ;
+}
+
+.Logo-metamask {
+    width: 155px;
+}
+
+.Logo-x {
+    width: 60px;
+    margin:0 20px;
+}
+
+.Logo-ponponsnake {
+    width: 170px;
+}
+
+.ConnectGameAccount-container button {
+    background: url("../../images/Teach/Button.png");
+    background-size: cover;
+    width: 248px;
+    height: 53px;
+    margin-bottom: 20px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+}

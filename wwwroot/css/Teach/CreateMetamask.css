@@ -1,0 +1,61 @@
+﻿.CreateMetamask-Container {
+    width: 345px;
+    height: 494px;
+    background: url('../../images/Teach/CreateMetamask-BG.png');
+    background-size: cover;
+    margin-top: 20px;
+}
+
+.avatar-Zone{
+    width:100%;
+    height:312px;
+    position:relative;
+
+}
+
+.avatar-BG {
+    width: 233px;
+    height: 216px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+}
+
+.avatar-LOGO {
+    width: 201px;
+    height: 186px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+}
+.avatar-LOGO-opensea {
+    width: 181px;
+    height: 41px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 48%;
+    z-index: 2;
+}
+
+.Button-Zone {
+    width: 100%;
+    height: 156px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Button-Zone button{
+    background:url("../../images/Teach/Button.png");
+    background-size:cover;
+    width:248px;
+    height:53px;
+    margin-bottom:20px;
+    border:none;
+    color:#fff;
+    font-size:16px
+} 

@@ -1,0 +1,60 @@
+﻿
+.nav-square {
+    width: 160px;
+    height: 100%;
+    position: relative;
+}
+
+.nav-square:not(:last-child) {
+    margin-right: 55px;
+}
+
+.nav-square a {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.square-BG {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.number-container {
+    position: absolute;
+    transform: translate(-50% -50%);
+    top: 3%;
+    left: 3%;
+    height: 40px;
+    width: 40px;
+    background: url('../../../images/Teach/nav/NUMBER_BG1.png');
+    background-repeat: round;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-container p {
+    color: #1c5968;
+    font-size: 25px
+}
+
+.square-logo {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top:60%;
+    left: 50%;
+    width: 95px;
+    
+}
+
+.square-Marquee {
+    width: 103%;
+    height: 103%;
+    position: absolute;
+    top: -2%;
+    left: -2%;
+}
