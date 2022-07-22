@@ -1,20 +1,39 @@
-﻿.Main_Title {
+﻿.Main_Title_h3 {
     width: 100%;
     text-align: center;
     color: #1c5968;
     padding-top: 60px;
+    color: #1c5968;
     font-size: 24px;
     font-weight: 700;
 }
+
+
+.Main_Title_h4 {
+    color: #1c5968;
+    font-size: 18px;
+    width: 700px;
+    text-align: center;
+}
+
 @media all and (max-width: 1024px) {
-    .Main_Title {
+    .Main_Title_h3 {
         font-size: 20px;
-      
+    }
+    .Main_Title_h4 {  
+        font-size: 14px;
+        width: 500px;      
     }
 }
 
 @media all and (max-width: 768px) {
-    .Main_Title {
+    .Main_Title_h3 {
         padding-top: 20px;
+    }
+
+}
+@media all and (max-width: 576px) {
+    .Main_Title_h4 {
+        width: 350px;
     }
 }

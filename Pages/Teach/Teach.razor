@@ -25,23 +25,23 @@
             </CascadingValue>
          
             break;
-       @* case "create-PonPonSnake-game":
-            <CascadingValue Value="@SetpTextData[2]">
+        case "create-PonPonSnake-game":
+            <CascadingValue Value="@title3">
                  <CreatePonPonSnakeGame />
             </CascadingValue>
            
             break;      
         case "connect-game-account":
-            <CascadingValue Value="@SetpTextData[3,0]">
+            <CascadingValue Value="@title4">
                   <ConnectGameAccount />
             </CascadingValue>
            
             break;      
         case "download-and-play":
-            <CascadingValue Value="@SetpTextData[4,0]">
+            <CascadingValue Value="@title5">
                     <DownloadAndPLAY />
             </CascadingValue>        
-            break;    *@  
+            break;    
     }
     </div>
     <TeachDot Value=@SquareData squareClick="squareClick" />
@@ -49,16 +49,6 @@
 @code {
     [Parameter]
     public string router { get; set; } = "index";
-
-    public string[,] SetpTextData =  new string[5,2]
-    {
-     {"1. Create Metamask Account and Connect with Polygon","What exactly is MetaMask? To transact with a blockchain, you'll need a cryptocurrency wallet. This wallet is your key to the crypto universe. It gives you the ability to purchase, sell, or transfer assets on the blockchain."},
-     {"2.Connect Metamask to your Opensea",""},
-     {"3.Create your PonPonSnake Game Account",""},
-     {"4.Connect Metamask to your Game Account",""},
-     {"5.Download and PLAY!",""},
-    };
-
 
     public string[][] SquareData =  new string[5][]
     {
@@ -83,40 +73,18 @@
             }
         }
     }
-    @*
-        public class TeachData
-        {
-        public string[]? SetpTextData { get; set; }    
-        public string[][]?SquareData{ get; set; }
-        public void changeNum() {
 
-
-        }
-        }
-
-        private TeachData TeachAllData = new() {
-        SetpTextData =  new string[5]
-        {
-        "1. Create Metamask Account and Connect with Polygon",
-        "2.Connect Metamask to your Opensea",
-        "3.Create your PonPonSnake Game Account",
-        "4.Connect Metamask to your Game Account",
-        "5.Download and PLAY!"
-        },
-        SquareData =  new string[5][]
-        {
-        new string[4]{ "1","/images/Teach/nav/STEP1_LOGO.png" , "true" ,"/teach/create-metamask"},
-        new string[4]{ "2","/images/Teach/nav/STEP2_LOGO.png" , "false","/teach/connect-opensea"},
-        new string[4]{ "3","/images/Teach/nav/STEP3_LOGO.png" , "false","/teach/create-PonPonSnake-game"},
-        new string[4]{ "4","/images/Teach/nav/STEP4_LOGO.png" , "false","/teach/connect-game-account"},
-        new string[4]{ "5","/images/Teach/nav/STEP5_LOGO.png" , "false","/teach/download-and-play"},
-        },
-
-
-        };*@
-
-
-
-    private Title title1 = new Title("1. Create Metamask Account and Connect with Polygon","subtitle1"); 
-    private Title title2 = new Title("2.Connect Metamask to your Opensea","subtitle2"); 
+    public string[] SetpTextData =  new string[5]
+    {
+         "1. Create Metamask Account and Connect with Polygon",
+         "2.Connect Metamask to your Opensea",
+         "3.Create your PonPonSnake Game Account",
+         "4.Connect Metamask to your Game Account",
+         "5.Download and PLAY!",
+    };
+    private Title title1 = new Title("1.Create Metamask Account and Connect with Polygon","What exactly is MetaMask? To transact with a blockchain, you'll need a cryptocurrency wallet. This wallet is your key to the crypto universe. It gives you the ability to purchase, sell, or transfer assets on the blockchain."); 
+    private Title title2 = new Title("2.Connect Metamask to your Opensea","For NFT purchase and sell transactions, OpenSea is utilized. Bidding on Opensea will get you the PonPonSnake Rider and Avatar. Connecting Opensea to your Metamask allows you to sync wallet info together.");
+    private Title title3 = new Title("3.Create your PonPonSnake account","Create your in-game account. Enter your phone, and we will send a 6 digit code to your phone."); 
+    private Title title4 = new Title("4.Connect Metamask to your Game Account","In order to let PonPonSnake NFT be used in our game, we will need you to connect your Metamask wallet, so we can sync your data. All the earnings in the game will be sent to your metamask wallet.");  
+    private Title title5 = new Title("5.Download and PLAY!",""); 
 }
