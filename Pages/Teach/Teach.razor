@@ -14,30 +14,30 @@
  @switch (router)
     {
         case "create-metamask":
-            <CascadingValue Value="@SetpTextData[0]">
+            <CascadingValue Value="@SetpTextData[0,0]">
                 <CreateMetamask />
             </CascadingValue>
             break;
         case "connect-opensea":
-            <CascadingValue Value="@SetpTextData[1]">
+            <CascadingValue Value="@SetpTextData[1,0]">
                 <ConnectOpensea />
             </CascadingValue>
          
             break;
         case "create-PonPonSnake-game":
-            <CascadingValue Value="@SetpTextData[2]">
+            <CascadingValue Value="@SetpTextData[2,0]">
                  <CreatePonPonSnakeGame />
             </CascadingValue>
            
             break;      
         case "connect-game-account":
-            <CascadingValue Value="@SetpTextData[3]">
+            <CascadingValue Value="@SetpTextData[3,0]">
                   <ConnectGameAccount />
             </CascadingValue>
            
             break;      
         case "download-and-play":
-            <CascadingValue Value="@SetpTextData[4]">
+            <CascadingValue Value="@SetpTextData[4,0]">
                     <DownloadAndPLAY />
             </CascadingValue>        
             break;      
@@ -49,13 +49,13 @@
     [Parameter]
     public string router { get; set; } = "index";
 
-    public string[] SetpTextData =  new string[5]
+    public string[,] SetpTextData =  new string[5,2]
     {
-     "1. Create Metamask Account and Connect with Polygon",
-     "2.Connect Metamask to your Opensea",
-     "3.Create your PonPonSnake Game Account",
-     "4.Connect Metamask to your Game Account",
-     "5.Download and PLAY!"
+     {"1. Create Metamask Account and Connect with Polygon","What exactly is MetaMask? To transact with a blockchain, you'll need a cryptocurrency wallet. This wallet is your key to the crypto universe. It gives you the ability to purchase, sell, or transfer assets on the blockchain."},
+     {"2.Connect Metamask to your Opensea",""},
+     {"3.Create your PonPonSnake Game Account",""},
+     {"4.Connect Metamask to your Game Account",""},
+     {"5.Download and PLAY!",""},
     };
 
 

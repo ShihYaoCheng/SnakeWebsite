@@ -1,0 +1,49 @@
+﻿.LOGO-avatar {
+    width: 104px;
+    height: 96px;
+}
+
+.CreateMetamask-Container {
+    width: 349px;
+    height: 443px;
+    background: url('../../images/Teach/CreateMetamask-BG.png');
+    background-repeat: round;
+    margin-top: 20px;
+}
+
+.title-Zone {
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 22px
+}
+
+
+.button-Zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.button-Zone p {
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:18px
+}
+
+.button-Zone button {
+    background: url('/images/Teach/Button2.png');
+    background-repeat:round;
+    border: none;
+    width: 193px;
+    height: 41px;
+    margin:5px
+}
