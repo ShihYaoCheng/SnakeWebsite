@@ -1,5 +1,6 @@
 ﻿@page "/teach/{router}"
 @using SnakeAsianLeague.Pages.Teach.Components
+@using SnakeAsianLeague.Data.Entity.View
 <head>
     <link href="/css/Teach/Teach.css" rel="stylesheet" />
 </head>
@@ -14,18 +15,18 @@
  @switch (router)
     {
         case "create-metamask":
-            <CascadingValue Value="@SetpTextData[0,0]">
+            <CascadingValue Value="@title1">
                 <CreateMetamask />
             </CascadingValue>
             break;
         case "connect-opensea":
-            <CascadingValue Value="@SetpTextData[1,0]">
+            <CascadingValue Value="@title2">
                 <ConnectOpensea />
             </CascadingValue>
          
             break;
-        case "create-PonPonSnake-game":
-            <CascadingValue Value="@SetpTextData[2,0]">
+       @* case "create-PonPonSnake-game":
+            <CascadingValue Value="@SetpTextData[2]">
                  <CreatePonPonSnakeGame />
             </CascadingValue>
            
@@ -40,7 +41,7 @@
             <CascadingValue Value="@SetpTextData[4,0]">
                     <DownloadAndPLAY />
             </CascadingValue>        
-            break;      
+            break;    *@  
     }
     </div>
     <TeachDot Value=@SquareData squareClick="squareClick" />
@@ -59,7 +60,7 @@
     };
 
 
-     public string[][] SquareData =  new string[5][]
+    public string[][] SquareData =  new string[5][]
     {
       new string[4]{ "1","/images/Teach/nav/STEP1_LOGO.png" , "true" ,"/teach/create-metamask"},
       new string[4]{ "2","/images/Teach/nav/STEP2_LOGO.png" , "false","/teach/connect-opensea"},
@@ -83,36 +84,39 @@
         }
     }
     @*
-    public class TeachData
-    {
+        public class TeachData
+        {
         public string[]? SetpTextData { get; set; }    
         public string[][]?SquareData{ get; set; }
         public void changeNum() {
 
 
         }
-    }
+        }
 
-    private TeachData TeachAllData = new() {
-            SetpTextData =  new string[5]
-                {
-                    "1. Create Metamask Account and Connect with Polygon",
-                    "2.Connect Metamask to your Opensea",
-                    "3.Create your PonPonSnake Game Account",
-                    "4.Connect Metamask to your Game Account",
-                    "5.Download and PLAY!"
-                },
-            SquareData =  new string[5][]
-                {
-                  new string[4]{ "1","/images/Teach/nav/STEP1_LOGO.png" , "true" ,"/teach/create-metamask"},
-                  new string[4]{ "2","/images/Teach/nav/STEP2_LOGO.png" , "false","/teach/connect-opensea"},
-                  new string[4]{ "3","/images/Teach/nav/STEP3_LOGO.png" , "false","/teach/create-PonPonSnake-game"},
-                  new string[4]{ "4","/images/Teach/nav/STEP4_LOGO.png" , "false","/teach/connect-game-account"},
-                  new string[4]{ "5","/images/Teach/nav/STEP5_LOGO.png" , "false","/teach/download-and-play"},
-                },
-
-           
-};*@
+        private TeachData TeachAllData = new() {
+        SetpTextData =  new string[5]
+        {
+        "1. Create Metamask Account and Connect with Polygon",
+        "2.Connect Metamask to your Opensea",
+        "3.Create your PonPonSnake Game Account",
+        "4.Connect Metamask to your Game Account",
+        "5.Download and PLAY!"
+        },
+        SquareData =  new string[5][]
+        {
+        new string[4]{ "1","/images/Teach/nav/STEP1_LOGO.png" , "true" ,"/teach/create-metamask"},
+        new string[4]{ "2","/images/Teach/nav/STEP2_LOGO.png" , "false","/teach/connect-opensea"},
+        new string[4]{ "3","/images/Teach/nav/STEP3_LOGO.png" , "false","/teach/create-PonPonSnake-game"},
+        new string[4]{ "4","/images/Teach/nav/STEP4_LOGO.png" , "false","/teach/connect-game-account"},
+        new string[4]{ "5","/images/Teach/nav/STEP5_LOGO.png" , "false","/teach/download-and-play"},
+        },
 
 
+        };*@
+
+
+
+    private Title title1 = new Title("1. Create Metamask Account and Connect with Polygon","subtitle1"); 
+    private Title title2 = new Title("2.Connect Metamask to your Opensea","subtitle2"); 
 }
