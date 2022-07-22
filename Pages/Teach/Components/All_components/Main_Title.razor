@@ -1,10 +1,13 @@
-﻿<head>
+﻿@using SnakeAsianLeague.Data.Entity.View
+
+<head>
     <link href="/css/Teach/All_components/Main_Title.css" rel="stylesheet" />
 </head>
 
-<h3 class="Main_Title">Setp @SetpTextData</h3>
+<h3 class="Main_Title">Setp @title.MainTitle</h3>
+<h3 class="Main_Title">Setp @title.SubTitle</h3>
 
 @code {
-    [CascadingParameter] string SetpTextData { get; set; }
+    [CascadingParameter] Title title { get; set; }
 
 }

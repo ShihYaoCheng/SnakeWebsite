@@ -28,7 +28,7 @@
 @* 新暫時彈窗 *@
 @if (displayForm)
 {
-    <section class="products-popup-bg @(displayForm ? "products-popup-open" : "") " id="products-popupblock-Name">
+    <section class="products-popup-bg products-popup-open " id="products-popupblock-Name">
         <div class="products-popupblock">
 
             <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="EditFormCancel">
@@ -98,7 +98,7 @@
 
 @* 送出成功/失敗 彈窗 *@
 @if(displayAlert){
-    <section class="products-popup-bg @(displayAlert ? "products-popup-open" : "") " id="products-popupblock-result">
+    <section class="products-popup-bg  products-popup-open " id="products-popupblock-result">
         <div class="products-popupblock">
 
             <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="AlertCancel">
@@ -154,7 +154,7 @@
 
     public PhoneMemberRegisterDTO RegisterDTO { get; set; } = new PhoneMemberRegisterDTO();
 
-    
+
 
     public string PasswordCheck { get; set; }
     public string UserName { get; set; }
@@ -183,21 +183,25 @@
 
     private async Task SendVerifyCode()
     {
-        ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
-        if (resp.Success == true)
-        {
-            TimerIsRunning = true;
-            TimeLeft = new TimeSpan(0,0,20);
-            Timer();
-            EditFormShow();
-        }
-        else
-        {
-            Console.WriteLine(resp.Content);
-            AlertTitle = "Sending verification code failed";
-            AlertContent = resp.Content + ". Please check the input is correct. ";
-            AlertShow();
-        }
+        string[,] array2Db = new string[3, 2] { { "one", "two" }, { "three", "four" },
+                                        { "five", "six" } };
+        Console.WriteLine(array2Db[1,0] + array2Db[1,1]);
+
+        //ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
+        //if (resp.Success == true)
+        //{
+        //    TimerIsRunning = true;
+        //    TimeLeft = new TimeSpan(0,0,20);
+        //    Timer();
+        //    EditFormShow();
+        //}
+        //else
+        //{
+        //    Console.WriteLine(resp.Content);
+        //    AlertTitle = "Sending verification code failed";
+        //    AlertContent = resp.Content + ". Please check the input is correct. ";
+        //    AlertShow();
+        //}
 
     }
 
