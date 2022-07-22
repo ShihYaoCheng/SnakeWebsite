@@ -2,7 +2,7 @@
     width:510px;
     height:500px;
     text-align:center;
-    margin-top:30px;
+    margin-top:60px;
 }
 
 
@@ -24,8 +24,11 @@
 
 }
 
-@media all and (max-width: 1024px) {
+.register-Container {
+    margin-top:60px
+}
 
+@media all and (max-width: 1024px) {
     .CreatePonPonSnakeGame-Container {
         width: 331px;
         height: 325px;    
