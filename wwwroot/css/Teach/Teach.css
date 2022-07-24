@@ -11,7 +11,7 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
-    height: 750px;
+    height: 790px;
 }
 
 
@@ -20,7 +20,7 @@
         height: 1000px;
     }
     .main-container {
-        height: 450px;
+        height:580px;
     }
 }
 
@@ -28,6 +28,6 @@
 @media all and (max-width: 768px) {
  
     .teach-container {
-        height: 800px;
+        height: 890px;
     }
 }

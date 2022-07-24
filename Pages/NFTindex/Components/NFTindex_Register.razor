@@ -17,113 +17,113 @@
 
 
 @* 註冊按鈕 *@
-<div class="NFTindex_Register" hidden="@false">
-    <div class="Register-input-row">
-        <input type="text" class="Register-input tippy-pop" id="CountryCode" name="CountryCode" placeholder="+886" data-content="CountryCode" @bind=@CountryCode>
-
-        <input type="text" class="Register-input tippy-pop" id="PhoneNum" name="PhoneNum" placeholder="Phone Number" data-content="Enter Your Phone Number" @bind=@PhoneNum>
-    </div>
-    <div class="Register-submit button-hover" @onclick="@SendVerifyCode">
-        <span >Register</span>
-    </div>
-
+<div class="Register-submit button-hover" @onclick="@SendVerifyCode">
+    <span >Register</span>
+              
 </div>
 
 
 
 
 @* 新暫時彈窗 *@
-<section class="products-popup-bg @(displayForm ? "products-popup-open" : "") " id="products-popupblock-Name">
-    <div class="products-popupblock">
+@if (displayForm)
+{
+    <section class="products-popup-bg products-popup-open " id="products-popupblock-Name">
+        <div class="products-popupblock">
 
-        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="EditFormCancel">
-            <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
-                fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
-        </svg>
+            <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="EditFormCancel">
+                <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
+                    fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+            </svg>
 
-        <div class="products-popup-title">Register Account</div>
+            <div class="products-popup-title">Register Account</div>
 
-        <EditForm Model="@RegisterDTO" class="window_input_block">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
+            <EditForm Model="@RegisterDTO" class="window_input_block">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
 
-            <div class="products-popup-content">
-                <div class="products-popup-scroll">
-                    <div class="products-popup-text">Enter the 6-digit verify code sent to <br>
-                        <span class="popup-RegisterPhone">@CountryCode-@PhoneNum</span>
-                    </div>
-
-
-                    <div class="popup-low">
-                        <div class="popup-label-02">
-                            <label class="popup-label" for="name">VerifyCode</label>
-                            <div class="TimeLeft">
-                                <apan class="">@TimeLeft</apan>
-                                <button class="button-hover" disabled=@TimerIsRunning  @onclick="SendVerifyCode" >Resend</button>
-                            </div>
+                <div class="products-popup-content">
+                    <div class="products-popup-scroll">
+                        <div class="products-popup-text">Enter the 6-digit verify code sent to <br>
+                            <span class="popup-RegisterPhone">@CountryCode-@PhoneNum</span>
                         </div>
-                        <input class="products-popup-inputText" id="name" type="text" @bind-value="RegisterDTO.VerifyCode"
-                            placeholder="">
+
+
+                        <div class="popup-low">
+                            <div class="popup-label-02">
+                                <label class="popup-label" for="name">VerifyCode</label>
+                                <div class="TimeLeft">
+                                    <apan class="">@TimeLeft</apan>
+                                    <button class="button-hover" disabled=@TimerIsRunning  @onclick="SendVerifyCode" >Resend</button>
+                                </div>
+                            </div>
+                            <input class="products-popup-inputText" id="name" type="text" @bind-value="RegisterDTO.VerifyCode"
+                                placeholder="">
                         
-                    </div>
+                        </div>
                     
-                                    <div class="popup-low">
-                        <label class="popup-label" for="name">User Name</label>
-                        <input class="products-popup-inputText" id="username" type="text" @bind-value="UserName"
-                            placeholder="">
-                    </div>
+                                        <div class="popup-low">
+                            <label class="popup-label" for="name">User Name</label>
+                            <input class="products-popup-inputText" id="username" type="text" @bind-value="UserName"
+                                placeholder="">
+                        </div>
 
-                    <div class="popup-low">
-                        <label class="popup-label" for="name">Password</label>
-                        <input class="products-popup-inputText" id="password" type="text" @bind-value="RegisterDTO.Password"
-                            placeholder="">
-                    </div>
+                        <div class="popup-low">
+                            <label class="popup-label" for="name">Password</label>
+                            <input class="products-popup-inputText" id="password" type="text" @bind-value="RegisterDTO.Password"
+                                placeholder="">
+                        </div>
 
-                    <div class="popup-low">
-                        <label class="popup-label" for="name">Confirm Password</label>
-                        <input class="products-popup-inputText" id="passwordcheck" type="text" @bind-value="PasswordCheck"
-                            placeholder="">
-                    </div>
+                        <div class="popup-low">
+                            <label class="popup-label" for="name">Confirm Password</label>
+                            <input class="products-popup-inputText" id="passwordcheck" type="text" @bind-value="PasswordCheck"
+                                placeholder="">
+                        </div>
 
 
                     
-                    <div class="products-popup-error">@ErrorString</div>
+                        <div class="products-popup-error">@ErrorString</div>
 
-                    <button class="products-popup-submit button-hover" type="submit" @onclick="RegisterSubmit">Register</button>
+                        <button class="products-popup-submit button-hover" type="submit" @onclick="RegisterSubmit">Register</button>
                 
+                    </div>
                 </div>
-            </div>
 
-        </EditForm>
+            </EditForm>
 
-    </div>
-</section>
+        </div>
+    </section>
+}
+
 
 @* 送出成功/失敗 彈窗 *@
-<section class="products-popup-bg @(displayAlert ? "products-popup-open" : "") " id="products-popupblock-result">
-    <div class="products-popupblock">
+@if(displayAlert){
+    <section class="products-popup-bg  products-popup-open " id="products-popupblock-result">
+        <div class="products-popupblock">
 
-        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="AlertCancel">
-            <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
-                fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
-        </svg>
+            <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="AlertCancel">
+                <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
+                    fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+            </svg>
 
-        <div class="products-popup-title">@AlertTitle</div>
+            <div class="products-popup-title">@AlertTitle</div>
 
-        <EditForm Model="@RegisterDTO" class="window_input_block">
+            <EditForm Model="@RegisterDTO" class="window_input_block">
             
 
-            <div class="products-popup-content">
-                <div class="products-popup-text">@AlertContent</div>
+                <div class="products-popup-content">
+                    <div class="products-popup-text">@AlertContent</div>
                 
 
-                <button class="products-popup-submit button-hover" type="submit" @onclick="AlertCancel">Close</button>
-            </div>
+                    <button class="products-popup-submit button-hover" type="submit" @onclick="AlertCancel">Close</button>
+                </div>
 
-        </EditForm>
+            </EditForm>
 
-    </div>
-</section>
+        </div>
+    </section>
+}
+
 
 
 
@@ -133,6 +133,11 @@
 
 
 @code {
+    [Parameter]
+    public string? CountryCode { get; set; }
+    [Parameter]
+    public string? PhoneNum { get; set; }
+
 
     //註冊彈窗
     bool displayForm = false;
@@ -149,8 +154,8 @@
 
     public PhoneMemberRegisterDTO RegisterDTO { get; set; } = new PhoneMemberRegisterDTO();
 
-    public string CountryCode { get; set; }
-    public string PhoneNum { get; set; }
+
+
     public string PasswordCheck { get; set; }
     public string UserName { get; set; }
     public string ErrorString { get; set; }
@@ -178,21 +183,25 @@
 
     private async Task SendVerifyCode()
     {
-        ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
-        if (resp.Success == true)
-        {
-            TimerIsRunning = true;
-            TimeLeft = new TimeSpan(0,0,20);
-            Timer();
-            EditFormShow();
-        }
-        else
-        {
-            Console.WriteLine(resp.Content);
-            AlertTitle = "Sending verification code failed";
-            AlertContent = resp.Content + ". Please check the input is correct. ";
-            AlertShow();
-        }
+        string[,] array2Db = new string[3, 2] { { "one", "two" }, { "three", "four" },
+                                        { "five", "six" } };
+        Console.WriteLine(array2Db[1,0] + array2Db[1,1]);
+
+        //ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
+        //if (resp.Success == true)
+        //{
+        //    TimerIsRunning = true;
+        //    TimeLeft = new TimeSpan(0,0,20);
+        //    Timer();
+        //    EditFormShow();
+        //}
+        //else
+        //{
+        //    Console.WriteLine(resp.Content);
+        //    AlertTitle = "Sending verification code failed";
+        //    AlertContent = resp.Content + ". Please check the input is correct. ";
+        //    AlertShow();
+        //}
 
     }
 
@@ -255,6 +264,8 @@
 
             AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
+
+
         }
     }
     void IDisposable.Dispose()

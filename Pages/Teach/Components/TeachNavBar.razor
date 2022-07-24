@@ -15,23 +15,17 @@
             </div>   
     </div>
     <div class ="stepText-Container">
-        @foreach(var Data in SetpTextData)
+       @foreach(var Data in SetpTextData)
         {
             <TeachNavBar_stepText Value =@Data/>            
-        }
-
-
+        } 
     </div>
     <div>
 
     </div>
 </div>
 @code {
-    
-
-
-    [CascadingParameter] string[]? SetpTextData { get; set; }
-
+    [CascadingParameter] string[] SetpTextData { get; set; }
 
     [Parameter] public string[][]? Value { get; set; }
    
