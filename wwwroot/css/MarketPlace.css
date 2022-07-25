@@ -890,12 +890,25 @@ button.price-search-button:hover .search-icon{
     border-radius: 20px;
 }
 
-
-.test123 {
-    width: 1000px;
-    height: 1000px;
-    border: 1px solid red;
+.Collect-Btn-Finish {
+    background: #8A8A8A;
+    width: 70%;
+    height: 40px;
+    color: #FFF;
+    border: none;
+    border-radius: 20px;
 }
+
+@media all and (max-width: 1500px) {
+    .CollectBtn-Container {
+        margin-top: 0px;
+        margin: 10px 0 55px 0;
+    }
+    .Collect-Btn {
+        height: 30px;
+    }
+}
+
 
 /*.....新增租金........*/
 /* 沒有顯示價格的版本 */

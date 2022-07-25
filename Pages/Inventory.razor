@@ -5,6 +5,7 @@
 @using SnakeAsianLeague.Data.Services.Personal
 @using Microsoft.AspNetCore.Components.Authorization
 
+
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject InventoryService InventoryService
 @inject IJSRuntime JS
@@ -19,8 +20,9 @@
     <link href="css/MarketPlace.css" rel="stylesheet" />
     <link href="css/Sidebar.css" rel="stylesheet" />
     <link href="css/Pagination.css" rel="stylesheet" />
-    <link href="css/Inventory.css" rel="stylesheet" />
-    
+    <link href="css/Inventory.css" rel="stylesheet" />   
+    <link href="css/Popup.css" rel="stylesheet" />
+
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>PonPonSnake 碰碰蛇｜Inventory</title>
 </head>
@@ -71,7 +73,7 @@
                     <div class="Secend-Title">Inventory</div>
                     <div class="Secend-Inner" id="">
 
-                        <NFT_Type/>
+                        <NFT_Type AllBalance="AllBalance"/>
 
                     </div>
                 </div>
@@ -80,6 +82,18 @@
                 <div class="Inventory-PPSR-Block" id="Inventory-PPSR-Block">
                     <div class="Inventory-PPSR-Block-Nav">
                         <div class="Inventory-PPSR-Amount">@PPSRsCount PPSRs</div>
+                         @if (AllBalance == 0)
+                            {
+                               <div class="Secend-Block-Inventory  CollectBtnBlack CollectBtnSamll" >                                 
+                                   No Balance
+                                </div>    
+                            }
+                            else
+                            {
+                                <div class="Secend-Block-Inventory  CollectBtn CollectBtnSamll" >       
+                                    Collect All Income
+                                </div>
+                            }
                     </div>
                     <div class="Inventory-PPSR-Select">
                         <div class="Inventory-PPSR-Filter-Block">
@@ -270,7 +284,7 @@
 
                         </select>
                     </div>
-
+                    <div class="All-blance">Balance :  <span>@AllBalance</span> </div>
                     <div class="Inventory-CardBLock">
                         
                         @* 如果Card為0張時顯示導購連結，1張以上隱藏 *@
@@ -332,7 +346,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="CollectBtn-Container">
-                                                              <button @onclick="test456" id="CollectBtn" class="Collect-Btn">Collect Income</button>
+                                                              <button  class="Collect-Btn">Collect Income</button>
+                                                        </div>
+                                                        <div class="CollectBtn-Container">
+                                                            <button  class="Collect-Btn-Finish" hidden="@(true)" >No Balance</button>
                                                         </div>
                                                      
                                                         @*..............*@
@@ -390,6 +407,28 @@
                                                         <div class="NFT-Name"  data-i18n=NFT_data:@item.serialNumber>
                                                             @item.serialNumber
                                                         </div>
+
+                                                         @*.....新增租金........*@
+                                                        <div class="rent-container"  >
+                                                            <div class="rent-left">
+                                                                <img src="/images/MarketPlace/SRC.webp"/>
+                                                            </div>
+                                                            <div class="rent-right">
+                                                                <p class="fee-Text" >Rental Fee: <span> 10 </span> </p>
+                                                                <p class="balance-Text" >Balance: <span> 50 </span> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="CollectBtn-Container">
+                                                              <button  class="Collect-Btn">Collect Income</button>
+                                                        </div>
+                                                        <div class="CollectBtn-Container">
+                                                              <button  class="Collect-Btn-Finish"hidden="@(true)" >No Balance</button>
+                                                        </div>
+                                                        @*..............*@
+
+
+
+
                                                         <div class="NFT-PriceBlock">
                                                             <div class="NFT-PriceMain">
                                             
@@ -485,10 +524,44 @@
 
         </div>
 
-        @*彈窗*@
-        <div class="test123" hidden=@test123>
 
+
+    <section class="products-popup-bg AllCollectPop">
+    
+        <div class="products-popupblock" >
+            @* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+            <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
+                <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
+                    fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+            </svg>
+
+    
+            <div class="products-popup-content">
+                <div class="products-popup-text">Comfirm to Collect All <span >(@CollectBalance)</span> Income?</div>
+          
+                <button class="products-popup-submit" type="submit">Confirm</button>
+            </div>
         </div>
+    </section>
+
+    <section class="products-popup-bg SingelAllCollectPop">
+    
+        <div class="products-popupblock" >
+            @* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+            <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
+                <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
+                    fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+            </svg>
+
+    
+            <div class="products-popup-content">
+                <div class="products-popup-text"> Comfirm to Collect <p class="NFT-Number-Pop"></p> <span>(@CollectBalance)</span>  Income?  </div>
+                <div  class="show-msg"><img id="ShowMSGcheckbox" typeof="button" src="/images/MarketPlace/checkbox.webp"/> Do not show this message again </div>
+                <button class="products-popup-submit" type="submit">Confirm</button>
+            </div>
+        </div>
+    </section>
+
 
     </Authorized>
     <NotAuthorized>
@@ -500,11 +573,16 @@
 
 
 @code {
-    private bool test123 = true;
-    private void test456()
-    {
-        test123 = false;
-    }
+    //租金變數......
+    //所有Balance加總
+    private int AllBalance = 0;
+    //彈窗顯示領取的金額
+    private int CollectBalance  = 600;
+  
+
+    //......
+
+
 
     private int PPSRsCount;
     /// <summary>
@@ -584,6 +662,9 @@
             await JS.InvokeVoidAsync("TippyInit");
 
             await JS.InvokeVoidAsync("NFTcardAClick");    
+            await JS.InvokeVoidAsync("CollectBtnPoP");   
+            await JS.InvokeVoidAsync("ShowMSGcheckbox");    
+            
         }
     }
 
