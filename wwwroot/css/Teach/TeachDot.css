@@ -8,12 +8,12 @@
 
 
 .TeachDot-Container button {
-    width: 35px;
-    height:35px;
+    width: 30px;
+    height:30px;
     border:none;
    
     background-size:cover;
-    margin:18px;
+    margin: 12px;
 }
 .TeachDot-Container-BG1 {
     background: url('../../images/Teach/dot1.png');

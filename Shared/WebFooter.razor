@@ -5,16 +5,32 @@
      <link href ="css/WebFooter.css" rel="stylesheet" />
 </head>
 
+
+@* 
 <div class ="webFooter" id="webFooter">   
-     @*CQIGame*@
     <WebFoorer_CQIGame />
-    @*PageLinks*@ 
     <WebFoorer_PageLinks />
-    @*Information*@ 
     <WebFoorer_Information />
-    @*Copyright*@
     <WebFoorer_Copyright />   
+</div> *@
+
+@* webFooter-update *@
+<div class ="webFooter webFooter-update" id="webFooter">  
+    <div class="webFooter-inner-update"> 
+        <div class="webFooter-dlex-update">
+            @*CQIGame*@
+            <WebFoorer_CQIGame />
+            @*PageLinks*@ 
+            <WebFoorer_PageLinks />
+        </div>
+        @*Information*@ 
+        <WebFoorer_Information />
+        @*Copyright*@
+        <WebFoorer_Copyright />   
+    </div>
 </div>
+
+
 @*聯絡表單*@
 
  <WebFooter_Contact  />

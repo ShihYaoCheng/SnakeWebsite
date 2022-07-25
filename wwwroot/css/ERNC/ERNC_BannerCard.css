@@ -39,52 +39,71 @@
     /* border: 1px solid red; */
     width: 100%;
     position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     /* display: none; */
 }
 
 .ERNCBanner-BG-animation img{
 
+    left: 50%;
 }
 
+.ERNC-banner-BG-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .ERNC-banner-BG{
+    border: 1px solid red;
     width: 100%;
 }
 .ERNC-banner{
     width: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    /* left: 0; */
+    
 
     /* display: none; */
 }
 
 
 #ERNC-banner-01{
+    border: 1px solid red;
+    /* transform: translate(-50%,0px); */
     z-index: 1;
 }
 #ERNC-banner-02-ERNC{
+    transform: translate(-50%, 150px);
     /* border: 1px solid red; */
     z-index:-1;
-    animation: ERNC-move 0.3s ease-in 0.1s forwards;
+    opacity: 0;
+    animation: ERNC-move 0.8s ease-in-out 0.1s forwards;
 
     /* display: none; */
 }
 @keyframes ERNC-move{
     0% {
-        transform: translateY(120px);
+        transform: translate(-50%, 150px);
     }
     100%{
-        transform: translateY(0px);
+        transform: translate(-50%,0px);
         opacity: 1;
         z-index: 2;
     }
 }
 
 #ERNC-banner-03{
+    transform: translate(-50%,0px);
     z-index: 3;
     opacity: 0;
-    animation: ERNC-banner-03 0.7s ease-in-out 0.3s forwards;
+    animation: ERNC-banner-03 0.7s ease-in-out 0.9s forwards;
 
     /* display: none; */
 }
@@ -98,9 +117,11 @@
 }
 
 #ERNC-banner-04{
+    transform: translate(-50%,0px);
     z-index: 4;
     opacity: 0;
-    animation: ERNC-banner-04 0.7s ease-in-out 0.8s forwards;
+    animation: ERNC-banner-04 0.7s ease-in-out 1.4s forwards,
+    ERNC-banner-display 3s ease-in-out 3.4s infinite;
     
     /* display: none; */
 }
@@ -114,9 +135,10 @@
 }
 
 #ERNC-banner-05{
+    transform: translate(-50%,0px);
     z-index: 5;
     opacity: 0;
-    animation: ERNC-banner-05 0.7s ease-in-out 1.3s forwards;
+    animation: ERNC-banner-05 0.7s ease-in-out 1.9s forwards;
 
     /* display: none; */
 }
@@ -130,9 +152,11 @@
 }
 
 #ERNC-banner-06{
+    transform: translate(-50%,0px);
     z-index: 6;
     opacity: 0;
-    animation: ERNC-banner-06 0.7s ease-in-out 1.8s forwards;
+    animation: ERNC-banner-06 0.8s ease-in-out 2.4s forwards,
+                ERNC-banner-display 3s ease-in-out 3.4s infinite;
     
     /* display: none; */
 }
@@ -146,13 +170,13 @@
 }
 @keyframes ERNC-banner-display {
     0% {
-        opacity: 0.2;
-    }
-    50% {
         opacity: 1;
     }
-    100% {
+    50% {
         opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
@@ -445,7 +469,7 @@
 
 }
 @media all and (max-width: 1300px){
-    .ERNCBanner-BG img{
+    .ERNCBanner-BG img, .ERNCBanner-BG-animation img{
         width: 105%;  
     }
 }
@@ -463,7 +487,7 @@
         line-height: 1.6;
         letter-spacing: 2px;
     }
-    .ERNCBanner-BG img{
+    .ERNCBanner-BG img, .ERNCBanner-BG-animation img{
         width: 110%;  
     }
     .ERNC-Block-Info{
@@ -503,7 +527,7 @@
         padding-bottom: 2.5px;
         border-bottom: 2px solid white;
     }
-    .ERNCBanner-BG img{
+    .ERNCBanner-BG img, .ERNCBanner-BG-animation img{
         width: 120%;  
     }
 
@@ -529,7 +553,7 @@
     }
 }
 @media all and (max-width: 900px){
-    .ERNCBanner-BG img{
+    .ERNCBanner-BG img, .ERNCBanner-BG-animation img{
         width: 140%;  
     }
     .ERNCBanner-Content {
@@ -552,14 +576,12 @@
         padding-bottom: 2.5px;
         border-bottom: 2px solid white;
     }
-    .ERNCBanner-BG img{
-        width: 140%;  
-    }
+
     .ERNCBanner-Content {
         padding: 12px 0 22px;
         width: 85%;
     }
-    .ERNCBanner-BG img{
+    .ERNCBanner-BG img, .ERNCBanner-BG-animation img{
         width: 160%;  
     }
 
@@ -618,7 +640,7 @@
     }
 }
 @media all and (max-width: 600px){
-    .ERNCBanner-BG img{
+    .ERNCBanner-BG img, .ERNCBanner-BG-animation img{
         width: 180%;  
     }
     .ERNCBanner-Content {
@@ -641,7 +663,7 @@
 
     }
 
-    .ERNCBanner-BG img{
+    .ERNCBanner-BG img, .ERNCBanner-BG-animation img{
         width: 160%;
     }
     .ERNCBanner-Content {
@@ -658,7 +680,7 @@
         line-height: 1.5;
         letter-spacing: 1.4px;
     }
-    .ERNCBanner-BG{
+    .ERNCBanner-BG, .ERNCBanner-BG-animation{
         padding-bottom: 200px;
     }
 
@@ -677,7 +699,7 @@
 }
 
 @media all and (max-width: 450px){
-    .ERNCBanner-BG img{
+    .ERNCBanner-BG img, .ERNCBanner-BG-animation img{
         width: 170%;
     }
     .Content-Title {

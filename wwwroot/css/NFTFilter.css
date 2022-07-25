@@ -190,7 +190,7 @@ input[type="radio"] {
     background-color: var(--green-1);
     z-index: 50;
     position: fixed;
-    margin-top: 69px;
+    margin-top: 50px;
     height: calc(100vh - 70px);
     /* box-shadow: 5px 5px 10px #1414142e; */
     box-shadow: 0px 2px 8px #06060663;
@@ -210,7 +210,7 @@ input[type="radio"] {
 
 #Filter-mobile{
     font-size: 26px;
-    margin-top: 69px;
+    margin-top: 50px;
     background-color: var(--green-1);
     width: 100%;
     color: var(--green-2);
@@ -230,16 +230,16 @@ input[type="radio"] {
         display: block;
     }
     .marketPlaceSidebar{
-        margin-top: 117px;
+        margin-top: 100px;
         display: none;
     }
 }
 @media all and (max-width: 500px){
     #Filter-mobile{
-        margin-top: 57px;
+        margin-top: 48px;
     }
     .marketPlaceSidebar{
-        margin-top: 100px;
+        margin-top: 96px;
         height: calc(100vh - 57px);
     }
 }
