@@ -59,7 +59,29 @@
     /* transition: all .1s ease-in; */
 }
 
-.Secend-Inventory-Icon{
+.CollectBtn {
+    color: #fff;
+    font-size: 24px;
+    background: #FFA81D;
+    border: none;
+    min-width: 280px;
+}
+
+.CollectBtnBlack {
+    color: #fff;
+    font-size: 24px;
+    background: #8A8A8A;
+    border: none;
+    min-width: 280px;
+}
+.CollectBtn:hover {
+    transform: scale(1.02);
+    background-color: #f09607;
+    color: var(--font-1);
+    /* transition: all .1s ease-in; */
+}
+
+.Secend-Inventory-Icon {
     width: 56px;
 }
 
@@ -91,4 +113,31 @@
         /* margin: 0px 15px 25px; */
     }
 
+}
+
+.CollectBtnSamll {
+    display: none;
+}
+.CollectBtnBig {
+    position:relative;
+}
+.CollectBtnBig div{
+    position: absolute;
+    left:0%;
+    top:-45%;
+    font-size:14px;
+}
+
+@media all and (max-width: 1024px) {
+    .CollectBtnBig {
+        display: none;
+    }
+
+    .CollectBtnSamll {
+        display: flex;
+        height: 50px;
+        margin:0 10px ;
+        min-width: 200px;
+
+    }
 }

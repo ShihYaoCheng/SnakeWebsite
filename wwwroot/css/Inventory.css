@@ -232,6 +232,16 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+@media all and (max-width: 1024px) {
+    .Inventory-PPSR-Block-Nav {
+        width: 100%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-top:20px;
+    }
+}
+
 
 .Inventory-PPSR-Amount{
     color: var(--green-2);
@@ -335,7 +345,7 @@
 
 }
 
-@media all and (max-width: 1000px){
+@media all and (max-width: 1024px){
     .Inventory-PPSR-Select{
         width: 100%;
         justify-content: flex-end;
@@ -360,8 +370,7 @@
 
 
     .Inventory-PPSR-Select{
-        align-items: flex-end;
-        flex-direction: column;
+        align-items: flex-end;    
         margin: 20px 0 10px;
     }
     .Inventory-PPSR-sortSelect{
@@ -402,7 +411,23 @@
     border: 2px solid var(--green-2);
 }
 
-.Inventory-CardBLock{
+.All-blance {
+    color: #fff;
+    font-size: 14px;
+    width:100%;
+    text-align:end;
+    height:10px;
+    padding-right:12px;
+    display:none;
+}
+
+@media all and (max-width: 1024px) {
+    .All-blance {
+        display: block;
+    }
+}
+
+.Inventory-CardBLock {
     /* border: 1px solid red; */
     width: 100%;
     display: flex;
