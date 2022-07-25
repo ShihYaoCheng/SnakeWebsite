@@ -26,6 +26,8 @@
     overflow: hidden;
     display: flex;
     justify-content: center;
+
+    display: none;
 }
 .ERNCBanner-BG img{
     width: 100%;
@@ -34,65 +36,126 @@
 /* 動畫 ERNC Banner */
 
 .ERNCBanner-BG-animation{
+    /* border: 1px solid red; */
     width: 100%;
     position: relative;
 
-    display: none;
+    /* display: none; */
 }
 
 .ERNCBanner-BG-animation img{
 
 }
 
+.ERNC-banner-BG{
+    width: 100%;
+}
 .ERNC-banner{
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
+
+    /* display: none; */
 }
-.ERNC-banner-icon{
-    width: 100%;
-}
+
 
 #ERNC-banner-01{
     z-index: 1;
 }
 #ERNC-banner-02-ERNC{
-    
-    z-index: 2;
-
-    animation: ERNC-banner-00-ERNC 1s ease-in-out forwards;
+    /* border: 1px solid red; */
+    z-index:-1;
+    animation: ERNC-move 0.3s ease-in 0.1s forwards;
 
     /* display: none; */
 }
-
-@keyframes ERNC-banner-00-ERNC {
+@keyframes ERNC-move{
     0% {
-        opacity: 0;
-        z-index: -1;
-        transform: translateY(100px);
+        transform: translateY(120px);
     }
-    100% {
+    100%{
+        transform: translateY(0px);
         opacity: 1;
         z-index: 2;
-        transform: translateY(0px);
     }
 }
 
 #ERNC-banner-03{
     z-index: 3;
+    opacity: 0;
+    animation: ERNC-banner-03 0.7s ease-in-out 0.3s forwards;
+
+    /* display: none; */
 }
+@keyframes ERNC-banner-03 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 #ERNC-banner-04{
     z-index: 4;
+    opacity: 0;
+    animation: ERNC-banner-04 0.7s ease-in-out 0.8s forwards;
+    
+    /* display: none; */
+}
+@keyframes ERNC-banner-04 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 #ERNC-banner-05{
     z-index: 5;
+    opacity: 0;
+    animation: ERNC-banner-05 0.7s ease-in-out 1.3s forwards;
+
+    /* display: none; */
+}
+@keyframes ERNC-banner-05 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 #ERNC-banner-06{
     z-index: 6;
+    opacity: 0;
+    animation: ERNC-banner-06 0.7s ease-in-out 1.8s forwards;
+    
+    /* display: none; */
 }
+@keyframes ERNC-banner-06 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes ERNC-banner-display {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
 
 
 
@@ -549,7 +612,7 @@
         line-height: 1.5;
         letter-spacing: 1.5px;
     }
-    
+
     .ERNC-Block-InfoText {
         font-size: 13px;
     }
