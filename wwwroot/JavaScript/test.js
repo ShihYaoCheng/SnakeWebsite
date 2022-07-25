@@ -1,4 +1,10 @@
-﻿// window.displayAlert = (text) => {
+﻿
+
+
+
+
+
+// window.displayAlert = (text) => {
 //     alert(`test alert: ${text} !`);
     
 // };

@@ -304,7 +304,7 @@
                                     
                                             </div>
 
-                                            <a href="Products/@item.serialNumber/@item.TokenID" >
+                                            <a class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
                                                 @*<a href="@item.LinkURL" target="opensea">  </a>*@
 
                                                 <div class="NFTcard-inner">
@@ -321,6 +321,21 @@
                                                         <div class="NFT-Name"  data-i18n=NFT_data:@item.serialNumber>
                                                             @item.serialNumber
                                                         </div>
+                                                        @*.....新增租金........*@
+                                                        <div class="rent-container"  >
+                                                            <div class="rent-left">
+                                                                <img src="/images/MarketPlace/SRC.webp"/>
+                                                            </div>
+                                                            <div class="rent-right">
+                                                                <p class="fee-Text" >Rental Fee: <span> 10 </span> </p>
+                                                                <p class="balance-Text" >Balance: <span> 50 </span> </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="CollectBtn-Container">
+                                                              <button @onclick="test456" id="CollectBtn" class="Collect-Btn">Collect Income</button>
+                                                        </div>
+                                                     
+                                                        @*..............*@
                                                         <div class="NFT-Income-Block">
                                                              @*<div class="NFT-Income-Block-title">Total Income</div>
                                                             <div class="NFT-Income-Main">
@@ -470,8 +485,10 @@
 
         </div>
 
+        @*彈窗*@
+        <div class="test123" hidden=@test123>
 
-
+        </div>
 
     </Authorized>
     <NotAuthorized>
@@ -483,6 +500,12 @@
 
 
 @code {
+    private bool test123 = true;
+    private void test456()
+    {
+        test123 = false;
+    }
+
     private int PPSRsCount;
     /// <summary>
     /// 稀有度
@@ -559,6 +582,8 @@
             await JS.InvokeVoidAsync("InventoryFilterSidebarClick");
             await JS.InvokeVoidAsync("CardAmountLinkDisplay");
             await JS.InvokeVoidAsync("TippyInit");
+
+            await JS.InvokeVoidAsync("NFTcardAClick");    
         }
     }
 

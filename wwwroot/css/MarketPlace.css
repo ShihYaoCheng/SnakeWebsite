@@ -831,8 +831,75 @@ button.price-search-button:hover .search-icon{
     margin-left: 7px;
 }
 
+/*.....新增租金........*/
+.rent-container {
+    width: 100%;
+    height: 80px;
+    background: #4b8b8b;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.rent-left{
+    width:20%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.rent-left img{
+    width: 80%;
+}
+
+.rent-right {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;  
+    flex-direction: column;
+    padding-left:10px    
+}
+
+.rent-right p {
+    font-family:Arial;
+    font-size:18px;
+}
+
+.fee-Text {
+    color: #A1E7DF
+}
+
+.balance-Text {
+    color: #FFA81D
+}
+.CollectBtn-Container {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.Collect-Btn {
+    background: #FFA81D;
+    width: 70%;
+    height:40px;
+ 
+    color: #FFF;
+    border: none;
+    border-radius: 20px;
+}
+
+
+.test123 {
+    width: 1000px;
+    height: 1000px;
+    border: 1px solid red;
+}
+
+/*.....新增租金........*/
 /* 沒有顯示價格的版本 */
-.Not-Price-Ver{
+.Not-Price-Ver {
     position: relative;
 }
 .Not-Price-Ver .NFT-card-header{
