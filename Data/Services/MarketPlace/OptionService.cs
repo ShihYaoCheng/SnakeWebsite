@@ -248,7 +248,118 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="PageNumber"></param>
+        /// <param name="PageSize"></param>
+        /// <returns></returns>
+        public async Task<List<NFTData>> GetNFTDataPageList()
+        {
 
+            string ImgPath = _config.GetValue<string>("googleapis");
+            string LinkURL = _config.GetValue<string>("OpenSeaLink");
+            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
+
+            List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits();
+            Console.WriteLine("GetNFTRiderUnits: " + NFT_Riders.Count);
+            datas = new List<NFTData>();
+
+
+            Random myObject = new Random();
+
+
+            string Rarity = "";
+            string Elements = "";
+
+            OpenseaAssetsData rd = new OpenseaAssetsData();
+
+            for (int i = 0; i < NFT_Riders.Count; i++)
+            {
+
+
+                NFTData data = new NFTData();
+                data.TokenID = NFT_Riders[i].castings[0].tokenId;
+                data.Number = string.Format(" PPSR {0}", NFT_Riders[i].castings[0].tokenId);
+                data.Name = NFT_Riders[i].name;
+                data.serialNumber = NFT_Riders[i].serialNumber;
+                //可能沒有拍賣紀錄
+
+
+
+
+                if (i % 50 == 0)
+                {
+                    rd = await GetOpenseaNFTRider(i + 1, 50);
+                }
+
+                assets assets = new assets();
+
+                if (rd.assets != null)
+                {
+                    //遊戲api有資料但是還 沒上opensea/沒上鏈
+                    assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets();
+                }
+
+                if (assets.last_sale != null)
+                {
+                    string total_price = assets.last_sale.total_price;
+                    Decimal decimals = Convert.ToDecimal(Math.Pow(10, assets.last_sale.payment_token.decimals));
+                    Decimal Price = Decimal.Parse(total_price.ToString()) / Decimal.Parse(decimals.ToString());
+                    Decimal usd_price = 0;
+                    Decimal.TryParse(assets.last_sale.payment_token.usd_price ?? "0", out usd_price);
+                    data.Price = Price.ToString();    //myObject.Next(value, value * 10);
+                    data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture);
+                    data.IsOpen = true;
+                    data.IsOfficial = true;
+
+                }
+                else
+                {
+                    data.IsOfficial = true;
+                    data.IsOpen = false;
+                }
+
+
+                List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
+                if (RarityElements[2] != null)
+                {
+                    Rarity = RarityElements[2].Substring(0, 1);
+                    Elements = RarityElements[2].Substring(1, 1);
+                }
+                data.ImgPath = string.Format(ImgPath, "ppsr", NFT_Riders[i].serialNumber);
+                data.LinkURL = string.Format(LinkURL, asset_contract_address, NFT_Riders[i].castings[0].tokenId);
+                data.RarityKey = Rarity;
+                data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
+                data.Elements = Elements;
+                data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.webp", ElementsList.Where(m => m.Key == Elements).First().Value);
+                data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
+                data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
+                //data.Country = CountryList[CountryInt].ToString();
+
+                int value = myObject.Next(1, 1000);
+                data.EndTime = DateTime.Now.AddDays(value);
+                data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
+                               + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
+
+                data.isAvailableInGame = NFT_Riders[i].castings[0].isAvailableInGame;
+
+                datas.Add(data);
+            }
+
+
+            ///*加入一隻 Coming Soon*/
+            //NFTData data1 = new NFTData();
+            //data1.Number ="0";
+            //data1.Name = "Coming Soon";
+            //data1.IsOpen = false;
+            //data1.IsOfficial = true;
+            //data1.ImgPath = data1.ImgPath==null ? "/images/MarketPlace/NFTproduct.webp" : data1.ImgPath;
+            //datas.Add(data1);
+
+            datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
+            return datas;
+        }
 
         /// <summary>
         /// 篩選頁數
@@ -261,7 +372,19 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
             return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
         }
-        
+
+        /// <summary>
+        /// 篩選頁數
+        /// </summary>
+        /// <param name="PageNumber"></param>
+        /// <param name="PageSize"></param>
+        /// <returns></returns>
+        public async Task<List<NFTData>> GetNFTDataPageListbyPage()
+        {
+
+            return datas;
+        }
+
 
 
         /// <summary>
@@ -349,6 +472,31 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey) ).ToList();
 
             return PagedList<NFTData>.ToPagedList(Filter, PageNumber, PageSize);
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="PageNumber"></param>
+        /// <param name="PageSize"></param>
+        /// <param name="Rarity"></param>
+        /// <param name="Elements"></param>
+        /// <param name="Class"></param>
+        /// <param name="Country"></param>
+        /// <returns></returns>
+        public async Task<List<NFTData>> Get_NFT_by_Filter( List<string> Rarity, List<string> Elements, List<string> Class, List<string> Country)
+        {
+
+            List<NFTData> Filter = new List<NFTData>();
+            Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
+            Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
+            Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
+            Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
+           
+            Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey)).ToList();
+
+            return Filter;
         }
 
 
