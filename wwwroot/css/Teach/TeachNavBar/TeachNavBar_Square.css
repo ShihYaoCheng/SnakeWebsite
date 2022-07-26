@@ -60,7 +60,7 @@
     filter: drop-shadow(0px 0px 4px rgba(242, 242, 50, 0.77));
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1200px) {
 
     .number-container {
         height: 25px;

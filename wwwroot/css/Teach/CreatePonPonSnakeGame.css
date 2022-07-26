@@ -34,7 +34,7 @@
 @media all and (max-width: 1024px) {
     .CreatePonPonSnakeGame-Container {
         width: 331px;
-        height: 325px;    
+        /* height: 325px;     */
     }
 
 

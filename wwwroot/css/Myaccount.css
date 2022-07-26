@@ -1100,11 +1100,7 @@ input[type="checkbox"]:disabled + .receive_label::after{
     /* word-break: break-all; */
 }
 
-@media all and (min-width: 1000px){
-    .prize{
-        /* white-space: nowrap; */
-    }
-}
+
 
 
 .checkbox_card{

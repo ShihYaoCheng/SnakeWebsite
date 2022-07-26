@@ -32,9 +32,9 @@
 
 @media all and (max-width: 1024px) {
     .TeachDot-Container button {
-        width: 22px;
-        height: 22px;
-
+        width: 18px;
+        height: 18px;
+        margin: 8px;
     }
 
 }

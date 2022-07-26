@@ -28,7 +28,7 @@
 .stepText:not(:last-child) {
     /* margin-right: 55px; */
 }
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1200px) {
 
     .stepText-Container {
         width: 656px;  
