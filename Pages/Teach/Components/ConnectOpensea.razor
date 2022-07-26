@@ -1,5 +1,8 @@
 ﻿
 @using SnakeAsianLeague.Pages.Teach.Components.All_components
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
 
 <head>
     <link href="/css/Teach/MetamaskAndOpenSea.css" rel="stylesheet" />
@@ -12,18 +15,23 @@
         Dwonload & Sign Up
     </div>
     <div class="button-Zone">
-        <p>
+      @*  <p>
              Extension
-        </p>
+        </p>*@
         <button>
-            <div class="icon-container">
+            @*<div class="icon-container">
                 <img src="/images/Teach/icon/CHrome_ICON.png"/>
-            </div>
+            </div>*@
             <div class="icon-text">
-                Chrome
+                
+                <a href = "@Configuration.GetSection("OpenSeaURL").Value" target="_blank">
+                    Open Sea
+
+                </a>
+                
             </div>
         </button>
-        <button>
+        @*<button>
             <div class="icon-container">
                 <img src="/images/Teach/icon/FireFOX_LOGO.png"/>
             </div>
@@ -49,10 +57,12 @@
             <div class="icon-text">
                 App Store
             </div>
-        </button>
+        </button>*@
     </div>
 </div>
 
 @code {
+    //string openSeaUrl = Configuration.GetSection("OpenSeaURL");
+
 
 }

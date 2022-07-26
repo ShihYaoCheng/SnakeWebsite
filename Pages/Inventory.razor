@@ -335,7 +335,7 @@
                                                         <div class="NFT-Name"  data-i18n=NFT_data:@item.serialNumber>
                                                             @item.serialNumber
                                                         </div>
-                                                        @*.....新增租金........*@
+                                                          @*.................新增租金...................... *@
                                                         <div class="rent-container"  >
                                                             <div class="rent-left">
                                                                 <img src="/images/MarketPlace/SRC.webp"/>
@@ -352,7 +352,7 @@
                                                             <button  class="Collect-Btn-Finish" hidden="@(true)" >No Balance</button>
                                                         </div>
                                                      
-                                                        @*..............*@
+                                                         @*....................................... *@
                                                         <div class="NFT-Income-Block">
                                                              @*<div class="NFT-Income-Block-title">Total Income</div>
                                                             <div class="NFT-Income-Main">
@@ -363,6 +363,7 @@
                                                                 <span class="NFT-Currency-Price">123,456,789</span>
                                                             </div>*@
                                                         </div>
+                                                        <button  class="Show-tag"> tag </button>
                                                         <div class="NFT-Label-block">
                                                             <div class="NFT-Label">@item.RarityValue</div>
                                                            @* <div class="NFT-Label">@item.ClassValue</div>*@
@@ -408,7 +409,7 @@
                                                             @item.serialNumber
                                                         </div>
 
-                                                         @*.....新增租金........*@
+                                                             @*.................新增租金...................... *@
                                                         <div class="rent-container"  >
                                                             <div class="rent-left">
                                                                 <img src="/images/MarketPlace/SRC.webp"/>
@@ -424,7 +425,7 @@
                                                         <div class="CollectBtn-Container">
                                                               <button  class="Collect-Btn-Finish"hidden="@(true)" >No Balance</button>
                                                         </div>
-                                                        @*..............*@
+                                                          @*....................................... *@
 
 
 
@@ -525,11 +526,11 @@
         </div>
 
 
-
+    @*.................全部領 彈窗...................... *@
     <section class="products-popup-bg AllCollectPop">
     
         <div class="products-popupblock" >
-            @* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+         
             <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
                 <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
                     fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
@@ -543,11 +544,11 @@
             </div>
         </div>
     </section>
-
+     @*.................個別領 彈窗...................... *@
     <section class="products-popup-bg SingelAllCollectPop">
     
         <div class="products-popupblock" >
-            @* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+         
             <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
                 <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
                     fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
@@ -577,10 +578,7 @@
     //所有Balance加總
     private int AllBalance = 0;
     //彈窗顯示領取的金額
-    private int CollectBalance  = 600;
-  
-
-    //......
+    private int CollectBalance  = 600; 
 
 
 
@@ -664,6 +662,8 @@
             await JS.InvokeVoidAsync("NFTcardAClick");    
             await JS.InvokeVoidAsync("CollectBtnPoP");   
             await JS.InvokeVoidAsync("ShowMSGcheckbox");    
+            
+            await JS.InvokeVoidAsync("showTag");   
             
         }
     }

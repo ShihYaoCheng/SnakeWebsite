@@ -986,6 +986,7 @@ button.price-search-button:hover .search-icon{
     padding: 5px 15px 0px;
     max-width: 320px;
     width: 100%;
+    display:none;
 }
 
 .Not-Price-Ver .NFT-Label{

@@ -84,7 +84,7 @@ window.ShowMSGcheckbox = function () {
 window.NFTcardAClick = function () {
     document.querySelectorAll(".NFTcardA").forEach((e) => {
         e.addEventListener('click', (e) => {
-            if (e.target.className == "Collect-Btn") {
+            if (e.target.className == "Collect-Btn" || e.target.className == "Show-tag" ) {
                 e.preventDefault();
             }
         })
@@ -92,4 +92,12 @@ window.NFTcardAClick = function () {
     })
 
 
+}
+
+window.showTag = function () {
+    $('.Show-tag').click(function (e) {
+        e.target.style.display = "none"
+        e.target.parentNode.lastChild.style.display = "block"
+
+    })
 }

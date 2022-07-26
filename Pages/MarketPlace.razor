@@ -470,6 +470,61 @@
                 }
                 AfterRenderLocalize();
             }
+            else
+            {
+                @for (var i = 0; i < 6; i++)
+                {
+                           <div class="NFTcard card-bg-red">
+                                <div class="heart btn p-0 tippy-pop   " data-content="Favorite"     >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005" >
+                                        <path class="heart__path"
+                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" />
+                                    </svg>
+                                    
+                                </div>
+
+                                <a href="" >
+                                    @*<a href="@item.LinkURL" target="opensea">  </a>*@
+
+                                    <div class="NFTcard-inner">
+                                        <div class="NFT-cardImg">
+                                            
+                                            <div  class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                        </div>
+
+                                        <div class="NFT-cardText Not-Price-Ver">
+                                            <div class="NFT-card-header">
+                                                <img  class="NFT-ElementsIcon" src="" alt="">
+                                                <div class="NFT-Number"  ></div>
+                                            </div>
+                                            <div class="NFT-Name" >
+                                               
+                                               </div>
+                                            
+                                            <div class="NFT-Income-Block">
+                                                 @*<div class="NFT-Income-Block-title">Total Income</div>
+                                                <div class="NFT-Income-Main">
+                                                   <div class="NFT-Income-Currency">
+                                                        <span>SRC</span>
+                                                        <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.webp" alt="">
+                                                    </div>
+                                                    <span class="NFT-Currency-Price">123,456,789</span>
+                                                </div>*@
+                                            </div>
+                                            <div class="NFT-Label-block">
+                                                <div class="NFT-Label"></div>
+                                                <div class="NFT-Label"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                }
+         
+            }
 
             @if(NFTDataList != null && false ){
                 @foreach( NFTData item in NFTDataList)
