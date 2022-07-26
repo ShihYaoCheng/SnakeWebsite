@@ -37,6 +37,7 @@
     .stepText {
         width: 165px;
         font-size: 12px;
+        line-height: 15px;
     }
     .stepText:not(:last-child) {
         margin-right: 55px;

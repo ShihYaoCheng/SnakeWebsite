@@ -45,9 +45,9 @@
 .square-logo {
     position: absolute;
     transform: translate(-50%,-50%);
-    top:60%;
+    top: 57%;
     left: 50%;
-    width: 70px;
+    width: 77px;
     
 }
 
@@ -57,6 +57,7 @@
     position: absolute;
     top: -2%;
     left: -2%;
+    filter: drop-shadow(0px 0px 4px rgba(242, 242, 50, 0.77));
 }
 
 @media all and (max-width: 1024px) {

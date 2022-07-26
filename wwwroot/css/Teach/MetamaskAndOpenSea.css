@@ -4,8 +4,8 @@
     margin-top:30px;
 }
 .LOGO-avatar-open {
-    width: 170px;
-    height: 41px;
+    width: 200px;
+    /* height: 41px; */
     margin-top: 30px;
 }
 @media all and (max-width: 1024px) {
@@ -16,8 +16,8 @@
     }
 
     .LOGO-avatar-open {
-        width: 120px;
-        height: 30px;
+        width: 150px;
+        /* height: 30px; */
         margin-top: 30px;
     }
 }
@@ -29,7 +29,7 @@
     border-radius: 20px;
     background: url('../../images/Teach/style_opacity.png');
     background-repeat: round;
-    margin-top: 20px;
+    margin-top: 15px;
     background-color: #27616F;
     padding: 15px 0 25px;
 }
