@@ -105,7 +105,8 @@
 @media all and (max-width: 1024px) {
 
     .button-Zone p {
-        height: 38px;
+        /* height: 38px; */
+        margin: 24px auto 0px;
         font-size: 12px
     }
 
