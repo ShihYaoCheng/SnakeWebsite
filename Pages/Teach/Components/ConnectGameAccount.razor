@@ -1,4 +1,15 @@
 ﻿@using SnakeAsianLeague.Pages.Teach.Components.All_components
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.Interface
+@using SnakeAsianLeague.Data.Services.SnakeServerService
+@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Pages.Myprofile.Components.Index_Components
+
+@inject IJSRuntime JS
+@inject AppState AppState
+@inject IEthereumHostProvider _metamaskHostProvider
+@inject NFTService NFTService
+
 
 <head>
     <link href="/css/Teach/ConnectGameAccount.css" rel="stylesheet" />
@@ -11,9 +22,96 @@
         <img class="Logo-x"src="/images/Teach/x.png"/>
         <img class="Logo-ponponsnake" src="/images/Teach/PonPon LOGO.png"/>
     </div>
-    <button>Connect Game to Metamask</button>
+    <button @onclick ="@EnableEthereumAsync" > Connect Game to Metamask </button>
 </div>
 
+<!-- 彈窗提示-->
+<Index_Pop displayPopupWindow=@displayPopupWindow  PopupWindowTitle=@PopupWindowTitle PopupWindowContent=@PopupWindowContent successWindowClose="successWindowClose" />
+
+
 @code {
+    bool MetamaskAvailable { get; set; }
+    string SelectedAccount { get; set; }
+
+    //彈窗
+    bool displayPopupWindow = false;
+    string PopupWindowTitle = "";
+    string PopupWindowContent = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.StateChanged += async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+        _metamaskHostProvider.SelectedAccountChanged += MetamaskHostProvider_SelectedAccountChanged;
+
+
+    }
+
+    private async Task MetamaskHostProvider_SelectedAccountChanged(string account)
+    {
+
+        SelectedAccount = account;
+
+        this.StateHasChanged();
+
+    }
+
+
+    protected async Task EnableEthereumAsync()
+    {
+        //判斷是否登入
+        if (!AppState.LoginStatus.IsLogin)
+        {
+            await loginButtonClick();
+        }
+        else
+        {
+            SelectedAccount = await _metamaskHostProvider.EnableProviderAsync();
+
+            ServerResponce responce = await NFTService.PostNFTWalletAddress(AppState.LoginStatus.userID, SelectedAccount);
+        
+
+            //提示訊息
+            if (responce.Success && responce.Content == "綁定成功")
+            {
+                AppState.LoginStatus.walletAddress = SelectedAccount;
+                PopupWindowTitle = responce.Content;
+                PopupWindowContent = "";
+
+                displayPopupWindow = true;
+                await JS.InvokeVoidAsync("installI18n");
+            }else if (responce.Success && responce.Content == "已綁定")
+            {
+                AppState.LoginStatus.walletAddress = SelectedAccount;
+                PopupWindowTitle = responce.Content;
+                PopupWindowContent = "";
+
+                displayPopupWindow = true;
+                await JS.InvokeVoidAsync("installI18n");
+                Console.WriteLine(responce.Content);
+            }
+            else
+            {
+                PopupWindowTitle = "綁定失敗";
+                PopupWindowContent = responce.Content;
+                SelectedAccount = "";
+                displayPopupWindow = true;
+                await JS.InvokeVoidAsync("installI18n");
+            }
+
+        }
+
+
+    }
+
+    private void successWindowClose()
+    {
+        displayPopupWindow = false;
+    }
+
+    private async Task loginButtonClick()
+    {
+        await JS.InvokeVoidAsync("loginButton", "loginButton");
+    }
 
 }

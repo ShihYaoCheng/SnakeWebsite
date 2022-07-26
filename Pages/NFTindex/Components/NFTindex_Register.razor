@@ -1,4 +1,4 @@
-﻿@page "/NFTindex_Register"
+﻿@page "/Register"
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Entity
@@ -183,25 +183,25 @@
 
     private async Task SendVerifyCode()
     {
-        string[,] array2Db = new string[3, 2] { { "one", "two" }, { "three", "four" },
-                                        { "five", "six" } };
-        Console.WriteLine(array2Db[1,0] + array2Db[1,1]);
+        //string[,] array2Db = new string[3, 2] { { "one", "two" }, { "three", "four" },
+        //                                { "five", "six" } };
+        //Console.WriteLine(array2Db[1,0] + array2Db[1,1]);
 
-        //ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
-        //if (resp.Success == true)
-        //{
-        //    TimerIsRunning = true;
-        //    TimeLeft = new TimeSpan(0,0,20);
-        //    Timer();
-        //    EditFormShow();
-        //}
-        //else
-        //{
-        //    Console.WriteLine(resp.Content);
-        //    AlertTitle = "Sending verification code failed";
-        //    AlertContent = resp.Content + ". Please check the input is correct. ";
-        //    AlertShow();
-        //}
+        ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
+        if (resp.Success == true)
+        {
+            TimerIsRunning = true;
+            TimeLeft = new TimeSpan(0,0,20);
+            Timer();
+            EditFormShow();
+        }
+        else
+        {
+            Console.WriteLine(resp.Content);
+            AlertTitle = "Sending verification code failed";
+            AlertContent = resp.Content + ". Please check the input is correct. ";
+            AlertShow();
+        }
 
     }
 
