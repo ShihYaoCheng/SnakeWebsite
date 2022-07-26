@@ -9,7 +9,7 @@
 @media all and (max-width: 1024px) {
     .CreateMetamask-Container {
         width: 220px;
-        height: 316px;  
+        /* height: 316px;   */
         margin-top: 20px;
     }
 }

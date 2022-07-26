@@ -60,7 +60,7 @@
     align-items: center;
 }
 .ERNC-banner-BG{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
 }
 .ERNC-banner{
@@ -75,7 +75,7 @@
 
 
 #ERNC-banner-01{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* transform: translate(-50%,0px); */
     z-index: 1;
 }

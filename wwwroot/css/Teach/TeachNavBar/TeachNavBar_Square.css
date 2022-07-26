@@ -38,7 +38,8 @@
 
 .number-container p {
     color: #1c5968;
-    font-size: 25px
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .square-logo {
@@ -65,7 +66,7 @@
         width: 25px;
     }
     .number-container p {     
-        font-size: 16px
+        font-size: 14px
     }
     .square-logo {
         width: 50px;
