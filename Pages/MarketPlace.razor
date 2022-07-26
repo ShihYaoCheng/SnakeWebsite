@@ -705,9 +705,9 @@
           
 
         </section>
-        <div class="Pagination-Block">
+        @*<div class="Pagination-Block">
             <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage" />
-        </div>
+        </div>*@
     </main>
 
 
@@ -774,14 +774,17 @@
         OpenSeaURL = await OptionService.Get_OpenSeaURL();
 
 
-        PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageList( 1,10);
-        Console.WriteLine(pagelist.Count);
+        //PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageList( 1,10);        
+        //Console.WriteLine(pagelist.Count);
+        //NFTDataList = pagelist;
+        //MetaData =  pagelist.MetaData;
+        //PPSRsCount = MetaData.TotalCount;
+
+
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageList();
         NFTDataList = pagelist;
+        PPSRsCount = NFTDataList.Count;
 
-        MetaData =  pagelist.MetaData;
-
-
-        PPSRsCount = MetaData.TotalCount;
         StateHasChanged();
     }
 
@@ -807,11 +810,13 @@
 
     private async Task DoStuff(ChangeEventArgs e)
     {
-        PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( e.Value.ToString() ,1 ,10);
-
-        MetaData =  pagelist.MetaData;
+        //PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( e.Value.ToString() ,1 ,10);
+        //MetaData =  pagelist.MetaData;
+        //NFTDataList = pagelist;
+        //PPSRsCount = MetaData.TotalCount;
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageList();
         NFTDataList = pagelist;
-        PPSRsCount = MetaData.TotalCount;
+        PPSRsCount = NFTDataList.Count;
         await JS.InvokeVoidAsync("installI18n");
     }
 
@@ -821,19 +826,19 @@
     public MetaData MetaData { get; set; } = new MetaData();
 
 
-    private async Task SelectedPage(int page)
-    {
-        await GetNFTDataPageListbyPage(page);
-    }
+    //private async Task SelectedPage(int page)
+    //{
+    //    await GetNFTDataPageListbyPage(page);
+    //}
 
-    private async Task GetNFTDataPageListbyPage(int page)
-    {
-        PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( page,10);
-        NFTDataList = pagelist;
-        MetaData = pagelist.MetaData;
-        PPSRsCount = MetaData.TotalCount;
-        await JS.InvokeVoidAsync("installI18n");
-    }
+    //private async Task GetNFTDataPageListbyPage(int page)
+    //{
+    //    PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( page,10);
+    //    NFTDataList = pagelist;
+    //    MetaData = pagelist.MetaData;
+    //    PPSRsCount = MetaData.TotalCount;
+    //    await JS.InvokeVoidAsync("installI18n");
+    //}
 
     private async Task AfterRenderLocalize()
     {
@@ -950,9 +955,14 @@
     private async Task GetFilter()
     { 
 
-        PagedList<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
+        //PagedList<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
+        //NFTDataList = pagelist;
+        //MetaData = pagelist.MetaData;
+        //PPSRsCount = MetaData.TotalCount;
+
+
+        List<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
         NFTDataList = pagelist;
-        MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;
         await JS.InvokeVoidAsync("installI18n");
     }
@@ -987,9 +997,13 @@
     private async Task FilterLove()
     {
         iSFilterHeart = !iSFilterHeart;
-        PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( 1,10);
+        //PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( 1,10);
+        //NFTDataList = pagelist;
+        //MetaData = pagelist.MetaData;
+        //PPSRsCount = MetaData.TotalCount;
+
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( );
         NFTDataList = pagelist;
-        MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;
 
         //清空篩選
