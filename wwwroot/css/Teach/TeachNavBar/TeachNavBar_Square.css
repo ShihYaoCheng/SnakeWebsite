@@ -1,12 +1,12 @@
 ﻿
 .nav-square {
-    width: 160px;
-    height: 100%;
+    width: 130px;
+    /* height: 100%; */
     position: relative;
 }
 
 .nav-square:not(:last-child) {
-    margin-right: 55px;
+    /* margin-right: 55px; */
 }
 
 .nav-square a {
@@ -25,10 +25,10 @@
 
 .number-container {
     position: absolute;   
-    top: 3%;
-    left: 3%;
-    height: 40px;
-    width: 40px;
+    top: 4%;
+    left: 5%;
+    height: 30px;
+    width: 30px;
     background: url('../../../images/Teach/nav/NUMBER_BG1.png');
     background-repeat: round;
     display: flex;
@@ -46,7 +46,7 @@
     transform: translate(-50%,-50%);
     top:60%;
     left: 50%;
-    width: 95px;
+    width: 70px;
     
 }
 
@@ -92,6 +92,6 @@
 }
 @media all and (max-width: 576px) {
     .nav-square:not(:last-child) {
-        margin-right: 30px;
+        /* margin-right: 30px; */
     }
 }
