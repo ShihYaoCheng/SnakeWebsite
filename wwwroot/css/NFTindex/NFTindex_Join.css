@@ -197,7 +197,7 @@
 
 @media all and (max-width: 768px) {
     .join-container-Mobile {
-        /* display: block;*/
+        display: block;
     }
 }
 
