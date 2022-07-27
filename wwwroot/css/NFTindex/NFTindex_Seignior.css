@@ -1,9 +1,9 @@
-.NFTindex_Seignior{
+.NFTindex_Seignior {
     width: 100%;
     background-color: #203240;
 }
 
-.Seignior-Block{
+.Seignior-Block {
     border: 1px solid red;
     max-width: 1920px;
     width: 90%;
@@ -11,13 +11,13 @@
     height: 800px;
 }
 
-.PPSSeignior{
+.PPSSeignior {
     border: 1px solid red;
     display: flex;
     flex-direction: row;
 }
 
-.PPSSeignior-mainIcon{
+.PPSSeignior-mainIcon {
     border: 1px solid red;
     max-width: 600px;
     width: 100%;
@@ -27,27 +27,47 @@
     justify-content: center;
     position: relative;
 }
-.golden-frame{
+
+.golden-frame {
     /* position: absolute;
     top: 0; */
     max-width: 500px;
     width: 100%;
     z-index: 3;
 }
-.main-Icon{
+
+.main-Icon {
     position: absolute;
-    transform: translate(-50% ,-50%);
+    transform: translate(-50%, -50%);
     top: 50%;
     left: 52%;
     max-width: 450px;
     width: 80%;
     z-index: 2;
 }
-.PPSSeignior-Info{
+
+.PPSSeignior-Info {
     border: 1px solid rgb(90, 45, 238);
     width: 100%;
-    background-image:url("/images/NFTindex/NFTindex_Seignior/team.png");
+    background-image: url("/images/NFTindex/NFTindex_Seignior/team.png");
     background-position: center right;
     background-repeat: no-repeat;
     background-size: contain;
+}
+.PPSSeignior-Text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+}
+.PPSSeignior-Text-Title {
+    font-size: 30px;
+    line-height: 1.14;
+    letter-spacing: 3.6px;
+    text-align: center;
+    color: #fff;
+    padding: 10px 30px 10px 30px;
+    border-radius: 25px;
+    border: solid 4.4px #fff;
+    display: inline-block;
 }
