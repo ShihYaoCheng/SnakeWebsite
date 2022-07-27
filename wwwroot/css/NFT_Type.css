@@ -72,7 +72,7 @@
     font-size: 24px;
     background: #8A8A8A;
     border: none;
-    min-width: 280px;
+    min-width: 240px;
 }
 .CollectBtn:hover {
     transform: scale(1.02);
@@ -135,9 +135,10 @@
 
     .CollectBtnSamll {
         display: flex;
-        height: 50px;
+        height: 44px;
         margin:0 10px ;
-        min-width: 200px;
-
+        font-size: 20px;
+        min-width: 180px;
+        border-radius: 16px;
     }
 }
