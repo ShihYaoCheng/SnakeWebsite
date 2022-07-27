@@ -10,7 +10,7 @@
             <div class="square-container"> 
                 @foreach(var Data in Value)
                 {                    
-                    <TeachNavBar_Square  Value =@Data  />
+                                      <TeachNavBar_Square  Value =@Data  SquareClick ="squareClickPop"/>
                 }      
             </div>   
     </div>
@@ -28,7 +28,13 @@
     [CascadingParameter] string[] SetpTextData { get; set; }
 
     [Parameter] public string[][]? Value { get; set; }
-   
+       [Parameter]
+    public EventCallback<string> squareClick { get; set;}
+
+    private void squareClickPop(string idd)
+    {
+        squareClick.InvokeAsync(idd);   
+    }
 
 
  }
