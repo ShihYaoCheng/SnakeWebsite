@@ -2,7 +2,7 @@
     <link href="/css/NFTindex/NFTindex_Join.css" rel="stylesheet" />
 </head>
 
-<div class="join-container">
+<div class="join-container" hidden="@true">
     <div class="join-BG">
         <img class="join-ventini" src="./images/NFTindex/NFTindex_pop/Ventini.png"/>
         <img class="diamond top-diamond" src="./images/NFTindex/NFTindex_pop/diamond.png" />
@@ -11,16 +11,13 @@
         <img class="horizontalbar top-bar"  src="./images/NFTindex/NFTindex_pop/horizontal_bar_down.png"/>
         <img class="horizontalbar bottom-bar"  src="./images/NFTindex/NFTindex_pop/horizontal_bar_down.png"/>
         <img class="join-text"  src="./images/NFTindex/NFTindex_pop/join_text.png"/>
-        <a href="/GettingStarted/download-and-play" class="join-button" > Join Now </a>
+        <a href="/GettingStarted/download-and-play" class="join-button" target="_blank"> Join Now </a>
     </div>
 </div>
-
-<div class="join-container-Mobile">
-    <div class="join-BG-Mobile">
-         <a href="/GettingStarted/download-and-play" class="join-button-Mobile" > Join Now </a>
-    </div>
-</div>
-
+<a  hidden="@true" class="join-container-Mobile" href="/GettingStarted/download-and-play" target="_blank">
+    <img  class="join-BG-Mobile" src="./images/NFTindex/NFTindex_pop/Ventini_mobile.png" alt="">
+    <div class="join-button-Mobile" > Join Now </div>
+</a>
 
 @code {
 
