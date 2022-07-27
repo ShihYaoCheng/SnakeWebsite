@@ -1,0 +1,53 @@
+.NFTindex_Seignior{
+    width: 100%;
+    background-color: #203240;
+}
+
+.Seignior-Block{
+    border: 1px solid red;
+    max-width: 1920px;
+    width: 90%;
+    margin: 100px auto 0;
+    height: 800px;
+}
+
+.PPSSeignior{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+}
+
+.PPSSeignior-mainIcon{
+    border: 1px solid red;
+    max-width: 600px;
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.golden-frame{
+    /* position: absolute;
+    top: 0; */
+    max-width: 500px;
+    width: 100%;
+    z-index: 3;
+}
+.main-Icon{
+    position: absolute;
+    transform: translate(-50% ,-50%);
+    top: 50%;
+    left: 52%;
+    max-width: 450px;
+    width: 80%;
+    z-index: 2;
+}
+.PPSSeignior-Info{
+    border: 1px solid rgb(90, 45, 238);
+    width: 100%;
+    background-image:url("/images/NFTindex/NFTindex_Seignior/team.png");
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
