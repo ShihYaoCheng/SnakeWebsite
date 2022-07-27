@@ -2,8 +2,8 @@
     <link href="/css/Teach/TeachNavBar/TeachNavBar_Square.css" rel="stylesheet" />
 </head>
  
-<div class="nav-square"  @onclick="@(() => squareOnclick(Value[0]))" >
-    <a href=@Value[3] >      
+<div class="nav-square"  >
+    <a href=@Value[3]  @onclick="@(() => squareOnclick(Value[0]))">      
         @if (@Value[2] == "true")
         {
             <img class ="square-Marquee" src="/images/Teach/nav/Marquee.png"/>
@@ -22,12 +22,11 @@
 
     [Parameter]
     public EventCallback<string> SquareClick { get; set;}
- 
+
     private void squareOnclick(string idd)
     {
         SquareClick.InvokeAsync(idd);   
     }
 
-    
 
 }
