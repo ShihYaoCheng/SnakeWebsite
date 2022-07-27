@@ -1,0 +1,7 @@
+﻿
+/*MarketPlace跟Inventory共用一個組件，但MarketPlace不顯示其中一個按鈕內容*/
+.CollectBtnBig {
+    display: none !important;
+}
+
+

@@ -1,4 +1,6 @@
-﻿.join-container {
+﻿@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
+
+.join-container {
     position: fixed;
     top: 11%;
     right: 0%;
@@ -128,10 +130,9 @@
     align-items: center;
     color: #fff;
     font-size: 18px;
-    font-family: Palatino;
-    font-weight: 700;
+    font-family: 'Arvo', serif;  
     letter-spacing: 1px;
-    text-decoration:none;
+    text-decoration: none;
     transition: all .1s ease-in-out;
 }
 .join-button:hover {
