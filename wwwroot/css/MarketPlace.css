@@ -417,7 +417,7 @@
     position: relative;
 }
 .card-bg-red::before{
-    content: url('/images/MarketPlace/NFT-Debut.webp');
+    content: url('/images/MarketPlace/NFT-Debut.png');
     position: absolute;
     top: 0;
     left: 0;
@@ -568,7 +568,8 @@
         /* height: 100%; */
     }
     .card-bg-red::before{
-        content: url(/images/MarketPlace/NFT-Debut-s.webp);
+        content: url(/images/MarketPlace/NFT-Debut-s.png);
+        width: 30%;
     }
     .heart{
         width: 24px;

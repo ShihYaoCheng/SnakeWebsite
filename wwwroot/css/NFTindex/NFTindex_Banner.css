@@ -29,7 +29,7 @@
 
 .NFTindexBanner-BG{
     /* border: 1px solid red; */
-    background-image: url("/images/NFTindex/NFTindex_Banner/background-00.png");
+    background-image: url("/images/NFTindex/NFTindex_Banner/background-00.webp");
     width: 100%;
     background-size: contain;
     background-repeat: no-repeat;
@@ -56,7 +56,7 @@
     background-position: center top;
     background-size: contain; */
     background: no-repeat center top / 100% 100%;
-	background-image: linear-gradient(to bottom,  #20324000 0%,  #20324000 80%,  #203240 100%), url("/images/NFTindex/NFTindex_Banner/background-01.png")
+	background-image: linear-gradient(to bottom,  #20324000 0%,  #20324000 80%,  #203240 100%), url("/images/NFTindex/NFTindex_Banner/background-01.webp")
 }
 .NFTindexBanner_BG img{
     width: 100%;
@@ -650,7 +650,7 @@
 @media all and (max-width: 1300px){
     .NFTindexBanner_BG{
         height: 1150px;
-        background-image: linear-gradient(to bottom, #20324000 0%, #20324000 85%, #203240 100%), url(/images/NFTindex/NFTindex_Banner/background-01.png);
+        background-image: linear-gradient(to bottom, #20324000 0%, #20324000 85%, #203240 100%), url(/images/NFTindex/NFTindex_Banner/background-01.webp);
     }
     .CenterBlock{
         width: 110%;
