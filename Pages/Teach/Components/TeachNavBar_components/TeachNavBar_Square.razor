@@ -1,11 +1,14 @@
-﻿<head>
+﻿@inject NavigationManager NavigationManager
+
+<head>
     <link href="/css/Teach/TeachNavBar/TeachNavBar_Square.css" rel="stylesheet" />
 </head>
  
-<div class="nav-square"  @onclick="@(() => squareOnclick(Value[0]))" >
-    <a href=@Value[3] >      
-        @if (@Value[2] == "true")
+<div class="nav-square"  >
+    <a href=@Value[2] >      
+        @if (nowurl.Contains( @Value[2]) == true)
         {
+         
             <img class ="square-Marquee" src="/images/Teach/nav/Marquee.png"/>
         }
         <img class ="square-BG" src="/images/Teach/nav/navImgBG.png"/>
@@ -19,14 +22,14 @@
 
     [Parameter]
     public string[]? Value { get; set; }
+    public string nowurl = "";
 
-    [Parameter]
-    public EventCallback<string> SquareClick { get; set;}
+    protected override void OnInitialized()
+        {
+            nowurl =NavigationManager.Uri;
+            Console.WriteLine(nowurl); 
+        }
 
-    private void squareOnclick(string idd)
-    {
-        SquareClick.InvokeAsync(idd);   
-    }
 
 
 }

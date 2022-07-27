@@ -5,6 +5,7 @@
     width: 289px;
     height: 141px;
     z-index: 100;
+    display:none
 }
 @media all and (max-width: 1024px) {
     .join-container {
@@ -188,7 +189,7 @@
 
 @media all and (max-width: 768px) {
     .join-container-Mobile {
-        display: block;
+        /*display: block;*/
     }
 }
 

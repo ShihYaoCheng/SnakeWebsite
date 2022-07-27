@@ -4,17 +4,19 @@
 
 
 <div class="TeachDot-Container">
+   @*
     @foreach(var data in Value)
     {
         if (data[2]=="false")
         {
-          <a href=@data[3] >  <button class="TeachDot-Container-BG1" @onclick="@(() => squareOnclick(data[0]))"> </button></a> 
+          <a href=@data[3] >  <button class="TeachDot-Container-BG1"> </button></a> 
         }else 
         {
-          <a href=@data[3] >  <button class="TeachDot-Container-BG2"  @onclick="@(() => squareOnclick(data[0]))"> </button></a> 
+          <a href=@data[3] >  <button class="TeachDot-Container-BG2" > </button></a> 
         }
 
     }
+    *@
    
 
 
@@ -23,12 +25,5 @@
 @code {
     [Parameter] public string[][]? Value { get; set; }
    
-    [Parameter]
-    public EventCallback<string> squareClick { get; set;}
-
-    private void squareOnclick(string idd)
-    {
-        squareClick.InvokeAsync(idd);   
-    }
 
 }
