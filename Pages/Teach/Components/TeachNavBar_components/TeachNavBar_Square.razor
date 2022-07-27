@@ -22,11 +22,12 @@
 
     [Parameter]
     public EventCallback<string> SquareClick { get; set;}
-
+ 
     private void squareOnclick(string idd)
     {
         SquareClick.InvokeAsync(idd);   
     }
 
+    
 
 }
