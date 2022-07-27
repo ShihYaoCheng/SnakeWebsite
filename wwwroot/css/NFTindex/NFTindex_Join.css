@@ -1,0 +1,207 @@
+﻿.join-container {
+    position: fixed;
+    top: 35%;
+    right: 0%;
+    width: 289px;
+    height: 141px;
+    z-index: 100;
+}
+@media all and (max-width: 1024px) {
+    .join-container {
+        width: 196px;
+        height: 95px;
+        top: 30%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .join-container {
+        display:none;
+    }
+}
+.join-BG {
+    width: 100%;
+    height: 100%;
+    background: url('../../images/NFTindex/NFTindex_pop/Pop_BG.png');
+    background-size: cover;
+    position: relative;
+}
+
+.join-ventini {
+    position:absolute;
+    height:100%;
+    right:0%;
+    z-index:10
+}
+@media all and (max-width: 1024px) {
+    .join-ventini { 
+        right: -5%;  
+    }
+}
+
+.diamond {
+    width: 18.2px;
+    height:20.8px;
+    position: absolute;
+    left:0;
+    z-index:3
+}
+
+.top-diamond {
+    top:0; 
+}
+
+.bottom-diamond {
+    bottom: 0;   
+}
+
+.horizontalbar_left {
+    width:4.55px;
+    height:95%;
+    top:2.5%;
+    position:absolute;
+    left:2.3%;
+}
+
+.horizontalbar {
+    width: 95%;
+    height: 5.2px;
+    position: absolute;
+}
+
+.bottom-bar {
+    bottom:6%;
+    right: 0%;
+}
+.top-bar {
+    top: 6%;
+    right:0%;
+}
+.join-text {
+    width: 131px;
+    height: 33px;
+    position: absolute;
+    top: 30%;
+    left: 5.5%;
+}
+@media all and (max-width: 1024px) {
+    .join-text {
+        width: 89px;
+        height: 22px;
+        left: 7.5%;
+        top:25%
+    }
+
+    .horizontalbar_left {
+        left: 3.5%;
+        width: 3.5px;
+    }
+
+    .horizontalbar {
+        height:3.5px;     
+    }
+
+    .bottom-bar {
+        bottom: 8%;  
+    }
+
+    .top-bar {
+        top: 10%;     
+    }
+}
+
+.join-button {
+    width: 116px;
+    height: 33px;
+    background: url("../../images/NFTindex/NFTindex_pop/Button_1.png");
+    background-size: cover;
+    position: absolute;
+    border: none;
+    top: 63%;
+    left: 5.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 16px;
+    font-family: Palatino;
+    font-weight: 700;
+    letter-spacing: 2px;
+    outline: none;
+}
+.join-button:hover {
+    text-decoration:none;
+}
+
+@media all and (max-width: 1024px) {
+    .join-button {
+        width: 78px;
+        height: 22px;
+        font-size: 10px;
+        left: 7.5%;
+        top:58%
+    }
+}
+
+/*........Mobile........*/
+.join-container-Mobile {
+    position: fixed;
+    top: 25%;
+    right: 0%;
+    width: 139px;
+    height: 135px;
+    z-index: 100;
+    display:none;
+}
+
+.join-BG-Mobile {
+    width: 100%;
+    height: 100%;
+    background: url("../../images/NFTindex/NFTindex_pop/Ventini_mobile.png");
+    background-size:cover;
+    position:relative;
+
+}
+.join-button-Mobile {
+    width:92px;
+    height: 26px;
+    background: url("../../images/NFTindex/NFTindex_pop/Button_1.png");
+    background-size: cover;
+    position: absolute;
+    border: none;
+    bottom: 0%;
+    left: 50%;
+    transform:translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    font-family: Palatino;
+    font-weight: 700;
+    letter-spacing: 2px;
+    outline: none;
+}
+.join-button-Mobile:hover {
+    text-decoration: none;
+}
+
+@media all and (max-width: 768px) {
+    .join-container-Mobile {
+        display: block;
+    }
+}
+
+
+@media all and (max-width: 576px) {
+    .join-container-Mobile {
+        width: 113.3px;
+        height: 110px;
+        top:20%;
+    }
+    .join-button-Mobile {
+        width: 74.52px;
+        height: 21.06px;
+        font-size: 10px;
+    }
+}

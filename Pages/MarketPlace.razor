@@ -40,7 +40,7 @@
 
 
             <img class="Filter-mobile-arrow" style="margin: 5px; "
-                src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
         </div>
     </section>
     
@@ -59,7 +59,7 @@
                 </g>
                 </svg>
                 <span>Filter</span>
-                <img class="Filter-web-arrow" style="margin: 5px; " src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                <img class="Filter-web-arrow" style="margin: 5px; " data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
             </div>
             
             <div class="Filter-Header-Block">
@@ -114,7 +114,7 @@
                 <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
                         <span>Price (ETH)</span>
-                        <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                     </div>
 
                     <div class="Filter-Options Filter-Range">
@@ -152,7 +152,7 @@
                 <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
                         <span>Price (ETH)</span>
-                        <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                     </div>
                     <div class="Filter-Options Filter-Radio">
                         <div class="range-Input">
@@ -172,7 +172,7 @@
                 <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
                         <span>Body Type</span>
-                        <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                     </div>
                     <div class="Filter-Options Filter-Radio">
                         <div class="bodyType-radio d-inline position-relative bgBorder">
@@ -202,7 +202,7 @@
                 <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
                         <span>Rare</span>
-                        <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                     </div>
                     <div class="Filter-Options">
 
@@ -223,7 +223,7 @@
                 <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
                         <span>Class</span>
-                        <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                     </div>
                     <div class="Filter-Options">
 
@@ -241,7 +241,7 @@
                 <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
                         <span>Profession</span>
-                        <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                     </div>
                     <div class="Filter-Options">
 
@@ -260,7 +260,7 @@
                 <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
                         <span>Country</span>
-                        <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                     </div>
                     <div class="Filter-Options">
 
@@ -333,13 +333,13 @@
 
                                     <div class="NFTcard-inner">
                                         <div class="NFT-cardImg">
-                                            <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                             <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
                                         </div>
 
                                         <div class="NFT-cardText Not-Price-Ver">
                                             <div class="NFT-card-header">
-                                                <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
+                                                <img  class="NFT-ElementsIcon" data-src="@item.ElementsIcon" alt="">
                                                 <div class="NFT-Number"  >@item.Number</div>
                                             </div>
                                             <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber>
@@ -388,13 +388,13 @@
                                 <div class="NFTcard-inner">
 
                                     <div class="NFT-cardImg">
-                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                        <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                         <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
                                     </div>
 
                                     <div class="NFT-cardText  Not-Price-Ver">
                                         <div class="NFT-card-header">
-                                            <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
+                                            <img  class="NFT-ElementsIcon" data-src="@item.ElementsIcon" alt="">
                                             <div class="NFT-Number"> @item.Number</div>
                                         </div>
                                         <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber>@item.serialNumber</div>
@@ -433,13 +433,13 @@
 
                             <div class="NFTcard-inner">
                                 <div class="NFT-cardImg">
-                                    <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                    <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                     <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
                                 </div>
 
                                 <div class="NFT-cardText Not-Price-Ver">
                                     <div class="NFT-card-header">
-                                        <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
+                                        <img  class="NFT-ElementsIcon" data-src="@item.ElementsIcon" alt="">
                                         <div class="NFT-Number">@item.Number</div>
                                     </div>
                                     <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber>@item.serialNumber</div>
@@ -496,7 +496,7 @@
 
                                         <div class="NFT-cardText Not-Price-Ver">
                                             <div class="NFT-card-header">
-                                                <img  class="NFT-ElementsIcon" src="" alt="">
+                                                <img  class="NFT-ElementsIcon" data-src="" alt="">
                                                 <div class="NFT-Number"  ></div>
                                             </div>
                                             <div class="NFT-Name" >
@@ -551,7 +551,7 @@
                                     <div class="NFTcard-inner">
 
                                         <div class="NFT-cardImg">
-                                            <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                         </div>
                                         
                                         <div class="NFT-cardText">
@@ -560,7 +560,7 @@
                                             <div class="NFT-PriceBlock">
                                                 <div class="NFT-PriceMain" >
                                                     <div class="NFT-PriceIcon-Border" title="ETH ON POLYGON" data-content="ETH ON POLYGON">
-                                                        <img class="NFT-PriceIcon" src="/images/MarketPlace/Polygon-eth-01.webp" alt="ETH ON POLYGON">
+                                                        <img class="NFT-PriceIcon" data-src="/images/MarketPlace/Polygon-eth-01.webp" alt="ETH ON POLYGON">
                                                     </div>
                                                     <span class="NFT-Price">@item.Price</span>
                                                 </div>
@@ -592,7 +592,7 @@
                                     <div class="NFTcard-inner">
                                     
                                         <div class="NFT-cardImg">
-                                            <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                         </div>
 
                                         <div class="NFT-cardText">
@@ -633,7 +633,7 @@
                                 
                                     <div class="NFTcard-inner">
                                         <div class="NFT-cardImg">
-                                            <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                         </div>
                                     
                                         <div class="NFT-cardText">
@@ -642,7 +642,7 @@
                                             <div class="NFT-PriceBlock">
                                                 <div class="NFT-PriceMain" >
                                                     <div class="NFT-PriceIcon-Border" title="ETH ON POLYGON" data-content="ETH ON POLYGON">
-                                                        <img class="NFT-PriceIcon" src="/images/MarketPlace/Polygon-eth-01.webp" alt="ETH ON POLYGON">
+                                                        <img class="NFT-PriceIcon" data-src="/images/MarketPlace/Polygon-eth-01.webp" alt="ETH ON POLYGON">
                                                     </div>
                                                     <span class="NFT-Price">@item.Price</span>
                                                 </div>
@@ -673,7 +673,7 @@
                                     <div class="NFTcard-inner">
 
                                         <div class="NFT-cardImg">
-                                            <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                         </div>
                                     
                                         <div class="NFT-cardText">
@@ -726,7 +726,7 @@
 </style>
 
 @code {
-
+    private IJSObjectReference? lazyloadingJS;    
     /// <summary>
     /// 稀有度
     /// </summary>
@@ -802,7 +802,9 @@
 
             ///
             ///await JS.InvokeVoidAsync("installI18nRider");
-
+          
+            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+            await lazyloadingJS.InvokeVoidAsync("LazyLoading");
             
         }
 
