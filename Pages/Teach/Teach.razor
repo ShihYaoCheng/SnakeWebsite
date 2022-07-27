@@ -57,26 +57,16 @@
     {
         router = router ?? "index";
 
-         foreach (var Data in SquareData)
-        {
-            if (Data[4] == router)
-            {
-                Data[2] = "true";
-            }
-            else
-            {
-                Data[2] = "false";
-            }
-        }
+        squareClick(router);
     }
 
     public string[][] SquareData =  new string[5][]
     {
-      new string[5]{ "1","/images/Teach/nav/step1_logo.png" , "false","/GettingStarted/create-metamask" ,"create-metamask"},
-      new string[5]{ "2","/images/Teach/nav/step2_logo.png" , "false","/GettingStarted/connect-opensea","connect-opensea"},
-      new string[5]{ "3","/images/Teach/nav/step3_logo.png" , "false","/GettingStarted/create-PonPonSnake-game","create-PonPonSnake-game"},
-      new string[5]{ "4","/images/Teach/nav/step4_logo.png" , "false","/GettingStarted/connect-game-account","connect-game-account"},
-      new string[5]{ "5","/images/Teach/nav/step5_logo.png" , "false","/GettingStarted/download-and-play","download-and-play"},
+      new string[5]{ "1","/images/Teach/nav/STEP1_LOGO.png" , "false","/GettingStarted/create-metamask" ,"create-metamask"},
+      new string[5]{ "2","/images/Teach/nav/STEP2_LOGO.png" , "false","/GettingStarted/connect-opensea","connect-opensea"},
+      new string[5]{ "3","/images/Teach/nav/STEP3_LOGO.png" , "false","/GettingStarted/create-PonPonSnake-game","create-PonPonSnake-game"},
+      new string[5]{ "4","/images/Teach/nav/STEP4_LOGO.png" , "false","/GettingStarted/connect-game-account","connect-game-account"},
+      new string[5]{ "5","/images/Teach/nav/STEP5_LOGO.png" , "false","/GettingStarted/download-and-play","download-and-play"},
     };
 
     public void squareClick(string value)
