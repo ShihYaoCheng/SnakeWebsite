@@ -52,7 +52,7 @@ namespace SnakeAsianLeague.Data.Services
                 //Console.WriteLine($" {restResponse.StatusCode},{restResponse.Content}");
                 SnakeLoginResponce loginResp = JsonSerializer.Deserialize<SnakeLoginResponce>(restResponse.Content);
 
-                return new SnakeAccount() { userID = loginResp.userID, name = loginResp.name , phone = loginRequest .phone, walletAddress = loginResp.walletAddress};
+                return new SnakeAccount() { userID = loginResp.userID, name = loginResp.name , phone = loginRequest .phone, walletAddress = loginResp.walletAddress , nftCurrency1  =loginResp.nftCurrency1};
             }
             return new SnakeAccount();
         }

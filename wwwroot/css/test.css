@@ -1,11 +1,11 @@
-﻿h3{
-    color:#fff;
+﻿.test-container {
+    width:100%;
+    height:1000px;
+    padding-top:70px;
+
+
 }
 
-tableSchedule {
-    border: #fff;
-}
-
-tr, td {
+h3 {
     color: #fff;
 }

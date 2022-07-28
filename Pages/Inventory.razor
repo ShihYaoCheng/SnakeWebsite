@@ -48,7 +48,7 @@
                                 <p class="MyCerrency-Amount">0</p>
                             </div>
                         </div>
-                        <div class="MyCerrency">
+                         <div class="MyCerrency">
                             <img class="MyCerrency-Icon" src="/images/Myprofile/MIPR.webp" alt="">
                             <div class="MyCerrency-Detail">
                                 <p class="MyCerrency-Name">MIPR</p>
@@ -61,7 +61,7 @@
                             <div class="MyCerrency-Detail">
                                 <p class="MyCerrency-Name">SRC</p>
                                 @*<p class="MyCerrency-Amount">後端串數量</p>*@
-                                <p class="MyCerrency-Amount">0</p>
+                                <p class="MyCerrency-Amount">  @TotalSRCCount </p>
                             </div>
                         </div>
 
@@ -297,15 +297,13 @@
                         @if(NFTDataList != null){
                             @foreach( NFTData item in NFTDataList)
                             {
+
+                                string TokenID = @item.TokenID;
+                                double totalRevenue = @item.totalRevenue;
                                 if (@item.IsOfficial)
                                 {
                                     if (@item.IsOpen)
                                     {
-
-                             
-
-
-
                                         @* 1.沒有顯示價格的版本 - 官方首拍 紅色*@
                                         <div class="NFTcard card-bg-red">
                                             <div class="heart btn p-0 tippy-pop" data-content="Favorite">
@@ -341,12 +339,12 @@
                                                                 <img src="/images/MarketPlace/SRC.webp"/>
                                                             </div>
                                                             <div class="rent-right">
-                                                                <p class="fee-Text" >Rental Fee: <span> 10 </span> </p>
-                                                                <p class="balance-Text" >Balance: <span> 50 </span> </p>
+                                                                <p class="fee-Text" >Rental Fee: <span>  @item.nowRent </span> </p>
+                                                                <p class="balance-Text" >Balance: <span>  @item.totalRevenue </span> </p>
                                                             </div>
                                                         </div>
                                                         <div class="CollectBtn-Container">
-                                                              <button  class="Collect-Btn">Collect Income</button>
+                                                              <button class="Collect-Btn"  @onclick="eventArgs => { setValueByUnit(  TokenID ,totalRevenue , eventArgs); }" >Collect Income</button>
                                                         </div>
                                                         <div class="CollectBtn-Container">
                                                             <button  class="Collect-Btn-Finish" hidden="@(true)" >No Balance</button>
@@ -422,12 +420,12 @@
                                                                 <img src="/images/MarketPlace/SRC.webp"/>
                                                             </div>
                                                             <div class="rent-right">
-                                                                <p class="fee-Text" >Rental Fee: <span> 10 </span> </p>
-                                                                <p class="balance-Text" >Balance: <span> 50 </span> </p>
+                                                                <p class="fee-Text" >Rental Fee: <span> @item.nowRent </span> </p>
+                                                                <p class="balance-Text" >Balance: <span> @item.totalRevenue </span> </p>
                                                             </div>
                                                         </div>
                                                         <div class="CollectBtn-Container">
-                                                              <button  class="Collect-Btn">Collect Income</button>
+                                                              <button  class="Collect-Btn"@onclick="eventArgs => { setValueByUnit(  TokenID , totalRevenue, eventArgs); }" >Collect Income</button>
                                                         </div>
                                                         <div class="CollectBtn-Container">
                                                               <button  class="Collect-Btn-Finish"hidden="@(true)" >No Balance</button>
@@ -560,7 +558,7 @@
             <div class="products-popup-content">
                 <div class="products-popup-text">Comfirm to Collect All <span >(@CollectBalance)</span> Income?</div>
           
-                <button class="products-popup-submit" type="submit">Confirm</button>
+                <button class="products-popup-submit" type="submit" @onclick="ReceiveRent" >Confirm   全領</button>
             </div>
         </div>
     </section>
@@ -578,7 +576,7 @@
             <div class="products-popup-content">
                 <div class="products-popup-text"> Comfirm to Collect <p class="NFT-Number-Pop"></p> <span>(@CollectBalance)</span>  Income?  </div>
                 <div  class="show-msg"><img id="ShowMSGcheckbox" typeof="button" src="/images/MarketPlace/checkbox.webp"/> Do not show this message again </div>
-                <button class="products-popup-submit" type="submit">Confirm</button>
+                <button class="products-popup-submit" @onclick="ReceiveRentByUnit" type="submit"  >Confirm 半領 </button>
             </div>
         </div>
     </section>
@@ -596,13 +594,16 @@
 @code {
     //租金變數......
     //所有Balance加總
-    private int AllBalance = 10;
+    private double AllBalance = 0;
+
     //彈窗顯示領取的金額
-    private int CollectBalance  = 600; 
+    private double CollectBalance  = 600; 
 
 
 
     private int PPSRsCount;
+
+    private double TotalSRCCount = 0;
     /// <summary>
     /// 稀有度
     /// </summary>
@@ -649,6 +650,8 @@
         MetaData =  pagelist.MetaData;
 
 
+
+        TotalSRCCount = AppState.LoginStatus.nftCurrency1;
         PPSRsCount = MetaData.TotalCount;
         StateHasChanged();
     }
@@ -682,9 +685,9 @@
             await JS.InvokeVoidAsync("NFTcardAClick");    
             await JS.InvokeVoidAsync("CollectBtnPoP");   
             await JS.InvokeVoidAsync("ShowMSGcheckbox");    
-            
+
             await JS.InvokeVoidAsync("showTag");   
-            
+
         }
     }
 
@@ -825,10 +828,59 @@
 
     private async Task GetFilter()
     { 
-    
+
         PagedList<NFTData> pagelist = await InventoryService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;
+    }
+
+    //private string UserID { get;set;}
+    public string TokenID { get;set;}
+    /// <summary>
+    /// 
+    /// </summary>
+    private async void setValueByUnit( string ppsr ,double totalRevenue , object onClickValue)
+    {       
+        TokenID = ppsr;
+        CollectBalance = totalRevenue;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private async void setValue( object onClickValue)
+    {
+        string UserID = AppState.LoginStatus.userID.ToString();
+        CollectBalance = await InventoryService.CalReceiveRent(UserID);
+    }
+
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="UserID"></param>
+    /// <param name="ppsr"></param>
+    /// <returns></returns>
+    public async Task ReceiveRentByUnit()
+    {
+        string UserID = AppState.LoginStatus.userID.ToString();
+        var Rent = await InventoryService.ReceiveRentByUnit(UserID ,TokenID );
+        TotalSRCCount = TotalSRCCount + Rent;
+        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="UserID"></param>
+    /// <returns></returns>
+    public async Task ReceiveRent( )
+    {
+        string UserID = AppState.LoginStatus.userID.ToString();
+        var Rent =  await InventoryService.ReceiveRent(UserID  );
+         TotalSRCCount = TotalSRCCount + Rent;
+         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
     }
 }

@@ -18,6 +18,19 @@ namespace SnakeAsianLeague.Data.Entity.SnakeServer
 
         public string phoneID { get; set; }
 
+        /// <summary>
+        /// 帳戶騎士幣
+        /// </summary>
+        public double nftCurrency1 { get; set; }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int vip { get; set; }
+
+
+
     }
 
 
