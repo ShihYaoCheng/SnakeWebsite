@@ -42,7 +42,7 @@
     font-weight: bold;
 }
 
-.square-logo {
+.square_LOGO {
     position: absolute;
     transform: translate(-50%,-50%);
     top: 57%;
@@ -69,7 +69,7 @@
     .number-container p {     
         font-size: 14px
     }
-    .square-logo {
+    .square_LOGO {
         width: 50px;
     }
 
@@ -88,7 +88,7 @@
         font-size: 25px
     }
 
-    .square-logo {
+    .square_LOGO {
         display:none;
     }
 }
