@@ -242,11 +242,24 @@
     }
 }
 
+@media all and (max-width: 584px) {
+    .Inventory-PPSR-Block-Nav {
+        display: flex;
+        flex-direction: column;
+        
+        align-items:end;
+
+    }
+}
+
 
 .Inventory-PPSR-Amount{
     color: var(--green-2);
     font-size: 30px;
+    margin-right:20px;
 }
+
+
 .Inventory-PPSR-Select{
     display: flex;
     align-items: center;
@@ -502,19 +515,3 @@
     }
 }
 
-.Show-tag{
-    border:none;
-    background:none;
-    color:#ffffff;
-
-    margin-left:10px
-}
-
-.Show-tag:hover {
-    transform:scale(1.2);
-
-}
-
-.show {
-    display:block
-}
