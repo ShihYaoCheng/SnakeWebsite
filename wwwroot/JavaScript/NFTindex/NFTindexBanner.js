@@ -12,5 +12,5 @@ export function NFTindexBanner() {
         // $('.products-popupblock').removeClass('popupblockTest');
     }, 2000);
 
-    console.log(111);
+    // console.log(111);
 }
