@@ -267,7 +267,8 @@
     width: 95%;
 }
 
-.NFTcard{
+
+.NFTcard {
     width: 540px;
     border-radius: 15px;
     /* padding: 3px 0 3px 3px; */
@@ -277,6 +278,8 @@
     transition: all .1s ease-in-out;
     position: relative;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
 }
 .NFTcard-inner{
     /* border: 1px solid red; */
@@ -903,7 +906,7 @@ button.price-search-button:hover .search-icon{
 @media all and (max-width: 1500px) {
     .CollectBtn-Container {
         margin-top: 0px;
-        margin: 10px 0 55px 0;
+        margin: 10px 0 0 0;
     }
     .Collect-Btn {
         height: 30px;
@@ -980,17 +983,25 @@ button.price-search-button:hover .search-icon{
     font-size: 20px;
 }
 
-.Not-Price-Ver .NFT-Label-block{
+.tag-zone {
+    width: 100%;
+    max-height: 100px;
+    padding-left:10px;
+    margin-top: 10px;
+}
+
+
+.tag-zone .NFT-Label-block {
     /* border: 1px solid red; */
     position: absolute;
     bottom: -3px;
     padding: 5px 15px 0px;
     max-width: 320px;
     width: 100%;
-    display:none;
+    display: none;
 }
 
-.Not-Price-Ver .NFT-Label{
+.tag-zone .NFT-Label {
     border: 2px solid var(--theme-font-1);
     background-color: var(--theme-bg-2);
     color: var(--theme-font-1);
@@ -1041,11 +1052,11 @@ button.price-search-button:hover .search-icon{
     .Not-Price-Ver .NFT-Income-Currency-Icon{
         width: 20px;
     }
-    .Not-Price-Ver .NFT-Label-block{
+    .tag-zone .NFT-Label-block {
         padding: 5px 5px 2px;
         max-width: 175px;
     }
-    .Not-Price-Ver .NFT-Label{
+    .tag-zone .NFT-Label {
         font-size: 10px;
         border: 1px solid var(--theme-font-1);
         margin: 0 2px 1px 0;
