@@ -97,7 +97,7 @@ window.NFTcardAClick = function () {
 window.showTag = function () {
     $('.Show-tag').click(function (e) {
         e.target.style.display = "none"
-        e.target.parentNode.lastChild.style.display = "block"
+        e.target.parentNode.lastChild.style.display = "contents"
 
     })
 }
