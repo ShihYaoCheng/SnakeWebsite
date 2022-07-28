@@ -990,6 +990,20 @@ button.price-search-button:hover .search-icon{
     margin-top: 10px;
 }
 
+.Show-tag {
+    border: none;
+    background: none;
+    color: #ffffff;
+    margin-left: 10px
+}
+
+.Show-tag:hover {
+    transform: scale(1.2);
+}
+
+.show {
+    display: block
+}
 
 .tag-zone .NFT-Label-block {
     /* border: 1px solid red; */

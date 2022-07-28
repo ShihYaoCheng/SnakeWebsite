@@ -91,7 +91,7 @@
                             else
                             {
                                 <div class="Secend-Block-Inventory  CollectBtn CollectBtnSamll" >       
-                                    Collect All Income
+                                    Collect <span>   @AllBalance  </span> Income
                                 </div>
                             }
                     </div>
@@ -284,7 +284,7 @@
 
                         </select>
                     </div>
-                    <div class="All-blance">Balance :  <span>@AllBalance</span> </div>
+              
                     <div class="Inventory-CardBLock">
                         
                         @* 如果Card為0張時顯示導購連結，1張以上隱藏 *@
@@ -595,6 +595,11 @@
     //租金變數......
     //所有Balance加總
     private double AllBalance = 0;
+<<<<<<< .mine
+    private double AllBalance = 0;
+=======
+    private int AllBalance = 10;
+>>>>>>> .theirs
     //彈窗顯示領取的金額
     private double CollectBalance  = 600; 
 
