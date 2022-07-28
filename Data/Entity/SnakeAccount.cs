@@ -14,6 +14,11 @@ namespace SnakeAsianLeague.Data.Entity
 
         public string walletAddress { get; set; }
 
+        /// <summary>
+        /// 帳戶騎士幣
+        /// </summary>
+        public double nftCurrency1 { get; set; }
+
 
         public bool IsLogin
         {

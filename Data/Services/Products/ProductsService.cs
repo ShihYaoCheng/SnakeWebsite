@@ -324,7 +324,7 @@ namespace SnakeAsianLeague.Data.Services.Products
             bool result = false;
             try
             {
-                string URL = "/NFT/ChangeRent";
+                string URL = "/NFT/ ";
                 RestRequest request = new RestRequest(URL, Method.POST);
                 request.AddHeader("Authorization", Authenticate());
                 request.AddHeader(RequestKey.Key, RequestKey.Value);

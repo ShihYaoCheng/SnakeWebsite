@@ -168,6 +168,13 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 data.EndTime = DateTime.Now.AddDays(value);
                 data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
                                + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
+
+
+                //租金
+                data.nowRent = NFT_Riders[i].rent;
+                //累計租金(累計收益)
+                data.totalRevenue = NFT_Riders[i].totalRevenue;
+
                 NFTDataList.Add(data);
 
             }
@@ -297,6 +304,18 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
                 //租任
                 //List<RiderUnit> result = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
+
+                /* 20220728假資料
+                 * by chenyuwei
+                 */
+                double total = 0;
+                foreach (RiderUnit item in result)
+                {
+                    total = total + 0.2;
+                    item.totalRevenue = 10 + total;
+                }
+
+
                 return result;
             }
             return new List<RiderUnit>();
@@ -312,6 +331,109 @@ namespace SnakeAsianLeague.Data.Services.Personal
             auth = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
             auth = "Basic " + auth;
             return auth;
+        }
+
+
+
+        /// <summary>
+        /// 依照單位一件領取
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="ppsr"></param>
+        /// <returns></returns>
+        public async Task<double> ReceiveRentByUnit(string userId ,string ppsr)
+        {
+            /* 20220728假資料
+            * by chenyuwei
+            */
+
+           
+
+            double result =  NFTDataList.Where(m=>m.TokenID == ppsr).First().totalRevenue;
+            NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue = 0;
+            return Math.Round(result, 3, MidpointRounding.AwayFromZero); 
+
+
+            //ppsr = string.Format("#{0}", ppsr);
+            //ppsr = ppsr.Replace("#", "%23");
+            //RestRequest request = new RestRequest($"NFT/ReceiveRentByUnit?userId={userId}&ppsr={ppsr}");
+            //request.AddHeader("Authorization", Authenticate());
+            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
+            //double result = 0;
+            //if (restResponse.StatusCode == HttpStatusCode.OK)
+            //{
+            //    result = Convert.ToDouble( JsonSerializer.Deserialize<string>(restResponse.Content) ?? "0");
+            //    return result;
+            //}
+            //return result;
+        }
+
+        /// <summary>
+        /// 一件領取租金
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public async Task<double> ReceiveRent(string userId)
+        {
+
+            /* 20220728假資料
+            * by chenyuwei
+            */
+
+
+            double result = NFTDataList.Select(m => m.totalRevenue).Sum();
+
+
+            foreach (var item in NFTDataList)
+            {
+                item.totalRevenue = 0;
+            }
+            return Math.Round(result, 3, MidpointRounding.AwayFromZero);
+
+
+            //RestRequest request = new RestRequest($"/NFT/ReceiveRent?userId={userId}");
+            //request.AddHeader("Authorization", Authenticate());
+            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
+            //double result = 0;
+
+            //if (restResponse.StatusCode == HttpStatusCode.OK)
+            //{
+            //    result = Convert.ToDouble(JsonSerializer.Deserialize<string>(restResponse.Content) ?? "0");
+            //    return result;
+            //}
+            //return result;
+
+        }
+
+        /// <summary>
+        /// 一件領取租金
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public async Task<double> CalReceiveRent(string userId)
+        {
+
+            /* 20220728假資料
+            * by chenyuwei
+            */
+
+
+            double result = NFTDataList.Select(m => m.totalRevenue).Sum();
+            return Math.Round(result, 3, MidpointRounding.AwayFromZero);
+
+
+            //RestRequest request = new RestRequest($"/NFT/ReceiveRent?userId={userId}");
+            //request.AddHeader("Authorization", Authenticate());
+            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
+            //double result = 0;
+
+            //if (restResponse.StatusCode == HttpStatusCode.OK)
+            //{
+            //    result = Convert.ToDouble(JsonSerializer.Deserialize<string>(restResponse.Content) ?? "0");
+            //    return result;
+            //}
+            //return result;
+
         }
     }
 }
