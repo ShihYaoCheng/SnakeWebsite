@@ -1,0 +1,29 @@
+﻿@*測試用*@
+<head>
+    <link href="/css/shared/LoadingScreen.css" rel="stylesheet" />
+</head>
+
+@if (isLoaded)
+{
+    @ChildContent
+}
+else
+{
+    <div class="LoadingScreen">
+         <div >Loading screen...</div>
+    </div>
+   
+}
+
+@code {
+    bool isLoaded;
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(4000); // TODO actual initialization job
+        isLoaded = true;
+    }
+}

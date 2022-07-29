@@ -1,14 +1,12 @@
 ﻿
-window.test =  function () {
-    console.log('test123123132132132132132132132132')
-    document.getElementById('testAddPolygonID').addEventListener('click', async () => {
-        try {
+window.AddPolygonID =  function () {
+    document.getElementById('AddPolygonID').addEventListener('click', async () => {        
+        try {          
             await window.ethereum.request({
                 method: 'wallet_switchEthereumChain',
                 params: [{ chainId: '0x89' }],
             });
-        } catch (switchError) {
-
+        } catch (switchError) {           
             if (switchError.code === 4902) {
                 try {
                     await window.ethereum.request({
