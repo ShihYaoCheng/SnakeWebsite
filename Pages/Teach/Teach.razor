@@ -57,7 +57,17 @@
     {
         router = router ?? "index";
 
-        squareClick(router);
+          foreach (var Data in SquareData)
+        {
+            if (Data[4] == router)
+            {
+                Data[2] = "true";
+            }
+            else
+            {
+                Data[2] = "false";
+            }
+        }
     }
 
     public string[][] SquareData =  new string[5][]
