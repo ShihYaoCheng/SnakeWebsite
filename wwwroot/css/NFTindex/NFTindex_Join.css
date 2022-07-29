@@ -2,7 +2,7 @@
 
 .join-container {
     position: fixed;
-    top: 11%;
+    top: 14%;
     right: 0%;
     width: 289px;
     height: 141px;
@@ -13,7 +13,7 @@
     .join-container {
         width: 196px;
         height: 95px;
-        top: 10%;
+        top: 13%;
     }
 }
 

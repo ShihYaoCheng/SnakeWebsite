@@ -119,6 +119,7 @@
     /* top: 150px; */
     top: 14%;
     right: -10px;
+    opacity: 0.5;
 }
 #horn-03{
     transform-origin: top right;
