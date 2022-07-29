@@ -31,13 +31,14 @@ window.Popup = function () {
 
 window.CollectBtnPoP = function () {
    
-    // 編輯姓名
+    // 全部領取彈窗
     $('.CollectBtn').click(function () {
         $('.AllCollectPop').addClass('products-popup-open');
     });
 
-    // 編輯姓名
-    $('.Collect-Btn').click(function (e) {         
+    // 個別彈窗
+    $('.Collect-Btn').click(function (e) {
+        if (window.ShowMSGState) return
         $('.NFT-Number-Pop')[0].innerText = e.target.parentNode.parentNode.children[0].children[1].innerText
         $('.SingelAllCollectPop').addClass('products-popup-open');
     });
@@ -49,6 +50,7 @@ window.CollectBtnPoP = function () {
 
     //點擊 Confirm 關閉
     $('.products-popup-submit').click(function () {
+        
         $('.products-popup-bg').removeClass('products-popup-open');
     });
   
@@ -64,16 +66,22 @@ window.CollectBtnPoP = function () {
 
 }
 
-//暫放
+window.getShowMSGState = function () {
+    return window.ShowMSGState
+}
+
+//暫放 解決點擊卡片是否要彈窗問題
 window.ShowMSGcheckbox = function () {
-    window.ShowMSGState = 1
+    window.ShowMSGState = false
     $('#ShowMSGcheckbox').click(function () {
-        console.log(window.ShowMSGState)
-        window.ShowMSGState = 1 - window.ShowMSGState
-        if (window.ShowMSGState == 1) {
+     
+        
+        if (window.ShowMSGState) {
             $('#ShowMSGcheckbox')[0].src = "/images/MarketPlace/checkbox.webp"
+            window.ShowMSGState = false
         } else {
             $('#ShowMSGcheckbox')[0].src = "/images/MarketPlace/checkbox_checked.webp"
+            window.ShowMSGState = true
         }
        
         
@@ -95,9 +103,23 @@ window.NFTcardAClick = function () {
 }
 
 window.showTag = function () {
+
     $('.Show-tag').click(function (e) {
-        e.target.style.display = "none"
-        e.target.parentNode.lastChild.style.display = "contents"
+    
+      
+        if (e.target.data==true) {
+            e.target.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "none"                     
+            e.target.data = false          
+            e.target.innerHTML = `Show Tag <img class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow01.webp">`
+          
+        } else {
+     
+            e.target.data = true
+            e.target.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "block"
+            e.target.innerHTML = `Hide Tag <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow01.webp">`
+        }
+       
+       // e.target.parentNode.lastChild.style.display = "contents"
 
     })
 }

@@ -16,7 +16,7 @@
         <img class="Secend-Inventory-Icon" src="/images/GameFi/ICON_Lock.webp"  data-src="/images/GameFi/ICON_Lock.webp" alt="" style="width: 46px; opacity: 0.7;">
         @* </a> *@
     </div>
-    @if (AllBalance == 0)
+   @*@if (AllBalance == 0)
     {
        <div class="Secend-Block-Inventory  CollectBtnBlack CollectBtnBig" >         
            No Balance
@@ -27,13 +27,11 @@
         <div class="Secend-Block-Inventory  CollectBtn CollectBtnBig" >            
             Collect <span> @AllBalance</span> Income
         </div>
-    }
+    }*@ 
  
     
 </div>
 
 @code{
-    [Parameter]
-     public double AllBalance { get; set; }
 
 }

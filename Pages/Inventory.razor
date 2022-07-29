@@ -5,10 +5,9 @@
 @using SnakeAsianLeague.Data.Services.Personal
 @using Microsoft.AspNetCore.Components.Authorization
 
-
+@inject IJSRuntime JS
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject InventoryService InventoryService
-@inject IJSRuntime JS
 @inject AppState AppState
 
 @implements IDisposable
@@ -61,7 +60,7 @@
                             <div class="MyCerrency-Detail">
                                 <p class="MyCerrency-Name">SRC</p>
                                 @*<p class="MyCerrency-Amount">後端串數量</p>*@
-                                <p class="MyCerrency-Amount">  @TotalSRCCount </p>
+                                <p class="MyCerrency-Amount" id="TotalSRCCount">  @TotalSRCCount </p>
                             </div>
                         </div>
 
@@ -73,7 +72,7 @@
                     <div class="Secend-Title">Inventory</div>
                     <div class="Secend-Inner" id="">
 
-                        <NFT_Type AllBalance="AllBalance"/>
+                        <NFT_Type />
 
                     </div>
                 </div>
@@ -81,21 +80,40 @@
 
                 <div class="Inventory-PPSR-Block" id="Inventory-PPSR-Block">
                     <div class="Inventory-PPSR-Block-Nav">
-                        <div class="Inventory-PPSR-Amount">@PPSRsCount PPSRs</div>
-                         @if (AllBalance == 0)
-                            {
-                               <div class="Secend-Block-Inventory  CollectBtnBlack CollectBtnSamll" >                                 
+                        <div>
+                            <div class="Inventory-PPSR-Amount">@PPSRsCount PPSRs</div>
+                            <div class="AllBalance">Total Income: <span> @AllBalance </span> SRC </div>
+                      
+                        </div>
+                        @if (AllBalance == 0)
+                            {                        
+
+                               <div class="  CollectBtnBlack CollectBtnSamll" >                                 
                                    No Balance
                                 </div>    
                             }
                             else
-                            {
-                                <div class="Secend-Block-Inventory  CollectBtn CollectBtnSamll"   @onclick="eventArgs => { setValue(  eventArgs); }" >       
-                                    Collect <span>   @AllBalance  </span> Income
+                            {                         
+                                <div class=" CollectBtn CollectBtnSamll"   @onclick="eventArgs => { setValue(  eventArgs); }" >       
+                                    Collect All Income
                                 </div>
                             }
                     </div>
                     <div class="Inventory-PPSR-Select">
+                        @if (AllBalance == 0)
+                        {
+                            <div class="CollectBtnBlack CollectBtnBig" >         
+                                No Balance
+                            </div>    
+                        }
+                        else
+                        {
+                            <div class="CollectBtn CollectBtnBig" >            
+                                Collect All Income
+                            </div>
+                        }
+
+
                         <div class="Inventory-PPSR-Filter-Block">
                             <div class="Inventory-PPSR-Filter Inventory-hover">
                                 <svg class="Filter-Icon" xmlns="http://www.w3.org/2000/svg" width="28.06" height="25.65" viewBox="0 0 28.06 25.65">
@@ -343,12 +361,21 @@
                                                                 <p class="balance-Text" >Balance: <span>  @item.totalRevenue </span> </p>
                                                             </div>
                                                         </div>
-                                                        <div class="CollectBtn-Container">
-                                                              <button class="Collect-Btn"  @onclick="eventArgs => { setValueByUnit(  TokenID ,totalRevenue , eventArgs); }" >Collect Income</button>
-                                                        </div>
-                                                        <div class="CollectBtn-Container">
-                                                            <button  class="Collect-Btn-Finish" hidden="@(true)" >No Balance</button>
-                                                        </div>
+                                                        @if (@item.totalRevenue != 0)
+                                                        {
+                                                             <div class="CollectBtn-Container">
+                                                                  <button  class="Collect-Btn"@onclick=" (eventArgs)  =>  { 
+                                                                      setValueByUnit(  TokenID , totalRevenue, eventArgs); 
+                                                                      ReceiveRentByUnitOnclick();
+                                                                  }" >Collect Income</button>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                             <div class="CollectBtn-Container">
+                                                                  <button  class="Collect-Btn-Finish" >No Balance</button>
+                                                            </div>
+                                                        }
                                                      
                                                          @*....................................... *@
                                                         <div class="NFT-Income-Block">
@@ -361,16 +388,15 @@
                                                                 <span class="NFT-Currency-Price">123,456,789</span>
                                                             </div>*@
                                                         </div>
-                                                       
+                                                        <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow01.webp">  </button>
                                                     </div>
-                                                  
+                                                   
                                                 </div> 
 
-                                                
+                                                 
                                             </a>
                                              @*.................tag 區域...................... *@
-                                            <div class="tag-zone">
-                                                    <button  class="Show-tag"> tag </button>
+                                            <div class="tag-zone">                                                   
                                                     <div class="NFT-Label-block">
                                                         <div class="NFT-Label">@item.RarityValue</div>
                                                         @* <div class="NFT-Label">@item.ClassValue</div>*@
@@ -424,12 +450,23 @@
                                                                 <p class="balance-Text" >Balance: <span> @item.totalRevenue </span> </p>
                                                             </div>
                                                         </div>
-                                                        <div class="CollectBtn-Container">
-                                                              <button  class="Collect-Btn"@onclick="eventArgs => { setValueByUnit(  TokenID , totalRevenue, eventArgs); }" >Collect Income</button>
-                                                        </div>
-                                                        <div class="CollectBtn-Container">
-                                                              <button  class="Collect-Btn-Finish"hidden="@(true)" >No Balance</button>
-                                                        </div>
+                                                        @if (@item.totalRevenue != 0)
+                                                        {
+                                                             <div class="CollectBtn-Container">
+                                                                  <button  class="Collect-Btn"@onclick=" (eventArgs)  =>  { 
+                                                                      setValueByUnit(  TokenID , totalRevenue, eventArgs); 
+                                                                      ReceiveRentByUnitOnclick();
+                                                                  }" >Collect Income</button>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                             <div class="CollectBtn-Container">
+                                                                  <button  class="Collect-Btn-Finish" >No Balance</button>
+                                                            </div>
+                                                        }
+                                                     
+                                                    
                                                           @*....................................... *@
 
 
@@ -443,6 +480,7 @@
                                                         @*  <div class="NFT-USD">231269.89 USD</div>*@
                                                         </div>
                                                         @*<div class="NFT-EndTime">Ends in 30d 12h</div>*@
+                                                        <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow01.webp">  </button>
                                                     </div>
 
                                                 </div>
@@ -599,7 +637,7 @@
     //彈窗顯示領取的金額
     private double CollectBalance  = 600; 
 
-
+    private IJSObjectReference? RentJumpJS;
 
     private int PPSRsCount;
 
@@ -693,8 +731,12 @@
 
             await JS.InvokeVoidAsync("showTag");   
 
+            RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/InventoryAndMarketPlace/RentJump.js");
+
         }
     }
+
+
 
 
     void IDisposable.Dispose()
@@ -868,14 +910,35 @@
     /// <param name="UserID"></param>
     /// <param name="ppsr"></param>
     /// <returns></returns>
+    // ShowMSGState 取得個別視窗是否彈窗
+    private bool ShowMSGState = false;
     public async Task ReceiveRentByUnit()
     {
+
+        ShowMSGState = await JS.InvokeAsync<bool>("getShowMSGState"); 
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent = await InventoryService.ReceiveRentByUnit(UserID ,TokenID );
+        if (RentJumpJS != null)
+        {
+            await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
+        }
         TotalSRCCount = TotalSRCCount + Rent;
         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
         AllBalance = await InventoryService.CalReceiveRent(UserID);
     }
+    public void  ReceiveRentByUnitOnclick()
+    {
+        if (ShowMSGState)
+        {
+            ReceiveRentByUnit();
+        }
+    
+
+    }
+
+    
+
+
 
     /// <summary>
     /// 
@@ -886,6 +949,10 @@
     {
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent =  await InventoryService.ReceiveRent(UserID  );
+        if (RentJumpJS != null)
+        {
+            await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
+        }
          TotalSRCCount = TotalSRCCount + Rent;
          TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
          AllBalance = await InventoryService.CalReceiveRent(UserID);

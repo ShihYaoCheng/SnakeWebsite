@@ -2,7 +2,7 @@
  
     //第一次設定
     window.jumpMomey = true
-    var unity = (newMoney - old) / 100
+    var unity = (Math.floor(((newMoney - old) / 100) * 100)) /100
     var jumpTime = 1
     var element = document.querySelector('#TotalSRCCount');
     var jumpTimeout
@@ -12,12 +12,14 @@
         unity: unity,
         element: element,
     }
+   
     roundJump(moneyData)
 
     function roundJump(moneyData) {
         if (moneyData.old >= moneyData.newMoney) {
             moneyData.old = moneyData.newMoney
-            moneyData.element.innerHTML = Math.floor(moneyData.old).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+            moneyData.element.innerHTML = (Math.floor(moneyData.newMoney * 100) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+           
             clearTimeout(jumpTimeout)
             return
         }
@@ -29,8 +31,7 @@
             if (moneyData.old >= moneyData.newMoney) jumpTime = 1
         }
 
-
-        moneyData.element.innerText = Math.floor(moneyData.old).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        moneyData.element.innerText = (Math.floor(moneyData.old * 100)/100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 
         jumpTimeout = setTimeout(() => {
