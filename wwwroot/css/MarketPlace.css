@@ -844,7 +844,11 @@ button.price-search-button:hover .search-icon{
     justify-content:space-between;
     align-items:center;
 }
-
+@media all and (max-width: 1500px) {
+    .rent-container {  
+        height: 50px;   
+    }
+}
 .rent-left{
     width:20%;
     display:flex;
@@ -871,6 +875,14 @@ button.price-search-button:hover .search-icon{
     font-size:18px;
 }
 
+@media all and (max-width: 1500px) {
+    .rent-right p {
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+}
+
 .fee-Text {
     color: #A1E7DF
 }
@@ -879,7 +891,7 @@ button.price-search-button:hover .search-icon{
     color: #FFA81D
 }
 .CollectBtn-Container {
-    margin-top: 20px;
+    margin: 20px 0 30px 0;
     width: 100%;
     text-align: center;
 }
@@ -986,15 +998,25 @@ button.price-search-button:hover .search-icon{
 .tag-zone {
     width: 100%;
     max-height: 100px;
-    padding-left:10px;
-    margin-top: 10px;
+    padding: 5px;
+    margin-top: 5px;
+    display: none;
+    border-top: 2px solid #4b8b8b;
 }
 
 .Show-tag {
     border: none;
     background: none;
     color: #ffffff;
-    margin-left: 10px
+    margin-left: 10px;
+    float: right;
+    margin-right: 15px;
+    color: #4b8b8b;
+}
+
+.ShowTag-arrow {
+    height: 10px;
+  
 }
 
 .Show-tag:hover {
@@ -1012,7 +1034,7 @@ button.price-search-button:hover .search-icon{
     padding: 5px 15px 0px;
     max-width: 320px;
     width: 100%;
-    display: none;
+    display: contents;
 }
 
 .tag-zone .NFT-Label {
@@ -1080,5 +1102,99 @@ button.price-search-button:hover .search-icon{
     }
         
 
+}
+
+
+
+
+/*領租金按鈕*/
+
+
+.CollectBtn {
+    color: #fff;
+    font-size: 20px;
+    background: #FFA81D;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CollectBtnBlack {
+    color: #fff;
+    font-size: 24px;
+    background: #8A8A8A;
+    border: none;
+    min-width: 240px;
+}
+
+.CollectBtn:hover {
+    transform: scale(1.02);
+    background-color: #f09607;
+    color: var(--font-1);
+    /* transition: all .1s ease-in; */
+}
+
+
+
+
+.CollectBtnSamll {
+    display: none;
+    min-width: 180px;
+}
+
+
+.CollectBtnBig {
+    position: relative;
+    min-width: 240px;
+    height: 48px;
+    border-radius: 16px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CollectBtnSamll span {
+    margin: 0 5px;
+    color: #27616F;
+}
+
+.CollectBtnBig span {
+    margin: 0 5px;
+    color: #27616F;
+}
+@media all and (max-width: 1024px) {
+    .CollectBtn {
+        font-size:16px
+    }
+    .CollectBtnBig {
+        min-width: 160px;
+    }
+}
+@media all and (max-width: 768px) {
+    .CollectBtnBig {
+        display: none;      
+    }
+
+    .CollectBtnSamll {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 44px;
+        margin: 0 10px;
+        font-size: 15px;
+        border-radius: 16px;
+    }
+}
+
+@media all and (max-width: 576px) {
+
+    .CollectBtnSamll {
+        min-width: 130px;
+        margin: 0 10px;
+        font-size: 14px;
+        border-radius: 16px;
+    }
 }
 

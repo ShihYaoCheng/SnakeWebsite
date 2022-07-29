@@ -73,8 +73,8 @@
         S4Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesBySeason(AsiaLeagueSeasons.Tiger1);
         S5Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesBySeason(AsiaLeagueSeasons.Tiger2);
 
-        AllPrizes = await S2PrizeService.GetSeasonPrizes(4);
-        List<S2Prize> tmp = await S2PrizeService.GetSeasonPrizes(5);
+        AllPrizes = await S2PrizeService.GetSeasonPrizesMyCard(4);
+        List<S2Prize> tmp = await S2PrizeService.GetSeasonPrizesMyCard(5);
         AllPrizes.AddRange(tmp);
         Console.WriteLine("AllPrizes:" + AllPrizes.Count);
     }

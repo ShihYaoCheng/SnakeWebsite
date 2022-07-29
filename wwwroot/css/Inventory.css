@@ -232,20 +232,20 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
-@media all and (max-width: 1024px) {
+@media all and (max-width: 768px) {
     .Inventory-PPSR-Block-Nav {
         width: 100%;
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        margin-top:20px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items:center
+       
     }
 }
 
 @media all and (max-width: 584px) {
     .Inventory-PPSR-Block-Nav {
-        display: flex;
-        flex-direction: column;
+     
         
         align-items:end;
 
@@ -260,7 +260,15 @@
 }
 
 
-.Inventory-PPSR-Select{
+.AllBalance {
+    color: var(--green-2);
+}
+
+.AllBalance span {
+    color: #FFA81D;
+}
+
+.Inventory-PPSR-Select {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -358,12 +366,7 @@
 
 }
 
-@media all and (max-width: 1024px){
-    .Inventory-PPSR-Select{
-        width: 100%;
-        justify-content: flex-end;
-    }
-}
+
 @media all and (max-width: 800px){
     #Secend-Block-MyCerrency{
 
@@ -382,9 +385,10 @@
 
 
 
-    .Inventory-PPSR-Select{
-        align-items: flex-end;    
-        margin: 20px 0 10px;
+    .Inventory-PPSR-Select {
+        margin-top:10px;
+        justify-content: flex-end;
+        width: 100%;
     }
     .Inventory-PPSR-sortSelect{
         margin: 5px 10px;
@@ -484,7 +488,14 @@
     }
 }
 @media all and (max-width: 500px){
-    .Inventory-PPSR-Amount{
+    .Inventory-PPSR-Filter {
+        font-size: 16px;
+    }
+    .Inventory-PPSR-Filter .Filter-Icon {
+        width: 22.44px;
+        height: 20.52px;
+    }
+    .Inventory-PPSR-Amount {
         font-size: 26px;
     }
 }
