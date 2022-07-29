@@ -4,7 +4,7 @@
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Personal
 @using Microsoft.AspNetCore.Components.Authorization
-
+@inject IJSRuntime JS
 
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject InventoryService InventoryService
@@ -61,7 +61,7 @@
                             <div class="MyCerrency-Detail">
                                 <p class="MyCerrency-Name">SRC</p>
                                 @*<p class="MyCerrency-Amount">後端串數量</p>*@
-                                <p class="MyCerrency-Amount">  @TotalSRCCount </p>
+                                <p class="MyCerrency-Amount" id= "TotalSRCCount">  @TotalSRCCount </p>
                             </div>
                         </div>
 
@@ -556,7 +556,7 @@
 
     
             <div class="products-popup-content">
-                <div class="products-popup-text">Comfirm to Collect All <span >(@CollectBalance)</span> Income?</div>
+                <div class="products-popup-text">Comfirm to Collect All <span >(@AllBalance)</span> Income?</div>
           
                 <button class="products-popup-submit" type="submit" @onclick="ReceiveRent" >Confirm   全領</button>
             </div>
@@ -594,12 +594,12 @@
 @code {
     //租金變數......
     //所有Balance加總
-    private double AllBalance = 0;
+    private double AllBalance =100;
 
     //彈窗顯示領取的金額
     private double CollectBalance  = 600; 
-
-
+    
+    private IJSObjectReference? RentJumpJS;
 
     private int PPSRsCount;
 
@@ -687,6 +687,8 @@
             await JS.InvokeVoidAsync("ShowMSGcheckbox");    
 
             await JS.InvokeVoidAsync("showTag");   
+            RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/InventoryAndMarketPlace/RentJump.js");
+
 
         }
     }
@@ -867,8 +869,18 @@
     {
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent = await InventoryService.ReceiveRentByUnit(UserID ,TokenID );
+        /*這邊要新增跳錢動畫 參數TotalSRCCount ， TotalSRCCount +Rent*/
+        if (RentJumpJS != null)
+        {
+            await RentJumpJS.InvokeVoidAsync("RentJump",TotalSRCCount,TotalSRCCount +Rent);
+        } 
+    
         TotalSRCCount = TotalSRCCount + Rent;
         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
+        
+
+
+
     }
 
     /// <summary>
@@ -880,7 +892,14 @@
     {
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent =  await InventoryService.ReceiveRent(UserID  );
-         TotalSRCCount = TotalSRCCount + Rent;
-         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
+        if (RentJumpJS != null)
+        {
+            await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
+        }
+      
+        TotalSRCCount = TotalSRCCount + Rent;
+        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
+       
+      
     }
 }
