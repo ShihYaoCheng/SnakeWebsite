@@ -72,7 +72,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px auto;
+    margin: 25px auto;
     z-index: 2;
 }
 
@@ -148,13 +148,13 @@
 
 .Card-Grade-price{
     background-color: #17232b8a;
-    width: 139px;
+    width: 130px;
     /* height: 24px; */
     font-family: Impact,adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
 
     line-height: 1.37;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-align: center;
     color: #edf1f3;
     padding: 1px 0 2px 0;
