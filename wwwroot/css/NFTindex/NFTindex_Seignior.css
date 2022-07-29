@@ -1,7 +1,7 @@
 .NFTindex_Seignior {
     width: 100%;
     background-color: #203240;
-    margin: 100px auto;
+    /* margin: 100px auto; */
 }
 
 /* PPS SEIGNIOR 主ICON 與介紹 */
@@ -38,6 +38,8 @@
 .PPSSeignior-mainIcon{
     border: 1px solid red;
     /* position: relative; */
+    max-width: 500px;
+    width: 90%;
 }
 .golden-frame {
     /* position: absolute;
@@ -52,7 +54,7 @@
     transform: translate(-50%, -50%);
     top: 50%;
     left: 52%; */
-    max-width: 500px;
+
     width: 100%;
     z-index: 2;
 }
@@ -70,7 +72,7 @@
     /* justify-content: center; */
     justify-content: flex-start;
     position: relative;
-    padding: 80px 100px;
+    padding: 80px 20px 80px 130px ;
 }
 .PPSSeignior-Gradient{
     position: absolute;
@@ -150,10 +152,11 @@
     width: 100%;
     /* clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%); */
     background-image: url("/images/NFTindex/NFTindex_Seignior/Mid_bottom.png");
-    background-position: top center;
+    background-position: bottom center;
     background-repeat: no-repeat;
     background-size: cover;
     /* height: 1000px; */
+    padding-bottom: 150px;
 }
 .PPSRidersNFT-Block{
     border: 1px solid red;
@@ -320,7 +323,7 @@
     /* height: 763px; */
     padding:  0 50px;
     border-radius: 25px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-family: adobe-fan-heiti-std, 'Source Sans Pro';
 }
 .PPSRidersNFT-Info-Title{
