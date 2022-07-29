@@ -925,6 +925,8 @@
         TotalSRCCount = TotalSRCCount + Rent;
         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
         AllBalance = await InventoryService.CalReceiveRent(UserID);
+
+        StateHasChanged();
     }
     public void  ReceiveRentByUnitOnclick()
     {
