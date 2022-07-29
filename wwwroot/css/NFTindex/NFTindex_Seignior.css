@@ -37,7 +37,7 @@
 }
 .PPSSeignior-mainIcon{
     border: 1px solid red;
-    position: relative;
+    /* position: relative; */
 }
 .golden-frame {
     /* position: absolute;
@@ -48,12 +48,12 @@
 }
 
 .main-Icon {
-    position: absolute;
+    /* position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
-    left: 52%;
-    max-width: 450px;
-    width: 90%;
+    left: 52%; */
+    max-width: 500px;
+    width: 100%;
     z-index: 2;
 }
 
@@ -314,14 +314,14 @@
     max-width: 800px;
 }
 .PPSRidersNFT-Info{
-    border: solid 8.3px #fff;
+    border: solid 7px #fff;
     max-width: 600px;
     width: 90%;
     /* height: 763px; */
     padding:  0 50px;
     border-radius: 25px;
     letter-spacing: 1px;
-    font-family: adobe-fan-heiti-std, 'Source Sans Pro',
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro';
 }
 .PPSRidersNFT-Info-Title{
     color: #fff;
