@@ -1,285 +1,285 @@
-
-#==========================#
-# Convert Helm to YAML     #
-#==========================#
-.template-helm-to-yaml:
-  stage: build
-  image: dtzar/helm-kubectl:3.5.0
-  variables:
-    PATH_OUTPUT_FILE: "./manifests/all.yaml"
-    PATH_CHART: "./charts/tokenserver"
-    PATH_VALUES: "./charts/values-dev.yaml"
-  script:
-    - helm template $PATH_CHART -f $PATH_VALUES > $PATH_OUTPUT_FILE
-  artifacts:
-    expire_in: 3 week
-    paths:
-      - $PATH_OUTPUT_FILE
-
-#==========================#
-# Test Stage               #
-#==========================#
-
-#==========================#
-# Scan YAML                #
-#==========================#
-# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/Code-Quality.gitlab-ci.yml
-.template-reliably-kubernetes-yaml-scan:
-  stage: test
-  image:
-    name: ghcr.io/reliablyhq/cli/cli:latest
-    entrypoint: [ "/bin/sh", "-c" ]
-  variables:
-    PATH_YAML_DIR: "manifests"
-  allow_failure: true
-  dependencies: []
-  # https://docs.gitlab.com/ee/ci/yaml/#needs
-  needs: []
-  script:
-    - reliably scan kubernetes $PATH_YAML_DIR --format codeclimate --output gl-code-quality-report.json || true
-  artifacts:
-    when: always
-    # https://docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as
-    expose_as: 'Code Quality Report'
-    # https://docs.gitlab.com/ee/ci/yaml/#artifactspaths
-    paths: [ gl-code-quality-report.json ]
-    # https://docs.gitlab.com/ee/ci/yaml/#artifactsreports
-    reports:
-      codequality: gl-code-quality-report.json
-    # https://docs.gitlab.com/ee/ci/yaml/#artifactsexpire_in
-    expire_in: 3 week
-  rules:
-    - if: $CI_COMMIT_BRANCH && $RELIABLY_TOKEN
-
-#==========================#
-# Unit Test                #
-#==========================#
-# https://github.com/spekt/junit.testlogger/
-# https://github.com/spekt/junit.testlogger/blob/master/docs/gitlab-recommendation.md
-# https://docs.gitlab.com/ee/ci/unit_test_reports.html#net-example
-.template-unit-test:
-  stage: test
-  image: mcr.microsoft.com/dotnet/core/sdk:3.1
-  script:
-    - mkdir -p report
-    - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=..\report\{assembly}-unit-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
-  artifacts:
-    when: always
-    paths:
-      - ./**/*unit-test-result.xml
-    reports:
-      junit:
-        - ./**/*unit-test-result.xml
-
-#==========================#
-# Test Coverage Report     #
-#==========================#
-# https://github.com/coverlet-coverage/coverlet
-# https://docs.gitlab.com/ee//ci/yaml/README.html#artifactsreportscobertura
-# https://github.com/danielpalme/ReportGenerator
-# https://danielpalme.github.io/ReportGenerator/usage.html
-.template-test-coverage-report:
-  stage: test
-  image: mcr.microsoft.com/dotnet/core/sdk:3.1
-  before_script:
-    - version=4.8.9
-    # install reportgenerator command line tool.
-    - dotnet tool install --global dotnet-reportgenerator-globaltool --version $version
-    - dotnet tool install dotnet-reportgenerator-globaltool --tool-path tools --version $version
-    - dotnet new tool-manifest
-    - dotnet tool install dotnet-reportgenerator-globaltool --version $version
-  script:
-    - mkdir -p report
-
-    # generate test coverage file(Cobertura format).
-    - dotnet test --collect:"XPlat Code Coverage" -r ./report/
-
-    # generate html report
-    - coverage_dirs=(./report/*/)
-    - dotnet reportgenerator -reports:$coverage_dirs/coverage.cobertura.xml -targetdir:./report/html/ -reporttypes:HtmlInline
-  artifacts:
-    when: always
-    paths:
-      - ./report/**/coverage.cobertura.xml
-      - ./report/html/
-    reports:
-      cobertura:
-        - ./report/**/coverage.cobertura.xml
-
-#==========================#
-# Release                  #
-#==========================#
-# https://gitlab.com/gitlab-org/release-cli/-/blob/master/docs/index.md
-# https://docs.gitlab.com/ee/ci/yaml/#release
-# https://docs.gitlab.com/ee/ci/yaml/#rules
-# https://docs.gitlab.com/ee/ci/variables/
-.template-create-release:
-  stage: release
-  image: registry.gitlab.com/gitlab-org/release-cli:latest
-  rules:
-    - if: $CI_COMMIT_TAG # Run this job when a tag is created manually.
-  script:
-    - echo 'create a release...'
-  release:
-    #    name: '$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA'
-    #    name: $CI_COMMIT_TAG
-    description: 'The Release was created by the GitLab CI pipeline.'
-    tag_name: '$CI_COMMIT_TAG'
-
-
-#============================#
-# Push Image                 #
-#============================#
-.template-gcr:
-  stage: PushImage
-  #    image: docker:stable
-  image: docker:19.03.12
-  services:
-    #        - docker:dind
-    - docker:19.03.12-dind
-  variables:
-    # https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#kubernetes
-    # When using dind service, we need to instruct docker to talk with
-    # the daemon started inside of the service. The daemon is available
-    # with a network connection instead of the default
-    # /var/run/docker.sock socket.
-    #        DOCKER_HOST: tcp://docker:2376
-
-    # The 'docker' hostname is the alias of the service container as described at
-    # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#accessing-the-services.
-    # If you're using GitLab Runner 12.7 or earlier with the Kubernetes executor and Kubernetes 1.6
-    # or earlier, the variable must be set to tcp://localhost:2376 because of how the
-    # Kubernetes executor connects services to the job container
-    # DOCKER_HOST: tcp://localhost:2376
-
-    # Specify to Docker where to create the certificates, Docker will
-    # create them automatically on boot, and will create
-    # `/certs/client` that will be shared between the service and job
-    # container, thanks to volume mount from config.toml
-    #        DOCKER_TLS_CERTDIR: "/certs"
-
-    # These are usually specified by the entrypoint, however the
-    # Kubernetes executor doesn't run entrypoints
-    # https://gitlab.com/gitlab-org/gitlab-runner/-/issues/4125
-    #        DOCKER_TLS_VERIFY: 1
-    #        DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
-
-
-    # Disable TLS.
-    # https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#kubernetes
-    # When using dind service we need to instruct docker, to talk with the
-    # daemon started inside of the service. The daemon is available with
-    # a network connection instead of the default /var/run/docker.sock socket.
-    #
-    # The 'docker' hostname is the alias of the service container as described at
-    # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#accessing-the-services
-    #
-    # If you're using GitLab Runner 12.7 or earlier with the Kubernetes executor and Kubernetes 1.6 or earlier,
-    # the variable must be set to tcp://localhost:2375 because of how the
-    # Kubernetes executor connects services to the job container
-    # DOCKER_HOST: tcp://localhost:2375
-    #
-    DOCKER_HOST: tcp://docker:2375
-    #
-    # This will instruct Docker not to start over TLS.
-    DOCKER_TLS_CERTDIR: ""
-
-    DOCKER_DRIVER: overlay # performance improvement, docker:dind very slow...
-    IMAGE_TAG : gcr.io/cqi-dev-25/dz-user:$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
-    GCP_REGISTRY: "https://gcr.io"
-  before_script:
-    # https://docs.gitlab.com/ee/ci/variables/
-    # - echo $CI_COMMIT_REF_SLUG
-    # master
-    # - echo $CI_COMMIT_SHORT_SHA
-    # f7906ccc
-    # - IMAGE_TAG= asia.gcr.io/stellar-38931/web:$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
-    # asia.gcr.io/stellar-38931/web:master-f7906ccc
-
-    - echo $IMAGE_TAG
-    - echo $GCP_REGISTRY
-
-    # Build the image.
-    - docker build --cache-from $IMAGE_TAG -t $IMAGE_TAG .
-    #  script:
-    # Login to Google Container Registry.
-    # https://cloud.google.com/container-registry/docs/access-control
-  #    - cat $GCR_SERVICE_ACCOUNT | docker login -u _json_key --password-stdin $GCP_REGISTRY
-  #    - cat $GCR_SERVICE_ACCOUNT_BASE64 | base64 -d | docker login -u _json_key --password-stdin $GCP_REGISTRY
-  after_script:
-    # Push the image.
-    - docker push $IMAGE_TAG
-    - docker logout $GCP_REGISTRY
-
-.TemplateDevGCR:
-  extends: .template-gcr
-  script:
-    # Login to Google Container Registry.
-    # https://cloud.google.com/container-registry/docs/access-control
-    - cat $DEV_GCR_SA_BASE64 | base64 -d | docker login -u _json_key --password-stdin $GCP_REGISTRY
-
-.TemplateProdGCR:
-  extends: .template-gcr
-  script:
-    # Login to Google Container Registry.
-    # https://cloud.google.com/container-registry/docs/access-control
-    - cat $PROD_GCR_SA_BASE64 | base64 -d | docker login -u _json_key --password-stdin $GCP_REGISTRY
-
-
-#==========================#
-# Update helm values.      #
-#==========================#
-.template-git-configuration:
-  image: developerjoy/gityq:v1
-  variables:
-    PERSONAL_ACCESS_TOKEN_READ_WRITE_REPOSITORY: ""
-    USER_EMAIL: "gitlab@gitlab.com"
-    USER_NAME: "GitLab CI/CD"
-  before_script:
-    - echo $CI_PROJECT_PATH
-    - git remote set-url origin https://gitlab-ci-token:${PERSONAL_ACCESS_TOKEN_READ_WRITE_REPOSITORY}@gitlab.com/$CI_PROJECT_PATH.git
-    - git config --global user.email $USER_EMAIL
-    - git config --global user.name $USER_NAME
-    - echo $CI_COMMIT_BRANCH
-    - git checkout -B $CI_COMMIT_BRANCH
-
-.template-helm-update:
-  extends: .template-git-configuration
-  variables:
-    STATEMENT: ""
-    NEW_GIT_TAG: ""
-  script:
-    #    - yq e '.image.tag = env(NEW_TAG)' -i $PATH_HELM_VALUE_YAML
-    - eval $STATEMENT
-    - git pull origin $CI_COMMIT_BRANCH --no-edit
-    - git commit -am '[skip ci] update by GitLab CI Pipeline.'
-    - git push origin $CI_COMMIT_BRANCH
-  rules:
-    # https://docs.gitlab.com/ee/ci/jobs/job_control.html#cicd-variable-expressions
-    - if: $STATEMENT != "" && $NEW_GIT_TAG == ""
-  # hint: Updates were rejected because the tip of your current branch is behind
-  # hint: its remote counterpart. Integrate the remote changes (e.g.
-  # hint: 'git pull ...') before pushing again.
-  retry: 2
-
-.template-helm-update-and-git-tag:
-  extends: .template-git-configuration
-  variables:
-    STATEMENT: ""
-    NEW_GIT_TAG: ""
-  script:
-    - eval $STATEMENT
-    - git pull origin $CI_COMMIT_BRANCH --no-edit
-    - git commit -am '[skip ci] update by GitLab CI Pipeline.'
-    - git push origin $CI_COMMIT_BRANCH
-    - git tag -a $NEW_GIT_TAG -m "[skip ci] add by GitLab CI Pipeline."
-    - git push origin $NEW_GIT_TAG
-  rules:
-    # https://docs.gitlab.com/ee/ci/jobs/job_control.html#cicd-variable-expressions
-    - if: $STATEMENT != "" && $NEW_GIT_TAG != ""
-  # hint: Updates were rejected because the tip of your current branch is behind
-  # hint: its remote counterpart. Integrate the remote changes (e.g.
-  # hint: 'git pull ...') before pushing again.
-  retry: 2
-
-
+#
+##==========================#
+## Convert Helm to YAML     #
+##==========================#
+#.template-helm-to-yaml:
+#  stage: build
+#  image: dtzar/helm-kubectl:3.5.0
+#  variables:
+#    PATH_OUTPUT_FILE: "./manifests/all.yaml"
+#    PATH_CHART: "./charts/tokenserver"
+#    PATH_VALUES: "./charts/values-dev.yaml"
+#  script:
+#    - helm template $PATH_CHART -f $PATH_VALUES > $PATH_OUTPUT_FILE
+#  artifacts:
+#    expire_in: 3 week
+#    paths:
+#      - $PATH_OUTPUT_FILE
+#
+##==========================#
+## Test Stage               #
+##==========================#
+#
+##==========================#
+## Scan YAML                #
+##==========================#
+## https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/Code-Quality.gitlab-ci.yml
+#.template-reliably-kubernetes-yaml-scan:
+#  stage: test
+#  image:
+#    name: ghcr.io/reliablyhq/cli/cli:latest
+#    entrypoint: [ "/bin/sh", "-c" ]
+#  variables:
+#    PATH_YAML_DIR: "manifests"
+#  allow_failure: true
+#  dependencies: []
+#  # https://docs.gitlab.com/ee/ci/yaml/#needs
+#  needs: []
+#  script:
+#    - reliably scan kubernetes $PATH_YAML_DIR --format codeclimate --output gl-code-quality-report.json || true
+#  artifacts:
+#    when: always
+#    # https://docs.gitlab.com/ee/ci/yaml/#artifactsexpose_as
+#    expose_as: 'Code Quality Report'
+#    # https://docs.gitlab.com/ee/ci/yaml/#artifactspaths
+#    paths: [ gl-code-quality-report.json ]
+#    # https://docs.gitlab.com/ee/ci/yaml/#artifactsreports
+#    reports:
+#      codequality: gl-code-quality-report.json
+#    # https://docs.gitlab.com/ee/ci/yaml/#artifactsexpire_in
+#    expire_in: 3 week
+#  rules:
+#    - if: $CI_COMMIT_BRANCH && $RELIABLY_TOKEN
+#
+##==========================#
+## Unit Test                #
+##==========================#
+## https://github.com/spekt/junit.testlogger/
+## https://github.com/spekt/junit.testlogger/blob/master/docs/gitlab-recommendation.md
+## https://docs.gitlab.com/ee/ci/unit_test_reports.html#net-example
+#.template-unit-test:
+#  stage: test
+#  image: mcr.microsoft.com/dotnet/core/sdk:3.1
+#  script:
+#    - mkdir -p report
+#    - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=..\report\{assembly}-unit-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
+#  artifacts:
+#    when: always
+#    paths:
+#      - ./**/*unit-test-result.xml
+#    reports:
+#      junit:
+#        - ./**/*unit-test-result.xml
+#
+##==========================#
+## Test Coverage Report     #
+##==========================#
+## https://github.com/coverlet-coverage/coverlet
+## https://docs.gitlab.com/ee//ci/yaml/README.html#artifactsreportscobertura
+## https://github.com/danielpalme/ReportGenerator
+## https://danielpalme.github.io/ReportGenerator/usage.html
+#.template-test-coverage-report:
+#  stage: test
+#  image: mcr.microsoft.com/dotnet/core/sdk:3.1
+#  before_script:
+#    - version=4.8.9
+#    # install reportgenerator command line tool.
+#    - dotnet tool install --global dotnet-reportgenerator-globaltool --version $version
+#    - dotnet tool install dotnet-reportgenerator-globaltool --tool-path tools --version $version
+#    - dotnet new tool-manifest
+#    - dotnet tool install dotnet-reportgenerator-globaltool --version $version
+#  script:
+#    - mkdir -p report
+#
+#    # generate test coverage file(Cobertura format).
+#    - dotnet test --collect:"XPlat Code Coverage" -r ./report/
+#
+#    # generate html report
+#    - coverage_dirs=(./report/*/)
+#    - dotnet reportgenerator -reports:$coverage_dirs/coverage.cobertura.xml -targetdir:./report/html/ -reporttypes:HtmlInline
+#  artifacts:
+#    when: always
+#    paths:
+#      - ./report/**/coverage.cobertura.xml
+#      - ./report/html/
+#    reports:
+#      cobertura:
+#        - ./report/**/coverage.cobertura.xml
+#
+##==========================#
+## Release                  #
+##==========================#
+## https://gitlab.com/gitlab-org/release-cli/-/blob/master/docs/index.md
+## https://docs.gitlab.com/ee/ci/yaml/#release
+## https://docs.gitlab.com/ee/ci/yaml/#rules
+## https://docs.gitlab.com/ee/ci/variables/
+#.template-create-release:
+#  stage: release
+#  image: registry.gitlab.com/gitlab-org/release-cli:latest
+#  rules:
+#    - if: $CI_COMMIT_TAG # Run this job when a tag is created manually.
+#  script:
+#    - echo 'create a release...'
+#  release:
+#    #    name: '$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA'
+#    #    name: $CI_COMMIT_TAG
+#    description: 'The Release was created by the GitLab CI pipeline.'
+#    tag_name: '$CI_COMMIT_TAG'
+#
+#
+##============================#
+## Push Image                 #
+##============================#
+#.template-gcr:
+#  stage: PushImage
+#  #    image: docker:stable
+#  image: docker:19.03.12
+#  services:
+#    #        - docker:dind
+#    - docker:19.03.12-dind
+#  variables:
+#    # https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#kubernetes
+#    # When using dind service, we need to instruct docker to talk with
+#    # the daemon started inside of the service. The daemon is available
+#    # with a network connection instead of the default
+#    # /var/run/docker.sock socket.
+#    #        DOCKER_HOST: tcp://docker:2376
+#
+#    # The 'docker' hostname is the alias of the service container as described at
+#    # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#accessing-the-services.
+#    # If you're using GitLab Runner 12.7 or earlier with the Kubernetes executor and Kubernetes 1.6
+#    # or earlier, the variable must be set to tcp://localhost:2376 because of how the
+#    # Kubernetes executor connects services to the job container
+#    # DOCKER_HOST: tcp://localhost:2376
+#
+#    # Specify to Docker where to create the certificates, Docker will
+#    # create them automatically on boot, and will create
+#    # `/certs/client` that will be shared between the service and job
+#    # container, thanks to volume mount from config.toml
+#    #        DOCKER_TLS_CERTDIR: "/certs"
+#
+#    # These are usually specified by the entrypoint, however the
+#    # Kubernetes executor doesn't run entrypoints
+#    # https://gitlab.com/gitlab-org/gitlab-runner/-/issues/4125
+#    #        DOCKER_TLS_VERIFY: 1
+#    #        DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
+#
+#
+#    # Disable TLS.
+#    # https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#kubernetes
+#    # When using dind service we need to instruct docker, to talk with the
+#    # daemon started inside of the service. The daemon is available with
+#    # a network connection instead of the default /var/run/docker.sock socket.
+#    #
+#    # The 'docker' hostname is the alias of the service container as described at
+#    # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#accessing-the-services
+#    #
+#    # If you're using GitLab Runner 12.7 or earlier with the Kubernetes executor and Kubernetes 1.6 or earlier,
+#    # the variable must be set to tcp://localhost:2375 because of how the
+#    # Kubernetes executor connects services to the job container
+#    # DOCKER_HOST: tcp://localhost:2375
+#    #
+#    DOCKER_HOST: tcp://docker:2375
+#    #
+#    # This will instruct Docker not to start over TLS.
+#    DOCKER_TLS_CERTDIR: ""
+#
+#    DOCKER_DRIVER: overlay # performance improvement, docker:dind very slow...
+#    IMAGE_TAG : gcr.io/cqi-dev-25/dz-user:$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
+#    GCP_REGISTRY: "https://gcr.io"
+#  before_script:
+#    # https://docs.gitlab.com/ee/ci/variables/
+#    # - echo $CI_COMMIT_REF_SLUG
+#    # master
+#    # - echo $CI_COMMIT_SHORT_SHA
+#    # f7906ccc
+#    # - IMAGE_TAG= asia.gcr.io/stellar-38931/web:$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
+#    # asia.gcr.io/stellar-38931/web:master-f7906ccc
+#
+#    - echo $IMAGE_TAG
+#    - echo $GCP_REGISTRY
+#
+#    # Build the image.
+#    - docker build --cache-from $IMAGE_TAG -t $IMAGE_TAG .
+#    #  script:
+#    # Login to Google Container Registry.
+#    # https://cloud.google.com/container-registry/docs/access-control
+#  #    - cat $GCR_SERVICE_ACCOUNT | docker login -u _json_key --password-stdin $GCP_REGISTRY
+#  #    - cat $GCR_SERVICE_ACCOUNT_BASE64 | base64 -d | docker login -u _json_key --password-stdin $GCP_REGISTRY
+#  after_script:
+#    # Push the image.
+#    - docker push $IMAGE_TAG
+#    - docker logout $GCP_REGISTRY
+#
+#.TemplateDevGCR:
+#  extends: .template-gcr
+#  script:
+#    # Login to Google Container Registry.
+#    # https://cloud.google.com/container-registry/docs/access-control
+#    - cat $DEV_GCR_SA_BASE64 | base64 -d | docker login -u _json_key --password-stdin $GCP_REGISTRY
+#
+#.TemplateProdGCR:
+#  extends: .template-gcr
+#  script:
+#    # Login to Google Container Registry.
+#    # https://cloud.google.com/container-registry/docs/access-control
+#    - cat $PROD_GCR_SA_BASE64 | base64 -d | docker login -u _json_key --password-stdin $GCP_REGISTRY
+#
+#
+##==========================#
+## Update helm values.      #
+##==========================#
+#.template-git-configuration:
+#  image: developerjoy/gityq:v1
+#  variables:
+#    PERSONAL_ACCESS_TOKEN_READ_WRITE_REPOSITORY: ""
+#    USER_EMAIL: "gitlab@gitlab.com"
+#    USER_NAME: "GitLab CI/CD"
+#  before_script:
+#    - echo $CI_PROJECT_PATH
+#    - git remote set-url origin https://gitlab-ci-token:${PERSONAL_ACCESS_TOKEN_READ_WRITE_REPOSITORY}@gitlab.com/$CI_PROJECT_PATH.git
+#    - git config --global user.email $USER_EMAIL
+#    - git config --global user.name $USER_NAME
+#    - echo $CI_COMMIT_BRANCH
+#    - git checkout -B $CI_COMMIT_BRANCH
+#
+#.template-helm-update:
+#  extends: .template-git-configuration
+#  variables:
+#    STATEMENT: ""
+#    NEW_GIT_TAG: ""
+#  script:
+#    #    - yq e '.image.tag = env(NEW_TAG)' -i $PATH_HELM_VALUE_YAML
+#    - eval $STATEMENT
+#    - git pull origin $CI_COMMIT_BRANCH --no-edit
+#    - git commit -am '[skip ci] update by GitLab CI Pipeline.'
+#    - git push origin $CI_COMMIT_BRANCH
+#  rules:
+#    # https://docs.gitlab.com/ee/ci/jobs/job_control.html#cicd-variable-expressions
+#    - if: $STATEMENT != "" && $NEW_GIT_TAG == ""
+#  # hint: Updates were rejected because the tip of your current branch is behind
+#  # hint: its remote counterpart. Integrate the remote changes (e.g.
+#  # hint: 'git pull ...') before pushing again.
+#  retry: 2
+#
+#.template-helm-update-and-git-tag:
+#  extends: .template-git-configuration
+#  variables:
+#    STATEMENT: ""
+#    NEW_GIT_TAG: ""
+#  script:
+#    - eval $STATEMENT
+#    - git pull origin $CI_COMMIT_BRANCH --no-edit
+#    - git commit -am '[skip ci] update by GitLab CI Pipeline.'
+#    - git push origin $CI_COMMIT_BRANCH
+#    - git tag -a $NEW_GIT_TAG -m "[skip ci] add by GitLab CI Pipeline."
+#    - git push origin $NEW_GIT_TAG
+#  rules:
+#    # https://docs.gitlab.com/ee/ci/jobs/job_control.html#cicd-variable-expressions
+#    - if: $STATEMENT != "" && $NEW_GIT_TAG != ""
+#  # hint: Updates were rejected because the tip of your current branch is behind
+#  # hint: its remote counterpart. Integrate the remote changes (e.g.
+#  # hint: 'git pull ...') before pushing again.
+#  retry: 2
+#
+#
