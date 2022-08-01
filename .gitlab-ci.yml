@@ -9,48 +9,17 @@ stages:
 include:
   - local: ".gitlab-ci-template.yml"
 
-variables:
-  VERSION_REGULAR_EXPRESSION: /^v\d\.\d+\.\d+$/
-
 #=====================#
 # Build               #
 #=====================#
 Compile:
   stage: Build
   # https://hub.docker.com/_/microsoft-dotnet-sdk
-  image: mcr.microsoft.com/dotnet/sdk:6.0
+  image: mcr.microsoft.com/dotnet/sdk:6.0.302-alpine3.16-amd64
   variables:
-    SOLUTION_NAME: "TableServer.sln"
+    SOLUTION_NAME: "SnakeAsianLeague.sln"
   script:
     - dotnet build $SOLUTION_NAME
-
-#build-yaml:
-#    extends: .template-helm-to-yaml
-#    variables:
-#        OUTPUT_DIR: "manifests"
-#        PATH_CHART: "./charts/tokenserver"
-#        PATH_VALUES: "./charts/values-dev.yaml"
-
-#======================== Test =======================
-#reliably-kubernetes-yaml-scan:
-#    extends: .template-reliably-kubernetes-yaml-scan
-#    variables:
-#        PATH_YAML_DIR: "manifests"
-#    dependencies:
-#        - build-yaml
-#    # https://docs.gitlab.com/ee/ci/yaml/#needs
-#    needs:
-#        - build-yaml
-
-#unit-test:
-#    extends: .template-unit-test
-#    needs: [compile]
-#    dependencies: []
-#
-#test-coverage-report:
-#    extends: .template-test-coverage-report
-#    needs: [compile]
-#    dependencies: []
 
 #=====================#
 # Security            #
@@ -58,7 +27,7 @@ Compile:
 DependencyScan:
   stage: Security
   # https://hub.docker.com/_/microsoft-dotnet-sdk
-  image: mcr.microsoft.com/dotnet/sdk:6.0
+  image: mcr.microsoft.com/dotnet/sdk:6.0.302-alpine3.16-amd64
   script:
     - dotnet restore
     - dotnet list package --vulnerable
@@ -67,7 +36,7 @@ TrivyScan:
   stage: Security
   image:
     # https://hub.docker.com/r/aquasec/trivy/tags
-    name: aquasec/trivy:0.27.1
+    name: aquasec/trivy:0.30.4
     entrypoint: [""]
   variables:
     # --no-progress          suppress progress bar (default: false) [$TRIVY_NO_PROGRESS]
@@ -115,11 +84,9 @@ Main:
   variables:
     REGISTRY: gcr.io
     PROJECT_ID: stellar-38931
-    IMAGE_NAME: sk-table
+    IMAGE_NAME: sk-official-web
     IMAGE_TAG: $REGISTRY/$PROJECT_ID/$IMAGE_NAME:$CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
     GCP_REGISTRY: https://$REGISTRY
-  #    IMAGE_TAG: gcr.io/stellar-38931/sk-battle:$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
-  #    GCP_REGISTRY: "https://gcr.io"
   rules:
     - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION || $CI_COMMIT_BRANCH == "sre"
 
@@ -128,7 +95,7 @@ QA:
   variables:
     REGISTRY: asia.gcr.io
     PROJECT_ID: cqi-operation
-    IMAGE_NAME: sk-table
+    IMAGE_NAME: sk-official-web
     IMAGE_TAG: $REGISTRY/$PROJECT_ID/$IMAGE_NAME:$CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
     GCP_REGISTRY: https://$REGISTRY
   rules:
@@ -139,60 +106,38 @@ ProdGCR:
   variables:
     REGISTRY: asia.gcr.io
     PROJECT_ID: cqi-operation
-    IMAGE_NAME: sk-table
+    IMAGE_NAME: sk-official-web
     IMAGE_TAG: $REGISTRY/$PROJECT_ID/$IMAGE_NAME:$CI_COMMIT_TAG
     GCP_REGISTRY: https://$REGISTRY
-  #    IMAGE_TAG: asia.gcr.io/cqi-operation/sk-battle:$CI_COMMIT_TAG
-  #    GCP_REGISTRY: "https://asia.gcr.io"
   rules:
     - if: $CI_COMMIT_TAG # Run this job when a tag is created manually.
 
 #============================#
 # Update helm Values         #
 #============================#
-#SRE:
-#  stage: Helm
-#  trigger: GameSnake/SRE/ArgoCDAppTable
-#  variables:
-#    NEW_IMAGE_TAG: $CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
-#    PATH_FILENAME_VALUES: "./chart/values-sre.yaml"
-#    STATEMENT: "yq e '.image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-sre.yaml"
-#  rules:
-#    - if: $CI_COMMIT_BRANCH == "sre"
-#
-#Dev:
-#  stage: Helm
-#  trigger: GameSnake/SRE/ArgoCDAppTable
-#  variables:
-#    NEW_IMAGE_TAG: $CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
-#    PATH_FILENAME_VALUES: "./chart/values-dev.yaml"
-#    STATEMENT: "yq e '.image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-dev.yaml"
-#  rules:
-#    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-
 DevStable:
   stage: Helm
-  trigger: GameSnake/SRE/ArgoCDAppTable
+  trigger: GameSnake/SRE/ArgoCDAppOfficialWebsite
   variables:
     NEW_IMAGE_TAG: $CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
     PATH_FILENAME_VALUES: "./chart/values-$CI_COMMIT_BRANCH.yaml"
     STATEMENT: "yq e '.image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-$CI_COMMIT_BRANCH.yaml"
   rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION || $CI_COMMIT_BRANCH == "sre"
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "beta" || $CI_COMMIT_BRANCH == "sre"
 
 QAStable:
   stage: Helm
-  trigger: GameSnake/SRE/ArgoCDAppTable
+  trigger: GameSnake/SRE/ArgoCDAppOfficialWebsite
   variables:
     NEW_IMAGE_TAG: $CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
     PATH_FILENAME_VALUES: "./chart/values-$CI_COMMIT_BRANCH-qa.yaml"
-    STATEMENT: "yq e '.image.name = \"asia.gcr.io/cqi-operation/sk-table\" | .image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-$CI_COMMIT_BRANCH-qa.yaml"
+    STATEMENT: "yq e '.image.name = \"asia.gcr.io/cqi-operation/sk-sk-official-web\" | .image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-$CI_COMMIT_BRANCH-qa.yaml"
   rules:
-    - if: $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION
+    - if: $CI_COMMIT_BRANCH == "beta"
 
 Prod:
   stage: Helm
-  trigger: GameSnake/SRE/ArgoCDAppTable
+  trigger: GameSnake/SRE/ArgoCDAppOfficialWebsite
   variables:
     NEW_IMAGE_TAG: $CI_COMMIT_TAG
     NEW_GIT_TAG: $CI_COMMIT_TAG
