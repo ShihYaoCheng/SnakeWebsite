@@ -20,11 +20,13 @@ using SnakeAsianLeague.Data.Services.Personal;
 using SnakeAsianLeague.Data.Services.Products;
 using SnakeAsianLeague.Data.Services.SnakeServerService;
 using System.Text;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("ConnectionStrings:dev");
+var connectionString = builder.Configuration.GetConnectionString("dev");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -53,6 +55,9 @@ builder.Services.AddSingleton<OptionService>();
 builder.Services.AddSingleton<InventoryService>();
 builder.Services.AddSingleton<ProductsService>();
 builder.Services.AddSingleton<SnakeTableService>();
+
+
+builder.Services.AddHealthChecks().AddMySql(connectionString, tags: new[] { "db" });
 
 
 builder.Services.Configure<ExternalServers>(builder.Configuration.GetSection("ExternalServers"));
@@ -127,5 +132,20 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
+
+app.UseEndpoints(endpoints => 
+{ 
+    endpoints.MapHealthChecks("/health/live", new HealthCheckOptions  
+    {  
+        Predicate = _ => false,  
+        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse  
+    });
+    
+    endpoints.MapHealthChecks("/health/ready", new HealthCheckOptions  
+    {  
+        Predicate = reg => reg.Tags.Contains("db"),  
+        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse  
+    });
+});
 
 app.Run();
