@@ -131,7 +131,7 @@ QAStable:
   variables:
     NEW_IMAGE_TAG: $CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
     PATH_FILENAME_VALUES: "./chart/values-$CI_COMMIT_BRANCH-qa.yaml"
-    STATEMENT: "yq e '.image.name = \"asia.gcr.io/cqi-operation/sk-sk-official-web\" | .image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-$CI_COMMIT_BRANCH-qa.yaml"
+    STATEMENT: "yq e '.image.name = \"asia.gcr.io/cqi-operation/sk-official-web\" | .image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-$CI_COMMIT_BRANCH-qa.yaml"
   rules:
     - if: $CI_COMMIT_BRANCH == "beta"
 
