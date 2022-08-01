@@ -88,7 +88,7 @@ Main:
     IMAGE_TAG: $REGISTRY/$PROJECT_ID/$IMAGE_NAME:$CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
     GCP_REGISTRY: https://$REGISTRY
   rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION || $CI_COMMIT_BRANCH == "sre"
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "beta" || $CI_COMMIT_BRANCH == "sre"
 
 QA:
   extends: .TemplateProdGCR
@@ -99,7 +99,7 @@ QA:
     IMAGE_TAG: $REGISTRY/$PROJECT_ID/$IMAGE_NAME:$CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
     GCP_REGISTRY: https://$REGISTRY
   rules:
-    - if: $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION
+    - if: $CI_COMMIT_BRANCH == "beta"
 
 ProdGCR:
   extends: .TemplateProdGCR
