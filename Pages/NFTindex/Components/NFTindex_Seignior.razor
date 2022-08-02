@@ -1,4 +1,4 @@
-@page "/NFTindex_Seignior"
+@* @page "/NFTindex_Seignior" *@
 @inject IJSRuntime JS
 
 <head>
@@ -8,11 +8,14 @@
 <div class="NFTindex_Seignior">
     @* PPS SEIGNIOR 主ICON 與介紹 *@
     <div class="Seignior-Block">
+        
         <div class="PPSSeignior">
             <div class="PPSSeignior-mainIcon-Block">
                 <div class="PPSSeignior-mainIcon">
                     @* <img class="golden-frame" src="/images/NFTindex/NFTindex_Seignior/golden-frame.png" alt=""> *@
                     <img class="main-Icon" src="/images/NFTindex/NFTindex_Seignior/Ruler.png" alt="">
+                    <img  class="main-Icon-kirakira" id="main-Icon-kirakira-001" src="/images/NFTindex/NFTindex_Seignior/white-kirakira-001.png" alt="">
+                    <img  class="main-Icon-kirakira" id="main-Icon-kirakira-002" src="/images/NFTindex/NFTindex_Seignior/white-kirakira-002.png" alt="">
                 </div>
             </div>
             <div class="PPSSeignior-Info-Block">
@@ -20,7 +23,8 @@
                 <div class="PPSSeignior-Paragraph">
                     <div class="PPSSeignior-Title">PPS SEIGNIOR</div>
                     <div class="PPSSeignior-Text-01">
-                        The one who owns a PPSR will be claimed as a “Seignior”. These people will have special powers that can rule over PonPonSnake Universe.
+                        The one who owns a PPSR will be claimed as a “Seignior”. These people will have special powers
+                        that can rule over PonPonSnake Universe.
                     </div>
 
                     <div class="PPSSeignior-Text-02">
@@ -28,14 +32,16 @@
                             <span>Privilege A</span><br> Each day the seignior will be able to receive SRC income.
                         </div>
                         <div class="PPSSeignior-Text-02-1">
-                            <span>Privilege B</span><br>The seignior will have the power to decide the rental fee of the NFT they own.
+                            <span>Privilege B</span><br>The seignior will have the power to decide the rental fee of the
+                            NFT they own.
                         </div>
                         <div class="PPSSeignior-Text-02-1">
-                            <span>Privilege C</span><br>The seignior will effect the economic system of PonPonSnake universe.
+                            <span>Privilege C</span><br>The seignior will effect the economic system of PonPonSnake
+                            universe.
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -43,40 +49,59 @@
 
     @* PPS Riders NFT 蛇階級與介紹 *@
     <div class="PPSRidersNFT-BG">
+        <div class="PPSRidersNFT-Gradient-Outside">
+            <div class="PPSRidersNFT-Gradient"></div>
         <div class="PPSRidersNFT-Block">
             <div class="PPSRidersNFT-IconsAll">
 
                 @* 蛇王 *@
                 <div class="PPSRidersNFT-Icons-row">
 
-                    <div class="SnakeIcons-Block" id="SnakeIcons-Block-01">
-                        <img class="PPSRidersNFT-Icons-Snake"  src="/images/NFTindex/NFTindex_Seignior/Snake-icon-01.png" alt="">
-                        <img class="PPSRidersNFT-Icons-BG" src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-01.png" alt="">
+                    <div class="SnakeIcons-Block-All">
+                        <div class="SnakeIcons-Block" id="SnakeIcons-Block-01">
+                            <img class="PPSRidersNFT-Icons-Snake"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-icon-01.png" alt="">
+                            <img class="PPSRidersNFT-Icons-BG"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-01.png" alt="">
+                        </div>
+                        <div class="SnakeIcons-Block-Name">Amphiptere</div>
                     </div>
 
                 </div>
 
                 @* 蛇二級 *@
                 <div class="PPSRidersNFT-Icons-row">
-
-                    <div class="SnakeIcons-Block" id="SnakeIcons-Block-02">
-                        <img class="PPSRidersNFT-Icons-Snake"  src="/images/NFTindex/NFTindex_Seignior/Snake-icon-02.png" alt="">
-                        <img class="PPSRidersNFT-Icons-BG" src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-02.png" alt="">
+                    <div class="SnakeIcons-Block-All">
+                        <div class="SnakeIcons-Block" id="SnakeIcons-Block-02">
+                            <img class="PPSRidersNFT-Icons-Snake"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-icon-02.png" alt="">
+                            <img class="PPSRidersNFT-Icons-BG"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-02.png" alt="">
+                        </div>
+                        <div class="SnakeIcons-Block-Name">Spirit Snake Rider</div>
                     </div>
-
                 </div>
 
                 @* 蛇三級 *@
-                <div class="PPSRidersNFT-Icons-row">
-
-                    <div class="SnakeIcons-Block" id="SnakeIcons-Block-03">
-                        <img class="PPSRidersNFT-Icons-Snake"  src="/images/NFTindex/NFTindex_Seignior/Snake-icon-03.png" alt="">
-                        <img class="PPSRidersNFT-Icons-BG" src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-03.png" alt="">
+                <div class="PPSRidersNFT-Icons-row" id="PPSRidersNFT-Icons-row-03">
+                    <div class="SnakeIcons-Block-All">
+                        <div class="SnakeIcons-Block" id="SnakeIcons-Block-03">
+                            <img class="PPSRidersNFT-Icons-Snake"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-icon-03.png" alt="">
+                            <img class="PPSRidersNFT-Icons-BG"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-03.png" alt="">
+                        </div>
+                        <div class="SnakeIcons-Block-Name">Snake Rider</div>
                     </div>
 
-                    <div class="SnakeIcons-Block" id="SnakeIcons-Block-04">
-                        <img class="PPSRidersNFT-Icons-Snake"  src="/images/NFTindex/NFTindex_Seignior/Snake-icon-04.png" alt="">
-                        <img class="PPSRidersNFT-Icons-BG" src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-04.png" alt="">
+                    <div class="SnakeIcons-Block-All">
+                        <div class="SnakeIcons-Block" id="SnakeIcons-Block-04">
+                            <img class="PPSRidersNFT-Icons-Snake"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-icon-04.png" alt="">
+                            <img class="PPSRidersNFT-Icons-BG"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-04.png" alt="">
+                        </div>
+                        <div class="SnakeIcons-Block-Name">Iron Snake Rider</div>
                     </div>
 
                 </div>
@@ -84,35 +109,52 @@
                 @* 蛇四級 *@
                 <div class="PPSRidersNFT-Icons-row">
 
-                    <div class="SnakeIcons-Block" id="SnakeIcons-Block-05">
-                        <img class="PPSRidersNFT-Icons-Snake"  src="/images/NFTindex/NFTindex_Seignior/Snake-icon-05.png" alt="">
-                        <img class="PPSRidersNFT-Icons-BG" src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-05.png" alt="">
+                    <div class="SnakeIcons-Block-All">
+                        <div class="SnakeIcons-Block" id="SnakeIcons-Block-05">
+                            <img class="PPSRidersNFT-Icons-Snake"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-icon-05.png" alt="">
+                            <img class="PPSRidersNFT-Icons-BG"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-05.png" alt="">
+                        </div>
+                        <div class="SnakeIcons-Block-Name">Snake</div>
                     </div>
 
-                    <div class="SnakeIcons-Block" id="SnakeIcons-Block-06">
-                        <img class="PPSRidersNFT-Icons-Snake"  src="/images/NFTindex/NFTindex_Seignior/Snake-icon-06.png" alt="">
-                        <img class="PPSRidersNFT-Icons-BG" src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-05.png" alt="">
+                    <div class="SnakeIcons-Block-All">
+                        <div class="SnakeIcons-Block" id="SnakeIcons-Block-06">
+                            <img class="PPSRidersNFT-Icons-Snake"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-icon-06.png" alt="">
+                            <img class="PPSRidersNFT-Icons-BG"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-05.png" alt="">
+                        </div>
+                        <div class="SnakeIcons-Block-Name">Snake Train</div>
                     </div>
 
-                    <div class="SnakeIcons-Block" id="SnakeIcons-Block-07">
-                        <img class="PPSRidersNFT-Icons-Snake"  src="/images/NFTindex/NFTindex_Seignior/Snake-icon-07.png" alt="">
-                        <img class="PPSRidersNFT-Icons-BG" src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-05.png" alt="">
+                    <div class="SnakeIcons-Block-All">
+                        <div class="SnakeIcons-Block" id="SnakeIcons-Block-07">
+                            <img class="PPSRidersNFT-Icons-Snake"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-icon-07.png" alt="">
+                            <img class="PPSRidersNFT-Icons-BG"
+                                src="/images/NFTindex/NFTindex_Seignior/Snake-iconBG-05.png" alt="">
+                        </div>
+                        <div class="SnakeIcons-Block-Name">Iron Snake</div>
                     </div>
 
                 </div>
             </div>
 
 
-        <div class="PPSRidersNFT-InfoBlock">
+            <div class="PPSRidersNFT-InfoBlock">
                 <div class="PPSRidersNFT-Info">
                     <div class="PPSRidersNFT-Info-Title">PPS Riders NFT</div>
-                    <div class="PPSRidersNFT-Info-Text">PonPonSnake NFT can be used in battles, these NFT comes in different appearance, style and level. They can be obtained by bidding on Marketplace. Once you own these NFT, you will become the “Holder”, and will have the right to rent out your NFT for SRC. </div>
+                    <div class="PPSRidersNFT-Info-Text">PonPonSnake NFT can be used in battles, these NFT comes in
+                        different appearance, style and level. They can be obtained by bidding on Marketplace. Once you
+                        own these NFT, you will become the “Holder”, and will have the right to rent out your NFT for
+                        SRC. </div>
                     <a href="MarketPlace" target="_blank" class="PPSRidersNFT-Info-Button">NFT Marketplace</a>
                 </div>
             </div>
         </div>
-
+    </div>
     </div>
 </div>
 
-<NFTindex_Carousel />

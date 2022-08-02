@@ -1,5 +1,5 @@
 .NFTindexCarousel{
-    border: 1px solid rgb(90, 45, 238);
+    /* border: 1px solid rgb(90, 45, 238); */
     width: 100%;
     background-image: url("/images/NFTindex/NFTindex_Carousel/NFTindex_Carousel_BG.png");
     background-position: top center;
@@ -8,32 +8,31 @@
     /* max-width: 1000px; */
     margin-top: -250px;
     /* height: 1000px; */
-    padding: 300px 0;
+    padding: 300px 0 150px;
 }
 
 .NFTindex-Carousel-All{
-    border: 1px solid red;
-    max-width: 1200px;
+    /* border: 1px solid red; */
+    max-width: 1300px;
     margin: 0 auto;
     position: relative;
-    /* max-width: 1350px; */
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
 }
 
 .NFTindex-Carousel-Block {
     /* border: 1px solid yellow; */
-    max-width: 1200px;
-    width: 90%;
+    /* max-width: 1400px; */
+    width: 95%;
     /* height: 300px; */
-    margin: 50px auto;
-    /* padding: 0 20px !important; */
+    margin: 40px auto;
+    padding: 40px !important;
 }
 
 .Card-Grade {
     border: 4.5px solid rgba(255, 255, 255, 68%);
-    max-width: 320px;
-    width: 100%;
+    width: 320px;
+    /* width: 100%; */
     height: 564px;
     position: relative;
     display: flex;
@@ -42,11 +41,12 @@
     border-radius: 17px;
     margin: 20px auto;
     background-position: center center;
-    background-repeat: round;
+    background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: 0px -9px 30px 7px rgba(18, 13, 55, 0.6), inset 0px 27px 53.3px 11.7px rgb(3 49 134 / 10%);
     /* background-image: linear-gradient(to top, #a3402c, #712d1d); */
+    transition: all .3s ease-in-out;
 }
 .Card-Grade::before{
     content: "";
@@ -63,19 +63,76 @@
     height: 448px; */
     height: 95%;
     z-index: 1;
+    opacity: 0.6;
+    
+}
+.Card-Diamond{
+    /* border: 1px solid red; */
+    width: 25px;
+    /* height: 28px; */
+    position: absolute;
+    z-index: 5;
+    opacity: 1;
+}
+.Card-Diamond-01{
+    left: 0%;
+    top: 0%;
+}
+.Card-Diamond-02{
+    right: 0%;
+    top: 0%;
+}
+.Card-Diamond-03{
+    left: 0%;
+    bottom: 0%;
+}
+.Card-Diamond-04{
+    right: 0%;
+    bottom: 0%;
+}
+.Card-Grade-aperture{
+    /* content: ""; */
+    position: absolute;
+    background-image: url("/images/NFTindex/NFTindex_Carousel/aperture.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 110%;
+    height: 108%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 0;
+    transition: all .3s ease-in-out;
+    filter: drop-shadow(0px 0px 15px #7fbfdc);
+}
+.Card-Grade:hover .Card-Grade-aperture{
+    opacity: 0.7;
+    z-index: 1;
+}
+.Card-Grade:hover .Card-Grade-KindMap{
+    transition: all .3s ease-in-out;
+    transform: translateX(-50%) scale(1.03);
+}
+.Card-Grade:hover .Card-Grade-halo{
+    transition: all .3s ease-in-out;
+    transform: scale(1.15);
 }
 
 #Card-Grade-01{
-    background-image: url(/images/NFTindex/NFTindex_Carousel/Card-Grade-01.png);
+    background-image: url(/images/NFTindex/NFTindex_Carousel/Card-Grade-01-BG.png);
 }
+
 #Card-Grade-02{
-    background-image: url(/images/NFTindex/NFTindex_Carousel/Card-Grade-02.png);
+    background-image: url(/images/NFTindex/NFTindex_Carousel/Card-Grade-02-BG.png);
 }
 #Card-Grade-03{
-    background-image: url(/images/NFTindex/NFTindex_Carousel/Card-Grade-03.png);
+    background-image: url(/images/NFTindex/NFTindex_Carousel/Card-Grade-03-BG.png);
 }
 #Card-Grade-05, #Card-Grade-06, #Card-Grade-07{
-    background-image: url(/images/NFTindex/NFTindex_Carousel/Card-Grade-04.png);
+    background-image: url(/images/NFTindex/NFTindex_Carousel/Card-Grade-04-BG.png);
 }
 
 
@@ -83,7 +140,7 @@
 .Card-Grade-Content{
     /* border: 1px solid yellow; */
     width: 70%;
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,15 +176,16 @@
 
 .Card-Grade-halo{
     width: 100%;
+    transition: all .3s ease-in-out;
 }
 
 .Card-Grade-KindMap{
     position: absolute;
 
-    width: 100%;
+    width: 80%;
     transform: translateX(-50%);
     left: 50%;
-
+    transition: all .3s ease-in-out;
     z-index: 5;
     /* filter: drop-shadow(0px 0px 8px rgba(89, 90, 90, 0.29)); */
 }
@@ -159,7 +217,7 @@
 
 
 .Card-Grade-icon{
-    width: 100%;
+    width: 41%;
     /* max-height: 100px; */
     position: absolute;
     transform: translateX(-50%);
@@ -214,6 +272,7 @@
   .Card-Grade-text{
     /* border: 1px solid red; */
     margin-top: 275px;
+    width: 100%;
     height: 185px;
     font-size: 12px;
     line-height: 1.6;
@@ -237,3 +296,191 @@
     color: #edf1f3;
     padding: 1px 0 2px 0;
   }
+
+#NFTindex-Carousel {
+    /* width: 90% !important; */
+    max-width: 1200px !important;
+    margin-bottom: 45px;
+    justify-content: space-between;
+}
+
+/* 輪播調整 */
+.swiper-button{
+    position: relative;
+    position: absolute;
+    top: 45%;
+    width: 100%;
+}
+.swiper-button-prev, .swiper-button-next{
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 40% !important;
+    width: 40px !important;
+    height: 65px !important;
+    transition: all .1s ease-in-out;
+}
+.swiper-button-prev:hover, .swiper-button-next:hover{
+    opacity: 0.8;
+}
+.swiper-button-prev{
+    background-image: url(/images/NFTindex/NFTindex_Carousel/button-prev.webp);
+    left: 0px !important;
+}
+.swiper-button-prev:after{
+    content: ''!important;
+}
+.swiper-button-next{
+    background-image: url(/images/NFTindex/NFTindex_Carousel/button-next.webp);
+    right: 0px !important;
+}
+.swiper-button-next:after{
+    content: ''!important;
+}
+.swiper-pagination{
+    bottom: 0 !important;
+}
+
+.swiper-pagination-bullet{
+    width: 20px !important;
+    height: 20px !important;
+    background: #276170 !important;
+    opacity: 1 !important;
+    margin: 0 7px !important;
+    transition: all .1s ease-in-out;
+}
+.swiper-pagination-bullet:hover{
+    opacity: 0.7 !important;
+}
+.swiper-pagination-bullet-active{
+    background: #66AEA2 !important;
+    opacity: 1 !important;
+}
+
+@media all and (max-width: 800px){
+    .swiper-button-prev, .swiper-button-next{
+        width: 30px !important;
+        height: 50px !important;
+    }
+    .GameFi-Carousel-Item{
+        width: 250px;
+        height: 250px;
+    }
+    .swiper-pagination-bullet{
+        width: 15px !important;
+        height: 15px !important;
+        margin: 0 6px !important;
+    }
+}
+
+/* RWD */
+@media all and (max-width: 1500px){
+    .NFTindex-Carousel-All{
+        max-width: 1100px;
+    }
+    .NFTindex-Carousel-Block{
+        width: 90%;
+    }
+    .NFTindexCarousel{
+        padding: 180px 0 150px;
+    }
+    .Card-Grade{
+        width: 270px;
+        height: 505px;
+    }
+    .Card-Grade-Content{
+        width: 75%;
+        margin: 18px auto;
+    }
+    .Card-Grade-Title{
+        font-size: 23px;
+    }
+    .Card-Grade::before{
+        width: 80%;
+    }
+    .Coming-Soon{
+        max-width: 208px;
+        top: 48%;
+        font-size: 16px;
+    }
+    .Card-Grade-Image{
+        max-width: 220px;
+        top: 4.5%;
+    }
+    .Card-Diamond{
+        width: 20px;
+    }
+    #Card-Grade-icon-01 {
+        max-width: 115px;
+        bottom: -15%;
+    }
+    #Card-Grade-icon-02 {
+        max-width: 60px;
+        bottom: -16%;
+    }
+    #Card-Grade-icon-03 {
+        max-width: 65px;
+        bottom: -18%;
+    }
+    #Card-Grade-icon-05 {
+        max-width: 60px;
+        bottom: -15%;
+    }
+    #Card-Grade-icon-06 {
+        max-width: 75px;
+        bottom: -15%;
+    }
+    #Card-Grade-icon-07 {
+        max-width: 65px;
+        bottom: -15%;
+    }
+    #Card-Grade-KindMap-05{
+        top: 26%;
+    }
+    #Card-Grade-KindMap-06{
+        top: 27%;
+    }
+    #Card-Grade-KindMap-07{
+        top: 25%;
+    }
+    .Card-Grade-text{
+        margin-top: 240px;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+        height: 175px;
+    }
+    .Card-Grade-price{
+        width: 120px;
+    }
+    .Card-Grade-aperture{
+        background-image: url(/images/NFTindex/NFTindex_Carousel/aperture-RWD.png);
+    }
+}
+
+@media all and (max-width: 1200px){
+    .NFTindex-Carousel-All{
+        max-width: 800px;
+    }
+    .NFTindexCarousel {
+        padding: 150px 0 100px;
+    }
+}
+@media all and (max-width: 1000px){
+    .NFTindex-Carousel-All{
+        width: 95%;
+        /* max-width: 400px; */
+    }
+    .NFTindex-Carousel-Block{
+        width: 90%;
+    }
+    .NFTindexCarousel {
+        padding: 100px 0 100px;
+    }
+}
+@media all and (max-width: 500px){
+    .Card-Grade {
+        /* width: 260px; */
+    }
+    .NFTindex-Carousel-Block{
+        padding: 20px !important;
+    }
+}
