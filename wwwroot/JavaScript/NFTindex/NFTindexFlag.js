@@ -15,7 +15,7 @@ export function NFTindexFlagReel() {
         // console.log('NFTindexFlagReel scrollY')
         if (window.scrollY > position) {
             $('.Flag-BlockAll').addClass('animate_start')
-            $(window).unbind('scroll')
+            $(window).unbind('scroll',init)
         }
     }
 }
