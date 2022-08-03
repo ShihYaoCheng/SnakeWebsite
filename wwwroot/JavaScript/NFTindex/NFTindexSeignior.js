@@ -6,7 +6,7 @@ export function NFTindexSeigniorReel() {
         const SeigniorReel = $('.PPSRidersNFT-IconsAll')[0].getBoundingClientRect()
         //控制rect出現頁面高度 ex: (...) - 100
         // positionReel = (SeigniorReel.top - SeigniorReel.height) - 400
-        positionReel = (SeigniorReel.top) - 400
+        positionReel = (SeigniorReel.top) - 600
 
 
         $(window).on('scroll', iconsAllInit)
