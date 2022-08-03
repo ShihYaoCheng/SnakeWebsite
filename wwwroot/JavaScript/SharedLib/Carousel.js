@@ -156,20 +156,17 @@ window.NFTindexCarousel = function () {
     console.log('NFTindexCarousel init22', Swiper);
     new Swiper('.NFTindex-Carousel-Block', {
         spaceBetween: 100,
-        // autoplay: {
-        //     delay: 2000,
-        // },
+        autoplay: {
+            delay: 3500,
+        },
         slidesPerView: 1,
         loop: true,
         breakpoints: {
             600: {
                 slidesPerView: 1,
             },
-            650: {
-                slidesPerView: 1,
-            },
             700: {
-                slidesPerView: 2,
+                slidesPerView: 1,
             },
             1000: {
                 slidesPerView: 2,

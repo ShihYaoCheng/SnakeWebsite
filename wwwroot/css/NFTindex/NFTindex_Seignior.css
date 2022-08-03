@@ -335,6 +335,7 @@
     z-index: 10;
     letter-spacing: 1px;
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+    white-space: nowrap;
 }
 
 /* 蛇王 */
@@ -605,6 +606,11 @@
         margin-bottom: 50px;
     }
     .PPSRidersNFT-InfoBlock{
+        width: 100%;
+    }
+}
+@media all and (max-width: 500px){
+    #PPSRidersNFT-Icons-row-03{
         width: 100%;
     }
 }
