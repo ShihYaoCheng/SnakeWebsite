@@ -275,9 +275,35 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    /* opacity: 0;
+    z-index: 0; */
 }
 #PPSRidersNFT-Icons-row-03{
     width: 85%;
+}
+.animate_start #PPSRidersNFT-Icons-row-01{
+    animation: SnakeRow-display 0.8s ease-in 0s forwards;
+}
+.animate_start #PPSRidersNFT-Icons-row-02{
+    animation: SnakeRow-display 0.8s ease-in 0.4s forwards;
+}
+.animate_start #PPSRidersNFT-Icons-row-03{
+    animation: SnakeRow-display 0.8s ease-in 0.8s forwards;
+}
+.animate_start #PPSRidersNFT-Icons-row-04{
+    animation: SnakeRow-display 0.8s ease-in 1.2s forwards;
+}
+@keyframes SnakeRow-display {
+    0% {
+        opacity: 0;
+        z-index: 0;
+    }
+
+    100% {
+        opacity: 1;
+        z-index: 1;
+    }
 }
 
 .SnakeIcons-Block-All{

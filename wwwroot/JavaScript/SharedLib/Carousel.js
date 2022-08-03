@@ -153,7 +153,7 @@ window.GameFiCarousel = function () {
 
 window.NFTindexCarousel = function () {
     // export function NFTindexCarousel() {
-    console.log('NFTindexCarousel init22', Swiper);
+    // console.log('NFTindexCarousel init22', Swiper);
     new Swiper('.NFTindex-Carousel-Block', {
         spaceBetween: 100,
         autoplay: {

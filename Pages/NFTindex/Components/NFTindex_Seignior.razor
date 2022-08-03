@@ -55,7 +55,7 @@
             <div class="PPSRidersNFT-IconsAll">
 
                 @* 蛇王 *@
-                <div class="PPSRidersNFT-Icons-row">
+                <div class="PPSRidersNFT-Icons-row" id="PPSRidersNFT-Icons-row-01">
 
                     <div class="SnakeIcons-Block-All">
                         <div class="SnakeIcons-Block" id="SnakeIcons-Block-01">
@@ -70,7 +70,7 @@
                 </div>
 
                 @* 蛇二級 *@
-                <div class="PPSRidersNFT-Icons-row">
+                <div class="PPSRidersNFT-Icons-row" id="PPSRidersNFT-Icons-row-02">
                     <div class="SnakeIcons-Block-All">
                         <div class="SnakeIcons-Block" id="SnakeIcons-Block-02">
                             <img class="PPSRidersNFT-Icons-Snake"
@@ -107,7 +107,7 @@
                 </div>
 
                 @* 蛇四級 *@
-                <div class="PPSRidersNFT-Icons-row">
+                <div class="PPSRidersNFT-Icons-row"  id="PPSRidersNFT-Icons-row-04">
 
                     <div class="SnakeIcons-Block-All">
                         <div class="SnakeIcons-Block" id="SnakeIcons-Block-05">
@@ -158,3 +158,16 @@
     </div>
 </div>
 
+
+@code {
+    @* private IJSObjectReference? NFTindexSeigniorJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            NFTindexSeigniorJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/NFTindex/NFTindexSeignior.js");
+            await NFTindexSeigniorJS.InvokeVoidAsync("NFTindexSeigniorReel");
+        }
+    } *@
+
+}
