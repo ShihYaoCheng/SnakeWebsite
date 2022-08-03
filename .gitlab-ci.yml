@@ -9,6 +9,9 @@ stages:
 include:
   - local: ".gitlab-ci-template.yml"
 
+variables:
+  VERSION_REGULAR_EXPRESSION: /^v\d\.\d+\.\d+$/
+
 #=====================#
 # Build               #
 #=====================#
@@ -133,7 +136,7 @@ QAStable:
     PATH_FILENAME_VALUES: "./chart/values-$CI_COMMIT_BRANCH-qa.yaml"
     STATEMENT: "yq e '.image.name = \"asia.gcr.io/cqi-operation/sk-official-web\" | .image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-$CI_COMMIT_BRANCH-qa.yaml"
   rules:
-    - if: $CI_COMMIT_BRANCH == "beta"
+    - if: $CI_COMMIT_BRANCH == "beta" || $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION
 
 Prod:
   stage: Helm
