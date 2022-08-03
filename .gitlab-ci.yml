@@ -136,14 +136,24 @@ QAStable:
     PATH_FILENAME_VALUES: "./chart/values-$CI_COMMIT_BRANCH-qa.yaml"
     STATEMENT: "yq e '.image.name = \"asia.gcr.io/cqi-operation/sk-official-web\" | .image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-$CI_COMMIT_BRANCH-qa.yaml"
   rules:
-    - if: $CI_COMMIT_BRANCH == "beta" || $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION
+    - if: $CI_COMMIT_BRANCH == "beta"
 
 Prod:
   stage: Helm
   trigger: GameSnake/SRE/ArgoCDAppOfficialWebsite
   variables:
-    NEW_IMAGE_TAG: $CI_COMMIT_TAG
-    NEW_GIT_TAG: $CI_COMMIT_TAG
-    STATEMENT: "yq e '.image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-prod.yaml"
+    NEW_IMAGE_TAG: $CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
+    PATH_FILENAME_VALUES: "./chart/values-$CI_COMMIT_BRANCH.yaml"
+    STATEMENT: "yq e '.image.name = \"asia.gcr.io/cqi-operation/sk-official-web\" | .image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-$CI_COMMIT_BRANCH.yaml"
   rules:
-    - if: $CI_COMMIT_TAG # Run this job when a tag is created manually.
+    - if: $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION
+
+#Prod:
+#  stage: Helm
+#  trigger: GameSnake/SRE/ArgoCDAppOfficialWebsite
+#  variables:
+#    NEW_IMAGE_TAG: $CI_COMMIT_TAG
+#    NEW_GIT_TAG: $CI_COMMIT_TAG
+#    STATEMENT: "yq e '.image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-prod.yaml"
+#  rules:
+#    - if: $CI_COMMIT_TAG # Run this job when a tag is created manually.
