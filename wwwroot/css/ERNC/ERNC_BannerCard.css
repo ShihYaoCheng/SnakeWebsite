@@ -191,7 +191,7 @@
 .ERNCBanner-Content-BG{
     width:85%;
     margin: 0 auto;
-    /* max-width: 1500px; */
+    max-width: 1800px;
     position: absolute;
     transform: translateX(-50%);
     top: 100px;
