@@ -1,0 +1,14 @@
+.ERNC_Table-Block{
+    width: 100%;
+    height: 1000px;
+    background-image: url(/images/ERNC/ERNC_BannerCard/diamond_BG.png);
+    background-position: top center;
+}
+
+table.ERNC_Table{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+}
