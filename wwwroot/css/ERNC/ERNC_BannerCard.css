@@ -189,11 +189,13 @@
 
 
 .ERNCBanner-Content-BG{
-    width: 100%;
-
+    width:85%;
+    margin: 0 auto;
+    /* max-width: 1500px; */
     position: absolute;
+    transform: translateX(-50%);
     top: 100px;
-    left: 0;
+    left: 50%;
     /* opacity: 0.4; */
     background-color: hsla(0, 48%, 5%, 0.4);
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
@@ -207,7 +209,7 @@
 }
 .Content-Title{
     color: #fff;
-    font-size: 58px;
+    font-size: 52px;
     letter-spacing: 6px;
     text-align: center;
     margin-bottom: 36px;
@@ -218,7 +220,7 @@
 }
 .Content-Text{
     font-size: 30px;
-    line-height: 2.1;
+    line-height: 1.6;
     letter-spacing: 3px;
     text-align: center;
     color: #fff;
@@ -275,11 +277,13 @@
 .Card-BG{
     /* border: 1px solid red;  */
     margin: 30px 40px;
-    max-width: 295px;
+    max-width: 280px;
     width: 100%;
-    border-radius: 25px;
-    background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%);
-    padding: 16px;
+    border-radius: 15px;
+    /* background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%); */
+    /* background-color: #fff; */
+    border: 10px solid white;
+    /* padding: 16px; */
     box-shadow: 3px 3px 8px 4.5px #17171780;
     transition: all .2s ease-in-out;
 }
@@ -288,11 +292,14 @@
     box-shadow: 0px 0px 25px 5px #ffe8a280;
 }
 .Card-Inner{
-    border: 1px solid #fad35fc5; 
-    background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%);
+    /* border: 1px solid #fad35fc5; 
+    background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%); */
+    /* box-shadow: 0px 0px 8px 4.5px #fad35fd9; */
+
+    background-color: #0000003f;
+
     border-radius: 15px;
-    box-shadow: 0px 0px 8px 4.5px #fad35fd9;
-    padding: 30px 20px;
+    padding: 0px 0px 20px;
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
     display: flex;
     flex-direction: column;
@@ -300,10 +307,9 @@
     justify-content: center;
     position: relative;
 }
-.Card-Inner::before{
+/* .Card-Inner::before{
     content: "";
     background-image: url("/images/ERNC/ERNC_BannerCard/rolequality.png");
-    /* max-width: 380px; */
     width: 26px;
     height: 36px;
     position: absolute;
@@ -315,7 +321,6 @@
 .Card-Inner::after{
     content: "";
     background-image: url("/images/ERNC/ERNC_BannerCard/rolequality.png");
-    /* max-width: 380px; */
     width: 26px;
     height: 36px;
     position: absolute;
@@ -323,28 +328,41 @@
     right: -2.5%;
     background-size: contain;
     background-repeat: no-repeat;
-}
+} */
 
 
 .IconBlock{
-    background-color: white;
-    border-radius: 20px;
+    /* border: 1px solid red; */
+
+    /* border-radius: 20px; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
     /* width: 200px; */
     width: 100%;
     /* height: 200px; */
-    padding: 40px 0 15px;
-    margin: 0 auto 24px;
-    box-shadow: inset 0px 0px 20px 5px #fad35fb0;
+    /* padding: 40px 0 15px; */
+    margin: -8px auto 10px;
+    /* background-color: white;
+    box-shadow: inset 0px 0px 20px 5px #fad35fb0; */
+
+    /* background-image: url("/images/ERNC/ERNC_BannerCard/IconBlock-diamond-BG.png");
+    background-repeat: no-repeat;
+    background-size: contain; */
+    /* width: 267px; */
+    /* height: 267px; */
+}
+.IconBlock-BG{
+    width: 105%;
 }
 .IconBlock-Img{
     /* border: 1px solid red;  */
     /* width: 120px; */
-    height: 100px;
-    margin-bottom: 8px;
+    height: 93px;
+    /* margin-bottom: 8px; */
+    position: absolute;
 }
 .IconBlock-Img img{
     /* width: 100%; */
@@ -352,10 +370,11 @@
 }
 
 .IconBlock-Text{
-    color: #ab6749;
+    color: #ffffff;
     font-size: 28px;
     font-weight: 600;
     letter-spacing: 1.6px;
+    margin-bottom: 10px;
 }
 
 .Card-Inner-Text{
@@ -365,7 +384,8 @@
     letter-spacing: 1.6px;
     text-align: center;
     color: #feffff;
-    height: 185px;
+    height: 210px;
+    padding: 0 20px;
 }
 
 
@@ -425,14 +445,14 @@
         padding: 80px 0;
     }
     .Card-BG{
-        max-width: 265px;
-        margin: 30px;
+        /* max-width: 265px; */
+        /* margin: 30px; */
     }
     .Card-Inner{
-        padding: 20px 18px;
+        /* padding: 20px 18px; */
     }
     .IconBlock-Img{
-        height: 77px;
+        height: 95px;
         margin-bottom: 5px;
     }
     .IconBlock-Text{
@@ -440,13 +460,14 @@
         letter-spacing: 1.4px;
     }
     .IconBlock{
-        margin: 0 auto 20px;
-        padding: 30px 0 15px;
+        margin: -8px auto 15px;
+        /* padding: 0px 0 0px; */
+        margin-bottom: 10px;s
     }
     .Card-Inner-Text {
         font-size: 15px;
         line-height: 20px;
-        height: 200px;
+        height: 170px;
     }
 }
 @media all and (max-width: 1400px){
@@ -476,6 +497,7 @@
 @media all and (max-width: 1200px){
     .ERNCBanner-Content-BG {
         top: 73px;
+        width: 100%;
     }
     .Content-Title {
         font-size: 28px;
