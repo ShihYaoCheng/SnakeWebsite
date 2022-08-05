@@ -29,3 +29,82 @@
 .ERNC-Block{
     width: 100%;
 }
+.ERNC-diamond_BG{
+    width: 100%;
+    background-image: url(/images/ERNC/ERNC_BannerCard/diamond_BG.png);
+    background-position: top center;
+}
+
+/* 各段標題 */
+.ERNC-Block-Info{
+    /* border: 1px solid red; */
+    /* max-width: 1000px; */
+    width: 90%;
+    margin: 0 auto 25px; 
+    color: white;
+    text-align: center;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+}
+.ERNC-Block-InfoTitle{
+    font-size: 30px;
+    margin-bottom: 15px;
+    
+}
+.ERNC-Block-InfoTitle span{
+    padding-bottom: 3px;
+    border-bottom: 3px solid white;
+    letter-spacing: 1.5px;
+}
+.ERNC-Block-InfoText{
+    font-size: 22px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+@media all and (max-width: 1920px){
+    
+    .ERNC-Block-Info {
+        max-width: 850px;
+    }
+    .ERNC-Block-InfoTitle {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    .ERNC-Block-InfoText {
+        font-size: 18px;
+    }
+}
+@media all and (max-width: 1200px){
+    .ERNC-Block-Info{
+        max-width: 750px;
+    }
+    .ERNC-Block-InfoTitle {
+        font-size: 26px;
+        /* margin-bottom: 20px; */
+    }
+    .ERNC-Block-InfoText{
+        font-size: 16px;
+    }
+}
+@media all and (max-width: 1000px){
+    .ERNC-Block-Info {
+        max-width: 600px;
+    }
+    .ERNC-Block-InfoTitle span{
+        padding-bottom: 2.5px;
+        border-bottom: 2px solid white;
+    }
+}
+@media all and (max-width: 750px){
+    .ERNC-Block-InfoTitle{
+        font-size: 20px;
+    }
+    .ERNC-Block-InfoText{
+        font-size: 14px;
+    }
+    
+}
+@media all and (max-width: 650px){
+    .ERNC-Block-InfoText {
+        font-size: 13px;
+    }
+}

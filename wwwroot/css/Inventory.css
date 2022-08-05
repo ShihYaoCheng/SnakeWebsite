@@ -354,6 +354,11 @@
 .Inventory-PPSR-Filter-Sidebar .Sidebar-checkbox-label{
     font-size: 16px;
 }
+.Inventory .CollectBtnBig {
+    min-width: 180px;
+    height: 43px;
+    padding: 0 20px;
+}
 
 @media all and (max-width: 1500px){
     .Inventory-PPSR-Filter{
@@ -362,6 +367,9 @@
     .Inventory-PPSR-sortSelect{
         font-size: 20px !important;
         height: 44px !important;
+    }
+    .Inventory .CollectBtnBlack{
+        font-size: 20px !important;
     }
 
 }
@@ -497,6 +505,9 @@
     }
     .Inventory-PPSR-Amount {
         font-size: 26px;
+    }
+    .Inventory-PPSR-sortSelect{
+        font-size: 16px !important;
     }
 }
 

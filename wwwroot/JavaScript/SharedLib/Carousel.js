@@ -17,13 +17,13 @@ window.ACLS3RulesCarousel = function () {
         responsive: {
             0: {
                 items: 1
-            }      
+            }
         }
-        
+
     });
     var owl = $('.ACLS3RulesCarousel');
-    owl.owlCarousel(); 
-  
+    owl.owlCarousel();
+
     owl.on('dragged.owl.carousel', function (event) {
         Typewriter()
     })
@@ -39,7 +39,7 @@ window.ACLS3RulesCarousel = function () {
             for (let i in e.children) {
                 if (e.children[i].tagName == "IMG" || e.children[i].tagName == "DIV") continue
                 if (typeof (e.children[i]) != "object") break
-                
+
                 e.children[i].style.display = "none";
                 e.children[i].classList.remove("Typewriter-1Ani")
 
@@ -60,7 +60,7 @@ window.ACLS3RulesCarousel = function () {
         }
 
     }
-   
+
 }
 
 window.ACLS3ScheduleCarousel = function () {
@@ -88,8 +88,8 @@ window.ACLS3ScheduleCarousel = function () {
         // Parameters has to be in square bracket '[]'
         owl.trigger('prev.owl.carousel', [300]);
     })
-    
-  
+
+
 }
 
 
@@ -97,9 +97,9 @@ window.GameFiCarousel = function () {
     console.log('GameFiCarousel init22', Swiper);
     new Swiper('.GameFi-Carousel-Block', {
         spaceBetween: 100,
-        autoplay: {
-            delay: 2000,
-        },
+        // autoplay: {
+        //     delay: 2000,
+        // },
         slidesPerView: 1,
         loop: true,
         breakpoints: {
@@ -148,4 +148,44 @@ window.GameFiCarousel = function () {
     //         }
     //     }
     // });
+}
+
+
+window.NFTindexCarousel = function () {
+    // export function NFTindexCarousel() {
+    // console.log('NFTindexCarousel init22', Swiper);
+    new Swiper('.NFTindex-Carousel-Block', {
+        spaceBetween: 100,
+        autoplay: {
+            delay: 3500,
+        },
+        slidesPerView: 1,
+        loop: true,
+        breakpoints: {
+            600: {
+                slidesPerView: 1,
+            },
+            700: {
+                slidesPerView: 1,
+            },
+            1000: {
+                slidesPerView: 2,
+            },
+            1200: {
+                slidesPerView: 3,
+            },
+            1500: {
+                slidesPerView: 3,
+            },
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+    
 }

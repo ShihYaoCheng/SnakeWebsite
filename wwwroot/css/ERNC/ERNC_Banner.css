@@ -189,11 +189,13 @@
 
 
 .ERNCBanner-Content-BG{
-    width: 100%;
-
+    width:85%;
+    margin: 0 auto;
+    max-width: 1800px;
     position: absolute;
+    transform: translateX(-50%);
     top: 100px;
-    left: 0;
+    left: 50%;
     /* opacity: 0.4; */
     background-color: hsla(0, 48%, 5%, 0.4);
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
@@ -207,7 +209,7 @@
 }
 .Content-Title{
     color: #fff;
-    font-size: 58px;
+    font-size: 52px;
     letter-spacing: 6px;
     text-align: center;
     margin-bottom: 36px;
@@ -218,155 +220,12 @@
 }
 .Content-Text{
     font-size: 30px;
-    line-height: 2.1;
+    line-height: 1.6;
     letter-spacing: 3px;
     text-align: center;
     color: #fff;
 }
 
-
-/* 卡片區 */
-.ERNC-Card{
-    /* border: 1px solid red; */
-    background-image: url("/images/ERNC/ERNC_BannerCard/diamond_BG.png");
-    background-position: top center;
-    /* height: 2000px; */
-    padding: 100px 0 150px;
-}
-
-.ERNC-Block-Info{
-    /* border: 1px solid red; */
-    max-width: 1000px;
-    width: 90%;
-    margin: 0 auto 25px; 
-    color: white;
-    text-align: center;
-    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
-
-}
-.ERNC-Block-InfoTitle{
-    font-size: 30px;
-    margin-bottom: 15px;
-    
-}
-.ERNC-Block-InfoTitle span{
-    padding-bottom: 3px;
-    border-bottom: 3px solid white;
-    letter-spacing: 1.5px;
-}
-.ERNC-Block-InfoText{
-    font-size: 22px;
-    line-height: 1.5;
-    letter-spacing: 1px;
-}
-
-.ERNC-Card-All{
-    /* border: 1px solid red;  */
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-.Card-BG{
-    /* border: 1px solid red;  */
-    margin: 30px 40px;
-    max-width: 295px;
-    width: 100%;
-    border-radius: 25px;
-    background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%);
-    padding: 16px;
-    box-shadow: 3px 3px 8px 4.5px #17171780;
-    transition: all .2s ease-in-out;
-}
-.Card-BG:hover {
-    transition: all .2s ease-in-out;
-    box-shadow: 0px 0px 25px 5px #ffe8a280;
-}
-.Card-Inner{
-    border: 1px solid #fad35fc5; 
-    background-image: linear-gradient(to bottom,  #C9B082 0%,  #A98852 100%);
-    border-radius: 15px;
-    box-shadow: 0px 0px 8px 4.5px #fad35fd9;
-    padding: 30px 20px;
-    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-.Card-Inner::before{
-    content: "";
-    background-image: url("/images/ERNC/ERNC_BannerCard/rolequality.png");
-    /* max-width: 380px; */
-    width: 26px;
-    height: 36px;
-    position: absolute;
-    top: -2%;
-    left: -2.5%;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-.Card-Inner::after{
-    content: "";
-    background-image: url("/images/ERNC/ERNC_BannerCard/rolequality.png");
-    /* max-width: 380px; */
-    width: 26px;
-    height: 36px;
-    position: absolute;
-    top: -2%;
-    right: -2.5%;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-
-.IconBlock{
-    background-color: white;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* width: 200px; */
-    width: 100%;
-    /* height: 200px; */
-    padding: 40px 0 15px;
-    margin: 0 auto 24px;
-    box-shadow: inset 0px 0px 20px 5px #fad35fb0;
-}
-.IconBlock-Img{
-    /* border: 1px solid red;  */
-    /* width: 120px; */
-    height: 100px;
-    margin-bottom: 8px;
-}
-.IconBlock-Img img{
-    /* width: 100%; */
-    height: 100%;
-}
-
-.IconBlock-Text{
-    color: #ab6749;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: 1.6px;
-}
-
-.Card-Inner-Text{
-    width: 100%;
-    font-size: 15px;
-    line-height: 1.5;
-    letter-spacing: 1.6px;
-    text-align: center;
-    color: #feffff;
-    height: 185px;
-}
 
 
 @media all and (max-width: 1920px){
@@ -387,20 +246,6 @@
         letter-spacing: 2.8px;
     }
 
-    .ERNC-Card{
-        padding: 100px 0 130px;
-    }
-
-    .ERNC-Block-Info {
-        max-width: 850px;
-    }
-    .ERNC-Block-InfoTitle {
-        font-size: 28px;
-        margin-bottom: 20px;
-    }
-    .ERNC-Block-InfoText {
-        font-size: 18px;
-    }
 }
 @media all and (max-width: 1600px){
     .ERNCBanner-Content-BG{
@@ -417,37 +262,6 @@
         letter-spacing: 2.6px;
     }
 
-    .ERNC-Card-All{
-        max-width: 1000px;
-        width: 95%;
-    }
-    .ERNC-Card {
-        padding: 80px 0;
-    }
-    .Card-BG{
-        max-width: 265px;
-        margin: 30px;
-    }
-    .Card-Inner{
-        padding: 20px 18px;
-    }
-    .IconBlock-Img{
-        height: 77px;
-        margin-bottom: 5px;
-    }
-    .IconBlock-Text{
-        font-size: 22px;
-        letter-spacing: 1.4px;
-    }
-    .IconBlock{
-        margin: 0 auto 20px;
-        padding: 30px 0 15px;
-    }
-    .Card-Inner-Text {
-        font-size: 15px;
-        line-height: 20px;
-        height: 200px;
-    }
 }
 @media all and (max-width: 1400px){
     .ERNCBanner-Content-BG {
@@ -476,6 +290,7 @@
 @media all and (max-width: 1200px){
     .ERNCBanner-Content-BG {
         top: 73px;
+        width: 100%;
     }
     .Content-Title {
         font-size: 28px;
@@ -490,22 +305,11 @@
     .ERNCBanner-BG img, .ERNCBanner-BG-animation img{
         width: 110%;  
     }
-    .ERNC-Block-Info{
-        max-width: 750px;
-    }
-    .ERNC-Block-InfoTitle {
-        font-size: 26px;
-        /* margin-bottom: 20px; */
-    }
-    .ERNC-Block-InfoText{
-        font-size: 16px;
-    }
+    
 }
 
 
-.Card-flex{
-    display: flex;
-}
+
 @media all and (max-width: 1000px){
     .ERNCBanner-Content-BG {
         top: 65px;
@@ -531,26 +335,6 @@
         width: 120%;  
     }
 
-
-    .ERNC-Card {
-        padding: 80px 0;
-    }
-    .ERNC-Card-All{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .Card-BG {
-        margin: 30px;
-    }
-
-
-    .ERNC-Block-Info {
-        max-width: 600px;
-    }
-    .ERNC-Block-InfoTitle span{
-        padding-bottom: 2.5px;
-        border-bottom: 2px solid white;
-    }
 }
 @media all and (max-width: 900px){
     .ERNCBanner-BG img, .ERNCBanner-BG-animation img{
@@ -585,23 +369,6 @@
         width: 160%;  
     }
 
-
-    .ERNC-Card-All{
-        flex-direction: column;
-    }
-    .Card-flex {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .ERNC-Block-InfoTitle{
-        font-size: 20px;
-    }
-    .ERNC-Block-InfoText{
-        font-size: 14px;
-    }
-    
 }
 @media all and (max-width: 700px){
     .ERNCBanner-Content {
@@ -633,10 +400,6 @@
         font-size: 13px;
         line-height: 1.5;
         letter-spacing: 1.5px;
-    }
-
-    .ERNC-Block-InfoText {
-        font-size: 13px;
     }
 }
 @media all and (max-width: 600px){
@@ -691,10 +454,6 @@
     }
     .ERNCBanner-Gradient {
         background-image: linear-gradient(to bottom, #15283700 0%, #1528371a 55%, #1528374a 60%, #152837c4 65%, #152837 70%,#152837 100%);
-    }
-
-    .ERNC-Card {
-        padding: 50px 0;
     }
 }
 
