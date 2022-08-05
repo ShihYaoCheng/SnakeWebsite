@@ -29,6 +29,11 @@
 .ERNC-Block{
     width: 100%;
 }
+.ERNC-diamond_BG{
+    width: 100%;
+    background-image: url(/images/ERNC/ERNC_BannerCard/diamond_BG.png);
+    background-position: top center;
+}
 
 /* 各段標題 */
 .ERNC-Block-Info{

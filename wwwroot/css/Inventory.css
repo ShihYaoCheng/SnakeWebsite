@@ -357,7 +357,7 @@
 .Inventory .CollectBtnBig {
     min-width: 180px;
     height: 43px;
-    padding: 0 12px;
+    padding: 0 20px;
 }
 
 @media all and (max-width: 1500px){

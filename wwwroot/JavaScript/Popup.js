@@ -110,13 +110,13 @@ window.showTag = function () {
         if (e.target.data==true) {
             e.target.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "none"                     
             e.target.data = false          
-            e.target.innerHTML = `Show Tag <img class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow01.webp">`
+            e.target.innerHTML = `Show Tag <img class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png">`
           
         } else {
      
             e.target.data = true
             e.target.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "block"
-            e.target.innerHTML = `Hide Tag <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow01.webp">`
+            e.target.innerHTML = `Hide Tag <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png">`
         }
        
        // e.target.parentNode.lastChild.style.display = "contents"
