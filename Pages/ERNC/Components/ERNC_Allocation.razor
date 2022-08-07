@@ -21,6 +21,13 @@
 
         <div class="ERNC_PieChart">
             <div class="ERNC_PieChart-Title">Total 270,000,000  ERNC</div>
+        
+            <div class="Pie-Chart-Block">
+                <div class="Pie-Chart" id="Pie-Chart">
+                    @* <img data-src="/images/GameFi/Pie-Chart.webp" alt=""> *@
+                </div>
+            </div>
+        
         </div>
 
 
@@ -29,3 +36,24 @@
     </div>
 
 </div>
+
+@code {
+    private IJSObjectReference? ERNCJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+
+        {
+            ERNCJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ERNC/ERNC.js");
+
+
+            await ERNCJS.InvokeVoidAsync("chartInit");
+
+
+        }
+
+    }
+
+}
