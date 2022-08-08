@@ -26,12 +26,18 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("dev");
+//var connectionString = builder.Configuration.GetConnectionString("dev");
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //    options.UseSqlServer(connectionString));
 //builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+var config = new MySQLConfig();
+builder.Configuration.GetSection(MySQLConfig.Section).Bind(config);
+var connectionString = $"Server={config.IP};Port={config.Port};database={config.DatabaseName};user id={config.User};password={config.Password}";
+
+
 
 
 builder.Services.AddRazorPages();
