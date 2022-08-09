@@ -37,7 +37,7 @@ var config = new MySQLConfig();
 builder.Configuration.GetSection(MySQLConfig.Section).Bind(config);
 var connectionString = $"Server={config.IP};Port={config.Port};database={config.DatabaseName};user id={config.User};password={config.Password}";
 
-
+builder.WebHost.UseSentry();
 
 
 builder.Services.AddRazorPages();
@@ -133,7 +133,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSentryTracing();
 app.UseAuthentication();
 app.UseAuthorization();
 
