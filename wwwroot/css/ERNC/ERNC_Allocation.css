@@ -9,7 +9,7 @@
 }
 
 .ERNC_PieChart{
-    border:  1px solid red;
+    /* border:  1px solid red; */
 }
 
 .ERNC_PieChart-Title{
@@ -18,21 +18,80 @@
     letter-spacing: 0.8px;
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
     text-align: center;
-    margin: 50px auto 30px;
+    margin: 90px auto 20px;
+    font-weight: 600;
 }
-
+/* .ERNC_PieChart-Title span {
+    padding-bottom: 3px;
+    border-bottom: 2px solid white;
+    letter-spacing: 1.5px;
+} */
 .Pie-Chart-Block{
-    border: 1px solid rgb(45, 214, 236);
-    max-width: 607px;
+    /* border: 1px solid rgb(45, 214, 236); */
+    max-width: 1200px;
     width: 100%;
-    /* height: 530px; */
+    height: 600px;
     position: relative;
     margin: 0 auto;
     /* overflow: hidden; */
 }
+.Pie-Chart-material{
+    position: absolute;
+    width: 90%;
+    max-width: 425px;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 14.5%;
+    pointer-events: none;
+    opacity: 0;
+    filter: drop-shadow(0px 0px 4px rgba(3, 3, 3, 0.222));
 
+    /* display: none; */
+}
+@keyframes material-display{
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 0.7;
+    }
+}
+.animate_start .Pie-Chart-material{
+    animation: material-display 1s ease-in-out 1s forwards;
+}
 .Pie-Chart{
-    max-width: 607px;
+    /* max-width: 1200px; */
     width: 100%;
-    height: 530px;
+    height: 100%;
+    /* height: 530px; */
+}
+.Pie-Chart canvas{
+    max-width: 1200px;
+    width: 100%;
+}
+#Pie-Chart-Rwd{
+    display: none;
+}
+
+
+@media all and (max-width: 600px){
+
+    #Pie-Chart{
+        display: none;
+    }
+    #Pie-Chart-Rwd{
+        display: block;
+    }
+    #Pie-Chart-Rwd div{
+        height: 100% !important;
+        width: 100% !important;
+    }
+    .Pie-Chart-material{
+        display: none;
+    }
+}
+@media all and (max-width: 400px){
+    .Pie-Chart-Block{
+        height: 520px;
+    }
 }
