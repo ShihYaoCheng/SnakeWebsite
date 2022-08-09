@@ -1,0 +1,61 @@
+﻿@page "/GettingStarted"
+
+<head>
+    <link href="/css/Teach/TeachStart/TeachStart.css" rel="stylesheet" />
+</head>
+<div class="TeachStart ">
+    <div class="text-zone text-RWD-Small">
+        <h2>
+            Start Your Adventure Here
+        </h2>
+        <p>
+            PonPonSnake is a 4v4/ 1v1 3D mobile game.You can play it on your phone anytime!The snakes can be collected and be used for battling against other players. To collect these NFT, you will need to sign up Metamask Wallet. 
+        </p>
+    </div>
+
+    <div class="img-zone">      
+        @foreach(var Data in stepData)
+        {
+            <div class="step-container">
+                <div class="step-img">
+                     <img  src=@Data[0]/>
+                </div>
+               
+                <p>
+                   @Data[1]
+                </p>
+            </div>          
+
+        }
+       
+      
+
+    </div>
+
+
+    <div class="text-zone text-RWD-Big">
+        <h2>
+            Start Your Adventure Here
+        </h2>
+        <p>
+            PonPonSnake is a 4v4/ 1v1 3D mobile game.You can play it on your phone anytime!The snakes can be collected and be used for battling against other players. To collect these NFT, you will need to sign up Metamask Wallet. 
+        </p>
+    </div>
+
+    <button class="StartBtn"><a href ="https://localhost:7279/GettingStarted/create-metamask"> Start Now</a></button>
+
+</div>
+
+
+
+@code {
+    private string[][] stepData = new string[][]
+        {
+            new string[]{ "/images/Teach/TeachStart/step1.png","1.Create Metamask Account and Connect with Polygon"},
+            new string[]{ "/images/Teach/TeachStart/step2.png","2.Connect Metamask to your Opensea"},
+            new string[]{ "/images/Teach/TeachStart/step3.png","3.Create your PonPonSnake Game Account"},
+            new string[]{ "/images/Teach/TeachStart/step4.png","4.Connect Metamask to your Game Account"},
+            new string[]{ "/images/Teach/TeachStart/step5.png","5.Download and PLAY!"},
+
+        };
+}
