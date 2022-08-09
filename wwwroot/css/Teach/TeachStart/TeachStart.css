@@ -102,7 +102,8 @@
 @media all and (max-width: 768px) {
     .text-zone {
         height: 210px;
-        width: 320px;
+        max-width: 320px;
+        width: 90%;
     }
 }
 
