@@ -3,6 +3,8 @@
     height: 800px;
     background: #fff;
     padding-top: 200px;
+    font-family: 'Bitter', serif;
+    letter-spacing: 0.8px;
 }
 
 @media all and (max-width: 768px) {
