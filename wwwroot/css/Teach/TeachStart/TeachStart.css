@@ -2,14 +2,14 @@
     width: 100%;
     height: 800px;
     background: #fff;
-    padding-top: 200px;
+    padding-top: 160px;
     font-family: 'Bitter', serif;
     letter-spacing: 0.8px;
 }
 
 @media all and (max-width: 768px) {
     .TeachStart {
-        padding: 90px 0;
+        padding: 50px 0;
         height: 1350px;
     }
 }
@@ -45,7 +45,7 @@
 
 .step-container {
     width: calc((100%-10px*4)/5);
-   
+    margin: 10px;
     height: 100%;
     display: flex;
     flex-direction: column; 
@@ -89,13 +89,13 @@
 .text-zone {
     width: 921px;
     height: 160px;
-    margin: 0 auto;
+    margin: 50px auto;
     margin-bottom:20px;
 }
 @media all and (max-width: 1024px) {
     .text-zone {
         width: 90%;
- 
+        height: 180px;
     }
 }
 
