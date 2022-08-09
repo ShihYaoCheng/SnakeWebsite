@@ -25,10 +25,6 @@ export function chartInit() {
         }
     };
 
-
-
-
-
     function ERNCCharts() {
         var chartDom = document.querySelector('#Pie-Chart')
         window.myChart = echarts.init(chartDom);
@@ -270,9 +266,9 @@ export function chartInit() {
 
     }
 
+}
 
-
-
+export function chartInitRwd() {
 
     // 手機版
 
@@ -285,9 +281,9 @@ export function chartInit() {
             window.myChartRwd.resize()
         });
 
-        const rect = $('#Pie-Chart-Rwd')[0].getBoundingClientRect()
+        const rectRwd = $('#Pie-Chart-Rwd')[0].getBoundingClientRect()
         //控制圓餅出現頁面高度 ex: (...) - 100
-        positionRwd = (rect.top - rect.height) - 200
+        positionRwd = (rectRwd.top - rectRwd.height) - 200
     });
 
     $(window).on('scroll', initRwd)
@@ -295,7 +291,7 @@ export function chartInit() {
     function initRwd() {
         if (window.scrollY > positionRwd) {
             ERNCChartsRwd();
-            $(window).unbind('scroll')
+            $(window).unbind('scroll',initRwd)
         }
     };
 
