@@ -530,8 +530,9 @@
 
 /* ------------------- */
 
-.NFTcard{
+.NFTcard {
     /* cursor: pointer; */
+    height: fit-content;
 }
 @media all and (max-width: 1500px){
     .marketPlaceHeader{
@@ -1020,6 +1021,9 @@ button.price-search-button:hover .search-icon{
     /* color: #4b8b8b; */
     color: var(--theme-font-2);
     transition: all .1s ease-in;
+    position:absolute;
+    right:5px;
+    bottom:5px;
 }
 
 .ShowTag-arrow {
