@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using SnakeAsianLeague.Data.Entity.Backstage;
+using SnakeAsianLeague.Data.Entity.Config;
 using SnakeAsianLeague.Data.Entity.View;
 using System;
 using System.Collections.Generic;
@@ -11,26 +12,29 @@ namespace SnakeAsianLeague.Data.Services.Backstage
     public class AwardService
     {
         private readonly IDataAccess _db;
-        private readonly IConfiguration _config;
+        //private readonly IConfiguration _config;
+        private readonly string MysqlConnectionString;
 
-        public AwardService(IDataAccess db, IConfiguration config)
+        public AwardService(IDataAccess db, IConfiguration Configuration)
         {
             _db = db;
-            _config = config;
+            var config = new MySQLConfig();
+            Configuration.GetSection("MySQL").Bind(config);
+            MysqlConnectionString = $"Server={config.IP};Port={config.Port};database={config.DatabaseName};user id={config.User};password={config.Password}";
         }
 
         public Task<List<AwardDetail>> GetAwardDetails()
         {
             string sql = "select * from AwardDetail";
 
-            return _db.LoadData<AwardDetail, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
+            return _db.LoadData<AwardDetail, dynamic>(sql, new { }, MysqlConnectionString);
         }
 
         public Task<List<AwardApplicationForm>> GetAwardApplicationForms()
         {
             string sql = "select * from AwardApplicationForm";
 
-            return _db.LoadData<AwardApplicationForm, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
+            return _db.LoadData<AwardApplicationForm, dynamic>(sql, new { }, MysqlConnectionString);
         }
 
 
@@ -41,7 +45,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
                 + " and IsGuild =" + isGuild + " and Station = " + station + " and Place = " + place
                  + " and UserId = " + userId +" ;"
                 ;
-            List<int> rp = await _db.LoadData<int, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
+            List<int> rp = await _db.LoadData<int, dynamic>(sql, new { }, MysqlConnectionString);
             if (rp.Count == 1)
             {
                 return rp[0];
@@ -58,7 +62,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             string sql = "select * from AwardApplicationForm where SeasonNum = " + seasonNum
                  + " and UserId = " + userId + " ;"
                 ;
-            List<AwardApplicationForm> rp = await _db.LoadData<AwardApplicationForm, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
+            List<AwardApplicationForm> rp = await _db.LoadData<AwardApplicationForm, dynamic>(sql, new { }, MysqlConnectionString);
             if (rp.Count == 1)
             {
                 return rp[0];
@@ -91,7 +95,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
                 values (@SeasonNum, @UserId, @UserName, @Phone
                     , @RealName, @ContactNumber, @Email , @Address, @ApplyStatus, @CreateTime);";
 
-            return _db.SaveData<AwardApplicationForm>(sql, data, _config.GetConnectionString("dev"));
+            return _db.SaveData<AwardApplicationForm>(sql, data, MysqlConnectionString);
 
         }
 
@@ -102,7 +106,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
                         , ApplyStatus = @ApplyStatus 
                         where SeasonNum = @SeasonNum and UserId = @UserId ;";
 
-            return _db.SaveData<AwardApplicationForm>(sql, awardInfo, _config.GetConnectionString("dev"));
+            return _db.SaveData<AwardApplicationForm>(sql, awardInfo, MysqlConnectionString);
         }
 
         public Task InsertAwardDetail(AwardDetail awardDetail)
@@ -111,7 +115,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             string sql = @"insert into AwardDetail (SeasonNum, IsGuild, Station, Place, UserId, AwardStatus, CreateTime)
                 values (@SeasonNum, @IsGuild, @Station, @Place, @UserId, @AwardStatus, @CreateTime);";
 
-            return _db.SaveData<AwardDetail>(sql, awardDetail, _config.GetConnectionString("dev"));
+            return _db.SaveData<AwardDetail>(sql, awardDetail, MysqlConnectionString);
         }
 
     }

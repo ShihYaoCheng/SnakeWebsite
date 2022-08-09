@@ -1,0 +1,172 @@
+﻿.TeachStart {
+    width: 100%;
+    height: 800px;
+    background: #fff;
+    padding-top: 200px;
+}
+
+@media all and (max-width: 768px) {
+    .TeachStart {
+        padding-top: 60px;
+        height: 1300px;
+    }
+}
+
+.img-zone {
+    width: 1000px;
+    margin: 0 auto;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media all and (max-width: 1024px) {
+    .img-zone {
+        width: 921px;
+    }
+}
+
+
+@media all and (max-width: 1024px) {
+    .img-zone {
+        width: 90%;
+    }
+}
+@media all and (max-width: 768px) {
+    .img-zone {
+        flex-direction: column;
+        align-items: center;
+        justify-content: normal;
+        height: 900px;
+    }
+}
+
+.step-container {
+    width: calc((100%-10px*4)/5);
+   
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+}
+
+@media all and (max-width: 1024px) {
+
+    .step-container {
+        width:200px;
+    }
+}
+
+
+.step-container:not(:last-child) {
+    margin-right: 10px;
+}
+.step-img {
+    width:100%;
+    height:100px;
+    text-align:center;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.step-container img {
+    min-height: 70%;
+    max-height: 100%;
+    max-width: 85%
+}
+
+.step-container p {
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    color: #73818c;
+}
+
+/*文字區*/
+.text-zone {
+    width: 921px;
+    height: 160px;
+    margin: 0 auto;
+    margin-bottom:20px;
+}
+@media all and (max-width: 1024px) {
+    .text-zone {
+        width: 90%;
+ 
+    }
+}
+
+@media all and (max-width: 768px) {
+    .text-zone {
+        height: 200px;
+        width: 300px;
+    }
+}
+
+.text-zone h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #1b3143;
+}
+
+.text-zone p {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    color: #73818c;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+@media all and (max-width: 768px) {
+    .text-zone h2 {
+        font-size: 23px;
+    }
+
+    .text-zone p {
+        width: 100%;
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+.text-RWD-Small {
+    display:none;
+
+}
+
+.text-RWD-Big {
+    display: block;
+}
+@media all and (max-width: 768px) {
+    .text-RWD-Small {
+        display: block;
+    }
+
+    .text-RWD-Big {
+        display: none;
+    }
+
+}
+
+
+/*按鈕*/
+.StartBtn {
+    background:url("/images/Teach/TeachStart/button.png");
+    background-repeat:round;
+    width:180px;
+    height:48px;
+    border:none;
+    color:white;
+    margin:0 auto;
+    display:block;
+
+}
+
+
+.StartBtn a {
+    text-decoration: none
+}
+
+

@@ -329,7 +329,7 @@
                                     
                                 </div> 
 
-                                <a href="Products/@item.serialNumber/@item.TokenID" >
+                                <a class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
                                     @*<a href="@item.LinkURL" target="opensea">  </a>*@
 
                                     <div class="NFTcard-inner">
@@ -357,18 +357,21 @@
                                                     <span class="NFT-Currency-Price">123,456,789</span>
                                                 </div>*@
                                             </div>
-                                  
+                                            <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
+                                                     
                                         </div>
                                     </div>
                                 </a>
+
+         
                                                    @*.................tag 區域...................... *@
-                                            <div class="tag-zone">
-                                                    <button  class="Show-tag"> tag </button>
-                                                       <div class="NFT-Label-block">
-                                                    <div class="NFT-Label">@item.RarityValue</div>
-                                                    <div class="NFT-Label">@item.ClassValue</div>
-                                                </div>
-                                            </div>
+                                    <div class="tag-zone">                                                   
+                                        <div class="NFT-Label-block">
+                                            <div class="NFT-Label">@item.RarityValue</div>
+                                            <div class="NFT-Label">@item.ClassValue</div>
+                                            <div class="NFT-Label">Survival master</div>
+                                        </div>
+                                    </div>
                                               @*....................................... *@
                             </div>
                             
@@ -390,7 +393,7 @@
                             stroke-width="2" />
                                 </svg>
                             </div>
-                            <a href="Products/@item.serialNumber/@item.TokenID" >
+                            <a  class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
                                 <div class="NFTcard-inner">
 
                                     <div class="NFT-cardImg">
@@ -434,7 +437,7 @@
                             </svg>
                         </div>
 
-                        <a href="Products/@item.serialNumber/@item.TokenID" >
+                        <a  class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
                         @*<a href="@item.LinkURL" target="opensea">  </a>*@
 
                             <div class="NFTcard-inner">
@@ -459,20 +462,22 @@
                                             <span class="NFT-Currency-Price">123,456,789</span>
                                         </div>*@
                                     </div>
-
+                                      <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
+                                           
                           
                                 </div>
                             </div>
                         </a> 
                          @*.................tag 區域...................... *@
-                        <div class="tag-zone">
-                                <button  class="Show-tag"> tag </button>
-                                <div class="NFT-Label-block">
-                                    <div class="NFT-Label">@item.RarityValue</div>
-                                    <div class="NFT-Label">@item.ClassValue</div>
-                                    <div class="NFT-Label">Survival master</div>
-                                </div>
+
+                        <div class="tag-zone">                                                   
+                            <div class="NFT-Label-block">
+                                <div class="NFT-Label">@item.RarityValue</div>
+                                <div class="NFT-Label">@item.ClassValue</div>
+                                <div class="NFT-Label">Survival master</div>
+                            </div>
                         </div>
+                       
                             @*....................................... *@
                      </div>
 
@@ -556,7 +561,7 @@
                                     </svg>
                                 </div>
 
-                                <a href="Products/@item.serialNumber/@item.Number" >
+                                <a  class="NFTcardA" href="Products/@item.serialNumber/@item.Number" >
                                 @*<a href="@item.LinkURL" target="opensea"> </a>*@
                                     
                                     <div class="NFTcard-inner">
@@ -597,7 +602,7 @@
                                     </svg>
                                 </div>
 
-                                <a href="Products/@item.serialNumber/@item.Number" >
+                                <a class="NFTcardA" href="Products/@item.serialNumber/@item.Number" >
                                 @*<a href="item.LinkURL" target="opensea"> </a>*@
 
                                     <div class="NFTcard-inner">
@@ -639,7 +644,7 @@
                                     </svg>
                                 </div>
 
-                                <a href="Products/@item.serialNumber/@item.Number" >
+                                <a class="NFTcardA" href="Products/@item.serialNumber/@item.Number" >
                                 @*<a href="@item.LinkURL" target="opensea">  </a>*@
                                 
                                     <div class="NFTcard-inner">
@@ -678,7 +683,7 @@
                                     </svg>
                                 </div>
 
-                                <a href="Products/@item.serialNumber/@item.Number" >
+                                <a class="NFTcardA" href="Products/@item.serialNumber/@item.Number" >
                                 @*<a href="@item.LinkURL" target="opensea"></a>*@
                                     
                                     <div class="NFTcard-inner">
@@ -816,7 +821,7 @@
             ///
             await JS.InvokeVoidAsync("NFTcardAClick");    
             await JS.InvokeVoidAsync("CollectBtnPoP");              
-            
+           
             await JS.InvokeVoidAsync("showTag");   
 
             lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");

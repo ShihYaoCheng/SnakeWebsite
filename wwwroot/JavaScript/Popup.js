@@ -92,7 +92,7 @@ window.ShowMSGcheckbox = function () {
 window.NFTcardAClick = function () {
     document.querySelectorAll(".NFTcardA").forEach((e) => {
         e.addEventListener('click', (e) => {
-            if (e.target.className == "Collect-Btn" || e.target.className == "Show-tag" ) {
+            if (e.target.className == "Collect-Btn" || e.target.className == "Show-tag" || e.target.className ==  "ShowTag-arrow") {
                 e.preventDefault();
             }
         })
@@ -105,18 +105,21 @@ window.NFTcardAClick = function () {
 window.showTag = function () {
 
     $('.Show-tag').click(function (e) {
-    
-      
-        if (e.target.data==true) {
-            e.target.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "none"                     
-            e.target.data = false          
-            e.target.innerHTML = `Show Tag <img class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png">`
-          
+        var ctrlElement 
+        if (e.target.localName == 'button') {
+            ctrlElement = e.target
         } else {
-     
-            e.target.data = true
-            e.target.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "block"
-            e.target.innerHTML = `Hide Tag <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png">`
+            ctrlElement = e.target.parentNode
+        }
+
+        if (ctrlElement.data==true) {
+            ctrlElement.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "none"                     
+            ctrlElement.data = false          
+            ctrlElement.innerHTML = `Show Tag <img class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png">`          
+        } else {     
+            ctrlElement.data = true
+            ctrlElement.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "block"
+            ctrlElement.innerHTML = `Hide Tag <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png">`
         }
        
        // e.target.parentNode.lastChild.style.display = "contents"

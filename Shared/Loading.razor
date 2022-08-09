@@ -1,0 +1,33 @@
+﻿
+@inject IJSRuntime JS
+
+<head>    
+    <link href="/css/Shared/loading.css" rel="stylesheet"/> 
+</head>
+
+<div class="loader"  id="loader" >
+    <div class='loader_box'>
+        <img id = "loadingImg" src="/images/loading/866435-20190622033123003-1559129271.gif" />
+        <div id="loader_num" >100%</div>
+    </div>
+</div>
+
+@code {    
+    private IJSObjectReference? loadingCtrlJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender) 
+    {
+
+        if (firstRender)
+        {    
+            loadingCtrlJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SharedLib/loadingCtrl.js");
+            if (loadingCtrlJS != null)
+            {
+                await loadingCtrlJS.InvokeVoidAsync("loadingCtrl");
+            } 
+        }
+
+        }
+        
+}
+    
+
