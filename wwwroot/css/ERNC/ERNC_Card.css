@@ -110,6 +110,7 @@
 }
 .Card-BG:hover .IconBlock{
     transform: rotateY(180deg);
+    filter: drop-shadow(0px 0px 15px rgba(255, 248, 227, 0.6));
 }
 .IconBlock-BG{
     width: 105%;
