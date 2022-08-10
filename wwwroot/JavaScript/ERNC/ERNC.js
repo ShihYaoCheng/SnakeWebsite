@@ -1,5 +1,5 @@
 export function chartInit() {
-    console.log('ERNC-chartInit')
+    // console.log('ERNC-chartInit')
 
     let position = ''
 

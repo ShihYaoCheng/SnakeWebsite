@@ -1,6 +1,7 @@
 ﻿@page "/GettingStarted/{router?}"
 @using SnakeAsianLeague.Pages.Teach.Components
 @using SnakeAsianLeague.Data.Entity.View
+@inject IJSRuntime JS
 
 <head>
     <link href="/css/Teach/Teach.css" rel="stylesheet" />
@@ -68,6 +69,18 @@
         {
             TeachData.squareClick(router);
         } 
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
     }
 }
 
