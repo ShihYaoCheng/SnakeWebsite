@@ -4,10 +4,10 @@
     <link href="/css/Teach/All_components/Main_Title.css" rel="stylesheet" />
 </head>
 
-<h3 class="Main_Title_h3">Setp @Test[0]</h3>
-<h4 class="Main_Title_h4"> @Test[1]</h4>
+<h3 class="Main_Title_h3">Setp @Test.title</h3>
+<h4 class="Main_Title_h4"> @Test.subTitle</h4>
 
 @code {
    @* [CascadingParameter] Title title { get; set; }*@
-   [CascadingParameter] string[] Test { get; set; }
+   [CascadingParameter] TeachAllData.AllTilte Test { get; set; }
 }

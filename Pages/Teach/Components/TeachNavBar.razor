@@ -10,16 +10,16 @@
     <div class ="img-Container">
             <img  class = "line-BG" src="/images/Teach/nav/BG-line.png"/>
             <div class="square-container"> 
-                @foreach(var Data in Value.SquareData)
+                @foreach(var Data in Value)
                 {                    
-                    <TeachNavBar_Square  Value =@Data  SquareClick ="Value.squareClick"/>
+                    <TeachNavBar_Square  Value =@Data  SquareClick ="squareOnclick"/>
                 }      
             </div>   
     </div>
     <div class ="stepText-Container">
-       @foreach(var Data in Value.SetpTextData)
+       @foreach (var Data in Value)
         {
-            <TeachNavBar_stepText Value =@Data[0]/>            
+            <TeachNavBar_stepText Value=@Data.alltitle />            
         } 
     </div>
     <div>
@@ -27,9 +27,15 @@
     </div>
 </div>
 @code {
-   @*[Parameter] public TeachData? AllTeachData { get; set; }*@
-   [Parameter] public TeachData? Value { get; set; }
+    @*[Parameter] public TeachData? AllTeachData { get; set; }*@
+   [Parameter] public List<TeachAllData>? Value { get; set; }
         
-   
+    [Parameter]
+    public EventCallback<string> SquareClick { get; set;}
+
+    private void squareOnclick(string idd)
+    {
+        SquareClick.InvokeAsync(idd);   
+    }
  }
 

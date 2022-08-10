@@ -1,12 +1,13 @@
-﻿<head>
+﻿ @using SnakeAsianLeague.Data.Entity.View
+<head>
     <link href="/css/Teach/TeachNavBar/TeachNavBar_stepText.css" rel="stylesheet" />
 </head>
  
 
 <div  class ="stepText">
-   @Value
+   @Value.title
 </div>
 @code {
      [Parameter]
-    public string? Value { get; set; }
+     public TeachAllData.AllTilte Value { get; set; }
 }
