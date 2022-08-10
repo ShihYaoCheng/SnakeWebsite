@@ -115,11 +115,11 @@ window.showTag = function () {
         if (ctrlElement.data==true) {
             ctrlElement.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "none"                     
             ctrlElement.data = false          
-            ctrlElement.innerHTML = `Show Tag <img class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png">`          
+            ctrlElement.innerHTML = `Show Tag <img class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">`          
         } else {     
             ctrlElement.data = true
             ctrlElement.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "block"
-            ctrlElement.innerHTML = `Hide Tag <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png">`
+            ctrlElement.innerHTML = `Hide Tag <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">`
         }
        
        // e.target.parentNode.lastChild.style.display = "contents"
