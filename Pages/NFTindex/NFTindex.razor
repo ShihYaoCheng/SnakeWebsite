@@ -25,19 +25,16 @@
 </div>
 
 
-
 @code {
-
-    @* private IJSObjectReference? lazyloadingJS; *@
     protected override async Task OnAfterRenderAsync(bool firstRender)
 
     {
 
         if (firstRender)
 
+        {
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("NFTindexCarousel");
-
         }
 
     }
