@@ -27,18 +27,13 @@
 
 
 @code {
-    @* private IJSObjectReference? GameFiJS; *@
+
     @* private IJSObjectReference? lazyloadingJS; *@
     protected override async Task OnAfterRenderAsync(bool firstRender)
 
     {
 
         if (firstRender)
-
-        {
-            @* GameFiJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/GameFi/GameFi.js");
-            await GameFiJS.InvokeVoidAsync("RiderHover"); *@
-
 
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("NFTindexCarousel");
