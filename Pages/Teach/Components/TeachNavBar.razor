@@ -1,4 +1,6 @@
 ﻿@using SnakeAsianLeague.Pages.Teach.Components.TeachNavBar_components
+@using SnakeAsianLeague.Data.Entity.View
+
 
 <head>
     <link href="/css/Teach/TeachNavBar.css" rel="stylesheet" />
@@ -8,16 +10,16 @@
     <div class ="img-Container">
             <img  class = "line-BG" src="/images/Teach/nav/BG-line.png"/>
             <div class="square-container"> 
-                @foreach(var Data in Value)
+                @foreach(var Data in Value.SquareData)
                 {                    
-                                      <TeachNavBar_Square  Value =@Data  SquareClick ="squareClickPop"/>
+                    <TeachNavBar_Square  Value =@Data  SquareClick ="Value.squareClick"/>
                 }      
             </div>   
     </div>
     <div class ="stepText-Container">
-       @foreach(var Data in SetpTextData)
+       @foreach(var Data in Value.SetpTextData)
         {
-            <TeachNavBar_stepText Value =@Data/>            
+            <TeachNavBar_stepText Value =@Data[0]/>            
         } 
     </div>
     <div>
@@ -25,17 +27,9 @@
     </div>
 </div>
 @code {
-    [CascadingParameter] string[] SetpTextData { get; set; }
-
-    [Parameter] public string[][]? Value { get; set; }
-       [Parameter]
-    public EventCallback<string> squareClick { get; set;}
-
-    private void squareClickPop(string idd)
-    {
-        squareClick.InvokeAsync(idd);   
-    }
-
-
+   @*[Parameter] public TeachData? AllTeachData { get; set; }*@
+   [Parameter] public TeachData? Value { get; set; }
+        
+   
  }
 
