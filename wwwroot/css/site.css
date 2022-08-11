@@ -156,7 +156,7 @@ a, .btn-link {
 }
 
 .ACLnaming img{
-    max-height: 40px;
+    max-height: 30px;
 }
 
 .ACLnaming{
@@ -393,7 +393,10 @@ a, .btn-link {
 @media all and (max-width:500px){
 
     #kimlan-Logo {
-        margin: 10px 3px 10px 0px;
+        margin: 0px 3px 0px 0px;
+    }
+    #YOMI-Logo {
+        margin: 0px 3px;
     }
     #SnakeACL-Logo{
         margin: 6px 0px 6px 4px;
@@ -1342,12 +1345,12 @@ position: relative;
 .NavBlockSelect select{
     max-width: 110px;
     width: 100%;
-    height: 25px;
+    height: 23px;
     margin-left: 5px;
     border-radius: 10px;
     border: 2px solid rgb(218, 202, 202);
     color: #324a66;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 16px;
     box-shadow: 2px 2px 8px #66666663;
     background-color: #ebeae7;
@@ -1375,7 +1378,7 @@ position: relative;
     /* border: 1px solid red; */
     width: 100%;
     position: fixed;
-    top: 54px;
+    top: 50px;
     z-index: 20;
     background-color: rgba(67, 128, 150, 0.877);
     box-shadow: 0px 2px 8px #06060663;
@@ -1392,7 +1395,7 @@ position: relative;
     flex-wrap: nowrap;
     list-style: none;
     margin: 0;
-    padding: 12px 12px 11px;
+    padding: 7px 12px 6px;
 }
 .ACLIndexNavbar ul li{
     border-right: 3px solid #d8b969e8;
@@ -1403,11 +1406,11 @@ position: relative;
 
 .ACLIndexNavbar ul li a{
     color: #fff;
-    font-size: 19px;
+    font-size: 14px;
     letter-spacing: 0.8px;
     font-weight: bold;
     text-decoration: none;
-    padding: 1.5px 30px 0px;
+    padding: 1.5px 20px 0px;
     white-space: nowrap;
     transition: all .1s ease-in-out;
 }
@@ -1417,7 +1420,7 @@ position: relative;
 
 /* 改scrollbar樣式 */
 .ACLIndexNavbar::-webkit-scrollbar {
-    height: 8px;
+    height: 5px;
 }
 
 .ACLIndexNavbar::-webkit-scrollbar-thumb {
@@ -1433,17 +1436,20 @@ position: relative;
 }
 
 @media all and (max-width: 1000px){
+    .ACLIndexNavbar{
+        top: 43px;
+    }
     .ACLIndexNavbar ul{
         justify-content: flex-start;
     }
 }
 @media all and (max-width: 500px){
     .ACLIndexNavbar{
-        top: 50px;
+        top: 42px;
     }
     .ACLIndexNavbar ul li a{
-        font-size: 16px;
-        padding: 1.5px 20px 0px;
+        /* font-size: 16px;
+        padding: 1.5px 20px 0px; */
     }
 }
 

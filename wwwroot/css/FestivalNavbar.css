@@ -6,14 +6,14 @@
 .FestivalNavBlockSelect select{
     max-width: 130px;
     width: 100%;
-    height: 25px;
+    height: 23px;
     outline: none;
     padding: 0px 5px 1px;
     margin-left: 5px;
     border-radius: 10px;
     border: 2.5px solid rgb(218, 202, 202);
     color: #324a66;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 16px;
     box-shadow: 2px 2px 8px #66666663;
     background-color: #ebeae7;
@@ -42,7 +42,7 @@
     /* border: 1px solid red; */
     width: 100%;
     position: fixed;
-    top: 54px;
+    top: 50px;
     z-index: 20;
     background-color: rgba(153, 33, 22, 0.89);
     box-shadow: 0px 2px 8px #06060663;
@@ -60,7 +60,7 @@
     flex-wrap: nowrap;
     list-style: none;
     margin: 0;
-    padding: 12px 12px 11px;
+    padding: 7px 12px 6px;
 }
 .FestivalNavbar ul li{
     border-right: 3px solid #d8b969e8;
@@ -71,11 +71,11 @@
 
 .FestivalNavbar ul li a{
     color: #fff;
-    font-size: 19px;
+    font-size: 14px;
     letter-spacing: 0.8px;
     font-weight: bold;
     text-decoration: none;
-    padding: 1.5px 30px 0px;
+    padding: 1.5px 20px 0px;
     white-space: nowrap;
     transition: all .1s ease-in-out;
 }
@@ -85,7 +85,7 @@
 
 /* 改scrollbar樣式 */
 .FestivalNavbar::-webkit-scrollbar {
-    height: 8px;
+    height: 5px;
 }
 
 .FestivalNavbar::-webkit-scrollbar-thumb {
@@ -97,20 +97,23 @@
 .FestivalNavbar::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
-    background-color: #133167;
+    background-color: #f29c9c;
 }
 
 @media all and (max-width: 1000px){
+    .FestivalNavbar{
+        top: 43px;
+    }
     .FestivalNavbar ul{
         justify-content: flex-start;
     }
 }
 @media all and (max-width: 500px){
     .FestivalNavbar{
-        top: 44px;
+        top: 42px;
     }
     .FestivalNavbar ul li a{
-        font-size: 16px;
-        padding: 1.5px 20px 0px;
+        /* font-size: 16px;
+        padding: 1.5px 20px 0px; */
     }
 }

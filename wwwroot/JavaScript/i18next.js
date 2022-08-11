@@ -31,5 +31,5 @@ window.installI18n = async function () {
 
 window.Localize = async function () {
   if ($('.NFTcard').length === 0) return
-  setTimeout(() => $('.NFTcard').localize(), 0);
+  setTimeout(() => $('.NFTcard').localize(), 10);
 }
