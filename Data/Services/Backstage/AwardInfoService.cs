@@ -1,86 +1,161 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using RestSharp;
 using SnakeAsianLeague.Data.Entity.Backstage;
+using SnakeAsianLeague.Data.Entity.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SnakeAsianLeague.Data.Services.Backstage
 {
     public class AwardInfoService
     {
-        private readonly IDataAccess _db;
-        private readonly IConfiguration _config;
+        private ExternalServers externalServersConfig;
+        private readonly RestClient SnakeACLBackstageServer;
 
-        public AwardInfoService(IDataAccess db, IConfiguration config) 
+        public AwardInfoService(IOptions<ExternalServers> myConfiguration) 
         {
-            _db = db;
-            _config = config;
+
+            externalServersConfig = myConfiguration.Value;
+            SnakeACLBackstageServer = new RestClient(externalServersConfig.SnakeACLBackstageServer);
         }
 
-        public Task<List<AwardInfo>> GetAwardInfos()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<AwardInfo>> GetAwardInfos()
         {
-            string sql = "select * from AwardInfo";
-
-            return _db.LoadData<AwardInfo, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
+            List<AwardInfo> result = new List<AwardInfo>();
+            try
+            {
+                var LoginRestRequest = new RestRequest($"GetAwardInfos");
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<AwardInfo>>(restResponse.Content) ?? new List<AwardInfo>();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("GetAwardInfos : " + ex.Message);
+            }            
+            return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="prizeCode"></param>
+        /// <param name="place"></param>
+        /// <param name="isGuild"></param>
+        /// <param name="station"></param>
+        /// <returns></returns>
         public async Task<AwardInfo> GetOneAwardInfo(uint userId, string prizeCode, int place, bool isGuild, int station)
         {
-            //int isGuildInt = isGuild ? 1 : 0;
-            string sql = "select * from AwardInfo where UserId = " + userId 
-                + " and PrizeCode = '" + prizeCode + "' and Place = " + place
-                + " and IsGuild =" + isGuild + " and Station = " + station;
-            List<AwardInfo> rp = await _db.LoadData<AwardInfo, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
-            if (rp.Count == 1)
+            AwardInfo result = new AwardInfo();
+            try
             {
-                return rp[0];
+                var LoginRestRequest = new RestRequest(string.Format("GetOneAwardInfo?userId={0}&prizeCode={1}&place={2}&isGuild={3}&station={4}", userId, prizeCode, place, isGuild, station));
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<AwardInfo>(restResponse.Content) ?? new AwardInfo();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return null;
-            }
+                Console.WriteLine("GetOneAwardInfo : " + ex.Message);
+            }            
+            return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="prizeCode"></param>
+        /// <param name="place"></param>
+        /// <param name="isGuild"></param>
+        /// <param name="station"></param>
+        /// <returns></returns>
         public async Task<int> GetOneAwardInfoStatus(uint userId, string prizeCode, int place, bool isGuild, int station)
         {
-            
-            string sql = "select AwardStatus from AwardInfo where UserId = " + userId
-                + " and PrizeCode = '" + prizeCode + "' and Place = " + place
-                + " and IsGuild =" + isGuild + " and Station = " + station;
-            List<int> rp = await _db.LoadData<int, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
-            if (rp.Count == 1)
+            int result = 0;
+            try
             {
-                return rp[0];
+                var LoginRestRequest = new RestRequest(string.Format("GetOneAwardInfoStatus?userId={0}&prizeCode={1}&place={2}&isGuild={3}&station={4}", userId, prizeCode, place, isGuild, station));
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    var data = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(restResponse.Content) ?? "0";
+                    result = Convert.ToInt32(data);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return 0;
+                Console.WriteLine("GetOneAwardInfoStatus : " + ex.Message);
             }
+            return result;
         }
 
-        public Task InsertAwardInfo(AwardInfo awardInfo)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="awardInfo"></param>
+        /// <returns></returns>
+        public async Task<bool> InsertAwardInfo(AwardInfo awardInfo)
         {
-            awardInfo.CreateTime = DateTime.Now;
-            string sql = @"insert into AwardInfo (UserId, UserName, Phone, Place, IsGuild, Station, PrizeCode, PrizeContent
-                    , RealName, ContactNumber, Email, Address, IdNumber , BankCode, BankAccount 
-                    , Img1Name, Img1, Img2Name, Img2, BankName, BankImg, AwardStatus, CreateTime)
-                    values (@UserId, @UserName, @Phone, @Place, @IsGuild, @Station, @PrizeCode, @PrizeContent
-                    , @RealName, @ContactNumber, @Email , @Address, @IdNumber , @BankCode, @BankAccount
-                    , @Img1Name, @Img1, @Img2Name, @Img2, @BankName, @BankImg, @AwardStatus, @CreateTime);";
+            bool result = false;
+            try
+            {
+                string jsonData = JsonSerializer.Serialize(awardInfo);
+                var request = new RestRequest($"InsertAwardInfo", Method.POST);
+                request.AddJsonBody(jsonData);
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
 
-            return _db.SaveData<AwardInfo>(sql, awardInfo, _config.GetConnectionString("dev"));
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("InsertAwardInfo : " + ex.Message);
+            }
+
+            return result;
         }
 
-        public Task UpdateAwardInfo(AwardInfo awardInfo)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="awardInfo"></param>
+        /// <returns></returns>
+        public async Task<bool> UpdateAwardInfo(AwardInfo awardInfo)
         {
-            string sql = @"update AwardInfo 
-                        set RealName = @RealName, ContactNumber = @ContactNumber, Email = @Email, Address = @Address 
-                        , IdNumber = @IdNumber , BankCode = @BankCode, BankAccount = @BankAccount , AwardStatus = @AwardStatus 
-                        , Img1Name = @Img1Name, Img1 = @Img1 , Img2Name = @Img2Name, Img2 = @Img2, BankName = @BankName, BankImg = @BankImg 
-                        where UserId = @UserId and PrizeCode = @PrizeCode and Place = @Place and IsGuild = @IsGuild and Station = @Station ;";
-            
-            return _db.SaveData<AwardInfo>(sql, awardInfo, _config.GetConnectionString("dev"));
+            bool result = false;
+            try
+            {
+                string jsonData = JsonSerializer.Serialize(awardInfo);
+                var request = new RestRequest($"UpdateAwardInfo", Method.POST);
+                request.AddJsonBody(jsonData);
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("UpdateAwardInfo : " + ex.Message);
+            }
+            return result;
         }
 
     }

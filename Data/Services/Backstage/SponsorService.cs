@@ -1,36 +1,64 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using RestSharp;
 using SnakeAsianLeague.Data.Entity.Backstage;
+using SnakeAsianLeague.Data.Entity.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SnakeAsianLeague.Data.Services.Backstage
 {
     public class SponsorService
     {
-        private readonly IDataAccess _db;
-        private readonly IConfiguration _config;
+        private ExternalServers externalServersConfig;
+        private readonly RestClient SnakeACLBackstageServer;
 
-        public SponsorService(IDataAccess db, IConfiguration config)
+        public SponsorService(IOptions<ExternalServers> myConfiguration)
         {
-            _db = db;
-            _config = config;
+            externalServersConfig = myConfiguration.Value;
+            SnakeACLBackstageServer = new RestClient(externalServersConfig.SnakeACLBackstageServer);
         }
 
-        public Task<List<Sponsor>> GetSponsors()
+        public async Task<List<Sponsor>> GetSponsors()
         {
-            string sql = "select * from Sponsor where SponsorStatus = 1 ;";
-
-            return _db.LoadData<Sponsor, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
+            List<Sponsor> result = new List<Sponsor>();
+            try
+            {
+                var LoginRestRequest = new RestRequest($"GetSponsors");
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Sponsor>>(restResponse.Content) ?? new List<Sponsor>();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("GetSponsors : " + ex.Message);
+            }
+            return result;
         }
 
-        public Task<List<Sponsor>> GetSponsorsByType(int type)
+        public async Task<List<Sponsor>> GetSponsorsByType(int type)
         {
-            string sql = "select * from Sponsor where SponsorStatus = 1 and Type = " + type
-                + " order by Sort ;";
-
-            return _db.LoadData<Sponsor, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
+            List<Sponsor> result = new List<Sponsor>();
+            try
+            {
+                var LoginRestRequest = new RestRequest($"GetSponsorsByType?type={type}");
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Sponsor>>(restResponse.Content) ?? new List<Sponsor>();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("GetSponsorsByType : " + ex.Message);
+            }
+            return result;
         }
 
     }

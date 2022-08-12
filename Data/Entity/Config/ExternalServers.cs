@@ -9,5 +9,7 @@ namespace SnakeAsianLeague.Data.Entity.Config
     {
         public Uri UserServer { get; set; }
         public Uri TableServer { get; set; }
+
+        public Uri SnakeACLBackstageServer { get; set; }
     }
 }
