@@ -33,9 +33,9 @@ var builder = WebApplication.CreateBuilder(args);
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-var config = new MySQLConfig();
-builder.Configuration.GetSection(MySQLConfig.Section).Bind(config);
-var connectionString = $"Server={config.IP};Port={config.Port};database={config.DatabaseName};user id={config.User};password={config.Password}";
+//var config = new MySQLConfig();
+//builder.Configuration.GetSection(MySQLConfig.Section).Bind(config);
+//var connectionString = $"Server={config.IP};Port={config.Port};database={config.DatabaseName};user id={config.User};password={config.Password}";
 
 builder.WebHost.UseSentry(options => options.TracesSampler = context =>
 {
@@ -50,7 +50,6 @@ builder.Services.AddServerSideBlazor();
 
 builder.Services.AddSingleton<IDataAccess, DataAccess>();
 builder.Services.AddSingleton<LoginService>();
-//builder.Services.AddSingleton<AuthService>();
 builder.Services.AddSingleton<AsiaLeagueScheduleService>();
 builder.Services.AddSingleton<AsiaLeagueS1PrizeService>();
 builder.Services.AddSingleton<QualifyingCompetitionRecordService>();
@@ -70,7 +69,7 @@ builder.Services.AddSingleton<ProductsService>();
 builder.Services.AddSingleton<SnakeTableService>();
 
 
-builder.Services.AddHealthChecks().AddMySql(connectionString, tags: new[] { "db" });
+builder.Services.AddHealthChecks();
 
 
 builder.Services.Configure<ExternalServers>(builder.Configuration.GetSection("ExternalServers"));
@@ -157,7 +156,7 @@ app.UseEndpoints(endpoints =>
     
     endpoints.MapHealthChecks("/health/ready", new HealthCheckOptions  
     {  
-        Predicate = reg => reg.Tags.Contains("db"),  
+        Predicate = reg => false,  
         ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse  
     });
 });
