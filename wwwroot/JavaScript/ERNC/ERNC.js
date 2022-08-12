@@ -1,8 +1,7 @@
 export function chartInit() {
-    console.log('ERNC-chartInit')
+    // console.log('ERNC-chartInit')
 
     let position = ''
-
 
     $(document).ready(function () {
 
@@ -11,49 +10,35 @@ export function chartInit() {
             window.myChart.resize()
         });
 
-        const rect = $('.Pie-Chart')[0].getBoundingClientRect()
+        const rect = $('#Pie-Chart')[0].getBoundingClientRect()
         //控制圓餅出現頁面高度 ex: (...) - 100
         position = (rect.top - rect.height) - 200
     });
 
-    // $(window).on('scroll', init)
+    $(window).on('scroll', init)
 
-    // function init() {
+    function init() {
+        if (window.scrollY > position) {
+            ERNCCharts();
+            $(".Pie-Chart-Block").addClass("animate_start"); 
+            $(window).unbind('scroll')
+        }
+    };
 
-    //     if (window.scrollY > position) {
-    //         GameFiCharts();
-    //         setTimeout(() => {
-    //             $(".Pie-Chart-Line").show();
-
-    //             $(".Pie-Chart-Label").addClass("Pie-Chart-Label-show"); 
-    //         }, 600);
-    //         setTimeout(() => {
-    //             $(".Pie-Chart-Icon").addClass("Pie-Chart-Label-show"); 
-    //         }, 1000);
-    //         $(window).unbind('scroll')
-    //     }
-    // }
-
-    GameFiCharts();
-    setTimeout(() => {
-        $(".Pie-Chart-Line").show();
-
-        $(".Pie-Chart-Label").addClass("Pie-Chart-Label-show");
-    }, 600);
-
-    function GameFiCharts() {
-        var chartDom = document.querySelector('.Pie-Chart')
+    function ERNCCharts() {
+        var chartDom = document.querySelector('#Pie-Chart')
         window.myChart = echarts.init(chartDom);
         var option;
 
         option = {
+
             series: [
                 {
                     name: 'Access From',
                     type: 'pie',
                     // selectedMode: 'single',
                     // radius: '90%',
-                    radius: ['50%', '75%'],
+                    radius: ['45%', '70%'],
 
                     // label: {
                     //     show: true,
@@ -70,10 +55,15 @@ export function chartInit() {
                     //       fontWeight: 'bold'
                     //     },
                     //   },
+
                     label: {
-                        fontSize: 12,
-                        color: '#ffffff'
+                        fontSize: 15,
+                        lineHeight: 18,
+                        color: '#ffffff',
+                        overflow: "break"
+
                     },
+
                     labelLine: {
                         show: true,
                         // length: 10,
@@ -82,11 +72,18 @@ export function chartInit() {
                                 color: '#ffffff',
                                 width: 2,
                             },
+                            // smooth: 0.2,
+                            length: 30,
                         },
+
+
+                    },
+                    animationDelay: function (idx) {
+                        return idx + 600;
                     },
 
                     itemStyle: {
-                        color: '#00000000'
+                        color: '#00000000',
                     },
 
                     data: [
@@ -105,7 +102,7 @@ export function chartInit() {
                         // Private Placement 
                         { value: 12, name: 'Private Placement' },
                         // Seed(0.06USD)
-                        { value: 6, name: 'Seed(0.06USD)' },
+                        { value: 6, name: 'Seed (0.06USD)' },
                         // Charity
                         { value: 3, name: 'Charity' }
                     ],
@@ -117,7 +114,7 @@ export function chartInit() {
                     type: 'pie',
                     // selectedMode: 'single',
                     // radius: '90%',
-                    radius: ['50%', '75%'],
+                    radius: ['45%', '70%'],
 
                     label: {
                         show: false,
@@ -129,14 +126,21 @@ export function chartInit() {
                     itemStyle: {
                         borderRadius: 5,
                         borderColor: '#152837',
-                        borderWidth: 1
+                        borderWidth: 0.5,
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
                     },
                     emphasis: {
                         label: {
                             show: true,
-                            fontSize: '40',
+                            fontSize: '44',
                             fontWeight: 'bold'
                         },
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                          }
                     },
 
                     labelLine: {
@@ -154,70 +158,70 @@ export function chartInit() {
                         // // DOA Treasury 45%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
-                            color: '#4e3c3c'
+                            color: '#745858'
                         }, {
                             offset: 1,
-                            color: '#966953'
+                            color: '#B7836F'
                         }]),
 
                         // CQI Team 16%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
-                            color: '#89a1d0'
+                            color: '#A1ADC4'
                         }, {
                             offset: 1,
-                            color: '#8ea7d9'
+                            color: '#E2EBFE'
                         }]),
 
                         // Event 2%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
-                            color: '#a18abf'
+                            color: '#CCC1DC'
                         }, {
                             offset: 1,
-                            color: '#9482ad'
+                            color: '#F4ECFF'
                         }]),
 
                         // Develop 8%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
-                            color: '#6c8fac'
+                            color: '#99C5D4'
                         }, {
                             offset: 1,
-                            color: '#577792'
+                            color: '#AEDCEC'
                         }]),
 
                         // Advisor 4%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
-                            color: '#c08474'
+                            color: '#DCB59A'
                         }, {
                             offset: 1,
-                            color: '#ad6b5a'
+                            color: '#FCD4B9'
                         }]),
 
                         // Public sale 4%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
-                            color: '#f6e09b'
+                            color: '#EFE4BE'
                         }, {
                             offset: 1,
-                            color: '#f6e09b'
+                            color: '#F1E7C5'
                         }]),
 
                         // Private Placement 12%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
-                            color: '#abd79e'
+                            color: '#D0E8C9'
                         }, {
                             offset: 1,
-                            color: '#8fb185'
+                            color: '#ECFFE6'
                         }]),
 
                         // Seed(0.06USD) 6%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
-                            color: '#ffffff'
+                            color: '#EFEFEF'
                         }, {
                             offset: 1,
                             color: '#ffffff'
@@ -226,10 +230,10 @@ export function chartInit() {
                         // Charity 3%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
-                            color: '#74b9ff'
+                            color: '#A9D2EF'
                         }, {
                             offset: 1,
-                            color: '#72a6db'
+                            color: '#CBE9FF'
                         }])
                     ],
 
@@ -261,4 +265,213 @@ export function chartInit() {
         option && myChart.setOption(option);
 
     }
+
+}
+
+export function chartInitRwd() {
+
+    // 手機版
+
+    let positionRwd = ''
+
+    $(document).ready(function () {
+
+        // 改變size時重跑一次
+        $(window).resize(function () {
+            window.myChartRwd.resize()
+        });
+
+        const rectRwd = $('#Pie-Chart-Rwd')[0].getBoundingClientRect()
+        //控制圓餅出現頁面高度 ex: (...) - 100
+        positionRwd = (rectRwd.top - rectRwd.height) - 200
+    });
+
+    $(window).on('scroll', initRwd)
+
+    function initRwd() {
+        if (window.scrollY > positionRwd) {
+            ERNCChartsRwd();
+            $(window).unbind('scroll',initRwd)
+        }
+    };
+
+
+    function ERNCChartsRwd() {
+        var chartDomRwd = document.querySelector('#Pie-Chart-Rwd')
+        window.myChartRwd = echarts.init(chartDomRwd);
+        var option;
+
+        option = {
+            tooltip: {
+                trigger: 'item',
+
+            },
+
+            legend: {
+                top: '0%',
+                //   orient: 'vertical',
+                left: 'center',
+                selectedMode: false,
+                textStyle: {
+                    color: '#ffffff',
+                }
+            },
+            series: [
+                {
+                    name: 'Access From',
+                    type: 'pie',
+                    top: '10%',
+                    radius: ['50%', '80%'],
+                    avoidLabelOverlap: false,
+
+                    label: {
+                        show: false,
+                        position: 'center',
+
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '16',
+                            color: '#ffffff',
+
+                            // fontWeight: 'bold'
+                        },
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                          }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    itemStyle: {
+                        borderRadius: 5,
+                        borderColor: '#152837',
+                        borderWidth: 0.5,
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    },
+                    color: [
+
+                        // // DOA Treasury 45%
+                        new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                            offset: 0,
+                            color: '#745858'
+                        }, {
+                            offset: 1,
+                            color: '#B7836F'
+                        }]),
+    
+                        // CQI Team 16%
+                        new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                            offset: 0,
+                            color: '#A1ADC4'
+                        }, {
+                            offset: 1,
+                            color: '#E2EBFE'
+                        }]),
+    
+                        // Event 2%
+                        new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                            offset: 0,
+                            color: '#CCC1DC'
+                        }, {
+                            offset: 1,
+                            color: '#F4ECFF'
+                        }]),
+    
+                        // Develop 8%
+                        new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                            offset: 0,
+                            color: '#99C5D4'
+                        }, {
+                            offset: 1,
+                            color: '#AEDCEC'
+                        }]),
+    
+                        // Advisor 4%
+                        new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                            offset: 0,
+                            color: '#DCB59A'
+                        }, {
+                            offset: 1,
+                            color: '#FCD4B9'
+                        }]),
+    
+                        // Public sale 4%
+                        new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                            offset: 0,
+                            color: '#EFE4BE'
+                        }, {
+                            offset: 1,
+                            color: '#F1E7C5'
+                        }]),
+    
+                        // Private Placement 12%
+                        new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                            offset: 0,
+                            color: '#D0E8C9'
+                        }, {
+                            offset: 1,
+                            color: '#ECFFE6'
+                        }]),
+    
+                        // Seed(0.06USD) 6%
+                        new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                            offset: 0,
+                            color: '#EFEFEF'
+                        }, {
+                            offset: 1,
+                            color: '#ffffff'
+                        }]),
+    
+                        // Charity 3%
+                        new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                            offset: 0,
+                            color: '#A9D2EF'
+                        }, {
+                            offset: 1,
+                            color: '#CBE9FF'
+                        }])
+                    ],
+                    tooltip: {
+                        show: true,
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        },
+                        // extraCssText:'white-space: pre-wrap;',
+                    },
+                    data: [
+                        // DOA Treasury
+                        { value: 45, name: 'DOA Treasury 45%' },
+                        // CQI Team
+                        { value: 16, name: 'CQI Team 16%' },
+                        // Event
+                        { value: 2, name: 'Event 2%' },
+                        // Develop
+                        { value: 8, name: 'Develop 8%' },
+                        // Advisor
+                        { value: 4, name: 'Advisor 4%' },
+                        // Public sale
+                        { value: 4, name: 'Public sale 4%' },
+                        // Private Placement 
+                        { value: 12, name: 'Private Placement 12%' },
+                        // Seed(0.06USD)
+                        { value: 6, name: 'Seed (0.06USD) 6%' },
+                        // Charity
+                        { value: 3, name: 'Charity 3%' }
+                    ],
+                }
+            ]
+        };
+
+
+
+        option && myChartRwd.setOption(option);
+
+    }
+    ERNCChartsRwd();
 }

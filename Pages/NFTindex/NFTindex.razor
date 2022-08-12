@@ -2,6 +2,7 @@
 
 @using SnakeAsianLeague.Pages.NFTindex.Components
 
+
 @inject IJSRuntime JS
 
 <head>
@@ -14,33 +15,27 @@
 </head>
 
 <div class="NFTindex">
+    @*<Loading />*@
     @* <NFTindex_Register/> *@
-    <NFTindex_Join />
-    <NFTindex_Banner />
-    <NFTindex_Flag />
-    <NFTindex_Seignior />
-    <NFTindex_Carousel />
+    <LoadingBazor>
+        <NFTindex_Join />
+        <NFTindex_Banner />
+        <NFTindex_Flag />
+        <NFTindex_Seignior />
+        <NFTindex_Carousel />
+    </LoadingBazor>  
 </div>
 
 
-
 @code {
-    @* private IJSObjectReference? GameFiJS; *@
-    @* private IJSObjectReference? lazyloadingJS; *@
-    protected override async Task OnAfterRenderAsync(bool firstRender)
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
 
         if (firstRender)
-
         {
-            @* GameFiJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/GameFi/GameFi.js");
-            await GameFiJS.InvokeVoidAsync("RiderHover"); *@
-
-
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("NFTindexCarousel");
-
         }
 
     }

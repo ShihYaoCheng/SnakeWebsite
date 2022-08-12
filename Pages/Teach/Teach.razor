@@ -1,116 +1,111 @@
 ﻿@page "/GettingStarted/{router?}"
 @using SnakeAsianLeague.Pages.Teach.Components
 @using SnakeAsianLeague.Data.Entity.View
+@inject IJSRuntime JS
 
 <head>
     <link href="/css/Teach/Teach.css" rel="stylesheet" />
 </head>
-
-
- <div class='teach-container' >
-    
-    <CascadingValue Value="@SetpTextData">
-        <TeachNavBar Value=@SquareData squareClick="squareClick"/> 
-    </CascadingValue>
-
+ <div class='teach-container' >      
+        <TeachNavBar Value=@TeachAllDataTest  SquareClick ="squareClick"/>
    <div class="main-container">
         @switch (router)
         {
             case "create-metamask":
-                <CascadingValue Value="@title1">
+                <CascadingValue Value="@TeachAllDataTest[0].alltitle">
                     <CreateMetamask />
                 </CascadingValue>
                 break;
             case "connect-opensea":
-                <CascadingValue Value="@title2">
+                <CascadingValue Value="@TeachAllDataTest[1].alltitle">
                     <ConnectOpensea />
                 </CascadingValue>
-         
                 break;
             case "create-PonPonSnake-game":
-                <CascadingValue Value="@title3">
-                        <CreatePonPonSnakeGame />
+                <CascadingValue Value="@TeachAllDataTest[2].alltitle">
+                    <CreatePonPonSnakeGame />
                 </CascadingValue>
-           
-                break;      
+                break;
             case "connect-game-account":
-                <CascadingValue Value="@title4">
-                        <ConnectGameAccount />
+                <CascadingValue Value="@TeachAllDataTest[3].alltitle">
+                    <ConnectGameAccount />
                 </CascadingValue>
-           
-                break;      
+                break;
             case "download-and-play":
-                <CascadingValue Value="@title5">
-                        <DownloadAndPLAY />
-                </CascadingValue>        
-                break;    
+                <CascadingValue Value="@TeachAllDataTest[4].alltitle">
+                    <DownloadAndPLAY />
+                </CascadingValue>
+                break;
         }
     </div>
-
-    <TeachDot Value=@SquareData squareClick="squareClick" />
- </div>
+    <TeachDot  Value=@TeachAllDataTest SquareClick ="squareClick" />
+</div>
 @code {
     [Parameter]
-    public string? router { get; set; } 
-
+    public string? router { get; set; }
+       
+    private List<TeachAllData> TeachAllDataTest;
     protected override void OnInitialized()
     {
         router = router ?? "index";
 
-          foreach (var Data in SquareData)
+        //參1給圖片路徑相關資料
+        //參2給標題，副標題       
+
+        TeachAllDataTest = new List<TeachAllData>
         {
-            if (Data[4] == router)
-            {
-                Data[2] = "true";
-            }
-            else
-            {
-                Data[2] = "false";
-            }
-        }
+            new TeachAllData(1,false,"create-metamask"          ,"1. Create Metamask Account and Connect with Polygon", "What exactly is MetaMask? To transact with a blockchain, you'll need a cryptocurrency wallet. This wallet is your key to the crypto universe. It gives you the ability to purchase, sell, or transfer assets on the blockchain." ),
+            new TeachAllData(2,false,"connect-opensea"          ,"2. Connect Metamask to your Opensea", "For NFT purchase and sell transactions, OpenSea is utilized. Bidding on Opensea will get you the PonPonSnake Rider and Avatar. Connecting Opensea to your Metamask allows you to sync wallet info together." ),
+            new TeachAllData(3,false,"create-PonPonSnake-game"  ,"3. Create your PonPonSnake Game Account","Create your in-game account. Enter your phone, and we will send a 6 digit code to your phone."),
+            new TeachAllData(4,false,"connect-game-account"     ,"4. Connect Metamask to your Game Account","In order to let PonPonSnake NFT be used in our game, we will need you to connect your Metamask wallet, so we can sync your data. All the earnings in the game will be sent to your metamask wallet."),
+            new TeachAllData(5,false,"download-and-play"        ,"5. Download and PLAY!","All Done! Now you can start your adventure in PonPonSnake!"),
+        };
+        squareClick(router);
     }
 
-    public string[][] SquareData =  new string[5][]
-    {
-      new string[5]{ "1","/images/Teach/nav/STEP1_LOGO.png" , "false","/GettingStarted/create-metamask" ,"create-metamask"},
-      new string[5]{ "2","/images/Teach/nav/STEP2_LOGO.png" , "false","/GettingStarted/connect-opensea","connect-opensea"},
-      new string[5]{ "3","/images/Teach/nav/STEP3_LOGO.png" , "false","/GettingStarted/create-PonPonSnake-game","create-PonPonSnake-game"},
-      new string[5]{ "4","/images/Teach/nav/STEP4_LOGO.png" , "false","/GettingStarted/connect-game-account","connect-game-account"},
-      new string[5]{ "5","/images/Teach/nav/STEP5_LOGO.png" , "false","/GettingStarted/download-and-play","download-and-play"},
-    };
-
-    public void squareClick(string value)
-    {
-        foreach (var Data in SquareData)
+    private void squareClick(string router)
+    {        
+        foreach(var TeachData in TeachAllDataTest)
         {
-            if (Data[0] == value)
-            {
-                Data[2] = "true";
-            }
-            else
-            {
-                Data[2] = "false";
-            }
-        }
+            TeachData.squareClick(router);
+        } 
     }
 
- 
-   
+    protected override async Task OnAfterRenderAsync(bool firstRender)
 
- 
-
-
-    public string[] SetpTextData =  new string[5]
     {
-         "1. Create Metamask Account and Connect with Polygon",
-         "2. Connect Metamask to your Opensea",
-         "3. Create your PonPonSnake Game Account",
-         "4. Connect Metamask to your Game Account",
-         "5. Download and PLAY!",
-    };
-    private Title title1 = new Title("1. Create Metamask Account and Connect with Polygon","What exactly is MetaMask? To transact with a blockchain, you'll need a cryptocurrency wallet. This wallet is your key to the crypto universe. It gives you the ability to purchase, sell, or transfer assets on the blockchain."); 
-    private Title title2 = new Title("2. Connect Metamask to your Opensea","For NFT purchase and sell transactions, OpenSea is utilized. Bidding on Opensea will get you the PonPonSnake Rider and Avatar. Connecting Opensea to your Metamask allows you to sync wallet info together.");
-    private Title title3 = new Title("3. Create your PonPonSnake account","Create your in-game account. Enter your phone, and we will send a 6 digit code to your phone."); 
-    private Title title4 = new Title("4. Connect Metamask to your Game Account","In order to let PonPonSnake NFT be used in our game, we will need you to connect your Metamask wallet, so we can sync your data. All the earnings in the game will be sent to your metamask wallet.");  
-    private Title title5 = new Title("5. Download and PLAY!","All Done! Now you can start your adventure in PonPonSnake!"); 
+
+        if (firstRender)
+
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
+    }
 }
+
+
+
+@*
+ private TeachData AllTeachData;
+
+ AllTeachData = new TeachData(
+    new string[][]{
+            new string[]{ "1","/images/Teach/nav/STEP1_LOGO.png" , "false","/GettingStarted/create-metamask" ,"create-metamask"},
+            new string[]{ "2","/images/Teach/nav/STEP2_LOGO.png" , "false","/GettingStarted/connect-opensea","connect-opensea"},
+            new string[]{ "3","/images/Teach/nav/STEP3_LOGO.png" , "false","/GettingStarted/create-PonPonSnake-game","create-PonPonSnake-game"},
+            new string[]{ "4","/images/Teach/nav/STEP4_LOGO.png" , "false","/GettingStarted/connect-game-account","connect-game-account"},
+            new string[]{ "5","/images/Teach/nav/STEP5_LOGO.png" , "false","/GettingStarted/download-and-play","download-and-play"},
+    },
+    new string[][]{
+        new string[]{ "1. Create Metamask Account and Connect with Polygon", "What exactly is MetaMask? To transact with a blockchain, you'll need a cryptocurrency wallet. This wallet is your key to the crypto universe. It gives you the ability to purchase, sell, or transfer assets on the blockchain."},
+        new string[]{ "2. Connect Metamask to your Opensea", "For NFT purchase and sell transactions, OpenSea is utilized. Bidding on Opensea will get you the PonPonSnake Rider and Avatar. Connecting Opensea to your Metamask allows you to sync wallet info together."},
+        new string[]{ "3. Create your PonPonSnake Game Account","Create your in-game account. Enter your phone, and we will send a 6 digit code to your phone."},
+        new string[]{ "4. Connect Metamask to your Game Account","In order to let PonPonSnake NFT be used in our game, we will need you to connect your Metamask wallet, so we can sync your data. All the earnings in the game will be sent to your metamask wallet."},
+        new string[]{ "5. Download and PLAY!","All Done! Now you can start your adventure in PonPonSnake!"},
+    },
+    router
+    );
+*@
+
+

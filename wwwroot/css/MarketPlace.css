@@ -530,8 +530,9 @@
 
 /* ------------------- */
 
-.NFTcard{
+.NFTcard {
     /* cursor: pointer; */
+    height: fit-content;
 }
 @media all and (max-width: 1500px){
     .marketPlaceHeader{
@@ -1005,7 +1006,7 @@ button.price-search-button:hover .search-icon{
     width: 100%;
     max-height: 100px;
     padding: 5px;
-    margin-top: 5px;
+    margin-top: 0px;
     display: none;
     border-top: 2px solid var(--theme-bg-2);
 }
@@ -1016,10 +1017,13 @@ button.price-search-button:hover .search-icon{
     color: #ffffff;
     margin-left: 10px;
     float: right;
-    margin-right: 15px;
+    margin-right: 0px;
     /* color: #4b8b8b; */
     color: var(--theme-font-2);
     transition: all .1s ease-in;
+    position:absolute;
+    right:5px;
+    bottom:5px;
 }
 
 .ShowTag-arrow {

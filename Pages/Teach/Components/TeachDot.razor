@@ -1,4 +1,6 @@
-﻿<head>
+﻿@using SnakeAsianLeague.Data.Entity.View
+
+<head>
     <link href="/css/Teach/TeachDot.css" rel="stylesheet" />
 </head>
 
@@ -6,12 +8,12 @@
 <div class="TeachDot-Container">
     @foreach(var data in Value)
     {
-        if (data[2]=="false")
+        if (data.shine)
         {
-          <a href=@data[3] >  <button class="TeachDot-Container-BG1" @onclick="@(() => squareOnclick(data[0]))"> </button></a> 
+          <a href="/GettingStarted/@data.router" >  <button class="TeachDot-Container-BG1" @onclick="@(() =>squareOnclick(data.router))"> </button></a> 
         }else 
         {
-          <a href=@data[3] >  <button class="TeachDot-Container-BG2"  @onclick="@(() => squareOnclick(data[0]))"> </button></a> 
+          <a href="/GettingStarted/@data.router" >  <button class="TeachDot-Container-BG2"  @onclick="@(() => squareOnclick(data.router))"> </button></a> 
         }
 
     }
@@ -21,7 +23,17 @@
 </div>
 
 @code {
-    [Parameter] public string[][]? Value { get; set; }
+
+    [Parameter] public  List<TeachAllData>? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SquareClick { get; set;}
+
+    private void squareOnclick(string idd)
+    {
+        SquareClick.InvokeAsync(idd);   
+    }
+    @*[Parameter] public string[][]? Value { get; set; }
    
     [Parameter]
     public EventCallback<string> squareClick { get; set;}
@@ -29,6 +41,6 @@
     private void squareOnclick(string idd)
     {
         squareClick.InvokeAsync(idd);   
-    }
+    }*@
 
 }

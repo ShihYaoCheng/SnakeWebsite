@@ -20,12 +20,16 @@
         </div>
 
         <div class="ERNC_PieChart">
-            <div class="ERNC_PieChart-Title">Total 270,000,000  ERNC</div>
+            <div class="ERNC_PieChart-Title">
+                <span>Total 270,000,000  ERNC</span>
+            </div>
         
             <div class="Pie-Chart-Block">
-                <div class="Pie-Chart" id="Pie-Chart">
-                    @* <img data-src="/images/GameFi/Pie-Chart.webp" alt=""> *@
-                </div>
+                
+                <div class="Pie-Chart" id="Pie-Chart"></div>
+                <div class="Pie-Chart" id="Pie-Chart-Rwd"></div>
+                <img class="Pie-Chart-material" src="/images/ERNC/ERNC_Allocation/material.png" alt="">
+
             </div>
         
         </div>
@@ -50,6 +54,7 @@
 
 
             await ERNCJS.InvokeVoidAsync("chartInit");
+            await ERNCJS.InvokeVoidAsync("chartInitRwd");
 
 
         }
