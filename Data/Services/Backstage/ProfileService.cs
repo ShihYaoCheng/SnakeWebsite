@@ -15,60 +15,126 @@ namespace SnakeAsianLeague.Data.Services.Backstage
 {
     public class ProfileService
     {
-        private readonly IDataAccess _db;
-        private readonly IConfiguration _config;
+        //private readonly IDataAccess _db;
+        //private readonly IConfiguration _config;
 
         private readonly static KeyValuePair<string, string> RequestKey = new KeyValuePair<string, string>("Backend-Auth-Handler", "gmregk343grgeggw[fk55234w46wfwef46gpwekf[43-i@@!#!@#@");
         
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
+        private readonly RestClient SnakeACLBackstageServer;
 
-        public ProfileService(IDataAccess db , IConfiguration config, IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
+        public ProfileService( IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
         {
-            _db = db;
-            _config = config;
+            //_db = db;
+            //_config = config;
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
+            SnakeACLBackstageServer = new RestClient(externalServersConfig.SnakeACLBackstageServer);
         }
 
-        public Task<List<Profile>> GetProfiles() 
+        public async Task<List<Profile>> GetProfiles() 
         {
-            string sql = "select * from Profile";
 
-            return _db.LoadData<Profile, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
+            List<Profile> result = new List<Profile>();
+            try
+            {
+                var LoginRestRequest = new RestRequest($"GetProfiles");
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Profile>>(restResponse.Content) ?? new List<Profile>();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("GetProfiles : " + ex.Message);
+            }
+            return result;
+
+            //string sql = "select * from Profile";
+
+            //return _db.LoadData<Profile, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
         }
 
         public async Task<Profile> GetOneProfileByUserId(uint userId)
         {
-            string sql = "select * from Profile where UserId = " + userId;
-            List<Profile> rp = await _db.LoadData<Profile, dynamic>(sql, new { }, _config.GetConnectionString("dev"));
-            if (rp.Count == 1)
+            Profile result = new Profile();          
+            try
             {
-                return rp[0];
+                var LoginRestRequest = new RestRequest($"GetOneProfileByUserId?userId={userId}");
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(restResponse.Content) ?? new Profile();                  
+                }
             }
-            else 
+            catch (Exception ex)
             {
-                return null;
+                Console.WriteLine("GetOneProfileByUserId : " + ex.Message);
             }
+            return result;
         }
 
-        public Task InsertProfile(Profile profile)
+        public async Task<bool> InsertProfile(Profile profile)
         {
-            string sql = @"insert into Profile (UserId, UserName, Phone, RealName, BeInterviewed , OpenAwardInfo , IdeaOfSnake, Recommendation ,Link , Gender , DateOfBirth, Email, City, SelfIntroduction)
-                        values (@UserId, @UserName, @Phone, @RealName,@BeInterviewed , @OpenAwardInfo , @IdeaOfSnake, @Recommendation, @Link , @Gender, @DateOfBirth, @Email, @City, @SelfIntroduction);";
 
-            return _db.SaveData<Profile>(sql, profile, _config.GetConnectionString("dev"));
+            bool result = false;
+            try
+            {
+                string jsonData = JsonSerializer.Serialize(profile);
+                var request = new RestRequest($"InsertProfile", Method.POST);
+                request.AddJsonBody(jsonData);
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
+
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("InsertProfile : " + ex.Message);
+            }
+
+            return result;
+
+            //string sql = @"insert into Profile (UserId, UserName, Phone, RealName, BeInterviewed , OpenAwardInfo , IdeaOfSnake, Recommendation ,Link , Gender , DateOfBirth, Email, City, SelfIntroduction)
+            //            values (@UserId, @UserName, @Phone, @RealName,@BeInterviewed , @OpenAwardInfo , @IdeaOfSnake, @Recommendation, @Link , @Gender, @DateOfBirth, @Email, @City, @SelfIntroduction);";
+
+            //return _db.SaveData<Profile>(sql, profile, _config.GetConnectionString("dev"));
         }
 
-        public Task UpdateProfile(Profile profile)
+        public async Task<bool> UpdateProfile(Profile profile)
         {
-            string sql = @"update Profile 
-                        set UserName = @UserName, Phone = @Phone, RealName = @RealName
-                            , BeInterviewed = @BeInterviewed, OpenAwardInfo = @OpenAwardInfo, IdeaOfSnake = @IdeaOfSnake, Recommendation = @Recommendation, Link = @Link
-                            , Gender = @Gender, DateOfBirth = @DateOfBirth , Email = @Email, City = @City , SelfIntroduction = @SelfIntroduction
-                        where UserId = @UserId;";
+            bool result = false;
+            try
+            {
+                string jsonData = JsonSerializer.Serialize(profile);
+                var request = new RestRequest($"UpdateProfile", Method.POST);
+                request.AddJsonBody(jsonData);
+                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
 
-            return _db.SaveData<Profile>(sql, profile, _config.GetConnectionString("dev"));
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("UpdateProfile : " + ex.Message);
+            }
+
+            return result;
+
+
+            //string sql = @"update Profile 
+            //            set UserName = @UserName, Phone = @Phone, RealName = @RealName
+            //                , BeInterviewed = @BeInterviewed, OpenAwardInfo = @OpenAwardInfo, IdeaOfSnake = @IdeaOfSnake, Recommendation = @Recommendation, Link = @Link
+            //                , Gender = @Gender, DateOfBirth = @DateOfBirth , Email = @Email, City = @City , SelfIntroduction = @SelfIntroduction
+            //            where UserId = @UserId;";
+
+            //return _db.SaveData<Profile>(sql, profile, _config.GetConnectionString("dev"));
         }
 
 
@@ -112,5 +178,8 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             auth = "Basic " + auth;
             return auth;
         }
+
+
+
     }
 }

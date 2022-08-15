@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnakeAsianLeague.Data.Entity.Backstage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -40,7 +41,12 @@ namespace SnakeAsianLeague.Data.Entity.View
         /// </summary>
         public DateTime MatchDate { get; set; }
 
+    }
 
+    public class AwardNoticeViewData
+    {
+      public AwardApplicationForm FormData { get; set; }
 
+      public List<AwardNoticeView> AwardNoticeViews { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace SnakeAsianLeague.Data.Entity.Backstage
 
         ///<summary> 獎品名稱 </summary>
         [StringLength(100, ErrorMessage = "PrizeName too long")]
-        public string PrizeName { get; set; }
+        public string? PrizeName { get; set; }
 
         ///<summary> 獎品圖片 </summary>
         [Required(ErrorMessage = "請上傳獎品圖片")]

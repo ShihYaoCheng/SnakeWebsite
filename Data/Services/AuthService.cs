@@ -252,7 +252,12 @@ namespace SnakeAsianLeague.Data.Services
             {
                 PhoneNumber = PhoneNumber.Substring(1);
             }
-            str = "+" + CountryCode + PhoneNumber;
+            if (CountryCode.Substring(0, 1) != "+")
+            {
+                CountryCode = "+" + CountryCode;
+            }
+
+            str = CountryCode + PhoneNumber;
             return str;
 
         }

@@ -1,6 +1,6 @@
 .ERNC_Table-Block{
     width: 100%;
-    padding: 60px 0 200px;
+    padding: 60px 0 150px;
 }
 
 table.ERNC_Table{
@@ -156,7 +156,7 @@ tbody{
 @media all and (max-width: 600px){
     .ERNC_Table-Block{
         width: 100%;
-        padding: 20px 0 200px;
+        padding: 20px 0 150px;
     }
 }
 @media all and (max-width: 400px){
