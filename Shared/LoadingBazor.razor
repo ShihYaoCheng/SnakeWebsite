@@ -1,0 +1,30 @@
+﻿    <SpinLoader IsLoading="isLoading"  Spinner="SpinnerType.Chase" >
+
+        <LoadingTemplate>
+            <div class="col-12" style="background-color:lightgray; height:100vh; vertical-align:middle ;display:flex; justify-content:center; align-items:center;">
+                <br/><br/>
+                <Chase Center ="true" Color="#c21f13" Size="70px"></Chase>
+            </div>
+        </LoadingTemplate>
+        <ContentTemplate>
+             @ChildContent
+        </ContentTemplate>
+    </SpinLoader>
+@code {
+
+    [Parameter]
+    public RenderFragment? ChildContent   { get; set; }
+
+      bool isLoading = true;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+
+    }
+}
