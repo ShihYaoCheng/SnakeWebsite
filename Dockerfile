@@ -3,7 +3,7 @@
 # best practice: Use Small-Sized Official Images(alpine)
 FROM mcr.microsoft.com/dotnet/sdk:6.0.302-alpine3.16-amd64 AS build-env
 WORKDIR /source
-COPY ./ .
+COPY ./SnakeAsianLeague .
 RUN dotnet restore
 RUN dotnet publish -c Release -o /publish
 
