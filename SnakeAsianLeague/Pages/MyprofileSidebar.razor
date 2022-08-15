@@ -1,0 +1,37 @@
+@page "/MyprofileSidebar"
+
+
+@inject IJSRuntime JS
+
+<head>
+    <link href="css/Sidebar.css" rel="stylesheet" />
+</head>
+
+<aside class="myprofileSidebar">
+    <div class="myprofileSidebarButton">
+        <img src="/images/Myprofile/sidebarLine.webp" alt="">
+    </div>
+    <div class="myprofileSidebarBlock">
+        <div class="accountManagement">Account<br>Management</div>
+        <ul class="accountManagementUl">
+            <a href="myprofile/index" id="accountManagementUl-Account" class=""><li data-i18n="Sidebar.Account">Account</li></a>
+            <a href="myprofile/mymatch" id="accountManagementUl-eSport"><li data-i18n="Sidebar.Esports">eSport</li></a>
+            <a href="myprofile/myawardnotice" id="accountManagementUl-Reward"><li data-i18n="Sidebar.Reward">Reward</li></a>
+            <a href="myprofile/inventory" id="accountManagementUl-Inventory" hidden="@(false)"><li data-i18n="Sidebar.Inventory">Inventory</li></a>
+
+        </ul>
+    </div>
+</aside>
+
+
+@code {
+      protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("myprofileSidebar");
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
+
+}

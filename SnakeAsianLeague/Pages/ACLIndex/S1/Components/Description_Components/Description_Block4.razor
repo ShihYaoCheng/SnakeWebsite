@@ -1,0 +1,84 @@
+﻿@inject IJSRuntime JS
+<div class="description_block" id="description_05">
+
+    <div class="schedule">
+
+        <div class="description_blockTitle" data-aos="fade-left" data-aos-delay="300">
+            <img data-src="/images/Index/title_bg.webp" alt="" class="title_bg">
+            <div class="title_BG">
+                <p>賽程<br>規劃</p>
+            </div>
+        </div>
+
+        <div class="schedule_calendar">
+
+            @* 頁籤切換 *@
+            <div class="schedule_button_all">
+                <div class="schedule_button" id="personal_button" @onclick="@(()=>calendarTabClick(0))">
+                    <p class="">個人</p>
+                </div>
+
+                <div class="schedule_button" id="team_button" @onclick="@(()=>calendarTabClick(1))">
+                    <p class="">隊伍</p>
+                </div>
+            </div>
+
+            @* 日曆 *@
+            <div class="calendarBlock">
+
+                <div class="schedule_p_all" id="schedule_personal">
+                    <div class="schedule_p" id="schedule_p1">
+                        <p>一般積分賽</p>
+                    </div>
+                    <div class="schedule_p" id="schedule_p2">
+                        <p>日冠決賽</p>
+                    </div>
+                    <div class="schedule_p" id="schedule_p3">
+                        <p>月冠決賽</p>
+                    </div>
+                    <div class="schedule_p" id="schedule_p4">
+                        <p>季冠決賽</p>
+                    </div>
+                </div>
+
+                <div class="schedule_p_all" id="schedule_team">
+                    <div class="schedule_p" id="schedule_p5">
+                        <p>一般積分賽</p>
+                    </div>
+                    <div class="schedule_p" id="schedule_p6">
+                        <p>周冠決賽</p>
+                    </div>
+                    <div class="schedule_p" id="schedule_p7">
+                        <p>月冠決賽</p>
+                    </div>
+                    <div class="schedule_p" id="schedule_p8">
+                        <p>季冠決賽</p>
+                    </div>
+                </div>
+
+                <div id='calendar'></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private IJSObjectReference? DescriptionJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            DescriptionJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ACLIndex/Description.js");
+
+        }
+    }
+    private async Task calendarTabClick(int index)
+    {
+        if (DescriptionJS != null)
+        {
+             await DescriptionJS.InvokeVoidAsync("description.calendarTab", index);
+        }
+       
+    }
+}
