@@ -7,6 +7,7 @@ nupkg/
 
 # Visual Studio Code
 .vscode
+/SnakeAsianLeague/.vscode
 
 # Rider
 .idea
@@ -34,7 +35,8 @@ msbuild.err
 msbuild.wrn
 
 # Visual Studio 2015
-/obj
-/bin
+/SnakeAsianLeague/obj
+/SnakeAsianLeague/bin
 /.vs
 /SnakeAsianLeague.csproj.user
+/SnakeAsianLeague/SnakeAsianLeague.csproj.user
