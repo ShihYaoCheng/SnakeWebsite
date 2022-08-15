@@ -1,0 +1,511 @@
+﻿.SRCExchange-container {
+    height: 1500px;    
+    padding-top: 180px;
+    max-width: 1024px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.SRCExchange-h2 {
+    padding-bottom:78px;
+    font-weight: 700;
+    font-size: 37px;
+    color: #fff;
+  
+}
+
+@media all and (max-width: 1024px) {
+
+    .SRCExchange-container {       
+        padding-top: 135px;
+    }
+
+    .SRCExchange-h2 {
+        padding-bottom: 58px;
+    }
+}
+
+
+@media all and (max-width: 768px) {
+
+    .SRCExchange-container {
+        padding-top: 100px;
+        width: 80%;
+    }
+
+    .SRCExchange-h2 {
+        padding-bottom: 42px;
+        font-size: 28px;
+    }
+}
+@media all and (max-width: 576px) {
+
+    .SRCExchange-container {
+        padding-top: 75px;
+        height: 800px;
+    }
+
+    .SRCExchange-h2 {
+        padding-bottom: 30px;
+    }
+}
+
+@media all and (max-width: 375px) {
+
+    .SRCExchange-h2 {
+        padding-bottom: 0px;
+        padding: 0 10px 24px 10px;
+    }
+}
+
+
+/*...貨幣交換區塊...*/
+.coinView-container {
+    border: 2px solid #69AEA3;
+    height: 511px;
+    border-radius: 43px;
+    color:#fff;
+    padding:30px 5%;
+    
+}
+
+.coinView-Minimum {
+    color: #fff;
+    width: 100%; 
+    text-align: right;
+    font-size: 18px;
+    padding-right:14px;
+}
+
+.coinView-GameWalletText {
+    width: 100%;
+    font-size: 24px;
+}
+
+@media all and (max-width: 1024px) {
+    .coinView-container {     
+        height: 450px;
+    }
+    .coinView-Minimum {
+        font-size: 14px;
+    }
+    .coinView-GameWalletText {  
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 768px) {
+
+    .coinView-container {
+        height: 450px;
+    }
+
+    .coinView-Minimum {
+        font-size: 12px;
+    }
+
+    .coinView-GameWalletText {
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 576px) {
+
+    .coinView-container {
+        height: 300px;
+        padding: 20px 1% 10px 2%;
+    }
+    .coinView-GameWalletText {
+        font-size: 16px;
+    }
+
+}
+
+
+@media all and (max-width: 375px) {
+
+ 
+    .coinView-GameWalletText {
+        font-size: 14px;
+    }
+}
+
+
+/*...貨幣資訊顯示...*/
+.changeCoinZone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:80%;
+}
+
+@media all and (max-width: 576px) {
+    .changeCoinZone {
+        height: 85%;
+    }
+}
+/*共用*/
+.coin-Zone {
+    width: 100%;
+    height: calc(100%/10 *3.3);
+}
+
+/*文字區域*/
+.coin-TextZone {
+    width: calc(100%/5 *2); 
+    height: 100%;
+}
+.coin-type {
+    font-size:50px;
+    font-weight:600;
+}
+
+.coin-type  img{
+    width: 45px;
+    height: 45px;
+}
+
+.avaliable {
+    font-size :16px;
+}
+
+
+.address-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+@media all and (max-width: 1024px) {
+    .coin-type {
+        font-size: 37.5px;
+    }
+
+    .coin-type img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .avaliable {
+        font-size: 14px;
+    }
+
+}
+
+@media all and (max-width: 768px) {
+    .coin-TextZone {
+        width: calc(100%/10*6);
+    }
+}
+
+@media all and (max-width: 576px) {
+    .coin-type {
+        font-size: 24px;
+    }
+
+    .coin-type img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .avaliable {
+        font-size: 10px;
+    }
+}
+
+@media all and (max-width: 375px) {
+    .coin-TextZone {
+        width: calc(100%/10*6);
+    }
+    .coin-type {
+        font-size: 20px;
+    }
+
+    .coin-type img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+
+.toPolygon {
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+}
+.user-address {
+    color: #008DCA;
+    font-size: 16px;
+}
+
+@media all and (max-width: 1024px) {
+    .toPolygon {
+        font-size: 18px;
+    }
+
+    .user-address {
+        font-size: 12px;
+    }
+}
+@media all and (max-width: 576px) {
+    .toPolygon {
+        font-size: 16px;
+    }
+
+    .user-address {
+        font-size: 10px;
+    }
+}
+
+@media all and (max-width: 375px) {
+
+
+    .toPolygon {
+        font-size: 14px;
+    }
+}
+
+
+/*num區域*/
+.coin-NumZone {
+    width: calc(100%/5 *2);  
+    height: 100%;
+}
+
+.exchangeRate {
+    text-align: right;
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    height: 30px;
+    padding:0 45px 10px 0; 
+
+}
+
+.coin-Num {
+    width: 90%;
+    margin:0 auto;
+    border: 2px solid #69AEA3;
+    height: 85px;
+    text-align: right;
+    border-radius: 35px;
+    font-size:31px;
+    padding-right:15px;
+    display:flex;
+    justify-content:end;
+    align-items:center;
+}
+
+.arrow-zone {
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.arrow-img {
+    width: 57px;
+    height: 57px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%)
+}
+
+@media all and (max-width: 1024px) {
+
+    .exchangeRate {  
+        font-size: 14px;
+        height: 20px;
+        padding: 0 38px 0px 0;        
+    }
+
+    .coin-Num { 
+        height: 77px;      
+        font-size: 26px;
+    }
+
+    .arrow-img {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .coin-NumZone {
+        width: calc(100%/2);
+    }
+}
+
+@media all and (max-width: 576px) {
+    .exchangeRate {
+        font-size: 12px;
+        height: 16px;
+        padding: 0 38px 0px 0;
+    }
+
+    .coin-Num {
+        height: 54px;
+        font-size: 18px;
+    }
+
+    .arrow-img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media all and (max-width: 375px) {
+    .exchangeRate {
+        font-size: 10px;     
+        padding: 0 25px 0px 0;
+    }
+
+}
+/*...最大化按鈕...*/
+.coin-MaxZone {
+    width: calc(100%/5 *1);
+    height: 100%;
+}
+.maxBTN-Zone {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:100%;
+}
+
+.maxBTN {
+    color: #69AEA3;
+    background: #FFFFFF;
+    width: 127px;
+    height: 50px;
+    border-radius: 43px;
+    border: 2px solid #69AEA3;
+    font-size: 28px;
+}
+
+.miniSizeBtn {
+    display:none;
+}
+
+@media all and (max-width: 1024px) {
+    .maxBTN { 
+        width: 95px;
+        height: 38px;    
+        font-size: 20px;
+    }
+
+}
+
+@media all and (max-width: 768px) {
+    .coin-MaxZone {
+        display:none;
+    }
+
+    .maxBTN {
+        width: 71px;
+        height: 28px;
+        font-size: 15px;
+        position:absolute;
+        right:5%
+    }
+    .miniSizeBtn {
+        display: block;
+    }
+
+}
+
+@media all and (max-width: 576px) {
+    .maxBTN {
+        width: 54px;
+        height: 22px;
+        font-size: 12px; 
+    }
+}
+
+/*...按鈕部分...*/
+.Btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+
+}
+
+.SwapBTN {
+    background: #FFA81D;
+    color: #fff;
+    font-size: 36px;
+    width: 394px;
+    height: 84px;
+    border-radius: 26px;
+    border: none;
+    margin: 36px 0 100px 0;
+}
+
+.SwapBTN-black {
+    background:  #B6B6B6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+
+}
+
+.greenBTN {
+    color: #fff;
+    width: 100%;
+    height: 84px;
+    background: #67ADA2;
+    border: 3px solid #FFFFFF;
+    border-radius: 26px;
+    margin-bottom: 41px;
+    font-size: 34px;
+}
+
+@media all and (max-width: 1024px) {
+    .SwapBTN {
+        font-size: 28px;
+        width: 300px;
+        height: 63px;    
+        margin: 28px 0 75px 0;
+    }
+
+    .greenBTN {
+        height: 64px;  
+        margin-bottom: 30px;
+        font-size: 26px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .SwapBTN {
+        font-size: 20px;
+        width: 225px;
+        height: 48px;
+        margin: 21px 0 56px 0;
+    }
+
+    .greenBTN {
+        height: 48px;   
+        margin-bottom: 22px;
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .SwapBTN {
+        font-size: 20px;
+        width: 100%;
+        height: 48px;
+        margin: 20px 0;
+    }
+
+    .greenBTN {
+        height: 48px;
+        margin-bottom: 22px;
+        font-size: 20px;
+    }
+}

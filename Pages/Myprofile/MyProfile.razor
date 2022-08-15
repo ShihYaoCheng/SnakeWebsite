@@ -2,7 +2,7 @@
 @using SnakeAsianLeague.Pages.Myprofile.Components
 
 <head>
-    <link href="css/Myprofile.css" rel="stylesheet" /> 
+    <link href="css/Myprofile/Myprofile.css" rel="stylesheet" /> 
     <title>PonPonSnake 碰碰蛇｜MyPage Account</title>
 </head>
 
@@ -25,6 +25,9 @@
             case "inventory":
                  <Inventory/>
                 break;      
+            case "srcexchange":
+                 <MyProfile_SRCExchange/>
+                break;     
         }
 
     </Authorized>
@@ -46,7 +49,10 @@
                 break;      
             case "inventory":
                  <Inventory/>
-                break;      
+                break;  
+           case "srcexchange":
+                 <MyProfile_SRCExchange/>
+                break;    
         }
     </NotAuthorized>
 </AuthorizeView>

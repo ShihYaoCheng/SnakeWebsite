@@ -1,0 +1,137 @@
+﻿@using SnakeAsianLeague.Shared
+
+@inject IJSRuntime JS
+<head>
+    <link href="css/Myprofile/SRCExchange.css" rel="stylesheet" />     
+</head>
+
+<div class="SRCExchange-container">
+    <h2 class="SRCExchange-h2">SRC exchange</h2>
+    <div class="coinView-container">
+        <p class="coinView-Minimum">
+            Minimum: 1 SRC
+        </p>
+        <p class="coinView-GameWalletText">
+            From Game Wallet 
+        </p>
+        
+        <div class="changeCoinZone">
+            @*貨幣文字區塊*@
+            <div class="coin-TextZone">
+                <div class="coin-Zone">
+                    <p class="exchangeRate">
+                       
+                    </p>
+                    <div class="coin-type">
+                        SRC
+                        <img src="/images/Myprofile/SRCExchange/SRC.webp"/>
+                    </div>
+                    <p class="avaliable">avaliable to swap: 978.1234</p>
+
+                </div>
+                <div class="coin-Zone">
+                    <div class="address-text">
+                        <p class="toPolygon">
+                            To Polygon Wallet
+                            <span class="user-address">
+                                0xe09...01e2....
+                            </span>
+                        </p>                   
+                    </div>
+                </div>
+                <div class="coin-Zone">
+        
+                    <div class="coin-type">
+                        <img src="/images/Myprofile/SRCExchange/addCoin.png"/>
+                        USDT
+                        
+                        <img src="/images/Myprofile/SRCExchange/tether-usdt-logo.png"/>
+                    </div>
+                    <p class="avaliable">Total Balance: 978.1234</p>
+
+                </div>
+            </div>
+            @*貨幣數字區塊*@
+            <div class="coin-NumZone">
+                <div class="coin-Zone">
+                    <p class="exchangeRate">
+                         =$33.25
+                    </p>
+                    <p class="coin-Num">
+                        5000
+                    </p>
+
+                </div>
+                <div class="coin-Zone">
+                    <div class="arrow-zone">
+                        <img class="arrow-img" src="/images/Myprofile/SRCExchange/Arrow.png"/>
+                        <button class="maxBTN miniSizeBtn">MAX</button>
+                    </div>
+                </div>
+                <div class="coin-Zone">         
+                    <p class="coin-Num">
+                        0.0003
+                    </p>
+
+                </div>
+            </div>
+            @*最大按鈕區塊*@
+            <div class="coin-MaxZone">
+                 <div class="coin-Zone">
+                 <div class="maxBTN-Zone">
+                     <button class="maxBTN">MAX</button>
+                 </div>
+                    
+                 </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="Btn-container">
+        @if (inputBalance)
+        {
+            <button id="SwapBTN" class="SwapBTN">Swap</button>
+        }
+        else
+        {
+             <div class="SwapBTN SwapBTN-black">Swap</div>
+        }
+       
+        <button class="greenBTN" @onclick="AddPolygon">Switch to Polygon </button>
+        <button class="greenBTN" @onclick="loginButtonClick">Connect to Game</button>
+
+    </div>
+
+</div>
+
+<ProductsPopup Value="SwapBTN">    
+    Comfirm to Swap <span> 5000 </span> SRC to <span> 0.0003 </span>  USDT?
+</ProductsPopup>
+
+
+@code {
+    bool inputBalance =true;    
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+  
+
+
+        }
+    }
+    protected  async Task AddPolygon()
+    {
+      
+        await JS.InvokeVoidAsync("AddPolygonID");    
+
+        
+    }
+
+    private async Task loginButtonClick()
+    {
+        await JS.InvokeVoidAsync("loginButton", "loginButton");
+    }
+
+}

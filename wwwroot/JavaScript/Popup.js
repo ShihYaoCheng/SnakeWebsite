@@ -126,3 +126,39 @@ window.showTag = function () {
 
     })
 }
+
+
+
+window.ProductsPopup = function (showBtnId) {
+   
+    // 全部領取彈窗
+    $(showBtnId).click(function () {
+        $('.AllCollectPop').addClass('products-popup-open');
+    });
+
+    // 個別彈窗
+    $('.Collect-Btn').click(function (e) { 
+        $('.SingelAllCollectPop').addClass('products-popup-open');
+    });
+
+    // 點擊 X 關閉
+    $('.products-popup-close').click(function () {
+        $('.products-popup-bg').removeClass('products-popup-open');
+    });
+
+    //點擊 Confirm 關閉
+    $('.products-popup-submit').click(function () {
+        $('.products-popup-bg').removeClass('products-popup-open');
+    });
+
+
+    // 點擊 背景關閉
+    $(document).mouseup(function (e) {
+        var container = $(".products-popupblock"); // 這邊放你想要排除的區塊
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            $('.products-popup-bg').removeClass('products-popup-open');
+        }
+    });
+
+
+}
