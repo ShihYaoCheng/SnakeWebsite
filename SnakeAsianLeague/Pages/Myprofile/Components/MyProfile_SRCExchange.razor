@@ -34,7 +34,7 @@
                         <p class="toPolygon">
                             To Polygon Wallet
                             <span class="user-address">
-                                0xe09...01e2....
+                                0x1231561561489451
                             </span>
                         </p>                   
                     </div>
@@ -42,12 +42,12 @@
                 <div class="coin-Zone">
         
                     <div class="coin-type">
-                        <img src="/images/Myprofile/SRCExchange/addCoin.png"/>
+                        <button @onclick="AddUSDT" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
                         USDT
                         
                         <img src="/images/Myprofile/SRCExchange/tether-usdt-logo.png"/>
                     </div>
-                    <p class="avaliable">Total Balance: 978.1234</p>
+                    <p id="TotalBalance" class="avaliable">Total Balance: @web3jsData</p>
 
                 </div>
             </div>
@@ -110,28 +110,36 @@
 
 
 @code {
-    bool inputBalance =true;    
+    bool inputBalance =true;
+    string web3jsData ;
+
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-  
 
-
+            web3jsData = await JS.InvokeAsync<string>("web3JS");
+          
+            
         }
     }
+    //切換並新增Polygon
     protected  async Task AddPolygon()
-    {
-      
-        await JS.InvokeVoidAsync("AddPolygonID");    
-
-        
+    {      
+        await JS.InvokeVoidAsync("AddPolygonID");            
     }
-
+    ////新增登入功能
     private async Task loginButtonClick()
     {
         await JS.InvokeVoidAsync("loginButton", "loginButton");
     }
+    //新增USDT
+    protected  async Task AddUSDT()
+    {      
+        await JS.InvokeVoidAsync("AddPolygonUSDT");            
+    }
 
+   
+    
 }
