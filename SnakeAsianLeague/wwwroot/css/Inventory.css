@@ -174,10 +174,43 @@
     margin: 0px 0px 15px;
     text-shadow: 2px 2px 5px #24242431;
 }
-.Secend-Inner{
-    
+
+.Inner-container {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.Inner {
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid var(--green-2);
+    border-radius: 26px;
+    padding: 30px 0px;
+}
+@media all and (max-width: 768px) {
+    .Inner-container {        
+        flex-direction: column;
+    }
+    .Inner {
+        width: 100%;    
+    }
+    .Inner:last-child {   
+        margin-top: 20px
+    }
+}
+
+@media all and (max-width: 564px) {
+    .Inner {
+        padding: 15px 0px;
+    }
+
+}
+
+.Secend-Inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 #Secend-Block-MyCerrency{
@@ -185,24 +218,77 @@
     border-radius: 26px;
     padding: 10px 30px;
 }
+.MyCerrency-container {
+  width:100%;
+  display:flex
+}
 
-.MyCerrency{
-    /* border: 1px solid red; */
-    display: inline-flex;
+.MyCerrency-between {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    margin: 25px;
-    cursor: pointer;
-    width: 250px;
+    width: calc(100%/5*2);
+}
+.MyCerrency {
+    /* border: 1px solid red; */    
+    cursor: pointer; 
     /* width: 100%; */
 }
 
-.MyCerrency-Icon{
+.MyCerrency-mid {
+    width: calc(100%/5*1) ;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+.MyCerrency-mid img{
+    width:40px;
+  
+}
+
+@media all and (max-width: 1024px) {
+    .MyCerrency-mid img {
+        width: 35px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .MyCerrency-mid img {
+        width: 40px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .MyCerrency-mid img {
+        width: 35px;
+    }
+}
+
+@media all and (max-width: 375px) {
+
+    .MyCerrency-between {
+
+        width: calc(100%/9*4);
+    }
+
+    .MyCerrency-mid {
+        width: calc(100%/9*1);
+
+    }
+
+ 
+
+}
+
+.MyCerrency-Icon {
     width: 70px;
     animation: scale 2.5s 0s infinite;
 }
-@keyframes scale{
 
+
+@keyframes scale {
     0%{
         transform: scale(0.95);
     }
@@ -217,15 +303,83 @@
 }
 
 .MyCerrency-Detail{
-    margin-left: 25px;
-    line-height: 30px;
-    white-space: nowrap;
+    text-align:center;
+    line-height: 30px;   
     color: var(--green-2);
     font-size: 24px;
 }
 
+.MyCerrency-Name {
+    width:100%;
+    margin-top:10px;
+}
+.MyCerrency-Amount {
+    margin-top: 10px;
+    text-align: center;
+}
 
-.Inventory-PPSR-Block{
+@media all and (max-width: 1024px) {
+    .MyCerrency-Detail {
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .MyCerrency-Detail {
+        font-size: 22px;
+    }
+}
+@media all and (max-width: 576px) {
+    .MyCerrency-Detail {
+        font-size: 16px;
+    }
+    .MyCerrency-Amount {
+        margin-top: 0px;    
+    }
+}
+
+.ExchangeBtn-container {
+    width:100%;
+    text-align:center;
+}
+
+.ExchangeBtn {
+    border: 2px solid #fff;
+    border-radius: 15px;
+    background: none;
+    width: 195px;
+    height: 60px;
+    margin: 20px auto 0 auto;
+    color: #fff;
+    font-size: 25px;
+}
+
+@media all and (max-width: 1024px) {
+    .ExchangeBtn {
+        width: 146px;
+        font-size: 20px;
+        height: 50px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .ExchangeBtn {
+        width: 195px;
+        font-size: 25px;
+        height: 50px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .ExchangeBtn {
+        width: 146px;
+        font-size: 20px;
+        height: 50px;
+    }
+}
+
+
+.Inventory-PPSR-Block {
     /* border: 1px solid red; */
     display: flex;
     align-items: center;
@@ -380,15 +534,12 @@
 
     }
     .MyCerrency{
-        width: 230px;
-        margin: 25px 15px;
+        width: 230px;    
     }
     .MyCerrency-Icon{
         width: 65px;
     }
-    .MyCerrency-Detail{
-        font-size: 22px;
-    }
+
 
 
 
