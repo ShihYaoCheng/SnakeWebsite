@@ -23,7 +23,6 @@
     font-family: 'Frick','Bowlby One', adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
     font-size: 36px;
     color: #ffffff;
-    padding-bottom: 0px;
     /* border-bottom: 3px solid white; */
     letter-spacing: 4.5px;
     line-height: 40px;
@@ -69,15 +68,39 @@
     overflow-x: auto;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     width: 80%;
 
     
     height: 640px;
     /* padding: 20px 0; */
-    padding: 20px 0 20px 75px;
+    padding: 20px 0 20px 0px;
     /* width: calc(230px*14); */
 }
+
+.Project-Year{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    position: relative;
+    padding-left: 75px;
+}
+.Project-Year:not(:first-child){
+    margin-left: -75px;
+}
+.Project-Year-Title{
+    font-family: 'Frick','Bowlby One', adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+    font-size: 34px;
+    color: #ffffff;
+    letter-spacing: 4.5px;
+    line-height: 36px;
+    position: absolute;
+    top: 0;
+    left: 25px;
+}
+
+
 .Project{
     /* border: 1px solid red; */
     display: flex;
@@ -107,7 +130,7 @@
     z-index: 6;
 }
 
-.Project-Img{
+.Project-Img-Block{
     border: 3px solid #ffffff;
     background-color: #ffffff;
     width: 160px;
@@ -115,13 +138,77 @@
     box-shadow: 0px 5px 18px 0 rgba(8, 4, 40, 0.6);
     position: relative;
     /* z-index: 6; */
+    /* opacity: 0.6; */
+    transition: all .2s ease-out;
 }
-.Project-Img img{
+.Project-Img{
     width: 100%;
+    opacity: 0.6;
+    transition: all .3s ease-out;
     /* transform: rotate(-45deg); */
 }
+.Project-Img-Block:hover{
+    box-shadow: unset;
+    filter: drop-shadow(0px 0px 15px rgba(255, 248, 227, 0.8));
+}
+.Project-Img-Block:hover .Project-Img{
 
-.Project-bottom .Project-Img::after{
+    opacity: 1;
+}
+
+.Project-Month{
+    font-family: 'Frick','Bowlby One', adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+
+    position: absolute;
+    z-index: 5;
+    transform: translate(-50%,-50%) rotate(-45deg);
+    top: 53%;
+    left: 53%;
+    color: #fff;
+    font-size: 29px;
+    letter-spacing: 3.5px;
+    text-align: center;
+    z-index: 5;
+}
+/* .Project-Month:before {
+    content: attr(data-tooltip);
+    font-family: 'Frick','Bowlby One', adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    -webkit-text-stroke: 10px #666;
+    text-shadow: 0px 0px 5px #666;
+    color: #666;
+    font-size: 30px;
+    letter-spacing: 3px;
+    text-align: center;
+    z-index: -1;
+} */
+.Project-Month-BG{
+    font-family: 'Frick','Bowlby One', adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+
+    position: absolute;
+    transform: translate(-50%,-50%) rotate(-45deg);
+    top: 53%;
+    left: 53%;
+    -webkit-text-stroke: 10px #666;
+    text-shadow: 0px 0px 5px #666;
+    color: #666;
+    font-size: 29px;
+    letter-spacing: 3px;
+    text-align: center;
+    /* -webkit-animation: fill 0.5s forwards alternate; */
+}
+
+/* @-webkit-keyframes fill {
+  from { -webkit-text-fill-color: #ffffff; }
+  to { -webkit-text-fill-color: slategrey; }
+} */
+
+
+.Project-bottom .Project-Img-Block::after{
     content: "";
     position: absolute;
     width: 12px;
@@ -137,7 +224,7 @@
     z-index: 1;
 }
 
-.Project-top .Project-Img:not(:last-child)::after{
+.Project-top .Project-Img-Block:not(:last-child)::after{
     content: "";
     position: absolute;
     width:  60px;
@@ -174,7 +261,7 @@
     position: absolute;
     /* align-self: center; */
     height: 95px;
-    width: 75%;
+    width: 78%;
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
     letter-spacing: 0.5px;
 }
@@ -200,7 +287,7 @@
     position: relative;
     padding-left: 12px;
     margin-bottom: 5px;
-    line-height: 20px;
+    line-height: 17px;
 }
 .Project-info li::before {
     content: "";
@@ -211,4 +298,26 @@
     left: 0px;
     background-color: #ffffff;
     transform: rotate(45deg)translateY(-50%);
+}
+
+
+
+/* 改scrollbar樣式 */
+.Project-Block::-webkit-scrollbar {
+    background: #d7edee;
+    height: 10px;
+}
+
+.Project-Block::-webkit-scrollbar-thumb {
+    border-radius: 10px  !important;
+    background-color: #0c3c76 !important;
+    border: none  !important;
+
+}
+
+.Project-Block::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px  !important;
+    background: #000000 !important;
+
 }
