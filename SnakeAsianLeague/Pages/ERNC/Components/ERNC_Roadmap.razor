@@ -14,23 +14,53 @@
         </div>
 
         <div class="Roadmap-Years-Block">
+
+            <div class="Roadmap-Years" id="btn-2022">
+                2022
+            </div>
+
+            <div class="Roadmap-Years" id="btn-2023">
+                2023
+            </div>
+            <div class="Roadmap-Years" id="btn-2024">
+                2024
+            </div>
+
+        </div>
+
+        <div class="Roadmap-Years-Block Roadmap-Years-Block-RWD">
+
             <a href="ERNC#Project-2022">
-                <div class="Roadmap-Years">2022</div>
+                <div class="Roadmap-Years" id="btn-2022-RWD">
+                    2022
+                </div>
             </a>
+
             <a href="ERNC#Project-2023">
-                <div class="Roadmap-Years">2023</div>
+                <div class="Roadmap-Years" id="btn-2023-RWD">
+                    2023
+                </div>
             </a>
+
             <a href="ERNC#Project-2024">
-                <div class="Roadmap-Years">2024</div>
+                <div class="Roadmap-Years" id="btn-2024-RWD">
+                    2024
+                </div>
             </a>
 
         </div>
+
+
+
     </div>
 
     <div class="Project-BG">
+        <div class="Project-Block-Gradient"></div>
         <div class="Project-Block">
 
+
             <div class="Project-Year" id="Project-2022">
+                <div class="Project-Year-Line"></div>
                 <div class="Project-Year-Title">2022</div>
 
                 <div class="Project Project-bottom">
@@ -71,7 +101,7 @@
                 </div>
 
                 <div class="Project Project-top">
-                    <div class="Project-Img-Block">
+                    <div class="Project-Img-Block" id="Project-Img-Block-04">
                         <img class="Project-Img" src="/images/ERNC/ERNC_Roadmap/Project-Img-04.png" alt="">
                         <div class="Project-Month">DEC</div>
                         <div class="Project-Month-BG">DEC</div>
@@ -84,6 +114,7 @@
             </div>
 
             <div class="Project-Year" id="Project-2023">
+                <div class="Project-Year-Line"></div>
                 <div class="Project-Year-Title">2023</div>
 
                 <div class="Project Project-bottom" id="Project-02">
@@ -167,6 +198,7 @@
             </div>
 
             <div class="Project-Year" id="Project-2024">
+                <div class="Project-Year-Line"></div>
                 <div class="Project-Year-Title">2024</div>
 
                 <div class="Project Project-top">
@@ -211,3 +243,68 @@
 
 
 </div>
+
+
+@code {
+
+
+
+    private IJSObjectReference? ERNCJS;
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+
+
+
+
+
+
+    {
+
+
+
+
+
+
+
+        if (firstRender)
+
+
+
+
+
+
+
+        {
+
+
+
+            ERNCJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ERNC/ERNC.js");
+
+
+
+
+
+
+
+            await ERNCJS.InvokeVoidAsync("roadMapScrollLeft");
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+    }
+
+}

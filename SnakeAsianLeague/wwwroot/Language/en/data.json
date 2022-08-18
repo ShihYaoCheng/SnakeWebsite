@@ -9,7 +9,7 @@
   "lines": "This is line 1.<br>This is line 2.<br>This is line 3.",
 
   "nav": {
-    "snakelogo": "./images/Other/LOGO_EN.webp",
+    "snakelogo": "./images/Other/LOGO_WhiteOutline.png",
     "Ponponsnake": "PonPonSnake",
     "Home": "Home",
     "NewEvent": "New Event",

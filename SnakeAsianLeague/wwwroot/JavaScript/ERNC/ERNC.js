@@ -1,3 +1,4 @@
+// 圓餅圖
 export function chartInit() {
     // console.log('ERNC-chartInit')
 
@@ -20,7 +21,7 @@ export function chartInit() {
     function init() {
         if (window.scrollY > position) {
             ERNCCharts();
-            $(".Pie-Chart-Block").addClass("animate_start"); 
+            $(".Pie-Chart-Block").addClass("animate_start");
             $(window).unbind('scroll')
         }
     };
@@ -140,7 +141,7 @@ export function chartInit() {
                             shadowBlur: 10,
                             shadowOffsetX: 0,
                             shadowColor: 'rgba(0, 0, 0, 0.5)'
-                          }
+                        }
                     },
 
                     labelLine: {
@@ -268,6 +269,7 @@ export function chartInit() {
 
 }
 
+// 圓餅圖RWD
 export function chartInitRwd() {
 
     // 手機版
@@ -291,7 +293,7 @@ export function chartInitRwd() {
     function initRwd() {
         if (window.scrollY > positionRwd) {
             ERNCChartsRwd();
-            $(window).unbind('scroll',initRwd)
+            $(window).unbind('scroll', initRwd)
         }
     };
 
@@ -341,7 +343,7 @@ export function chartInitRwd() {
                             shadowBlur: 10,
                             shadowOffsetX: 0,
                             shadowColor: 'rgba(0, 0, 0, 0.5)'
-                          }
+                        }
                     },
                     labelLine: {
                         show: false
@@ -363,7 +365,7 @@ export function chartInitRwd() {
                             offset: 1,
                             color: '#B7836F'
                         }]),
-    
+
                         // CQI Team 16%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
@@ -372,7 +374,7 @@ export function chartInitRwd() {
                             offset: 1,
                             color: '#E2EBFE'
                         }]),
-    
+
                         // Event 2%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
@@ -381,7 +383,7 @@ export function chartInitRwd() {
                             offset: 1,
                             color: '#F4ECFF'
                         }]),
-    
+
                         // Develop 8%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
@@ -390,7 +392,7 @@ export function chartInitRwd() {
                             offset: 1,
                             color: '#AEDCEC'
                         }]),
-    
+
                         // Advisor 4%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
@@ -399,7 +401,7 @@ export function chartInitRwd() {
                             offset: 1,
                             color: '#FCD4B9'
                         }]),
-    
+
                         // Public sale 4%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
@@ -408,7 +410,7 @@ export function chartInitRwd() {
                             offset: 1,
                             color: '#F1E7C5'
                         }]),
-    
+
                         // Private Placement 12%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
@@ -417,7 +419,7 @@ export function chartInitRwd() {
                             offset: 1,
                             color: '#ECFFE6'
                         }]),
-    
+
                         // Seed(0.06USD) 6%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
@@ -426,7 +428,7 @@ export function chartInitRwd() {
                             offset: 1,
                             color: '#ffffff'
                         }]),
-    
+
                         // Charity 3%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
@@ -474,4 +476,82 @@ export function chartInitRwd() {
 
     }
     ERNCChartsRwd();
+}
+
+
+// PROJECT ROADMAP
+export function roadMapScrollLeft() {
+    console.log('roadMapScrollLeft')
+
+    $(document).ready(function () {
+        $("#btn-2022").click(function () {
+            $(".Project-Block").scrollLeft(0);
+
+            $('.Roadmap-Years').removeClass('Roadmap-Years-focus');
+            $("#btn-2022").addClass('Roadmap-Years-focus');
+
+            $(".Project-Year-Title").css('opacity','0.4');
+            $("#Project-2022 .Project-Year-Title").css('opacity','1');
+            $(".Project-Img-Block").css('opacity','0.4');
+            $("#Project-2022 .Project-Img-Block").css('opacity','1');
+
+            $(".Project-Year-Line").css('opacity','0');
+            $('.Project-Year').removeClass('animate_start');
+            $("#Project-2022").addClass('animate_start');
+
+            $('.Project-Img').removeClass('Project-Img-focus');
+            $("#Project-2022 .Project-Img").addClass('Project-Img-focus');
+        });
+
+        $("#btn-2023").click(function () {
+            $(".Project-Block").scrollLeft(560);
+
+            $('.Roadmap-Years').removeClass('Roadmap-Years-focus');
+            $("#btn-2023").addClass('Roadmap-Years-focus');
+
+            $(".Project-Year-Title").css('opacity','0.4');
+            $("#Project-2023 .Project-Year-Title").css('opacity','1');
+            $(".Project-Img-Block").css('opacity','0.4');
+            $("#Project-2023 .Project-Img-Block").css('opacity','1');
+
+            $(".Project-Year-Line").css('opacity','0');
+            $('.Project-Year').removeClass('animate_start');
+            $("#Project-2023").addClass('animate_start');
+
+            $('.Project-Img').removeClass('Project-Img-focus');
+            $("#Project-2023 .Project-Img").addClass('Project-Img-focus');
+        });
+
+        $("#btn-2024").click(function () {
+            $(".Project-Block").scrollLeft(1855);
+
+            $('.Roadmap-Years').removeClass('Roadmap-Years-focus');
+            $("#btn-2024").addClass('Roadmap-Years-focus');
+
+            $(".Project-Year-Title").css('opacity','0.4');
+            $("#Project-2024 .Project-Year-Title").css('opacity','1');
+            $(".Project-Img-Block").css('opacity','0.4');
+            $("#Project-2024 .Project-Img-Block").css('opacity','1');
+
+            $(".Project-Year-Line").css('opacity','0');
+            $('.Project-Year').removeClass('animate_start');
+            $("#Project-2024").addClass('animate_start');
+
+            $('.Project-Img').removeClass('Project-Img-focus');
+            $("#Project-2024 .Project-Img").addClass('Project-Img-focus');
+        });
+
+    });
+
+    $(document).mouseup(function (e) {
+        var container =$(".Project-BG"); // 這邊放你想要排除的區塊
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            $('.Roadmap-Years').removeClass('Roadmap-Years-focus');
+            $(".Project-Year-Title").css('opacity','1');
+            $(".Project-Img-Block").css('opacity','1');
+            $(".Project-Img").css('opacity','0.6');
+            $('.Project-Img').removeClass('Project-Img-focus');
+
+        }
+    });
 }
