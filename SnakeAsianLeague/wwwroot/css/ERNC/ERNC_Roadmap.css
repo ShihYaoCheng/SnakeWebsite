@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;700&family=Bowlby+One&family=Lalezar&family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap');
 
 .ERNC_Roadmap-Block{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
     margin: 0 auto;
-    height: 1000px;
+    padding: 0 0 0px 0;
+    /* height: 1000px; */
 }
 
 .ERNC_Roadmap-TitleBlock{
@@ -44,12 +45,23 @@
     background-color: #ffffff;
     padding: 4px 30px 3px;
     font-size: 20px;
-    margin: 0px 10px;
+    margin: 0px 13px;
     text-align: center;
     align-self: center;
+    cursor: pointer;
+    box-shadow: 0px 5px 18px 0 rgb(8 4 40 / 60%);
+    transition: all .2s ease-out;
+    border-radius: 3px;
+}
+.Roadmap-Years:hover{
+    transform: scale(1.02) translateY(-1px);
+}
+.Roadmap-Years-focus{
+    box-shadow: 0px 0px 10px 5px #abd4ffdb;
 }
 
 .Project-BG{
+    position: relative;
     width: 100%;
     background-image: url(/images/ERNC/ERNC_Roadmap/Project-BG.png);
     background-position: top left;
@@ -59,24 +71,42 @@
     border-bottom: 7px solid #ffffff;
     /* padding: 0 50px; */
     /* height: 200px; */
+    margin: 0 auto 0px;
+}
+
+.Project-Block-Gradient {
+    /* border: 1px solid yellow; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    background: no-repeat center top / 100% 100%;
+    background-image: linear-gradient(to right, #132738 0%,#132738 5%, #1327382f 10%,#13273800 20%,#13273800 80%, #1327382f 90%, #132738 95%, #132738 100%);
+    z-index: 15;
+    /* display: none; */
 }
 
 .Project-Block{
-    border: 1px solid yellow;
-    margin: 100px auto;
+    /* border: 1px solid yellow; */
 
     overflow-x: auto;
     display: flex;
     flex-direction: row;
     /* align-items: flex-end; */
-    width: 80%;
-
-    
-    height: 640px;
+    scroll-behavior: smooth;
+    height: 700px;
     /* padding: 20px 0; */
-    padding: 20px 0 20px 0px;
     /* width: calc(230px*14); */
+
+    /* width: 80%;
+    padding: 20px 0; */
+    width: 90%;
+    padding: 20px 7% 50px;
+    margin: 90px auto 80px;
 }
+
 
 .Project-Year{
     /* border: 1px solid red; */
@@ -98,6 +128,7 @@
     position: absolute;
     top: 0;
     left: 25px;
+    transition: all .3s ease-out;
 }
 
 
@@ -111,8 +142,6 @@
     height: 300px;
     flex-shrink: 0;
 
-
-    
     /* height: 350px; */
     position: relative;
 }
@@ -135,7 +164,7 @@
     background-color: #ffffff;
     width: 160px;
     transform: rotate(45deg);
-    box-shadow: 0px 5px 18px 0 rgba(8, 4, 40, 0.6);
+    box-shadow: 0px 5px 18px 0 rgba(8, 4, 40, 0.7);
     position: relative;
     /* z-index: 6; */
     /* opacity: 0.6; */
@@ -148,11 +177,17 @@
     /* transform: rotate(-45deg); */
 }
 .Project-Img-Block:hover{
+    opacity: 1 !important;
     box-shadow: unset;
     filter: drop-shadow(0px 0px 15px rgba(255, 248, 227, 0.8));
 }
-.Project-Img-Block:hover .Project-Img{
 
+.Project-Img-Block:hover .Project-Img{
+    opacity: 1;
+}
+
+.Project-Img-focus{
+    filter: drop-shadow(0px 0px 80px rgba(255, 248, 227, 0.965));
     opacity: 1;
 }
 
@@ -165,7 +200,7 @@
     top: 53%;
     left: 53%;
     color: #fff;
-    font-size: 29px;
+    font-size: 25.5px;
     letter-spacing: 3.5px;
     text-align: center;
     z-index: 5;
@@ -194,9 +229,10 @@
     top: 53%;
     left: 53%;
     -webkit-text-stroke: 10px #666;
-    text-shadow: 0px 0px 5px #666;
+    /* text-shadow: 0px 0px 5px #666; */
+    text-shadow: 5px 10px 8px #3b3b3bad;
     color: #666;
-    font-size: 29px;
+    font-size: 25px;
     letter-spacing: 3px;
     text-align: center;
     /* -webkit-animation: fill 0.5s forwards alternate; */
@@ -212,7 +248,7 @@
     content: "";
     position: absolute;
     width: 12px;
-    height: 60px;
+    height: 57.5px;
     /* border: solid 11.5px #fff; */
     background-color: #fff;
     box-shadow: 0px 5px 18px 0 rgba(8, 4, 40, 0.6);
@@ -227,7 +263,7 @@
 .Project-top .Project-Img-Block:not(:last-child)::after{
     content: "";
     position: absolute;
-    width:  60px;
+    width:  57.5px;
     height: 12px;
     /* border: solid 11.5px #fff; */
     background-color: #fff;
@@ -264,6 +300,7 @@
     width: 78%;
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
     letter-spacing: 0.5px;
+
 }
 .Project-bottom .Project-info{
     bottom: 0px;
@@ -320,4 +357,216 @@
     border-radius: 10px  !important;
     background: #000000 !important;
 
+}
+
+
+@media all and (max-width: 1920px){
+    .Roadmap-Title span{
+        font-size: 32px;
+    }
+    .Project-Year-Title{
+        font-size: 30px;
+    }
+    .Roadmap-Years-Block{
+        margin: 5px 30px;
+    }
+    .Roadmap-Years{
+        padding: 4px 25px 3px;
+        font-size: 20px;
+        margin: 0px 12px;
+    }
+    .Project-Block{
+        margin: 40px auto 80px;
+        padding: 20px 5.5% 50px;
+        width: 100%;
+    }
+    .Project-Block-Gradient{
+        background-image: linear-gradient(to right, #132738 0%,#132738cb  5%, #1327382f 10%,#13273800 20%,#13273800 80%, #1327382f 90%, #132738cb 95%, #132738 100%);
+    }
+    .Project{
+        width: 200px;
+        height: 280px;
+    }
+    .Project-Img-Block{
+        width: 140px;
+    }
+    .Project-top{
+        margin-bottom: 275px;
+        margin-left: -60px;
+    }
+    .Project-bottom{
+        margin-left: -60px;
+    }
+    .Project-info-two {
+        width: 70%;
+    }
+    .Project-bottom .Project-Img-Block::after{
+        height: 55.5px;
+    }
+    
+    .Project-top .Project-Img-Block:not(:last-child)::after{
+        width:  55.5px;
+        height: 12px;
+    }
+}
+
+@media all and (max-width: 1000px){
+    .ERNC_Table-Block {
+        width: 100%;
+        padding: 60px 0 120px;
+    }
+    .Project-Block-Gradient{
+        background-image: linear-gradient(to right, #132738 0%,#1327388a 2%, #1327382f 5%,#13273800 20%,#13273800 80%, #1327382f 95%, #1327388a 98%, #132738 100%);
+    }
+    .ERNC_Roadmap-TitleBlock{
+        flex-direction: column;
+        margin: 0 auto 30px;
+    }
+    .Roadmap-Years-Block{
+        margin: 25px 10px 0px;
+        justify-content: flex-end;
+    }
+    .Roadmap-Title span {
+        font-size: 28px;
+    }
+    .Roadmap-Years {
+        padding: 4px 23px 3px;
+        font-size: 18px;
+        margin: 0px 12px;
+    }
+
+    .Project-Year-Title {
+        font-size: 28px;
+    }
+}
+.Roadmap-Years-Block-RWD{
+    display: none;
+}
+@media all and (max-width: 600px){
+    .Project-Block-Gradient{
+        display: none;
+    }
+    .Project-Block{
+        height: unset;
+        flex-direction: column;
+        width: 95%;
+        padding: 20px 0% 50px;
+        overflow-x: unset;
+    }
+    .Project-Year{
+        padding-left:unset;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    .Project-Year-Title{
+        position: unset;
+        /* align-self: start; */
+        /* margin-top: 20px; */
+        /* text-align: start; */
+    }
+    .Project{
+        /* width: 120px; */
+        height: 120px;
+        width: 100%;
+        margin-bottom: 5px;
+        padding-left: 22px;
+        /* padding-left: 5%; */
+    }
+    .Project-Img-Block {
+        width: 80px;
+        align-self: flex-start;
+    }
+    .Project-Month{
+        font-size: 18px;
+    }
+    .Project-Month-BG{
+        -webkit-text-stroke: 7px #666;
+        font-size: 18px;
+    }
+    .Project-info{
+        width: 100%;
+        height: unset;
+        justify-content: center;
+        /* white-space: nowrap; */
+    }
+    .Project-info li{
+        margin-bottom: 3px;
+    }
+    .Project-info li::before{
+        top: 8px;
+    }
+    .Project-bottom{
+        margin-left: unset;
+        justify-content: center;
+    }
+    .Project-bottom .Project-info {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 38%;
+    }
+    .Project-bottom .Project-Img-Block::after{
+        display: none;
+    }
+    .Project-top .Project-Img-Block:not(:last-child)::after{
+        display: none;
+    }
+
+    .Project-top{
+        justify-content: center;
+        align-self: center;
+        /* margin-bottom: unset; */
+        margin-left: unset;
+    }
+    .Project-top .Project-info {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 38%;
+    }
+    .Project-Year:not(:first-child){
+        margin-left: unset;
+
+    }
+    .Project-info-one {
+        align-items: flex-start;
+    }
+    .Project-Year{
+        position: relative;
+    }
+    .Project-Year-Line{
+        position: absolute;
+        border-left: 6px solid #ffffff;
+        height: 80%;
+        top: 15%;
+        /* left: 13.5%; */
+        left: 60px;
+        /* opacity: 0;
+        z-index: -1; */
+    }
+    @keyframes Project-Year-Line-display{
+        0% {
+            height: 0%;
+            opacity: 0;
+            z-index: -1;
+        }
+        10% {
+            height: 0%;
+            opacity: 1;
+            z-index: 1;
+        }
+        100%{
+            height: 80%;
+            opacity: 1;
+            z-index: 1;
+        }
+    }
+    .animate_start .Project-Year-Line{
+        animation: Project-Year-Line-display 0.8s ease-in-out 0s forwards;
+    }
+    .Roadmap-Years-Block{
+        display: none;
+    }
+    .Roadmap-Years-Block-RWD{
+        display: flex;
+    }
 }
