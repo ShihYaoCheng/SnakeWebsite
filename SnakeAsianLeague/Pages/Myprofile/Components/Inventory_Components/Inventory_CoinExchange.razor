@@ -1,0 +1,70 @@
+﻿@inject IJSRuntime JS
+
+<head>
+    <link href="css/MyProfile/coinExchange.css" rel="stylesheet" />
+</head>
+
+<div class="coinEchange-container">
+    <div class="coinEchange">
+        <div class="coinNum-Container">
+             <div class="coinNum-beteen">
+                 <div class="coinTop">
+                    <img class="coinEchange-Icon" src="/images/Myprofile/SRC.webp" alt="">
+                    <p>gSRC</p>
+                    <p>123,456.789</p>
+                 </div>
+
+                 <p class="replacedCoin">
+                    123,456.789
+                 </p>
+                 <output class="increaseCoin" id="GSRCincrease">
+                    0
+                 </output>  
+             </div>
+             <div class="coinNum-mid">
+                 <div class="coinTop doubleArrow">
+                      <img src="/images/Myprofile/doubleArrow.png"/>
+                 </div>
+                
+             </div>
+              <div class="coinNum-beteen">
+                 <div class="coinTop">
+                    <img class="coinEchange-Icon" src="/images/Myprofile/SRC.webp" alt="">                                     
+                    <p>SRC TOKEN</p>
+                    <p>123,456.789</p>
+                 </div>
+                 <p class="replacedCoin">
+                    123,456.789
+                 </p>                  
+                 <output class="increaseCoin"  id="SRCincrease">
+                    0
+                 </output>   
+             </div>
+        </div>
+       <input class="coin-range" type="range" max="100" min="-100" oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
+        <p class="increaseCoin" id="gSRCincrease"> </p>  
+      
+       <div class="coinEchange-BtnZone">
+           <button id="coinEchangeBtn" class="coinEchange-ExchangeBtn">Exchange</button>
+           <button id="coinEchangeCancel" class="coinEchange-CancelBtn">Cancel</button>
+       </div>
+    </div>
+
+</div>
+@code {
+    @*圖片 貨幣標題 貨幣數字
+    input裡面要用到 max min貨幣數字    
+    *@
+
+
+    private IJSObjectReference? coinEchangeJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/InventoryAndMarketPlace/coinEchange.js");
+            await coinEchangeJS.InvokeVoidAsync("coinEchange" ,".ExchangeBtn");
+        }
+    }
+
+}
