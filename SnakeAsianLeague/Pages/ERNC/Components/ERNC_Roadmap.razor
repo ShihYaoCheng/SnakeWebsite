@@ -28,24 +28,19 @@
 
         </div>
 
-        <div class="Roadmap-Years-Block Roadmap-Years-Block-RWD">
-
-            <a href="ERNC#Project-2022">
-                <div class="Roadmap-Years" id="btn-2022-RWD">
-                    2022
+        <div class="Roadmap-Years-Block-RWD">
+            <a href="ERNC#btn-2022-RWD" class="Roadmap-Years-RWD" id="btn-2022-RWD">
+                <div class="">
+                2022
                 </div>
             </a>
 
-            <a href="ERNC#Project-2023">
-                <div class="Roadmap-Years" id="btn-2023-RWD">
-                    2023
-                </div>
+            <a href="ERNC#Project-Img-Block-2022-end" class="Roadmap-Years-RWD" id="btn-2023-RWD">
+                2023
             </a>
 
-            <a href="ERNC#Project-2024">
-                <div class="Roadmap-Years" id="btn-2024-RWD">
-                    2024
-                </div>
+            <a href="ERNC#Project-Img-Block-2023-end" class="Roadmap-Years-RWD" id="btn-2024-RWD">
+                2024
             </a>
 
         </div>
@@ -101,7 +96,7 @@
                 </div>
 
                 <div class="Project Project-top">
-                    <div class="Project-Img-Block" id="Project-Img-Block-04">
+                    <div class="Project-Img-Block" id="Project-Img-Block-2022-end">
                         <img class="Project-Img" src="/images/ERNC/ERNC_Roadmap/Project-Img-04.png" alt="">
                         <div class="Project-Month">DEC</div>
                         <div class="Project-Month-BG">DEC</div>
@@ -117,7 +112,7 @@
                 <div class="Project-Year-Line"></div>
                 <div class="Project-Year-Title">2023</div>
 
-                <div class="Project Project-bottom" id="Project-02">
+                <div class="Project Project-bottom">
                     <div class="Project-Img-Block">
                         <img class="Project-Img" src="/images/ERNC/ERNC_Roadmap/Project-Img-05.png" alt="">
                         <div class="Project-Month">JAN</div>
@@ -161,7 +156,7 @@
                     </div>
                 </div>
 
-                <div class="Project Project-bottom" id="Project-03">
+                <div class="Project Project-bottom">
                     <div class="Project-Img-Block">
                         <img class="Project-Img" src="/images/ERNC/ERNC_Roadmap/Project-Img-09.png" alt="">
                         <div class="Project-Month">AUG</div>
@@ -184,7 +179,7 @@
                 </div>
 
                 <div class="Project Project-bottom">
-                    <div class="Project-Img-Block">
+                    <div class="Project-Img-Block" id="Project-Img-Block-2023-end">
                         <img class="Project-Img" src="/images/ERNC/ERNC_Roadmap/Project-Img-11.png" alt="">
                         <div class="Project-Month">DEC</div>
                         <div class="Project-Month-BG">DEC</div>
@@ -249,11 +244,123 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private IJSObjectReference? ERNCJS;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -269,7 +376,119 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         if (firstRender)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -281,7 +500,91 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             ERNCJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ERNC/ERNC.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -297,7 +600,119 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
