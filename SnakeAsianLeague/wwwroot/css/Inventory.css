@@ -688,3 +688,17 @@
     }
 }
 
+
+
+/*臨時用*/
+.ttttt {
+    width: 100% !important;
+    text-align:center !important;
+
+}
+
+.sssss {
+    flex-direction: row;
+    justify-content: center !important;
+    align-items: center;
+}

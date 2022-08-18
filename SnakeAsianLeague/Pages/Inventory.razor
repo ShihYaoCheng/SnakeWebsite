@@ -3,7 +3,9 @@
 @using SnakeAsianLeague.Data.Paging
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Personal
+@using SnakeAsianLeague.Data.Entity.View
 @using Microsoft.AspNetCore.Components.Authorization
+@using SnakeAsianLeague.Pages.Myprofile.Components.Inventory_Components
 
 @inject IJSRuntime JS
 @inject AuthenticationStateProvider AuthenticationStateProvider
@@ -38,7 +40,7 @@
                 <div class="Secend-Block">
                     <div class="Secend-Title">My Currency</div>
                     @*.......修改位置.........*@
-                    <div class="Inner-container" >
+               @*  <div class="Inner-container" >
                          <div class="Inner" >
                              <div class="MyCerrency-container">
                                 <div class=" MyCerrency-between">
@@ -65,7 +67,7 @@
 
                              </div>
                              <div class="ExchangeBtn-container">
-                                 <button class="ExchangeBtn">
+                                  <button class="ExchangeBtn" @onclick ="()=>ExchangeBtn(true)">
                                      Exchange
                                  </button>
                              </div>
@@ -97,18 +99,18 @@
 
                                  </div>
                                  <div class="ExchangeBtn-container">
-                                     <button class="ExchangeBtn">
+                                     <button class="ExchangeBtn" @onclick ="()=>ExchangeBtn(false)">
                                          Exchange
                                      </button>
                                  </div>
                          </div>
-                    </div>
+                    </div>*@   
         
 
-@*
-                    <div class="Secend-Inner" id="Secend-Block-MyCerrency">
 
-                        <div class="MyCerrency">
+                    <div class="Secend-Inner sssss" id="Secend-Block-MyCerrency">
+
+                        <div class="MyCerrency ttttt">
                             <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
                             <div class="MyCerrency-Detail">
                                 <p class="MyCerrency-Name">ERNC</p>
@@ -116,7 +118,7 @@
                                 <p class="MyCerrency-Amount">0</p>
                             </div>
                         </div>
-                         <div class="MyCerrency">
+                         <div class="MyCerrency ttttt">
                             <img class="MyCerrency-Icon" src="/images/Myprofile/MIPR.webp" alt="">
                             <div class="MyCerrency-Detail">
                                 <p class="MyCerrency-Name">MIPR</p>
@@ -124,7 +126,7 @@
                                 <p class="MyCerrency-Amount">0</p>
                             </div>
                         </div>
-                        <div class="MyCerrency">
+                        <div class="MyCerrency ttttt">
                             <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.webp" alt="">
                             <div class="MyCerrency-Detail">
                                 <p class="MyCerrency-Name">SRC</p>
@@ -134,7 +136,7 @@
                         </div>
 
                     </div>
-                   *@
+                   
                      @*.......修改位置.........*@
                 </div>
 
@@ -694,7 +696,7 @@
         </div>
     </section>
 
-
+    <Inventory_CoinExchange Value = "CoinData"></Inventory_CoinExchange>
     </Authorized>
     <NotAuthorized>
         <div class="InventoryNotLogin">
@@ -717,6 +719,22 @@
     private int PPSRsCount;
 
     private double TotalSRCCount = 0;
+
+    //騎士幣兌換
+    private ExchangeCoin CoinData = new ExchangeCoin( "ERNC" ,0,0);
+
+    private void  ExchangeBtn(bool check )
+    {
+       
+        if (check)
+        {
+          CoinData.changeData("ERNC",100,100);  
+        } else
+        {
+          CoinData.changeData("SRC",50,50);    
+        }
+   
+    }
     /// <summary>
     /// 稀有度
     /// </summary>
@@ -807,7 +825,7 @@
             await JS.InvokeVoidAsync("showTag");   
 
             RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/InventoryAndMarketPlace/RentJump.js");
-
+           
         }
     }
 

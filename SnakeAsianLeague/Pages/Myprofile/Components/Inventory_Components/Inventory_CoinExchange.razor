@@ -1,5 +1,5 @@
 ﻿@inject IJSRuntime JS
-
+@using SnakeAsianLeague.Data.Entity.View
 <head>
     <link href="css/MyProfile/coinExchange.css" rel="stylesheet" />
 </head>
@@ -9,13 +9,13 @@
         <div class="coinNum-Container">
              <div class="coinNum-beteen">
                  <div class="coinTop">
-                    <img class="coinEchange-Icon" src="/images/Myprofile/SRC.webp" alt="">
-                    <p>gSRC</p>
-                    <p>123,456.789</p>
+                    <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">
+                    <p>@Value.gTitle</p>
+                    <p>@Value.gNumber</p>
                  </div>
 
                  <p class="replacedCoin">
-                    123,456.789
+                    @Value.gNumberChange
                  </p>
                  <output class="increaseCoin" id="GSRCincrease">
                     0
@@ -29,19 +29,19 @@
              </div>
               <div class="coinNum-beteen">
                  <div class="coinTop">
-                    <img class="coinEchange-Icon" src="/images/Myprofile/SRC.webp" alt="">                                     
-                    <p>SRC TOKEN</p>
-                    <p>123,456.789</p>
+                    <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">                                     
+                    <p>@Value.tokenTitle</p>
+                    <p>@Value.tokenNumber</p>
                  </div>
                  <p class="replacedCoin">
-                    123,456.789
+                     @Value.tokenNumberChange
                  </p>                  
                  <output class="increaseCoin"  id="SRCincrease">
                     0
                  </output>   
              </div>
         </div>
-       <input class="coin-range" type="range" max="100" min="-100" oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
+        <input class="coin-range" type="range" @onchange="(ChangeEventArgs e)=> coinRange(e)" min="-@Value.gNumber" max="@Value.tokenNumber"  oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
         <p class="increaseCoin" id="gSRCincrease"> </p>  
       
        <div class="coinEchange-BtnZone">
@@ -52,10 +52,9 @@
 
 </div>
 @code {
-    @*圖片 貨幣標題 貨幣數字
-    input裡面要用到 max min貨幣數字    
-    *@
 
+    [Parameter]
+    public ExchangeCoin? Value { get; set; }
 
     private IJSObjectReference? coinEchangeJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -65,6 +64,12 @@
             coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/InventoryAndMarketPlace/coinEchange.js");
             await coinEchangeJS.InvokeVoidAsync("coinEchange" ,".ExchangeBtn");
         }
+    }
+
+    public void coinRange  (ChangeEventArgs value)
+    {
+        Value.gNumberChange = Value.gNumber- Int32.Parse(value.Value.ToString());
+        Value.tokenNumberChange = Value.tokenNumber + Int32.Parse(value.Value.ToString());
     }
 
 }
