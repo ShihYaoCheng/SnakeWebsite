@@ -19,12 +19,11 @@
                             <div class="personalBlock">
                                 <img class="personaAvatar" src="/images/Myprofile/user_icon.webp" alt="">
 
-                                @*  Sam 0818暫時關閉
-                               <button id="editButton" @onclick="EditProfile">
-                                    <img src="/images/Myprofile/edit_icon.webp" alt="">
-                                    <span data-i18n="myprofile.edit">Edit</span>
-                                </button>
-                                *@
+                                
+                                
+                                @*編輯個人資料按鈕*@
+                                <Index_edit />
+
 
                             </div>
 
@@ -187,10 +186,7 @@
                             <div class="personalBlock">
                                 <img class="personaAvatar" src="/images/Myprofile/user_icon.webp" alt="">
 
-                                @* <button id="editButton" @onclick="EditProfile">
-                                    <img src="/images/Myprofile/edit_icon.webp" alt="">
-                                    <span data-i18n="myprofile.edit">Edit</span>
-                                    </button> *@
+                                
                             </div>
 
                             <div class="personalInformation">
@@ -299,13 +295,13 @@
     [Parameter]
     public bool MetamaskAvailable { get; set; }
 
-    [Parameter]
-    public EventCallback EditProfileButtonOnClick { get; set; }
+    //[Parameter]
+    //public EventCallback EditProfileButtonOnClick { get; set; }
 
-    public void EditProfile()
-    {
-        EditProfileButtonOnClick.InvokeAsync();
-    }
+    //public void EditProfile()
+    //{
+    //    EditProfileButtonOnClick.InvokeAsync();
+    //}
 
     [Parameter]
     public EventCallback EnableEthereumAsync { get; set; }

@@ -1,7 +1,16 @@
-﻿@using SnakeAsianLeague.Data.Entity.Backstage
+﻿@using SnakeAsianLeague.Data.Services.Backstage
+@using SnakeAsianLeague.Data.Entity.Backstage
 @using SnakeAsianLeague.Data.Services
 
 @inject AppState AppState
+@inject ProfileService ProfileService
+
+ @* 編輯個人資料按鈕*@
+<button id="editButton" @onclick="EditProfileButtonOnClick">
+    <img src="/images/Myprofile/edit_icon.webp" alt="">
+    <span data-i18n="myprofile.edit">Edit</span>
+</button>
+
 
 <div class="window @(displayEditProfileWindow ? "window_open" : "")" id="edit_info_window">
     <div class="window_bg" id="edit_info">
@@ -150,7 +159,7 @@
 
                 <div type="text" class="edit_error">紅框欄請填寫資訊</div>
 
-                <div id="edit_info_window_submit" class="window_submit" @onclick="ProfileSubmit">
+                <div id="edit_info_window_submit" class="window_submit" @onclick="EditProfileSubmit">
 
                     <img src="/images/Index/signUpEvent_button.webp" alt="">
                     <span>儲存</span>
@@ -160,27 +169,87 @@
     </div>
 </div>
 @code {
-    [Parameter]
-    public bool displayEditProfileWindow { get; set; } 
 
-    [Parameter]
-    public  Profile? profile { get; set; } 
+    //編輯個人資料
+    public bool displayEditProfileWindow { get; set; } = false;
 
-    [Parameter]
-    public bool selectedBeInterviewed{ get; set; } 
+    public  Profile? profile { get; set; } = new Profile();
 
-    [Parameter]
-    public  bool selectedOpenAwardInfo{ get; set; } 
+    public bool selectedBeInterviewed{ get; set; } = true;
 
-    [Parameter]
-    public char selectedGender { get; set; } 
+    public  bool selectedOpenAwardInfo{ get; set; } = true;
 
-    [Parameter]
-    public EventCallback EditProfileSubmit { get; set; }
+    public char selectedGender { get; set; } = 'a';
 
-    public void ProfileSubmit()
+
+
+    private async Task EditProfileButtonOnClick()
     {
-        EditProfileSubmit.InvokeAsync();
+        //uint userid = Convert.ToUInt32( LoginUser.FindFirst("UserID")?.Value);
+        //Profile p = await ProfileService.GetOneProfileByUserId(userid);
+
+        Profile p = await ProfileService.GetOneProfileByUserId((uint)AppState.LoginStatus.userID);
+
+        if (p != null && p.UserId != 0)
+        {
+
+            profile = p;
+
+
+
+            selectedGender = p.Gender.Value;
+
+            selectedBeInterviewed = p.BeInterviewed;
+
+            selectedOpenAwardInfo = p.OpenAwardInfo;
+
+        }
+        else
+        {
+            selectedBeInterviewed = true;
+            selectedOpenAwardInfo = true;
+        }
+
+        displayEditProfileWindow = true;
+
+    }
+
+    private async Task EditProfileSubmit()
+    {
+
+        profile.UserName = AppState.LoginStatus.name;
+
+        profile.UserId = (uint)AppState.LoginStatus.userID;
+
+        profile.Phone = AppState.LoginStatus.phone;
+
+
+
+        profile.Gender = selectedGender;
+
+        profile.BeInterviewed = selectedBeInterviewed;
+
+        profile.OpenAwardInfo = selectedOpenAwardInfo;
+
+
+
+        Profile p = await ProfileService.GetOneProfileByUserId((uint)AppState.LoginStatus.userID);
+
+        if (p == null)
+        {
+
+            await ProfileService.InsertProfile(profile);
+
+        }
+        else
+        {
+
+            await ProfileService.UpdateProfile(profile);
+
+        }
+        displayEditProfileWindow = false;
+
+
     }
 
 }
