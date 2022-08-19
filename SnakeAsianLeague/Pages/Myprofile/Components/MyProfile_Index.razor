@@ -1,0 +1,162 @@
+﻿@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.Backstage
+
+@using SnakeAsianLeague.Data.Entity.Backstage
+@using Microsoft.AspNetCore.Components.Forms
+@using SnakeAsianLeague.Data.Services.Interface
+@using SnakeAsianLeague.Data.Services.Metamask
+@using SnakeAsianLeague.Data.Services.SnakeServerService
+@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using System.Security.Claims
+
+@using SnakeAsianLeague.Pages.Myprofile.Components.Index_Components
+
+@inject IJSRuntime JS
+@inject AppState AppState
+@*@inject ProfileService ProfileService*@
+@inject IEthereumHostProvider _metamaskHostProvider
+@inject NFTService NFTService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+
+@implements IDisposable
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/Myaccount.css" rel="stylesheet" />
+    <link href="css/MyProfile/Myprofile.css" rel="stylesheet" />  
+    <link href="css/MyProfileIndex.css" rel="stylesheet"/>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>PonPonSnake 碰碰蛇｜MyPage Account</title>
+</head>
+
+
+<!-- 主畫面-->
+<Index_main MetamaskAvailable=@MetamaskAvailable EnableEthereumAsync=@EnableEthereumAsync/>
+
+
+<!-- 彈窗提示-->
+<Index_Pop displayPopupWindow=@displayPopupWindow  PopupWindowTitle=@PopupWindowTitle PopupWindowContent=@PopupWindowContent successWindowClose="successWindowClose" />
+
+@code {
+
+
+
+    //Metamask
+
+    bool MetamaskAvailable { get; set; }
+
+    string SelectedAccount { get; set; }
+
+    protected string AuthenticatedAccount { get; set; }
+    //彈窗
+    bool displayPopupWindow = false;
+    string PopupWindowTitle = "";
+    string PopupWindowContent = "";
+
+
+    //private ClaimsPrincipal LoginUser;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.StateChanged += async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+        _metamaskHostProvider.SelectedAccountChanged += MetamaskHostProvider_SelectedAccountChanged;
+
+        
+    }
+
+
+
+    void IDisposable.Dispose()
+    {
+        AppState.StateChanged -= async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+        _metamaskHostProvider.SelectedAccountChanged -= MetamaskHostProvider_SelectedAccountChanged;
+    }
+
+
+
+    private async Task AppState_StateChanged(ComponentBase Source, string Property)
+    {
+        if (Source != this)
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            MetamaskAvailable = await _metamaskHostProvider.CheckProviderAvailabilityAsync();
+
+            StateHasChanged();
+
+            @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
+            await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("afterRender");
+        }
+
+    }
+
+
+
+    private async Task MetamaskHostProvider_SelectedAccountChanged(string account)
+    {
+        SelectedAccount = account;
+        this.StateHasChanged();
+
+    }
+
+
+
+    protected async Task EnableEthereumAsync()
+    {
+
+        SelectedAccount = await _metamaskHostProvider.EnableProviderAsync();
+
+        ServerResponce responce = await NFTService.PostNFTWalletAddress(AppState.LoginStatus.userID, SelectedAccount);
+        
+
+        //提示訊息
+        if (responce.Success && responce.Content == "綁定成功")
+        {
+            AppState.LoginStatus.walletAddress = SelectedAccount;
+            PopupWindowTitle = responce.Content;
+            PopupWindowContent = "";
+
+            displayPopupWindow = true;
+            await JS.InvokeVoidAsync("installI18n");
+        }else if (responce.Success && responce.Content == "已綁定")
+        {
+            AppState.LoginStatus.walletAddress = SelectedAccount;
+            PopupWindowTitle = responce.Content;
+            PopupWindowContent = "";
+
+            displayPopupWindow = true;
+            await JS.InvokeVoidAsync("installI18n");
+            Console.WriteLine(responce.Content);
+        }
+        else
+        {
+            PopupWindowTitle = "綁定失敗";
+            PopupWindowContent = responce.Content;
+            SelectedAccount = "";
+            displayPopupWindow = true;
+        }
+
+    }
+
+    private void successWindowClose()
+    {
+        displayPopupWindow = false;
+    }
+
+
+}

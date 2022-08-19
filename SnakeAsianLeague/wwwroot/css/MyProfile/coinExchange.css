@@ -1,0 +1,151 @@
+﻿.coinEchange-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0 !important;
+    z-index: -10 !important;
+    transition: all .3s ease-in-out;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coinEchange {
+    width: 600px;
+    height: 540px;
+    border-radius: 20px;
+    background: #253A4B;
+}
+/*貨幣交換*/
+.coinNum-Container{
+    width: 100%;
+    height: 60%;
+    display: flex;
+   
+}
+
+/*共用*/
+.coinTop {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #67AEA2;
+    padding-top: 20px;
+}
+
+.coinTop p {
+    margin-top: 10px;
+    font-size:25px;
+}
+
+.coinEchange-Icon {
+    width:84px;
+    height:84px;
+}
+/*個別*/
+.coinNum-beteen {
+    width: calc(100%/5*2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.coinNum-mid{
+    width: calc(100%/5*1);
+    height: 100%;
+}
+.coinNum-mid img{
+    width:40px;
+    height:40px;
+}
+
+.replacedCoin {
+    border:3.5px solid black;
+    width:65%;   
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+    color:#fff;
+    margin:20px auto;
+    padding:10px;
+}
+
+.increaseCoin {
+    margin: 0 auto;
+    font-size: 25px;
+    color: #EBFF04;
+}
+
+/*range*/
+.coin-range[type="range"] {
+    margin: 20px auto;
+    width: 80% !important;
+    display: block;
+    height: 70px;
+
+
+    border-radius: 5px;
+
+}
+.coin-range[type="range"]::-webkit-slider-thumb {
+    height: 60px;
+    width: 30px;
+    background: #EAFD0F;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0 2px 0 #555;
+    margin-top: -15px;
+}
+
+.coin-range[type=range]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: #D9D9D9;
+    height: 30px;
+    border-radius: inherit;
+    margin-right:-20px;
+}
+
+
+/*按鈕*/
+.coinEchange-BtnZone {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.coinEchange-BtnZone button {
+    width: 180px;
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    font-size: 25px;
+}
+
+.coinEchange-ExchangeBtn {
+    background: #6AAAA9;
+    color: #A1E7DF;
+}
+
+.coinEchange-CancelBtn {
+    background: #676767;
+    color: #FFFFFF;
+}
+
+
+.products-popup-open {
+    top: 0;
+    left: 0;
+    opacity: 1 !important;
+    z-index: 50 !important;
+}

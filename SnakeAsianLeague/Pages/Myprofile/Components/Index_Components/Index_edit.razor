@@ -1,0 +1,255 @@
+﻿@using SnakeAsianLeague.Data.Services.Backstage
+@using SnakeAsianLeague.Data.Entity.Backstage
+@using SnakeAsianLeague.Data.Services
+
+@inject AppState AppState
+@inject ProfileService ProfileService
+
+ @* 編輯個人資料按鈕*@
+<button id="editButton" @onclick="EditProfileButtonOnClick">
+    <img src="/images/Myprofile/edit_icon.webp" alt="">
+    <span data-i18n="myprofile.edit">Edit</span>
+</button>
+
+
+<div class="window @(displayEditProfileWindow ? "window_open" : "")" id="edit_info_window">
+    <div class="window_bg" id="edit_info">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24.122" height="24.12" viewBox="0 0 24.122 24.12"
+            class="window_close" id="edit_info_close" @onclick="()=> displayEditProfileWindow = false">
+            <path id="" data-name="合体 5" d="M-12484-1752l-11,11,11-11-11-11,11,11,11-11-11,11,11,11Z"
+                transform="translate(12496.062 1764.06)" fill="none" stroke="#e0eeff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="3" />
+        </svg>
+
+        <div class="window_title">
+            <p>個人資料編輯</p>
+        </div>
+
+
+    <EditForm Model="@profile" class="window_input_block">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form_row only_show_row">
+            <div class="window_row_title only_show_title">遊戲暱稱</div>
+            <div class="window_row_show only_show_input" id="edit_name">@AppState.LoginStatus.name</div>
+        </div>
+
+        <div class="form_row only_show_row">
+            <div class="window_row_title only_show_title">遊戲ID</div>
+            <div class="window_row_show only_show_input" id="edit_ID">@AppState.LoginStatus.userID</div>
+        </div>
+        <div class="form_row only_show_row">
+            <div class="window_row_title only_show_title">手機號碼</div>
+            <div class="window_row_show only_show_input" id="edit_phone">@AppState.LoginStatus.phone</div>
+        </div>
+
+        <div class="form_row">
+            <label class="window_row_title" for="edit_realname">姓名</label>
+            <div class="window_row_show">
+                <input type="text" class="window_input" id="edit_realname" name="edit_realname" placeholder=""required @bind-value="profile.RealName">
+            </div>
+        </div>
+
+        <div class="form_row">
+            <label class="window_row_title title_long" for="">您是否願意接受賽事採訪？</label>
+            <div class="window_row_show radio_row_show">
+                        <input type="radio" value="m" class="edit_radio" name="iterview" id="iterview_yes"
+                               checked="@(selectedBeInterviewed == true)" @onclick="()=>selectedBeInterviewed = true" />
+                        <label for="iterview_yes" class="edit_label">願意</label>
+                        <input type="radio" value="f" class="edit_radio" name="iterview" id="iterview_no"
+                               checked="@(selectedBeInterviewed == false)" @onclick="()=>selectedBeInterviewed = false" />
+                        <label for="iterview_no" class="edit_label edit_label2">不願意</label>
+
+            </div>
+
+        </div>
+
+
+        <div class="form_row">
+                    <label class="window_row_title title_long" for="">您是否願意適度公開得獎資訊？</label>
+                    <div class="window_row_show radio_row_show">
+                        <input type="radio" value="m" class="edit_radio" name="public_info" id="public_info_yes"
+                               checked="@(selectedOpenAwardInfo == true)" @onclick="()=>selectedOpenAwardInfo = true" />
+                        <label for="public_info_yes" class="edit_label">願意</label>
+                        <input type="radio" value="f" class="edit_radio" name="public_info" id="public_info_no"
+                               checked="@(selectedOpenAwardInfo == false)" @onclick="()=>selectedOpenAwardInfo = false" />
+                        <label for="public_info_no" class="edit_label edit_label2">不願意</label>
+
+                    </div>
+
+        </div>
+
+                <div class="form_row multipleLines_row">
+                    <label class="window_row_title multipleLines_label title_long" id="edit_idea" for="">對碰碰蛇的想法</label>
+                    <div class="window_row_show">
+                        <InputTextArea class="window_input_textarea" cols="30" rows="10" id="edit_idea"
+                                       @bind-Value="profile.IdeaOfSnake"></InputTextArea>
+
+                    </div>
+                </div>
+
+                <div class="form_row multipleLines_row title_long">
+                    <label class="window_row_title multipleLines_label title_long" id="edit_suggest" for="">對亞洲聯賽的建議</label>
+                    <div class="window_row_show">
+                        <InputTextArea class="window_input_textarea" cols="30" rows="10" id="edit_suggest"
+                                       @bind-Value="profile.Recommendation"></InputTextArea>
+                    </div>
+                </div>
+
+                <div class="form_row">
+                    <label class="window_row_title" for="edit_sns">FB / IG連結</label>
+                    <div class="window_row_show">
+                        <input type="text" class="window_input" id="edit_sns" name="edit_sns" placeholder=""
+                               @bind-value="profile.Link">
+                    </div>
+                </div>
+
+
+                <div class="form_row multipleLines_row">
+                    <label class="window_row_title multipleLines_label" id="edit_content" for="">自我介紹</label>
+                    <div class="window_row_show">
+                        <InputTextArea class="window_input_textarea" cols="30" rows="10" id="edit_content"
+                                       @bind-Value="profile.SelfIntroduction"></InputTextArea>
+
+                    </div>
+                </div>
+
+
+                <div class="form_row">
+                    <label class="window_row_title" for="">性別</label>
+                    <div class="window_row_show radio_row_show">
+                        <input type="radio" value="m" class="edit_radio" name="gender" id="male"
+                               checked="@(selectedGender == 'm')" @onclick="()=>selectedGender = 'm'" />
+                        <label for="male" class="edit_label">男性</label>
+                        <input type="radio" value="f" class="edit_radio" name="gender" id="female"
+                               checked="@(selectedGender == 'f')" @onclick="()=>selectedGender = 'f'" />
+                        <label for="female" class="edit_label edit_label2">女性</label>
+
+                    </div>
+
+                </div>
+
+                <div class="form_row">
+                    <label class="window_row_title" for="edit_birth_date">出生年月日</label>
+                    <div class="window_row_show">
+                        <InputDate class="window_input" id="edit_birth_date" @bind-Value="profile.DateOfBirth"></InputDate>
+
+                    </div>
+
+
+                </div>
+
+                <div class="form_row">
+                    <label class="window_row_title" for="edit_email">Email</label>
+                    <div class="window_row_show">
+                        <input type="text" class="window_input" id="edit_email" name="edit_email" placeholder="" required
+                               @bind-value="profile.Email">
+                    </div>
+                </div>
+
+                <div class="form_row">
+                    <label class="window_row_title" for="edit_city">城市</label>
+                    <div class="window_row_show">
+                        <input type="text" class="window_input" id="edit_city" name="" placeholder="" required
+                               @bind-value="profile.City">
+                    </div>
+                </div>
+
+
+
+                <div type="text" class="edit_error">紅框欄請填寫資訊</div>
+
+                <div id="edit_info_window_submit" class="window_submit" @onclick="EditProfileSubmit">
+
+                    <img src="/images/Index/signUpEvent_button.webp" alt="">
+                    <span>儲存</span>
+
+            </div>
+        </EditForm>
+    </div>
+</div>
+@code {
+
+    //編輯個人資料
+    public bool displayEditProfileWindow { get; set; } = false;
+
+    public  Profile? profile { get; set; } = new Profile();
+
+    public bool selectedBeInterviewed{ get; set; } = true;
+
+    public  bool selectedOpenAwardInfo{ get; set; } = true;
+
+    public char selectedGender { get; set; } = 'a';
+
+
+
+    private async Task EditProfileButtonOnClick()
+    {
+        //uint userid = Convert.ToUInt32( LoginUser.FindFirst("UserID")?.Value);
+        //Profile p = await ProfileService.GetOneProfileByUserId(userid);
+
+        Profile p = await ProfileService.GetOneProfileByUserId((uint)AppState.LoginStatus.userID);
+
+        if (p != null && p.UserId != 0)
+        {
+
+            profile = p;
+
+
+
+            selectedGender = p.Gender.Value;
+
+            selectedBeInterviewed = p.BeInterviewed;
+
+            selectedOpenAwardInfo = p.OpenAwardInfo;
+
+        }
+        else
+        {
+            selectedBeInterviewed = true;
+            selectedOpenAwardInfo = true;
+        }
+
+        displayEditProfileWindow = true;
+
+    }
+
+    private async Task EditProfileSubmit()
+    {
+
+        profile.UserName = AppState.LoginStatus.name;
+
+        profile.UserId = (uint)AppState.LoginStatus.userID;
+
+        profile.Phone = AppState.LoginStatus.phone;
+
+
+
+        profile.Gender = selectedGender;
+
+        profile.BeInterviewed = selectedBeInterviewed;
+
+        profile.OpenAwardInfo = selectedOpenAwardInfo;
+
+
+
+        Profile p = await ProfileService.GetOneProfileByUserId((uint)AppState.LoginStatus.userID);
+
+        if (p == null)
+        {
+
+            await ProfileService.InsertProfile(profile);
+
+        }
+        else
+        {
+
+            await ProfileService.UpdateProfile(profile);
+
+        }
+        displayEditProfileWindow = false;
+
+
+    }
+
+}

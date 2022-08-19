@@ -1,0 +1,1054 @@
+@page "/marketplace"
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Paging
+@using SnakeAsianLeague.Data.Services.MarketPlace
+
+@inject OptionService OptionService
+@inject IJSRuntime JS
+
+<head>
+    <title>PonPonSnake 碰碰蛇｜MarketPlace</title>
+    <link href="css/MarketPlace.css" rel="stylesheet" />
+    <link href="css/MarketPlace2.css" rel="stylesheet" />
+    <link href="css/Pagination.css" rel="stylesheet" />
+    <link href="css/NFTFilter.css" rel="stylesheet" />
+</head>
+
+
+<div class="marketPlaceBackground" ></div>
+
+@* open版暫時示意圖 *@
+@*<div class="marketPlace_Open" hidden="@(true)">
+    <img src="/images/MarketPlace/ComingSoon.webp" alt="">
+</div>
+
+<div class="marketPlace" hidden="@(false)">*@
+<div>
+    
+    <section class="Sidebar-Filter-Block" id="Filter-mobile">
+        <div class="">
+            @* <span>Filter</span> *@
+            <svg  class="Filter-Icon" xmlns="http://www.w3.org/2000/svg" width="28.06" height="25.65" viewBox="0 0 28.06 25.65">
+            <g id="" data-name="グループ 128" transform="translate(1508 -1239.175)">
+                <path id="" data-name="" d="M26.916,2.993H7.6A1.851,1.851,0,0,0,7.6.707H26.916a1.143,1.143,0,1,1,0,2.287Zm-22.224,0H1.144a1.143,1.143,0,1,1,0-2.287H4.692a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1241.443)" fill="#69ada2"/>
+                <path id="" data-name="" d="M26.916,2.993h-3.1a1.851,1.851,0,0,0,0-2.287h3.1a1.143,1.143,0,1,1,0,2.287Zm-6.011,0H1.144a1.143,1.143,0,1,1,0-2.287H20.905a1.85,1.85,0,0,0,0,2.285Z" transform="translate(-1508 1250.135)" fill="#69ada2"/>
+                <path id="" data-name="" d="M26.916,2.993H11.748a1.851,1.851,0,0,0,0-2.287H26.916a1.143,1.143,0,1,1,0,2.287Zm-18.077,0h-7.7a1.143,1.143,0,1,1,0-2.287h7.7a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1258.828)" fill="#69ada2"/>
+                <path id="" data-name="" d="M-3.383-7.5A4.122,4.122,0,0,1,.735-3.383,4.122,4.122,0,0,1-3.383.735,4.122,4.122,0,0,1-7.5-3.383,4.122,4.122,0,0,1-3.383-7.5Zm0,5.947a1.832,1.832,0,0,0,1.83-1.83,1.832,1.832,0,0,0-1.83-1.83,1.832,1.832,0,0,0-1.83,1.83A1.832,1.832,0,0,0-3.383-1.553Z" transform="translate(-1498.471 1246.675)" fill="#69ada2"/>
+                <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1482.288 1255.337)" fill="#69ada2"/>
+                <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1494.354 1264.03)" fill="#69ada2"/>
+            </g>
+            </svg>
+
+
+            <img class="Filter-mobile-arrow" style="margin: 5px; "
+                data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+        </div>
+    </section>
+    
+    <aside class="marketPlaceSidebar marketPlaceSidebar-Web">
+        <section class="Sidebar-Filter-Block" id="Filter-Header">
+            
+            <div class="Filter-Title-Block Filter-Web" >
+                <svg  class="Filter-Icon" width="25" id="Filter-Icon-Web" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 28.06 25.65">
+                <g id="" data-name="" transform="translate(1508 -1239.175)">
+                    <path id="" data-name="" d="M26.916,2.993H7.6A1.851,1.851,0,0,0,7.6.707H26.916a1.143,1.143,0,1,1,0,2.287Zm-22.224,0H1.144a1.143,1.143,0,1,1,0-2.287H4.692a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1241.443)" fill="#69ada2"/>
+                    <path id="" data-name="" d="M26.916,2.993h-3.1a1.851,1.851,0,0,0,0-2.287h3.1a1.143,1.143,0,1,1,0,2.287Zm-6.011,0H1.144a1.143,1.143,0,1,1,0-2.287H20.905a1.85,1.85,0,0,0,0,2.285Z" transform="translate(-1508 1250.135)" fill="#69ada2"/>
+                    <path id="" data-name="" d="M26.916,2.993H11.748a1.851,1.851,0,0,0,0-2.287H26.916a1.143,1.143,0,1,1,0,2.287Zm-18.077,0h-7.7a1.143,1.143,0,1,1,0-2.287h7.7a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1258.828)" fill="#69ada2"/>
+                    <path id="" data-name="" d="M-3.383-7.5A4.122,4.122,0,0,1,.735-3.383,4.122,4.122,0,0,1-3.383.735,4.122,4.122,0,0,1-7.5-3.383,4.122,4.122,0,0,1-3.383-7.5Zm0,5.947a1.832,1.832,0,0,0,1.83-1.83,1.832,1.832,0,0,0-1.83-1.83,1.832,1.832,0,0,0-1.83,1.83A1.832,1.832,0,0,0-3.383-1.553Z" transform="translate(-1498.471 1246.675)" fill="#69ada2"/>
+                    <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1482.288 1255.337)" fill="#69ada2"/>
+                    <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1494.354 1264.03)" fill="#69ada2"/>
+                </g>
+                </svg>
+                <span>Filter</span>
+                <img class="Filter-web-arrow" style="margin: 5px; " data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+            </div>
+            
+            <div class="Filter-Header-Block">
+                <button  hidden="@(true)" class="Filter-Button" id="Filter-Button-Reset">Reset</button>
+                <button  hidden="@(true)" class="Filter-heart btn p-0 tippy-pop" data-content="Favorite" @onclick=FilterLove>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                        <path class="heart__path"
+                            d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                            transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="1.5" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+        
+            <div class="marketPlaceSidebar-scroll marketPlaceSidebar-scroll-Web">
+
+
+
+
+                <section hidden="@(true)" class="Sidebar-Filter-Block" id="">
+
+                    @* <label for="officialDebut" class="Sidebar-checkbox-label">
+                        <input type="checkbox" id="officialDebut">
+                        Only show the official debut
+                    </label> *@
+                    <label for="officialDebut" class="Sidebar-checkbox-label">
+                        <input type="checkbox" id="officialDebut" class="Sidebar-checkbox">
+                        <span>Only show the official debut</span>
+                    </label>
+
+                </section>
+
+                @* <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                    <div class=" -Title">
+                        <span>Price (ETH)</span>
+                        <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                    </div>
+                    <div class="Filter-Options Filter-Radio">
+                        <div class="slider-area-wrapper">
+                            <div id="skipstep" class="slider"></div>
+                        </div>
+
+                        <div class="range-Text">
+                            <div class="" id="skip-value-lower">0</div>
+                            <div class="" id="skip-value-upper">10</div>
+                        </div>
+                    </div>
+                </section> *@
+
+
+                <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                    <div class="Filter-Title">
+                        <span>Price (ETH)</span>
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                    </div>
+
+                    <div class="Filter-Options Filter-Range">
+                        <div class="range-Text price-range-Text">
+                            @* placeholder = 未輸入時的預設字 *@
+                            <div class="price-label">
+                                <label for="price-minmum">Min</label>
+                                <input class="price-textInputRange" id="price-minmum" placeholder="0" value="0">
+                            </div>
+                            <span>～</span>
+                            <div class="price-label">
+                                <label for="price-maximum">Max</label>
+                                <input class="price-textInputRange" id="price-maximum"  placeholder="10" value="10">
+                            </div>
+                        </div>
+
+                        <button class="price-search-button" type="submit" Title="Search">
+                            @* <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+                            <path  d="M24.923,15.231a9.334,9.334,0,0,0-2.845-6.847,9.338,9.338,0,0,0-6.847-2.846A9.332,9.332,0,0,0,8.383,8.383a9.332,9.332,0,0,0-2.845,6.848,9.339,9.339,0,0,0,2.845,6.847,9.333,9.333,0,0,0,6.848,2.845,9.33,9.33,0,0,0,6.847-2.845A9.344,9.344,0,0,0,24.923,15.231ZM36,33.231A2.807,2.807,0,0,1,33.231,36a2.571,2.571,0,0,1-1.947-.822l-7.421-7.4a14.815,14.815,0,0,1-8.632,2.683,14.961,14.961,0,0,1-5.917-1.2A14.912,14.912,0,0,1,1.2,21.148a15.176,15.176,0,0,1,0-11.834A14.912,14.912,0,0,1,9.314,1.2a15.176,15.176,0,0,1,11.834,0,14.912,14.912,0,0,1,8.113,8.113,14.943,14.943,0,0,1,1.2,5.917,14.812,14.812,0,0,1-2.683,8.632L35.2,31.284A2.65,2.65,0,0,1,36,33.231Z" />
+                            </svg> *@
+                            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 18 18">
+                            <g id="bx-search-alt" transform="translate(-3 -3)">
+                                <path id="パス_185" data-name="パス 185" d="M10.7,18.4a7.65,7.65,0,0,0,4.711-1.623L19.639,21,21,19.64l-4.23-4.23A7.688,7.688,0,1,0,10.7,18.4Zm0-13.471A5.773,5.773,0,1,1,4.924,10.7,5.779,5.779,0,0,1,10.7,4.924Z" />
+                                <path id="パス_186" data-name="パス 186" d="M14.509,11.311a1.76,1.76,0,0,1,.52,1.251H16.8a3.517,3.517,0,0,0-1.038-2.5,3.616,3.616,0,0,0-5,0l1.249,1.252A1.808,1.808,0,0,1,14.509,11.311Z" transform="translate(-2.552 -2.087)" />
+                            </g>
+                            </svg>
+
+
+                        </button>
+                    </div> 
+
+
+                </section>
+
+                <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                    <div class="Filter-Title">
+                        <span>Price (ETH)</span>
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                    </div>
+                    <div class="Filter-Options Filter-Radio">
+                        <div class="range-Input">
+                            <input type="range" name="" id="PriceRange" min="0" max="20" value="20" oninput="textInputRange.value = this.value">
+                        </div>
+                        <div class="range-Text">
+                            <div class="ra-range">0</div>
+                            <output id="textInputRange">20</output>
+                            <div class="ra-range">20</div>
+                        </div>
+
+                    </div>
+
+
+                </section>
+                
+                <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                    <div class="Filter-Title">
+                        <span>Body Type</span>
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                    </div>
+                    <div class="Filter-Options Filter-Radio">
+                        <div class="bodyType-radio d-inline position-relative bgBorder">
+                            <input style="--step:0" class="ra" type="radio" name="test" id="BodyType-1" value="1">
+                            <input style="--step:1" class="ra" type="radio" name="test" id="BodyType-1.1" value="1.1">
+                            <input style="--step:2" class="ra" type="radio" name="test" id="BodyType-1.2" value="1.2">
+                            <input style="--step:3" class="ra" type="radio" name="test" id="BodyType-1.3" value="1.3">
+                            <input style="--step:4" class="ra" type="radio" name="test" id="BodyType-1.4" value="1.4">
+                            <input style="--step:5" class="ra" type="radio" name="test" id="BodyType-1.5" value="1.5">
+                            <input style="--step:6" class="ra" type="radio" name="test" id="BodyType-1.6" value="1.6">
+                        </div>
+
+                        <div class="bodyType-label">
+                            <label class="ra-label" for="BodyType-1">1</label>
+                            <label class="ra-label" for="BodyType-1.1">1.1</label>
+                            <label class="ra-label" for="BodyType-1.2">1.2</label>
+                            <label class="ra-label" for="BodyType-1.3">1.3</label>
+                            <label class="ra-label" for="BodyType-1.4">1.4</label>
+                            <label class="ra-label" for="BodyType-1.5">1.5</label>
+                            <label class="ra-label" for="BodyType-1.6">1.6</label>
+                        </div>
+                    </div>
+
+
+                </section>
+
+                <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
+                    <div class="Filter-Title">
+                        <span>Rare</span>
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                    </div>
+                    <div class="Filter-Options">
+
+
+                        @foreach (var item in RarityList)
+                        {
+                            var key = @item.Key;
+                            <label class="Filter-Button" for="@item.Value">
+                                <span data-i18n="@item.Datai18n">@item.Value</span>
+                            </label>
+                            <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
+                        }
+                    </div>
+
+
+                </section>
+
+                <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
+                    <div class="Filter-Title">
+                        <span>Class</span>
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                    </div>
+                    <div class="Filter-Options">
+
+                        @foreach (var item in ElementsList)
+                        {
+                            var key = @item.Key;
+                            <label class="Filter-Button" for="@item.Value">
+                                <span data-i18n="@item.Datai18n">@item.Value</span>
+                            </label>
+                            <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
+                        }
+                    </div>
+                </section>
+
+                <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
+                    <div class="Filter-Title">
+                        <span>Profession</span>
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                    </div>
+                    <div class="Filter-Options">
+
+                        @foreach (var item in ClassList)
+                        {
+                            var key = @item.Key;
+                            <label class="Filter-Button" for="@item.Value">
+                                <span data-i18n="@item.Datai18n">@item.Value</span>
+                            </label>
+                            <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
+                        }
+
+                    </div>
+                </section>
+
+                <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                    <div class="Filter-Title">
+                        <span>Country</span>
+                        <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                    </div>
+                    <div class="Filter-Options">
+
+                        @foreach (var item in CountryList)
+                        {
+                            var key = @item.Key;
+                            <label class="Filter-Button" for="@item.Value">
+                                <span data-i18n="@item.Datai18n">@item.Value</span>
+                            </label>
+                            <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
+                        }
+
+
+                    </div>
+                </section>
+            </div>
+        
+
+
+    </aside>
+
+    <main class="marketPlaceMain">
+        <section class="marketPlaceHeader">
+            
+            <div class="marketPlaceTitle-Block ">
+                <div class="marketPlaceTitle">PonPonSnake's NFTs<br>@PPSRsCount PPSRs</div>
+                <button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea">Buy on Opensea</a ></button>
+            </div>
+            <NFT_Type/>
+            <select class="sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))"   >
+                <option disabled="" value="Sort" selected="" hidden="">Sort</option>
+                <option value="Highest Earned">Highest Earned</option>
+                <option value="Lowest Earned">Lowest Earned</option>
+                <option value="Highest Price">Highest Price</option>
+                <option value="Lowest Price">Lowest Price</option>
+                <option value="Newest">Newest</option>
+                <option value="Oldest">Oldest</option>
+            </select>
+        </section>
+        <section class="marketPlaceCardBLock">
+        
+       
+
+            @if (NFTDataList != null) 
+            {
+                @foreach (NFTData item in NFTDataList)
+                {
+                    bool IsLove = @item.IsLove;
+                    string TokenID = @item.TokenID;
+
+                    if (@item.IsOfficial)
+                    {
+
+                        if (@item.IsOpen)
+                        {
+                            @* 1.沒有顯示價格的版本 - 官方首拍 紅色*@
+                            <div class="NFTcard card-bg-red">
+                                <div class="heart btn p-0 tippy-pop  @(IsLove ? "heartClickRed" : "") " data-content="Favorite"    @onclick="eventArgs => { HeartToggleButton(  TokenID ,IsLove, eventArgs); }" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005" >
+                                        <path class="heart__path"
+                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" />
+                                    </svg>
+                                    
+                                </div> 
+
+                                <a class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
+                                    @*<a href="@item.LinkURL" target="opensea">  </a>*@
+
+                                    <div class="NFTcard-inner">
+                                        <div class="NFT-cardImg">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                            <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                        </div>
+
+                                        <div class="NFT-cardText Not-Price-Ver">
+                                            <div class="NFT-card-header">
+                                                <img  class="NFT-ElementsIcon" data-src="@item.ElementsIcon" alt="">
+                                                <div class="NFT-Number"  >@item.Number</div>
+                                            </div>
+                                            <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber>
+                                               
+                                                @item.serialNumber</div>
+                                            
+                                            <div class="NFT-Income-Block">
+                                                 @*<div class="NFT-Income-Block-title">Total Income</div>
+                                                <div class="NFT-Income-Main">
+                                                   <div class="NFT-Income-Currency">
+                                                        <span>SRC</span>
+                                                        <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.webp" alt="">
+                                                    </div>
+                                                    <span class="NFT-Currency-Price">123,456,789</span>
+                                                </div>*@
+                                            </div>
+                                            <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
+                                                     
+                                        </div>
+                                    </div>
+                                </a>
+
+         
+                                                   @*.................tag 區域...................... *@
+                                    <div class="tag-zone">                                                   
+                                        <div class="NFT-Label-block">
+                                            <div class="NFT-Label">@item.RarityValue</div>
+                                            <div class="NFT-Label">@item.ClassValue</div>
+                                            <div class="NFT-Label">Survival master</div>
+                                        </div>
+                                    </div>
+                                              @*....................................... *@
+                            </div>
+                            
+                        }
+                        else
+                        {
+
+
+
+
+
+                            @* 3. 沒有顯示價格的版本 - 尚未開始拍賣 灰色 *@
+                            <div class="NFTcard card-bg-grey">
+                                <div class="heart btn p-0 tippy-pop @(IsLove ? "heartClickRed" : "") " data-content="Favorite"   @onclick="eventArgs => { HeartToggleButton(  TokenID ,IsLove, eventArgs); }" >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                    <path class="heart__path"
+                            d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                            transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" />
+                                </svg>
+                            </div>
+                            <a  class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
+                                <div class="NFTcard-inner">
+
+                                    <div class="NFT-cardImg">
+                                        <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                        <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                    </div>
+
+                                    <div class="NFT-cardText  Not-Price-Ver">
+                                        <div class="NFT-card-header">
+                                            <img  class="NFT-ElementsIcon" data-src="@item.ElementsIcon" alt="">
+                                            <div class="NFT-Number"> @item.Number</div>
+                                        </div>
+                                        <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber>@item.serialNumber</div>
+                                        <div class="NFT-PriceBlock">
+                                            <div class="NFT-PriceMain">
+
+                                                <span class="NFT-Price">ComingSoon</span>
+                                            </div>
+                                        </div>
+                                          <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
+                                             
+                                    </div>
+                                </div>
+                            </a>
+                              <div class="tag-zone">                                                   
+                                        <div class="NFT-Label-block">
+                                            <div class="NFT-Label">@item.RarityValue</div>
+                                            <div class="NFT-Label">@item.ClassValue</div>
+                                            <div class="NFT-Label">Survival master</div>
+                                        </div>
+                                    </div>
+                        </div>
+                        }
+                        @* if (item == NFTDataList.Last()) AfterRenderLocalize(1); *@
+                    }
+                    else
+                    {
+
+
+
+                        @* 2. 沒有顯示價格的版本 - 其他玩家擁有 綠色*@
+                        <div class="NFTcard card-bg-green">
+                            <div class="heart btn p-0 tippy-pop" data-content="Favorite" >
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                <path class="heart__path"
+                            d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                            transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" />
+                            </svg>
+                        </div>
+
+                        <a  class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
+                        @*<a href="@item.LinkURL" target="opensea">  </a>*@
+
+                            <div class="NFTcard-inner">
+                                <div class="NFT-cardImg">
+                                    <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                    <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                </div>
+
+                                <div class="NFT-cardText Not-Price-Ver">
+                                    <div class="NFT-card-header">
+                                        <img  class="NFT-ElementsIcon" data-src="@item.ElementsIcon" alt="">
+                                        <div class="NFT-Number">@item.Number</div>
+                                    </div>
+                                    <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber>@item.serialNumber</div>
+                                    <div class="NFT-Income-Block">
+                                       @* <div class="NFT-Income-Block-title">Total Income</div>
+                                        <div class="NFT-Income-Main">
+                                            <div class="NFT-Income-Currency">
+                                                <span>SRC</span>
+                                                <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.webp" alt="">
+                                            </div>
+                                            <span class="NFT-Currency-Price">123,456,789</span>
+                                        </div>*@
+                                    </div>
+                                      <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
+                                           
+                          
+                                </div>
+                            </div>
+                        </a> 
+                         @*.................tag 區域...................... *@
+
+                        <div class="tag-zone">                                                   
+                            <div class="NFT-Label-block">
+                                <div class="NFT-Label">@item.RarityValue</div>
+                                <div class="NFT-Label">@item.ClassValue</div>
+                                <div class="NFT-Label">Survival master</div>
+                            </div>
+                        </div>
+                       
+                            @*....................................... *@
+                     </div>
+
+                    }
+
+                }
+                AfterRenderLocalize();
+            }
+            else
+            {
+                @for (var i = 0; i < 6; i++)
+                {
+                           <div class="NFTcard card-bg-red">
+                                <div class="heart btn p-0 tippy-pop   " data-content="Favorite"     >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005" >
+                                        <path class="heart__path"
+                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" />
+                                    </svg>
+                                    
+                                </div>
+
+                                <a href="" >
+                                    @*<a href="@item.LinkURL" target="opensea">  </a>*@
+
+                                    <div class="NFTcard-inner">
+                                        <div class="NFT-cardImg">
+                                            
+                                            <div  class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                        </div>
+
+                                        <div class="NFT-cardText Not-Price-Ver">
+                                            <div class="NFT-card-header">
+                                                <img  class="NFT-ElementsIcon" data-src="" alt="">
+                                                <div class="NFT-Number"  ></div>
+                                            </div>
+                                            <div class="NFT-Name" >
+                                               
+                                               </div>
+                                            
+                                            <div class="NFT-Income-Block">
+                                                 @*<div class="NFT-Income-Block-title">Total Income</div>
+                                                <div class="NFT-Income-Main">
+                                                   <div class="NFT-Income-Currency">
+                                                        <span>SRC</span>
+                                                        <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.webp" alt="">
+                                                    </div>
+                                                    <span class="NFT-Currency-Price">123,456,789</span>
+                                                </div>*@
+                                            </div>
+                                            <div class="NFT-Label-block">
+                                                <div class="NFT-Label"></div>
+                                                <div class="NFT-Label"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                }
+         
+            }
+
+            @if(NFTDataList != null && false ){
+                @foreach( NFTData item in NFTDataList)
+                {
+
+                    if (@item.IsOfficial)
+                    {
+                        if (@item.IsOpen)
+                        {
+                            /*官方 販售中NFT*/
+                            <div class="NFTcard card-bg-red">
+                                <div class="heart btn p-0 tippy-pop" data-content="Favorite" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                        <path class="heart__path"
+                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" />
+                                    </svg>
+                                </div>
+
+                                <a  class="NFTcardA" href="Products/@item.serialNumber/@item.Number" >
+                                @*<a href="@item.LinkURL" target="opensea"> </a>*@
+                                    
+                                    <div class="NFTcard-inner">
+
+                                        <div class="NFT-cardImg">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                        </div>
+                                        
+                                        <div class="NFT-cardText">
+                                            <div class="NFT-Number"> #PPSR @item.Number</div>
+                                            <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber>@item.serialNumber</div>
+                                            <div class="NFT-PriceBlock">
+                                                <div class="NFT-PriceMain" >
+                                                    <div class="NFT-PriceIcon-Border" title="ETH ON POLYGON" data-content="ETH ON POLYGON">
+                                                        <img class="NFT-PriceIcon" data-src="/images/MarketPlace/Polygon-eth-01.webp" alt="ETH ON POLYGON">
+                                                    </div>
+                                                    <span class="NFT-Price">@item.Price</span>
+                                                </div>
+                                                @*<div class="NFT-USD">@item.USD USD</div>*@
+                                            </div>
+                                            @*<div class="NFT-EndTime">Ends in @item.CalDays</div>*@
+                                        </div>
+                                        
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                        else
+                        {
+                            /*官方 預定販售NFT*/
+                            <div class="NFTcard card-bg-grey">
+                                <div class="heart btn p-0 tippy-pop" data-content="Favorite" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                        <path class="heart__path"
+                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" />
+                                    </svg>
+                                </div>
+
+                                <a class="NFTcardA" href="Products/@item.serialNumber/@item.Number" >
+                                @*<a href="item.LinkURL" target="opensea"> </a>*@
+
+                                    <div class="NFTcard-inner">
+                                    
+                                        <div class="NFT-cardImg">
+                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                        </div>
+
+                                        <div class="NFT-cardText">
+                                            <div class="NFT-Number">#PPSR @item.Number</div>
+                                            <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber>@item.serialNumber</div>
+                                            <div class="NFT-PriceBlock">
+                                                <div class="NFT-PriceMain">
+                                            
+                                                    <span class="NFT-Price">ComingSoon</span>
+                                                </div>
+                                            @*  <div class="NFT-USD">231269.89 USD</div>*@
+                                            </div>
+                                            @*<div class="NFT-EndTime">Ends in 30d 12h</div>*@
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        /*玩家販售*/
+                        if (@item.IsOpen)
+                        {
+                            <div class="NFTcard card-bg-green">
+                                <div class="heart btn p-0 tippy-pop" data-content="Favorite" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                        <path class="heart__path"
+                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" />
+                                    </svg>
+                                </div>
+
+                                <a class="NFTcardA" href="Products/@item.serialNumber/@item.Number" >
+                                @*<a href="@item.LinkURL" target="opensea">  </a>*@
+                                
+                                    <div class="NFTcard-inner">
+                                        <div class="NFT-cardImg">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                        </div>
+                                    
+                                        <div class="NFT-cardText">
+                                            <div class="NFT-Number"> #PPSR @item.Number</div>
+                                            <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber>@item.serialNumber</div>
+                                            <div class="NFT-PriceBlock">
+                                                <div class="NFT-PriceMain" >
+                                                    <div class="NFT-PriceIcon-Border" title="ETH ON POLYGON" data-content="ETH ON POLYGON">
+                                                        <img class="NFT-PriceIcon" data-src="/images/MarketPlace/Polygon-eth-01.webp" alt="ETH ON POLYGON">
+                                                    </div>
+                                                    <span class="NFT-Price">@item.Price</span>
+                                                </div>
+                                            @* <div class="NFT-USD">@item.USD USD</div>*@
+                                            </div>
+                                            @*<div class="NFT-EndTime">Ends in @item.CalDays</div>*@
+                                        </div>
+                                    </div>
+                                </a>
+                            
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="NFTcard card-bg-green">
+                                <div class="heart btn p-0 tippy-pop" data-content="Favorite">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                        <path class="heart__path"
+                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" />
+                                    </svg>
+                                </div>
+
+                                <a class="NFTcardA" href="Products/@item.serialNumber/@item.Number" >
+                                @*<a href="@item.LinkURL" target="opensea"></a>*@
+                                    
+                                    <div class="NFTcard-inner">
+
+                                        <div class="NFT-cardImg">
+                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                        </div>
+                                    
+                                        <div class="NFT-cardText">
+
+                                            <div class="NFT-Number">#PPSR @item.Number</div>
+                                            <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber>@item.serialNumber</div>
+                                            <div class="NFT-PriceBlock">
+                                                <div class="NFT-PriceMain">
+                                                    @* <div class="NFT-PriceIcon-Border">
+                                                        <img class="NFT-PriceIcon"  src="/images/MarketPlace/Polygon-eth-01.webp" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
+                                                        </div> *@
+                                                    <span class="NFT-Price">ComingSoon</span>
+                                                </div>
+                                                @*<div class="NFT-USD">231269.89 USD</div>*@
+                                            </div>
+                                            @*<div class="NFT-EndTime">Ends in 30d 12h</div>*@
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+                    }
+                    @* if (item == NFTDataList.Last()) AfterRenderLocalize(); *@
+                }
+            } 
+
+          
+
+        </section>
+        @*<div class="Pagination-Block">
+            <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage" />
+        </div>*@
+    </main>
+
+
+
+</div>
+
+
+
+
+}
+
+
+<style>
+    
+
+</style>
+
+@code {
+    private IJSObjectReference? lazyloadingJS;    
+    /// <summary>
+    /// 稀有度
+    /// </summary>
+    private List<OptionKeyValue> RarityList = new List<OptionKeyValue>();
+    /// <summary>
+    /// 屬性
+    /// </summary>
+    private List<OptionKeyValue> ElementsList = new List<OptionKeyValue>();
+    /// <summary>
+    /// 職業專精
+    /// </summary>
+    private List<OptionKeyValue> ClassList= new List<OptionKeyValue>();
+    /// <summary>
+    /// 國家
+    /// </summary>
+    private List<OptionKeyValue> CountryList= new List<OptionKeyValue>();
+    /// <summary>
+    /// 
+    /// </summary>
+    private List<NFTData> NFTDataList;
+    /// <summary>
+    /// 顯示nft rider 筆數
+    /// </summary>
+    private int PPSRsCount;
+
+    /// <summary>
+    /// OpenSeaURL NFT資產 官方網址
+    /// </summary>
+    private string OpenSeaURL;
+
+    protected override async Task OnInitializedAsync()
+    {
+        @* await Refresh(); *@
+    }
+
+    private async Task Refresh()
+    {
+
+
+
+        RarityList = await OptionService.Get_Default_Rarity();
+        ElementsList = await OptionService.Get_Default_Elements();
+        ClassList = await OptionService.Get_Default_Class();
+        CountryList = await OptionService.Get_Default_Country();
+        OpenSeaURL = await OptionService.Get_OpenSeaURL();
+
+
+        //PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageList( 1,10);        
+        //Console.WriteLine(pagelist.Count);
+        //NFTDataList = pagelist;
+        //MetaData =  pagelist.MetaData;
+        //PPSRsCount = MetaData.TotalCount;
+
+
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageList();
+        NFTDataList = pagelist;
+        PPSRsCount = NFTDataList.Count;
+
+        StateHasChanged();
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Refresh();
+            await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("heartClick");
+            await JS.InvokeVoidAsync("FilterButtonClick");
+            await JS.InvokeVoidAsync("FilterArrowSlideClick");
+            await JS.InvokeVoidAsync("TippyInit");
+
+            ///
+            ///await JS.InvokeVoidAsync("installI18nRider");
+            ///
+            await JS.InvokeVoidAsync("NFTcardAClick");    
+            await JS.InvokeVoidAsync("CollectBtnPoP");              
+           
+            await JS.InvokeVoidAsync("showTag");   
+
+            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+            await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+            
+        }
+
+    }
+
+    private async Task DoStuff(ChangeEventArgs e)
+    {
+        //PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( e.Value.ToString() ,1 ,10);
+        //MetaData =  pagelist.MetaData;
+        //NFTDataList = pagelist;
+        //PPSRsCount = MetaData.TotalCount;
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageList();
+        NFTDataList = pagelist;
+        PPSRsCount = NFTDataList.Count;
+        await JS.InvokeVoidAsync("installI18n");
+    }
+
+
+
+
+    public MetaData MetaData { get; set; } = new MetaData();
+
+
+    //private async Task SelectedPage(int page)
+    //{
+    //    await GetNFTDataPageListbyPage(page);
+    //}
+
+    //private async Task GetNFTDataPageListbyPage(int page)
+    //{
+    //    PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( page,10);
+    //    NFTDataList = pagelist;
+    //    MetaData = pagelist.MetaData;
+    //    PPSRsCount = MetaData.TotalCount;
+    //    await JS.InvokeVoidAsync("installI18n");
+    //}
+
+    private async Task AfterRenderLocalize()
+    {
+        await JS.InvokeVoidAsync("Localize");
+    }
+
+
+
+    /* 篩選*/
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public List<string> CheckBoxRarity { get; set; } = new List<string>();
+    public List<string> CheckBoxElements { get; set; } = new List<string>();
+    public List<string> CheckBoxClass { get; set; } = new List<string>();
+    public List<string> CheckBoxCountry { get; set; } = new List<string>();
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxRarityClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxRarity.Contains(CheckID))
+            {
+                CheckBoxRarity.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxRarity.Contains(CheckID))
+            {
+                CheckBoxRarity.Remove(CheckID);
+            }
+        }
+        GetFilter();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxElementsClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxElements.Contains(CheckID))
+            {
+                CheckBoxElements.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxElements.Contains(CheckID))
+            {
+                CheckBoxElements.Remove(CheckID);
+            }
+        }
+        GetFilter();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxClassClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxClass.Contains(CheckID))
+            {
+                CheckBoxClass.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxClass.Contains(CheckID))
+            {
+                CheckBoxClass.Remove(CheckID);
+            }
+        }
+        GetFilter();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private void CheckboxCountryClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxCountry.Contains(CheckID))
+            {
+                CheckBoxCountry.Add(CheckID);
+            }
+        }
+        else
+        {
+            if (CheckBoxCountry.Contains(CheckID))
+            {
+                CheckBoxCountry.Remove(CheckID);
+            }
+        }
+        GetFilter();
+    }
+
+    private async Task GetFilter()
+    { 
+
+        //PagedList<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
+        //NFTDataList = pagelist;
+        //MetaData = pagelist.MetaData;
+        //PPSRsCount = MetaData.TotalCount;
+
+
+        List<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
+        NFTDataList = pagelist;
+        PPSRsCount = MetaData.TotalCount;
+        await JS.InvokeVoidAsync("installI18n");
+        lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+        await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+    }
+
+
+
+    /// <summary>
+    /// 點擊我的最愛
+    /// </summary>
+    /// <param name="TokenId">TokenId</param>
+    /// <param name="isLove">isLove </param>
+    /// <param name="checkedValue"></param>
+    private void HeartToggleButton( string TokenId , bool isLove,  object checkedValue)
+    {
+        NFTDataList.Where(m => m.TokenID == TokenId).First().IsLove = !isLove;
+
+        if (isLove)
+        {
+            
+        }
+    }
+
+
+    /// <summary>
+    /// 判斷是否有點擊篩選我的最愛
+    /// </summary>
+    private bool iSFilterHeart = false;
+    /// <summary>
+    /// 點擊，篩選我的最愛
+    /// </summary>
+    /// <returns></returns>
+    private async Task FilterLove()
+    {
+        iSFilterHeart = !iSFilterHeart;
+        //PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( 1,10);
+        //NFTDataList = pagelist;
+        //MetaData = pagelist.MetaData;
+        //PPSRsCount = MetaData.TotalCount;
+
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( );
+        NFTDataList = pagelist;
+        PPSRsCount = MetaData.TotalCount;
+
+        //清空篩選
+        CheckBoxRarity.RemoveRange(0 ,CheckBoxRarity.Count);
+        CheckBoxElements.RemoveRange(0 ,CheckBoxElements.Count);
+        CheckBoxClass.RemoveRange(0 ,CheckBoxClass.Count);
+        CheckBoxCountry.RemoveRange(0 ,CheckBoxCountry.Count);
+        await JS.InvokeVoidAsync("installI18n");
+
+   
+    }
+    
+
+
+}

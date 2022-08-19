@@ -1,0 +1,35 @@
+@page "/ERNC"
+
+@using SnakeAsianLeague.Pages.ERNC.Components
+
+@inject IJSRuntime JS
+
+<head>
+    <title>PonPonSnake｜ERNC</title>
+    <link href="/css/ERNC/ERNC.css" rel="stylesheet" />
+</head>
+
+<div class="ERNC-Block">
+    <ERNC_Banner/>
+    <div class="ERNC-diamond_BG">
+        <ERNC_Card/>
+        <ERNC_Allocation/>
+        <ERNC_Table/>
+        @* <ERNC_Roadmap/>  *@
+    </div>
+    
+</div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
+    }
+}

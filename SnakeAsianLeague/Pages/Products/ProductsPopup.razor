@@ -1,0 +1,46 @@
+<head>
+    <link href="css/Popup.css" rel="stylesheet" />
+</head>
+
+<section class="products-popup-bg" id="products-popupblock-Name">
+    
+    <div class="products-popupblock" >
+        @* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
+            <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
+                fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+        </svg>
+
+        <div class="products-popup-title">Rider's Name</div>
+        <div class="products-popup-content">
+            <div class="products-popup-text">Pleas Click the Save to change your Rider's name.</div>
+            <input class="products-popup-inputText" type="text" value="初串原始value再供修改" placeholder="The 20 character limit input">
+            <div class="products-popup-error">(字數超過時才出現)The number of characters is limited to 20.</div>
+        
+            <button class="products-popup-submit" type="submit">SAVE</button>
+        </div>
+    </div>
+</section>
+
+<section class="products-popup-bg" id="products-popupblock-AppearanceFee">
+    <div class="products-popupblock" id="">
+        @* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
+            <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
+                fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+        </svg>
+
+        <div class="products-popup-title">Rider's Appearance Fee</div>
+        <div class="products-popup-content">
+            <div class="products-popup-text">Pleas enter number only for your RAF.</div>
+            <input class="products-popup-inputText" type="text" value="初串原始value再供修改">        
+            <button class="products-popup-submit" type="submit">SAVE</button>
+        </div>
+    </div>
+</section>
+
+
+
+@code {
+
+}

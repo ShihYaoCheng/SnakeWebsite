@@ -1,0 +1,75 @@
+﻿@inject IJSRuntime JS
+@using SnakeAsianLeague.Data.Entity.View
+<head>
+    <link href="css/MyProfile/coinExchange.css" rel="stylesheet" />
+</head>
+
+<div class="coinEchange-container">
+    <div class="coinEchange">
+        <div class="coinNum-Container">
+             <div class="coinNum-beteen">
+                 <div class="coinTop">
+                    <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">
+                    <p>@Value.gTitle</p>
+                    <p>@Value.gNumber</p>
+                 </div>
+
+                 <p class="replacedCoin">
+                    @Value.gNumberChange
+                 </p>
+                 <output class="increaseCoin" id="GSRCincrease">
+                    0
+                 </output>  
+             </div>
+             <div class="coinNum-mid">
+                 <div class="coinTop doubleArrow">
+                      <img src="/images/Myprofile/doubleArrow.png"/>
+                 </div>
+                
+             </div>
+              <div class="coinNum-beteen">
+                 <div class="coinTop">
+                    <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">                                     
+                    <p>@Value.tokenTitle</p>
+                    <p>@Value.tokenNumber</p>
+                 </div>
+                 <p class="replacedCoin">
+                     @Value.tokenNumberChange
+                 </p>                  
+                 <output class="increaseCoin"  id="SRCincrease">
+                    0
+                 </output>   
+             </div>
+        </div>
+        <input class="coin-range" type="range" @onchange="(ChangeEventArgs e)=> coinRange(e)" min="-@Value.gNumber" max="@Value.tokenNumber"  oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
+        <p class="increaseCoin" id="gSRCincrease"> </p>  
+      
+       <div class="coinEchange-BtnZone">
+           <button id="coinEchangeBtn" class="coinEchange-ExchangeBtn">Exchange</button>
+           <button id="coinEchangeCancel" class="coinEchange-CancelBtn">Cancel</button>
+       </div>
+    </div>
+
+</div>
+@code {
+
+    [Parameter]
+    public ExchangeCoin? Value { get; set; }
+
+    private IJSObjectReference? coinEchangeJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/InventoryAndMarketPlace/coinEchange.js");
+            await coinEchangeJS.InvokeVoidAsync("coinEchange" ,".ExchangeBtn");
+        }
+    }
+
+    public void coinRange  (ChangeEventArgs value)
+    {
+        Value.gNumberChange = Value.gNumber- Int32.Parse(value.Value.ToString());
+        Value.tokenNumberChange = Value.tokenNumber + Int32.Parse(value.Value.ToString());
+    }
+
+}

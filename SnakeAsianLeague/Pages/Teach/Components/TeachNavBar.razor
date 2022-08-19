@@ -1,0 +1,41 @@
+﻿@using SnakeAsianLeague.Pages.Teach.Components.TeachNavBar_components
+@using SnakeAsianLeague.Data.Entity.View
+
+
+<head>
+    <link href="/css/Teach/TeachNavBar.css" rel="stylesheet" />
+</head>
+
+<div class = "TeachNavBar-container" >
+    <div class ="img-Container">
+            <img  class = "line-BG" src="/images/Teach/nav/BG-line.png"/>
+            <div class="square-container"> 
+                @foreach(var Data in Value)
+                {                    
+                    <TeachNavBar_Square  Value =@Data  SquareClick ="squareOnclick"/>
+                }      
+            </div>   
+    </div>
+    <div class ="stepText-Container">
+       @foreach (var Data in Value)
+        {
+            <TeachNavBar_stepText Value=@Data.alltitle />            
+        } 
+    </div>
+    <div>
+
+    </div>
+</div>
+@code {
+    @*[Parameter] public TeachData? AllTeachData { get; set; }*@
+   [Parameter] public List<TeachAllData>? Value { get; set; }
+        
+    [Parameter]
+    public EventCallback<string> SquareClick { get; set;}
+
+    private void squareOnclick(string idd)
+    {
+        SquareClick.InvokeAsync(idd);   
+    }
+ }
+

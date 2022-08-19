@@ -1,0 +1,157 @@
+{
+  "input": {
+    "placeholder": "請填寫"
+  },
+
+  "h2": "標題 jquery-i18next",
+  "lang": "語言切換",
+  "id": "test-tw-id",
+  "test": "測試",
+  "lines": "This is line 1.<br>This is line 2.<br>This is line 3.",
+
+  "nav": {
+    "snakelogo": "./images/Other/LOGO_WhiteOutline_CN.png",
+    "Ponponsnake": "碰碰蛇",
+    "Home": "首頁",
+    "NewEvent": "最新活動",
+    "Knight": "角色介紹",
+    "Adventure": "騎士冒險",
+    "Video": "遊戲影片",
+    "ContactUs": "意見回饋",
+    "Exhibition": "參展照片",
+
+    "ACLIndex": "亞洲聯賽S1",
+    "ACLhome": "首頁",
+    "Event": "活動介紹",
+    "Standings": "戰績排名",
+    "Awards": "獎金領取",
+    "Sponsor": "賽事好康",
+    "Ruleset": "注意事項",
+
+    "GameFi": "GameFi",
+    "ERNC": "ERNC",
+    "Marketplace": "NFT商城",
+    "Arena": "聯賽",
+    "AsiaLeague": "亞洲聯賽",
+    "FestivalLeague": "節慶賽",
+    "LatestLeague": "近期聯賽",
+    "GettingStarted": "新手導覽",
+
+    "ACLIndexS2": "亞洲聯賽S2",
+    "FestivalGame": "節慶賽",
+    "ChristmasLeague": "聖誕節慶賽",
+    "LunarNewYear": "新年節慶賽",
+    "News": "最新消息",
+    "Language": "語言",
+    "ConnectWallet": "連結錢包",
+
+    "signIn": "登入",
+    "signOut": "登出",
+    "PersonalInfo": "個人資訊",
+    "Esports": "我的賽事",
+    "AwardClaim": "領獎通知",
+    "Myprofile": "我的主頁",
+    "Inventory": "資產明細",
+
+    "Chinese": "中文",
+    "English": "EN"
+  },
+
+  "Sidebar": {
+    "AccountManagement": "帳號管理",
+    "Account": "我的主頁",
+    "Esports": "我的賽事",
+    "Reward": "領獎通知",
+    "Inventory": "資產明細"
+  },
+
+  "signInWindows": {
+    "PonPonSnake": "登入碰碰蛇帳號",
+    "PhoneNumber": "手機",
+    "Password": "密碼",
+    "SignIn": "登入",
+    "Failed": "登入失敗，請重新登入",
+    "Rigister": "註冊"
+
+  },
+
+  "SnakeIndexlogo": "/images/OfficialWeb/LOGO.webp",
+
+  "introduce_01": "碰碰蛇是一款在貪吃蛇為基礎的遊戲玩法上全新進化出獨特戰鬥玩法的3D角色扮演遊戲。",
+  "introduce_02": "初代勇者為了拯救世界而耗盡生命並與邪惡共同逝去，儘管他們的犧牲帶來了一段時間的和平，邪惡依然在暗處滋養茁壯，一對在森林迷路的兄妹即將繼承身為勇者的宿命以及接受先代勇者們的祝福，為了斯內克大陸的和平奉獻自己的力量。",
+  "introduce_03": "同時間各國的好手也似乎在為了邪惡再臨大地不斷修行，做足準備。",
+  "introduce_04": "選擇你最喜歡的騎士，在廣大的斯内克大陸上探險吧。",
+
+  "gameName": "▼ 掃瞄或點擊下載 ▼",
+
+
+  "eventTitle": "/images/OfficialWeb/SnakeACL_kimlan.webp",
+  "grandPrize_Title": "總獎金高達 172.5 萬元!!",
+  "button_txt": "前往亞洲聯賽",
+
+  "carousel_01": {
+    "div_01": "角色：西莉卡<br>蛇蛇：德芙娜奇<br>性別：女",
+    "div_02": "年齡：15<br>武器：騎士長槍<br>國家：法蘭",
+    "introduction": "克雷亞的雙胞胎妹妹，從小生長在鄉村，5歲那年走失，被王國騎士團長領養後，便在王城長大。個性開朗積極，具正義感，品學兼優卻超級不擅長廚藝，常常製造黑暗料理。完美的形象男女通吃，是許多人心中的女神。從小展現的能力十分出眾，一直都是菁英階級，是本屆最矚目的新星騎士之一。",
+    "Knight_skills_01": "光明包覆",
+    "Knight_skills_02": "破曉之耀"
+  },
+  "carousel_02": {
+    "div_01": "角色：克雷亞<br>蛇蛇：德斯那奇<br>性別：男",
+    "div_02": "年齡：15<br>武器：騎士長槍<br>國家：法蘭",
+    "introduction": "西莉卡的雙胞胎哥哥，從小生長在鄉村，5歲那年兄妹分散，15歲來到王城，加入王國騎士團。個性溫和正向，具正義感，暖男類型，擅長廚藝。熱心助人的個性很容易被騙，不過只要不影響他原則，吃點虧無所謂。為了能盡快趕上妹妹，勤奮地不停鍛鍊，是本屆最矚目的新星騎士之一。也是個隱性妹控。力量型騎士，力量是為了守護而存在。",
+    "Knight_skills_01": "夜幕包覆",
+    "Knight_skills_02": "夜影強襲"
+  },
+  "carousel_03": {
+    "div_01": "角色：路西法<br>蛇蛇：格萊那奇<br>性別：男",
+    "div_02": "年齡：18<br>武器：大劍<br>國家：諾德公國",
+    "introduction": "自來熟，愛耍帥，還帶點中二的個性，讓他從小就被維納斯慘虐。其實十分善良，默默幫助許多弱勢的人們。為了配合蛇蛇造型特地在裝備上加裝了翅膀。雖然個性外向，但被誇獎時反而會手足無措，M屬性男孩。重力型騎士，沒有敵人可以越過我的大劍！！！（我的實力就是令人如此窒息）",
+    "Knight_skills_01": "重力控制",
+    "Knight_skills_02": "重力禁錮"
+  },
+  "carousel_04": {
+    "div_01": "角色：溫蒂妮<br>蛇蛇：波波娜奇<br>性別：女",
+    "div_02": "年齡：不詳<br>武器：魔法球<br>國家：德拉聯邦",
+    "introduction": "來自德拉聯邦的溫蒂妮島，現任法蘭神殿神官，樣貌是女孩，但年齡應該有三位數。傳說是上上代的女王請來的。精靈種族，有飄浮飛行能力，可以控制水元素。超級愛錢，販售謎之飲料就是為了賺錢。溫柔親和的大姐姐個性（如果你沒騙她錢的話），喜愛照顧幼小。遠程輔助型，多喝水沒事，沒事多喝水。",
+    "Knight_skills_01": "生命之水",
+    "Knight_skills_02": "治療之潮"
+  },
+  "carousel_05": {
+    "div_01": "角色：維納斯<br>蛇蛇：安婕娜奇<br>性別：不詳",
+    "div_02": "年齡：18<br>武器：長槍<br>國家：法蘭",
+    "introduction": "法蘭帝國的第一皇女，是下任女王繼承人。從小受皇家教育長大，責任與使命感很重。路西法的青梅竹馬。外表看起來是嬌柔的女孩子，但性別一直受到外界的質疑，不過不影響其高貴的氣質。女王重點培養對象，但似乎養成了工作狂的個性。戰鬥招式神聖華麗，為了皇室榮譽而戰。速度型騎士，解決不了問題就解決製造問題的人。",
+    "Knight_skills_01": "優雅戰技",
+    "Knight_skills_02": "天空之眼"
+  },
+
+  "videoTitle": "遊戲影片",
+  "gameDownload": "遊戲下載點",
+
+  "contact": {
+    "title": "意見回饋",
+    "name": "請輸入姓名",
+    "mail": "請輸入e-mail",
+    "phone": "請輸入手機號碼",
+    "feedbackType": "請選擇回饋類型",
+    "content": "請輸入回饋內容",
+    "send": "送出"
+  },
+
+  "knight_adventure": {
+    "txt_01": "<div class=\"Txt_line\"><span class=\"Txt_big\">騎士</span></div><span class=\"Txt_little\">從</span><span class=\"Txt_middle\">五大國度</span><span class=\"Txt_little\">前來</span><br><span class=\"Txt_little\">不同特性及性格的騎士</span>",
+    "txt_02": "<span class=\"Txt_middle\">區域</span><br><div class=\"Txt_line\"><span class=\"Txt_big\">冒險</span></div><span class=\"Txt_little\">在孕育邪惡的無盡之海</span><br><span class=\"Txt_little\">打倒</span><span class=\"Txt_middle\">魔獸</span><span class=\"Txt_little\">吧</span>",
+    "txt_03": "<span class=\"Txt_middle\">即時</span><br><div class=\"Txt_line\"><span class=\"Txt_big\">對戰</span></div><span class=\"Txt_little\">線上即時與</span><span class=\"Txt_middle\">隊友</span><span class=\"Txt_little\">一同出戰</span>"
+  },
+
+  "myprofile": {
+    "account": "帳號",
+    "edit": "編輯",
+    "gameID": "遊戲ID",
+    "phone": "手機",
+    "connectMetamask": "連結 Wallet",
+    "installMetamask": "請安裝 Wallet",
+    "asset": "資產",
+    "activities": "活動"
+  }
+}
