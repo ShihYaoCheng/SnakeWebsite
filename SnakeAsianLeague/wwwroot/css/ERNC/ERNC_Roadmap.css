@@ -149,6 +149,9 @@
     /* height: 350px; */
     position: relative;
 }
+.Project:hover{
+    opacity: 1;
+}
 .Project-bottom{
     justify-content: flex-start;
     /* transform: translate(-100px, 0px); */
@@ -187,7 +190,7 @@
 }
 
 .Project-Img-Block:hover .Project-Img{
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .Project-Img-focus{
@@ -545,7 +548,7 @@
         height: 80%;
         top: 15%;
         /* left: 13.5%; */
-        left: 59px;
+        left: 60px;
         /* opacity: 0;
         z-index: -1; */
     }
@@ -567,12 +570,35 @@
         }
     }
     .animate_start .Project-Year-Line{
-        animation: Project-Year-Line-display 0.8s ease-in-out 0s forwards;
+        animation: Project-Year-Line-display 0.8s ease-in-out 0.2s forwards;
     }
     .Roadmap-Years-Block{
         display: none;
     }
+
+    .ERNC_Roadmap-TitleBlock{
+        /* border: 1px solid red; */
+        position: sticky;
+        top: 10%;
+    }
+    .Roadmap-Title span {
+        font-size: 26px;
+        letter-spacing: 3px;
+        line-height: 40px;
+        text-underline-offset: 5px;
+    }
     .Roadmap-Years-Block-RWD{
         display: flex;
+        margin: 15px 0 0;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-self: flex-end;
+
+    }
+    .Roadmap-Years-RWD{
+        font-size: 16px;
+        padding: 3px 20px 2px;
+        margin: 5px 10px;
+
     }
 }

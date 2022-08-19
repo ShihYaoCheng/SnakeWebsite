@@ -544,77 +544,43 @@ export function roadMapScrollLeft() {
         // RWD
         $("#btn-2022-RWD").click(function () {
             console.log('Roadmap-Years-RWD')
-            // $(".Project-Block").scrollTop(0);
-            // $('body').scrollTo('#Project-2022');
-
-            $('.Roadmap-Years-RWD').removeClass('Roadmap-Years-focus');
-            $("#btn-2022-RWD").addClass('Roadmap-Years-focus');
-
-            $(".Project-Year-Title").css('opacity','0.4');
-            $("#Project-2022 .Project-Year-Title").css('opacity','1');
-            $(".Project").css('opacity','0.4');
-            $("#Project-2022 .Project").css('opacity','1');
-
-            $(".Project-Year-Line").css('opacity','0');
+            
             $('.Project-Year').removeClass('animate_start');
             $("#Project-2022").addClass('animate_start');
 
-            $('.Project-Img').removeClass('Project-Img-focus');
-            $("#Project-2022 .Project-Img").addClass('Project-Img-focus');
+            
         });
 
         $("#btn-2023-RWD").click(function () {
-            // $(".Project-Block").scrollTop(540);
-            // $('body').scrollTo('#Project-2023');
-
-            $('.Roadmap-Years-RWD').removeClass('Roadmap-Years-focus');
-            $("#btn-2023-RWD").addClass('Roadmap-Years-focus');
-
-            $(".Project-Year-Title").css('opacity','0.4');
-            $("#Project-2023 .Project-Year-Title").css('opacity','1');
-            $(".Project").css('opacity','0.4');
-            $("#Project-2023 .Project").css('opacity','1');
-
-            $(".Project-Year-Line").css('opacity','0');
+            
             $('.Project-Year').removeClass('animate_start');
             $("#Project-2023").addClass('animate_start');
 
-            $('.Project-Img').removeClass('Project-Img-focus');
-            $("#Project-2023 .Project-Img").addClass('Project-Img-focus');
         });
 
         $("#btn-2024-RWD").click(function () {
-            // $("body").scrollTop(1455);
-            // $('body').scrollTo('#Project-2024');
-
-            $('.Roadmap-Years-RWD').removeClass('Roadmap-Years-focus');
-            $("#btn-2024-RWD").addClass('Roadmap-Years-focus');
-
-            $(".Project-Year-Title").css('opacity','0.4');
-            $("#Project-2024 .Project-Year-Title").css('opacity','1');
-            $(".Project").css('opacity','0.4');
-            $("#Project-2024 .Project").css('opacity','1');
-
-            $(".Project-Year-Line").css('opacity','0');
+            
             $('.Project-Year').removeClass('animate_start');
             $("#Project-2024").addClass('animate_start');
 
-            $('.Project-Img').removeClass('Project-Img-focus');
-            $("#Project-2024 .Project-Img").addClass('Project-Img-focus');
+    
         });
 
 
     });
 
     $(document).mouseup(function (e) {
-        var container =$(".Project-BG"); // 這邊放你想要排除的區塊
+        var container =$(".Project"); // 這邊放你想要排除的區塊
         if (!container.is(e.target) && container.has(e.target).length === 0) {
             $('.Roadmap-Years').removeClass('Roadmap-Years-focus');
+            $('.Roadmap-Years').removeClass('animate_start');
             $(".Project-Year-Title").css('opacity','1');
-            $(".Project").css('opacity','1');
+            // $(".Project").css('opacity','1');
+            $(".Project-Img-Block").css('opacity','1');
             $(".Project-Img").css('opacity','0.6');
             $('.Project-Img').removeClass('Project-Img-focus');
-
+            $(".Project-Year-Line").css('opacity','1');
+            // $('.Roadmap-Years-RWD').removeClass('Roadmap-Years-focus');
         }
     });
 }
