@@ -198,7 +198,6 @@
 
     private async Task SendVerifyCode()
     {
-        @* 這裡出的來但第一次沒顯示 *@
         if (String.IsNullOrEmpty(CountryCode) )
         {
             AlertDatai18n = "countryCode";
@@ -226,7 +225,6 @@
         }
         else
         {
-            @* 這以下都出不來 *@
             Console.WriteLine(resp.Content);
             AlertTitle = "Sending verification code failed";
             AlertDatai18n = "verifyFailed";
