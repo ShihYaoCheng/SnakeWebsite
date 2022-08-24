@@ -53,10 +53,12 @@
         "text-06":"Fun Fact: Snake Trains are usually not formed by snakes. They are little cute creatures that come from itza land. They have no purpose, they go anywhere they want.",
         "text-07":"A snake made of iron and other non-living material. It uses the tainted crystal as a power source, however, they are no worse than any other variant snakes, and can also be utilized in battles."
     },
+    
     "join": {
         "text":"./images/NFTindex/NFTindex_pop/join_text.png",
         "button":"Join Now"
     },
+
     "register": {
         "countryCode":"CountryCode",
         "tippy":"Enter Your Phone Number",
@@ -69,6 +71,17 @@
         "resend": "Resend",
         "userName": "User Name",
         "password": "Password",
-        "confirmPassword": "Confirm Password"
+        "confirmPassword": "Confirm Password",
+        "close": "Close"
+    },
+
+    "registerAlert":{
+        "countryCode":"Please enter your Country Code",
+        "phoneNum":"Please enter your Phone Number",
+        "VerifyFailed":"PSending verification code failed",
+        "badRequest":"Please check the input is correct.",
+        "conflict":"This phone Number has already been registered.",
+        "registerSuccessed":"Register Successed",
+        "registerFailed":"Register Failed"
     }
 }

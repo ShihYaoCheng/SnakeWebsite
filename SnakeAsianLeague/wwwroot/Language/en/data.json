@@ -149,5 +149,20 @@
     "installMetamask": "Please Install Wallet",
     "asset": "Asset",
     "activities": "Activities"
+  },
+
+  "footer":{
+    "Home": "Home",
+    "Marketplace": "Marketplace",
+    "Arena": "Arena",
+    "GettingStarted": "Getting Started",
+    "News": "News",
+
+    "ERNC": "ERNC",
+    "WhitePaper":"WhitePaper",
+
+    "ContactUs":"Contact Us",
+    "JoinUs":"Join Us",
+    "CQITeam":"Our Team"
   }
 }

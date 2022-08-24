@@ -552,27 +552,37 @@ export function roadMapScrollLeft() {
 
         // RWD
         $("#btn-2022-RWD").click(function () {
-            console.log('Roadmap-Years-RWD')
-            
+            // console.log('Roadmap-Years-RWD')
+            $('.Roadmap-Years-RWD').removeClass('Roadmap-Years-focus');
+            $("#btn-2022-RWD").addClass('Roadmap-Years-focus');
+
             $('.Project-Year').removeClass('animate_start');
             $("#Project-2022").addClass('animate_start');
 
-            
+            $('.Project').removeClass('Project-Img-focus-RWD');
+            $("#Project-2022 .Project").addClass('Project-Img-focus-RWD');
         });
 
         $("#btn-2023-RWD").click(function () {
-            
+            $('.Roadmap-Years-RWD').removeClass('Roadmap-Years-focus');
+            $("#btn-2023-RWD").addClass('Roadmap-Years-focus');
+
             $('.Project-Year').removeClass('animate_start');
             $("#Project-2023").addClass('animate_start');
 
+            $('.Project').removeClass('Project-Img-focus-RWD');
+            $("#Project-2023 .Project ").addClass('Project-Img-focus-RWD');
         });
 
         $("#btn-2024-RWD").click(function () {
-            
+            $('.Roadmap-Years-RWD').removeClass('Roadmap-Years-focus');
+            $("#btn-2024-RWD").addClass('Roadmap-Years-focus');
+
             $('.Project-Year').removeClass('animate_start');
             $("#Project-2024").addClass('animate_start');
 
-    
+            $('.Project ').removeClass('Project-Img-focus-RWD');
+            $("#Project-2024 .Project ").addClass('Project-Img-focus-RWD');
         });
 
 

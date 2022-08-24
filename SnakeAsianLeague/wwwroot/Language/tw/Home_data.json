@@ -57,6 +57,7 @@
         "text":"./images/NFTindex/NFTindex_pop/join_text_CN.png",
         "button":"加 入"
     },
+
     "register": {
         "countryCode":"國碼",
         "tippy":"請輸入手機號碼",
@@ -69,7 +70,18 @@
         "resend": "重傳",
         "userName": "用戶名",
         "password": "密碼",
-        "confirmPassword": "確認密碼"
+        "confirmPassword": "確認密碼",
+        "close": "關閉"
+    },
+
+    "registerAlert":{
+        "countryCode":"Please enter your Country Code",
+        "phoneNum":"Please enter your Phone Number",
+        "VerifyFailed":"PSending verification code failed",
+        "badRequest":"Please check the input is correct.",
+        "conflict":"This phone Number has already been registered.",
+        "registerSuccessed":"Register Successed",
+        "registerFailed":"Register Failed"
     }
 
 }

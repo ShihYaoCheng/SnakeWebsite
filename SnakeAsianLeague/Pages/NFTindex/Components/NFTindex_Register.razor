@@ -98,8 +98,8 @@
 
 
 @* 送出成功/失敗 彈窗 *@
-@if(displayAlert){
-    <section class="products-popup-bg  products-popup-open " id="products-popupblock-result">
+@* @if(displayAlert){ *@
+    <section class="@(displayAlert? "" : "d-none") products-popup-bg  products-popup-open " id="products-popupblock-result">
         <div class="products-popupblock">
 
             <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="AlertCancel">
@@ -116,14 +116,14 @@
                     <div class="products-popup-text">@AlertContent</div>
                 
 
-                    <button class="products-popup-submit button-hover" type="submit" @onclick="AlertCancel">Close</button>
+                    <button class="products-popup-submit button-hover" type="submit" @onclick="AlertCancel" data-i18n="Home_data:register.close">Close</button>
                 </div>
 
             </EditForm>
 
         </div>
     </section>
-}
+@* } *@
 
 
 

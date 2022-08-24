@@ -76,6 +76,7 @@
     /* padding: 0 50px; */
     /* height: 200px; */
     margin: 0 auto 0px;
+    overflow: hidden;
 }
 
 .Project-Block-Gradient {
@@ -388,7 +389,7 @@
         width: 100%;
     }
     .Project-Block-Gradient{
-        background-image: linear-gradient(to right, #132738 0%,#132738cb  5%, #1327382f 10%,#13273800 20%,#13273800 80%, #1327382f 90%, #132738cb 95%, #132738 100%);
+        background-image: linear-gradient(to right, #132738 0%,#132738cb  5%, #1327382f 8%,#13273800 20%,#13273800 80%, #1327382f 90%, #132738cb 95%, #132738 100%);
     }
     .Project{
         width: 200px;
@@ -570,7 +571,7 @@
         }
     }
     .animate_start .Project-Year-Line{
-        animation: Project-Year-Line-display 0.8s ease-in-out 0.2s forwards;
+        animation: Project-Year-Line-display 1s ease-in-out 0.2s forwards;
     }
     .Roadmap-Years-Block{
         display: none;
@@ -579,21 +580,23 @@
     .ERNC_Roadmap-TitleBlock{
         /* border: 1px solid red; */
         position: sticky;
-        top: 6%;
+        top: 70px;
         z-index: 10;
         
         filter: drop-shadow(0px 10px 35px rgb(0, 0, 0));
-        /* background-color: #00000048; */
+        backdrop-filter: blur(2px);
+        padding: 0 30px;
+        width: 100%;
     }
     .Roadmap-Title span {
-        font-size: 26px;
+        font-size: 22px;
         letter-spacing: 3px;
         line-height: 40px;
         text-underline-offset: 5px;
     }
     .Roadmap-Years-Block-RWD{
         display: flex;
-        margin: 15px 0 0;
+        margin: 5px 0 0;
         flex-wrap: wrap;
         justify-content: flex-start;
         align-self: flex-end;
@@ -607,5 +610,11 @@
     }
     .container{
         overflow: unset;
+    }
+
+
+    .Project-Img-focus-RWD{
+        filter: drop-shadow(0px 0px 80px rgba(255, 248, 227, 0.965));
+        opacity: 1;
     }
 }
