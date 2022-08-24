@@ -15,7 +15,7 @@
 
 
 
-
+<div id="register_wrap">
 @* 註冊按鈕 *@
 <div class="Register-submit button-hover" @onclick="@SendVerifyCode">
     <span data-i18n="Home_data:register.registerButton">Register</span>
@@ -107,8 +107,8 @@
                     fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
             </svg>
 
-            @* <div class="products-popup-title" data-i18n="Home_data:registerAlert.@AlertDatai18n"> *@
-            <div class="products-popup-title">
+            <div class="products-popup-title" data-i18n="Home_data:registerAlert.@AlertDatai18n">
+            @* <div class="products-popup-title"> *@
                 @AlertTitle
             </div>
 
@@ -130,7 +130,7 @@
     </section>
 @* } *@
 
-
+</div>
 
 
 
@@ -191,13 +191,14 @@
     void AlertShow() 
     {
         displayAlert = true;
-        NFTindexBannerJS.InvokeVoidAsync("NFTindexRegister");
+        @* NFTindexBannerJS.InvokeVoidAsync("NFTindexRegister"); *@
         @* await JS.InvokeVoidAsync("installI18n"); *@
     }
 
 
     private async Task SendVerifyCode()
     {
+        @* 這裡出的來但第一次沒顯示 *@
         if (String.IsNullOrEmpty(CountryCode) )
         {
             AlertDatai18n = "countryCode";
@@ -225,6 +226,7 @@
         }
         else
         {
+            @* 這以下都出不來 *@
             Console.WriteLine(resp.Content);
             AlertTitle = "Sending verification code failed";
             AlertDatai18n = "verifyFailed";
@@ -313,7 +315,7 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        
+        NFTindexBannerJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/NFTindex/NFTindexBanner.js");
         if (firstRender)
         {
             @* await JS.InvokeVoidAsync("Popup"); *@
@@ -321,6 +323,10 @@
 
             AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
+        } 
+        else 
+        {
+            await NFTindexBannerJS.InvokeVoidAsync("I18nAfterRender");
         }
     }
     void IDisposable.Dispose()
