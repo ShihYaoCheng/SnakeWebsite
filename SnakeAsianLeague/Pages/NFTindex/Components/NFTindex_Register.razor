@@ -18,7 +18,7 @@
 
 @* 註冊按鈕 *@
 <div class="Register-submit button-hover" @onclick="@SendVerifyCode">
-    <span >Register</span>
+    <span data-i18n="Home_data:register.registerButton">Register</span>
               
 </div>
 
@@ -26,9 +26,9 @@
 
 
 @* 新暫時彈窗 *@
-@if (displayForm)
-{
-    <section class="products-popup-bg products-popup-open " id="products-popupblock-Name">
+@* @if (displayForm)
+{ *@
+    <section class="@(displayForm? "" : "d-none") products-popup-bg products-popup-open " id="products-popupblock-Name">
         <div class="products-popupblock">
 
             <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="EditFormCancel">
@@ -36,7 +36,7 @@
                     fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
             </svg>
 
-            <div class="products-popup-title">Register Account</div>
+            <div class="products-popup-title" data-i18n="Home_data:register.title">Register Account</div>
 
             <EditForm Model="@RegisterDTO" class="window_input_block">
                 <DataAnnotationsValidator />
@@ -44,17 +44,18 @@
 
                 <div class="products-popup-content">
                     <div class="products-popup-scroll">
-                        <div class="products-popup-text">Enter the 6-digit verify code sent to <br>
-                            <span class="popup-RegisterPhone">@CountryCode-@PhoneNum</span>
+                        <div class="products-popup-text" style="margin: 10px 0 0px;" data-i18n="Home_data:register.text">Enter the 6-digit verify code sent to <br>
+                            @* <span class="popup-RegisterPhone">@CountryCode-@PhoneNum</span> *@
                         </div>
+                        <span class="popup-RegisterPhone">@CountryCode-@PhoneNum</span>
 
 
                         <div class="popup-low">
                             <div class="popup-label-02">
-                                <label class="popup-label" for="name">VerifyCode</label>
+                                <label class="popup-label" for="name" data-i18n="Home_data:register.verifyCode">VerifyCode</label>
                                 <div class="TimeLeft">
                                     <apan class="">@TimeLeft</apan>
-                                    <button class="button-hover" disabled=@TimerIsRunning  @onclick="SendVerifyCode" >Resend</button>
+                                    <button class="button-hover" disabled=@TimerIsRunning  @onclick="SendVerifyCode" data-i18n="Home_data:register.resend">Resend</button>
                                 </div>
                             </div>
                             <input class="products-popup-inputText" id="name" type="text" @bind-value="RegisterDTO.VerifyCode"
@@ -63,19 +64,19 @@
                         </div>
                     
                                         <div class="popup-low">
-                            <label class="popup-label" for="name">User Name</label>
+                            <label class="popup-label" for="name" data-i18n="Home_data:register.userName">User Name</label>
                             <input class="products-popup-inputText" id="username" type="text" @bind-value="UserName"
                                 placeholder="">
                         </div>
 
                         <div class="popup-low">
-                            <label class="popup-label" for="name">Password</label>
+                            <label class="popup-label" for="name" data-i18n="Home_data:register.password">Password</label>
                             <input class="products-popup-inputText" id="password" type="text" @bind-value="RegisterDTO.Password"
                                 placeholder="">
                         </div>
 
                         <div class="popup-low">
-                            <label class="popup-label" for="name">Confirm Password</label>
+                            <label class="popup-label" for="name" data-i18n="Home_data:register.confirmPassword">Confirm Password</label>
                             <input class="products-popup-inputText" id="passwordcheck" type="text" @bind-value="PasswordCheck"
                                 placeholder="">
                         </div>
@@ -84,7 +85,7 @@
                     
                         <div class="products-popup-error">@ErrorString</div>
 
-                        <button class="products-popup-submit button-hover" type="submit" @onclick="RegisterSubmit">Register</button>
+                        <button class="products-popup-submit button-hover" type="submit" @onclick="RegisterSubmit" data-i18n="Home_data:register.registerButton">Register</button>
                 
                     </div>
                 </div>
@@ -93,7 +94,7 @@
 
         </div>
     </section>
-}
+@* } *@
 
 
 @* 送出成功/失敗 彈窗 *@
@@ -133,6 +134,8 @@
 
 
 @code {
+    private IJSObjectReference? NFTindexBannerJS;
+
     [Parameter]
     public string? CountryCode { get; set; }
     [Parameter]
@@ -148,7 +151,7 @@
     bool displayAlert = false;
     public string? AlertTitle { get; set; }
     public string? AlertContent { get; set; }
-    void AlertShow() => displayAlert = true;
+    @* void AlertShow() => displayAlert = true; *@
     void AlertCancel() => displayAlert = false;
 
 
@@ -178,7 +181,11 @@
     }
 
 
-
+    void AlertShow() 
+    {
+        displayAlert = true;
+        NFTindexBannerJS.InvokeVoidAsync("NFTindexRegister");
+    }
 
 
     private async Task SendVerifyCode()
@@ -204,6 +211,7 @@
             TimeLeft = new TimeSpan(0,0,20);
             Timer();
             EditFormShow();
+
         }
         else
         {
@@ -230,6 +238,7 @@
 
             AlertShow();
         }
+
 
     }
 
@@ -289,6 +298,7 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        
         if (firstRender)
         {
             @* await JS.InvokeVoidAsync("Popup"); *@
@@ -296,8 +306,6 @@
 
             AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
-
-
         }
     }
     void IDisposable.Dispose()

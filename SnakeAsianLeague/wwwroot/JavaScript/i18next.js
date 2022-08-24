@@ -1,6 +1,7 @@
 window.LanguageSwitch = async function (lang) {
   await i18next.changeLanguage(lang);
   $("body").localize().attr('class', `i18n-${lang}`);
+  if(window.i18nCallback) i18nCallback();
 }
 
 window.installI18n = async function () {

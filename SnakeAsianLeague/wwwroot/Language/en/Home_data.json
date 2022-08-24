@@ -1,5 +1,74 @@
 {
     "Banner": {
-        "title": "EAT - FIGHT and EARN!"
+        "title": "EAT - FIGHT and EARN!",
+        "buttonText-01":"/images/NFTindex/NFTindex_Banner/Arena.png",
+        "buttonText-02":"/images/NFTindex/NFTindex_Banner/GettingStart.png",
+        "buttonText-03":"/images/NFTindex/NFTindex_Banner/News.png"
+    },
+    "Flag": {
+        "title-01": "Everyone can win!",
+        "text-01": "Nokia's \"Snake\" started an age in which anybody can play mobile games. PonPonSnake now recreates classics with 3D technology & stunning visuals.",
+        "button-01": "Whitepaper",
+        "title-02": "ERNC<br>scattered around!",
+        "text-02": "Big rewards for a tiny cost. We're giving away 270 Million ERNCs! The winner will be able to dominate the PonPonSnake universe.",
+        "button-02": "ERNC",
+        "title-03": "PonPonSnake Rider going wild!",
+        "text-03": "Utility PPSR is tradeable on OpenSea. Own and receive SRC every day. We are developing the most expensive PPSR in the largest NFT market.",
+        "button-03": "NFT Marketplace"
+    },
+    "Seignior": {
+        "title": "PPS SEIGNIOR",
+        "text-01": "The one who owns a PPSR will be claimed as a \"Seignior\". These people will have special powers that can rule over PonPonSnake Universe.",
+        "privilege-A": "<span>privilege A</span><br> Each day the seignior will be able to receive SRC income.",
+        "privilege-B": "<span>privilege B</span><br> The seignior will have the power to decide the rental fee of the NFT they own.",
+        "privilege-C": "<span>privilege C</span><br> The seignior will effect the economic system of PonPonSnake universe."
+    },
+    "snakeClass": {
+        "name-01": "Amphiptere",
+        "name-02": "Spirit Snake Rider",
+        "name-03": "Snake Rider",
+        "name-04": "Iron Snake Rider",
+        "name-05": "Snake",
+        "name-06": "Snake Train",
+        "name-07": "Iron Snake"
+    },
+    "infoBlock": {
+        "title": "PPS Riders NFT",
+        "info": "PonPonSnake NFT can be used in battles, these NFT comes in different appearance, style and level. They can be obtained by bidding on Marketplace. Once you own these NFT, you will become the “Holder”, and will have the right to rent out your NFT for SRC.",
+        "button": "NFT Marketplace"
+    },
+    "carousel": {
+        "name-01": "Amphiptere",
+        "name-02": "Spirit Snake Rider",
+        "name-03": "Snake Rider",
+        "name-04": "Iron Snake Rider",
+        "name-05": "Snake",
+        "name-06": "Snake Train",
+        "name-07": "Iron Snake",
+        
+        "text-01":"Amphiptere is the most powerful creature, it is the combination of the rider and serphant.Amphipteres will grow horns, wings, claws, and even carry weapons. They can live thousands of years and becomes the overlord.",
+        "text-02":"Evolved snakes can easily dominate others and will be given more power. Their magics and the owner will advance at a different level. The kingdom will bestow glory on the rider, they will be invited to the \"Snake Council.\"",
+        "text-03":"The snake's body will grow larger than its owner. They will be more powerful. These snakes will be the rider's partners. They can explore, battle, and hunt with the rider. Both of them will be seen as a hero and will receive the honor.",
+        "text-05":"The most common snake on Itza land. They were born from crystals and usually fight alone until they find their soul match snake rider.",
+        "text-06":"Fun Fact: Snake Trains are usually not formed by snakes. They are little cute creatures that come from itza land. They have no purpose, they go anywhere they want.",
+        "text-07":"A snake made of iron and other non-living material. It uses the tainted crystal as a power source, however, they are no worse than any other variant snakes, and can also be utilized in battles."
+    },
+    "join": {
+        "text":"./images/NFTindex/NFTindex_pop/join_text.png",
+        "button":"Join Now"
+    },
+    "register": {
+        "countryCode":"CountryCode",
+        "tippy":"Enter Your Phone Number",
+        "inputPhoneNumber":"Phone Number",
+        "registerButton":"Register",
+        "phoneNumber": "Phone Number",
+        "title": "Register Account",
+        "text": "Enter the 6-digit verify code sent to",
+        "verifyCode": "VerifyCode",
+        "resend": "Resend",
+        "userName": "User Name",
+        "password": "Password",
+        "confirmPassword": "Confirm Password"
     }
 }
