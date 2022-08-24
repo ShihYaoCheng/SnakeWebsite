@@ -1213,8 +1213,7 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput ) {
 			// Approve the contract to spend the tokens
 
 			let SRC_decimals = parseInt( await tokenContract.methods.decimals().call())
-			let x = new BigNumber(parseInt(SwapNumValue));
-	
+			let x = new BigNumber(parseInt(SwapNumValue));	
 		
 			let request = await tokenContract.methods.approve(
 				SRCSwap_addr,
