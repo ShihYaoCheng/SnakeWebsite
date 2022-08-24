@@ -28,9 +28,9 @@
                 @* 註冊按鈕 *@
                 <div class="NFTindex_Register" hidden="@false">
                     <div class="Register-input-row">
-                        <input type="text" class="Register-input tippy-pop" id="CountryCode" name="CountryCode" placeholder="+886" data-content="CountryCode" @bind=@countryCodeStr>
+                        <input type="text" class="Register-input tippy-pop" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode" data-content="CountryCode" @bind=@countryCodeStr>
 
-                        <input type="text" class="Register-input tippy-pop" id="PhoneNum" name="PhoneNum" placeholder="Phone Number" data-content="Enter Your Phone Number" @bind=@phoneNumStr>
+                        <input type="text" class="Register-input tippy-pop" id="PhoneNum" name="PhoneNum"  data-i18n="[placeholder]Home_data:register.inputPhoneNumber;[data-content]Home_data:register.tippy" placeholder="Phone Number" data-content="Enter Your Phone Number" @bind=@phoneNumStr>
                     </div>
                     <NFTindex_Register CountryCode = "@countryCodeStr" PhoneNum = "@phoneNumStr" /> 
                     
@@ -122,7 +122,7 @@
                     <a href="ACLIndexS2">
                         <div class="Steps-button" id="Steps-button-01">
                             <img class="Steps-button-bg" id="Steps-button-bg-01" src="/images/NFTindex/NFTindex_Banner/button-green.webp" alt="">
-                            <img class="Steps-button-text" id="Steps-button-text-01" src="/images/NFTindex/NFTindex_Banner/Arena.webp" alt="">
+                            <img class="Steps-button-text" id="Steps-button-text-01" data-i18n="[src]Home_data:Banner.buttonText-01" src="/images/NFTindex/NFTindex_Banner/Arena.png" alt="">
                         </div>
                     </a>
                 </div>
@@ -131,7 +131,7 @@
                     <a href="GettingStarted">
                         <div class="Steps-button" id="Steps-button-02">
                             <img class="Steps-button-bg" id="Steps-button-bg-02" src="/images/NFTindex/NFTindex_Banner/button-yellow.webp" alt="">
-                            <img class="Steps-button-text" id="Steps-button-text-02" src="/images/NFTindex/NFTindex_Banner/GettingStart.png" alt="">
+                            <img class="Steps-button-text" id="Steps-button-text-02" data-i18n="[src]Home_data:Banner.buttonText-02" src="/images/NFTindex/NFTindex_Banner/GettingStart.png" alt="">
                         </div>
                     </a>
                 </div>
@@ -141,7 +141,7 @@
                     <a href="https://ponponsnake.substack.com/" target="_blank">
                         <div class="Steps-button" id="Steps-button-03">
                             <img class="Steps-button-bg" id="Steps-button-bg-03" src="/images/NFTindex/NFTindex_Banner/button-blue.webp" alt="">
-                            <img class="Steps-button-text" id="Steps-button-text-03" src="/images/NFTindex/NFTindex_Banner/News.png" alt="">
+                            <img class="Steps-button-text" id="Steps-button-text-03" data-i18n="[src]Home_data:Banner.buttonText-03" src="/images/NFTindex/NFTindex_Banner/News.png" alt="">
                         </div>
                     </a>
                 </div>

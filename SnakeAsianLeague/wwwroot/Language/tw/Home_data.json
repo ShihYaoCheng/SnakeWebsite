@@ -1,5 +1,88 @@
 {
     "Banner": {
-        "title": "玩跟吃"
+        "title": "吞食！ 戰鬥！ 收成！",
+        "buttonText-01":"/images/NFTindex/NFTindex_Banner/Arena_CN.png",
+        "buttonText-02":"/images/NFTindex/NFTindex_Banner/GettingStart_CN.png",
+        "buttonText-03":"/images/NFTindex/NFTindex_Banner/News_CN.png"
+    },
+    "Flag": {
+        "title-01": "所有人都是贏家！",
+        "text-01": "Nokia的貪食蛇開啟了由手機遊戲為主流的世代，現在碰碰蛇創新了經典並且融合了超酷3D科技以及精湛的美術圖。",
+        "button-01": "白皮書",
+        "title-02": "ERNC遍佈滿地！",
+        "text-02": "大大獎勵；小小付出！碰碰蛇預計發放2.7億個ERNC，贏家將會統治碰碰蛇宇宙。",
+        "button-02": "ERNC",
+        "title-03": "蛇騎士大放異彩！",
+        "text-03": "大量的蛇騎士將會在Opensea上提共交易，擁有蛇騎士將獲取每日份的SRC。我們正在打造最有價值的NFT市場。",
+        "button-03": "NFT交易所"
+    },
+    "Seignior": {
+        "title": "碰碰蛇領主",
+        "text-01": "擁有蛇騎士的玩家將視為\"領主\"，這些人將會有統治碰碰蛇宇宙的尊榮權限。",
+        "privilege-A": "<span>特權 A</span><br> 每一日領主將可以獲取SRC租金收入。",
+        "privilege-B": "<span>特權 B</span><br> 領主將有權決定NFT出租金額。",
+        "privilege-C": "<span>特權 C</span><br> 領主將會主宰碰碰蛇宇宙的經濟循環。"        
+    },
+    "snakeClass": {
+        "name-01": "蛇皇",
+        "name-02": "神騎靈",
+        "name-03": "蛇騎士",
+        "name-04": "鐵甲蛇騎士",
+        "name-05": "異蛇",
+        "name-06": "蛇咒列隊",
+        "name-07": "鐵甲蛇"
+    },
+    "infoBlock": {
+        "title": "碰碰蛇騎士 NFT",
+        "info": "碰碰蛇NFT將可以參與遊戲中的戰鬥。這些NFT有五花八門的外觀、風格以及階級，並且通過交易所競標即可獲得這些精湛的NFT。當你擁有NFT則會成為領主(擁有者)，你將能出租NFT來換取SRC收入。",
+        "button": "NFT交易所"
+    },
+    "carousel": {
+        "name-01": "<span style=\"font-weight:600;\">蛇皇</span>",
+        "name-02": "<span style=\"font-weight:600;\">神騎靈</span>",
+        "name-03": "<span style=\"font-weight:600;\">蛇騎士</span>",
+        "name-04": "<span style=\"font-weight:600;\">鐵甲蛇騎士</span>",
+        "name-05": "<span style=\"font-weight:600;\">異蛇</span>",
+        "name-06": "<span style=\"font-weight:600;\">蛇咒列隊</span>",
+        "name-07": "<span style=\"font-weight:600;\">鐵甲蛇</span>",
+    
+        "text-01":"<div style=\"padding-top: 15px;\">蛇皇是最為強大的生物，祂是由騎士的靈魂和靈蛇所結合而成。蛇皇將會生長出強壯的頭角、翅膀、爪子，甚至會配帶專屬兵器。祂們的壽命將達到數千年，並且主宰這個世界。</div>",
+        "text-02":"<div style=\"padding-top: 15px;\">蛇騎靈進化的蛇將輕易的支配其他生靈，並獲取更強大的靈力。這些蛇擁有卓越的魔力，這將助長蛇騎士的力量。成為蛇騎靈的騎士將獲得王國至高的榮耀，甚至被邀請加入「蛇騎士貴族」。</div>",
+        "text-03":"<div style=\"padding-top: 15px;\">蛇騎士在此階段，蛇的身長將會超越騎士，甚至變得比騎士更強大。由於和騎士之間的羈絆，蛇將成為騎士探索以及戰鬥最佳的夥伴。蛇和騎士都將成為王國的英雄並且獲得榮譽。</div>",
+        "text-05":"<div style=\"padding-top: 15px;\">異蛇伊薩大地上最常見的蛇種，異蛇是由異晶孕育而成，但牠們通常獨來獨往直到找到與自己心有靈犀的蛇騎士才會和此騎士立下誓約。</span>",
+        "text-06":"<div style=\"padding-top: 15px;\">蛇咒列隊不為人知的小知識：蛇咒列隊可不是由蛇組成的喔！牠們來自伊薩大地，是由小生物組成的群體。牠們沒什麼目的，只是隨心所欲，愛去哪就去哪。</div>",
+        "text-07":"<div style=\"padding-top: 15px;\">鐵甲蛇鐵甲蛇是由鐵和其餘無生命素材所組成。牠們將汙染的結晶作為能量來源。然而，牠們卻絲毫不比異蛇遜色，人們也時常將鐵甲蛇運用於戰鬥中。</div>"
+    },
+    "join": {
+        "text":"./images/NFTindex/NFTindex_pop/join_text_CN.png",
+        "button":"加 入"
+    },
+
+    "register": {
+        "countryCode":"國碼",
+        "tippy":"請輸入手機號碼",
+        "inputPhoneNumber":"手機號碼",
+        "registerButton":"註冊",
+        "phoneNumber": "手機號碼",
+        "title": "註冊帳號",
+        "text": "請輸入傳送到您手機的六位驗證碼",
+        "verifyCode": "驗證碼",
+        "resend": "重傳",
+        "userName": "用戶名",
+        "password": "密碼",
+        "confirmPassword": "確認密碼",
+        "close": "關閉"
+    },
+
+    "registerAlert":{
+        "countryCode":"請輸入國家地區代碼",
+        "phoneNum":"請輸入您的手機",
+        
+        "verifyFailed":"驗證碼傳送失敗",
+        "badRequest":"請輸入正確資料。",
+        "conflict":"此號碼已經被註冊。",
+        "registerSuccessed":"註冊成功",
+        "registerFailed":"註冊失敗"
     }
+
 }

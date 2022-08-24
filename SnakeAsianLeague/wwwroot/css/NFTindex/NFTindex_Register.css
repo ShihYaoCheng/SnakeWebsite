@@ -107,6 +107,7 @@
     color: var(--green-font-2);
     line-height: 40px;
     font-size: 22px;
+    width: 90%;
 }
 .popup-low{
     /* border: 1px solid red; */
