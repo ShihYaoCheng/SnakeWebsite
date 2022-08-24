@@ -27,7 +27,7 @@
                         SRC
                         <img src="/images/Myprofile/SRCExchange/SRC.webp"/>
                     </div>
-                    <p class="avaliable">avaliable to swap: 978.1234</p>
+                    <p id="SRCTotalBalance" class="avaliable">avaliable to swap: 978.1234</p>
 
                 </div>
                 <div class="coin-Zone">
@@ -48,19 +48,18 @@
                         
                         <img src="/images/Myprofile/SRCExchange/tether-usdt-logo.png"/>
                     </div>
-                    <p id="TotalBalance" class="avaliable">Total Balance: @web3jsData</p>
+                    <p id="USDTTotalBalance" class="avaliable">Total Balance:</p>
 
                 </div>
             </div>
             @*貨幣數字區塊*@
             <div class="coin-NumZone">
                 <div class="coin-Zone">
-                    <p class="exchangeRate">
-                         =$33.25
+                    <p class="exchangeRate" id="swapRate">
+                         =$@SwapRate
                     </p>
-                    <p class="coin-Num">
-                        5000
-                    </p>
+                    <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e);}"/>
+                     
 
                 </div>
                 <div class="coin-Zone">
@@ -70,9 +69,9 @@
                     </div>
                 </div>
                 <div class="coin-Zone">         
-                    <p class="coin-Num">
-                        0.0003
-                    </p>
+                    <input class="coin-Num" value=@USDTInput @onchange="(e)=>{USDTInputChange(e);}"/>
+                      
+                    
 
                 </div>
             </div>
@@ -89,6 +88,7 @@
 
     </div>
     <div class="Btn-container">
+       @* <button @onclick = "SwapToggleClick" > toggle exchange</button>*@
         @if (inputBalance)
         {
             <button id="SwapBTN" class="SwapBTN">Swap</button>
@@ -105,14 +105,20 @@
 
 </div>
 
-<ProductsPopup Value="#SwapBTN">    
-    Comfirm to Swap <span> 5000 </span> SRC to <span> 0.0003 </span>  USDT?
-</ProductsPopup>
 
+ @if(SwapToggle){
+     <ProductsPopup Value="#SwapBTN"  Confirm ="confirm">       
+        Comfirm to Swap <span> @SRCInput </span> SRC to <span>  @USDTInput </span>  USDT?       
+    </ProductsPopup>
+ }else{
+<ProductsPopup Value="#SwapBTN"  Confirm ="confirm">            
+        Comfirm to Swap <span> @USDTInput </span> USDT to <span> @SRCInput </span>  SRC?      
+</ProductsPopup>
+}
 
 @code {
     bool inputBalance =true;
-    string web3jsData ;
+    string[] web3jsData ;
 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -120,11 +126,43 @@
         if (firstRender)
         {
 
-            web3jsData = await JS.InvokeAsync<string>("web3JS");
-          
-            
+            web3jsData = await JS.InvokeAsync<string[]>("RinkebyWeb3JS");
+            SwapRate =Double.Parse(web3jsData[2]) ;
+
         }
     }
+
+
+    protected async Task confirm(){ 
+        await JS.InvokeVoidAsync("web3JSConfirm",SwapToggle,SRCInput,USDTInput);
+    }
+
+
+    Double SRCInput = 0;
+    Double USDTInput = 0;
+    Double SwapRate = 0.5;
+    bool SwapToggle = true;
+
+    public void SRCInputChange(ChangeEventArgs value)
+    {
+        SRCInput = double.Parse(value.Value.ToString());
+        USDTInput = SRCInput * SwapRate;
+    }
+
+    public void USDTInputChange(ChangeEventArgs value)
+    {
+        USDTInput = double.Parse(value.Value.ToString());
+        SRCInput = USDTInput / SwapRate;
+    }
+
+    public void ecchangeToggleClick()
+    {
+        SwapToggle = !SwapToggle;
+    }
+
+
+
+
     //切換並新增Polygon
     protected  async Task AddPolygon()
     {      
