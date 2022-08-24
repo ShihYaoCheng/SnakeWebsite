@@ -66,7 +66,11 @@ namespace SnakeAsianLeague.Data.Services.Backstage
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
-                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(restResponse.Content) ?? new Profile();                  
+                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(restResponse.Content) ?? new Profile();
+                }
+                else
+                {
+                    return null;
                 }
             }
             catch (Exception ex)

@@ -13,7 +13,7 @@
 
 @inject IJSRuntime JS
 @inject AppState AppState
-@inject ProfileService ProfileService
+@*@inject ProfileService ProfileService*@
 @inject IEthereumHostProvider _metamaskHostProvider
 @inject NFTService NFTService
 @inject AuthenticationStateProvider AuthenticationStateProvider
@@ -33,29 +33,13 @@
 
 
 <!-- 主畫面-->
-<Index_main MetamaskAvailable=@MetamaskAvailable EditProfileButtonOnClick=@EditProfileButtonOnClick EnableEthereumAsync=@EnableEthereumAsync/>
+<Index_main MetamaskAvailable=@MetamaskAvailable EnableEthereumAsync=@EnableEthereumAsync/>
 
-<!-- 編輯個人資料-->
-@*<Index_edit displayEditProfileWindow=@displayEditProfileWindow  profile=@profile selectedBeInterviewed=@selectedBeInterviewed selectedOpenAwardInfo=@selectedOpenAwardInfo  selectedGender=@selectedGender EditProfileSubmit=@EditProfileSubmit/>
-*@
+
 <!-- 彈窗提示-->
 <Index_Pop displayPopupWindow=@displayPopupWindow  PopupWindowTitle=@PopupWindowTitle PopupWindowContent=@PopupWindowContent successWindowClose="successWindowClose" />
 
 @code {
-
-
-
-    //編輯個人資料
-
-    private Profile profile = new Profile();
-
-    bool displayEditProfileWindow = false;
-
-    char selectedGender = 'a';
-
-    bool selectedBeInterviewed;
-
-    bool selectedOpenAwardInfo;
 
 
 
@@ -81,10 +65,7 @@
         => await InvokeAsync(StateHasChanged);
         _metamaskHostProvider.SelectedAccountChanged += MetamaskHostProvider_SelectedAccountChanged;
 
-        // Add Token
-        //bool asdqwe = await _metamaskHostProvider.MetamaskAddTokenAsync();
-
-        displayEditProfileWindow = false;
+        
     }
 
 
@@ -94,104 +75,17 @@
         AppState.StateChanged -= async (Source, Property)
         => await InvokeAsync(StateHasChanged);
         _metamaskHostProvider.SelectedAccountChanged -= MetamaskHostProvider_SelectedAccountChanged;
-
     }
 
 
 
     private async Task AppState_StateChanged(ComponentBase Source, string Property)
     {
-
         if (Source != this)
         {
-
             await InvokeAsync(StateHasChanged);
-
         }
-
-
-
     }
-
-
-
-    private async Task EditProfileButtonOnClick()
-    {
-        //uint userid = Convert.ToUInt32( LoginUser.FindFirst("UserID")?.Value);
-        //Profile p = await ProfileService.GetOneProfileByUserId(userid);
-
-        Profile p = await ProfileService.GetOneProfileByUserId((uint)AppState.LoginStatus.userID);
-
-        if (p != null)
-        {
-
-            profile = p;
-
-
-
-            selectedGender = p.Gender.Value;
-
-            selectedBeInterviewed = p.BeInterviewed;
-
-            selectedOpenAwardInfo = p.OpenAwardInfo;
-
-        }
-        else
-        {
-            selectedBeInterviewed = true;
-            selectedOpenAwardInfo = true;
-        }
-
-        displayEditProfileWindow = true;
-
-    }
-
-
-
-    private async Task EditProfileSubmit()
-    {
-
-        //profile.UserName = LoginUser.FindFirst("Name")?.Value;
-
-        profile.UserName = AppState.LoginStatus.name;
-
-        profile.UserId = (uint)AppState.LoginStatus.userID;
-
-        profile.Phone = AppState.LoginStatus.phone;
-
-
-
-        profile.Gender = selectedGender;
-
-        profile.BeInterviewed = selectedBeInterviewed;
-
-        profile.OpenAwardInfo = selectedOpenAwardInfo;
-
-
-
-        Profile p = await ProfileService.GetOneProfileByUserId((uint)AppState.LoginStatus.userID);
-
-        if (p == null)
-        {
-
-            await ProfileService.InsertProfile(profile);
-
-        }
-        else
-        {
-
-            await ProfileService.UpdateProfile(profile);
-
-        }
-        displayEditProfileWindow = false;
-
-
-    }
-
-
-
-
-
 
 
 
@@ -215,9 +109,7 @@
 
     private async Task MetamaskHostProvider_SelectedAccountChanged(string account)
     {
-
         SelectedAccount = account;
-
         this.StateHasChanged();
 
     }
@@ -260,7 +152,6 @@
         }
 
     }
-
 
     private void successWindowClose()
     {
