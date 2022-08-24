@@ -107,12 +107,17 @@
                     fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
             </svg>
 
-            <div class="products-popup-title">@AlertTitle</div>
+            @* <div class="products-popup-title" data-i18n="Home_data:registerAlert.@AlertDatai18n"> *@
+            <div class="products-popup-title">
+                @AlertTitle
+            </div>
 
             <EditForm Model="@RegisterDTO" class="window_input_block">
             
 
                 <div class="products-popup-content">
+
+                    @* 這裡待處理 *@
                     <div class="products-popup-text">@AlertContent</div>
                 
 
@@ -150,6 +155,7 @@
     //提醒彈窗
     bool displayAlert = false;
     public string? AlertTitle { get; set; }
+    public string? AlertDatai18n { get; set; }
     public string? AlertContent { get; set; }
     @* void AlertShow() => displayAlert = true; *@
     void AlertCancel() => displayAlert = false;
@@ -162,6 +168,7 @@
     public string PasswordCheck { get; set; }
     public string UserName { get; set; }
     public string ErrorString { get; set; }
+
 
 
     //倒數計時
@@ -185,6 +192,7 @@
     {
         displayAlert = true;
         NFTindexBannerJS.InvokeVoidAsync("NFTindexRegister");
+        @* await JS.InvokeVoidAsync("installI18n"); *@
     }
 
 
@@ -192,12 +200,14 @@
     {
         if (String.IsNullOrEmpty(CountryCode) )
         {
+            AlertDatai18n = "countryCode";
             AlertTitle = "Please enter your Country Code";
             AlertShow();
             return;
         }
         if (String.IsNullOrEmpty(PhoneNum) )
         {
+            AlertDatai18n = "phoneNum";
             AlertTitle = "Please enter your Phone Number";
             AlertShow();
             return;
@@ -217,16 +227,19 @@
         {
             Console.WriteLine(resp.Content);
             AlertTitle = "Sending verification code failed";
+            AlertDatai18n = "verifyFailed";
            
 
             switch (resp.Content)
             {
                 case "BadRequest":
                     AlertContent = resp.Content + ". Please check the input is correct. ";
+                    AlertDatai18n = "badRequest";
                     break;
 
                 case "Conflict":
                     AlertContent = resp.Content + ". This phone Number has already been registered. ";
+                    AlertDatai18n = "conflict";
                     break;
 
                 
@@ -277,6 +290,7 @@
             AppState.UpdateLoginStatus(this, snakeAccount);
 
             AlertTitle = "Register Successed";
+            AlertDatai18n = "registerSuccessed";
             AlertContent = "";
             AlertShow();
 
@@ -288,6 +302,7 @@
         else
         {
             AlertTitle = "Register Failed";
+            AlertDatai18n = "registerFailed";
             AlertContent = resp.Content;
             AlertShow();
         }

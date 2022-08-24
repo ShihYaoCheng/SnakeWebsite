@@ -75,13 +75,14 @@
     },
 
     "registerAlert":{
-        "countryCode":"Please enter your Country Code",
-        "phoneNum":"Please enter your Phone Number",
-        "VerifyFailed":"PSending verification code failed",
-        "badRequest":"Please check the input is correct.",
-        "conflict":"This phone Number has already been registered.",
-        "registerSuccessed":"Register Successed",
-        "registerFailed":"Register Failed"
+        "countryCode":"請輸入國家地區代碼",
+        "phoneNum":"請輸入您的手機",
+        
+        "verifyFailed":"驗證碼傳送失敗",
+        "badRequest":"請輸入正確資料。",
+        "conflict":"此號碼已經被註冊。",
+        "registerSuccessed":"註冊成功",
+        "registerFailed":"註冊失敗"
     }
 
 }
