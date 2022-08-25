@@ -22,6 +22,7 @@ using SnakeAsianLeague.Data.Services.SnakeServerService;
 using System.Text;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using OpenTelemetry.Metrics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +48,8 @@ builder.WebHost.UseSentry(options => options.TracesSampler = context =>
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+builder.Services.AddOpenTelemetryMetrics(b => b.AddAspNetCoreInstrumentation().AddPrometheusExporter());
 
 builder.Services.AddSingleton<IDataAccess, DataAccess>();
 builder.Services.AddSingleton<LoginService>();
@@ -136,6 +139,7 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
+app.UseOpenTelemetryPrometheusScrapingEndpoint();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
