@@ -80,6 +80,7 @@
         "phoneNum":"Please enter your Phone Number",
         
         "verifyFailed":"Sending verification code failed",
+        "severError":"Internal server error.",
         "badRequest":"Please check the input is correct.",
         "conflict":"This phone Number has already been registered.",
         "registerSuccessed":"Register Successed",

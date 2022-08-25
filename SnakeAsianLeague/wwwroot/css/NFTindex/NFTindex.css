@@ -43,3 +43,11 @@
         background-position: top center;
     }
 }
+
+.NFTindex_BG_diamond{
+    width: 100%;
+    background-image: url(/images/NFTindex/NFTindex_BG_diamond.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

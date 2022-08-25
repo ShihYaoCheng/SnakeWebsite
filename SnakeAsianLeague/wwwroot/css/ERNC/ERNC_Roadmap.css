@@ -297,15 +297,18 @@
 }
 
 .Project-info{
+    /* border: 1px solid red; */
     /* margin-top: 50px; */
     color: #ffffff;
     font-family: 'Microsoft JhengHei', adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
     list-style-type: none;
-    font-size: 12px;
+    font-size: 13px;
     position: absolute;
     /* align-self: center; */
     height: 95px;
-    width: 78%;
+    width: 90%;
+    white-space: nowrap;
+    line-height: 20px;
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
     letter-spacing: 0.5px;
 
@@ -332,14 +335,14 @@
     position: relative;
     padding-left: 12px;
     margin-bottom: 5px;
-    line-height: 17px;
+    line-height: 19px;
 }
 .Project-info li::before {
     content: "";
     position: absolute;
     width: 5px;
     height: 5px;
-    top: 9px;
+    top: 10px;
     left: 0px;
     background-color: #ffffff;
     transform: rotate(45deg)translateY(-50%);
@@ -389,7 +392,7 @@
         width: 100%;
     }
     .Project-Block-Gradient{
-        background-image: linear-gradient(to right, #132738 0%,#132738cb  5%, #1327382f 8%,#13273800 20%,#13273800 80%, #1327382f 90%, #132738cb 95%, #132738 100%);
+        background-image: linear-gradient(to right, #132738 0%,#132738cb  3%, #1327382f 8%,#13273800 20%,#13273800 80%, #1327382f 90%, #132738cb 95%, #132738 100%);
     }
     .Project{
         width: 200px;
@@ -498,6 +501,7 @@
         width: 100%;
         height: unset;
         justify-content: center;
+        white-space: unset;
         /* white-space: nowrap; */
     }
     .Project-info li{
@@ -616,5 +620,25 @@
     .Project-Img-focus-RWD{
         filter: drop-shadow(0px 0px 80px rgba(255, 248, 227, 0.965));
         opacity: 1;
+    }
+}
+@media all and (max-width: 400px){
+    .ERNC_Roadmap-TitleBlock{
+        padding: 0 10px;
+    }
+    .Roadmap-Title span {
+        font-size: 20px;
+        letter-spacing: 2px;
+        line-height: 40px;
+        text-underline-offset: 5px;
+    }
+    .Roadmap-Years-RWD {
+        font-size: 14px;
+        padding: 3px 15px 2px;
+        margin: 5px 6px;
+    }
+    .Project-info{
+        left: 135px !important;
+        max-width: 185px;
     }
 }
