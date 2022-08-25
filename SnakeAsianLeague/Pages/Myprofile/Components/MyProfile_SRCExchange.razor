@@ -15,80 +15,154 @@
         <p class="coinView-GameWalletText">
             From Game Wallet 
         </p>
-        
-        <div class="changeCoinZone">
-            @*貨幣文字區塊*@
-            <div class="coin-TextZone">
-                <div class="coin-Zone">
-                    <p class="exchangeRate">
+         @if(SwapToggle){
+            <div class="changeCoinZone">
+                @*貨幣文字區塊*@
+                <div class="coin-TextZone">
+                    <div class="coin-Zone">
+                        <p class="exchangeRate">
                        
-                    </p>
-                    <div class="coin-type">
-                        SRC
-                        <img src="/images/Myprofile/SRCExchange/SRC.webp"/>
-                    </div>
-                    <p id="SRCTotalBalance" class="avaliable">avaliable to swap: 978.1234</p>
+                        </p>
+                        <div class="coin-type">
+                            SRC
+                            <img src="/images/Myprofile/SRCExchange/SRC.webp"/>
+                        </div>
+                        <p id="SRCTotalBalance" class="avaliable">avaliable to swap: 978.1234</p>
 
-                </div>
-                <div class="coin-Zone">
-                    <div class="address-text">
-                        <p class="toPolygon">
-                            To Polygon Wallet
-                            <span class="user-address">
-                                0x1231561561489451
-                            </span>
-                        </p>                   
                     </div>
-                </div>
-                <div class="coin-Zone">
+                    <div class="coin-Zone">
+                        <div class="address-text">
+                            <p class="toPolygon">
+                                To Polygon Wallet
+                                <span class="user-address">
+                                    0x1231561561489451
+                                </span>
+                            </p>                   
+                        </div>
+                    </div>
+                    <div class="coin-Zone">
         
-                    <div class="coin-type">
-                        <button @onclick="AddUSDT" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
-                        USDT
+                        <div class="coin-type">
+                            <button @onclick="AddUSDT" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
+                            USDT
                         
-                        <img src="/images/Myprofile/SRCExchange/tether-usdt-logo.png"/>
-                    </div>
-                    <p id="USDTTotalBalance" class="avaliable">Total Balance:</p>
+                            <img src="/images/Myprofile/SRCExchange/tether-usdt-logo.png"/>
+                        </div>
+                        <p id="USDTTotalBalance" class="avaliable">Total Balance:</p>
 
+                    </div>
                 </div>
-            </div>
-            @*貨幣數字區塊*@
-            <div class="coin-NumZone">
-                <div class="coin-Zone">
-                    <p class="exchangeRate" id="swapRate">
-                         =$@SwapRate
-                    </p>
-                    <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e);}"/>
+                @*貨幣數字區塊*@
+                <div class="coin-NumZone">
+                    <div class="coin-Zone">
+                        <p class="exchangeRate" id="swapRate">
+                             =$@SwapRate
+                        </p>
+                        <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e.Value.ToString());}"/>
                      
 
-                </div>
-                <div class="coin-Zone">
-                    <div class="arrow-zone">
-                        <img class="arrow-img" src="/images/Myprofile/SRCExchange/Arrow.png"/>
-                        <button class="maxBTN miniSizeBtn">MAX</button>
                     </div>
-                </div>
-                <div class="coin-Zone">         
-                    <input class="coin-Num" value=@USDTInput @onchange="(e)=>{USDTInputChange(e);}"/>
+                    <div class="coin-Zone">
+                        <div class="arrow-zone">
+                            <img class="arrow-img" src="/images/Myprofile/SRCExchange/Arrow.png"/>
+                            <button class="maxBTN miniSizeBtn">MAX</button>
+                        </div>
+                    </div>
+                    <div class="coin-Zone">         
+                        <input class="coin-Num" value=@USDTInput @onchange="(e)=>{USDTInputChange(e.Value.ToString());}"/>
                       
                     
 
+                    </div>
+                </div>
+                @*最大按鈕區塊*@
+                <div class="coin-MaxZone">
+                     <div class="coin-Zone">
+                     <div class="maxBTN-Zone">
+                         <button @onclick="maxBTN" class="maxBTN">MAX</button>
+                     </div>
+                    
+                     </div>
                 </div>
             </div>
-            @*最大按鈕區塊*@
-            <div class="coin-MaxZone">
-                 <div class="coin-Zone">
-                 <div class="maxBTN-Zone">
-                     <button class="maxBTN">MAX</button>
-                 </div>
-                    
-                 </div>
-            </div>
-        </div>
+        }
+        else
+        {
+         @*
+             <div class="changeCoinZone">
+               
+                <div class="coin-TextZone">
+                                   
+                    <div class="coin-Zone">
+        
+                        <div class="coin-type">
+                            <button @onclick="AddUSDT" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
+                            USDT
+                        
+                            <img src="/images/Myprofile/SRCExchange/tether-usdt-logo.png"/>
+                        </div>
+                        <p id="USDTTotalBalance" class="avaliable">Total Balance:</p>
 
+                    </div>
+                    <div class="coin-Zone">
+                        <div class="address-text">
+                            <p class="toPolygon">
+                                To Polygon Wallet
+                                <span class="user-address">
+                                    0x1231561561489451
+                                </span>
+                            </p>                   
+                        </div>
+                    </div>
+                    <div class="coin-Zone">
+                        <p class="exchangeRate">
+                       
+                        </p>
+                        <div class="coin-type">
+                            SRC
+                            <img src="/images/Myprofile/SRCExchange/SRC.webp"/>
+                        </div>
+                        <p id="SRCTotalBalance" class="avaliable">avaliable to swap: 978.1234</p>
+
+                    </div>
+     
+
+                </div>
+                
+                <div class="coin-NumZone">
+                    <div class="coin-Zone">         
+                        <input class="coin-Num" value=@USDTInput @onchange="(e)=>{USDTInputChange(e);}"/> 
+                    </div>
+                    <div class="coin-Zone">
+                        <div class="arrow-zone">
+                            <img class="arrow-img" src="/images/Myprofile/SRCExchange/Arrow.png"/>
+                            <button class="maxBTN miniSizeBtn">MAX</button>
+                        </div>
+                    </div>
+                    <div class="coin-Zone">
+                        <p class="exchangeRate" id="swapRate">
+                             =$@SwapRate
+                        </p>
+                        <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e);}"/>
+                    </div>
+                    
+                    
+                </div>
+               
+                <div class="coin-MaxZone">
+                     <div class="coin-Zone">
+                     <div class="maxBTN-Zone">
+                         <button class="maxBTN">MAX</button>
+                     </div>
+                    
+                     </div>
+                </div>
+            </div>*@
+            
+        }
     </div>
     <div class="Btn-container">
-       @* <button @onclick = "SwapToggleClick" > toggle exchange</button>*@
+        @*<button @onclick = "SwapToggleClick" > toggle exchange</button>*@
         @if (inputBalance)
         {
             <button id="SwapBTN" class="SwapBTN">Swap</button>
@@ -128,7 +202,8 @@
 
             web3jsData = await JS.InvokeAsync<string[]>("RinkebyWeb3JS");
             SwapRate =Double.Parse(web3jsData[2]) ;
-
+            SRCTotal = Double.Parse(web3jsData[0]) ;
+            USDTTotal = Double.Parse(web3jsData[1]) ;
         }
     }
 
@@ -137,29 +212,50 @@
         await JS.InvokeVoidAsync("web3JSConfirm",SwapToggle,SRCInput,USDTInput);
     }
 
+    Double SRCTotal = 0;
+    Double USDTTotal = 0;
 
     Double SRCInput = 0;
     Double USDTInput = 0;
     Double SwapRate = 0.5;
     bool SwapToggle = true;
 
-    public void SRCInputChange(ChangeEventArgs value)
+    public void SRCInputChange(string value)
     {
-        SRCInput = double.Parse(value.Value.ToString());
+        SRCInput = double.Parse(value);
         USDTInput = SRCInput * SwapRate;
     }
 
-    public void USDTInputChange(ChangeEventArgs value)
+    public void USDTInputChange(string value)
     {
-        USDTInput = double.Parse(value.Value.ToString());
+        USDTInput = double.Parse(value);
         SRCInput = USDTInput / SwapRate;
     }
 
-    public void ecchangeToggleClick()
+    public async Task  SwapToggleClick()
     {
         SwapToggle = !SwapToggle;
+        web3jsData = await JS.InvokeAsync<string[]>("RinkebyWeb3JS");
+        SwapRate =Double.Parse(web3jsData[2]) ;
+        SRCTotal = Double.Parse(web3jsData[0]) ;
+        USDTTotal = Double.Parse(web3jsData[1]) ;
     }
 
+    public void maxBTN()
+    {
+        SRCInput = SRCTotal;
+        USDTInput = USDTTotal;
+        if (SwapToggle)
+        {
+            SRCInputChange(SRCInput.ToString());
+        }
+        else
+        {
+            USDTInputChange(USDTInput.ToString());
+        }
+    }
+
+    
 
 
 

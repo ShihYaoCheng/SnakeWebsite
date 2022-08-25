@@ -1203,8 +1203,10 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput ) {
 	if (SwapToggle) {
 		//SRC 轉 USDT
 		SwapNumValue = SRCInput		
+		let x = new BigNumber(parseInt(SwapNumValue));
 
 		try {
+			//驗證貨幣
 			const accounts = await web3.eth.getAccounts();
 			const tokenContract = await new web3.eth.Contract(
 				ERC20_abi,
@@ -1212,40 +1214,76 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput ) {
 			);
 			// Approve the contract to spend the tokens
 
-			let SRC_decimals = parseInt( await tokenContract.methods.decimals().call())
-			let x = new BigNumber(parseInt(SwapNumValue));	
-		
+			let SRC_decimals = parseInt(await tokenContract.methods.decimals().call())
+			console.log(SRC_decimals)
 			let request = await tokenContract.methods.approve(
 				SRCSwap_addr,
 				x.shiftedBy(SRC_decimals).toString()
 			)
-			.send({
-				from: accounts[0],
-			});
-			console.log("request", request)
-			// Trigger the selling of tokens
+				.send({
+					from: accounts[0],
+				});	
+			
+			// 交易貨幣
 			const vendor = await new web3.eth.Contract(
 				SRCSwap_abi,
 				SRCSwap_addr
-			);
-			console.log("vendor", vendor)
-			/*
+			);		
+			
 			request = await vendor.methods
-				.swapSRCtoUSDT(SwapNumValue * 10 ** SRC_decimals)
+				.swapSRCtoUSDT(x.shiftedBy(SRC_decimals).toString())
 				.send({
 					from: accounts[0],
 				});
 			alert("You have successfully sold TEST tokens!");
-			console.log(request);*/
+			console.log(request);
 		} catch (err) {
 			console.error(err);
-			alert("Error selling tokens");
+			alert("交易失敗");
 		}
 
 	} else {
 		// USDT 轉 SRC  
 		SwapNumValue = USDTInput
+		let x = new BigNumber(parseInt(SwapNumValue));
 
+		try {
+			//驗證貨幣
+			const accounts = await web3.eth.getAccounts();
+			const tokenContract = await new web3.eth.Contract(
+				ERC20_abi,
+				USDT_addr
+			);
+			// Approve the contract to spend the tokens
+
+			let USDT_decimals = parseInt(await tokenContract.methods.decimals().call())	
+			console.log(USDT_decimals)
+			let request = await tokenContract.methods.approve(
+				USDT_addr,
+				x.shiftedBy(USDT_decimals).toString()
+			)
+				.send({
+					from: accounts[0],
+				});		
+
+
+			// 交易貨幣
+			const vendor = await new web3.eth.Contract(
+				SRCSwap_abi,
+				SRCSwap_addr
+			);
+			console.log(vendor)
+			request = await vendor.methods
+				.swapUSDTtoSRC(x.shiftedBy(USDT_decimals).toString())
+				.send({
+					from: accounts[0],
+				});
+			alert("You have successfully sold TEST tokens!");
+			console.log(request);
+		} catch (err) {
+			console.error(err);
+			alert("交易失敗");
+		}
 
 	}
 }
