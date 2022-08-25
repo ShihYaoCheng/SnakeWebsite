@@ -69,8 +69,8 @@
                         </div>
                     </div>
                     <div class="coin-Zone">         
-                        <input class="coin-Num" value=@USDTInput @onchange="(e)=>{USDTInputChange(e.Value.ToString());}"/>
-                      
+                        @*<input class="coin-Num" value=@USDTInput @onchange="(e)=>{USDTInputChange(e.Value.ToString());}"/>*@
+                        <div  class="coin-Num" >@USDTInput </div>
                     
 
                     </div>
@@ -222,12 +222,14 @@
 
     public void SRCInputChange(string value)
     {
+        if (value == null || value == "") value = "0";
         SRCInput = double.Parse(value);
         USDTInput = SRCInput * SwapRate;
     }
 
     public void USDTInputChange(string value)
     {
+        if (value == null || value == "") value = "0";
         USDTInput = double.Parse(value);
         SRCInput = USDTInput / SwapRate;
     }
