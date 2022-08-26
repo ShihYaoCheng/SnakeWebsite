@@ -4,7 +4,9 @@
         rootMargin: "0px 0px 0px 0px",
         threshold: [0],
     };
-
+  
+    if (window.location.pathname == "/") return
+    
     const observer = new IntersectionObserver(entries => {
         entries.forEach(image => {
             if (image.isIntersecting) {

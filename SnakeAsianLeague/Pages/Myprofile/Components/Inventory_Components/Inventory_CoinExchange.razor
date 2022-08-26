@@ -6,12 +6,14 @@
 
 <div class="coinEchange-container">
     <div class="coinEchange">
+         <button id="coinEchangeCancel" class="coinEchange-CancelBtn"></button>
+
         <div class="coinNum-Container">
              <div class="coinNum-beteen">
                  <div class="coinTop">
                     <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">
-                    <p>@Value.gTitle</p>
-                    <p>@Value.gNumber</p>
+                    <p class="coinTitle">@Value.gTitle</p>
+                    <p class="coinTotalNum">@Value.gNumber</p>
                  </div>
 
                  <p class="replacedCoin">
@@ -30,8 +32,8 @@
               <div class="coinNum-beteen">
                  <div class="coinTop">
                     <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">                                     
-                    <p>@Value.tokenTitle</p>
-                    <p>@Value.tokenNumber</p>
+                    <p class="coinTitle">@Value.tokenTitle</p>
+                    <p class="coinTotalNum">@Value.tokenNumber</p>
                  </div>
                  <p class="replacedCoin">
                      @Value.tokenNumberChange
@@ -46,7 +48,7 @@
       
        <div class="coinEchange-BtnZone">
            <button id="coinEchangeBtn" class="coinEchange-ExchangeBtn">Exchange</button>
-           <button id="coinEchangeCancel" class="coinEchange-CancelBtn">Cancel</button>
+          
        </div>
     </div>
 
