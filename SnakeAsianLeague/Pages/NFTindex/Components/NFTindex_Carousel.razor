@@ -245,7 +245,7 @@
                 </div>
             </div>
 
-            <div class="swiper-pagination"></div>
+            @* <div class="swiper-pagination"></div> *@
 
         </div>
         <div class="swiper-button">
@@ -265,9 +265,10 @@
 
         {
             // Carousel.js
-            await JS.InvokeVoidAsync("NFTindexCarousel");
+            await JS.InvokeVoidAsync("NFTindexCarouselJS");
 
         }
 
     }
 }
+

@@ -151,16 +151,20 @@ window.GameFiCarousel = function () {
 }
 
 
-window.NFTindexCarousel = function () {
+window.NFTindexCarouselJS = function () {
     // export function NFTindexCarousel() {
     // console.log('NFTindexCarousel init22', Swiper);
     new Swiper('.NFTindex-Carousel-Block', {
         spaceBetween: 100,
-        autoplay: {
-            delay: 3500,
-        },
-        slidesPerView: 1,
-        loop: true,
+
+        // 不自動輪播
+        // autoplay: {
+        //     delay: 3500,
+        // },
+        // slidesPerView: 1,
+
+        // 不循環
+        // loop: true,
         breakpoints: {
             600: {
                 slidesPerView: 1,
