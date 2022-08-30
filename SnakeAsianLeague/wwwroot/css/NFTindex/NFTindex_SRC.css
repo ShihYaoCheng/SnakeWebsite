@@ -7,7 +7,7 @@
 .SRC-Block-title{
     width: 100%;
     text-align: center;
-    margin: 0px auto 30px;
+    margin: 0px auto 20px;
 }
 .SRC-title{
     font-family: Impact,adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
@@ -443,3 +443,6 @@
     }
 
 }
+
+
+/* SRC-banner */
