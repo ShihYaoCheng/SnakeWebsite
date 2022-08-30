@@ -1,5 +1,6 @@
 ﻿@using SnakeAsianLeague.Pages.Teach.Components.All_components
 @inject IJSRuntime JS
+@inject IConfiguration Configuration
 
 <head>
    @* <link href="/css/Teach/CreateMetamask.css" rel="stylesheet" />*@
@@ -74,6 +75,6 @@
 </div>
 @code {
     protected  async Task AddPolygon()    {   
-            await JS.InvokeVoidAsync("AddPolygonID");    
+        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] );       
     }
 }

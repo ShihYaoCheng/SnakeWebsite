@@ -1,10 +1,10 @@
 ﻿
-window.AddPolygonID = async function () {
-
+window.AddPolygonID = async function (chainId, chainName, recUrls) {
+    console.log(chainId, chainName, recUrls)
     try {
         await window.ethereum.request({
             method: 'wallet_switchEthereumChain',
-            params: [{ chainId: '0x89' }],
+            params: [{ chainId: chainId }],
         });
     } catch (switchError) {
         if (switchError.code === 4902) {
@@ -13,9 +13,9 @@ window.AddPolygonID = async function () {
                     method: 'wallet_addEthereumChain',
                     params: [
                         {
-                            chainId: '0x89',
-                            chainName: 'Polygon',
-                            rpcUrls: ['https://polygon-rpc.com'] 
+                            chainId: chainId,
+                            chainName: chainName,
+                            rpcUrls: [recUrls] 
                         },
                     ],
                 });
