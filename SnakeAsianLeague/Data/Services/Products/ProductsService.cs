@@ -179,16 +179,22 @@ namespace SnakeAsianLeague.Data.Services.Products
                     /*Stats*/
 
                     List<OptionNameValue> BattleData = await Get_BattleData();
-
-                    Rider.Stats = new Stats();
-                    Rider.Stats.HP = Cal_HP(result);
-                    Rider.Stats.Attack = Cal_Attack(result);
-                    Rider.Stats.Dexterity = Cal_Dexterity(result);
-                    Rider.Stats.MovingSpeed = Cal_MovingSpeed(result);
-                    Rider.Stats.AttackingSpeed = Cal_AttackingSpeed(result , BattleData);
-                    Rider.Stats.Stamina = Cal_Stamina(result);
-                    Rider.Stats.CriticalChance = Cal_CriticalChance(result , BattleData);
-                    Rider.Stats.ElementEffect = Cal_ElementEffect(result);
+                    if (Rider.isAvailableInGame)
+                    {
+                        Rider.Stats = new Stats();
+                        Rider.Stats.HP = Cal_HP(result);
+                        Rider.Stats.Attack = Cal_Attack(result);
+                        Rider.Stats.Dexterity = Cal_Dexterity(result);
+                        Rider.Stats.MovingSpeed = Cal_MovingSpeed(result);
+                        Rider.Stats.AttackingSpeed = Cal_AttackingSpeed(result, BattleData);
+                        Rider.Stats.Stamina = Cal_Stamina(result);
+                        Rider.Stats.CriticalChance = Cal_CriticalChance(result, BattleData);
+                        Rider.Stats.ElementEffect = Cal_ElementEffect(result);
+                    }
+                    else
+                    { 
+                    
+                    }
                     /*Avatars*/
                     Rider.Avatars = new Avatars();
                     Rider.Avatars.Ridder = result.knight == null ? "" : result.knight.serialNumber;
