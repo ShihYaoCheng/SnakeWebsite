@@ -8,7 +8,7 @@
     /* max-width: 1000px; */
     margin-top: -250px;
     /* height: 1000px; */
-    padding: 300px 0 150px;
+    padding: 300px 0 30px;
 }
 
 .NFTindex-Carousel-All{
@@ -461,7 +461,7 @@
         max-width: 800px;
     }
     .NFTindexCarousel {
-        padding: 150px 0 100px;
+        padding: 150px 0 0px;
     }
 }
 @media all and (max-width: 1000px){
@@ -473,7 +473,7 @@
         width: 90%;
     }
     .NFTindexCarousel {
-        padding: 100px 0 100px;
+        padding: 100px 0 0px;
     }
 }
 @media all and (max-width: 500px){

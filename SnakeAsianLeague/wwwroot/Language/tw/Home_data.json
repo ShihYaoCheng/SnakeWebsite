@@ -55,7 +55,7 @@
   },
   "join": {
     "text": "./images/NFTindex/NFTindex_pop/join_text_CN.png",
-    "button": "加 入"
+    "button": "<span style=\"font-weight: 600;\">加 入</span>"
   },
 
   "register": {
@@ -85,19 +85,21 @@
     "registerSuccessed": "註冊成功",
     "registerFailed": "註冊失敗"
   },
-  "SRCswap": {
-    "SRC-Origin": "騎士幣 起源",
-    "SRC-Origin-introduce": "最早時是騎士聯合會所發行的獎章，是種榮譽的象徵，擁有越多騎士幣代表對這世界的貢獻越大。但是，經過數百年不斷的獎勵，騎士幣原本的榮耀逐漸被人遺忘，漸漸地變成很多人都有的尋常物。",
-    "SRC-Recharge-Title": "如何充值？",
-    "SRC-Recharge-introduce": "Token充值 (ERNC/ETH/USDT)",
-    "SRC-Recharge-introduce-item-1": "1. 官方網站的marketplace購入",
-    "SRC-Recharge-introduce-item-2": "2.遊戲內 (在APP內購買)",
-    "SRC-Recharge-introduce-item-3": "網站購入比值 1(TWD) : 0.5(SRC)",
-    "SRC-Exchange-Title": "如何轉換？",
-    "SRC-Exchange-introduce": "MetaMask 提領 (SRC/ERNC/USDT)",
-    "SRC-Exchange-introduce-item-1": "碰碰蛇 MARKETPLACE 將提共轉換功能 能將SRC專換成USDT。玩家在遊戲中能出租所擁有的PPS  NFT 並且獲取SRC。 意味著遊戲內的收入都能帶人實質的經濟效益。",
-    "SRC-Buy-BTN": "在交易所購買",
-    "SRC-Exchange-BTN": "轉換"
+
+  "indexSRC": {
+    "title":"SRC (騎士幣)",
+    "title-02": "騎士幣起源",
+    "origin": "最早時是騎士聯合會所發行的獎章，是種榮譽的象徵，擁有越多騎士幣代表對這世界的貢獻越大。但是，經過數百年不斷的獎勵，騎士幣原本的榮耀逐漸被人遺忘，漸漸地變成很多人都有的尋常物。",
+    "title-03": "如何充值 ?",
+    "rowTitle-01": "Token充值 <span>(ERNC/ETH/USDT)</span>",
+    "rowText-01": "1. 官方網站的marketplace購入",
+    "rowText-02": "2. 遊戲內 (在APP內購買)<br>網站購入比值 1(TWD) : 0.5(SRC)",
+    "SRC-Recharge-introduce-item-3": "",
+    "title-04": "如何轉換？",
+    "rowTitle-02": "MetaMask提領 <span>(SRC/ERNC/USDT)</span>",
+    "rowText-03": "碰碰蛇 MARKETPLACE 將提共轉換功能 能將SRC專換成USDT。玩家在遊戲中能出租所擁有的PPS  NFT 並且獲取SRC。 意味著遊戲內的收入都能帶人實質的經濟效益。",
+    "buy-button": "在交易所購買",
+    "exchange-button": "轉換"
   }
 
 }

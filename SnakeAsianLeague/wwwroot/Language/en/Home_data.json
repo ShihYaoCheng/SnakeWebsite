@@ -56,7 +56,7 @@
 
   "join": {
     "text": "./images/NFTindex/NFTindex_pop/join_text.png",
-    "button": "Join Now"
+    "button": "Play Now"
   },
 
   "register": {
@@ -86,18 +86,19 @@
     "registerSuccessed": "Register Successed",
     "registerFailed": "Register Failed"
   },
-  "SRCswap": {
-    "SRC-Origin": "SRC Origin",
-    "SRC-Origin-introduce": "When the \"Knight Union\" first released SRC, it was a badge that represented a great symbol of honor. Whoever owns the most SRC has made the greatest contribution to the world. SRC has been prevalent for hundreds of years, and people have begun to forget why they were awarded the honor in the first place.",
-    "SRC-Recharge-Title": "How to Recharge?",
-    "SRC-Recharge-introduce": "Token Recharge (ERNC/ETH/USDT)",
-    "SRC-Recharge-introduce-item-1": "1. Buy from PonPonSnake marketplace",
-    "SRC-Recharge-introduce-item-2": "2.In-Game Purchase (Purchase in APP)",
-    "SRC-Recharge-introduce-item-3": "Marketplace Ratio  1(TWD) : 0.5(SRC)",
-    "SRC-Exchange-Title": "How to Exchange?",
-    "SRC-Exchange-introduce": "MetaMask Exchange (SRC/ERNC/USDT)",
-    "SRC-Exchange-introduce-item-1": "PonPonSnake's marketplace will have an exchange page for SRC/USDT. Players may make SRC by renting their PPS NFT. As a result, this might  outcome in-game revenue economic advantages.",
-    "SRC-Buy-BTN": "Buy in Marketplace",
-    "SRC-Exchange-BTN": "Exchange"
+
+  "indexSRC": {
+    "title":"SRC (Snake Rider Coin)",
+    "title-02": "SRC Origin",
+    "origin": "When the \"Knight Union\" first released SRC, it was a badge that represented a great symbol of honor. Whoever owns the most SRC has made the greatest contribution to the world. SRC has been prevalent for hundreds of years, and people have begun to forget why they were awarded the honor in the first place.",
+    "title-03": "How to Recharge?",
+    "rowTitle-01": "Token Recharge <span>(ERNC/ETH/USDT)</span>",
+    "rowText-01": "1. Buy from PonPonSnake marketplace",
+    "rowText-02": "2. In-Game Purchase (Purchase in APP) Marketplace Ratio  1(TWD) : 0.5(SRC)",
+    "title-04": "How to Exchange?",
+    "rowTitle-02": "MetaMask Exchange <span>(SRC/ERNC/USDT)</span>",
+    "rowText-03": "PonPonSnake's marketplace will have an exchange page for SRC/USDT. Players may make SRC by renting their PPS NFT. As a result, this might  outcome in-game revenue economic advantages.",
+    "buy-button": "Buy in Marketplace",
+    "exchange-button": "Exchange"
   }
 }

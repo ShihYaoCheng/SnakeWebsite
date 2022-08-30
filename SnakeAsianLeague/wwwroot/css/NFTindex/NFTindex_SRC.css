@@ -1,5 +1,437 @@
 .NFTindex_SRC{
     border: 1px solid red;
-    height: 1000px;
+    /* height: 1000px; */
     width: 100%;
+}
+
+.SRC-Block-title{
+    width: 100%;
+    text-align: center;
+    margin: 0px auto 30px;
+}
+.SRC-title{
+    font-family: Impact,adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+    color: #fff;
+    font-size: 36px;
+    /* font-weight: 600; */
+    text-align: center;
+    letter-spacing: 3px;
+    line-height: 40px;
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 12px;
+
+
+}
+.SRC-title-02{
+    font-family: Impact,adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+    color: #fff;
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 3px;
+    position: relative;
+}
+.SRC-title-02::before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 45%;
+    left: -50px;
+    background-color: #ffffff;
+    transform: rotate(45deg)translateY(-50%);
+}
+.SRC-title-02::after{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 45%;
+    right: -40px;
+    background-color: #ffffff;
+    transform: rotate(45deg)translateY(-50%);
+}
+
+.SRC-title-frame{
+    max-width: 400px;
+    width: 50%;
+    margin: 10px auto;
+    opacity: 0.66;
+}
+.SRC-title-frame img{
+    width: 100%;
+}
+
+.SRC-map-block{
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.SRC-map-BG{
+    /* border:  1px solid yellow; */
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/NFTindex/NFTindex_SRC/SRC-map-BG.png);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* padding: 30px 0; */
+    z-index: -1;
+    pointer-events: none;
+}
+.SRC-map-inner{
+    /* border:  1px solid yellow; */
+    width: 100%;
+
+    margin: 0 auto 50px;
+}
+
+.SRC-banner{
+    max-width: 1200px;
+    width: 90%;
+    border: 3.5px solid #d6d6d663;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    font-size: 0;
+    z-index: 2;
+    box-shadow: 4px 0px 10px 6px rgb(0 0 0 / 30%);
+}
+.SRC-banner img{
+    width: 100%;
+    font-size: 0;
+}
+
+.SRC-text{
+    width: 90%;
+    color: #ffffff;
+    max-width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 28px;
+    letter-spacing: 1px;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+}
+#SRC-Origin{
+    background-color: rgba(0, 0, 0, 0.17);
+    padding: 25px 0 30px;
+}
+
+.SRC-row-block{
+    /* border:  1px solid red; */
+    width: 100%;
+    z-index: 1;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.SRC-row{
+    /* border:  1px solid yellow; */
+    max-width: 1200px;
+    width: 90%;
+    /* height: 357px; */
+    position: relative;
+
+    margin-bottom: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease-in-out;
+}
+
+.recharge{
+    /* width: 100%; */
+    /* height: 100%; */
+    background-image: url(/images/NFTindex/NFTindex_SRC/row-01.png);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-self: flex-start;
+    box-shadow: 4px 0px 10px 6px rgb(0 0 0 / 30%);
+
+}
+
+.excharge{
+    /* width: 100%; */
+    /* height: 100%; */
+    background-image: url(/images/NFTindex/NFTindex_SRC/row-02.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-self: flex-end;
+    box-shadow: -4px 0px 10px 6px rgb(0 0 0 / 30%);
+
+    /* justify-content: flex-start; */
+}
+.SRC-row-title{
+
+    text-align: center;
+    margin-bottom: 10px;
+}
+.SRC-title-03{
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    position: relative;
+
+}
+
+.SRC-title-03::before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 45%;
+    left: -30px;
+    background-color: #ffffff;
+    transform: rotate(45deg)translateY(-50%);
+}
+.SRC-title-03::after{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 45%;
+    right: -20px;
+    background-color: #ffffff;
+    transform: rotate(45deg)translateY(-50%);
+}
+.SRC-row-inner{
+    /* border:  1px solid yellow; */
+
+    width: 90%;
+    margin: 25px 0 30px;
+    letter-spacing: 1px;
+}
+.recharge .SRC-row-inner{
+    max-width: 340px;
+    margin-right: 20%;
+}
+.excharge .SRC-row-inner{
+    max-width: 360px;
+    margin-left: 25%;
+}
+
+.SRC-row-text{
+
+    color: #fff;
+    letter-spacing: 2.4px;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+    
+}
+.excharge .SRC-row-text{
+    text-align: center;
+}
+
+.SRC-row-textTitle{
+    /* text-align: center; */
+    list-style-type: none;
+    font-size: 16px;
+    padding-left: 1em;
+    margin-bottom: 3px;
+    /* text-indent: -1em; */
+}
+.SRC-row-text span{
+    color: #ff8b20;
+}
+.SRC-row-text li{
+    /* list-style-type: decimal; */
+    list-style-type: none;
+    padding-left: 1em;
+    text-indent: -1.5em;
+    
+}
+.SRC-row-icon{
+    transition: all .2s ease-in-out;
+}
+.SRC-row:hover .SRC-row-icon{
+    transform: translateY(-50%) scale(1.02) !important;
+    filter: drop-shadow(0px 0px 20px rgba(254, 255, 216, 0.453)) !important;
+}
+
+#SRC-box{
+    max-width: 300px;
+    width: 30%;
+    position: absolute;
+    top: 45%;
+    right: -3%;
+    transform: translateY(-50%);
+    filter: drop-shadow(0px 0px 15px rgba(32, 32, 32, 0.8));
+}
+
+#SRC-USTD{
+    /* max-width: 280px; */
+    max-width: 230px;
+    width: 25%;
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    transform: translateY(-50%);
+    align-items: flex-start;
+    /* margin: 0 40px; */
+    filter: drop-shadow(0px 0px 15px rgba(32, 32, 32, 0.8));
+}
+
+.SRC-button {
+    max-width: 220px;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #fff;
+    border: none;
+    /* padding: 16px 70px 16px 70px; */
+    border-radius: 10px;
+    box-shadow: 0px -1px 2px 0 rgb(0 0 0 / 50%), inset 0px 6px 0 0 rgb(255 255 255 / 54%);
+    background-image: linear-gradient(to top, #ff7400, #ffa443);
+    transition: all .1s ease-in;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SRC-button:hover{
+    transition: all .2s ease-in-out;
+    transform: translateY(-2px) scale(1.01);
+}
+
+@media all and (max-width: 1400px) {
+    .SRC-button{
+        width: 185px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+.SRC-row-inner a{
+    text-decoration: none;
+}
+
+@media all and (max-width: 800px){
+
+    .SRC-title{
+        font-size: 30px;
+        text-decoration-thickness: 2px;
+    }
+    .SRC-Block-title {
+        margin: 0px auto 20px;
+    }
+    .SRC-title-02{
+        font-size: 26px;
+    }
+    .SRC-title-02::before{
+        left: -40px;
+    }
+    .SRC-title-02::after{
+        right: -30px;
+    }
+    .SRC-text{
+        line-height: 24px;
+    }
+    .SRC-title-03{
+        font-size: 18px;
+    }
+    .SRC-row-text{
+        font-size: 15px;
+        line-height: 23px;
+        letter-spacing: 2px;
+    }
+    .SRC-row-textTitle{
+        font-size: 15px;
+    }
+    .SRC-button{
+        margin: 30px auto 0;
+    }
+    .recharge {
+        max-width: 420px;
+        width: 90%;
+        border-radius: 0 15px 15px 0;
+        margin-bottom: 55px;
+    }
+    .recharge .SRC-row-inner {
+        max-width: 340px;
+        margin: 180px auto 50px;
+    }
+    #SRC-box{
+        width: 37%;
+        transform: translate(-50%, 0%) ;
+        top: 6%;
+        left: 50%;
+        z-index: 1;
+    }
+    .recharge .SRC-row-inner{
+        /* max-width: 280px; */
+        width: 75%;
+
+        margin: 220px auto 50px;
+    }
+    .SRC-row-textTitle{
+        padding-left: unset;
+        text-align: center;
+    }
+    .excharge{
+        max-width: 420px;
+        width: 90%;
+        border-radius: 15px 0 0 15px;
+    }
+    .SRC-row:hover .SRC-row-icon{
+        transform: translate(-50%, 0%) scale(1.03)  !important;
+    }
+    #SRC-USTD{ 
+        width: 31%;
+        transform: translate(-50%, 0%) ;
+        top: 7.5%;
+        left: 50%;
+        z-index: 1;
+    }
+    .excharge .SRC-row-inner{
+        /* max-width: 280px; */
+        width: 75%;
+        /* margin-left: 32%; */
+        margin: 190px auto 50px;
+    }
+
+}
+
+@media all and (max-width: 450px){
+    #SRC-Origin{
+        padding: 20px 0 25px;
+    }
+    .SRC-title {
+        font-size: 26px;
+    }
+    .SRC-title-02 {
+        font-size: 22px;
+    }
+    .SRC-text {
+        line-height: 22px;
+    }
+    .SRC-map-inner{
+        margin: 0 auto 20px;
+    }
+    .SRC-row{
+        width: 85%;
+        border-radius: 15px;
+        margin: 0 auto 50px;
+    }
+
+    .recharge .SRC-row-inner{
+        margin: 180px auto 50px;
+        width: 75%;
+    }
+    .excharge .SRC-row-inner{
+        margin: 165px auto 50px;
+        width: 80%;
+    }
+
 }

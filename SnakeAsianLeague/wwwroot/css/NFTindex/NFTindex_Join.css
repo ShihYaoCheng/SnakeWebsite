@@ -82,9 +82,9 @@
 }
 .join-text {
     /* width: 131px; */
-    height: 33px;
+    height: 36px;
     position: absolute;
-    top: 24%;
+    top: 21%;
     left: 7.5%;
 }
 .join-text_CN{
@@ -135,7 +135,7 @@
     justify-content: center;
     align-items: center;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Arvo', serif;  
     letter-spacing: 1px;
     text-decoration: none;
