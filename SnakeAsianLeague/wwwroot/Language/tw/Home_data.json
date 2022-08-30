@@ -79,7 +79,7 @@
     "phoneNum": "請輸入您的手機",
 
     "verifyFailed": "驗證碼傳送失敗",
-    "severError": "伺服器錯誤。",
+    "severError": "請輸入正確資料。",
     "badRequest": "請輸入正確資料。",
     "conflict": "此號碼已經被註冊。",
     "registerSuccessed": "註冊成功",

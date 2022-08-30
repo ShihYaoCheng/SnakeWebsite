@@ -89,7 +89,7 @@
     margin: 0 auto 50px;
 }
 
-.SRC-banner{
+.SRC-banner-block{
     max-width: 1200px;
     width: 90%;
     border: 3.5px solid #d6d6d663;
@@ -99,8 +99,10 @@
     font-size: 0;
     z-index: 2;
     box-shadow: 4px 0px 10px 6px rgb(0 0 0 / 30%);
+
+    position: relative;
 }
-.SRC-banner img{
+.SRC-banner-block img{
     width: 100%;
     font-size: 0;
 }
@@ -400,7 +402,7 @@
         /* margin-left: 32%; */
         margin: 190px auto 50px;
     }
-    .SRC-banner{
+    .SRC-banner-block{
         width: 95%;
     }
 }
@@ -445,4 +447,29 @@
 }
 
 
-/* SRC-banner */
+/* SRC-banner-block */
+.SRC-banner-animation{
+    display: none;
+}
+.SRC-banner{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+}
+#SRC-banner-shadow{
+    opacity: 0.3;
+    /* display: none; */
+}
+
+#SRC-banner-noise{
+    opacity: 0.2;
+    /* display: none; */
+}
+
+#SRC-banner-sunshine{
+    opacity: 0.8;
+
+    /* display: none; */
+}
