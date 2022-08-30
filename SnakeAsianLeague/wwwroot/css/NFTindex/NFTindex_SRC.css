@@ -124,7 +124,7 @@
     /* border:  1px solid red; */
     width: 100%;
     z-index: 1;
-    margin: 20px 0;
+    margin: 20px 0 0;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
