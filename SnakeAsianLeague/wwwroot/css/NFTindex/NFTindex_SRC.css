@@ -198,7 +198,7 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    top: 45%;
+    top: 42%;
     right: -20px;
     background-color: #ffffff;
     transform: rotate(45deg)translateY(-50%);
@@ -415,8 +415,12 @@
     .SRC-title-02 {
         font-size: 22px;
     }
+    .SRC-Block-title {
+        margin: 0px auto 10px;
+    }
     .SRC-text {
-        line-height: 22px;
+        /* line-height: 22px; */
+        font-size: 14px;
     }
     .SRC-map-inner{
         margin: 0 auto 20px;
@@ -426,7 +430,9 @@
         border-radius: 15px;
         margin: 0 auto 50px;
     }
-
+    .SRC-row-text{
+        font-size: 14px;
+    }
     .recharge .SRC-row-inner{
         margin: 180px auto 50px;
         width: 75%;

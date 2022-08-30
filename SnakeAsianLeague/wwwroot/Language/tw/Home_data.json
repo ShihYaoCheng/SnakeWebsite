@@ -46,12 +46,12 @@
     "name-06": "<span style=\"font-weight:600;\">蛇咒列隊</span>",
     "name-07": "<span style=\"font-weight:600;\">鐵甲蛇</span>",
 
-    "text-01": "<div style=\"padding-top: 15px;\">蛇皇是最為強大的生物，祂是由騎士的靈魂和靈蛇所結合而成。蛇皇將會生長出強壯的頭角、翅膀、爪子，甚至會配帶專屬兵器。祂們的壽命將達到數千年，並且主宰這個世界。</div>",
-    "text-02": "<div style=\"padding-top: 15px;\">蛇騎靈進化的蛇將輕易的支配其他生靈，並獲取更強大的靈力。這些蛇擁有卓越的魔力，這將助長蛇騎士的力量。成為蛇騎靈的騎士將獲得王國至高的榮耀，甚至被邀請加入「蛇騎士貴族」。</div>",
-    "text-03": "<div style=\"padding-top: 15px;\">蛇騎士在此階段，蛇的身長將會超越騎士，甚至變得比騎士更強大。由於和騎士之間的羈絆，蛇將成為騎士探索以及戰鬥最佳的夥伴。蛇和騎士都將成為王國的英雄並且獲得榮譽。</div>",
-    "text-05": "<div style=\"padding-top: 15px;\">異蛇伊薩大地上最常見的蛇種，異蛇是由異晶孕育而成，但牠們通常獨來獨往直到找到與自己心有靈犀的蛇騎士才會和此騎士立下誓約。</span>",
-    "text-06": "<div style=\"padding-top: 15px;\">蛇咒列隊不為人知的小知識：蛇咒列隊可不是由蛇組成的喔！牠們來自伊薩大地，是由小生物組成的群體。牠們沒什麼目的，只是隨心所欲，愛去哪就去哪。</div>",
-    "text-07": "<div style=\"padding-top: 15px;\">鐵甲蛇鐵甲蛇是由鐵和其餘無生命素材所組成。牠們將汙染的結晶作為能量來源。然而，牠們卻絲毫不比異蛇遜色，人們也時常將鐵甲蛇運用於戰鬥中。</div>"
+    "text-01": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">蛇皇是最為強大的生物，祂是由騎士的靈魂和靈蛇所結合而成。蛇皇將會生長出強壯的頭角、翅膀、爪子，甚至會配帶專屬兵器。祂們的壽命將達到數千年，並且主宰這個世界。</div>",
+    "text-02": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">蛇騎靈進化的蛇將輕易的支配其他生靈，並獲取更強大的靈力。這些蛇擁有卓越的魔力，這將助長蛇騎士的力量。成為蛇騎靈的騎士將獲得王國至高的榮耀，甚至被邀請加入「蛇騎士貴族」。</div>",
+    "text-03": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">蛇騎士在此階段，蛇的身長將會超越騎士，甚至變得比騎士更強大。由於和騎士之間的羈絆，蛇將成為騎士探索以及戰鬥最佳的夥伴。蛇和騎士都將成為王國的英雄並且獲得榮譽。</div>",
+    "text-05": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">異蛇伊薩大地上最常見的蛇種，異蛇是由異晶孕育而成，但牠們通常獨來獨往直到找到與自己心有靈犀的蛇騎士才會和此騎士立下誓約。</span>",
+    "text-06": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">蛇咒列隊不為人知的小知識：蛇咒列隊可不是由蛇組成的喔！牠們來自伊薩大地，是由小生物組成的群體。牠們沒什麼目的，只是隨心所欲，愛去哪就去哪。</div>",
+    "text-07": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">鐵甲蛇鐵甲蛇是由鐵和其餘無生命素材所組成。牠們將汙染的結晶作為能量來源。然而，牠們卻絲毫不比異蛇遜色，人們也時常將鐵甲蛇運用於戰鬥中。</div>"
   },
   "join": {
     "text": "./images/NFTindex/NFTindex_pop/join_text_CN.png",
@@ -97,7 +97,7 @@
     "SRC-Recharge-introduce-item-3": "",
     "title-04": "如何轉換？",
     "rowTitle-02": "MetaMask提領 <span>(SRC/ERNC/USDT)</span>",
-    "rowText-03": "碰碰蛇 MARKETPLACE 將提共轉換功能 能將SRC專換成USDT。玩家在遊戲中能出租所擁有的PPS  NFT 並且獲取SRC。 意味著遊戲內的收入都能帶人實質的經濟效益。",
+    "rowText-03": "碰碰蛇 MARKETPLACE 將提共轉換功能，能將SRC專換成USDT。玩家在遊戲中能出租所擁有的PPS  NFT 並且獲取SRC。 意味著遊戲內的收入都能帶人實質的經濟效益。",
     "buy-button": "在交易所購買",
     "exchange-button": "轉換"
   }
