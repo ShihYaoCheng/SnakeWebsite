@@ -175,8 +175,7 @@
     protected override async Task OnInitializedAsync()
     {
 
-        await getMetaMaskData();
-        netWorkName = Configuration["chainName"];
+      
         @*
         web3jsData = await JS.InvokeAsync<string[]>("RinkebyWeb3JS" ,Configuration["chainId"] );
         SwapRate =Double.Parse(web3jsData[2]) ;
@@ -192,7 +191,8 @@
     {
         if (firstRender)
         {
-
+            await getMetaMaskData();
+            netWorkName = Configuration["chainName"];
 
         }
     }
@@ -242,7 +242,13 @@
         SwapRate = Double.Parse(web3jsData[2]) ;
         SRCTotal = Double.Parse(web3jsData[0]) ;
         USDTTotal = Double.Parse(web3jsData[1]) ;
-        netWorkRight =  Convert.ToBoolean(web3jsData[3]);
+        if (netWorkRight !=  Convert.ToBoolean(web3jsData[3]))
+        {
+             netWorkRight =  Convert.ToBoolean(web3jsData[3]);
+             //強制渲染
+            await InvokeAsync(StateHasChanged);
+        }
+       
     }
 
     public void maxBTN()
