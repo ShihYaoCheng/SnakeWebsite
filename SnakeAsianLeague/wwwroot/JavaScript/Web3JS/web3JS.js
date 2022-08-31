@@ -11,7 +11,9 @@
     let addr_balance = await dai_contract.methods.balanceOf(acc_address).call() / 10 ** decimals
 
 
-    $(".user-address")[0].innerText = address[0].slice(0,9)+"...."
+	$(".user-address")[0].innerText = address[0].slice(0, 9) + "...."
+	$("#userAddress")[0].innerText = address[0].slice(0, 9) + "...."
+
     $("#TotalBalance")[0].innerText = 'Total Balance: ' + addr_balance
    
     return addr_balance.toString()
@@ -22,37 +24,39 @@
 
 /*Rinkeby 網路 */
 
-window.RinkebyWeb3JS = async function () {
+window.RinkebyWeb3JS = async function (chainId) {
+	/*引用web3 、獲取地址跟鍊*/
     const w3 = new Web3(Web3.givenProvider)
     const address = await w3.eth.requestAccounts()
-    const acc_address = "0x3DD8F133C30cbc84B246f56cf8659B21595803a5"
+	const networkID = await w3.eth.net.getId()
+
+	if (parseInt(chainId.slice(2)) != networkID) {				
+		return ["0", "0", "0", "false"]
+	}	
 
     /*USDT */
     const USDT_token_addr = '0xD92E713d051C37EbB2561803a3b5FBAbc4962431'  
-
     const simplified_abi = [{ "constant": true, "inputs": [], "name": "name", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "spender", "type": "address" }, { "name": "value", "type": "uint256" }], "name": "approve", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupply", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "from", "type": "address" }, { "name": "to", "type": "address" }, { "name": "value", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "spender", "type": "address" }, { "name": "addedValue", "type": "uint256" }], "name": "increaseAllowance", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "unpause", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "account", "type": "address" }], "name": "isPauser", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "paused", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "renouncePauser", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "owner", "type": "address" }], "name": "balanceOf", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "account", "type": "address" }], "name": "addPauser", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "pause", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "spender", "type": "address" }, { "name": "subtractedValue", "type": "uint256" }], "name": "decreaseAllowance", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "to", "type": "address" }, { "name": "value", "type": "uint256" }], "name": "transfer", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "owner", "type": "address" }, { "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [{ "name": "name", "type": "string" }, { "name": "symbol", "type": "string" }, { "name": "decimals", "type": "uint8" }, { "name": "totalSupply", "type": "uint256" }], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "account", "type": "address" }], "name": "Paused", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "account", "type": "address" }], "name": "Unpaused", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "account", "type": "address" }], "name": "PauserAdded", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "account", "type": "address" }], "name": "PauserRemoved", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "from", "type": "address" }, { "indexed": true, "name": "to", "type": "address" }, { "indexed": false, "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "owner", "type": "address" }, { "indexed": true, "name": "spender", "type": "address" }, { "indexed": false, "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }]
     const dai_contract = new w3.eth.Contract(simplified_abi, USDT_token_addr)  
 
     let decimals = await dai_contract.methods.decimals().call()
-    let addr_USDT_balance = await dai_contract.methods.balanceOf(acc_address).call() / 10 ** decimals
+	let addr_USDT_balance = await dai_contract.methods.balanceOf(address[0]).call() / 10 ** decimals
 
     /* SRC */
-
     const SRC_token_addr = '0xaBF22878C673C20865D9A1247c86FDe7B1165B7e'
-
     const SRC_abi = [{ "constant": true, "inputs": [], "name": "name", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "spender", "type": "address" }, { "name": "value", "type": "uint256" }], "name": "approve", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "totalSupply", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "from", "type": "address" }, { "name": "to", "type": "address" }, { "name": "value", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "name": "", "type": "uint8" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "spender", "type": "address" }, { "name": "addedValue", "type": "uint256" }], "name": "increaseAllowance", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "unpause", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "account", "type": "address" }], "name": "isPauser", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "paused", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "renouncePauser", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "owner", "type": "address" }], "name": "balanceOf", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "account", "type": "address" }], "name": "addPauser", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "pause", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "spender", "type": "address" }, { "name": "subtractedValue", "type": "uint256" }], "name": "decreaseAllowance", "outputs": [{ "name": "success", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "to", "type": "address" }, { "name": "value", "type": "uint256" }], "name": "transfer", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "owner", "type": "address" }, { "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [{ "name": "name", "type": "string" }, { "name": "symbol", "type": "string" }, { "name": "decimals", "type": "uint8" }, { "name": "totalSupply", "type": "uint256" }], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "account", "type": "address" }], "name": "Paused", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "account", "type": "address" }], "name": "Unpaused", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "account", "type": "address" }], "name": "PauserAdded", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "account", "type": "address" }], "name": "PauserRemoved", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "from", "type": "address" }, { "indexed": true, "name": "to", "type": "address" }, { "indexed": false, "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "name": "owner", "type": "address" }, { "indexed": true, "name": "spender", "type": "address" }, { "indexed": false, "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }]
     const SRC_dai_contract = new w3.eth.Contract(SRC_abi, SRC_token_addr)
 
     let SRC_decimals = await SRC_dai_contract.methods.decimals().call()
-    let addr_SRC_balance = await SRC_dai_contract.methods.balanceOf(acc_address).call() / 10 ** SRC_decimals
+	let addr_SRC_balance = await SRC_dai_contract.methods.balanceOf(address[0]).call() / 10 ** SRC_decimals
 
-    $(".user-address")[0].innerText = address[0].slice(0, 9) + "...."
-    $("#USDTTotalBalance")[0].innerText = 'Total Balance: ' + addr_USDT_balance
-
-    $("#SRCTotalBalance")[0].innerText = 'avaliable to swap: ' + addr_SRC_balance
+	$(".user-address")[0].innerText = address[0].slice(0, 9) + "...."
+	$("#userAddress")[0].innerText = address[0].slice(0, 9) + "...."
+    $("#USDTTotalBalance")[0].innerText = 'Balance: ' + addr_USDT_balance
+	$("#SRCTotalBalance")[0].innerText = 'Balance: ' + addr_SRC_balance
 
 	/* SRCSwap */
-	const SRCSwap_addr = "0x96ABcB188cfc4dFcBda2DdcEa090Bb3291769BA5"
+	const SRCSwap_addr = "0x5C955B79797DE02553Cb22c00594bd89e1E4C868"
 	const SRCSwap_abi = [
 		{
 			"inputs": [
@@ -64,6 +68,11 @@ window.RinkebyWeb3JS = async function () {
 				{
 					"internalType": "address",
 					"name": "usdtTokenAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "chainlinkPriceFeed",
 					"type": "address"
 				}
 			],
@@ -171,6 +180,19 @@ window.RinkebyWeb3JS = async function () {
 		},
 		{
 			"inputs": [],
+			"name": "getChainlinkDescription",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "owner",
 			"outputs": [
 				{
@@ -180,6 +202,32 @@ window.RinkebyWeb3JS = async function () {
 				}
 			],
 			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "newPrice",
+					"type": "uint256"
+				}
+			],
+			"name": "setSrcPerUSD",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "newPrice",
+					"type": "uint256"
+				}
+			],
+			"name": "setUsdPerSRC",
+			"outputs": [],
+			"stateMutability": "nonpayable",
 			"type": "function"
 		},
 		{
@@ -210,6 +258,19 @@ window.RinkebyWeb3JS = async function () {
 		},
 		{
 			"inputs": [],
+			"name": "srcPerUSD",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "srcPerUSDT",
 			"outputs": [
 				{
@@ -233,7 +294,7 @@ window.RinkebyWeb3JS = async function () {
 			"outputs": [
 				{
 					"internalType": "uint256",
-					"name": "amountOfUSDT",
+					"name": "currentAmountOfUSDT",
 					"type": "uint256"
 				}
 			],
@@ -262,6 +323,82 @@ window.RinkebyWeb3JS = async function () {
 		{
 			"inputs": [
 				{
+					"internalType": "uint256",
+					"name": "amountOfSRC",
+					"type": "uint256"
+				}
+			],
+			"name": "test_swapSRCtoUSDT_A",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfSRC",
+					"type": "uint256"
+				}
+			],
+			"name": "test_swapSRCtoUSDT_B",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "currentAmountOfUSDT",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfUSDT",
+					"type": "uint256"
+				}
+			],
+			"name": "test_swapUSDTtoSRC_A",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfUSDT",
+					"type": "uint256"
+				}
+			],
+			"name": "test_swapUSDTtoSRC_B",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfSRC",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
 					"internalType": "address",
 					"name": "newOwner",
 					"type": "address"
@@ -274,11 +411,62 @@ window.RinkebyWeb3JS = async function () {
 		},
 		{
 			"inputs": [],
+			"name": "usdPerSRC",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfUSDT",
+					"type": "uint256"
+				}
+			],
+			"name": "usdPerUSDT",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfUSD",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "usdtPerSRC",
 			"outputs": [
 				{
 					"internalType": "uint256",
 					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfUSD",
+					"type": "uint256"
+				}
+			],
+			"name": "usdtPerUSD",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfToken",
 					"type": "uint256"
 				}
 			],
@@ -310,17 +498,15 @@ window.RinkebyWeb3JS = async function () {
 			"type": "receive"
 		}
 	]
-	const SRCSwap_dai_contract = new w3.eth.Contract(
-		SRCSwap_abi,
-		SRCSwap_addr
-	);
 
-	/*let SRCSwapRate = await SRCSwap_dai_contract.methods.srcPerUSDT().call() / 10 ** 18*/
+	const SRCSwap_dai_contract = new w3.eth.Contract(SRCSwap_abi, SRCSwap_addr);
+	console.log(SRCSwap_dai_contract.methods)
+	let usdPerSRCRate = await SRCSwap_dai_contract.methods.usdPerSRC().call() / 10 ** 18
 	let usdtPerSRCRate = await SRCSwap_dai_contract.methods.usdtPerSRC().call() / 10 ** 18
+	$("#usdPerSRCRate")[0].innerText = "≈$ " + (usdPerSRCRate).toString().slice(0, 7) + "USD"
+	$("#usdtPerSRCRate")[0].innerText = '1 SRC ≈$ ' + (usdtPerSRCRate).toString().slice(0,7) + " USDT"	
 
-	$("#swapRate")[0].innerText = '=$ ' + usdtPerSRCRate	
-
-	return [addr_USDT_balance.toString(), addr_SRC_balance.toString(), usdtPerSRCRate.toString()]
+	return [addr_SRC_balance.toString(), addr_USDT_balance.toString(), usdtPerSRCRate.toString(),'true']
 }
 
 

@@ -15,6 +15,7 @@
 
 @media all and (max-width: 1024px) {
 
+
     .SRCExchange-container {
         padding-top: 135px;
     }
@@ -28,7 +29,7 @@
 @media all and (max-width: 768px) {
 
     .SRCExchange-container {
-        padding-top: 100px;
+        padding-top: 110px;
         width: 80%;
     }
 
@@ -41,7 +42,7 @@
 @media all and (max-width: 576px) {
 
     .SRCExchange-container {
-        padding-top: 75px;
+       
         height: 800px;
     }
 
@@ -71,8 +72,8 @@
 .coinView-Minimum {
     color: #fff;
     width: 100%;
-    text-align: right;
-    font-size: 18px;
+    text-align: left;
+    font-size: 16px;
     padding-right: 14px;
 }
 
@@ -87,7 +88,7 @@
     }
 
     .coinView-Minimum {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .coinView-GameWalletText {
@@ -102,7 +103,7 @@
     }
 
     .coinView-Minimum {
-        font-size: 12px;
+        font-size: 12px;  
     }
 
     .coinView-GameWalletText {
@@ -120,6 +121,11 @@
     .coinView-GameWalletText {
         font-size: 16px;
     }
+
+    .coinView-Minimum {
+        left:10%;
+
+    }
 }
 
 
@@ -128,6 +134,10 @@
 
     .coinView-GameWalletText {
         font-size: 14px;
+    }
+
+    .coinView-Minimum {
+        font-size: 10px;
     }
 }
 
@@ -160,11 +170,14 @@
 .coin-type {
     font-size: 50px;
     font-weight: 600;
+    display:flex;
+    align-items:center
 }
 
     .coin-type img, .coin-type button {
         width: 45px;
         height: 45px;
+        margin:0 5px
     }
 
     .coin-type button {
@@ -203,13 +216,16 @@
 
 @media all and (max-width: 768px) {
     .coin-TextZone {
-        width: calc(100%/10*6);
+        width: calc(100%/2);
     }
 }
 
 @media all and (max-width: 576px) {
+    .coin-TextZone {
+        width: calc(100%/5*2);
+    }
     .coin-type {
-        font-size: 24px;
+        font-size: 20px;
     }
 
         .coin-type img, .coin-type button {
@@ -224,7 +240,7 @@
 
 @media all and (max-width: 375px) {
     .coin-TextZone {
-        width: calc(100%/10*6);
+        width: calc(100%/10*4);
     }
 
     .coin-type {
@@ -309,6 +325,22 @@
     color:#fff;
 }
 
+.coin-swapRate {
+    text-align:center;
+    padding-top:10px;
+    font-size:18px;
+  
+}
+.balanceShort {
+    font-size: 18px;
+    color: #eb2f06;
+    padding-top: 5px;
+    text-align: center;
+    width: 100%;
+    font-weight:700;
+    padding-left:30px;
+}
+
 .arrow-zone {
     width: 100%;
     height: 100%;
@@ -336,6 +368,13 @@
         height: 77px;
         font-size: 26px;
     }
+    .coin-swapRate {
+        font-size: 14px
+    }
+    .balanceShort {
+        font-size: 14px
+    }
+
 
     .arrow-img {
         width: 42px;
@@ -360,10 +399,19 @@
         height: 54px;
         font-size: 18px;
     }
+    .coin-swapRate {
+        font-size: 12px
+    }
+    .balanceShort {
+        font-size: 12px
+    }
 
     .arrow-img {
         width: 30px;
         height: 30px;
+    }
+    .coin-NumZone {
+        width: calc(100%/5*3);
     }
 }
 
@@ -371,6 +419,16 @@
     .exchangeRate {
         font-size: 10px;
         padding: 0 25px 0px 0;
+    }
+    .coin-swapRate {
+        font-size: 10px
+    }
+    .balanceShort {
+        font-size: 10px
+    }
+
+    .coin-NumZone {
+        width: calc(100%/10*6.5);
     }
 }
 /*...最大化按鈕...*/
@@ -383,6 +441,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
     height: 100%;
 }
@@ -395,6 +454,7 @@
     border-radius: 43px;
     border: 2px solid #69AEA3;
     font-size: 28px;
+    margin-bottom:10px;
 }
 
 .miniSizeBtn {
@@ -470,6 +530,7 @@
     border-radius: 26px;
     margin-bottom: 41px;
     font-size: 34px;
+    margin-top:20px;
 }
 
 @media all and (max-width: 1024px) {
@@ -524,4 +585,172 @@
     transform: scale(1.01);
     color: #fff !important;
     transition: all .15s ease-in-out;
+}
+
+
+
+
+/*錯誤彈窗*/
+.errorContainer {
+    padding-top: 50px;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0,0,0,0.5);
+    z-index: 1;
+
+    top: 0%;
+    left: 0%;
+}
+
+.errorNav {
+    width: 100%;
+    height: 70px;
+    background: #f4cccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    width: 97%;
+    border-radius: 15px;
+    margin-right: 1%;
+}
+
+@media all and (max-width: 768px) {
+    .errorNav {      
+        height: 50px;
+
+    }
+}
+@media all and (max-width: 768px) {
+    .errorNav {
+        width: 95%;
+    }
+}
+
+.errorNav button {
+    color: #fff;
+    height: 50px;
+    background: #67ADA2;
+    border: 3px solid #FFFFFF;
+    border-radius: 15px;
+    font-size: 20px;
+    margin-left:50px;
+    width: 400px;
+}
+
+.errorNav p {
+    color: red;
+    font-size: 30px;
+    font-weight: 700;
+}
+@media all and (max-width: 1024px) {
+    .errorNav button {
+        width: 300px;
+        font-size: 16px;
+    }
+    .errorNav p {
+        font-size: 26px;
+        font-weight: 700;
+    }
+
+}
+@media all and (max-width: 768px) {
+    .errorNav button {
+        width: 250px;
+        font-size: 14px;
+        height: 40px;
+    }
+
+    .errorNav p {
+        font-size: 24px;
+        font-weight: 700;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .errorNav button {
+        width: 150px;
+        font-size: 14px;
+        height: 40px;
+        margin-left: 18px;
+    }
+
+    .errorNav p {
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+
+/*右上角錢包*/
+
+.walletaddress {
+ 
+    padding: 60px 18px 0 0;
+    position: fixed;
+    width: 100vw;
+    height: 120px;
+    z-index: 1;
+    top: 0%;
+    left: 0%;
+}
+
+#userAddress {
+    border: 1px solid #05e7e8;
+    background: #38761d;
+    color:blue;
+    width:150px;
+    height:40px;
+    border-radius:10px;
+    font-size:20px;
+    font-weight:500;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    float:right;
+
+}
+
+.userNetwork {
+    width: 100px;
+    height: 30px;
+    margin:5px  0;
+    float: right;
+    background: #FFF;
+}
+
+@media all and (max-width: 1024px) {
+    .walletaddress {
+        padding: 60px 12px 0 0;
+    }
+
+    #userAddress {
+        width: 130px;
+        height: 35px;       
+        font-size: 18px;           
+    }
+
+    .userNetwork {
+        width: 80px;
+        height: 25px;
+        margin: 5px 0;     
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .walletaddress {
+        padding: 60px 8px 0 0;
+    }
+    #userAddress {
+        width: 120px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .userNetwork {
+        width: 75px;
+        height: 25px;
+        margin: 5px 0;
+    }
 }
