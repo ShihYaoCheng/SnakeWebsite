@@ -95,11 +95,11 @@
     "rowText-01": "1. 官方網站的marketplace購入",
     "rowText-02": "2. 遊戲內 (在APP內購買)<br>網站購入比值 1(TWD) : 0.5(SRC)",
     "SRC-Recharge-introduce-item-3": "",
-    "title-04": "如何轉換？",
+    "title-04": "如何兌換？",
     "rowTitle-02": "MetaMask提領 <span>(SRC/ERNC/USDT)</span>",
-    "rowText-03": "碰碰蛇 MARKETPLACE 將提共轉換功能，能將SRC專換成USDT。玩家在遊戲中能出租所擁有的PPS  NFT 並且獲取SRC。 意味著遊戲內的收入都能帶人實質的經濟效益。",
+    "rowText-03": "碰碰蛇 MARKETPLACE 將提供兌換功能，能將SRC轉換成USDT。玩家在遊戲中能出租所擁有的PPS  NFT 並且獲取SRC。 意味著遊戲內的收入都能帶人實質的經濟效益。",
     "buy-button": "在交易所購買",
-    "exchange-button": "轉換"
+    "swap-button": "立即兌換"
   }
 
 }

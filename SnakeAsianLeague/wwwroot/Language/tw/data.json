@@ -52,6 +52,7 @@
     "AwardClaim": "領獎通知",
     "Myprofile": "我的主頁",
     "Inventory": "資產明細",
+    "Swap": "資產兌換",
 
     "Chinese": "中文",
     "English": "EN"
@@ -62,7 +63,8 @@
     "Account": "我的主頁",
     "Esports": "我的賽事",
     "Reward": "領獎通知",
-    "Inventory": "資產明細"
+    "Inventory": "資產明細",
+    "Swap": "資產兌換"
   },
 
   "signInWindows": {

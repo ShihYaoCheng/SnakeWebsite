@@ -95,10 +95,10 @@
     "rowTitle-01": "Token Recharge <span>(ERNC/ETH/USDT)</span>",
     "rowText-01": "1. Buy from PonPonSnake marketplace",
     "rowText-02": "2. In-Game Purchase (Purchase in APP) Marketplace Ratio  1(TWD) : 0.5(SRC)",
-    "title-04": "How to Exchange?",
-    "rowTitle-02": "MetaMask Exchange <span>(SRC/ERNC/USDT)</span>",
+    "title-04": "How to Swap?",
+    "rowTitle-02": "MetaMask Swap <span>(SRC/ERNC/USDT)</span>",
     "rowText-03": "PonPonSnake's marketplace will have an exchange page for SRC/USDT. Players may make SRC by renting their PPS NFT. As a result, this might  outcome in-game revenue economic advantages.",
     "buy-button": "Buy in Marketplace",
-    "exchange-button": "Exchange"
+    "swap-button": "Swap Now"
   }
 }

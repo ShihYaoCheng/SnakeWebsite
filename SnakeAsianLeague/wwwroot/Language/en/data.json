@@ -51,6 +51,7 @@
     "AwardClaim": "Award Claim",
     "Myprofile": "My Account",
     "Inventory": "Inventory",
+    "Swap": "Swap",
 
     "Chinese": "中文",
     "English": "EN"
@@ -61,7 +62,8 @@
     "Account": "Account",
     "Esports": "eSport",
     "Reward": "Reward",
-    "Inventory": "Inventory"
+    "Inventory": "Inventory",
+    "Swap": "Swap"
   },
 
   "signInWindows": {
