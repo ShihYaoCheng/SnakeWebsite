@@ -29,6 +29,7 @@
                         </p>
                     </p>
                     <div class="coin-type">
+                        <button @onclick="AddSRC" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
                         SRC
                         <img src="/images/Myprofile/SRCExchange/SRC.webp"/>
                     </div>
@@ -129,7 +130,7 @@
 
 @*右上角顯示錢包地址*@
 <div class="walletaddress">
-    <img class="userNetwork" src="/images/Myprofile/SRCExchange/polygon_logo.png" />
+    <img class="userNetwork" src="/images/Myprofile/SRCExchange/rinkeby_logo.png" />
     <p id="userAddress">
         0x12345...
     </p>
@@ -283,6 +284,11 @@
     protected  async Task AddUSDT()
     {      
         await JS.InvokeVoidAsync("AddPolygonUSDT");            
+    }
+
+    protected  async Task AddSRC()
+    {      
+        await JS.InvokeVoidAsync("AddPolygonSRC");            
     }
 
    
