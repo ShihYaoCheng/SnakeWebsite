@@ -211,13 +211,15 @@
     width: 90%;
     margin: 25px 0 30px;
     letter-spacing: 1px;
+    padding-left: 20px;
 }
 .recharge .SRC-row-inner{
-    max-width: 340px;
+    max-width: 360px;
     margin-right: 20%;
 }
 .excharge .SRC-row-inner{
-    max-width: 360px;
+    /* max-width: 360px; */
+    max-width: 380px;
     margin-left: 25%;
 }
 
@@ -231,7 +233,7 @@
     
 }
 .excharge .SRC-row-text{
-    text-align: center;
+    /* text-align: center; */
 }
 
 .SRC-row-textTitle{
@@ -373,7 +375,7 @@
     }
     .recharge .SRC-row-inner{
         /* max-width: 280px; */
-        width: 75%;
+        width: 85%;
 
         margin: 220px auto 50px;
     }
@@ -382,8 +384,9 @@
         text-align: center;
     }
     .excharge{
-        max-width: 420px;
-        width: 90%;
+        /* max-width: 420px; */
+        max-width: 450px;
+        width: 85%;
         border-radius: 15px 0 0 15px;
     }
     .SRC-row:hover .SRC-row-icon{
@@ -397,8 +400,8 @@
         z-index: 1;
     }
     .excharge .SRC-row-inner{
-        /* max-width: 280px; */
-        width: 75%;
+        max-width: 360px;
+        width: 85%;
         /* margin-left: 32%; */
         margin: 190px auto 50px;
     }
@@ -437,11 +440,11 @@
     }
     .recharge .SRC-row-inner{
         margin: 180px auto 50px;
-        width: 75%;
+        width: 85%;
     }
     .excharge .SRC-row-inner{
-        margin: 165px auto 50px;
-        width: 80%;
+        margin: 155px auto 50px;
+        width: 85%;
     }
 
 }
