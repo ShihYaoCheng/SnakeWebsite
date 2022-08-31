@@ -1,4 +1,53 @@
-﻿.SRCExchange-container {
+﻿/* nav 當頁顯示 */
+#nav-myprofile > .nav-link {
+    background-color: unset;
+}
+#nav-swapsrc > .nav-link {
+    background-color: #aad4cd;
+}
+.user-ul-web{
+    display: none;
+}
+
+#Swapsrc_hover_bottom{
+    position: absolute;
+    max-width: 300px;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -7px;
+    opacity: 1;
+    z-index: 0;
+    transition: all .3s ease-out;
+    pointer-events: none;
+}
+
+/* RWD NAV */
+@media all and (max-width: 1000px){
+    #nav-swapsrc{
+        background-size: cover;
+        background-position: center;
+    }
+}
+/* NAV 資產頁面選單 */
+.nav-li-normal{
+    display: none;
+}
+
+.nav-li-particular{
+    display: flex;
+    flex-direction: row;
+}
+
+/* RWD */
+@media (max-width: 1000px) {
+    .nav-li-particular{
+        flex-direction: column;
+    }
+}
+/* __________ */
+
+
+.SRCExchange-container {
     height: 1500px;
     padding-top: 180px;
     max-width: 1024px;
