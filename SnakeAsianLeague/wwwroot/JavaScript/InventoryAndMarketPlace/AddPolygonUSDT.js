@@ -38,10 +38,11 @@ window.AddPolygonUSDT = async function () {
 
 
 window.AddPolygonSRC = async function () {
+    
     tokenAddress = '0xaBF22878C673C20865D9A1247c86FDe7B1165B7e';
     tokenSymbol = 'SRC';
     tokenDecimals = 6;
-    tokenImage = 'https://polygonscan.com/token/images/tether_32.png';
+    tokenImage = $('#SRCimg')[0].currentSrc;
     try {
         // wasAdded is a boolean. Like any RPC method, an error may be thrown.
         const wasAdded = await window.ethereum.request({
