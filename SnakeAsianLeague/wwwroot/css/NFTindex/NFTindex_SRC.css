@@ -463,6 +463,7 @@
 
 #SRC-banner-magnifier{
     animation: SRC-magnifier 15s ease-in-out infinite;
+    transition:  all 15s cubic-bezier(.17, .86, .73, .14);
 }
 @keyframes SRC-magnifier {
     0% {
