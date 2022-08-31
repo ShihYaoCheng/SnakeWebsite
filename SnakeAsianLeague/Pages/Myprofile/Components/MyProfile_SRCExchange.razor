@@ -238,7 +238,7 @@
 
     public async Task  getMetaMaskData()
     {     
-        web3jsData = await JS.InvokeAsync<string[]>("RinkebyWeb3JS" ,Configuration["chainId"] );
+        web3jsData = await JS.InvokeAsync<string[]>("web3JS" ,Configuration["chainId"] ,Configuration["USDT_token_addr"],Configuration["SRC_token_addr"],Configuration["SRCSwap_addr"]  );
         SwapRate = Double.Parse(web3jsData[2]) ;
         SRCTotal = Double.Parse(web3jsData[0]) ;
         USDTTotal = Double.Parse(web3jsData[1]) ;
