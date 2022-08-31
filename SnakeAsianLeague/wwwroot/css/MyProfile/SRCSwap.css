@@ -803,3 +803,20 @@
         margin: 5px 0;
     }
 }
+
+.lockWindows {
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    font-size:50px;
+    font-weight:700;
+    background:rgba(0,0,0,0.5);
+    color:#fff;
+
+}
