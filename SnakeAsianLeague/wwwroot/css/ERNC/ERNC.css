@@ -47,7 +47,7 @@
 }
 .ERNC-Block-InfoTitle{
     font-size: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     
 }
 .ERNC-Block-InfoTitle span{
@@ -57,7 +57,7 @@
 }
 .ERNC-Block-InfoText{
     font-size: 22px;
-    line-height: 1.5;
+    line-height: 1.7;
     letter-spacing: 1px;
 }
 @media all and (max-width: 1920px){
@@ -67,7 +67,7 @@
     }
     .ERNC-Block-InfoTitle {
         font-size: 28px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
     .ERNC-Block-InfoText {
         font-size: 18px;
