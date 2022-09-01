@@ -156,6 +156,11 @@
 <ProductsPopup Value="#SwapBTN"  Confirm ="confirm">       
     Comfirm to Swap <span> @SRCInput </span> SRC to <span>  @USDTInput </span>  USDT?       
 </ProductsPopup>
+
+@*等待反灰*@
+<div class="lockWindows">
+    交易中
+</div>
  @*
  @if(SwapToggle){
 
@@ -201,6 +206,10 @@
 
     protected async Task confirm(){ 
         await JS.InvokeVoidAsync("web3JSConfirm",true,SRCInput,USDTInput);
+               
+        getMetaMaskData();
+         //強制渲染
+       InvokeAsync(StateHasChanged);
     }
 
     Double SRCTotal = 0;

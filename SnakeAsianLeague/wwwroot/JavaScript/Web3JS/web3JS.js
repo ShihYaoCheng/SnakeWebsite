@@ -513,8 +513,8 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 
 
 
-window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput ) {
-
+window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput) {
+	$('.lockWindows')[0].style.display = 'flex';
 	const web3 = await new Web3(Web3.givenProvider)
 	//web3.TransactionManager.UseLegacyAsDefault = true;
 	const USDT_addr = "0xD92E713d051C37EbB2561803a3b5FBAbc4962431"
@@ -1424,10 +1424,12 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput ) {
 					from: accounts[0],
 				});
 			alert("You have successfully sold TEST tokens!");
+			$('.lockWindows')[0].style.display = 'none';
 			console.log(request);
 		} catch (err) {
 			console.error(err);
 			alert("交易失敗");
+			$('.lockWindows')[0].style.display = 'none';
 		}
 
 	} else {
@@ -1467,10 +1469,12 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput ) {
 					from: accounts[0],
 				});
 			alert("You have successfully sold TEST tokens!");
+			$('.lockWindows')[0].style.display = 'none';
 			console.log(request);
 		} catch (err) {
 			console.error(err);
 			alert("交易失敗");
+			$('.lockWindows')[0].style.display = 'none';
 		}
 
 	}
