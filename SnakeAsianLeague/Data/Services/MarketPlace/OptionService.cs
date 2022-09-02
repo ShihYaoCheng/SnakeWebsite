@@ -115,14 +115,14 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<PagedList<NFTData>> GetNFTDataPageList( int PageNumber , int PageSize)
+        public async Task<PagedList<NFTData>> GetNFTDataPageList_PagedList( int PageNumber , int PageSize)
         {
 
             string ImgPath = _config.GetValue<string>("googleapis");
             string LinkURL = _config.GetValue<string>("OpenSeaLink");
             string asset_contract_address = _config.GetValue<string>("asset_contract_address");
 
-            List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits();
+            List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits(PageNumber , PageSize);
             Console.WriteLine("GetNFTRiderUnits: " + NFT_Riders.Count);
             datas = new List<NFTData>();
 
@@ -254,14 +254,14 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<List<NFTData>> GetNFTDataPageList()
+        public async Task<List<NFTData>> GetNFTDataPageList(int pageNumber, int pageSize)
         {
 
             string ImgPath = _config.GetValue<string>("googleapis");
             string LinkURL = _config.GetValue<string>("OpenSeaLink");
             string asset_contract_address = _config.GetValue<string>("asset_contract_address");
 
-            List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits();
+            List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits(pageNumber , pageSize);
             Console.WriteLine("GetNFTRiderUnits: " + NFT_Riders.Count);
             datas = new List<NFTData>();
 
@@ -356,7 +356,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             //data1.IsOfficial = true;
             //data1.ImgPath = data1.ImgPath==null ? "/images/MarketPlace/NFTproduct.webp" : data1.ImgPath;
             //datas.Add(data1);
-
+            datas = datas.DistinctBy(m => m.TokenID).ToList();
             datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
             return datas;
         }
@@ -508,17 +508,17 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// </summary>
         /// mintCount 鍛造次數
         /// <returns></returns>
-        private async Task<List<NFTRiderUnits>> GetNFTRiderUnits()
+        private async Task<List<NFTRiderUnits>> GetNFTRiderUnits( int pageNumber ,  int pageSize )
         {
-            var LoginRestRequest = new RestRequest($"NFT/Units");
+            var LoginRestRequest = new RestRequest($"NFT/UnitBatch?pageNumber={pageNumber}&pageSize={pageSize}");
             LoginRestRequest.AddHeader("Authorization", Authenticate());
 
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
-            Console.WriteLine(" ResponseUri :" + restResponse.ResponseUri);
+            //Console.WriteLine(" ResponseUri :" + restResponse.ResponseUri);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
-                Console.WriteLine(" api 抓到比數 :" + nFTRiderUnits.Where(m => m.mintCount > 0).ToList().Count);
+                //Console.WriteLine(" api 抓到比數 :" + nFTRiderUnits.Where(m => m.mintCount > 0).ToList().Count);
 
                 return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
             }
@@ -541,6 +541,29 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             //return new List<NFTRiderUnits>();
         }
 
+
+
+
+
+        /// <summary>
+        /// 取得 Rider 有被鍛造的 NFT 
+        /// </summary>
+        /// mintCount 鍛造次數
+        /// <returns></returns>
+        public async Task<int> GetNFTRiderUnitsCount()
+        {
+            int result = 0;
+            var LoginRestRequest = new RestRequest($"NFT/Units");
+            LoginRestRequest.AddHeader("Authorization", Authenticate());
+            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
+            //Console.WriteLine(" ResponseUri :" + restResponse.ResponseUri);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
+                result = nFTRiderUnits.Where(m => m.mintCount > 0).Count();
+            }
+            return result;
+        }
 
 
 
