@@ -89,7 +89,8 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    margin: 0 auto 80px;
+    /* margin: 0 auto 80px; */
+    padding-bottom: 80px;
 }
 
 .SRC-row {
