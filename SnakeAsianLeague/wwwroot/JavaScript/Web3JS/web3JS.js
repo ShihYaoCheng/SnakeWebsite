@@ -1423,7 +1423,7 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput) {
 				.send({
 					from: accounts[0],
 				});
-			alert("You have successfully sold TEST tokens!");
+			alert("You have successfully sold SRC tokens!");
 			$('.lockWindows')[0].style.display = 'none';
 			console.log(request);
 		} catch (err) {
