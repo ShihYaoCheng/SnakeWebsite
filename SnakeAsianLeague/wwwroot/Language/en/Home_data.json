@@ -101,5 +101,11 @@
     "rowText-04": "2. Players may make SRC by renting their NFT and swapping them into USDT.",
     "buy-button": "Buy in Marketplace",
     "swap-button": "Swap Now"
-  }
+  },
+
+    "gameplay":{
+        "title":"Gameplay",
+        "title-02":"Classic Solo Treasure Hunt",
+        "text":"The Itza people have passed down these basic combat rules from ancient times. If you battle till the end, you can win the gold from your opponents. The combat may be attended by wild monsters, monsters, and wandering knights from the abyss, making it the most dangerous and valuable conflict to engage in."
+    }
 }
