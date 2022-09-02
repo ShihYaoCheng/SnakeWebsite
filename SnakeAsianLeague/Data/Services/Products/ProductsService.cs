@@ -191,10 +191,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                         Rider.Stats.CriticalChance = Cal_CriticalChance(result, BattleData);
                         Rider.Stats.ElementEffect = Cal_ElementEffect(result);
                     }
-                    else
-                    { 
                     
-                    }
                     /*Avatars*/
                     Rider.Avatars = new Avatars();
                     Rider.Avatars.Ridder = result.knight == null ? "" : result.knight.serialNumber;
