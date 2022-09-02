@@ -4,26 +4,6 @@
     width: 100%;
 }
 
-.SRC-Block-title {
-    width: 100%;
-    text-align: center;
-    margin: 0px auto 20px;
-}
-
-.SRC-title {
-    font-family: Impact, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
-    color: #fff;
-    font-size: 36px;
-    /* font-weight: 600; */
-    text-align: center;
-    letter-spacing: 3px;
-    line-height: 40px;
-    text-decoration: underline;
-    text-decoration-thickness: 4px;
-    text-underline-offset: 12px;
-
-
-}
 
 .SRC-title-02 {
     font-family: Impact, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
@@ -96,17 +76,6 @@
     margin: 0 auto 50px;
 }
 
-.SRC-text {
-    width: 90%;
-    color: #ffffff;
-    max-width: 1000px;
-    text-align: center;
-    margin: 0 auto;
-    line-height: 28px;
-    letter-spacing: 1px;
-    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
-}
-
 #SRC-Origin {
     background-color: rgba(0, 0, 0, 0.17);
     padding: 25px 0 30px;
@@ -120,6 +89,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    margin: 0 auto 80px;
 }
 
 .SRC-row {
@@ -324,15 +294,6 @@
 
 @media all and (max-width: 800px) {
 
-    .SRC-title {
-        font-size: 30px;
-        text-decoration-thickness: 2px;
-    }
-
-    .SRC-Block-title {
-        margin: 0px auto 20px;
-    }
-
     .SRC-title-02 {
         font-size: 26px;
     }
@@ -345,9 +306,7 @@
         right: -30px;
     }
 
-    .SRC-text {
-        line-height: 24px;
-    }
+
 
     .SRC-title-03 {
         font-size: 18px;
@@ -435,22 +394,12 @@
         padding: 20px 0 25px;
     }
 
-    .SRC-title {
-        font-size: 26px;
-    }
-
     .SRC-title-02 {
         font-size: 22px;
     }
 
-    .SRC-Block-title {
-        margin: 0px auto 10px;
-    }
 
-    .SRC-text {
-        /* line-height: 22px; */
-        font-size: 14px;
-    }
+
 
     .SRC-map-inner {
         margin: 0 auto 20px;
