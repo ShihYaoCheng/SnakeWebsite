@@ -33,7 +33,7 @@ namespace SnakeAsianLeague.Data.Services.BlockChainProcessor
 
         string lineNotifyUrl = @"https://notify-api.line.me/api/notify";
 
-        string LineNotifyId = "n9eaStbarwnMN7sU0QfnryxpB7kzMvX5UEh3LHp037U";
+        string LineNotifyId = "x4pjZXiauL780ZPbmEM8EkFjX8brpUy3Bp724Ugb18M";
 
         /// <summary>
         /// 
