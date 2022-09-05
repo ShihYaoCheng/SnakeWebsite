@@ -41,7 +41,7 @@
                     <div class="address-text">
                         <p class="toPolygon">
                             @*To Polygon Wallet*@
-                            <span class="user-address">
+                            <span class="user-address" hidden="@(true)">
                                 0x1231561561489451
                             </span>
                         </p>                   
@@ -199,7 +199,7 @@
     {
 
       
-        @*
+    @*
         web3jsData = await JS.InvokeAsync<string[]>("RinkebyWeb3JS" ,Configuration["chainId"] );
         SwapRate =Double.Parse(web3jsData[2]) ;
         SRCTotal = Double.Parse(web3jsData[0]) ;
@@ -303,7 +303,7 @@
     //切換並新增Polygon
     protected  async Task AddPolygon()
     {
-        @*linebot.SemdLineNotifyMsg("test123");*@
+    @*linebot.SemdLineNotifyMsg("test123");*@
         await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] );
         await getMetaMaskData();
 
