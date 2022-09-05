@@ -513,12 +513,12 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 
 
 
-window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput) {
+window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_address, SRC_address, SRCSwap_address) {
 	$('.lockWindows')[0].style.display = 'flex';
 	const web3 = await new Web3(Web3.givenProvider)
 	//web3.TransactionManager.UseLegacyAsDefault = true;
-	const USDT_addr = "0xD92E713d051C37EbB2561803a3b5FBAbc4962431"
-	const SRC_addr ="0xaBF22878C673C20865D9A1247c86FDe7B1165B7e"
+	const USDT_addr = USDT_address
+	const SRC_addr = SRC_address
 	const ERC20_abi = [
 		{
 			"inputs": [],
@@ -1128,7 +1128,7 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput) {
 			"type": "function"
 		}
 	]
-	const SRCSwap_addr = "0x96ABcB188cfc4dFcBda2DdcEa090Bb3291769BA5"
+	const SRCSwap_addr = SRCSwap_address
 	const SRCSwap_abi = [
 		{
 			"inputs": [
