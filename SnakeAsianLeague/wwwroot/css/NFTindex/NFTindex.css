@@ -73,12 +73,12 @@
     text-underline-offset: 12px;
 }
 
-.NFTindex-title-02{
+.NFTindex-subtitle{
     /* font-family: Impact, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif; */
     color: #fff;
     font-size: 22px;
     text-align: center;
-    margin: 40px auto 10px;
+    margin: 40px auto 20px;
 }
 
 .NFTindex-text {
@@ -116,7 +116,7 @@
     .NFTindex-title {
         font-size: 26px;
     }
-    .NFTindex-title-02{
+    .NFTindex-subtitle{
         font-family: Impact, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
         color: #fff;
         font-size: 18px;

@@ -95,7 +95,7 @@
 
 .SRC-row {
     /* border:  1px solid yellow; */
-    max-width: 1200px;
+    max-width: 1400px;
     width: 90%;
     /* height: 357px; */
     position: relative;
@@ -117,7 +117,7 @@
     background-size: cover;
     align-self: flex-start;
     box-shadow: 4px 0px 10px 6px rgb(0 0 0 / 30%);
-
+    padding-left: 200px;
 }
 
 .excharge {
@@ -129,7 +129,7 @@
     background-size: cover;
     align-self: flex-end;
     box-shadow: -4px 0px 10px 6px rgb(0 0 0 / 30%);
-
+    padding-right: 100px;
     /* justify-content: flex-start; */
 }
 
@@ -280,7 +280,17 @@
     transition: all .2s ease-in-out;
     transform: translateY(-2px) scale(1.01);
 }
-
+@media all and (max-width: 1920px) {
+    .SRC-row{
+        max-width: 1200px;
+    }
+    .recharge{
+        padding-left: unset;
+    }
+    .excharge{
+        padding-right: unset;
+    }
+}
 @media all and (max-width: 1400px) {
     .SRC-button {
         width: 185px;

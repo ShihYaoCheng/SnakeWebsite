@@ -105,8 +105,18 @@
 
   "gameplay":{
       "title":"遊戲玩法",
-      "title-02":"經典個人奪寶戰",
-      "text":"自古延續下來的蛇騎士戰鬥規則, 經典的自由混戰, 在全伊薩世界都通用, 以爭奪寶石為主, 只要堅持到最後, 就可贏得搶掠來的寶石收益, 參戰者需各憑本事作戰, 尤其在深淵探索時, 有各種的野怪, 魔物, 流浪騎士, 地頭蛇皇等加入爭奪, 是最危險也是最高收益的戰鬥"
-  }
+      
+      "subtitle-01":"經典個人奪寶戰",
+      "text-01":"自古延續下來的蛇騎士戰鬥規則, 經典的自由混戰, 在全伊薩世界都通用, 以爭奪寶石為主, 只要堅持到最後, 就可贏得搶掠來的寶石收益, 參戰者需各憑本事作戰, 尤其在深淵探索時, 有各種的野怪, 魔物, 流浪騎士, 地頭蛇皇等加入爭奪, 是最危險也是最高收益的戰鬥",
+      "solo-01":"1V7 混戰",
+      "solo-02":"寶石對賭",
+      "solo-03":"復活增益",
+
+      "subtitle-02":"電競隊伍死鬥賽",
+      "text-02":"The Itza people have passed down these basic combat rules from ancient times. If you battle till the end, you can win the gold from your opponents. The combat may be attended by wild monsters, monsters, and wandering knights from the abyss, making it the most dangerous and valuable conflict to engage in.",
+      "team-01":"4V4 混戰",
+      "team-02":"職業電競大賽",
+      "team-03":"飛船輔助"
+    }
 
 }

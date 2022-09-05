@@ -105,7 +105,17 @@
 
     "gameplay":{
         "title":"Gameplay",
-        "title-02":"Classic Solo Treasure Hunt",
-        "text":"The Itza people have passed down these basic combat rules from ancient times. If you battle till the end, you can win the gold from your opponents. The combat may be attended by wild monsters, monsters, and wandering knights from the abyss, making it the most dangerous and valuable conflict to engage in."
+
+        "subtitle-01":"Classic Solo Treasure Hunt",
+        "text-01":"The Itza people have passed down these basic combat rules from ancient times. If you battle till the end, you can win the gold from your opponents. The combat may be attended by wild monsters, monsters, and wandering knights from the abyss, making it the most dangerous and valuable conflict to engage in.",
+        "solo-01":"1V7 Battle",
+        "solo-02":"Bet-on the victory",
+        "solo-03":"Rebirth Buff",
+
+        "subtitle-02":"Squad Deathmatch",
+        "text-02":"The Itza people have passed down these basic combat rules from ancient times. If you battle till the end, you can win the gold from your opponents. The combat may be attended by wild monsters, monsters, and wandering knights from the abyss, making it the most dangerous and valuable conflict to engage in.",
+        "team-01":"4V4 Battle",
+        "team-02":"E-sport Competition",
+        "team-03":"Airship Support"
     }
 }
