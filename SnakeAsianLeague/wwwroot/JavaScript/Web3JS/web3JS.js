@@ -126,31 +126,6 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 			"type": "event"
 		},
 		{
-			"anonymous": false,
-			"inputs": [
-				{
-					"indexed": false,
-					"internalType": "address",
-					"name": "user",
-					"type": "address"
-				},
-				{
-					"indexed": false,
-					"internalType": "uint256",
-					"name": "amountOfUSDT",
-					"type": "uint256"
-				},
-				{
-					"indexed": false,
-					"internalType": "uint256",
-					"name": "amountOfSRC",
-					"type": "uint256"
-				}
-			],
-			"name": "SwapUSDTtoSRC",
-			"type": "event"
-		},
-		{
 			"stateMutability": "payable",
 			"type": "fallback"
 		},
@@ -209,12 +184,12 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 		{
 			"inputs": [
 				{
-					"internalType": "uint256",
-					"name": "newPrice",
-					"type": "uint256"
+					"internalType": "address",
+					"name": "newAddress",
+					"type": "address"
 				}
 			],
-			"name": "setSrcPerUSD",
+			"name": "setChainlinkPriceFeed",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
@@ -259,32 +234,6 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 			"type": "function"
 		},
 		{
-			"inputs": [],
-			"name": "srcPerUSD",
-			"outputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "srcPerUSDT",
-			"outputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
 			"inputs": [
 				{
 					"internalType": "uint256",
@@ -307,91 +256,15 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 			"inputs": [
 				{
 					"internalType": "uint256",
-					"name": "amountOfUSDT",
-					"type": "uint256"
-				}
-			],
-			"name": "swapUSDTtoSRC",
-			"outputs": [
-				{
-					"internalType": "uint256",
 					"name": "amountOfSRC",
 					"type": "uint256"
 				}
 			],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "amountOfSRC",
-					"type": "uint256"
-				}
-			],
-			"name": "test_swapSRCtoUSDT_A",
-			"outputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "amountOfSRC",
-					"type": "uint256"
-				}
-			],
-			"name": "test_swapSRCtoUSDT_B",
+			"name": "test_swapSRCtoUSDT",
 			"outputs": [
 				{
 					"internalType": "uint256",
 					"name": "currentAmountOfUSDT",
-					"type": "uint256"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "amountOfUSDT",
-					"type": "uint256"
-				}
-			],
-			"name": "test_swapUSDTtoSRC_A",
-			"outputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "amountOfUSDT",
-					"type": "uint256"
-				}
-			],
-			"name": "test_swapUSDTtoSRC_B",
-			"outputs": [
-				{
-					"internalType": "uint256",
-					"name": "amountOfSRC",
 					"type": "uint256"
 				}
 			],
@@ -500,6 +373,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 			"type": "receive"
 		}
 	]
+
 
 	const SRCSwap_dai_contract = new w3.eth.Contract(SRCSwap_abi, SRCSwap_addr);
 	console.log(SRCSwap_dai_contract.methods)
@@ -1141,6 +1015,11 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 					"internalType": "address",
 					"name": "usdtTokenAddress",
 					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "chainlinkPriceFeed",
+					"type": "address"
 				}
 			],
 			"stateMutability": "nonpayable",
@@ -1191,31 +1070,6 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 			"type": "event"
 		},
 		{
-			"anonymous": false,
-			"inputs": [
-				{
-					"indexed": false,
-					"internalType": "address",
-					"name": "user",
-					"type": "address"
-				},
-				{
-					"indexed": false,
-					"internalType": "uint256",
-					"name": "amountOfUSDT",
-					"type": "uint256"
-				},
-				{
-					"indexed": false,
-					"internalType": "uint256",
-					"name": "amountOfSRC",
-					"type": "uint256"
-				}
-			],
-			"name": "SwapUSDTtoSRC",
-			"type": "event"
-		},
-		{
 			"stateMutability": "payable",
 			"type": "fallback"
 		},
@@ -1247,6 +1101,19 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 		},
 		{
 			"inputs": [],
+			"name": "getChainlinkDescription",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "owner",
 			"outputs": [
 				{
@@ -1256,6 +1123,32 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 				}
 			],
 			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "newAddress",
+					"type": "address"
+				}
+			],
+			"name": "setChainlinkPriceFeed",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "newPrice",
+					"type": "uint256"
+				}
+			],
+			"name": "setUsdPerSRC",
+			"outputs": [],
+			"stateMutability": "nonpayable",
 			"type": "function"
 		},
 		{
@@ -1285,19 +1178,6 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 			"type": "function"
 		},
 		{
-			"inputs": [],
-			"name": "srcPerUSDT",
-			"outputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
 			"inputs": [
 				{
 					"internalType": "uint256",
@@ -1309,7 +1189,7 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 			"outputs": [
 				{
 					"internalType": "uint256",
-					"name": "amountOfUSDT",
+					"name": "currentAmountOfUSDT",
 					"type": "uint256"
 				}
 			],
@@ -1320,19 +1200,19 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 			"inputs": [
 				{
 					"internalType": "uint256",
-					"name": "amountOfUSDT",
-					"type": "uint256"
-				}
-			],
-			"name": "swapUSDTtoSRC",
-			"outputs": [
-				{
-					"internalType": "uint256",
 					"name": "amountOfSRC",
 					"type": "uint256"
 				}
 			],
-			"stateMutability": "nonpayable",
+			"name": "test_swapSRCtoUSDT",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "currentAmountOfUSDT",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
 			"type": "function"
 		},
 		{
@@ -1350,11 +1230,62 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 		},
 		{
 			"inputs": [],
+			"name": "usdPerSRC",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfUSDT",
+					"type": "uint256"
+				}
+			],
+			"name": "usdPerUSDT",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfUSD",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "usdtPerSRC",
 			"outputs": [
 				{
 					"internalType": "uint256",
 					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfUSD",
+					"type": "uint256"
+				}
+			],
+			"name": "usdtPerUSD",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "amountOfToken",
 					"type": "uint256"
 				}
 			],
@@ -1386,6 +1317,7 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 			"type": "receive"
 		}
 	]
+
 	
 
 	if (SwapToggle) {
@@ -1433,6 +1365,7 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 		}
 
 	} else {
+		/*
 		// USDT 轉 SRC  
 		SwapNumValue = USDTInput
 		let x = new BigNumber(parseInt(SwapNumValue));
@@ -1476,6 +1409,6 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 			alert("交易失敗");
 			$('.lockWindows')[0].style.display = 'none';
 		}
-
+		*/
 	}
 }

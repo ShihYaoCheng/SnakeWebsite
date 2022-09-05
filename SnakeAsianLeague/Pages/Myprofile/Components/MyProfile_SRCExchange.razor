@@ -231,7 +231,7 @@
     protected async Task confirm(){ 
         await JS.InvokeVoidAsync("web3JSConfirm",true,SRCInput,USDTInput,Configuration["USDT_token_addr"],Configuration["SRC_token_addr"],Configuration["SRCSwap_addr"]);
 
-        await getMetaMaskData();
+        getMetaMaskData();
         //強制渲染
         InvokeAsync(StateHasChanged);
     }
