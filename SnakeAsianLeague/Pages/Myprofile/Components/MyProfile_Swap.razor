@@ -1,8 +1,4 @@
-﻿@*已轉移至MyProfile_Swap頁面*@
-
-
-
-@using SnakeAsianLeague.Data.Services.BlockChainProcessor
+﻿@using SnakeAsianLeague.Data.Services.BlockChainProcessor
 @using SnakeAsianLeague.Pages.Myprofile.Components.Index_Components
 @inject IConfiguration Configuration
 @inject BlockChainProcessorSever linebot;
@@ -110,14 +106,10 @@
 
         @if (Value)
         {
-            @if (!BalanceShort)
-            {
-                <button id="SwapBTN" class="SwapBTN">Swap</button>
-            }
-            else
-            {
-                 <div class="SwapBTN SwapBTN-black">Swap</div>
-            }       
+          
+            <button id="SwapBTN" class="SwapBTN" hidden = "@BalanceShort">Swap</button>          
+            <div class="SwapBTN SwapBTN-black" hidden = "@(!(BalanceShort))">Swap</div>                   
+
             @if(!(netWorkRight)){<button class="greenBTN" @onclick="AddPolygon">Switch to @netWorkName </button>} 
         }
         else
@@ -220,7 +212,8 @@
         {
             await getMetaMaskData();
             netWorkName = Configuration["chainName"];
-     
+            
+         
             if (loading == true)
             {
                  loading = false;
@@ -234,8 +227,8 @@
 
 
     protected async Task confirm(){ 
-        await JS.InvokeVoidAsync("web3JSConfirm",true,SRCInput,USDTInput,Configuration["USDT_token_addr"],Configuration["SRC_token_addr"],Configuration["SRCSwap_addr"],Configuration["ERC20_abi"],Configuration["SRCSwap_abi"]);
-        
+        await JS.InvokeVoidAsync("web3JSConfirm",true,SRCInput,USDTInput,Configuration["USDT_token_addr"],Configuration["SRC_token_addr"],Configuration["SRCSwap_addr"]  );
+
         getMetaMaskData();
         //強制渲染
         InvokeAsync(StateHasChanged);
@@ -277,7 +270,7 @@
 
     public async Task  getMetaMaskData()
     {     
-        web3jsData = await JS.InvokeAsync<string[]>("web3JS" ,Configuration["chainId"] ,Configuration["USDT_token_addr"],Configuration["SRC_token_addr"],Configuration["SRCSwap_addr"],Configuration["ERC20_abi"],Configuration["SRCSwap_abi"]  );
+        web3jsData = await JS.InvokeAsync<string[]>("web3JS" ,Configuration["chainId"] ,Configuration["USDT_token_addr"],Configuration["SRC_token_addr"],Configuration["SRCSwap_addr"]  );
         SwapRate = Double.Parse(web3jsData[2]) ;
         SRCTotal = Double.Parse(web3jsData[0]) ;
         USDTTotal = Double.Parse(web3jsData[1]) ;
