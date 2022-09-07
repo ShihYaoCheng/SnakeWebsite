@@ -489,7 +489,7 @@
 
 #SRC-banner-magnifier {
     /* border: 10px solid red; */
-    animation: SRC-magnifier 40s linear infinite;
+    animation: SRC-magnifier 30s linear infinite;
     /* transition:  all 15s cubic-bezier(.17, .86, .73, .14); */
 
 }
