@@ -1,5 +1,11 @@
 ﻿@inject IJSRuntime JS
 @using SnakeAsianLeague.Data.Entity.View
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.Metamask
+@using RestSharp;
+
+@inject AppState AppState
+
 <head>
     <link href="css/MyProfile/coinExchange.css" rel="stylesheet" />
 </head>
@@ -47,31 +53,68 @@
         <p class="increaseCoin" id="gSRCincrease"> </p>  
       
        <div class="coinEchange-BtnZone">
-           @*<button id="coinEchangeBtn" class="coinEchange-ExchangeBtn">Exchange</button>*@
+           <button id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
           
        </div>
     </div>
 
 </div>
 @code {
+    //private readonly RestRequest test2 = new RestRequest("BackEnd/Accounts", Method.GET);
 
     [Parameter]
     public ExchangeCoin? Value { get; set; }
 
     private IJSObjectReference? coinEchangeJS;
+    Double difference=0;
+    private MetamaskTransfer metamaskTransfer = new MetamaskTransfer();
+
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/InventoryAndMarketPlace/coinEchange.js");
+            @*
+            var request = new RestRequest(test2.Resource, test2.Method);
+            Console.Write(request);*@
+            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
             await coinEchangeJS.InvokeVoidAsync("coinEchange" ,".ExchangeBtn");
+
         }
     }
 
     public void coinRange  (ChangeEventArgs value)
     {
+        difference= Int32.Parse(value.Value.ToString());
         Value.gNumberChange = Value.gNumber- Int32.Parse(value.Value.ToString());
         Value.tokenNumberChange = Value.tokenNumber + Int32.Parse(value.Value.ToString());
     }
 
+    bool transactionResult = false;
+    protected  async void coinEchangeBtn()
+    {
+        if (difference < 0)
+        {
+            await metamaskTransfer.getSRCtoDB(AppState.LoginStatus.userID);
+     
+            @*鍊換game*@
+            transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1);
+            if (transactionResult)
+            {
+                     await metamaskTransfer.SRCTransferToMetaMask(AppState.LoginStatus.userID, difference *-1);
+            }
+       
+         
+
+
+        }
+        else
+        {
+            @*game換鍊*@
+        }
+
+        
+
+    }
 }
+
