@@ -48,5 +48,10 @@
         public bool isNFT { get; set; }
 
 
+        /// <summary>
+        /// 遊戲中是否開放
+        /// </summary>
+        public bool IsAvailableInGame { get; set; }
+
     }
 }

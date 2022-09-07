@@ -290,35 +290,26 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <returns></returns>
         private async Task<List<RiderUnit>> Get_NFT_RiderByUserID(string UserID)
         {
-            RestRequest request = new RestRequest($"Unit/Checklist?UserID={UserID}");
+            string URL = "/Unit/CheckForBackEnd";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("UserID", UserID);
             request.AddHeader("Authorization", Authenticate());
 
-            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
-
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 RiderList lists = JsonSerializer.Deserialize<RiderList>(restResponse.Content) ?? new RiderList();
-                
+
                 //自有
-                List<RiderUnit>  result  = lists.selfUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
+                List<RiderUnit> result = lists.selfUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
 
                 //租任
                 //List<RiderUnit> result = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
-
-                /* 20220728假資料
-                 * by chenyuwei
-                 */
-                double total = 0;
-                foreach (RiderUnit item in result)
-                {
-                    total = total + 0.2;
-                    item.totalRevenue = 10 + total;
-                }
-
-
+              
                 return result;
             }
             return new List<RiderUnit>();
+
         }
 
         /// <summary>
@@ -351,20 +342,21 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
             double result =  NFTDataList.Where(m=>m.TokenID == ppsr).First().totalRevenue;
             NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue = 0;
-            return Math.Round(result, 3, MidpointRounding.AwayFromZero); 
-
-
+            return Math.Round(result, 3, MidpointRounding.AwayFromZero);
+            /* 20220907 API 串接完成
+             * by chenyuwei
+             */
+            //bool result = false;
             //ppsr = string.Format("#{0}", ppsr);
             //ppsr = ppsr.Replace("#", "%23");
-            //RestRequest request = new RestRequest($"NFT/ReceiveRentByUnit?userId={userId}&ppsr={ppsr}");
+            //string URL = "/NFT/ReceiveRentByUnit";
+            //var request = new RestRequest(URL, Method.GET);
+            //request.AddQueryParameter("UserID", userId);
+            //request.AddQueryParameter("ppsr", ppsr);
             //request.AddHeader("Authorization", Authenticate());
-            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
-            //double result = 0;
-            //if (restResponse.StatusCode == HttpStatusCode.OK)
-            //{
-            //    result = Convert.ToDouble( JsonSerializer.Deserialize<string>(restResponse.Content) ?? "0");
-            //    return result;
-            //}
+
+            //IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            //result = restResponse.StatusCode == HttpStatusCode.OK            
             //return result;
         }
 
@@ -391,22 +383,25 @@ namespace SnakeAsianLeague.Data.Services.Personal
             return Math.Round(result, 3, MidpointRounding.AwayFromZero);
 
 
-            //RestRequest request = new RestRequest($"/NFT/ReceiveRent?userId={userId}");
+            /* 20220907 API 串接完成
+            * by chenyuwei
+            */
+            //bool result = false;
+            //ppsr = string.Format("#{0}", ppsr);
+            //ppsr = ppsr.Replace("#", "%23");
+            //string URL = "/NFT/ReceiveRent";
+            //var request = new RestRequest(URL, Method.GET);
+            //request.AddQueryParameter("UserID", userId);
             //request.AddHeader("Authorization", Authenticate());
-            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
-            //double result = 0;
 
-            //if (restResponse.StatusCode == HttpStatusCode.OK)
-            //{
-            //    result = Convert.ToDouble(JsonSerializer.Deserialize<string>(restResponse.Content) ?? "0");
-            //    return result;
-            //}
+            //IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            //result = restResponse.StatusCode == HttpStatusCode.OK            
             //return result;
 
         }
 
         /// <summary>
-        /// 一件領取租金
+        /// 計算領取租金
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>

@@ -151,23 +151,28 @@ namespace SnakeAsianLeague.Data.Services.Backstage
         public async Task<int> Get_NFT_Rider_Count(string UserID)
         {
             int result = 0;
-            RestRequest request = new RestRequest($"Unit/Checklist?UserID={UserID}");
+            string URL = "/Unit/CheckForBackEnd";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("UserID", UserID);
             request.AddHeader("Authorization", Authenticate());
 
-            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
-
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 RiderList lists = JsonSerializer.Deserialize<RiderList>(restResponse.Content) ?? new RiderList();
 
                 //自有
-                result  = lists.selfUnits.Where(m => m.isNFT == true).ToList().Count;
+                //List<RiderUnit> result = lists.selfUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
 
                 //租任
-                //result = lists.leaseUnits.Where(m => m.isNFT == true).ToList().Count;
+                //List<RiderUnit> result = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
+
+                //自有
+                result = lists.selfUnits.Where(m => m.isNFT == true).ToList().Count;
                 return result;
             }
             return result;
+
         }
 
 
