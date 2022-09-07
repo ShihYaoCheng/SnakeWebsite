@@ -1,4 +1,69 @@
-﻿
+﻿//新增鍊
+window.AddPolygonID = async function (chainId, chainName, recUrls) {
+    console.log(chainId, chainName, recUrls)
+    try {
+        await window.ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: chainId }],
+        });
+    } catch (switchError) {
+        if (switchError.code === 4902) {
+            try {
+                await window.ethereum.request({
+                    method: 'wallet_addEthereumChain',
+                    params: [
+                        {
+                            chainId: chainId,
+                            chainName: chainName,
+                            rpcUrls: [recUrls]
+                        },
+                    ],
+                });
+            } catch (addError) {
+
+            }
+        }
+
+    }
+
+    /*
+
+    export function AddPolygonID() {
+        console.log(123)
+        try {
+            await window.ethereum.request({
+                method: 'wallet_switchEthereumChain',
+                params: [{ chainId: '0x89' }],
+            });
+        } catch (switchError) {
+            if (switchError.code === 4902) {
+                try {
+                    await window.ethereum.request({
+                        method: 'wallet_addEthereumChain',
+                        params: [
+                            {
+                                chainId: '0x89',
+                                chainName: 'Polygon',
+                                rpcUrls: ['https://polygon-rpc.com'] 
+                            },
+                        ],
+                    });
+                } catch (addError) {
+
+                }
+            }
+
+        }
+    }
+*/
+    window.ethereum.on('chainChanged', (chainId) => {
+        console.log(chainId) // 0x38 if it's BSC
+    })
+
+}
+
+//新增鍊上貨幣
+//USDT
 window.AddPolygonUSDT = async function () {
     tokenAddress = '0xD92E713d051C37EbB2561803a3b5FBAbc4962431';
     tokenSymbol = 'TUSDT';
@@ -34,11 +99,9 @@ window.AddPolygonUSDT = async function () {
 
 }
 
-
-
-
+//SRC
 window.AddPolygonSRC = async function () {
-    
+
     tokenAddress = '0xaBF22878C673C20865D9A1247c86FDe7B1165B7e';
     tokenSymbol = 'SRC';
     tokenDecimals = 18;

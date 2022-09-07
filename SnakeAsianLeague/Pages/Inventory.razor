@@ -11,6 +11,7 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject InventoryService InventoryService
 @inject AppState AppState
+@inject IConfiguration Configuration
 
 @implements IDisposable
 
@@ -92,7 +93,7 @@
                                         <div class="MyCerrency-Detail">
                                             <p class="MyCerrency-Name">SRC TOKEN</p>
                              
-                                            <p class="MyCerrency-Amount">0</p>
+                                            <p class="MyCerrency-Amount">@tokenSRC</p>
                                         </div>
                                     </div>
 
@@ -715,26 +716,49 @@
     private double CollectBalance  = 600; 
 
     private IJSObjectReference? RentJumpJS;
-
+    private IJSObjectReference? coinEchangeJS;
     private int PPSRsCount;
 
     private double TotalSRCCount = 0;
 
     //騎士幣兌換
-    private ExchangeCoin CoinData = new ExchangeCoin( "ERNC" ,0,0);
+    Double gSRC =0 ;
+    Double tokenSRC = 0 ;
 
-    private void  ExchangeBtn(bool check )
+    Double gERNC = 0;
+    Double tokenERNC = 0;
+
+    string[] JSCoinData;
+    private ExchangeCoin CoinData = new ExchangeCoin( "ERNC" ,0,0 );
+
+    private async Task ExchangeBtn(bool check )
     {
-       
+
         if (check)
         {
-          CoinData.changeData("ERNC",100,100);  
+            CoinData.changeData("ERNC",100,100);  
         } else
         {
-          CoinData.changeData("SRC",50,50);    
+            CoinData.changeData("SRC",105,tokenSRC );    
         }
-   
+
     }
+
+    private async Task getCoinData()
+    {
+        JSCoinData = await coinEchangeJS.InvokeAsync<string[]>("CoinexchangeData" , Configuration["SRC_token_addr"]);
+        if (tokenSRC != Double.Parse(JSCoinData[0]))
+        {
+            tokenSRC =Double.Parse(JSCoinData[0]);
+
+            //強制渲染
+            InvokeAsync(StateHasChanged);
+        }
+
+        
+    }
+    //...騎士幣兌換
+
     /// <summary>
     /// 稀有度
     /// </summary>
@@ -824,8 +848,10 @@
 
             await JS.InvokeVoidAsync("showTag");   
 
-            RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/InventoryAndMarketPlace/RentJump.js");
-           
+            RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/RentJump.js");
+
+            coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
+            getCoinData();
         }
     }
 

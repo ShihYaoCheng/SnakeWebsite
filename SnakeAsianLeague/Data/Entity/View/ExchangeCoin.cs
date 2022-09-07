@@ -15,6 +15,10 @@ namespace SnakeAsianLeague.Data.Entity.View
         public double gNumberChange { get; set; }
         public double tokenNumberChange { get; set; }
 
+        
+  
+
+
         public ExchangeCoin(string Title, double gCoin, double tokenCoin)
         {
             imgUrl = Title;
@@ -24,6 +28,7 @@ namespace SnakeAsianLeague.Data.Entity.View
             tokenNumber = tokenCoin;
             gNumberChange = gCoin;
             tokenNumberChange = tokenCoin;
+           
         }
         public void changeData(string Title, double gCoin, double tokenCoin)
         {
@@ -34,6 +39,7 @@ namespace SnakeAsianLeague.Data.Entity.View
             tokenNumber = tokenCoin;
             gNumberChange = gCoin;
             tokenNumberChange = tokenCoin;
+           
         }
     }
 }
