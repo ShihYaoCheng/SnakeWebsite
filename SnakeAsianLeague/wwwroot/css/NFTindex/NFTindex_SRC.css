@@ -401,6 +401,9 @@
 }
 
 @media all and (max-width: 450px) {
+    .SRC-row-block{
+        padding-bottom: 60px;
+    }
     #SRC-Origin {
         padding: 20px 0 25px;
     }
