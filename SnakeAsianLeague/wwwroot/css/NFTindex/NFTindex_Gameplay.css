@@ -45,7 +45,7 @@
 
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.75), inset 0px 2px 0 0 rgba(255, 255, 255, 0.1);
     background-image: linear-gradient(to bottom, hsla(180, 30%, 42%, 0.25), rgba(39, 97, 111, 0));
-    padding: 45px 10px 55px;
+    padding: 50px 10px 55px;
     margin-bottom: 80px;
 
     position: relative;
