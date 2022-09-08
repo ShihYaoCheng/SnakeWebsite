@@ -443,7 +443,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         {
 
             decimal result = 0;
-            string URL = "/Unit/NFTCurrency1";
+            string URL = "/NFT/NFTCurrency1";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("userId", UserID);
             request.AddHeader("Authorization", Authenticate());
@@ -452,7 +452,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 gSRCCurrency data = JsonSerializer.Deserialize<gSRCCurrency>(restResponse.Content) ?? new gSRCCurrency();
-                result = data.nftCurrency1;
+                result = decimal.Round( data.nftCurrency1 ,3);
             }
             return result;
 
