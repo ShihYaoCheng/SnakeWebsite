@@ -743,7 +743,7 @@
 
 
 
-}
+
 
 
 <style>
@@ -814,7 +814,7 @@
         PageNumber = 1;
         List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize);
         NFTDataList = pagelist;
-         PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
+        PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
 
         StateHasChanged();
     }
