@@ -1,0 +1,80 @@
+﻿@using SnakeAsianLeague.Pages.Teach.Components.All_components
+@inject IJSRuntime JS
+@inject IConfiguration Configuration
+
+<head>
+   @* <link href="/css/Teach/CreateMetamask.css" rel="stylesheet" />*@
+     <link href="/css/Teach/MetamaskAndOpenSea.css" rel="stylesheet" />
+    
+</head>
+
+<Main_Title />
+<img class="LOGO-avatar" src ="/images/Teach/nav/STEP-1-LOGO.png" />
+<div class="CreateMetamask-Container">
+    <div class="title-Zone">
+        Download & Sign Up
+    </div>
+    <div class="button-Zone">
+        @* <p>
+             Dwonload Metamask
+        </p> *@
+        <a class="yellow-button" href="https://metamask.app.link/dapp/"  target="_blank">
+            @* <button onclick="location.href='https://metamask.app.link/dapp/';"> *@
+            <button>        
+                @* <div class="icon-container">
+                    <img src="/images/Teach/icon/CHrome_ICON.png"/>
+                </div> *@
+                <div class="icon-text">
+                    Metamask
+                </div>
+            </button>
+        </a>
+
+        <a class="yellow-button"   target="_blank">
+            @* <button onclick="location.href='https://metamask.app.link/dapp/';"> *@
+            <button @onclick ="AddPolygon">        
+                @* <div class="icon-container">
+                    <img src="/images/Teach/icon/CHrome_ICON.png"/>
+                </div> *@
+                <div class="icon-text">
+                    Add Polygon
+                </div>
+            </button>
+        </a>
+
+
+        @* <button>
+
+            <div class="icon-container">
+                <img src="/images/Teach/icon/FireFOX_LOGO.png"/>
+            </div>
+            <div class="icon-text">
+                FireFox
+            </div>
+        </button>
+        <p>
+             Mobile App
+        </p>
+        <button>
+            <div class="icon-container">
+                <img src="/images/Teach/icon/GooglePLAY_ICON.png"/>
+            </div>
+            <div class="icon-text">
+                Google Play
+            </div>
+        </button>
+        <button>
+            <div class="icon-container">
+                <img src="/images/Teach/icon/Appstore_LOGO.png"/>
+            </div>
+            <div class="icon-text">
+                App Store
+            </div>
+        </button> *@
+    </div>
+</div>
+@code {
+    protected  async Task AddPolygon()    {   
+        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] );       
+    }
+}

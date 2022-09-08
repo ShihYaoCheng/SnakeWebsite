@@ -1,0 +1,120 @@
+﻿@inject IJSRuntime JS
+@using SnakeAsianLeague.Data.Entity.View
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.Metamask
+@using RestSharp;
+
+@inject AppState AppState
+
+<head>
+    <link href="css/MyProfile/coinExchange.css" rel="stylesheet" />
+</head>
+
+<div class="coinEchange-container">
+    <div class="coinEchange">
+         <button id="coinEchangeCancel" class="coinEchange-CancelBtn"></button>
+
+        <div class="coinNum-Container">
+             <div class="coinNum-beteen">
+                 <div class="coinTop">
+                    <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">
+                    <p class="coinTitle">@Value.gTitle</p>
+                    <p class="coinTotalNum">@Value.gNumber</p>
+                 </div>
+
+                 <p class="replacedCoin">
+                    @Value.gNumberChange
+                 </p>
+                 <output class="increaseCoin" id="GSRCincrease">
+                    0
+                 </output>  
+             </div>
+             <div class="coinNum-mid">
+                 <div class="coinTop doubleArrow">
+                      <img src="/images/Myprofile/doubleArrow.png"/>
+                 </div>
+                
+             </div>
+              <div class="coinNum-beteen">
+                 <div class="coinTop">
+                    <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">                                     
+                    <p class="coinTitle">@Value.tokenTitle</p>
+                    <p class="coinTotalNum">@Value.tokenNumber</p>
+                 </div>
+                 <p class="replacedCoin">
+                     @Value.tokenNumberChange
+                 </p>                  
+                 <output class="increaseCoin"  id="SRCincrease">
+                    0
+                 </output>   
+             </div>
+        </div>
+        <input class="coin-range" type="range" @onchange="(ChangeEventArgs e)=> coinRange(e)" min="-@Value.gNumber" max="@Value.tokenNumber"  oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
+        <p class="increaseCoin" id="gSRCincrease"> </p>  
+      
+       <div class="coinEchange-BtnZone">
+           <button id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
+          
+       </div>
+    </div>
+
+</div>
+@code {
+    //private readonly RestRequest test2 = new RestRequest("BackEnd/Accounts", Method.GET);
+
+    [Parameter]
+    public ExchangeCoin? Value { get; set; }
+
+    private IJSObjectReference? coinEchangeJS;
+    Double difference=0;
+    private MetamaskTransfer metamaskTransfer = new MetamaskTransfer();
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            @*
+            var request = new RestRequest(test2.Resource, test2.Method);
+            Console.Write(request);*@
+            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
+            await coinEchangeJS.InvokeVoidAsync("coinEchange" ,".ExchangeBtn");
+
+        }
+    }
+
+    public void coinRange  (ChangeEventArgs value)
+    {
+        difference= Int32.Parse(value.Value.ToString());
+        Value.gNumberChange = Value.gNumber- Int32.Parse(value.Value.ToString());
+        Value.tokenNumberChange = Value.tokenNumber + Int32.Parse(value.Value.ToString());
+    }
+
+    bool transactionResult = false;
+    protected  async void coinEchangeBtn()
+    {
+        if (difference < 0)
+        {
+       
+     
+            @*鍊換game*@
+            transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1);
+            if (transactionResult)
+            {
+                     await metamaskTransfer.SRCTransferToMetaMask(AppState.LoginStatus.userID, difference *-1);
+            }
+       
+         
+
+
+        }
+        else
+        {
+            @*game換鍊*@
+        }
+
+        
+
+    }
+}
+

@@ -1,16 +1,17 @@
+####################################################
 # https://github.com/dotnet/dotnet-docker/issues/2375
-# https://hub.docker.com/_/microsoft-dotnet-sdk
 # best practice: Use Small-Sized Official Images(alpine)
-FROM mcr.microsoft.com/dotnet/sdk:6.0.302-alpine3.16-amd64 AS build-env
+# https://hub.docker.com/_/microsoft-dotnet-sdk
+FROM mcr.microsoft.com/dotnet/sdk:6.0.400-alpine3.16-amd64 AS build-env
 WORKDIR /source
-COPY ./ .
+COPY ./SnakeAsianLeague .
 RUN dotnet restore
 RUN dotnet publish -c Release -o /publish
 
 ####################################################
-# https://hub.docker.com/_/microsoft-dotnet-aspnet
 # best practice: Use Small-Sized Official Images(alpine)
-FROM mcr.microsoft.com/dotnet/aspnet:6.0.7-alpine3.16-amd64
+# https://hub.docker.com/_/microsoft-dotnet-aspnet
+FROM mcr.microsoft.com/dotnet/aspnet:6.0.8-alpine3.16-amd64
 
 # Install timezone data.
 RUN apk update && apk add tzdata

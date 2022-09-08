@@ -1,0 +1,37 @@
+﻿@using SnakeAsianLeague.Data.Entity.View
+<head>
+    <link href="/css/Teach/TeachNavBar/TeachNavBar_Square.css" rel="stylesheet" />
+</head>
+ 
+<div class="nav-square"  >
+    <a href="/GettingStarted/@Value.router" @onclick="@(() => squareOnclick(Value.router))">      
+        @if (@Value.shine)
+        {
+            <img class ="square-Marquee" src="/images/Teach/nav/Marquee.png"/>
+        }
+        <img class ="square-BG" src="/images/Teach/nav/navImgBG.png"/>
+        <div class ="number-container">
+            <p>@Value.id</p>
+        </div>
+       
+        <img  class="square_LOGO" src="/images/Teach/nav/STEP-@Value.id-LOGO.png" />
+    </a>
+</div>
+@code {
+
+
+    [Parameter] public TeachAllData? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SquareClick { get; set;}
+
+    private void squareOnclick(string idd)
+    {
+        SquareClick.InvokeAsync(idd);
+    }
+   
+
+  
+
+
+}

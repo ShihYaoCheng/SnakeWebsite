@@ -1,0 +1,167 @@
+.ERNC_Table-Block{
+    width: 100%;
+    padding: 60px 0 150px;
+}
+
+table.ERNC_Table{
+    
+    max-width: 1200px;
+    width: 95%;
+    margin: 0px auto;
+    text-align: center;
+    color: #fff;
+    background-color: #00000036;
+    box-shadow: 3px 3px 10px 0px #17171736;
+    font-size: 22px;
+    letter-spacing: 0.8px;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+}
+tbody{
+    line-height: 22px;
+}
+.ERNC_Table thead{
+    background-color: #906857;
+}
+.ERNC_Table thead th{
+    padding: 5px 0;
+}
+
+.ERNC_Table tbody td{
+    padding: 20px 10px;
+}
+.tbody-tr{
+    position: relative;
+}
+.tbody-tr::after{
+    content:"";
+    border-bottom: 2px solid white;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 0;
+    width: 94%;
+}
+
+
+.th-Type{
+    position: relative;
+}
+.th-Type::after{
+    content:"";
+    border-right: 2px solid white;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0;
+    height: 65%;
+    z-index: 5;
+}
+.th-Amount{
+    position: relative;
+}
+.th-Amount::after{
+    content:"";
+    border-right: 2px solid white;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0;
+    height: 65%;
+    z-index: 5;
+}
+.th-Unlock{
+
+}
+
+.td-Type{
+    width: 33%;
+    /* text-align: left;
+    padding-left: 120px !important; */
+
+}
+.td-Amount{
+    width: 27%;
+    text-align: left;
+    padding-left: 6.5% !important;
+}
+
+ .td-Unlock{
+    width: 40%;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 5% !important;
+}
+
+.td-Total{
+    font-size: 26px;
+    font-weight: 600;
+    padding: 40px 0 !important;
+}
+
+@media all and (max-width: 1200px){
+    table.ERNC_Table{
+        font-size: 16px;
+    }
+    .td-Unlock {
+        font-size: 14px;
+    }
+    .td-Total {
+        font-size: 20px;
+        padding: 35px 0 !important;
+    }
+    .td-Type {
+        width: 26%;
+    }
+    .td-Amount{
+        width: 29%;
+    }
+    .td-Unlock{
+        width: 45%;
+    }
+    .tbody-tr::after{
+        border-bottom: 1.8px solid white;
+    }
+    .th-Type::after
+    {
+        border-bottom: 1.8px solid white;
+    }
+    .th-Amount::after
+    {
+        border-bottom: 1.8px solid white;
+    }
+}
+
+@media all and (max-width: 800px){
+    table.ERNC_Table{
+        font-size: 14px;
+        width: 98%;
+    }
+    .td-Amount{
+        padding-left: 3% !important;
+    }
+    .td-Unlock {
+        font-size: 12px;
+        padding-left: 4% !important;
+    }
+    .td-Total {
+        font-size: 18px;
+    }
+    .ERNC_Table tbody td {
+        padding: 18px 10px;
+    }
+    .td-Total{
+        padding: 30px 0 !important;
+    }
+}
+@media all and (max-width: 600px){
+    .ERNC_Table-Block{
+        width: 100%;
+        padding: 20px 0 150px;
+    }
+}
+@media all and (max-width: 400px){
+    .ERNC_Table-Block{
+        width: 100%;
+        padding: 0px 0 200px;
+    }
+}

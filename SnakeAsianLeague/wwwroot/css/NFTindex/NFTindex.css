@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap');
+
+/* nav 當頁顯示 */
+/* nav 當頁顯示 */
+#nav-snakeIndex>.nav-link {
+    background-color: #aad4cd;
+}
+
+#snakeIndex_hover_bottom {
+    position: absolute;
+    max-width: 300px;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -7px;
+    opacity: 1;
+    z-index: 0;
+    transition: all .3s ease-out;
+    pointer-events: none;
+}
+
+/* RWD NAV */
+@media all and (max-width: 1000px) {
+    #nav-snakeIndex {
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.NFTindex {
+    width: 100%;
+    background-color: #203240;
+}
+
+.NFTindex_BG {
+    width: 100%;
+    background-image: url("/images/NFTindex/NFTindex_Collect/NFTindexCollect_BG_04.png");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+
+@media all and (max-width: 1400px) {
+    .NFTindex_BG {
+        background-image: url("/images/NFTindex/NFTindex_Collect/BG-mobile.png");
+        background-position: top center;
+    }
+}
+
+.NFTindex_BG_diamond {
+    width: 100%;
+    background-image: url(/images/NFTindex/NFTindex_BG_diamond.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.NFTindex-Block-title {
+    width: 100%;
+    text-align: center;
+    margin: 0px auto 20px;
+}
+
+.NFTindex-title {
+    font-family: Impact, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+    color: #fff;
+    font-size: 36px;
+    /* font-weight: 600; */
+    text-align: center;
+    letter-spacing: 3px;
+    line-height: 40px;
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 12px;
+}
+
+.NFTindex-subtitle{
+    /* font-family: Impact, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif; */
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 22px;
+    text-align: center;
+    margin: 40px auto 20px;
+}
+
+.NFTindex-text {
+    width: 90%;
+    color: #ffffff;
+    max-width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 28px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+}
+
+
+@media all and (max-width: 800px) {
+    .NFTindex-Block-title {
+        margin: 0px auto 20px;
+    }
+
+    .NFTindex-title {
+        font-size: 30px;
+        text-decoration-thickness: 2px;
+    }
+    .NFTindex-text {
+        line-height: 24px;
+    }
+}
+
+@media all and (max-width: 450px) {
+    .NFTindex-Block-title {
+        margin: 0px auto 10px;
+    }
+
+    .NFTindex-title {
+        font-size: 26px;
+    }
+    .NFTindex-subtitle{
+        color: #fff;
+        font-size: 18px;
+    }
+    .NFTindex-text {
+        /* line-height: 22px; */
+        font-size: 14px;
+    }
+}

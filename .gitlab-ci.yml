@@ -144,7 +144,8 @@ Prod:
   variables:
     NEW_IMAGE_TAG: $CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
     PATH_FILENAME_VALUES: "./chart/values-$CI_COMMIT_BRANCH.yaml"
-    STATEMENT: "yq e '.image.name = \"asia.gcr.io/cqi-operation/sk-official-web\" | .image.tag = env(NEW_IMAGE_TAG)' -i ./chart/values-$CI_COMMIT_BRANCH.yaml"
+    SENTRY_VERSION: $CI_COMMIT_BRANCH
+    STATEMENT: "yq e '.image.name = \"asia.gcr.io/cqi-operation/sk-official-web\" | .image.tag = env(NEW_IMAGE_TAG) | .sentry.release = env(SENTRY_VERSION)' -i ./chart/values-$CI_COMMIT_BRANCH.yaml"
   rules:
     - if: $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION
 

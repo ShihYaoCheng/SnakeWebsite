@@ -1,0 +1,481 @@
+﻿@using SnakeAsianLeague.Shared.NavMenu_Component
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Entity
+@using System.Security.Claims
+
+@inject IJSRuntime JS
+@*@inject LoginService loginService*@
+@inject NavigationManager navigationManager
+@inject AppState AppState
+@inject IAuthService authService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@implements IDisposable
+
+
+<nav id="nav" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top" >
+    <div class="container" id="navContainer" @onclick="FooterContactHide">
+        
+        <div class="logo">
+
+            @* 冠名商LOGO *@
+            <div class="ACLnaming ACLnamingState">
+                <a href="https://bit.ly/3ls41hh" target="_blank">
+                    <img data-src="./images/Other/kimlan_LOGO.webp" src="./images/Other/kimlan_LOGO.webp" asp-page="/Index" id="kimlan-Logo">
+                </a>
+                <a href="https://bit.ly/3ls41hh" target="_blank">
+                    <img data-src="./images/Other/YOMI_LOGO.webp" src="./images/Other/YOMI_LOGO.webp" asp-page="/Index" id="YOMI-Logo">
+                </a>
+            </div>
+
+            <a id="PonPonSnake-Logo" href="">
+                @* data-i18n="[src]nav.snakelogo" *@
+                <img data-i18n="[src]nav.snakelogo" data-src="./images/Other/LOGO_WhiteOutline.png" src="./images/Other/LOGO_WhiteOutline.png" asp-page="/Index" >
+            </a>
+
+            @* MarketPlace *@
+            <a class="MarketPlaceButton" href="MarketPlace">
+                <img data-src="./images/\Myprofile/ICON_SHOP.webp" src="./images/\Myprofile/ICON_SHOP.webp" alt="">
+                <p>Marketplace</p>
+            </a>
+
+
+        </div>
+
+
+        <button class="navbar-toggler" @onclick="ToggleNavMenu" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="nav_ul" class="@NavMenuCssClass navbar-collapse d-sm-inline-flex flex-sm-row-reverse">
+            <ul class="navbar-nav flex-grow-1">
+
+                <div class="nav-li-particular">
+                    @* NAV 資產頁面選單 *@
+                    <li class="nav-item nav-others" id="">
+                        <div class="nav-link text-light nav-item_a others-flex" Match="NavLinkMatch.All">
+                            <p>Others</p>
+                            <img class="others_arrow" data-src="/images/Other/others_arrow.webp" src="/images/Other/others_arrow.webp" alt="">
+                        </div>
+                        
+                    
+                        <ul class="nav_ul_slide">
+                            <li id="nav_ACLIndexS2">
+                                <a href="" data-i18n="nav.Home">Home</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+
+                            <li id="nav_ERNC">
+                                <a href="ERNC" data-i18n="nav.ERNC">ERNC</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+                            
+                            <li id="nav_MarketPlace">
+                                <a href="MarketPlace" data-i18n="nav.Marketplace">Marketplace</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp"  src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+
+                            <li id="nav_Arena">
+                                <a href="ACLIndexS2" data-i18n="nav.LatestLeague">Latest League</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp"  src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+
+                            <li id="nav_GettingStarted">
+                                <a href="GettingStarted" data-i18n="nav.GettingStarted">Getting Started</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp"  src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+
+                            <li id="nav_News">
+                                <a href="https://ponponsnake.substack.com" data-i18n="nav.News" target="_blank">News</a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    @if( AppState.LoginStatus.IsLogin)
+                    {
+                        
+                        @* NAV 帳戶管理選單 *@
+                        <div class="Nav-AccountManagement">
+                            <div class="particular-AccountManagement">
+                                <span>Account<br>Management</span>
+                            </div>
+
+                            <li class="nav-item nav-personal" id="nav-myprofile">
+                                <a class="nav-link text-light" href="myprofile/index" data-i18n="[html]Sidebar.Account">Account</a>
+                                <img class="nav_hover_bottom" id="myprofile_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                            </li>
+                            <li class="nav-item nav-personal" id="nav-myMatch">
+                                <a class="nav-link text-light" href="myprofile/mymatch" data-i18n="[html]Sidebar.Esports">eSport</a>
+                                <img class="nav_hover_bottom" id="myMatch_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                            </li>
+                            <li class="nav-item nav-personal" id="nav-MyAwardNotice">
+                                <a class="nav-link text-light" href="myprofile/myawardnotice" data-i18n="[html]Sidebar.Reward">Reward</a>
+                                <img class="nav_hover_bottom" id="MyAwardNotice_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                            </li>
+                            <li class="nav-item nav-personal" id="nav-Inventory" hidden="@(false)">
+                                <a class="nav-link text-light" href="myprofile/inventory" data-i18n="[html]Sidebar.Inventory">Inventory</a>
+                                <img class="nav_hover_bottom" id="Inventory_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                            </li>
+                             <li class="nav-item nav-personal" id="nav-swapsrc" >
+                                <a class="nav-link text-light" href="myprofile/swapsrc" data-i18n="[html]Sidebar.Swap">Swap</a>
+                                <img class="nav_hover_bottom" id="Swapsrc_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                            </li>
+                        </div>
+                        
+                    }
+                    
+
+                </div>
+
+
+                <div class="nav-li-normal">
+
+                    <li class="nav-item" id="nav-snakeIndex">
+                        @* <div class="nav-link text-light nav-item_a"  data-i18n="nav.Home" Match="NavLinkMatch.All">Home</div> *@
+                        <a class="nav-link text-light" href="" data-i18n="nav.Home" Match="NavLinkMatch.All">Home</a>
+                        <img class="nav_hover_bottom" id="snakeIndex_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                        @* <div class="slide_button">
+                            <img data-src="./images/Other/chevron-down.webp" src="./images/Other/chevron-down.webp"alt="">
+                        </div> *@
+                    
+                        <ul class="nav_ul_slide" hidden="@(true)">
+                            <li>
+                                <a href="" data-i18n="nav.Home">Home</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+
+                            <li>
+                                <a href="#character" data-i18n="nav.Knight">Characters</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+
+                            <li id="nav_knight_adventure">
+                                <a href="#knight_adventure" data-i18n="nav.Adventure">Adventure</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+                            
+                            <li id="nav_video05">
+                                <a href="#video05" data-i18n="nav.Video">Gameplay Clips</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+
+                            <li id="nav_contact06">
+                                <a href="#contact06" data-i18n="nav.ContactUs">Contact Us</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+
+                            <li id="nav_Exhibition">
+                                <a href="Exhibition" data-i18n="nav.Exhibition">Exhibition</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+
+                            <li><a href="http://34.81.125.231/mycard" target="_blank">MyCard</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item" id="nav-ERNC">
+                        <a class="nav-link text-light" href="ERNC" data-i18n="nav.ERNC">ERNC</a>
+                        <img class="nav_hover_bottom" id="ERNC_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                    </li>
+
+                    <li class="nav-item" id="nav-MarketPlace">
+                        <a class="nav-link text-light" href="MarketPlace" data-i18n="nav.Marketplace">Marketplace</a>
+                        <img class="nav_hover_bottom" id="MarketPlace_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                    </li>
+
+                    @* 聯賽 *@
+                    <li class="nav-item" id="nav-Arena">
+                        <div class="nav-link text-light nav-item_a"  data-i18n="nav.Arena" Match="NavLinkMatch.All">Arena</div>
+                        <img class="nav_hover_bottom" id="Arena_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                        <div class="slide_button">
+                            <img data-src="./images/Other/chevron-down.webp" src="./images/Other/chevron-down.webp" alt="">
+                        </div>
+                    
+                        <ul class="nav_ul_slide">
+                            <li id="nav_ACLIndexS2">
+                                <a href="ACLIndexS2" data-i18n="nav.AsiaLeague">Asia League</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+
+
+                            <li id="nav_LunarNewYear">
+                                <a href="LunarNewYear#FestivalNavbar" data-i18n="nav.FestivalLeague">Festival League</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item" id="nav-GettingStarted">
+                        <a class="nav-link text-light" href="GettingStarted" data-i18n="nav.GettingStarted">Getting Started</a>
+                        <img class="nav_hover_bottom" id="GettingStarted_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                    </li>
+
+                    <li class="nav-item" id="nav-News">
+                        <a class="nav-link text-light" href="https://ponponsnake.substack.com" data-i18n="nav.News" target="_blank">News</a>
+                        @* <img class="nav_hover_bottom" id="News_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt=""> *@
+                    </li>
+                </div>
+
+            <div class="LoginUser">
+                @if( AppState.LoginStatus.IsLogin)
+                {
+                    
+                    <li class="nav-item" id="nav-user" >              
+                        @*<LoginDisplay />*@
+
+                        @* <div class="user text-light nav-link" @onclick="ToggleUserNavMenu"> *@
+                        <div class="user text-light nav-link">
+                            <div class="userIcon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16.809" height="18.554" viewBox="0 0 16.809 18.554">
+                                    <path id="userIcon" data-name="user_icon"
+                                            d="M-8228.962-1744.446A1.965,1.965,0,0,1-8231-1746.3a7.529,7.529,0,0,1,6.421-7.866,4.64,4.64,0,0,1-2.657-4.2,4.641,4.641,0,0,1,4.64-4.64,4.64,4.64,0,0,1,4.64,4.64,4.638,4.638,0,0,1-2.655,4.2,7.528,7.528,0,0,1,6.421,7.866,1.965,1.965,0,0,1-2.038,1.853Z"
+                                            transform="translate(8231.001 1763)"  />
+                                </svg>
+                            </div>
+
+                            <div class="userNumber">
+                                <p id="user_Number">@AppState.LoginStatus.name</p>
+                            </div>
+                        </div>
+                        <img class="nav_hover_bottom" id="user_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+
+
+                        <div class="slide_button">
+                            <img data-src="./images/Other/chevron-down.webp" src="./images/Other/chevron-down.webp" alt="">
+                        </div>
+                        @* <ul class="nav_ul_slide" id="user-ul" hidden="@collapseUserNavMenu"> *@
+                        <ul class="nav_ul_slide" id="user-ul">
+                            <li class="user-ul-web" id="nav_ul-myprofile">
+                                <a href="myprofile/index" id="mypage" data-i18n="[html]nav.Myprofile">My Account</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp"  alt="">
+                            </li>
+                            <li class="user-ul-web" id="nav_ul-myMatch">
+                                <a href="myprofile/mymatch" id="mymatchpage" data-i18n="[html]nav.Esports">eSport</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+                            <li class="user-ul-web" id="nav_ul-MyAwardNotice">
+                                <a href="myprofile/myawardnotice" id="myawardnoticepage" data-i18n="[html]nav.AwardClaim">Reward</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+                            <li class="user-ul-web" id="nav_ul-Inventory" hidden="@(false)">
+                                <a href="myprofile/inventory" id="inventory" data-i18n="[html]nav.Inventory">Inventory</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+                           <li class="user-ul-web" id="nav_ul-swapsrc" >
+                                <a href="myprofile/swapsrc" id="swapsrc" data-i18n="[html]nav.Swap">Swap</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
+                            </li>
+                            <li>
+                                <div @onclick="logoutButtonClick">
+                                <a href=""  id="" data-i18n="[html]nav.signOut">Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>          
+                    </li>
+                    
+                }
+                else
+                {
+                    
+                    <li class="nav-item" id="nav-ConnectWallet">
+                         @* data-i18n="nav.ConnectWallet" *@
+                        <a class="" href="myprofile/index">Connect Wallet</a>
+                        <img class="nav_hover_bottom" id="ConnectWallet_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                    </li>
+
+                    <li class="nav-item" id="">
+                        <button id="login_button" class="" @onclick="loginButtonClick" data-i18n="[html]nav.signIn">Sign<br>In</button>
+                    </li>
+
+                }
+                
+            </div>    
+            
+                <li class="" id="nav-Language_Select">
+                    <select name="" id="Language_Select">
+                        @* <option value="" disabled>Language</option> *@
+                        <option class="Language_option" value="en">EN</option>
+                        <option class="Language_option" value="tw">中文</option>
+                    </select>
+                </li>
+            
+                
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- login block-->
+<LoginBlock loginCloseClick="loginCloseClick" loginErrorShow=@loginErrorShow LoginSubmit="LoginSubmit" loginRequest=@loginRequest />
+
+<!-- Back to top -->
+<BackToTop />
+
+@code 
+{
+    public LoginRequest loginRequest = new LoginRequest();
+    private IJSObjectReference? footerContactJS;
+    private IJSObjectReference? BackToTopJS;
+    private IJSObjectReference? AnimateJS;
+    private IJSObjectReference? lazyloadingJS;
+    protected async override Task OnInitializedAsync()
+    {
+        AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var LoginUser = authState.User;
+
+        if(LoginUser != null  && LoginUser.Identities.Count() !=0 )
+        {
+
+            SnakeAccount snakeAccount = await authService.AuthLoginByUserId(LoginUser.FindFirst("UserID")?.Value);
+            AppState.UpdateLoginStatus(this, snakeAccount);
+        }
+
+
+        @*SnakeAccount test = await authService.AuthLoginByUserId("10009");
+        AppState.UpdateLoginStatus(this, test);*@
+    }
+
+    void IDisposable.Dispose()
+    {
+        //AppState.OnChange -= StateHasChanged;
+        AppState.StateChanged -= async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task EditProfileButtonOnClick()
+    {
+        await JS.InvokeVoidAsync("loginButton", "loginButton");
+    }
+
+
+    /// <summary>
+    /// 登入
+    /// </summary>
+    /// <returns></returns>
+    private async Task LoginSubmit()
+    {
+        SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest);
+        AppState.UpdateLoginStatus(this, snakeAccount);
+        if (AppState.LoginStatus.IsLogin == true)
+        {
+            loginErrorShow = false;
+            await loginCloseClick();
+            await JS.InvokeVoidAsync("myprofileSidebar");
+            await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("navbarSlide");
+            //HandleClick();
+
+        }
+        else
+        {
+            loginErrorShow = true;
+        }
+
+    }
+
+    /// <summary>
+    /// 登出按鈕
+    /// </summary>
+    /// <returns></returns>
+    private async Task logoutButtonClick()
+    {
+
+        await authService.AuthLogout();
+        AppState.UpdateLoginStatus(this, new SnakeAccount());
+    }
+
+    private async Task AppState_StateChanged(ComponentBase Source, string Property)
+    {
+        if (Source != this)
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+
+    }
+
+
+
+
+    //login彈窗
+    private async Task loginButtonClick()
+    {
+        await JS.InvokeVoidAsync("loginButton", "loginButton");
+    }
+
+    private async Task loginCloseClick()
+    {
+        await JS.InvokeVoidAsync("loginClose", "loginClose");
+    }
+
+    private async Task LanguageSwitchClick(string lang)
+    {
+        await JS.InvokeVoidAsync("LanguageSwitch", lang);
+    }
+
+    bool collapseNavMenu  = true;
+    bool collapseUserNavMenu  { get; set; }  = true;
+
+
+    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    bool loginErrorShow { get; set; } = false;
+
+    void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    void ToggleUserNavMenu()
+    {
+        collapseUserNavMenu = !collapseUserNavMenu;
+    }
+
+    void CollapseNavMenu()
+    {
+        collapseNavMenu = true;
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {   
+        if (firstRender){
+            footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
+            BackToTopJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NavMenu/BackToTop.js");
+            AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
+            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+          
+            await BackToTopJS.InvokeVoidAsync("BackToTop");
+            await AnimateJS.InvokeVoidAsync("Animate");
+          /*  await lazyloadingJS.InvokeVoidAsync("LazyLoading");*/
+
+            await JS.InvokeVoidAsync("Carousel");                
+            await JS.InvokeVoidAsync("navbarSlide");            
+            await JS.InvokeVoidAsync("selectChangeLocation");
+            
+        }
+        
+    }
+
+    @inject NavigationManager NavigationManager;
+    private void HandleClick()
+    {
+        NavigationManager.NavigateTo("/", true);
+    }
+
+    /*聯絡表單關閉*/
+     private async Task FooterContactHide()
+    {
+        if (footerContactJS != null)
+        {
+             await footerContactJS.InvokeVoidAsync("FooterContactHide");
+        }
+       
+    }
+}

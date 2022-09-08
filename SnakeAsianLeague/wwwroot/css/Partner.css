@@ -1,0 +1,228 @@
+/* nav 當頁顯示 */
+.nav-item:hover{
+    background-image: url(/images/Other/nav_hover.webp) !important;
+    background-color: #aad4cd00;
+}
+.nav_hover_bottom{
+    display: block;
+}
+.nav-link:hover{
+    background: none;
+}
+.bg-dark{
+    /* background-image: url(/images/Other/nav_banner_acl.webp); */
+}
+#PonPonSnake-Logo{
+    width: 60px;
+}
+#PonPonSnake-Logo img{
+    width: 60px;
+}
+.text-light {
+    color: #ffffff !important;
+}
+a.text-light:focus, a.text-light:hover {
+    color: #ffffff !important;
+}
+.nav-item a{
+    text-shadow: #585858 1px 1px 2px;
+}
+#nav-partner,#nav-ACLIndex{
+    color: white;
+    background-image: url(/images/Other/nav_hover_acl.webp);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+#partner_hover_bottom, #ACLIndex_hover_bottom{
+    position: absolute;
+    max-width: 300px;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -7px;
+    opacity: 1;
+    z-index: 0;
+    transition: all .3s ease-out;
+    pointer-events: none;
+}
+
+@media all and (max-width: 1000px){
+    #nav-partner{
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+#nav_ul-partner{
+    color: white;
+    background-image: url(/images/Other/nav_hover_acl.webp);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.ACLnamingState{
+    display: flex;
+}
+
+.userIcon {
+    fill: #f7f7f7;
+}
+
+
+.partner_bg{
+    background-image: url(/images/Partner/partner_bg.webp);
+    /* max-width: 1920px; */
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+}
+
+.partner_block {
+    /* border: 1px solid #a52a2a00; */
+    width: 100%;
+    /* background-image: url(/images/Partner/partner_bg.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    /* height: 1000px; */
+}
+
+.partner_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin: 200px auto 30px;
+}
+
+.partner_title_line{
+    max-width: 308px;
+    width: 90%;
+}
+
+.partner_all{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.partner_banner_all{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+.partner_banner {
+    max-width: 1400px;
+    /* width: 100%; */
+    max-height: 530px;
+    height: 100%;
+    /* border: 2px solid #fff; */
+    margin: 20px 30px;
+    transition: .2s ease-in-out;
+}
+
+.partner_banner:hover{
+    transform: scale(1.005) !important;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+}
+
+.partner_banner img{
+    /* max-width: 1400px; */
+    width: 100%;
+    max-height: 530px;
+    height: 100%;
+}
+
+.partner_poster_all{
+    /* border: 1px solid red; */
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto 100px;
+    flex-direction: row;
+    justify-content: center
+}
+
+.poster{
+    max-width: 400px;
+    /* width: 100%; */
+    max-height: 533px;
+    /* height: 100%; */
+    width: 28%;
+    margin: 40px 30px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.poster img{
+    /* max-width: 400px; */
+    width: 100%;
+    /* max-height: 533px; */
+    height: 100%;
+}
+
+.poster a{
+    width: 100%;
+    height: 100%;
+}
+
+
+.poster:hover {
+    transform: scale(1.02) !important;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+}
+
+@media (max-width: 1200px){
+    .partner_poster_all{
+
+    }
+    .poster{
+        width: 26%;
+        margin: 30px 20px;
+    }
+}
+@media (max-width: 800px){
+    .poster{
+        width: 40%;
+    }
+}
+
+@media (max-width: 500px){
+    .poster{
+        width: 85%;
+    }
+    .partner_banner{
+        width: 130%;
+        margin: 20px 30px 20px 27%;
+    }
+}
+@media (max-width: 400px){
+    .partner_banner {
+        width: 135%;
+        margin: 20px 30px 20px 30%;
+    }
+}
+
+#acl_footer{
+    display: flex;
+}
+
+
+.nav-item a, .nav-item_a {
+    text-shadow: #585858 1px 1px 2px;
+    }
+    

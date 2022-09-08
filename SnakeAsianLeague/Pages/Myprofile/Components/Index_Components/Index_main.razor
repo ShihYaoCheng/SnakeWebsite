@@ -1,0 +1,361 @@
+﻿@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.Backstage
+@inject ProfileService ProfileService
+@inject AppState AppState
+@inject IJSRuntime JS
+
+<AuthorizeView>
+    @* 已登入畫面 *@
+    <Authorized>
+
+        <main class="myprofileMain" id="myprofileMain">
+
+            <div class="myprofileBlock" id="Account">
+                <div class="myprofileBlockTitle" data-i18n="myprofile.account">Account</div>
+                <div class="myprofileArea">
+
+                    <div class="informationBackground">
+                        <div class="informationDetailOriginal">
+                            <div class="personalBlock">
+                                <img class="personaAvatar" src="/images/Myprofile/user_icon.webp" alt="">
+
+                                
+                                
+                                @*編輯個人資料按鈕*@
+                                <Index_edit />
+
+
+                            </div>
+
+                            <div class="personalInformation">
+                                <div class="playerNickname">@AppState.LoginStatus.name</div>
+                                <div class="playerInfoRow">
+                                    <div class="playerInfoRowTitle" data-i18n="myprofile.gameID">Game ID</div>
+                                    <div class="playerInfoRowShow">@AppState.LoginStatus.userID</div>
+                                </div>
+                                <div class="playerInfoRow">
+                                    <div class="playerInfoRowTitle" data-i18n="myprofile.phone">Phone</div>
+                                    <div class="playerInfoRowShow">@AppState.LoginStatus.phone</div>
+                                </div>
+
+                                @if (!MetamaskAvailable)
+                                {
+
+                                    <button class="btnMetamask" disabled>
+                                       
+                                        <a id="myAnchor" href="https://metamask.app.link/dapp/" target="_blank">
+                                            <span style="margin: 5px 20px;" data-i18n="myprofile.installMetamask">Please
+                                                Install Metamask</span>
+                                        </a>
+                                    </button>
+
+                                }
+                                else if (MetamaskAvailable && string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
+                                {
+                                    <button type="button" class="btnMetamask" @onclick="@EnableEthereum">
+                                        <span data-i18n="myprofile.connectMetamask">Connect Metamask</span>
+                                        <img src="/images/Myprofile/btnMetamask_icon.webp" alt="">
+                                    </button>
+
+                                }
+                            </div>
+                        </div>
+
+                        @if (MetamaskAvailable && !string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
+                        {
+                            <div class="metamaskAvailable" title="點擊複製 Address" @onclick="textCopyClick">
+                                Address：<span>@AppState.LoginStatus.walletAddress</span>
+                                <div id="copyTip">複製成功</div>
+                            </div>
+                        }
+						
+						 @* <div hidden >
+                            <button type="button" id="connect_button" >
+                            Connect Wallet
+                            </button>
+
+                           <section id="wallet_info" >
+                                <h1 id="wallet_address"></h1>
+                                <h2><span id="wallet_balance"> </span></h2>
+
+                                <h4> 當前狀態是否連線 <span id="isConnected"> </span></h4>
+                                <h4> MetaMask chainid <span id="networkVersion"></span></h4>
+                                <h4> 是否安裝 MetaMask  <span id="installed"> </span></h4>
+                                <h4> <span id="err"> </span></h4>
+                                <a id="url" href="https://metamask.app.link/dapp/dev.ponponsnake.com/myprofile/index">metamask.app.link</a>
+                           </section>
+                         </div>*@
+
+                    </div>
+                </div>
+            </div>
+
+            @if (MetamaskAvailable && !string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
+            {
+                <div class="myprofileBlock" id="Asset">
+                    <div class="myprofileBlockTitle" data-i18n="myprofile.asset">Asset</div>
+
+                    <div class="myprofileArea">
+                        <div class="informationAssetBlockAll">
+                            <div class="informationAssetBlock">
+                                <a href="myprofile/index">
+                                    <div class="assetItem">
+                                        <img class="assetIcon" src="/images/Myprofile/ERNC.webp" alt="">
+                                        <span>ERNC</span>
+                                    </div>
+                                    <div class="assetValue">0</div>
+                                </a>
+                            </div>
+
+                            <div class="informationAssetBlock">
+                                <a href="myprofile/index">
+                                    <div class="assetItem">
+                                        <img class="assetIcon" src="/images/Myprofile/MIPR.webp" alt="">
+                                        <span>MIPR</span>
+                                    </div>
+                                    <div class="assetValue">0</div>
+                                </a>
+                            </div>
+
+                            <div class="informationAssetBlock">
+                                <a href="myprofile/index">
+                                    <div class="assetItem">
+                                        <img class="assetIcon" src="/images/Myprofile/SRC.webp" alt="">
+                                        <span>SRC</span>
+                                    </div>
+                                    <div class="assetValue">0</div>
+                                </a>
+                            </div>
+
+                            <div class="informationAssetBlock">
+                                <a href="myprofile/inventory">
+                                    <div class="assetItem">
+                                        <img class="assetIcon" src="/images/Myprofile/Knight.webp" alt="">
+                                        <span>Rider</span>
+                                    </div>
+                                    <div class="assetValue">@NFT_Rider_Count</div>
+                                </a>
+                            </div>
+                            <div class="informationAssetBlock" id="informationAssetBlock-Lock">
+                                <div class="assetItem">
+                                    <img class="ICON_Lock" src="/images/Myprofile/ICON_Lock.webp" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @* <div class="myprofileBlock" id="Activities">
+                    <div class="myprofileBlockTitle" data-i18n="myprofile.activities">Activities</div>
+                    <div class="myprofileArea">
+                    <div class="ActivitiesRow">
+                    <span>XXXXXXXXXXXXXX</span>
+                    </div>
+                    </div>
+                    <div class="myprofileArea">
+                    <div class="ActivitiesRow">
+                    <span>XXXXXXXXXXXXXX</span>
+                    </div>
+                    </div>
+                    <div class="myprofileArea">
+                    <div class="ActivitiesRow">
+                    <span>XXXXXXXXXXXXXX</span>
+                    </div>
+                    </div>
+                    </div> *@
+            }
+        </main>
+
+    </Authorized>
+
+    @* 未登入畫面 *@
+    <NotAuthorized>
+        @* <div class="myaccount_login">
+            <h1>Please Login First</h1>
+            </div> *@
+
+        <main class="myprofileMain" id="myprofileMain">
+
+            <div class="myprofileBlock" id="Account">
+                <div class="myprofileBlockTitle" data-i18n="myprofile.account">Account</div>
+                <div class="myprofileArea">
+
+                    <div class="informationBackground">
+                        <div class="informationDetailOriginal">
+                            <div class="personalBlock">
+                                <img class="personaAvatar" src="/images/Myprofile/user_icon.webp" alt="">
+
+                                
+                            </div>
+
+                            <div class="personalInformation">
+                                <div class="playerNickname">@AppState.LoginStatus.name</div>
+                                <div class="playerInfoRow">
+                                    <div class="playerInfoRowTitle" data-i18n="myprofile.gameID">Game ID</div>
+                                    <div class="playerInfoRowShow">Please sign in</div>
+                                </div>
+                                <div class="playerInfoRow">
+                                    <div class="playerInfoRowTitle" data-i18n="myprofile.phone">Phone</div>
+                                    <div class="playerInfoRowShow">Please sign in</div>
+                                </div>
+
+                                @if (!MetamaskAvailable)
+                                {
+
+                                    <button class="btnMetamask"  @onclick="loginButtonClick" >
+                                        <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"
+                                        target="_blank">
+                                            <span style="margin: 5px 20px;" data-i18n="myprofile.installMetamask">Please
+                                                Install Metamask</span>
+                                        </a>
+                                    </button>
+
+                                }
+                                else if (MetamaskAvailable && string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
+                                {
+                                    <button type="button" class="btnMetamask" @onclick="loginButtonClick">
+                                        <span data-i18n="myprofile.connectMetamask">Connect Metamask</span>
+                                        <img src="/images/Myprofile/btnMetamask_icon.webp" alt="">
+                                    </button>
+
+                                }
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="myprofileBlock" id="Asset">
+                <div class="myprofileBlockTitle" data-i18n="myprofile.asset">Asset</div>
+
+                <div class="myprofileArea">
+                    <div class="informationAssetBlockAll">
+                        <div class="informationAssetBlock">
+                            <a href="myprofile/index">
+                                <div class="assetItem">
+                                    <img class="assetIcon" src="/images/Myprofile/ERNC.webp" alt="">
+                                    <span>ERNC</span>
+                                </div>
+                                <div class="assetValue">0</div>
+                            </a>
+                        </div>
+
+                        <div class="informationAssetBlock">
+                            <a href="myprofile/index">
+                                <div class="assetItem">
+                                    <img class="assetIcon" src="/images/Myprofile/MIPR.webp" alt="">
+                                    <span>MIPR</span>
+                                </div>
+                                <div class="assetValue">0</div>
+                            </a>
+                        </div>
+
+                        <div class="informationAssetBlock">
+                            <a href="myprofile/index">
+                                <div class="assetItem">
+                                    <img class="assetIcon" src="/images/Myprofile/SRC.webp" alt="">
+                                    <span>SRC</span>
+                                </div>
+                                <div class="assetValue">0</div>
+                            </a>
+                        </div>
+
+                        <div class="informationAssetBlock">
+                            @* <a href="Inventory"> *@
+                            <a href="myprofile/inventory">
+                                <div class="assetItem">
+                                    <img class="assetIcon" src="/images/Myprofile/Knight.webp" alt="">
+                                    <span>Rider</span>
+                                </div>
+                                <div class="assetValue">@NFT_Rider_Count</div>
+                            </a>
+                        </div>
+                        <div class="informationAssetBlock" id="informationAssetBlock-Lock">
+                            <div class="assetItem">
+                                <img class="ICON_Lock" src="/images/Myprofile/ICON_Lock.webp" alt="">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </main>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+@code {
+    [Parameter]
+    public bool MetamaskAvailable { get; set; }
+
+    //[Parameter]
+    //public EventCallback EditProfileButtonOnClick { get; set; }
+
+    //public void EditProfile()
+    //{
+    //    EditProfileButtonOnClick.InvokeAsync();
+    //}
+
+    [Parameter]
+    public EventCallback EnableEthereumAsync { get; set; }
+
+    /// <summary>
+    ///
+    /// </summary>
+    private int NFT_Rider_Count;
+
+    protected override async Task OnAfterRenderAsync(bool first)
+    {
+        if (first)
+        {
+            if (NFT_Rider_Count !=  await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString()))
+            {
+                 NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+                 //強制渲染
+                 InvokeAsync(StateHasChanged);
+            }          
+         
+            await JS.InvokeVoidAsync("setMateMaskLink");
+            
+        }
+    }
+
+    
+
+
+    public void EnableEthereum()
+    {
+        EnableEthereumAsync.InvokeAsync();
+    }
+
+    private async Task textCopyClick()
+    {
+        await JS.InvokeVoidAsync("textCopy");
+        await JS.InvokeVoidAsync("copyTip");
+    }
+    private async Task loginButtonClick()
+    {
+        await JS.InvokeVoidAsync("loginButton", "loginButton");
+    }
+	
+
+    //protected override async Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    if (firstRender)
+    //    {
+    //        await JS.InvokeVoidAsync("setMateMaskLink");
+    //    }
+
+    //}
+	//private async Task web3Button()
+ //   {
+ //       await JS.InvokeVoidAsync("web3button");
+ //   }
+}

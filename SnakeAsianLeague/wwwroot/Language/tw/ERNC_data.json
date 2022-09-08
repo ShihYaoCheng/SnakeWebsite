@@ -1,0 +1,87 @@
+{
+    "banner": {
+        "title": "九天基核 (ERNC)",
+        "text": "ERNC是碰碰蛇中的一種ERC20代幣。持有者將能參與遊戲中的獎勵決定，同時也能獲取遊戲中限定的酷炫道具，這將會是碰碰蛇社群最有價值的寶物。"
+    },
+
+    "card": {
+        "infoTitle": "ERNC 起源",
+        "infoText": "對伊薩世界的人來說，九天基核是來自於神明的寶物，雖然不知道怎麼使用但是仍然追求著它，因為他們知道只要能找到一個，就能夠從領主手中獲得龐大的獎勵。",
+        "cardTitle-01": "<div style=\"padding-top: 15px;\">質押</div>",
+        "cardText-01": "玩家可以儲存資產並且將其投入ERNC質押中，透過質押玩家也能提升碰碰蛇治理權力並且共享部分的分潤。",
+        "cardTitle-02": "<div style=\"padding-top: 15px;\">支付</div>",
+        "cardText-02": "ERNC 將能支付來獲取遊戲中更高等的道具，同時也能被使用在NFT交易所中來轉換其他的虛擬貨幣。",
+        "cardTitle-03": "<div style=\"padding-top: 15px;\">治理</div>",
+        "cardText-03": "85%的收入將進入去中心化的獎勵池。一旦質押足夠的ERNC將會獲取相應治理權，這將允許玩家能在獎勵決策上進行投票以及給予意見。"
+    },
+
+    "allocation":{
+        "infoTitle":"ERNC 資金分配池",
+        "infoText":"ERNC 的 P2E 資金分配池 (Play-to-Earn Allocation Pool) 是遊戲的核心價值, 也是用戶參予遊戲的目標, 所有盟友都圍繞在此, 共同促成 ERNC 的發行與未來成長。",
+        "chartTitle":"ERNC 總數量 270,000,000"
+    },
+
+    "chart":{
+        "label_01": "DAO金庫",
+        "label_02": "CQI 團隊",
+        "label_03": "活動",
+        "label_04": "開發",
+        "label_05": "顧問",
+        "label_06": "公開銷售",
+        "label_07": "私募",
+        "label_08": "種子基金 (0.06USD)",
+        "label_09": "社會公益"
+    },
+
+  "table": {
+    "th-Type": "類別",
+    "th-Amount": "總額",
+    "th-Unlock": "解鎖",
+
+    "td-Type-01": "DAO金庫",
+    "td-Unlock-01": "透過競賽獎勵 / 遊戲機制解鎖",
+    "td-Type-02": "CQI 團隊",
+    "td-Unlock-02": "鎖定1~3年, 2023 起階段解鎖1/3",
+    "td-Type-03": "私募",
+    "td-Unlock-03": "2023 一年解鎖",
+    "td-Type-04": "開發",
+    "td-Unlock-04": "鎖定1~3年, 2023 起階段解鎖1/3",
+    "td-Type-05": "種子基金 (0.06USD)",
+    "td-Unlock-05": "2022 一年解鎖",
+    "td-Type-06": "顧問",
+    "td-Unlock-06": "鎖定1~3年, 2023 起階段解鎖1/3",
+    "td-Type-07": "公開銷售",
+    "td-Unlock-07": "2024 一年解鎖",
+    "td-Type-08": "社會公益",
+    "td-Unlock-08": "三年線性解鎖",
+    "td-Type-09": "活動",
+    "td-Unlock-09": "鎖定1~3年, 2023 起階段解鎖1/3",
+
+    "total": "ERNC 總數量  270,000,000 (100%)"
+  },
+  "Roadmap": {
+    "Road-Title": "碰碰蛇藍圖",
+    "Road-map-1-1": "9/1 正式銷售",
+    "Road-map-1-2": "9/5 提領至 MetaMask",
+    "Road-map-1-3": "9/15 戰場掉落獎勵",
+    "Road-map-2-1": "10/1 排名獎",
+    "Road-map-2-2": "10/7 冠軍聯賽大獎",
+    "Road-map-2-3": "10/30 節慶賽大獎",
+    "Road-map-3-1": "11/15 推薦獎勵",
+    "Road-map-4-1": "12/1 質押",
+    "Road-map-4-2": "12/15 種子銷售",
+    "Road-map-5-1": "1/1 ERNC/SRC 交易",
+    "Road-map-6-1": "2/1 掠奪者大獎",
+    "Road-map-7-1": "4/1 公會獎",
+    "Road-map-8-1": "6/1 充值獎",
+    "Road-map-9-1": "8/1 聯合質押",
+    "Road-map-10-1": "10/1 交易所儲備",
+    "Road-map-11-1": "12/1 USDT交易",
+    "Road-map-11-2": "12/15 私募銷售",
+    "Road-map-12-1": "2/1 SECRET 連接",
+    "Road-map-13-1": "6/1 SECRET 交易",
+    "Road-map-14-1": "12/15 公開銷售"
+
+  }
+
+}

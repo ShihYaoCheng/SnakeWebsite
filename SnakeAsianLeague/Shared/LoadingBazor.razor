@@ -1,0 +1,35 @@
+﻿@*首頁loading*@
+<head>    
+    <link href="/css/Shared/loadingBazor.css" rel="stylesheet"/> 
+</head>
+<SpinLoader IsLoading="isLoading"  Spinner="SpinnerType.Chase" >
+
+    <LoadingTemplate>
+        <div class="col-12 loadingBazor">
+            <br/><br/>
+                <img src="/images/loading/loading.gif" alt="">
+        </div>
+    </LoadingTemplate>
+    <ContentTemplate>
+
+            @ChildContent
+    </ContentTemplate>
+</SpinLoader>
+@code {
+
+    [Parameter]
+    public RenderFragment? ChildContent   { get; set; }
+
+      bool isLoading = true;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+
+    }
+}
