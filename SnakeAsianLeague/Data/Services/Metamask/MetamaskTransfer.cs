@@ -23,7 +23,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
         {
             public uint userId { get; set; }
 
-            public double amount { get; set; }
+            public decimal amount { get; set; }
         }
 
         public class getSRCData
@@ -32,7 +32,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
         }
 
 
-        public async Task<bool> SRCTransferToMetaMask(uint UserID, double amount)
+        public async Task<bool> SRCTransferToMetaMask(uint UserID, decimal amount)
         {
             bool result = false;
             try

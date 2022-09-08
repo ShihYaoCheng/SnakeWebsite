@@ -122,6 +122,7 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 				});
 
 			$('.lockWindows')[0].style.display = 'none';
+			alert("You have successfully sold SRC tokens!");
 			console.log(request);
 		} catch (err) {
 			console.error(err);

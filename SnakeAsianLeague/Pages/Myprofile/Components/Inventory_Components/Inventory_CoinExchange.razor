@@ -53,7 +53,7 @@
         <p class="increaseCoin" id="gSRCincrease"> </p>  
       
        <div class="coinEchange-BtnZone">
-           <button id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
+           <button hidden="false" id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
           
        </div>
     </div>
@@ -66,7 +66,7 @@
     public ExchangeCoin? Value { get; set; }
 
     private IJSObjectReference? coinEchangeJS;
-    Double difference=0;
+    decimal difference=0;
     private MetamaskTransfer metamaskTransfer = new MetamaskTransfer();
 
 
