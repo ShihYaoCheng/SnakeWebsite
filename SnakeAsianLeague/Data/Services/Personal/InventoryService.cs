@@ -171,9 +171,9 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
                 //租金
-                data.nowRent = NFT_Riders[i].rent;
+                data.nowRent = Decimal.Round(NFT_Riders[i].rent ,3);
                 //累計租金(累計收益)
-                data.totalRevenue = NFT_Riders[i].totalRevenue;
+                data.totalRevenue = Decimal.Round(NFT_Riders[i].totalRevenue, 3);
 
                 NFTDataList.Add(data);
 
@@ -332,15 +332,15 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <param name="userId"></param>
         /// <param name="ppsr"></param>
         /// <returns></returns>
-        public async Task<double> ReceiveRentByUnit(string userId ,string ppsr)
+        public async Task<decimal> ReceiveRentByUnit(string userId ,string ppsr)
         {
             /* 20220728假資料
             * by chenyuwei
             */
 
-           
 
-            double result =  NFTDataList.Where(m=>m.TokenID == ppsr).First().totalRevenue;
+
+            decimal result = decimal.Parse( NFTDataList.Where(m=>m.TokenID == ppsr).First().totalRevenue.ToString());
             NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue = 0;
             return Math.Round(result, 3, MidpointRounding.AwayFromZero);
             /* 20220907 API 串接完成
@@ -365,7 +365,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<double> ReceiveRent(string userId)
+        public async Task<decimal> ReceiveRent(string userId)
         {
 
             /* 20220728假資料
@@ -373,7 +373,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             */
 
 
-            double result = NFTDataList.Select(m => m.totalRevenue).Sum();
+            decimal result = decimal.Parse(NFTDataList.Select(m => m.totalRevenue).Sum().ToString());
 
 
             foreach (var item in NFTDataList)
@@ -405,7 +405,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<double> CalReceiveRent(string userId)
+        public async Task<decimal> CalReceiveRent(string userId)
         {
 
             /* 20220728假資料
@@ -413,7 +413,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             */
 
 
-            double result = NFTDataList.Select(m => m.totalRevenue).Sum();
+            decimal result = decimal.Parse(NFTDataList.Select(m => m.totalRevenue).Sum().ToString());
             return Math.Round(result, 3, MidpointRounding.AwayFromZero);
 
 
@@ -428,6 +428,33 @@ namespace SnakeAsianLeague.Data.Services.Personal
             //    return result;
             //}
             //return result;
+
+        }
+
+
+
+
+        /// <summary>
+        /// 透過 userId 取得遊戲gSRC數量
+        /// </summary>
+        /// mintCount 鍛造次數
+        /// <returns></returns>
+        public async Task<decimal> GetgSRCCurrency1(string UserID)
+        {
+
+            decimal result = 0;
+            string URL = "/NFT/NFTCurrency1";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("userId", UserID);
+            request.AddHeader("Authorization", Authenticate());
+
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                gSRCCurrency data = JsonSerializer.Deserialize<gSRCCurrency>(restResponse.Content) ?? new gSRCCurrency();
+                result = decimal.Round( data.nftCurrency1 ,3);
+            }
+            return result;
 
         }
     }

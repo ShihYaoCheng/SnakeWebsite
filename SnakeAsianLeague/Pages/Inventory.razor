@@ -81,7 +81,7 @@
                                         <div class="MyCerrency-Detail">
                                             <p class="MyCerrency-Name">gSRC</p>
                              
-                                            <p class="MyCerrency-Amount">0</p>
+                                            <p class="MyCerrency-Amount">@gSRC</p>
                                         </div>
                                     </div>
                                      <div class=" MyCerrency-mid">
@@ -391,7 +391,7 @@
                             {
 
                                 string TokenID = @item.TokenID;
-                                double totalRevenue = @item.totalRevenue;
+                                decimal totalRevenue =  @item.totalRevenue;
                                 if (@item.IsOfficial)
                                 {
                                     if (@item.IsOpen)
@@ -710,23 +710,23 @@
 @code {
     //租金變數......
     //所有Balance加總
-    private double AllBalance = 0;
+    private decimal AllBalance = 0;
 
     //彈窗顯示領取的金額
-    private double CollectBalance  = 600; 
+    private decimal CollectBalance  = 600; 
 
     private IJSObjectReference? RentJumpJS;
     private IJSObjectReference? coinEchangeJS;
     private int PPSRsCount;
 
-    private double TotalSRCCount = 0;
+    private decimal TotalSRCCount = 0;
 
     //騎士幣兌換
-    Double gSRC =0 ;
-    Double tokenSRC = 0 ;
+    decimal gSRC =0 ;
+    decimal tokenSRC = 0 ;
 
-    Double gERNC = 0;
-    Double tokenERNC = 0;
+    decimal gERNC = 0;
+    decimal tokenERNC = 0;
 
     string[] JSCoinData;
     private ExchangeCoin CoinData = new ExchangeCoin( "ERNC" ,0,0 );
@@ -747,15 +747,15 @@
     private async Task getCoinData()
     {
         JSCoinData = await coinEchangeJS.InvokeAsync<string[]>("CoinexchangeData" , Configuration["SRC_token_addr"]);
-        if (tokenSRC != Double.Parse(JSCoinData[0]))
+        if (tokenSRC != decimal.Parse(JSCoinData[0]))
         {
-            tokenSRC =Double.Parse(JSCoinData[0]);
+            tokenSRC =decimal.Parse(JSCoinData[0]);
 
             //強制渲染
             InvokeAsync(StateHasChanged);
         }
 
-        
+
     }
     //...騎士幣兌換
 
@@ -785,7 +785,7 @@
 
         AppState.StateChanged += async (Source, Property)
         => await InvokeAsync(StateHasChanged);
-     
+
     }
 
     private async Task Refresh()
@@ -806,13 +806,16 @@
 
 
 
-        TotalSRCCount = AppState.LoginStatus.nftCurrency1;
+        TotalSRCCount = decimal.Parse( AppState.LoginStatus.nftCurrency1.ToString());
         PPSRsCount = MetaData.TotalCount;
 
 
-        
+
         AllBalance = await InventoryService.CalReceiveRent(UserID);
 
+
+
+        gSRC = await InventoryService.GetgSRCCurrency1(UserID);
         StateHasChanged();
     }
 
@@ -1006,7 +1009,7 @@
     /// <summary>
     /// 
     /// </summary>
-    private async void setValueByUnit( string ppsr ,double totalRevenue , object onClickValue)
+    private async void setValueByUnit( string ppsr ,decimal totalRevenue , object onClickValue)
     {       
         TokenID = ppsr;
         CollectBalance = totalRevenue;
