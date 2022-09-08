@@ -95,7 +95,7 @@
     {
         if (difference < 0)
         {
-            await metamaskTransfer.getSRCtoDB(AppState.LoginStatus.userID);
+       
      
             @*鍊換game*@
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1);

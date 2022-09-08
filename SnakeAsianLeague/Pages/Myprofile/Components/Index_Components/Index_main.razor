@@ -309,13 +309,19 @@
     /// <summary>
     ///
     /// </summary>
-     private int NFT_Rider_Count;
+    private int NFT_Rider_Count;
 
     protected override async Task OnAfterRenderAsync(bool first)
     {
         if (first)
         {
-            NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+            if (NFT_Rider_Count !=  await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString()))
+            {
+                 NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+                 //強制渲染
+                 InvokeAsync(StateHasChanged);
+            }          
+         
             await JS.InvokeVoidAsync("setMateMaskLink");
             
         }

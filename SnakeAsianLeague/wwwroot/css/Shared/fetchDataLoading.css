@@ -6,7 +6,58 @@
     top: 0;
     left: 0;
     z-index: 999;
+
+    
+}
+.LoadingText {
+    font-size: 50px;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 30%;
+    left: 50%;
+}
+@media (max-width: 768px) {
+    .LoadingText {
+        font-size: 40px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 30%;
+        left: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .LoadingText {
+        font-size: 25px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 30%;
+        left: 50%;
+    }
+}
+
+
+
+
+.Loadinglogo {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
 }

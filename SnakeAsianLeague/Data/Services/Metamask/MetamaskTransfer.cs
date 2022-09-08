@@ -59,25 +59,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
             }
             return result;
         }
-        public async Task<double> getSRCtoDB(uint UserID)
-        {
-            string URL = "/BackEnd/Accounts";
-
-            getSRCData getSRCData = new getSRCData();
-            getSRCData.userId = UserID;
-
-            string jsonData = JsonSerializer.Serialize(getSRCData);
-
-            var request = new RestRequest(URL, Method.GET);
-           // request.AddJsonBody(jsonData);
-
-            request.AddHeader("Authorization", Authenticate());
-            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
-            Console.WriteLine("測試一下");
-            Console.WriteLine(restResponse.Content);
-
-            return 123;
-        }
+       
 
         private string Authenticate()
         {
