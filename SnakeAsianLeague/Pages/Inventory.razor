@@ -697,7 +697,17 @@
         </div>
     </section>
 
+    @*..............騎士幣兌換 coinexchange 彈窗.......................*@
     <Inventory_CoinExchange Value = "CoinData"></Inventory_CoinExchange>
+
+
+    @if (loading)
+    {
+        <FectchDataLoading />
+    
+    }
+
+
     </Authorized>
     <NotAuthorized>
         <div class="InventoryNotLogin">
@@ -708,6 +718,8 @@
 
 
 @code {
+    //loading
+    bool loading = true; 
     //租金變數......
     //所有Balance加總
     private decimal AllBalance = 0;
@@ -855,6 +867,13 @@
 
             coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
             getCoinData();
+
+            if (loading == true)
+            {
+                 loading = false;
+                  //強制渲染
+                InvokeAsync(StateHasChanged);
+            } 
         }
     }
 
