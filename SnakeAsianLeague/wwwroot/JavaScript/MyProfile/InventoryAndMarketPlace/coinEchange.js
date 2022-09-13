@@ -29,6 +29,7 @@ export function coinEchange(showId) {
 
 //轉換(提款) SRC > gSRC
 export async function withdraw(SRCInput) {
+	$('.lockWindows')[0].style.display = 'flex';
 	const web3 = await new Web3(Web3.givenProvider)
 	//web3.TransactionManager.UseLegacyAsDefault = true;
 	const SRC_addr = "0xaBF22878C673C20865D9A1247c86FDe7B1165B7e"
@@ -48,12 +49,7 @@ export async function withdraw(SRCInput) {
 			SRC_addr
 		);
 
-
-		// Approve the contract to spend the tokens
-
-		let SRC_decimals = parseInt(await tokenContract.methods.decimals().call())
-		console.log(tokenContract.methods)
-		console.log(accounts[0])
+		let SRC_decimals = parseInt(await tokenContract.methods.decimals().call())	
 		let request = await tokenContract.methods.approve(
 			SRCExchange_addr,
 			x.shiftedBy(SRC_decimals).toString()
@@ -74,14 +70,15 @@ export async function withdraw(SRCInput) {
 			.send({
 				from: accounts[0],
 			});
-		alert("You have successfully sold TTTTTTest tokens!");
-
+		alert("You have successfully sold SRC tokens!");
+		$('.lockWindows')[0].style.display = 'none';
 
 
 		return true
 	} catch (err) {
 		console.error(err);
 		alert("交易失敗");
+		$('.lockWindows')[0].style.display = 'none';
 		return false
 	}
 

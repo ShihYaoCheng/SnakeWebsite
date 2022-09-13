@@ -53,7 +53,7 @@
         <p class="increaseCoin" id="gSRCincrease"> </p>  
       
        <div class="coinEchange-BtnZone">
-           <button hidden="false" id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
+           <button  id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
           
        </div>
     </div>
@@ -61,6 +61,13 @@
 </div>
 @code {
     //private readonly RestRequest test2 = new RestRequest("BackEnd/Accounts", Method.GET);
+    [Parameter]
+    public EventCallback refresh { get; set;}
+    private async Task clickRefresh()
+    {
+        await refresh.InvokeAsync();   
+    }
+
 
     [Parameter]
     public ExchangeCoin? Value { get; set; }
@@ -101,7 +108,8 @@
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1);
             if (transactionResult)
             {
-                     await metamaskTransfer.SRCTransferToMetaMask(AppState.LoginStatus.userID, difference *-1);
+                await metamaskTransfer.SRCTransferToMetaMask(AppState.LoginStatus.userID, difference *-1);
+            
             }
        
          
@@ -112,7 +120,8 @@
         {
             @*game換鍊*@
         }
-
+        //強制渲染
+        await clickRefresh();
         
 
     }
