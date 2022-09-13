@@ -1,5 +1,6 @@
 ﻿@using SnakeAsianLeague.Pages.NFTindex.Components
 @using SnakeAsianLeague.Pages.Teach.Components.All_components
+@inject IJSRuntime JS
 
 <head>
     <link href="/css/Teach/CreatePonPonSnakeGame.css" rel="stylesheet" />
@@ -33,4 +34,16 @@
 @code {   
     private string countryCodeStr = "";
     private string phoneNumStr = "";
+
+   protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
+    }
 }

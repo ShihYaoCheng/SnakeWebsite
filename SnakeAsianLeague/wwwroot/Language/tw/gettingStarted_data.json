@@ -1,0 +1,51 @@
+{
+
+  "gettingStarted": {
+    "startPage": {
+      "title": "Start",
+      "subtilte": "PonPonSnake "
+
+    },
+    "title": {
+      "createmetamask": "1. Crea",
+      "connectopensea": "2. Connensea",
+      "createponponsnakegame": "3. CrnPonSnake Game Account",
+      "connectgameaccount": "4. Cto your Game Account",
+      "downloadandplay": "5. DoAY!"
+
+    },
+    "subtitle": {
+      "createmetamask": "What ckcfer assets on the blockchain.",
+      "connectopensea": "For NFT pu, Openc wallet info together.",
+      "createponponsnakegame": "Creahon code to your phone.",
+      "connectgameaccount": "In ordehe earnings in the game will be sent to your metamask wallet.",
+      "downloadandplay": "All Doneure in PonPonSnake!"
+
+    },
+    "page1": {
+      "title": "下載",
+      "btn1": "錢包",
+      "btn2": "新增 Polygon"
+
+    },
+    "page2": {
+      "title": "下載",
+      "btn1": "Open Sea"
+
+    },
+    "page4": {
+      "btn1": "註冊"
+
+    },
+    "page5": {
+      "title": "碰碰蛇 GO!",
+      "btn1": "安卓",
+      "btn2": "蘋果",
+      "btn3": "APK 檔案"
+
+    }
+
+
+
+  }
+}

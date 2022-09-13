@@ -405,20 +405,20 @@
         font-family: Microsoft JhengHei;
     }
 
-    .Event-Info p {
-        color: #FFA81D;
-        text-align: center;
-        font-size: 35px;
-        font-family: Microsoft JhengHei;
-        margin-bottom: 20px;
-    }
+.EventInfo-subtitle {
+    color: #FFA81D;
+    text-align: center;
+    font-size: 35px;
+    font-family: Microsoft JhengHei;
+    margin-bottom: 20px;
+}
 
     @media (max-width: 768px) {
         .Event-Info h2 {
             font-size: 40px;
         }
 
-        .Event-Info p {
+        .EventInfo-subtitle {
             font-size: 20px;
         }
     }
@@ -437,15 +437,60 @@
         text-align: center;
     }
 
-    .ticket-img {
-        width: 100%;
-        height: 347px;
-        display: block;
-    }
+.ticket-img {
+    width: 100%;
+    height: 347px;
+    display: block;
+    background-repeat: round !important;
+    position:relative;
+}
+.full_Tickeet {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Full season ticket/Tickeet full season _ whole.png");
+}
+.Mid_Tickeet {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mid season ticket/Mid Season_ Whloe.png");
+}
+.Late_Tickeet {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Late season ticket/Late_Season_ Whloe.png");
+}
 
-    .ticketMobile {
-        display: none;
-    }
+.register-time {
+    font-family: Microsoft JhengHei;
+    position: absolute;
+    top: 17%;
+    left: 31%; 
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+.from-date {
+    font-family: Microsoft JhengHei;
+    position: absolute;
+    top: 50%;
+    right: 26%; 
+    font-size: 16px;
+    font-weight: 700;
+}
+.full-fontColor {
+    color: #675334 ;
+}
+.Mid-fontColor {
+    color: #473f60;
+}
+.Late-fontColor {
+    color: #36455c;
+}
+
+.ticket-img .SRC-logo {
+    position: absolute;
+    width: 10%;
+    top: 22%;
+    right: 6%;
+}
+
+.ticketMobile {
+    display: none;
+}
 
     .ticket-MobileImg {
         width: 150px;

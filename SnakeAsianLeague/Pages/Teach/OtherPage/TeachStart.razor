@@ -1,5 +1,5 @@
 ﻿@page "/GettingStarted"
-
+@inject IJSRuntime JS
 <head>
     <title>PonPonSnake｜Getting Started</title>
     <link href="/css/Teach/TeachStart/TeachStart.css" rel="stylesheet" />
@@ -7,11 +7,11 @@
 
 <div class="TeachStart ">
     <div class="text-zone text-RWD-Small">
-        <h2>
-            Start Your Adventure Here
+        <h2 data-i18n="gettingStarted_data:gettingStarted.startPage.title">
+            @*Start Your Adventure Here*@
         </h2>
-        <p>
-            PonPonSnake is a 4v4/ 1v1 3D mobile game.You can play it on your phone anytime!The snakes can be collected and be used for battling against other players. To collect these NFT, you will need to sign up Metamask Wallet. 
+        <p data-i18n="gettingStarted_data:gettingStarted.startPage.subtilte">
+            @*PonPonSnake is a 4v4/ 1v1 3D mobile game.You can play it on your phone anytime!The snakes can be collected and be used for battling against other players. To collect these NFT, you will need to sign up Metamask Wallet. *@
         </p>
     </div>
 
@@ -23,8 +23,8 @@
                      <img  src=@Data[0] data-src=@Data[0]/>
                 </div>
                
-                <p>
-                   @Data[1]
+                <p   data-i18n="gettingStarted_data:gettingStarted.title.@Data[1]">
+                  
                 </p>
             </div>          
 
@@ -36,10 +36,10 @@
 
 
     <div class="text-zone text-RWD-Big">
-        <h2>
+        <h2 data-i18n="gettingStarted_data:gettingStarted.startPage.title">
             Start Your Adventure Here
         </h2>
-        <p>
+        <p data-i18n="gettingStarted_data:gettingStarted.startPage.subtilte">
             PonPonSnake is a 4v4/ 1v1 3D mobile game.You can play it on your phone anytime!The snakes can be collected and be used for battling against other players. To collect these NFT, you will need to sign up Metamask Wallet. 
         </p>
     </div>
@@ -52,12 +52,22 @@
 
 @code {
     private string[][] stepData = new string[][]
-        {
-            new string[]{ "/images/Teach/TeachStart/step1.png","1.Create Metamask Account and Connect with Polygon"},
-            new string[]{ "/images/Teach/TeachStart/step2.png","2.Connect Metamask to your Opensea"},
-            new string[]{ "/images/Teach/TeachStart/step3.png","3.Create your PonPonSnake Game Account"},
-            new string[]{ "/images/Teach/TeachStart/step4.png","4.Connect Metamask to your Game Account"},
-            new string[]{ "/images/Teach/TeachStart/step5.png","5.Download and PLAY!"},
+    {
+            new string[]{ "/images/Teach/TeachStart/step1.png","createmetamask" },
+            new string[]{ "/images/Teach/TeachStart/step2.png","connectopensea"},
+            new string[]{ "/images/Teach/TeachStart/step3.png","createponponsnakegame"},
+            new string[]{ "/images/Teach/TeachStart/step4.png","connectgameaccount"},
+            new string[]{ "/images/Teach/TeachStart/step5.png","downloadandplay"},
 
-        };
+    };
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
+    }
 }
