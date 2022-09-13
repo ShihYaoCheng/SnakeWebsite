@@ -11,8 +11,8 @@
 			SRC_addr
 		);
 		let SRC_decimals = parseInt(await tokenContract.methods.decimals().call())
-		const totalSupply = (await tokenContract.methods.totalSupply().call() / 10 ** SRC_decimals).toString()	
-		return totalSupply
+		const SRCtotalSupply = (await tokenContract.methods.totalSupply().call() / 10 ** SRC_decimals).toString()	
+		return SRCtotalSupply
 	} catch (err) {
 		console.error(err);
 		alert("取得失敗");
@@ -22,19 +22,23 @@
 
 
 
-export async function getCompanyUSDT(USDT_address, company_address) {
-	console.log(company_address)
+export async function getCompanyUSDT(SRCSwap_address) {
+	
 	/*引用web3 、獲取地址跟鍊*/
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts() //要換company_address
 
-	/*USDT */
-	const USDT_token_addr = USDT_address
-	const USDT_abi = window.ERC20_abi
-	const dai_contract = new w3.eth.Contract(USDT_abi, USDT_token_addr)
-
-	let decimals = await dai_contract.methods.decimals().call()
-	let addr_USDT_balance = (await dai_contract.methods.balanceOf(address[0]).call() / 10 ** decimals).toString()
-
-	return addr_USDT_balance
+	/* SRCSwap */
+	const SRCSwap_addr = SRCSwap_address
+	const SRCSwap_abi = window.SRCSwap_abi
+	try {	
+		const SRCSwap_dai_contract = new w3.eth.Contract(SRCSwap_abi, SRCSwap_addr);
+		console.log(SRCSwap_dai_contract.methods)
+		//let decimals = await SRCSwap_dai_contract.methods.decimals().call()
+		const CompanyUSDT = (await SRCSwap_dai_contract.methods.balanceOfUSDT().call()/10**6 ).toString()	
+		return CompanyUSDT
+	} catch (err) {
+		console.error(err);
+		alert("取得失敗");
+	}
 }

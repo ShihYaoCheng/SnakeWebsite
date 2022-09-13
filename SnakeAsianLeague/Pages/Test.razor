@@ -27,7 +27,7 @@
                 if (SRCquantity == -1 )//-1觸發渲染用 
                 {
                     SRCquantity = decimal.Parse( await companyAssetsJS.InvokeAsync<string>("getSRCquantity")   )  ;
-                    companyUSDT = decimal.Parse( await companyAssetsJS.InvokeAsync<string>("getCompanyUSDT" ,Configuration["USDT_token_addr"]  ,Configuration["company_address"] )  )  ;
+                    companyUSDT = decimal.Parse( await companyAssetsJS.InvokeAsync<string>("getCompanyUSDT" ,Configuration["SRCSwap_addr"]   )  )  ;
          
                     //強制渲染
                     InvokeAsync(StateHasChanged);
