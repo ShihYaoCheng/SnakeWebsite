@@ -466,10 +466,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
         public class AllowanceData
         {
-            public decimal allowance
-            {
-                get; set;
-            }
+            public decimal allowance {get; set;}
         }
 
 
@@ -495,6 +492,76 @@ namespace SnakeAsianLeague.Data.Services.Personal
             {
                 AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
                 result = data.allowance;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public async Task<decimal> SRCExchangeAllowance( string walletAddress)
+        {
+
+            decimal result = 0;
+            string URL = "/SRCExchange/Allowance";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("walletAddress", walletAddress);
+            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+            Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance URL :", BlockChainServerClient));
+            Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance StatusCode :", restResponse.StatusCode));
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
+                result = data.allowance;
+            }
+            return result;
+        }
+
+
+
+
+        public class BlockChainInfoDTO
+        {
+            public string? BlockChain { get; set; }
+            public int ChainId { get; set; }             // ChainId
+            public string? ChainRPCUrl { get; set; }     // RPCUrl
+            public string? SocketServerUri { get; set; } // 接收Event回傳的Socket伺服器位置
+                                                         // PPSR合約
+            public string? AdminWalletAddress_PPSR { get; set; }
+            public string? ContractAddress_PPSR { get; set; }
+            public decimal BalanceOf_PPSR { get; set; } // 剩餘瓦斯費
+                                                        // SRCExchange合約
+            public string? AdminWalletAddress_SRCExchange { get; set; }
+            public string? ContractAddress_SRCExchange { get; set; }
+            public decimal BalanceOf_SRCExchange { get; set; }  // 剩餘瓦斯費
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public async Task<string> BlockChainInfo()
+        {
+
+            string result = "";
+            string URL = "/BlockChainInfo/GetBlockChainInfo";
+            var request = new RestRequest(URL, Method.GET);
+            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+            Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo URL :", BlockChainServerClient));
+            Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo StatusCode :", restResponse.StatusCode));
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                BlockChainInfoDTO data = JsonSerializer.Deserialize<BlockChainInfoDTO>(restResponse.Content) ?? new BlockChainInfoDTO();
+                result = data.BlockChain;
             }
             return result;
         }
