@@ -85,13 +85,15 @@ export async function withdraw(SRCInput) {
 }
 
 //取得鍊上資料
-export async function CoinexchangeData(SRC_address) {
+export async function CoinexchangeData(chainId ,SRC_address) {
 
 	/*引用web3 、獲取地址跟鍊*/
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts()
 	const networkID = await w3.eth.net.getId()
-
+	if (parseInt(chainId.slice(2)) != networkID) {
+		return ["false", "0"]
+	}
 	/* SRC */
 	const SRC_token_addr = SRC_address
 	const SRC_abi = window.ERC20_abi
@@ -103,7 +105,11 @@ export async function CoinexchangeData(SRC_address) {
 	/*ERNC*/
 
 
+
+	$("#userAddress")[0].innerText = address[0].slice(0, 9) + "...."
+
+	
 	/*回傳*/
-	return [ (addr_SRC_balance).toString()]
+	return ["true", (addr_SRC_balance).toString()  ]
 
 }
