@@ -15,6 +15,8 @@ namespace SnakeAsianLeague.Data.Services.Personal
         private IConfiguration _config;
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
+        private readonly RestClient BlockChainServerClient;
+
 
         List<NFTData> NFTDataList;
 
@@ -26,11 +28,13 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
 
-        public InventoryService(IConfiguration config , IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
+        public InventoryService(IConfiguration config, IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
         {
             _config = config;
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
+
+            BlockChainServerClient = new RestClient(externalServersConfig.NftWebApi);
 
             OptionKeyValue option = new OptionKeyValue();
             RarityList = option.Get_Default_Rarity();
@@ -151,7 +155,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
                     Rarity = RarityElements[2].Substring(0, 1);
                     Elements = RarityElements[2].Substring(1, 1);
                 }
-                data.ImgPath = string.Format(ImgPath, "ppsr" , NFT_Riders[i].serialNumber);
+                data.ImgPath = string.Format(ImgPath, "ppsr", NFT_Riders[i].serialNumber);
                 data.LinkURL = string.Format(LinkURL, asset_contract_address, data.Number);
                 //data.RarityKey = Rarity;
                 //data.Elements = Elements;
@@ -171,7 +175,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
                 //租金
-                data.nowRent = Decimal.Round(NFT_Riders[i].rent ,3);
+                data.nowRent = Decimal.Round(NFT_Riders[i].rent, 3);
                 //累計租金(累計收益)
                 data.totalRevenue = Decimal.Round(NFT_Riders[i].totalRevenue, 3);
 
@@ -305,7 +309,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
                 //租任
                 //List<RiderUnit> result = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
-              
+
                 return result;
             }
             return new List<RiderUnit>();
@@ -332,7 +336,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <param name="userId"></param>
         /// <param name="ppsr"></param>
         /// <returns></returns>
-        public async Task<decimal> ReceiveRentByUnit(string userId ,string ppsr)
+        public async Task<decimal> ReceiveRentByUnit(string userId, string ppsr)
         {
             /* 20220728假資料
             * by chenyuwei
@@ -340,7 +344,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
 
-            decimal result = decimal.Parse( NFTDataList.Where(m=>m.TokenID == ppsr).First().totalRevenue.ToString());
+            decimal result = decimal.Parse(NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue.ToString());
             NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue = 0;
             return Math.Round(result, 3, MidpointRounding.AwayFromZero);
             /* 20220907 API 串接完成
@@ -452,10 +456,48 @@ namespace SnakeAsianLeague.Data.Services.Personal
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 gSRCCurrency data = JsonSerializer.Deserialize<gSRCCurrency>(restResponse.Content) ?? new gSRCCurrency();
-                result = decimal.Round( data.nftCurrency1 ,3);
+                result = decimal.Round(data.nftCurrency1, 3);
             }
             return result;
 
         }
+
+
+
+        public class AllowanceData
+        {
+            public decimal allowance
+            {
+                get; set;
+            }
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public async Task<decimal> SRCExchangeApprove(string UserID, decimal amount)
+        {
+
+            decimal result = 0;
+            string URL = "/SRCExchange/Approve";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("userID", UserID);
+            request.AddQueryParameter("amount", amount.ToString());
+            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+            Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeApprove URL :", BlockChainServerClient));
+            Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeApprove StatusCode :", restResponse.StatusCode));
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
+                result = data.allowance;
+            }
+            return result;
+        }
     }
+
 }
