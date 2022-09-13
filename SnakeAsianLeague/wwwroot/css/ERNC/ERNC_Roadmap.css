@@ -302,7 +302,7 @@
     color: #ffffff;
     font-family: 'Microsoft JhengHei', adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
     list-style-type: none;
-    font-size: 13.5px;
+    font-size: 14px;
     position: absolute;
     /* align-self: center; */
     height: 95px;
@@ -505,7 +505,7 @@
         /* white-space: nowrap; */
     }
     .Project-info li{
-        margin-bottom: 3px;
+        margin-bottom: 6px;
     }
     .Project-info li::before{
         top: 8px;
