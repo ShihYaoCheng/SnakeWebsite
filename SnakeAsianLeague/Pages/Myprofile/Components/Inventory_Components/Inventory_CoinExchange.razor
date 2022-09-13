@@ -85,7 +85,7 @@
 
     private IJSObjectReference? coinEchangeJS;
     decimal difference=0;
-    private MetamaskTransfer metamaskTransfer = new MetamaskTransfer();
+    private MetamaskTransfer metamaskTransfer ;
     private InventoryService inventoryService;
 
     private InventoryService.BlockChainInfoDTO blockChainInfoDTO ;
@@ -129,8 +129,8 @@
         else
         {
             @*game換鍊*@
-             test = await inventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
-             //test =await inventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
+             //test = await inventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
+             await inventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
 
         }
         //強制渲染
