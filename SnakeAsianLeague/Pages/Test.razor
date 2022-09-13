@@ -1,23 +1,39 @@
 ﻿@page "/test"
 @inject IJSRuntime JS
+@inject IConfiguration Configuration
 
 <head>
     <link href="css/test.css" rel="stylesheet" />
 </head>
 
 <div class="test-container">
-    <h3> test</h3>
-    <button id ="AddPolygonID"> 新增或切換 Polygon鍊 </button>
+    <h3> @SRCquantity</h3>
+    <h3> @companyUSDT</h3>   
 </div>
 
+
 @code {
-    
+    private IJSObjectReference? companyAssetsJS;
+    decimal SRCquantity = -1;
+    decimal companyUSDT;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-    
-            await JS.InvokeVoidAsync("AddPolygonID");   
+            companyAssetsJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/companyAssets.js");      
+
+            if (companyAssetsJS != null)
+            {
+                if (SRCquantity == -1 )//-1觸發渲染用 
+                {
+                    SRCquantity = decimal.Parse( await companyAssetsJS.InvokeAsync<string>("getSRCquantity")   )  ;
+                    companyUSDT = decimal.Parse( await companyAssetsJS.InvokeAsync<string>("getCompanyUSDT" ,Configuration["USDT_token_addr"]  ,Configuration["company_address"] )  )  ;
+         
+                    //強制渲染
+                    InvokeAsync(StateHasChanged);
+                }
+         
+            }  
             
         }
 

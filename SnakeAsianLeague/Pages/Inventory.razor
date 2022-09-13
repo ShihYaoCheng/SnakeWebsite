@@ -698,7 +698,11 @@
     </section>
 
     @*..............騎士幣兌換 coinexchange 彈窗.......................*@
-    <Inventory_CoinExchange Value = "CoinData"></Inventory_CoinExchange>
+    <Inventory_CoinExchange Value = "CoinData" refresh="refresh"></Inventory_CoinExchange>
+    @*..............交易中反灰.......................*@
+    <div class="lockWindows">
+        transacting
+    </div>
 
 
     @if (loading)
@@ -751,7 +755,7 @@
             CoinData.changeData("ERNC",100,100);  
         } else
         {
-            CoinData.changeData("SRC",105,tokenSRC );    
+            CoinData.changeData("SRC",gSRC,tokenSRC );    
         }
 
     }
@@ -866,18 +870,21 @@
             RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/RentJump.js");
 
             coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
-            getCoinData();
+            await getCoinData();
 
-            if (loading == true)
-            {
-                 loading = false;
-                  //強制渲染
-                InvokeAsync(StateHasChanged);
-            } 
+            await loadingColse();
         }
     }
 
-
+    private async Task loadingColse()
+    {
+        if (loading == true)
+        {
+            loading = false;
+            //強制渲染
+            InvokeAsync(StateHasChanged);
+        } 
+    }
 
 
     void IDisposable.Dispose()
@@ -1075,11 +1082,11 @@
         {
             ReceiveRentByUnit();
         }
-    
+
 
     }
 
-    
+
 
 
 
@@ -1096,8 +1103,18 @@
         {
             await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
         }
-         TotalSRCCount = TotalSRCCount + Rent;
-         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
-         AllBalance = await InventoryService.CalReceiveRent(UserID);
+        TotalSRCCount = TotalSRCCount + Rent;
+        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
+        AllBalance = await InventoryService.CalReceiveRent(UserID);
     }
+
+
+    //強制渲染的方法
+    public void  refresh()
+    {
+        Refresh();
+        getCoinData();
+        InvokeAsync(StateHasChanged);
+    }
+   
 }
