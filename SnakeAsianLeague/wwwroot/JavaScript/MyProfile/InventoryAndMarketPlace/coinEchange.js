@@ -96,7 +96,7 @@ export async function deposit(SRCInput) {
 
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(parseInt(SwapNumValue));
-	console.log("1",SwapNumValue)
+	console.log("11111",SwapNumValue)
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
