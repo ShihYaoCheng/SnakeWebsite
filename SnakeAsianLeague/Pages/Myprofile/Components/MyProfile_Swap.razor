@@ -10,6 +10,9 @@
   
 </head>
 
+@*右上角顯示錢包地址*@
+<Walletaddress></Walletaddress>
+
 <div class="SRCExchange-container">
 
    
@@ -127,8 +130,6 @@
 </div>
 
 
-@*右上角顯示錢包地址*@
-<Walletaddress></Walletaddress>
 
 
 @*錯誤訊息*@
@@ -301,7 +302,7 @@
     {      
         await JS.InvokeVoidAsync("AddPolygonUSDT");            
     }
-
+    //新增SRC錢包
     protected  async Task AddSRC()
     {      
         await JS.InvokeVoidAsync("AddPolygonSRC");            

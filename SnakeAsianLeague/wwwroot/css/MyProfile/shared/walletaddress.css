@@ -3,12 +3,10 @@
 
 .walletaddress {
     padding: 60px 18px 0 0;
-    position: fixed;
+
     width: 100vw;
     height: 120px;
     z-index: 1;
-    top: 0%;
-    left: 0%;
 }
 
 #userAddress {
