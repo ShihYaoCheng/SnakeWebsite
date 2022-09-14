@@ -112,7 +112,7 @@ export async function deposit(SRCInput) {
 			SRCExchange_ABI,
 			SRCExchange_addr
 		);
-		console.log("2")
+		console.log("22222")
 		let request = await vendor.methods
 			.deposit(x.shiftedBy(SRC_decimals).toString())
 			.send({
@@ -121,7 +121,7 @@ export async function deposit(SRCInput) {
 		console.log("request", request)
 		alert("You have successfully sold SRC tokens!");
 		$('.lockWindows')[0].style.display = 'none';
-		console.log("3")
+		console.log("33333")
 	} catch (err) {
 		console.log("error", err)	
 		alert("交易失敗");
