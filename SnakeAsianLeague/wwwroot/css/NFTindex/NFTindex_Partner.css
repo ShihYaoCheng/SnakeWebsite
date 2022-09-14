@@ -17,6 +17,9 @@
 }
 .partner-board{
     width: 100%;
+    filter: drop-shadow(5px 5px 25px rgba(249, 162, 69, 0.3));
+    /* filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.7)); */
+
 }
 
 .partner-logoBlock{
