@@ -65,7 +65,16 @@
       
        <div class="coinEchange-BtnZone">
            <button  id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
-          
+          <button  @onclick="SRCExchangeAllowanceClick">SRCExchangeAllowance </button>
+           <button  @onclick="blockChainInfoDTOClick">blockChainInfoDTOClick </button>
+           <div>
+               <p>SRCExchangeAllowance Data</p>
+               <p>@aa</p>
+           </div>
+            <div>
+               <p>blockChainInfoDTO Data</p>
+               <p>@bb</p>
+           </div>
        </div>
     </div>
 
@@ -88,7 +97,7 @@
     private MetamaskTransfer metamaskTransfer ;
     private InventoryService inventoryService;
 
-    private InventoryService.BlockChainInfoDTO blockChainInfoDTO ;
+    private InventoryService blockChainInfoDTO  ;
 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -129,14 +138,27 @@
         else
         {
             @*game換鍊*@
-             //test = await inventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
-             await inventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
+            //test = await inventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
+            //await inventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
 
         }
         //強制渲染
         await clickRefresh();
-        
-
     }
+
+    decimal aa;
+    string bb;
+    protected async void SRCExchangeAllowanceClick()
+    {
+        aa = await inventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
+          InvokeAsync(StateHasChanged);
+    }
+    protected async void blockChainInfoDTOClick()
+    {
+        bb =await blockChainInfoDTO.BlockChainInfo();
+          InvokeAsync(StateHasChanged);
+    }
+    
+
 }
 
