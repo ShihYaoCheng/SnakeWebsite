@@ -182,7 +182,7 @@
                         }
                         else
                         {
-                            <div class="CollectBtn CollectBtnBig" >            
+                            <div class="CollectBtn CollectBtnBig" @onclick="eventArgs => { setValue(  eventArgs); }" >             
                                 Collect All Income
                             </div>
                         }
@@ -1052,7 +1052,8 @@
     private async void setValue( object onClickValue)
     {
         string UserID = AppState.LoginStatus.userID.ToString();
-        CollectBalance = await InventoryService.CalReceiveRent(UserID);
+        //CollectBalance = await InventoryService.CalReceiveRent(UserID);
+        CollectBalance = AllBalance;
     }
 
     /// <summary>
@@ -1074,7 +1075,9 @@
             await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
         }
         TotalSRCCount = TotalSRCCount + Rent;
-        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
+        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero);
+
+        gSRC = TotalSRCCount;
         AllBalance = await InventoryService.CalReceiveRent(UserID);
 
         StateHasChanged();
