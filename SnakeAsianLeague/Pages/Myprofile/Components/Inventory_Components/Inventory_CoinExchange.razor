@@ -131,7 +131,7 @@
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1);
             if (transactionResult)
             {
-                await metamaskTransfer.SRCTransferToMetaMask(AppState.LoginStatus.userID, difference *-1);
+                await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
 
             }
 
