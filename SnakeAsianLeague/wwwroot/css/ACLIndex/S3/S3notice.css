@@ -1,11 +1,16 @@
 ﻿/*...Notice...*/
 .Notice {
-
-
+    
 }
-
+.NoticeBG-container {
+    width: 100vw;
+    position: relative;
+}
 .NoticeBG {
-    width:100vw;
+    width: 100vw;
+    position: absolute;
+    transform: scale(1.5);
+    top: -5%;
 }
 
 .Notice_TopTitle {
