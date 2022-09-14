@@ -300,7 +300,7 @@ src.webp
                                                 <label class="Filter-Button" for="@item.Value">
                                                     <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
+                                                <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
                                             }
                                             
                                         </div>
@@ -321,7 +321,7 @@ src.webp
                                                 <label class="Filter-Button" for="@item.Value">
                                                     <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
+                                                <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
                                             }
 
                                         </div>
@@ -340,7 +340,7 @@ src.webp
                                                 <label class="Filter-Button" for="@item.Value">
                                                     <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
+                                                <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
                                             } 
 
                                         </div>
@@ -359,7 +359,7 @@ src.webp
                                                 <label class="Filter-Button" for="@item.Value">
                                                     <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
+                                                <input id="@item.Value"  class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
                                             }
 
                                         </div>
