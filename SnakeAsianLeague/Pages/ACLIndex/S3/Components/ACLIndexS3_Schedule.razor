@@ -210,7 +210,7 @@
     {   
         if (firstRender){
        
-                List<AsiaLeagueSchedule> objList = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
+            //List<AsiaLeagueSchedule> objList = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
 
             Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
            @*Console.WriteLine(objList);
@@ -236,7 +236,7 @@
             
 
             string jsonString = JsonSerializer.Serialize(mobjList);    *@
-            Console.Write(Schedules);
+            //Console.Write(Schedules);
             S3CalendarJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/S3Calendar.js");
             await S3CalendarJS.InvokeVoidAsync("S3Calendar",Schedules);        
            
