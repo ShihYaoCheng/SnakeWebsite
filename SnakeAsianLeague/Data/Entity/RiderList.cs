@@ -53,6 +53,11 @@
         /// </summary>
         public bool IsAvailableInGame { get; set; }
 
+
+        /// <summary>
+        /// 職業代碼
+        /// </summary>
+        public string occupationId { get; set; }
     }
 
 
