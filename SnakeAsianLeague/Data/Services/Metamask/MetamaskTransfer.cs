@@ -9,13 +9,16 @@ namespace SnakeAsianLeague.Data.Services.Metamask
     public class MetamaskTransfer
     {
         //public object ServerClient { get; private set; }
-
+        private ExternalServers externalServersConfig;
 
         private readonly RestClient ServerClient;
-        public MetamaskTransfer()
+        public MetamaskTransfer(IOptions<ExternalServers> myConfiguration)
         {
+
+            externalServersConfig = myConfiguration.Value;
+            ServerClient = new RestClient(externalServersConfig.UserServer);
             //ServerClient = new RestClient(externalServersConfig.UserServer);
-            ServerClient = new RestClient("https://rel.ponponsnake.com/api/user");
+            //ServerClient = new RestClient("https://rel.ponponsnake.com/api/user");
         }
 
 
@@ -32,7 +35,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
         }
 
 
-        public async Task<bool> SRCTransferToMetaMask(uint UserID, decimal amount)
+        public async Task<bool> SRCTransferToDB(uint UserID, decimal amount)
         {
             bool result = false;
             try
