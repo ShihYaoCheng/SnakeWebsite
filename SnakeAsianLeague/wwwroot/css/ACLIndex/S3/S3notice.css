@@ -1,4 +1,13 @@
 ﻿/*...Notice...*/
+.Notice {
+
+
+}
+
+.NoticeBG {
+    width:100vw;
+}
+
 .Notice_TopTitle {
     margin: 36px 0 53px 0;
     font-family: Microsoft JhengHei;
