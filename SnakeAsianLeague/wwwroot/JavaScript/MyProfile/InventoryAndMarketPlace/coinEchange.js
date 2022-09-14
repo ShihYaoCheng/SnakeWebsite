@@ -122,10 +122,12 @@ export async function deposit(SRCInput) {
 		alert("You have successfully sold SRC tokens!");
 		$('.lockWindows')[0].style.display = 'none';
 		console.log("33333")
+		return true
 	} catch (err) {
 		console.log("error", err)	
 		alert("交易失敗");
 		$('.lockWindows')[0].style.display = 'none';
+		return false
 	}
 
 }
