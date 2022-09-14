@@ -357,10 +357,10 @@ namespace SnakeAsianLeague.Data.Services.Personal
              */
             decimal result = 0;
             ppsr = string.Format("#{0}", ppsr);
-            ppsr = ppsr.Replace("#", "%23");
-            string URL = "/NFT/ReceiveRentByUnit";
+            //ppsr = ppsr.Replace("#", "%23");
+            string URL = "NFT/ReceiveRentByUnit";
             var request = new RestRequest(URL, Method.GET);
-            request.AddQueryParameter("UserID", userId);
+            request.AddQueryParameter("userID", userId);
             request.AddQueryParameter("ppsr", ppsr);
             request.AddHeader("Authorization", Authenticate());
 
@@ -405,7 +405,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             
             string URL = "/NFT/ReceiveRent";
             var request = new RestRequest(URL, Method.GET);
-            request.AddQueryParameter("UserID", userId);
+            request.AddQueryParameter("userID", userId);
             request.AddHeader("Authorization", Authenticate());
 
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
