@@ -3,6 +3,7 @@
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Metamask
 @using RestSharp;
+@using SnakeAsianLeague.Data.Services.Personal
 
 @inject AppState AppState
 
@@ -22,12 +23,7 @@
                     <p class="coinTotalNum">@Value.gNumber</p>
                  </div>
 
-                 <p class="replacedCoin">
-                    @Value.gNumberChange
-                 </p>
-                 <output class="increaseCoin" id="GSRCincrease">
-                    0
-                 </output>  
+     
              </div>
              <div class="coinNum-mid">
                  <div class="coinTop doubleArrow">
@@ -41,20 +37,44 @@
                     <p class="coinTitle">@Value.tokenTitle</p>
                     <p class="coinTotalNum">@Value.tokenNumber</p>
                  </div>
+     
+             </div>
+        </div>
+        <input class="coin-range" type="range" @onchange="(ChangeEventArgs e)=> coinRange(e)" min="-@Value.gNumber" max="@Value.tokenNumber"  oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
+   
+        <div class="replacedCoin-zone" >
+            <div class="left">
+                 <p class="replacedCoin">
+                    @Value.gNumberChange
+                 </p>
+                 <output class="increaseCoin" id="GSRCincrease">
+                    0
+                 </output>  
+            </div>
+            <div class="mid"></div>
+            <div class="right">
                  <p class="replacedCoin">
                      @Value.tokenNumberChange
                  </p>                  
                  <output class="increaseCoin"  id="SRCincrease">
                     0
                  </output>   
-             </div>
+            </div>
         </div>
-        <input class="coin-range" type="range" @onchange="(ChangeEventArgs e)=> coinRange(e)" min="-@Value.gNumber" max="@Value.tokenNumber"  oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
-        <p class="increaseCoin" id="gSRCincrease"> </p>  
+     @*   <p class="increaseCoin" id="gSRCincrease"> </p>  *@
       
        <div class="coinEchange-BtnZone">
            <button  id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
-          
+          <button  @onclick="SRCExchangeAllowanceClick">SRCExchangeAllowance </button>
+           <button  @onclick="blockChainInfoDTOClick">blockChainInfoDTOClick </button>
+           <div>
+               <p>SRCExchangeAllowance Data</p>
+               <p>@aa</p>
+           </div>
+            <div>
+               <p>blockChainInfoDTO Data</p>
+               <p>@bb</p>
+           </div>
        </div>
     </div>
 
@@ -74,7 +94,10 @@
 
     private IJSObjectReference? coinEchangeJS;
     decimal difference=0;
-    private MetamaskTransfer metamaskTransfer = new MetamaskTransfer();
+    private MetamaskTransfer metamaskTransfer ;
+    private InventoryService inventoryService;
+
+    private InventoryService blockChainInfoDTO  ;
 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -98,32 +121,44 @@
     }
 
     bool transactionResult = false;
+    decimal test ;
     protected  async void coinEchangeBtn()
     {
         if (difference < 0)
         {
-       
-     
             @*鍊換game*@
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1);
             if (transactionResult)
             {
                 await metamaskTransfer.SRCTransferToMetaMask(AppState.LoginStatus.userID, difference *-1);
-            
-            }
-       
-         
 
+            }
 
         }
         else
         {
             @*game換鍊*@
+            //test = await inventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
+            //await inventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
+
         }
         //強制渲染
         await clickRefresh();
-        
-
     }
+
+    decimal aa;
+    string bb;
+    protected async void SRCExchangeAllowanceClick()
+    {
+        aa = await inventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
+          InvokeAsync(StateHasChanged);
+    }
+    protected async void blockChainInfoDTOClick()
+    {
+        bb =await blockChainInfoDTO.BlockChainInfo();
+          InvokeAsync(StateHasChanged);
+    }
+    
+
 }
 

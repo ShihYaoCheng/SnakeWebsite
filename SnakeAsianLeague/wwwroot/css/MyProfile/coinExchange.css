@@ -18,9 +18,8 @@
     width: 600px;
     height: 540px;
     border-radius: 20px;
-    background: #253A4B;
-    position:relative;
-
+    background: #27616f;
+    position: relative;
 }
 @media(max-width :768px) {
     .coinEchange {
@@ -58,17 +57,17 @@
 }
 
 /*貨幣交換*/
-.coinNum-Container{
+.coinNum-Container {
     width: 100%;
-    height: 60%;
+    height: 40%;
     display: flex;
-   
+    justify-content: center;
 }
 
 /*共用*/
 .coinTop {
     width: 100%;
-    height: 65%;
+    height:100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,7 +115,7 @@
 }
 
 .coinNum-mid{
-    width: calc(100%/5*1);
+    width: calc(100%/10*1);
     height: 100%;
 }
 .coinNum-mid img{
@@ -132,16 +131,39 @@
 }
 
 .replacedCoin {
-    border:3.5px solid #fff;
-    width:65%;   
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:25px;
-    color:#fff;
-    margin:20px auto;
-    padding:10px;
+    border: 3.5px solid #426e7c;
+    border-radius: 15px;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: #fff;
+    margin: 20px auto;
+    padding: 10px;
+    background: #253a4b;
 }
+
+.replacedCoin-zone {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0 0 15px 0;
+}
+.replacedCoin-zone .left {
+    width: calc(100%/5*2);
+    text-align:center;
+}
+
+.replacedCoin-zone .mid {
+    width: calc(100%/10*1)
+}
+.replacedCoin-zone .right {
+    width: calc(100%/5*2);
+    text-align:center;
+}
+
+
 
 
 .increaseCoin {
@@ -214,20 +236,20 @@
 }
 /*range*/
 .coin-range[type="range"] {
-    margin: 20px auto;
+    margin: 15px auto 10px auto;
     width: 80% !important;
     display: block;
-    height: 70px;
+    height: 50px;
     border-radius: 5px;
 }
 .coin-range[type="range"]::-webkit-slider-thumb {
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     background: #69ADA2;
     border: 1px solid #69ADA2;
     border-radius:50%;   
     box-shadow: 0 0 2px 0 #555;
-    margin-top: -15px;
+    margin-top: -7px;
 }
 
 .coin-range[type=range]::-webkit-slider-runnable-track {
@@ -235,9 +257,9 @@
     box-shadow: none;
     border: none;
     background: #D9D9D9;
-    height: 20px;
+    height: 15px;
     border-radius: 5px;
-    margin-right:-20px;
+  
 }
 
 @media (max-width:768px) {

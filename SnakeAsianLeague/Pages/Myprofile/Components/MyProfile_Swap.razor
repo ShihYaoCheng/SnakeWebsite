@@ -1,8 +1,10 @@
 ﻿@using SnakeAsianLeague.Data.Services.BlockChainProcessor
 @using SnakeAsianLeague.Pages.Myprofile.Components.Index_Components
+@using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject IConfiguration Configuration
 @inject BlockChainProcessorSever linebot;
 @inject IJSRuntime JS
+
 <head>
     <link href="css/MyProfile/SRCSwap.css" rel="stylesheet" />     
   
@@ -126,26 +128,14 @@
 
 
 @*右上角顯示錢包地址*@
-<div class="walletaddress">
-    <img class="userNetwork" src="/images/Myprofile/SRCExchange/rinkeby_logo.png" />
-    <p id="userAddress">
-        0x12345...
-    </p>
-
-
-</div>
+<Walletaddress></Walletaddress>
 
 
 @*錯誤訊息*@
 
 @if (Value && !(netWorkRight))
 {
-<div class="errorContainer">
-    <div class="errorNav"> 
-        <p>Wrong Network</p>
-        <button  @onclick="AddPolygon">Switch to @netWorkName </button>
-    </div>
-</div>
+    <ErrorNetwork AddPolygon ="AddPolygon" Value ="netWorkName"></ErrorNetwork>
 }
 
 @*彈窗*@
@@ -155,9 +145,7 @@
 </ProductsPopup>
 
  @*交易中反灰*@
-<div class="lockWindows">
-    transacting
-</div>
+ <TransactWindow></TransactWindow>
  @*
  @if(SwapToggle){
 
@@ -293,8 +281,6 @@
 
 
 
-
-
     //切換並新增Polygon
     protected  async Task AddPolygon()
     {
@@ -303,6 +289,8 @@
         await getMetaMaskData();
 
     }
+
+
     ////新增登入功能
     private async Task loginButtonClick()
     {

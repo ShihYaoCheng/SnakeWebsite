@@ -1,4 +1,4 @@
-@page "/myprofile/inventory"
+@*@page "/myprofile/inventory"*@
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Paging
 @using SnakeAsianLeague.Data.Services
@@ -6,7 +6,7 @@
 @using SnakeAsianLeague.Data.Entity.View
 @using Microsoft.AspNetCore.Components.Authorization
 @using SnakeAsianLeague.Pages.Myprofile.Components.Inventory_Components
-
+@using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject IJSRuntime JS
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject InventoryService InventoryService
@@ -700,15 +700,21 @@
     @*..............騎士幣兌換 coinexchange 彈窗.......................*@
     <Inventory_CoinExchange Value = "CoinData" refresh="refresh"></Inventory_CoinExchange>
     @*..............交易中反灰.......................*@
-    <div class="lockWindows">
-        transacting
-    </div>
+    <TransactWindow></TransactWindow>
 
+    @*右上角顯示錢包地址*@
+    <Walletaddress></Walletaddress>
 
+    @*錯誤訊息*@
+
+    @if (Value && !(netWorkRight))
+    {
+        <ErrorNetwork AddPolygon ="AddPolygon" Value ="netWorkName"></ErrorNetwork>
+    }
+    @*載入畫面*@
     @if (loading)
     {
-        <FectchDataLoading />
-    
+        <FectchDataLoading />    
     }
 
 
@@ -722,9 +728,57 @@
 
 
 @code {
+    //是否登入
+    [Parameter]
+    public bool Value { get; set; }
     //loading
     bool loading = true; 
-    //租金變數......
+    //錢包鍊是否正確
+    bool netWorkRight = false;
+    string netWorkName = "Rinkeby";
+
+    //騎士幣兌換
+    decimal gSRC =0 ;
+    decimal tokenSRC = 0 ;
+
+    decimal gERNC = 0;
+    decimal tokenERNC = 0;
+
+    string[] JSCoinData;
+    private ExchangeCoin CoinData = new ExchangeCoin( "ERNC" ,0,0 );
+    //SRC、ERNC兌換
+    private async Task ExchangeBtn(bool check )
+    {
+        if (check)
+        {
+            CoinData.changeData("ERNC",100,100);  
+        } else
+        {
+            CoinData.changeData("SRC",gSRC,tokenSRC );    
+        }
+    }
+    //取得錢包資訊
+    private async Task getCoinData()
+    {
+        JSCoinData = await coinEchangeJS.InvokeAsync<string[]>("CoinexchangeData"  ,Configuration["chainId"], Configuration["SRC_token_addr"]);
+        tokenSRC =decimal.Parse(JSCoinData[1]);
+
+         if (netWorkRight !=  Convert.ToBoolean(JSCoinData[0]))
+        {
+             netWorkRight =  Convert.ToBoolean(JSCoinData[0]);
+             //強制渲染
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+    //切換並新增Polygon
+    protected  async Task AddPolygon()
+    {
+    @*linebot.SemdLineNotifyMsg("test123");*@
+        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] );
+        await getCoinData();
+    }
+
+     //租金變數......
     //所有Balance加總
     private decimal AllBalance = 0;
 
@@ -737,44 +791,8 @@
 
     private decimal TotalSRCCount = 0;
 
-    //騎士幣兌換
-    decimal gSRC =0 ;
-    decimal tokenSRC = 0 ;
 
-    decimal gERNC = 0;
-    decimal tokenERNC = 0;
-
-    string[] JSCoinData;
-    private ExchangeCoin CoinData = new ExchangeCoin( "ERNC" ,0,0 );
-
-    private async Task ExchangeBtn(bool check )
-    {
-
-        if (check)
-        {
-            CoinData.changeData("ERNC",100,100);  
-        } else
-        {
-            CoinData.changeData("SRC",gSRC,tokenSRC );    
-        }
-
-    }
-
-    private async Task getCoinData()
-    {
-        JSCoinData = await coinEchangeJS.InvokeAsync<string[]>("CoinexchangeData" , Configuration["SRC_token_addr"]);
-        if (tokenSRC != decimal.Parse(JSCoinData[0]))
-        {
-            tokenSRC =decimal.Parse(JSCoinData[0]);
-
-            //強制渲染
-            InvokeAsync(StateHasChanged);
-        }
-
-
-    }
     //...騎士幣兌換
-
     /// <summary>
     /// 稀有度
     /// </summary>
@@ -803,10 +821,8 @@
         => await InvokeAsync(StateHasChanged);
 
     }
-
     private async Task Refresh()
     {   
-
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var LoginUser = authState.User;
         string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
@@ -820,16 +836,10 @@
 
         MetaData =  pagelist.MetaData;
 
-
-
         TotalSRCCount = decimal.Parse( AppState.LoginStatus.nftCurrency1.ToString());
         PPSRsCount = MetaData.TotalCount;
 
-
-
         AllBalance = await InventoryService.CalReceiveRent(UserID);
-
-
 
         gSRC = await InventoryService.GetgSRCCurrency1(UserID);
         StateHasChanged();
@@ -892,11 +902,6 @@
         AppState.StateChanged -= async (Source, Property)
         => await InvokeAsync(StateHasChanged);
     }
-
-
-
-
-
 
     private async Task SelectedPage(int page)
     {
@@ -1050,8 +1055,6 @@
         CollectBalance = await InventoryService.CalReceiveRent(UserID);
     }
 
-
-
     /// <summary>
     /// 
     /// </summary>
@@ -1082,14 +1085,7 @@
         {
             ReceiveRentByUnit();
         }
-
-
     }
-
-
-
-
-
     /// <summary>
     /// 
     /// </summary>
@@ -1107,7 +1103,6 @@
         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
         AllBalance = await InventoryService.CalReceiveRent(UserID);
     }
-
 
     //強制渲染的方法
     public void  refresh()

@@ -1,0 +1,102 @@
+﻿
+/*右上角錢包*/
+
+.walletaddress {
+    padding: 60px 18px 0 0;
+    position: fixed;
+    width: 100vw;
+    height: 120px;
+    z-index: 1;
+    top: 0%;
+    left: 0%;
+}
+
+#userAddress {
+    border: 1px solid #05e7e8;
+    background: #38761d;
+    color: blue;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+}
+
+.userNetwork {
+    width: 100px;
+    height: 30px;
+    margin: 5px 0;
+    float: right;
+    background: #FFF;
+}
+
+@media all and (max-width: 1024px) {
+    .walletaddress {
+        padding: 60px 12px 0 0;
+    }
+
+    #userAddress {
+        width: 130px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .userNetwork {
+        width: 80px;
+        height: 25px;
+        margin: 5px 0;
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .walletaddress {
+        padding: 60px 8px 0 0;
+    }
+
+    #userAddress {
+        width: 120px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .userNetwork {
+        width: 75px;
+        height: 25px;
+        margin: 5px 0;
+    }
+}
+
+
+.lockWindows {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: 700;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+}
+
+
+.isLoading {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
