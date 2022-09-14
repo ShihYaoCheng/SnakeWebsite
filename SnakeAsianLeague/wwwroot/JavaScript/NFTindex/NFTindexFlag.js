@@ -1,5 +1,5 @@
 export function NFTindexFlagReel() {
-    console.log('NFTindexFlagReel')
+    // console.log('NFTindexFlagReel')
     let position = ''
     $(document).ready(function () {
 
