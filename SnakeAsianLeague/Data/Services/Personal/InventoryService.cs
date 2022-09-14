@@ -165,8 +165,15 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
                 data.Elements = Elements;
                 data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.webp", ElementsList.Where(m => m.Key == Elements).First().Value);
-                //data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
-                //data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
+                if (NFT_Riders[i].occupationId != null)
+                {
+                    data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
+                }
+                else
+                {
+                    data.ClassKey = "1";
+                }
+                data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
 
                 int value = myObject.Next(1, 1000);
                 data.EndTime = DateTime.Now.AddDays(value);
