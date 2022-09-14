@@ -1,4 +1,6 @@
 {
+
+
   "input": {
     "placeholder": "a placeholder"
   },
@@ -153,7 +155,8 @@
     "activities": "Activities"
   },
 
-  "footer":{
+  "footer": {
+    "Snakelogo":"./images/Footer/logo_en.png",
     "Home": "Home",
     "Marketplace": "Marketplace",
     "Arena": "Arena",
@@ -161,10 +164,10 @@
     "News": "News",
 
     "ERNC": "ERNC",
-    "WhitePaper":"WhitePaper",
+    "WhitePaper": "WhitePaper",
 
-    "ContactUs":"Contact Us",
-    "JoinUs":"Join Us",
-    "CQITeam":"Our Team"
+    "ContactUs": "Contact Us",
+    "JoinUs": "Join Us",
+    "CQITeam": "Our Team"
   }
 }

@@ -7,6 +7,7 @@
         public int id { get; set; }
         public bool shine { get; set; }
         public string router { get; set; }
+        public string title { get; set; }
         public AllTilte alltitle { get; set; }
     
 
@@ -14,6 +15,7 @@
             id = Id;
             shine = Shine;
             router = Router;
+            title = Title;
             alltitle = new AllTilte( Title, SubTitle);
         }
 

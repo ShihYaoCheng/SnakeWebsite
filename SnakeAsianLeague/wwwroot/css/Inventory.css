@@ -228,7 +228,32 @@
     flex-direction: column;
     align-items: center;
     width: calc(100%/5*2);
+    position:relative;
 }
+
+.buyGameCoin {
+    position: absolute;
+    top: -5%;
+    right: 10%;
+    text-decoration: underline !important;
+    color: #3d85c6 !important;
+    cursor: pointer;
+}
+.buyGameCoin:hover {
+    transform: scale(1.1);
+    color: #2c4e6c !important;
+}
+.addWallet {
+    background: url("/images/Myprofile/SRCExchange/addCoin.png");
+    background-repeat:round;
+    border:none;
+    position: absolute;
+    top: -5%;
+    left: 10%;
+    width: 30px;
+    height:30px;
+}
+
 .MyCerrency {
     /* border: 1px solid red; */    
     cursor: pointer; 
@@ -690,15 +715,18 @@
 
 
 
-/*臨時用*/
-.ttttt {
-    width: 100% !important;
-    text-align:center !important;
-
-}
-
-.sssss {
-    flex-direction: row;
-    justify-content: center !important;
+.lockWindows {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+    justify-content: center;
     align-items: center;
+    font-size: 50px;
+    font-weight: 700;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
 }

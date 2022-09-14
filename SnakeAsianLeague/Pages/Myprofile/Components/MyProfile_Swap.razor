@@ -1,12 +1,17 @@
 ﻿@using SnakeAsianLeague.Data.Services.BlockChainProcessor
 @using SnakeAsianLeague.Pages.Myprofile.Components.Index_Components
+@using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject IConfiguration Configuration
 @inject BlockChainProcessorSever linebot;
 @inject IJSRuntime JS
+
 <head>
     <link href="css/MyProfile/SRCSwap.css" rel="stylesheet" />     
   
 </head>
+
+@*右上角顯示錢包地址*@
+<Walletaddress></Walletaddress>
 
 <div class="SRCExchange-container">
 
@@ -125,27 +130,13 @@
 </div>
 
 
-@*右上角顯示錢包地址*@
-<div class="walletaddress">
-    <img class="userNetwork" src="/images/Myprofile/SRCExchange/rinkeby_logo.png" />
-    <p id="userAddress">
-        0x12345...
-    </p>
-
-
-</div>
 
 
 @*錯誤訊息*@
 
 @if (Value && !(netWorkRight))
 {
-<div class="errorContainer">
-    <div class="errorNav"> 
-        <p>Wrong Network</p>
-        <button  @onclick="AddPolygon">Switch to @netWorkName </button>
-    </div>
-</div>
+    <ErrorNetwork AddPolygon ="AddPolygon" Value ="netWorkName"></ErrorNetwork>
 }
 
 @*彈窗*@
@@ -154,10 +145,8 @@
     Comfirm to Swap <span> @SRCInput </span> SRC to <span>  @USDTInput </span>  USDT?       
 </ProductsPopup>
 
-@*等待反灰*@
-<div class="lockWindows">
-    transacting
-</div>
+ @*交易中反灰*@
+ <TransactWindow></TransactWindow>
  @*
  @if(SwapToggle){
 
@@ -293,8 +282,6 @@
 
 
 
-
-
     //切換並新增Polygon
     protected  async Task AddPolygon()
     {
@@ -303,6 +290,8 @@
         await getMetaMaskData();
 
     }
+
+
     ////新增登入功能
     private async Task loginButtonClick()
     {
@@ -313,7 +302,7 @@
     {      
         await JS.InvokeVoidAsync("AddPolygonUSDT");            
     }
-
+    //新增SRC錢包
     protected  async Task AddSRC()
     {      
         await JS.InvokeVoidAsync("AddPolygonSRC");            

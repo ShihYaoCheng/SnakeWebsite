@@ -1,13 +1,27 @@
 ﻿ @using SnakeAsianLeague.Data.Entity.View
+
+ @inject IJSRuntime JS
 <head>
     <link href="/css/Teach/TeachNavBar/TeachNavBar_stepText.css" rel="stylesheet" />
 </head>
  
 
-<div  class ="stepText">
-   @Value.title
+<div  class ="stepText"  data-i18n="gettingStarted_data:gettingStarted.title.@Value.title">
+ 
 </div>
 @code {
      [Parameter]
      public TeachAllData.AllTilte Value { get; set; }
+
+     protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
+    }
 }

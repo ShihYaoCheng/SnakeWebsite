@@ -1,5 +1,5 @@
 export function NFTindexSeigniorReel() {
-    console.log('NFTindexSeigniorReel')
+    // console.log('NFTindexSeigniorReel')
     let positionReel = ''
     $(document).ready(function () {
 

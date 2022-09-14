@@ -1,4 +1,6 @@
 {
+
+
   "input": {
     "placeholder": "請填寫"
   },
@@ -157,7 +159,8 @@
     "activities": "活動"
   },
 
-  "footer":{
+  "footer": {
+    "Snakelogo":"./images/Footer/logo_cn.png",
     "Home": "首頁",
     "Marketplace": "NFT交易所",
     "Arena": "聯賽",
@@ -165,10 +168,10 @@
     "News": "最新消息",
 
     "ERNC": "ERNC",
-    "WhitePaper":"白皮書",
-    
-    "ContactUs":"聯絡我們",
-    "JoinUs":"加入我們",
-    "CQITeam":"CQI團隊"
+    "WhitePaper": "白皮書",
+
+    "ContactUs": "聯絡我們",
+    "JoinUs": "加入我們",
+    "CQITeam": "CQI團隊"
   }
 }

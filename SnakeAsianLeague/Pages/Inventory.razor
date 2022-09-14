@@ -1,4 +1,4 @@
-@page "/myprofile/inventory"
+@*@page "/myprofile/inventory"*@
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Paging
 @using SnakeAsianLeague.Data.Services
@@ -6,7 +6,7 @@
 @using SnakeAsianLeague.Data.Entity.View
 @using Microsoft.AspNetCore.Components.Authorization
 @using SnakeAsianLeague.Pages.Myprofile.Components.Inventory_Components
-
+@using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject IJSRuntime JS
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject InventoryService InventoryService
@@ -24,7 +24,7 @@
     <link href="css/Pagination.css" rel="stylesheet" />
     <link href="css/Inventory.css" rel="stylesheet" />   
     <link href="css/Popup.css" rel="stylesheet" />
-
+src.webp
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>PonPonSnake 碰碰蛇｜Inventory</title>
 </head>
@@ -32,8 +32,10 @@
 <AuthorizeView>
     <Authorized>
         <div class="inventory-Background"></div>
-        <MyprofileSidebar />
-
+        
+         @*右上角顯示錢包地址*@
+        <Walletaddress></Walletaddress>
+        <img id="SRCimg" src="/images/MarketPlace/SRC.webp" hidden="@(true)"/>
         <div class="Inventory-Block">
             <div class="Inventory">
                 <div class="Inventory-Title" data-i18n="Sidebar.Inventory">Inventory</div>
@@ -45,6 +47,7 @@
                          <div class="Inner" >
                              <div class="MyCerrency-container">
                                 <div class=" MyCerrency-between">
+                                    <a class="buyGameCoin" hidden="@(true)">buy</a>
                                     <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
                                     <div class="MyCerrency-Detail">
                                         <p class="MyCerrency-Name">gERNC</p>
@@ -57,6 +60,7 @@
           
                                 </div>
                                  <div class=" MyCerrency-between ">
+                                    <button  class="addWallet"  hidden="@(true)"></button>
                                     <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
                                     <div class="MyCerrency-Detail">
                                         <p class="MyCerrency-Name">ERNC TOKEN</p>
@@ -68,7 +72,7 @@
 
                              </div>
                              <div class="ExchangeBtn-container">
-                                  <button class="ExchangeBtn" @onclick ="()=>ExchangeBtn(true)">
+                                  <button class="ExchangeBtn" @onclick ="()=>ExchangeBtn(true) " hidden="@(true)">
                                      Exchange
                                  </button>
                              </div>
@@ -77,6 +81,7 @@
                         <div class="Inner" >
                                  <div class="MyCerrency-container">
                                     <div class=" MyCerrency-between">
+                                       <a class="buyGameCoin" hidden="@(true)" >buy</a>
                                        <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.webp" alt="">
                                         <div class="MyCerrency-Detail">
                                             <p class="MyCerrency-Name">gSRC</p>
@@ -89,6 +94,7 @@
           
                                     </div>
                                      <div class=" MyCerrency-between">
+                                         <button  class="addWallet" @onclick="AddSRC"></button>
                                         <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.webp" alt="">
                                         <div class="MyCerrency-Detail">
                                             <p class="MyCerrency-Name">SRC TOKEN</p>
@@ -182,7 +188,7 @@
                         }
                         else
                         {
-                            <div class="CollectBtn CollectBtnBig" >            
+                            <div class="CollectBtn CollectBtnBig" @onclick="eventArgs => { setValue(  eventArgs); }" >             
                                 Collect All Income
                             </div>
                         }
@@ -208,7 +214,7 @@
 
 
                                     <section class="Sidebar-Filter-Block" id="Filter-Header">
-                                        <span>Filter</span>
+                                        <span>Filter(@FilterCount)</span>
                                         <div class="Filter-Header-Block">
                                             <button  hidden="@(true)" class="Filter-Button" id="Filter-Button-Reset">Reset</button>
                                             <button  hidden="@(true)" class="Filter-heart btn p-0 tippy-pop" data-content="Favorite" >
@@ -283,7 +289,7 @@
 
                                     <section class="Sidebar-Filter-Block" id="">
                                         <div class="Filter-Title">
-                                            <span>Rare</span>
+                                            <span>Rarity</span>
                                             <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                                         </div>
                                         <div class="Filter-Options">
@@ -294,7 +300,7 @@
                                                 <label class="Filter-Button" for="@item.Value">
                                                     <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
+                                                <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
                                             }
                                             
                                         </div>
@@ -304,7 +310,7 @@
 
                                     <section class="Sidebar-Filter-Block" id="">
                                         <div class="Filter-Title">
-                                            <span>Class</span>
+                                            <span>Element</span>
                                             <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                                         </div>
                                         <div class="Filter-Options">
@@ -315,7 +321,7 @@
                                                 <label class="Filter-Button" for="@item.Value">
                                                     <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
+                                                <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
                                             }
 
                                         </div>
@@ -323,7 +329,7 @@
 
                                     <section class="Sidebar-Filter-Block" id="">
                                         <div class="Filter-Title">
-                                            <span>Profession</span>
+                                            <span>Class</span>
                                             <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                                         </div>
                                         <div class="Filter-Options">
@@ -334,7 +340,7 @@
                                                 <label class="Filter-Button" for="@item.Value">
                                                     <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
+                                                <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
                                             } 
 
                                         </div>
@@ -353,7 +359,7 @@
                                                 <label class="Filter-Button" for="@item.Value">
                                                     <span data-i18n="@item.Datai18n">@item.Value</span>
                                                 </label>
-                                                <input class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
+                                                <input id="@item.Value"  class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
                                             }
 
                                         </div>
@@ -697,7 +703,26 @@
         </div>
     </section>
 
-    <Inventory_CoinExchange Value = "CoinData"></Inventory_CoinExchange>
+    @*..............騎士幣兌換 coinexchange 彈窗.......................*@
+    <Inventory_CoinExchange Value = "CoinData" refresh="refresh"></Inventory_CoinExchange>
+    @*..............交易中反灰.......................*@
+    <TransactWindow></TransactWindow>
+
+
+
+    @*錯誤訊息*@
+
+    @if (Value && !(netWorkRight))
+    {
+        <ErrorNetwork AddPolygon ="AddPolygon" Value ="netWorkName"></ErrorNetwork>
+    }
+    @*載入畫面*@
+    @if (loading)
+    {
+        <FectchDataLoading />    
+    }
+
+
     </Authorized>
     <NotAuthorized>
         <div class="InventoryNotLogin">
@@ -708,7 +733,57 @@
 
 
 @code {
-    //租金變數......
+    //是否登入
+    [Parameter]
+    public bool Value { get; set; }
+    //loading
+    bool loading = true; 
+    //錢包鍊是否正確
+    bool netWorkRight = false;
+    string netWorkName = "Rinkeby";
+
+    //騎士幣兌換
+    decimal gSRC =0 ;
+    decimal tokenSRC = 0 ;
+
+    decimal gERNC = 0;
+    decimal tokenERNC = 0;
+
+    string[] JSCoinData;
+    private ExchangeCoin CoinData = new ExchangeCoin( "ERNC" ,0,0 );
+    //SRC、ERNC兌換
+    private async Task ExchangeBtn(bool check )
+    {
+        if (check)
+        {
+            CoinData.changeData("ERNC",100,100);  
+        } else
+        {
+            CoinData.changeData("SRC",gSRC,tokenSRC );    
+        }
+    }
+    //取得錢包資訊
+    private async Task getCoinData()
+    {
+        JSCoinData = await coinEchangeJS.InvokeAsync<string[]>("CoinexchangeData"  ,Configuration["chainId"], Configuration["SRC_token_addr"]);
+        tokenSRC =decimal.Parse(JSCoinData[1]);
+
+         if (netWorkRight !=  Convert.ToBoolean(JSCoinData[0]))
+        {
+             netWorkRight =  Convert.ToBoolean(JSCoinData[0]);
+             //強制渲染
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+    //切換並新增Polygon
+    protected  async Task AddPolygon()
+    {
+    @*linebot.SemdLineNotifyMsg("test123");*@
+        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] );
+        await getCoinData();
+    }
+
+     //租金變數......
     //所有Balance加總
     private decimal AllBalance = 0;
 
@@ -721,44 +796,11 @@
 
     private decimal TotalSRCCount = 0;
 
-    //騎士幣兌換
-    decimal gSRC =0 ;
-    decimal tokenSRC = 0 ;
-
-    decimal gERNC = 0;
-    decimal tokenERNC = 0;
-
-    string[] JSCoinData;
-    private ExchangeCoin CoinData = new ExchangeCoin( "ERNC" ,0,0 );
-
-    private async Task ExchangeBtn(bool check )
-    {
-
-        if (check)
-        {
-            CoinData.changeData("ERNC",100,100);  
-        } else
-        {
-            CoinData.changeData("SRC",105,tokenSRC );    
-        }
-
-    }
-
-    private async Task getCoinData()
-    {
-        JSCoinData = await coinEchangeJS.InvokeAsync<string[]>("CoinexchangeData" , Configuration["SRC_token_addr"]);
-        if (tokenSRC != decimal.Parse(JSCoinData[0]))
-        {
-            tokenSRC =decimal.Parse(JSCoinData[0]);
-
-            //強制渲染
-            InvokeAsync(StateHasChanged);
-        }
+    //計算filter選擇數量
+    private int FilterCount = 0;
 
 
-    }
     //...騎士幣兌換
-
     /// <summary>
     /// 稀有度
     /// </summary>
@@ -787,10 +829,8 @@
         => await InvokeAsync(StateHasChanged);
 
     }
-
     private async Task Refresh()
     {   
-
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var LoginUser = authState.User;
         string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
@@ -804,16 +844,10 @@
 
         MetaData =  pagelist.MetaData;
 
-
-
         TotalSRCCount = decimal.Parse( AppState.LoginStatus.nftCurrency1.ToString());
         PPSRsCount = MetaData.TotalCount;
 
-
-
         AllBalance = await InventoryService.CalReceiveRent(UserID);
-
-
 
         gSRC = await InventoryService.GetgSRCCurrency1(UserID);
         StateHasChanged();
@@ -854,11 +888,21 @@
             RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/RentJump.js");
 
             coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
-            getCoinData();
+            await getCoinData();
+
+            await loadingColse();
         }
     }
 
-
+    private async Task loadingColse()
+    {
+        if (loading == true)
+        {
+            loading = false;
+            //強制渲染
+            InvokeAsync(StateHasChanged);
+        } 
+    }
 
 
     void IDisposable.Dispose()
@@ -866,11 +910,6 @@
         AppState.StateChanged -= async (Source, Property)
         => await InvokeAsync(StateHasChanged);
     }
-
-
-
-
-
 
     private async Task SelectedPage(int page)
     {
@@ -904,13 +943,14 @@
     /// </summary>
     /// <param name="CheckID"></param>
     /// <param name="checkedValue"></param>
-    private void CheckboxRarityClicked(string CheckID, object checkedValue)
+    private async void CheckboxRarityClicked(string CheckID, object checkedValue)
     {
         if ((bool)checkedValue)
         {
             if (!CheckBoxRarity.Contains(CheckID))
             {
                 CheckBoxRarity.Add(CheckID);
+                CountFilterSelected();
             }
         }
         else
@@ -918,9 +958,10 @@
             if (CheckBoxRarity.Contains(CheckID))
             {
                 CheckBoxRarity.Remove(CheckID);
+                CountFilterSelected();
             }
         }
-        GetFilter();
+        await GetFilter();
     }
 
     /// <summary>
@@ -928,13 +969,14 @@
     /// </summary>
     /// <param name="CheckID"></param>
     /// <param name="checkedValue"></param>
-    private void CheckboxElementsClicked(string CheckID, object checkedValue)
+    private async void CheckboxElementsClicked(string CheckID, object checkedValue)
     {
         if ((bool)checkedValue)
         {
             if (!CheckBoxElements.Contains(CheckID))
             {
                 CheckBoxElements.Add(CheckID);
+                CountFilterSelected();
             }
         }
         else
@@ -942,9 +984,10 @@
             if (CheckBoxElements.Contains(CheckID))
             {
                 CheckBoxElements.Remove(CheckID);
+                CountFilterSelected();
             }
         }
-        GetFilter();
+       await  GetFilter();
     }
 
     /// <summary>
@@ -952,13 +995,14 @@
     /// </summary>
     /// <param name="CheckID"></param>
     /// <param name="checkedValue"></param>
-    private void CheckboxClassClicked(string CheckID, object checkedValue)
+    private async void CheckboxClassClicked(string CheckID, object checkedValue)
     {
         if ((bool)checkedValue)
         {
             if (!CheckBoxClass.Contains(CheckID))
             {
                 CheckBoxClass.Add(CheckID);
+                CountFilterSelected();
             }
         }
         else
@@ -966,9 +1010,10 @@
             if (CheckBoxClass.Contains(CheckID))
             {
                 CheckBoxClass.Remove(CheckID);
+                CountFilterSelected();
             }
         }
-        GetFilter();
+        await GetFilter();
     }
 
     /// <summary>
@@ -976,13 +1021,14 @@
     /// </summary>
     /// <param name="CheckID"></param>
     /// <param name="checkedValue"></param>
-    private void CheckboxCountryClicked(string CheckID, object checkedValue)
+    private async void CheckboxCountryClicked(string CheckID, object checkedValue)
     {
         if ((bool)checkedValue)
         {
             if (!CheckBoxCountry.Contains(CheckID))
             {
                 CheckBoxCountry.Add(CheckID);
+                CountFilterSelected();
             }
         }
         else
@@ -990,9 +1036,10 @@
             if (CheckBoxCountry.Contains(CheckID))
             {
                 CheckBoxCountry.Remove(CheckID);
+                CountFilterSelected();
             }
         }
-        GetFilter();
+        await GetFilter();
     }
 
     private async Task GetFilter()
@@ -1021,10 +1068,9 @@
     private async void setValue( object onClickValue)
     {
         string UserID = AppState.LoginStatus.userID.ToString();
-        CollectBalance = await InventoryService.CalReceiveRent(UserID);
+        //CollectBalance = await InventoryService.CalReceiveRent(UserID);
+        CollectBalance = AllBalance;
     }
-
-
 
     /// <summary>
     /// 
@@ -1040,12 +1086,14 @@
         ShowMSGState = await JS.InvokeAsync<bool>("getShowMSGState"); 
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent = await InventoryService.ReceiveRentByUnit(UserID ,TokenID );
-        if (RentJumpJS != null)
-        {
-            await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
-        }
+        //if (RentJumpJS != null)
+        //{
+        //    await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
+        //}
         TotalSRCCount = TotalSRCCount + Rent;
-        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
+        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero);
+
+        gSRC = TotalSRCCount;
         AllBalance = await InventoryService.CalReceiveRent(UserID);
 
         StateHasChanged();
@@ -1056,14 +1104,7 @@
         {
             ReceiveRentByUnit();
         }
-    
-
     }
-
-    
-
-
-
     /// <summary>
     /// 
     /// </summary>
@@ -1077,8 +1118,30 @@
         {
             await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
         }
-         TotalSRCCount = TotalSRCCount + Rent;
-         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
-         AllBalance = await InventoryService.CalReceiveRent(UserID);
+        TotalSRCCount = TotalSRCCount + Rent;
+        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
+        AllBalance = await InventoryService.CalReceiveRent(UserID);
+    }
+
+    //強制渲染的方法
+    public void  refresh()
+    {
+        Refresh();
+        getCoinData();
+        InvokeAsync(StateHasChanged);
+    }
+    //新增SRC錢包
+    protected  async Task AddSRC()
+    {      
+        await JS.InvokeVoidAsync("AddPolygonSRC");            
+    }
+
+
+     /// <summary>
+    /// 計算Filter 選取數量
+    /// </summary>
+    private void CountFilterSelected()
+    {
+        FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count() + CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
     }
 }
