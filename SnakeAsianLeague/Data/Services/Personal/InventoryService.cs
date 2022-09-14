@@ -486,8 +486,8 @@ namespace SnakeAsianLeague.Data.Services.Personal
             request.AddQueryParameter("amount", amount.ToString());
             IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
 
-            Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeApprove URL :", BlockChainServerClient));
-            Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeApprove StatusCode :", restResponse.StatusCode));
+            //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeApprove URL :", BlockChainServerClient));
+            //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeApprove StatusCode :", restResponse.StatusCode));
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
@@ -512,8 +512,8 @@ namespace SnakeAsianLeague.Data.Services.Personal
             request.AddQueryParameter("walletAddress", walletAddress);
             IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
 
-            Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance URL :", BlockChainServerClient));
-            Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance StatusCode :", restResponse.StatusCode));
+            //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance URL :", BlockChainServerClient));
+            //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance StatusCode :", restResponse.StatusCode));
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
@@ -527,18 +527,18 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
         public class BlockChainInfoDTO
         {
-            public string? BlockChain { get; set; }
-            public int ChainId { get; set; }             // ChainId
-            public string? ChainRPCUrl { get; set; }     // RPCUrl
-            public string? SocketServerUri { get; set; } // 接收Event回傳的Socket伺服器位置
+            public string? blockChain { get; set; }
+            public int chainId { get; set; }             // ChainId
+            public string? chainRPCUrl { get; set; }     // RPCUrl
+            public string? socketServerUri { get; set; } // 接收Event回傳的Socket伺服器位置
                                                          // PPSR合約
-            public string? AdminWalletAddress_PPSR { get; set; }
-            public string? ContractAddress_PPSR { get; set; }
-            public decimal BalanceOf_PPSR { get; set; } // 剩餘瓦斯費
+            public string? adminWalletAddress_PPSR { get; set; }
+            public string? contractAddress_PPSR { get; set; }
+            public decimal balanceOf_PPSR { get; set; } // 剩餘瓦斯費
                                                         // SRCExchange合約
-            public string? AdminWalletAddress_SRCExchange { get; set; }
-            public string? ContractAddress_SRCExchange { get; set; }
-            public decimal BalanceOf_SRCExchange { get; set; }  // 剩餘瓦斯費
+            public string? adminWalletAddress_SRCExchange { get; set; }
+            public string? contractAddress_SRCExchange { get; set; }
+            public decimal balanceOf_SRCExchange { get; set; }  // 剩餘瓦斯費
         }
 
 
@@ -556,12 +556,12 @@ namespace SnakeAsianLeague.Data.Services.Personal
             var request = new RestRequest(URL, Method.GET);
             IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
 
-            Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo URL :", BlockChainServerClient));
-            Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo StatusCode :", restResponse.StatusCode));
+            //Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo URL :", BlockChainServerClient));
+            //Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo StatusCode :", restResponse.StatusCode));
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 BlockChainInfoDTO data = JsonSerializer.Deserialize<BlockChainInfoDTO>(restResponse.Content) ?? new BlockChainInfoDTO();
-                result = data.BlockChain;
+                result = data.blockChain;
             }
             return result;
         }

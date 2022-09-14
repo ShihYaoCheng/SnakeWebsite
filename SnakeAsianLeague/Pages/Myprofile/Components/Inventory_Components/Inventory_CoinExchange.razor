@@ -6,6 +6,7 @@
 @using SnakeAsianLeague.Data.Services.Personal
 
 @inject AppState AppState
+@inject InventoryService InventoryService
 
 <head>
     <link href="css/MyProfile/coinExchange.css" rel="stylesheet" />
@@ -95,9 +96,9 @@
     private IJSObjectReference? coinEchangeJS;
     decimal difference=0;
     private MetamaskTransfer metamaskTransfer ;
-    private InventoryService inventoryService;
+    //private InventoryService inventoryService;
 
-    private InventoryService blockChainInfoDTO  ;
+    //private InventoryService blockChainInfoDTO  ;
 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -150,12 +151,12 @@
     string bb;
     protected async void SRCExchangeAllowanceClick()
     {
-        aa = await inventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
+        aa = await InventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
           InvokeAsync(StateHasChanged);
     }
     protected async void blockChainInfoDTOClick()
     {
-        bb =await blockChainInfoDTO.BlockChainInfo();
+        bb =await InventoryService.BlockChainInfo();
           InvokeAsync(StateHasChanged);
     }
     
