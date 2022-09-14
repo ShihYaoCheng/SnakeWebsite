@@ -156,6 +156,7 @@
   },
 
   "footer": {
+    "Snakelogo":"./images/Footer/logo_en.png",
     "Home": "Home",
     "Marketplace": "Marketplace",
     "Arena": "Arena",

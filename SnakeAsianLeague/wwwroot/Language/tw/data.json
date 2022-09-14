@@ -160,6 +160,7 @@
   },
 
   "footer": {
+    "Snakelogo":"./images/Footer/logo_cn.png",
     "Home": "首頁",
     "Marketplace": "NFT交易所",
     "Arena": "聯賽",

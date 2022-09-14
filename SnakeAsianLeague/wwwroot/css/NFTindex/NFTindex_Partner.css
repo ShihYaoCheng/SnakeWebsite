@@ -1,6 +1,57 @@
 .NFTindex_Partner{
     border: 1px solid red;
     width: 100%;
-    /* padding: 0 0 100px; */
-    height: 1500px;
+    padding: 50px 0 150px;
+    /* height: 1500px; */
+}
+
+.partner-block{
+    /* border: 1px solid red; */
+    max-width: 1200px;
+    width: 95%;
+    margin: 50px auto 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partner-board{
+    width: 100%;
+}
+
+.partner-logoBlock{
+    /* border: 1px solid yellow; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    width: 65%;
+    margin: 0 auto;
+    position: absolute;
+    margin: 0 0 20px 18px;
+}
+.partner-logo{
+    /* border: 1px solid yellow; */
+    margin: 2.5%;
+    filter: drop-shadow(5px 5px 10px rgba(91, 67, 60, 0.276));
+}
+
+#Partner-01-CQIGames{
+    max-width: 140px;
+    width: 20%;
+}
+#Partner-02-DaoHe{
+    max-width: 135px;
+    width: 19%;
+}
+#Partner-03-Formoga{
+    max-width: 120px;
+    width: 17%;
+}
+#Partner-04-Wateverpay{
+    max-width: 155px;
+    width: 20%;
+}
+#Partner-05-Secret{
+    max-width: 80px;
+    width: 12%;
 }

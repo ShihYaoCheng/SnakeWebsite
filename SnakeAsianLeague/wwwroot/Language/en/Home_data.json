@@ -117,5 +117,9 @@
         "team-01":"4V4 Battle",
         "team-02":"E-sport Competition",
         "team-03":"Airship Support"
+    },
+
+    "partners":{
+      "title":"Partners"
     }
 }
