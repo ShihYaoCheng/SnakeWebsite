@@ -84,6 +84,55 @@ export async function withdraw(SRCInput) {
 
 }
 
+//轉換(存入) gSRC > SRC
+export async function deposit(SRCInput) {
+	$('.lockWindows')[0].style.display = 'flex';
+	const web3 = await new Web3(Web3.givenProvider)
+	//web3.TransactionManager.UseLegacyAsDefault = true;
+	const SRC_addr = "0xaBF22878C673C20865D9A1247c86FDe7B1165B7e"
+	const ERC20_abi = window.ERC20_abi
+	const SRCExchange_addr = "0x6C7c64D826E1D52f107881FfCcE01417F1B14BFa"
+	const SRCExchange_ABI = window.SRCExchange_ABI
+
+	const SwapNumValue = SRCInput
+	let x = new BigNumber(parseInt(SwapNumValue));
+	console.log("1",SwapNumValue)
+	try {
+		//驗證貨幣
+		const accounts = await web3.eth.getAccounts();
+		const tokenContract = await new web3.eth.Contract(
+			ERC20_abi,
+			SRC_addr
+		);
+		//精度
+		let SRC_decimals = parseInt(await tokenContract.methods.decimals().call())
+
+		// 交易貨幣
+		const vendor = await new web3.eth.Contract(
+			SRCExchange_ABI,
+			SRCExchange_addr
+		);
+		console.log("2")
+		request = await vendor.methods
+			.deposit(x.shiftedBy(SRC_decimals).toString())
+			.send({
+				from: accounts[0],
+			});
+		alert("You have successfully sold SRC tokens!");
+		$('.lockWindows')[0].style.display = 'none';
+		console.log("3")
+	} catch (err) {
+		console.error(err);
+		alert("交易失敗");
+		$('.lockWindows')[0].style.display = 'none';
+	}
+
+}
+
+
+
+
+
 //取得鍊上資料
 export async function CoinexchangeData(chainId ,SRC_address) {
 

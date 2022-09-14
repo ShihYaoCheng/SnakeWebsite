@@ -41,7 +41,7 @@
      
              </div>
         </div>
-        <input class="coin-range" type="range" @onchange="(ChangeEventArgs e)=> coinRange(e)" min="-@Value.gNumber" max="@Value.tokenNumber"  oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
+        <input class="coin-range" type="range" @onchange="(ChangeEventArgs e)=> coinRange(e)" min="-@Value.tokenNumber" max="@Value.gNumber"  oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
    
         <div class="replacedCoin-zone" >
             <div class="left">
@@ -66,7 +66,7 @@
       
        <div class="coinEchange-BtnZone">
            <button  id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
-          <button  @onclick="SRCExchangeAllowanceClick">SRCExchangeAllowance </button>
+        @*  <button  @onclick="SRCExchangeAllowanceClick">SRCExchangeAllowance </button>
            <button  @onclick="blockChainInfoDTOClick">blockChainInfoDTOClick </button>
            <div>
                <p>SRCExchangeAllowance Data</p>
@@ -75,7 +75,7 @@
             <div>
                <p>blockChainInfoDTO Data</p>
                <p>@bb</p>
-           </div>
+           </div>*@
        </div>
     </div>
 
@@ -116,13 +116,13 @@
 
     public void coinRange  (ChangeEventArgs value)
     {
-        difference= Int32.Parse(value.Value.ToString());
-        Value.gNumberChange = Value.gNumber- Int32.Parse(value.Value.ToString());
-        Value.tokenNumberChange = Value.tokenNumber + Int32.Parse(value.Value.ToString());
+        difference= decimal.Parse(value.Value.ToString());
+        Value.gNumberChange = Value.gNumber- decimal.Parse(value.Value.ToString());
+        Value.tokenNumberChange = Value.tokenNumber + decimal.Parse(value.Value.ToString());
     }
 
     bool transactionResult = false;
-    decimal test ;
+    decimal getAuthorizeNum ;
     protected  async void coinEchangeBtn()
     {
         if (difference < 0)
@@ -139,26 +139,27 @@
         else
         {
             @*game換鍊*@
-            //test = await inventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
-            //await inventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
+            getAuthorizeNum = await InventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
+            transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum );
+           
 
         }
         //強制渲染
         await clickRefresh();
     }
 
-    decimal aa;
-    string bb;
-    protected async void SRCExchangeAllowanceClick()
-    {
-        aa = await InventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
-          InvokeAsync(StateHasChanged);
-    }
-    protected async void blockChainInfoDTOClick()
-    {
-        bb =await InventoryService.BlockChainInfo();
-          InvokeAsync(StateHasChanged);
-    }
+    //decimal aa;
+    //string bb;
+    //protected async void SRCExchangeAllowanceClick()
+    //{
+    //    aa = await InventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
+    //      InvokeAsync(StateHasChanged);
+    //}
+    //protected async void blockChainInfoDTOClick()
+    //{
+    //    bb =await InventoryService.BlockChainInfo();
+    //      InvokeAsync(StateHasChanged);
+    //}
     
 
 }

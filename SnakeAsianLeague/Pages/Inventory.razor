@@ -24,7 +24,7 @@
     <link href="css/Pagination.css" rel="stylesheet" />
     <link href="css/Inventory.css" rel="stylesheet" />   
     <link href="css/Popup.css" rel="stylesheet" />
-
+src.webp
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>PonPonSnake 碰碰蛇｜Inventory</title>
 </head>
@@ -33,7 +33,9 @@
     <Authorized>
         <div class="inventory-Background"></div>
         <MyprofileSidebar />
-
+         @*右上角顯示錢包地址*@
+        <Walletaddress></Walletaddress>
+        <img id="SRCimg" src="/images/MarketPlace/SRC.webp" hidden="@(true)"/>
         <div class="Inventory-Block">
             <div class="Inventory">
                 <div class="Inventory-Title" data-i18n="Sidebar.Inventory">Inventory</div>
@@ -45,7 +47,7 @@
                          <div class="Inner" >
                              <div class="MyCerrency-container">
                                 <div class=" MyCerrency-between">
-                                    <a class="buyGameCoin">buy</a>
+                                    <a class="buyGameCoin" hidden="@(true)">buy</a>
                                     <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
                                     <div class="MyCerrency-Detail">
                                         <p class="MyCerrency-Name">gERNC</p>
@@ -58,7 +60,7 @@
           
                                 </div>
                                  <div class=" MyCerrency-between ">
-                                    <button  class="addWallet" ></button>
+                                    <button  class="addWallet"  hidden="@(true)"></button>
                                     <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
                                     <div class="MyCerrency-Detail">
                                         <p class="MyCerrency-Name">ERNC TOKEN</p>
@@ -79,7 +81,7 @@
                         <div class="Inner" >
                                  <div class="MyCerrency-container">
                                     <div class=" MyCerrency-between">
-                                       <a class="buyGameCoin" >buy</a>
+                                       <a class="buyGameCoin" hidden="@(true)" >buy</a>
                                        <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.webp" alt="">
                                         <div class="MyCerrency-Detail">
                                             <p class="MyCerrency-Name">gSRC</p>
@@ -92,7 +94,7 @@
           
                                     </div>
                                      <div class=" MyCerrency-between">
-                                         <button  class="addWallet" ></button>
+                                         <button  class="addWallet" @onclick="AddSRC"></button>
                                         <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.webp" alt="">
                                         <div class="MyCerrency-Detail">
                                             <p class="MyCerrency-Name">SRC TOKEN</p>
@@ -706,8 +708,7 @@
     @*..............交易中反灰.......................*@
     <TransactWindow></TransactWindow>
 
-    @*右上角顯示錢包地址*@
-    <Walletaddress></Walletaddress>
+
 
     @*錯誤訊息*@
 
@@ -1118,5 +1119,9 @@
         getCoinData();
         InvokeAsync(StateHasChanged);
     }
-   
+    //新增SRC錢包
+    protected  async Task AddSRC()
+    {      
+        await JS.InvokeVoidAsync("AddPolygonSRC");            
+    }
 }
