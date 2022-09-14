@@ -2,46 +2,47 @@
 
   "gettingStarted": {
     "startPage": {
-      "title": "Start",
-      "subtilte": "PonPonSnake "
+      "title": "開始你的冒險",
+      "subtilte": "碰碰蛇是一款能夠隨時隨地玩的 4V4/ 1V1 3D手機遊戲。碰碰蛇的NFT可以被收集以及用於對戰，因此你必須申請小狐狸錢包才能夠收集這些NFT。 ",
+      "startBtn": "開始"
 
     },
     "title": {
-      "createmetamask": "1. Crea",
-      "connectopensea": "2. Connensea",
-      "createponponsnakegame": "3. CrnPonSnake Game Account",
-      "connectgameaccount": "4. Cto your Game Account",
-      "downloadandplay": "5. DoAY!"
+      "createmetamask": "1. 創建你的小狐狸錢包並且將其連接到polygon",
+      "connectopensea": "2. 將小狐狸錢包與Opensea做連接",
+      "createponponsnakegame": "3. 創建你的碰碰蛇遊戲帳號",
+      "connectgameaccount": "4. 將遊戲帳號與小狐狸連接",
+      "downloadandplay": "5. 下載並且開始冒險吧！!"
 
     },
     "subtitle": {
-      "createmetamask": "What ckcfer assets on the blockchain.",
-      "connectopensea": "For NFT pu, Openc wallet info together.",
-      "createponponsnakegame": "Creahon code to your phone.",
-      "connectgameaccount": "In ordehe earnings in the game will be sent to your metamask wallet.",
-      "downloadandplay": "All Doneure in PonPonSnake!"
+      "createmetamask": "什麼是小狐狸錢包？為了能在區塊鏈之間做轉換，你需要有一個專屬加幣貨幣的錢包。 這錢包將會是你連接到虛擬宇宙的大門，它將使你可以購買、販售或是轉換所有區塊鏈上的資產。",
+      "connectopensea": "為了能購買以及販售NFT，Opensea會是你絕佳的選擇。你能在Opensea上競標碰碰蛇的騎士以及頭像，連接小狐狸錢包和Opensea將人同步你的錢包資訊。",
+      "createponponsnakegame": "創建你的遊戲帳號。輸入你的手機號碼，我們將傳送六位代碼給您。",
+      "connectgameaccount": "你需要連接小狐狸錢包並且同步兩邊資料才能夠在遊戲中使用NFT，並且在遊戲內的所有收入都將傳送到你的小狐狸錢包中。",
+      "downloadandplay": "完成！現在你能開始碰碰蛇的冒險了！"
 
     },
     "page1": {
-      "title": "下載",
-      "btn1": "錢包",
-      "btn2": "新增 Polygon"
+      "title": "下載並註冊",
+      "btn1": "小狐狸錢包",
+      "btn2": "連接Polygon"
 
     },
     "page2": {
-      "title": "下載",
-      "btn1": "Open Sea"
+      "title": "下載並註冊",
+      "btn1": "Opensea"
 
     },
     "page4": {
-      "btn1": "註冊"
+      "btn1": "將遊戲與小狐狸連接"
 
     },
     "page5": {
-      "title": "碰碰蛇 GO!",
-      "btn1": "安卓",
-      "btn2": "蘋果",
-      "btn3": "APK 檔案"
+      "title": "現在就來碰碰蛇！",
+      "btn1": "安卓下載",
+      "btn2": "蘋果下載",
+      "btn3": "APK下載"
 
     }
 

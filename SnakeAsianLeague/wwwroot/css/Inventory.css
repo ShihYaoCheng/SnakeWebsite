@@ -228,7 +228,32 @@
     flex-direction: column;
     align-items: center;
     width: calc(100%/5*2);
+    position:relative;
 }
+
+.buyGameCoin {
+    position: absolute;
+    top: -5%;
+    right: 10%;
+    text-decoration: underline !important;
+    color: #3d85c6 !important;
+    cursor: pointer;
+}
+.buyGameCoin:hover {
+    transform: scale(1.1);
+    color: #2c4e6c !important;
+}
+.addWallet {
+    background: url("/images/Myprofile/SRCExchange/addCoin.png");
+    background-repeat:round;
+    border:none;
+    position: absolute;
+    top: -5%;
+    left: 10%;
+    width: 30px;
+    height:30px;
+}
+
 .MyCerrency {
     /* border: 1px solid red; */    
     cursor: pointer; 

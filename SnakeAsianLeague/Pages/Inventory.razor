@@ -45,6 +45,7 @@
                          <div class="Inner" >
                              <div class="MyCerrency-container">
                                 <div class=" MyCerrency-between">
+                                    <a class="buyGameCoin">buy</a>
                                     <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
                                     <div class="MyCerrency-Detail">
                                         <p class="MyCerrency-Name">gERNC</p>
@@ -57,6 +58,7 @@
           
                                 </div>
                                  <div class=" MyCerrency-between ">
+                                    <button  class="addWallet" ></button>
                                     <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
                                     <div class="MyCerrency-Detail">
                                         <p class="MyCerrency-Name">ERNC TOKEN</p>
@@ -77,6 +79,7 @@
                         <div class="Inner" >
                                  <div class="MyCerrency-container">
                                     <div class=" MyCerrency-between">
+                                       <a class="buyGameCoin" >buy</a>
                                        <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.webp" alt="">
                                         <div class="MyCerrency-Detail">
                                             <p class="MyCerrency-Name">gSRC</p>
@@ -89,6 +92,7 @@
           
                                     </div>
                                      <div class=" MyCerrency-between">
+                                         <button  class="addWallet" ></button>
                                         <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.webp" alt="">
                                         <div class="MyCerrency-Detail">
                                             <p class="MyCerrency-Name">SRC TOKEN</p>
@@ -1070,10 +1074,10 @@
         ShowMSGState = await JS.InvokeAsync<bool>("getShowMSGState"); 
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent = await InventoryService.ReceiveRentByUnit(UserID ,TokenID );
-        if (RentJumpJS != null)
-        {
-            await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
-        }
+        //if (RentJumpJS != null)
+        //{
+        //    await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
+        //}
         TotalSRCCount = TotalSRCCount + Rent;
         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero);
 
