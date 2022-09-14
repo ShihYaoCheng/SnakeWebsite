@@ -142,7 +142,11 @@
             @*game換鍊*@
             getAuthorizeNum = await InventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum );
-            await clickRefresh();
+            if (transactionResult)
+            {
+                 await clickRefresh();
+            }
+           
 
         }
         //強制渲染
