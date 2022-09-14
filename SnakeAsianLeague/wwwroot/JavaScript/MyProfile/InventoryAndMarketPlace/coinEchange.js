@@ -113,7 +113,7 @@ export async function deposit(SRCInput) {
 			SRCExchange_addr
 		);
 		console.log("2")
-		request = await vendor.methods
+		let request = await vendor.methods
 			.deposit(x.shiftedBy(SRC_decimals).toString())
 			.send({
 				from: accounts[0],
