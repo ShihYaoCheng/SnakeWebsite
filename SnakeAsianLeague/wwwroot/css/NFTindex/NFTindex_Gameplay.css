@@ -136,6 +136,7 @@
     }
     .mainImg-02{
         /* min-width: 100px; */
+        width: 95%;
     }
     .mainImg-02-block{
         margin: 8px;
@@ -166,6 +167,7 @@
     }
     .mainImg-02{
         min-width: 96px;
+        margin-bottom: 15px;
     }
     .mainImg-02-text{
         font-size: 13px;
