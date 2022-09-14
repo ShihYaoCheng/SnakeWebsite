@@ -348,27 +348,31 @@ namespace SnakeAsianLeague.Data.Services.Personal
             /* 20220728假資料
             * by chenyuwei
             */
+            //decimal result = decimal.Parse(NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue.ToString());
+            //NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue = 0;
+            //return Math.Round(result, 3, MidpointRounding.AwayFromZero);
 
-
-
-            decimal result = decimal.Parse(NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue.ToString());
-            NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue = 0;
-            return Math.Round(result, 3, MidpointRounding.AwayFromZero);
             /* 20220907 API 串接完成
              * by chenyuwei
              */
-            //bool result = false;
-            //ppsr = string.Format("#{0}", ppsr);
-            //ppsr = ppsr.Replace("#", "%23");
-            //string URL = "/NFT/ReceiveRentByUnit";
-            //var request = new RestRequest(URL, Method.GET);
-            //request.AddQueryParameter("UserID", userId);
-            //request.AddQueryParameter("ppsr", ppsr);
-            //request.AddHeader("Authorization", Authenticate());
+            decimal result = 0;
+            ppsr = string.Format("#{0}", ppsr);
+            ppsr = ppsr.Replace("#", "%23");
+            string URL = "/NFT/ReceiveRentByUnit";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("UserID", userId);
+            request.AddQueryParameter("ppsr", ppsr);
+            request.AddHeader("Authorization", Authenticate());
 
-            //IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
-            //result = restResponse.StatusCode == HttpStatusCode.OK            
-            //return result;
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                //result = JsonSerializer.Deserialize<CountData>(restResponse.Content);
+                CountData data = JsonSerializer.Deserialize<CountData>(restResponse.Content) ?? new CountData() ;
+                result = data.count;
+            }
+            
+            return result;
         }
 
         /// <summary>
@@ -384,30 +388,32 @@ namespace SnakeAsianLeague.Data.Services.Personal
             */
 
 
-            decimal result = decimal.Parse(NFTDataList.Select(m => m.totalRevenue).Sum().ToString());
-
-
-            foreach (var item in NFTDataList)
-            {
-                item.totalRevenue = 0;
-            }
-            return Math.Round(result, 3, MidpointRounding.AwayFromZero);
+            //decimal result = decimal.Parse(NFTDataList.Select(m => m.totalRevenue).Sum().ToString());
+            //foreach (var item in NFTDataList)
+            //{
+            //    item.totalRevenue = 0;
+            //}
+            //return Math.Round(result, 3, MidpointRounding.AwayFromZero);
 
 
             /* 20220907 API 串接完成
             * by chenyuwei
             */
-            //bool result = false;
-            //ppsr = string.Format("#{0}", ppsr);
-            //ppsr = ppsr.Replace("#", "%23");
-            //string URL = "/NFT/ReceiveRent";
-            //var request = new RestRequest(URL, Method.GET);
-            //request.AddQueryParameter("UserID", userId);
-            //request.AddHeader("Authorization", Authenticate());
+            decimal result = 0;
+            
+            string URL = "/NFT/ReceiveRent";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("UserID", userId);
+            request.AddHeader("Authorization", Authenticate());
 
-            //IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
-            //result = restResponse.StatusCode == HttpStatusCode.OK            
-            //return result;
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                //result = JsonSerializer.Deserialize<CountData>(restResponse.Content);
+                CountData data = JsonSerializer.Deserialize<CountData>(restResponse.Content) ?? new CountData();
+                result = data.count;
+            }
+            return result;
 
         }
 
@@ -418,28 +424,9 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <returns></returns>
         public async Task<decimal> CalReceiveRent(string userId)
         {
-
-            /* 20220728假資料
-            * by chenyuwei
-            */
-
-
-            decimal result = decimal.Parse(NFTDataList.Select(m => m.totalRevenue).Sum().ToString());
+            List<RiderUnit> DataList = await Get_NFT_RiderByUserID(userId);
+            decimal result = decimal.Parse(DataList.Select(m => m.totalRevenue).Sum().ToString());
             return Math.Round(result, 3, MidpointRounding.AwayFromZero);
-
-
-            //RestRequest request = new RestRequest($"/NFT/ReceiveRent?userId={userId}");
-            //request.AddHeader("Authorization", Authenticate());
-            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
-            //double result = 0;
-
-            //if (restResponse.StatusCode == HttpStatusCode.OK)
-            //{
-            //    result = Convert.ToDouble(JsonSerializer.Deserialize<string>(restResponse.Content) ?? "0");
-            //    return result;
-            //}
-            //return result;
-
         }
 
 
@@ -476,6 +463,12 @@ namespace SnakeAsianLeague.Data.Services.Personal
             public decimal allowance {get; set;}
         }
 
+
+
+        public class CountData
+        {
+            public decimal count { get; set; }
+        }
 
         /// <summary>
         /// 
