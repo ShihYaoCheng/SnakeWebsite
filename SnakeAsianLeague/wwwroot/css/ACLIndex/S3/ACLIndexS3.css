@@ -492,27 +492,61 @@
     display: none;
 }
 
-    .ticket-MobileImg {
-        width: 150px;
-        height: 497px;
-        display: inline-block;
-        margin: 0 7px;
-    }
+.full_Tickeet_Mobile {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_full season_ticket.png");
+}
 
-    @media (max-width: 1024px) {
-        .ticket {
+.Mid_Tickeet_Mobile {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_late _ticket.png");
+}
+.Late_Tickeet_Mobile {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_Mid_ticket.png");
+}
+.ticket-MobileImg {
+    width: 150px;
+    height: 497px;
+    display: inline-block;
+    margin: 0 7px;
+    background-size: cover;
+    position:relative;
+}
+.Mobile-SRC-logo {
+    position: absolute;
+    bottom: 0%;
+    width: 90%;
+    opacity: 0.3;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: 2
+}
+.frontBackground {
+    width: 90%;
+    position: absolute;
+    bottom: 7%;
+    width: 90%;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index:3
+}
+
+@media (max-width: 1024px) {
+    .ticket {
             height: 750px;
         }
 
-        .ticket-container {
-            width: 800px;
-            position: relative;
-        }
-
-        .ticket-img {
-            height: 247px;
-        }
+    .ticket-container {
+        width: 800px;
+        position: relative;
     }
+
+    .ticket-img {
+        height: 247px;
+    }
+    .ticket-img .SRC-logo {
+        width: 8%;
+        right: 7%;
+    }
+}
 
     @media (max-width: 768px) {
         .ticket {
@@ -548,28 +582,30 @@
         }
     }
 
-    .ticket-star {
-        position: absolute;
-        transform: scale(0.8);
-        filter: drop-shadow(0px 0px 10px rgba(254, 236, 151, 0.7));
-    }
+.ticket-star {
+    position: absolute;
+    transform: scale(0.8);
+    filter: drop-shadow(0px 0px 10px rgba(254, 236, 151, 0.7));
+    z-index:50
+}
 
-    @media (max-width: 768px) {
-        .ticket-star {
-            transform: scale(0.6);
-        }
+
+@media (max-width: 768px) {
+    .ticket-star {
+        transform: scale(0.6);
     }
+}
 
     /*.ticket-star::after {
 box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 }*/
 
-    .star-1 {
-        top: -1%;
-        left: 5%;
-        animation: starAni 3s infinite linear;
-        -webkit-animation-: starAni 3s infinite linear;
-    }
+.star-1 {
+    top: -1%;
+    left: 5%;
+    animation: starAni 3s infinite linear;
+    -webkit-animation-: starAni 3s infinite linear;
+}
 
 .star-2 {
     top: 25%;
@@ -594,13 +630,13 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     -webkit-animation-: starAni-1 3s infinite linear;
 }
 
-    .star-5 {
-        top: 25%;
-        right: 2%;
-        animation-delay: 2.5s;
-        animation: starAni 3.2s infinite linear;
-        -webkit-animation-: starAni 3.2s infinite linear;
-    }
+.star-5 {
+    top: 25%;
+    right: 2%;
+    animation-delay: 2.5s;
+    animation: starAni 3.2s infinite linear;
+    -webkit-animation-: starAni 3.2s infinite linear;
+}
 
 .star-6 {
     top: -1%;
@@ -623,12 +659,12 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     -webkit-animation-: starAni-1 3.5s infinite linear;
 }
 
-    .star-9 {
-        top: 80%;
-        left: 30%;
-        animation: starAni 3.8s infinite linear;
-        -webkit-animation-: starAni 3.8s infinite linear;
-    }
+.star-9 {
+    top: 80%;
+    left: 30%;
+    animation: starAni 3.8s infinite linear;
+    -webkit-animation-: starAni 3.8s infinite linear;
+}
 
 .star-10 {
     top: 110%;
@@ -637,19 +673,19 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     -webkit-animation-: starAni-1 3.2s infinite linear;
 }
 
-    @media (max-width: 1024px) {
-        .star-2 {
-            top: 18%;
-        }
-
-        .star-4 {
-            top: 11%;
-        }
-
-        .star-5 {
-            top: 18%;
-        }
+@media (max-width: 1024px) {
+    .star-2 {
+        top: 24%;
     }
+
+    .star-4 {
+        top: 11%;
+    }
+
+    .star-5 {
+        top: 24%;
+    }
+}
 
     @media (max-width: 576px) {
         .star-6 {
