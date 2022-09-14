@@ -96,7 +96,7 @@ export async function deposit(SRCInput) {
 
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(parseInt(SwapNumValue));
-	console.log("1",SwapNumValue)
+	console.log("333",SwapNumValue)
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
@@ -112,19 +112,22 @@ export async function deposit(SRCInput) {
 			SRCExchange_ABI,
 			SRCExchange_addr
 		);
-		console.log("2")
-		request = await vendor.methods
+		console.log("222")
+		let request = await vendor.methods
 			.deposit(x.shiftedBy(SRC_decimals).toString())
 			.send({
 				from: accounts[0],
 			});
+		console.log("request", request)
 		alert("You have successfully sold SRC tokens!");
 		$('.lockWindows')[0].style.display = 'none';
-		console.log("3")
+		console.log("1111")
+		return true
 	} catch (err) {
-		console.error(err);
+		console.log("error", err)	
 		alert("交易失敗");
 		$('.lockWindows')[0].style.display = 'none';
+		return false
 	}
 
 }

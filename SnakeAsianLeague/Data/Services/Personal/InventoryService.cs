@@ -357,10 +357,10 @@ namespace SnakeAsianLeague.Data.Services.Personal
              */
             decimal result = 0;
             ppsr = string.Format("#{0}", ppsr);
-            ppsr = ppsr.Replace("#", "%23");
-            string URL = "/NFT/ReceiveRentByUnit";
+            //ppsr = ppsr.Replace("#", "%23");
+            string URL = "NFT/ReceiveRentByUnit";
             var request = new RestRequest(URL, Method.GET);
-            request.AddQueryParameter("UserID", userId);
+            request.AddQueryParameter("userID", userId);
             request.AddQueryParameter("ppsr", ppsr);
             request.AddHeader("Authorization", Authenticate());
 
@@ -405,7 +405,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             
             string URL = "/NFT/ReceiveRent";
             var request = new RestRequest(URL, Method.GET);
-            request.AddQueryParameter("UserID", userId);
+            request.AddQueryParameter("userID", userId);
             request.AddHeader("Authorization", Authenticate());
 
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
@@ -504,25 +504,25 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// </summary>
         /// <param name="UserID"></param>
         /// <param name="amount"></param>
-        /// <returns></returns>
-        public async Task<decimal> SRCExchangeAllowance( string walletAddress)
-        {
+        ///// <returns></returns>
+        //public async Task<decimal> SRCExchangeAllowance( string walletAddress)
+        //{
 
-            decimal result = 0;
-            string URL = "/SRCExchange/Allowance";
-            var request = new RestRequest(URL, Method.GET);
-            request.AddQueryParameter("walletAddress", walletAddress);
-            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+        //    decimal result = 0;
+        //    string URL = "/SRCExchange/Allowance";
+        //    var request = new RestRequest(URL, Method.GET);
+        //    request.AddQueryParameter("walletAddress", walletAddress);
+        //    IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
 
-            //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance URL :", BlockChainServerClient));
-            //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance StatusCode :", restResponse.StatusCode));
-            if (restResponse.StatusCode == HttpStatusCode.OK)
-            {
-                AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
-                result = data.allowance;
-            }
-            return result;
-        }
+        //    //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance URL :", BlockChainServerClient));
+        //    //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance StatusCode :", restResponse.StatusCode));
+        //    if (restResponse.StatusCode == HttpStatusCode.OK)
+        //    {
+        //        AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
+        //        result = data.allowance;
+        //    }
+        //    return result;
+        //}
 
 
 
@@ -544,29 +544,29 @@ namespace SnakeAsianLeague.Data.Services.Personal
         }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="UserID"></param>
-        /// <param name="amount"></param>
-        /// <returns></returns>
-        public async Task<string> BlockChainInfo()
-        {
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="UserID"></param>
+        ///// <param name="amount"></param>
+        ///// <returns></returns>
+        //public async Task<string> BlockChainInfo()
+        //{
 
-            string result = "";
-            string URL = "/BlockChainInfo/GetBlockChainInfo";
-            var request = new RestRequest(URL, Method.GET);
-            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+        //    string result = "";
+        //    string URL = "/BlockChainInfo/GetBlockChainInfo";
+        //    var request = new RestRequest(URL, Method.GET);
+        //    IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
 
-            //Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo URL :", BlockChainServerClient));
-            //Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo StatusCode :", restResponse.StatusCode));
-            if (restResponse.StatusCode == HttpStatusCode.OK)
-            {
-                BlockChainInfoDTO data = JsonSerializer.Deserialize<BlockChainInfoDTO>(restResponse.Content) ?? new BlockChainInfoDTO();
-                result = data.blockChain;
-            }
-            return result;
-        }
+        //    //Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo URL :", BlockChainServerClient));
+        //    //Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo StatusCode :", restResponse.StatusCode));
+        //    if (restResponse.StatusCode == HttpStatusCode.OK)
+        //    {
+        //        BlockChainInfoDTO data = JsonSerializer.Deserialize<BlockChainInfoDTO>(restResponse.Content) ?? new BlockChainInfoDTO();
+        //        result = data.blockChain;
+        //    }
+        //    return result;
+        //}
     }
 
 }

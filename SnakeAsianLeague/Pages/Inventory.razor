@@ -1124,11 +1124,11 @@ src.webp
     }
 
     //強制渲染的方法
-    public void  refresh()
+    public async Task refresh()
     {
-        Refresh();
-        getCoinData();
-        InvokeAsync(StateHasChanged);
+        await Refresh();
+        await getCoinData();
+        await InvokeAsync(StateHasChanged);
     }
     //新增SRC錢包
     protected  async Task AddSRC()

@@ -7,6 +7,7 @@
 
 @inject AppState AppState
 @inject InventoryService InventoryService
+@inject MetamaskTransfer metamaskTransfer 
 
 <head>
     <link href="css/MyProfile/coinExchange.css" rel="stylesheet" />
@@ -95,7 +96,7 @@
 
     private IJSObjectReference? coinEchangeJS;
     decimal difference=0;
-    private MetamaskTransfer metamaskTransfer ;
+    //private MetamaskTransfer metamaskTransfer ;
     //private InventoryService inventoryService;
 
     //private InventoryService blockChainInfoDTO  ;
@@ -131,21 +132,25 @@
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1);
             if (transactionResult)
             {
-                await metamaskTransfer.SRCTransferToMetaMask(AppState.LoginStatus.userID, difference *-1);
+                await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
 
             }
-
+            await clickRefresh();
         }
         else
         {
             @*game換鍊*@
             getAuthorizeNum = await InventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum );
+            if (transactionResult)
+            {
+                 await clickRefresh();
+            }
            
 
         }
         //強制渲染
-        await clickRefresh();
+        
     }
 
     //decimal aa;
