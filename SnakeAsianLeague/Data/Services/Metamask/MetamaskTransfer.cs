@@ -14,8 +14,10 @@ namespace SnakeAsianLeague.Data.Services.Metamask
         private readonly RestClient ServerClient;
         public MetamaskTransfer(IOptions<ExternalServers> myConfiguration)
         {
+
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
+            //ServerClient = new RestClient(externalServersConfig.UserServer);
             //ServerClient = new RestClient("https://rel.ponponsnake.com/api/user");
         }
 
