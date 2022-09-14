@@ -388,6 +388,8 @@ namespace SnakeAsianLeague.Data.Services.Personal
             */
 
 
+
+
             //decimal result = decimal.Parse(NFTDataList.Select(m => m.totalRevenue).Sum().ToString());
             //foreach (var item in NFTDataList)
             //{
