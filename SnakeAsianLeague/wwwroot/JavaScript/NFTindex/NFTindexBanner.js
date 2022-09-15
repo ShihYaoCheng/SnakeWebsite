@@ -14,3 +14,7 @@ export function NFTindexBanner() {
 
     // console.log(111);
 }
+
+export function I18nAfterRender() {
+    $("#register_wrap").localize()
+}

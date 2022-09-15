@@ -15,6 +15,8 @@ namespace SnakeAsianLeague.Data.Services.Personal
         private IConfiguration _config;
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
+        private readonly RestClient BlockChainServerClient;
+
 
         List<NFTData> NFTDataList;
 
@@ -26,11 +28,13 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
 
-        public InventoryService(IConfiguration config , IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
+        public InventoryService(IConfiguration config, IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
         {
             _config = config;
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
+
+            BlockChainServerClient = new RestClient(externalServersConfig.NftWebApi);
 
             OptionKeyValue option = new OptionKeyValue();
             RarityList = option.Get_Default_Rarity();
@@ -151,7 +155,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
                     Rarity = RarityElements[2].Substring(0, 1);
                     Elements = RarityElements[2].Substring(1, 1);
                 }
-                data.ImgPath = string.Format(ImgPath, "ppsr" , NFT_Riders[i].serialNumber);
+                data.ImgPath = string.Format(ImgPath, "ppsr", NFT_Riders[i].serialNumber);
                 data.LinkURL = string.Format(LinkURL, asset_contract_address, data.Number);
                 //data.RarityKey = Rarity;
                 //data.Elements = Elements;
@@ -161,8 +165,15 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
                 data.Elements = Elements;
                 data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.webp", ElementsList.Where(m => m.Key == Elements).First().Value);
-                //data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
-                //data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
+                if (NFT_Riders[i].occupationId != null)
+                {
+                    data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
+                }
+                else
+                {
+                    data.ClassKey = "1";
+                }
+                data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
 
                 int value = myObject.Next(1, 1000);
                 data.EndTime = DateTime.Now.AddDays(value);
@@ -171,9 +182,9 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
                 //租金
-                data.nowRent = NFT_Riders[i].rent;
+                data.nowRent = Decimal.Round(NFT_Riders[i].rent, 3);
                 //累計租金(累計收益)
-                data.totalRevenue = NFT_Riders[i].totalRevenue;
+                data.totalRevenue = Decimal.Round(NFT_Riders[i].totalRevenue, 3);
 
                 NFTDataList.Add(data);
 
@@ -290,35 +301,26 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <returns></returns>
         private async Task<List<RiderUnit>> Get_NFT_RiderByUserID(string UserID)
         {
-            RestRequest request = new RestRequest($"Unit/Checklist?UserID={UserID}");
+            string URL = "/Unit/CheckForBackEnd";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("UserID", UserID);
             request.AddHeader("Authorization", Authenticate());
 
-            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
-
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 RiderList lists = JsonSerializer.Deserialize<RiderList>(restResponse.Content) ?? new RiderList();
-                
+
                 //自有
-                List<RiderUnit>  result  = lists.selfUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
+                List<RiderUnit> result = lists.selfUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
 
                 //租任
                 //List<RiderUnit> result = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
 
-                /* 20220728假資料
-                 * by chenyuwei
-                 */
-                double total = 0;
-                foreach (RiderUnit item in result)
-                {
-                    total = total + 0.2;
-                    item.totalRevenue = 10 + total;
-                }
-
-
                 return result;
             }
             return new List<RiderUnit>();
+
         }
 
         /// <summary>
@@ -341,68 +343,36 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <param name="userId"></param>
         /// <param name="ppsr"></param>
         /// <returns></returns>
-        public async Task<double> ReceiveRentByUnit(string userId ,string ppsr)
+        public async Task<decimal> ReceiveRentByUnit(string userId, string ppsr)
         {
             /* 20220728假資料
             * by chenyuwei
             */
+            //decimal result = decimal.Parse(NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue.ToString());
+            //NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue = 0;
+            //return Math.Round(result, 3, MidpointRounding.AwayFromZero);
 
-           
-
-            double result =  NFTDataList.Where(m=>m.TokenID == ppsr).First().totalRevenue;
-            NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue = 0;
-            return Math.Round(result, 3, MidpointRounding.AwayFromZero); 
-
-
-            //ppsr = string.Format("#{0}", ppsr);
+            /* 20220907 API 串接完成
+             * by chenyuwei
+             */
+            decimal result = 0;
+            ppsr = string.Format("#{0}", ppsr);
             //ppsr = ppsr.Replace("#", "%23");
-            //RestRequest request = new RestRequest($"NFT/ReceiveRentByUnit?userId={userId}&ppsr={ppsr}");
-            //request.AddHeader("Authorization", Authenticate());
-            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
-            //double result = 0;
-            //if (restResponse.StatusCode == HttpStatusCode.OK)
-            //{
-            //    result = Convert.ToDouble( JsonSerializer.Deserialize<string>(restResponse.Content) ?? "0");
-            //    return result;
-            //}
-            //return result;
-        }
+            string URL = "NFT/ReceiveRentByUnit";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("userID", userId);
+            request.AddQueryParameter("ppsr", ppsr);
+            request.AddHeader("Authorization", Authenticate());
 
-        /// <summary>
-        /// 一件領取租金
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
-        public async Task<double> ReceiveRent(string userId)
-        {
-
-            /* 20220728假資料
-            * by chenyuwei
-            */
-
-
-            double result = NFTDataList.Select(m => m.totalRevenue).Sum();
-
-
-            foreach (var item in NFTDataList)
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
             {
-                item.totalRevenue = 0;
+                //result = JsonSerializer.Deserialize<CountData>(restResponse.Content);
+                CountData data = JsonSerializer.Deserialize<CountData>(restResponse.Content) ?? new CountData() ;
+                result = data.count;
             }
-            return Math.Round(result, 3, MidpointRounding.AwayFromZero);
-
-
-            //RestRequest request = new RestRequest($"/NFT/ReceiveRent?userId={userId}");
-            //request.AddHeader("Authorization", Authenticate());
-            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
-            //double result = 0;
-
-            //if (restResponse.StatusCode == HttpStatusCode.OK)
-            //{
-            //    result = Convert.ToDouble(JsonSerializer.Deserialize<string>(restResponse.Content) ?? "0");
-            //    return result;
-            //}
-            //return result;
-
+            
+            return result;
         }
 
         /// <summary>
@@ -410,7 +380,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<double> CalReceiveRent(string userId)
+        public async Task<decimal> ReceiveRent(string userId)
         {
 
             /* 20220728假資料
@@ -418,22 +388,185 @@ namespace SnakeAsianLeague.Data.Services.Personal
             */
 
 
-            double result = NFTDataList.Select(m => m.totalRevenue).Sum();
-            return Math.Round(result, 3, MidpointRounding.AwayFromZero);
 
 
-            //RestRequest request = new RestRequest($"/NFT/ReceiveRent?userId={userId}");
-            //request.AddHeader("Authorization", Authenticate());
-            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
-            //double result = 0;
-
-            //if (restResponse.StatusCode == HttpStatusCode.OK)
+            //decimal result = decimal.Parse(NFTDataList.Select(m => m.totalRevenue).Sum().ToString());
+            //foreach (var item in NFTDataList)
             //{
-            //    result = Convert.ToDouble(JsonSerializer.Deserialize<string>(restResponse.Content) ?? "0");
-            //    return result;
+            //    item.totalRevenue = 0;
             //}
-            //return result;
+            //return Math.Round(result, 3, MidpointRounding.AwayFromZero);
+
+
+            /* 20220907 API 串接完成
+            * by chenyuwei
+            */
+            decimal result = 0;
+            
+            string URL = "/NFT/ReceiveRent";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("userID", userId);
+            request.AddHeader("Authorization", Authenticate());
+
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                //result = JsonSerializer.Deserialize<CountData>(restResponse.Content);
+                CountData data = JsonSerializer.Deserialize<CountData>(restResponse.Content) ?? new CountData();
+                result = data.count;
+            }
+            return result;
 
         }
+
+        /// <summary>
+        /// 計算領取租金
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public async Task<decimal> CalReceiveRent(string userId)
+        {
+            List<RiderUnit> DataList = await Get_NFT_RiderByUserID(userId);
+            decimal result = decimal.Parse(DataList.Select(m => m.totalRevenue).Sum().ToString());
+            return Math.Round(result, 3, MidpointRounding.AwayFromZero);
+        }
+
+
+
+
+        /// <summary>
+        /// 透過 userId 取得遊戲gSRC數量
+        /// </summary>
+        /// mintCount 鍛造次數
+        /// <returns></returns>
+        public async Task<decimal> GetgSRCCurrency1(string UserID)
+        {
+
+            decimal result = 0;
+            string URL = "/NFT/NFTCurrency1";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("userId", UserID);
+            request.AddHeader("Authorization", Authenticate());
+
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                gSRCCurrency data = JsonSerializer.Deserialize<gSRCCurrency>(restResponse.Content) ?? new gSRCCurrency();
+                result = decimal.Round(data.nftCurrency1, 3);
+            }
+            return result;
+
+        }
+
+
+
+        public class AllowanceData
+        {
+            public decimal allowance {get; set;}
+        }
+
+
+
+        public class CountData
+        {
+            public decimal count { get; set; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public async Task<decimal> SRCExchangeApprove(string UserID, decimal amount)
+        {
+
+            decimal result = 0;
+            string URL = "/SRCExchange/Approve";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("userID", UserID);
+            request.AddQueryParameter("amount", amount.ToString());
+            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+            //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeApprove URL :", BlockChainServerClient));
+            //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeApprove StatusCode :", restResponse.StatusCode));
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
+                result = data.allowance;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="amount"></param>
+        ///// <returns></returns>
+        //public async Task<decimal> SRCExchangeAllowance( string walletAddress)
+        //{
+
+        //    decimal result = 0;
+        //    string URL = "/SRCExchange/Allowance";
+        //    var request = new RestRequest(URL, Method.GET);
+        //    request.AddQueryParameter("walletAddress", walletAddress);
+        //    IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+        //    //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance URL :", BlockChainServerClient));
+        //    //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance StatusCode :", restResponse.StatusCode));
+        //    if (restResponse.StatusCode == HttpStatusCode.OK)
+        //    {
+        //        AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
+        //        result = data.allowance;
+        //    }
+        //    return result;
+        //}
+
+
+
+
+        public class BlockChainInfoDTO
+        {
+            public string? blockChain { get; set; }
+            public int chainId { get; set; }             // ChainId
+            public string? chainRPCUrl { get; set; }     // RPCUrl
+            public string? socketServerUri { get; set; } // 接收Event回傳的Socket伺服器位置
+                                                         // PPSR合約
+            public string? adminWalletAddress_PPSR { get; set; }
+            public string? contractAddress_PPSR { get; set; }
+            public decimal balanceOf_PPSR { get; set; } // 剩餘瓦斯費
+                                                        // SRCExchange合約
+            public string? adminWalletAddress_SRCExchange { get; set; }
+            public string? contractAddress_SRCExchange { get; set; }
+            public decimal balanceOf_SRCExchange { get; set; }  // 剩餘瓦斯費
+        }
+
+
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="UserID"></param>
+        ///// <param name="amount"></param>
+        ///// <returns></returns>
+        //public async Task<string> BlockChainInfo()
+        //{
+
+        //    string result = "";
+        //    string URL = "/BlockChainInfo/GetBlockChainInfo";
+        //    var request = new RestRequest(URL, Method.GET);
+        //    IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+        //    //Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo URL :", BlockChainServerClient));
+        //    //Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo StatusCode :", restResponse.StatusCode));
+        //    if (restResponse.StatusCode == HttpStatusCode.OK)
+        //    {
+        //        BlockChainInfoDTO data = JsonSerializer.Deserialize<BlockChainInfoDTO>(restResponse.Content) ?? new BlockChainInfoDTO();
+        //        result = data.blockChain;
+        //    }
+        //    return result;
+        //}
     }
+
 }

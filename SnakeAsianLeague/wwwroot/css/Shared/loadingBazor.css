@@ -1,0 +1,25 @@
+﻿.loadingBazor {
+    background-color: #385975;
+    height: 100vh;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+}
+
+.loadingBazor img{
+    width:15%;
+}
+
+@media all and (max-width: 1024px) {
+    .loadingBazor img {
+        width: 30%;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .loadingBazor img {
+        width: 40%;
+    }
+}

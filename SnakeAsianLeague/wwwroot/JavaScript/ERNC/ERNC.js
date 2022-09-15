@@ -1,8 +1,11 @@
 // 圓餅圖
 export function chartInit() {
-    // console.log('ERNC-chartInit')
+    let position = '';
 
-    let position = ''
+    function i18nCallback() {
+        const i18n_label = i18next.t('ERNC_data:chart', { returnObjects: true });
+        setChart(i18n_label);
+    }
 
     $(document).ready(function () {
 
@@ -14,21 +17,29 @@ export function chartInit() {
         const rect = $('#Pie-Chart')[0].getBoundingClientRect()
         //控制圓餅出現頁面高度 ex: (...) - 100
         position = (rect.top - rect.height) - 200
+
+        window.i18nCallback = i18nCallback
     });
 
     $(window).on('scroll', init)
 
     function init() {
         if (window.scrollY > position) {
-            ERNCCharts();
+            const i18n_label = i18next.t('ERNC_data:chart', { returnObjects: true });
+            // console.log(i18n_label);
+            ERNCCharts(i18n_label);
             $(".Pie-Chart-Block").addClass("animate_start");
-            $(window).unbind('scroll')
+            $(window).unbind('scroll',init);
         }
     };
 
-    function ERNCCharts() {
+    function ERNCCharts(i18n_label){
         var chartDom = document.querySelector('#Pie-Chart')
         window.myChart = echarts.init(chartDom);
+        setChart(i18n_label);
+    }
+
+    function setChart(i18n_label) {
         var option;
 
         option = {
@@ -61,7 +72,7 @@ export function chartInit() {
                         fontSize: 15,
                         lineHeight: 18,
                         color: '#ffffff',
-                        overflow: "break"
+                        // overflow: "break"
 
                     },
 
@@ -88,24 +99,24 @@ export function chartInit() {
                     },
 
                     data: [
-                        // DOA Treasury
-                        { value: 45, name: 'DOA Treasury' },
+                        // DAO Treasury
+                        { value: 45, name: i18n_label.label_01 },
                         // CQI Team
-                        { value: 16, name: 'CQI Team' },
+                        { value: 16, name: i18n_label.label_02 },
                         // Event
-                        { value: 2, name: 'Event' },
+                        { value: 2, name: i18n_label.label_03 },
                         // Develop
-                        { value: 8, name: 'Develop' },
+                        { value: 8, name: i18n_label.label_04 },
                         // Advisor
-                        { value: 4, name: 'Advisor' },
-                        // Public sale
-                        { value: 4, name: 'Public sale' },
+                        { value: 4, name: i18n_label.label_05 },
+                        // Public Sale
+                        { value: 4, name: i18n_label.label_06 },
                         // Private Placement 
-                        { value: 12, name: 'Private Placement' },
+                        { value: 12, name: i18n_label.label_07 },
                         // Seed(0.06USD)
-                        { value: 6, name: 'Seed (0.06USD)' },
+                        { value: 6, name: i18n_label.label_08 },
                         // Charity
-                        { value: 3, name: 'Charity' }
+                        { value: 3, name: i18n_label.label_09 }
                     ],
 
                 },
@@ -156,7 +167,7 @@ export function chartInit() {
                     },
                     color: [
 
-                        // // DOA Treasury 45%
+                        // // DAO Treasury 45%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
                             color: '#745858'
@@ -201,7 +212,7 @@ export function chartInit() {
                             color: '#FCD4B9'
                         }]),
 
-                        // Public sale 4%
+                        // Public Sale 4%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
                             color: '#EFE4BE'
@@ -249,7 +260,7 @@ export function chartInit() {
                         { value: 8, name: '8%' },
                         // Advisor
                         { value: 4, name: '4% ' },
-                        // Public sale
+                        // Public Sale
                         { value: 4, name: '4%' },
                         // Private Placement 
                         { value: 12, name: '12%' },
@@ -264,7 +275,6 @@ export function chartInit() {
         };
 
         option && myChart.setOption(option);
-
     }
 
 }
@@ -292,13 +302,14 @@ export function chartInitRwd() {
 
     function initRwd() {
         if (window.scrollY > positionRwd) {
-            ERNCChartsRwd();
+            const i18n_label = i18next.t('ERNC_data:chart', { returnObjects: true });
+            ERNCChartsRwd(i18n_label);
             $(window).unbind('scroll', initRwd)
         }
     };
 
 
-    function ERNCChartsRwd() {
+    function ERNCChartsRwd(i18n_label) {
         var chartDomRwd = document.querySelector('#Pie-Chart-Rwd')
         window.myChartRwd = echarts.init(chartDomRwd);
         var option;
@@ -357,7 +368,7 @@ export function chartInitRwd() {
                     },
                     color: [
 
-                        // // DOA Treasury 45%
+                        // // DAO Treasury 45%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
                             color: '#745858'
@@ -402,7 +413,7 @@ export function chartInitRwd() {
                             color: '#FCD4B9'
                         }]),
 
-                        // Public sale 4%
+                        // Public Sale 4%
                         new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                             offset: 0,
                             color: '#EFE4BE'
@@ -447,35 +458,33 @@ export function chartInitRwd() {
                         // extraCssText:'white-space: pre-wrap;',
                     },
                     data: [
-                        // DOA Treasury
-                        { value: 45, name: 'DOA Treasury 45%' },
+                        // DAO Treasury
+                        { value: 45, name: i18n_label.label_01 + ' 45%' },
                         // CQI Team
-                        { value: 16, name: 'CQI Team 16%' },
+                        { value: 16, name: i18n_label.label_02 + ' 16%' },
                         // Event
-                        { value: 2, name: 'Event 2%' },
+                        { value: 2, name: i18n_label.label_03 + ' 2%' },
                         // Develop
-                        { value: 8, name: 'Develop 8%' },
+                        { value: 8, name: i18n_label.label_04 + ' 8%' },
                         // Advisor
-                        { value: 4, name: 'Advisor 4%' },
-                        // Public sale
-                        { value: 4, name: 'Public sale 4%' },
+                        { value: 4, name: i18n_label.label_05 + ' 4%' },
+                        // Public Sale
+                        { value: 4, name: i18n_label.label_06 + ' 4%' },
                         // Private Placement 
-                        { value: 12, name: 'Private Placement 12%' },
+                        { value: 12, name: i18n_label.label_07 + ' 12%' },
                         // Seed(0.06USD)
-                        { value: 6, name: 'Seed (0.06USD) 6%' },
+                        { value: 6, name: i18n_label.label_08 + ' 6%' },
                         // Charity
-                        { value: 3, name: 'Charity 3%' }
+                        { value: 3, name: i18n_label.label_09 + ' 3%' }
                     ],
                 }
             ]
         };
 
-
-
         option && myChartRwd.setOption(option);
 
     }
-    ERNCChartsRwd();
+    
 }
 
 
@@ -543,27 +552,37 @@ export function roadMapScrollLeft() {
 
         // RWD
         $("#btn-2022-RWD").click(function () {
-            console.log('Roadmap-Years-RWD')
-            
+            // console.log('Roadmap-Years-RWD')
+            $('.Roadmap-Years-RWD').removeClass('Roadmap-Years-focus');
+            $("#btn-2022-RWD").addClass('Roadmap-Years-focus');
+
             $('.Project-Year').removeClass('animate_start');
             $("#Project-2022").addClass('animate_start');
 
-            
+            $('.Project').removeClass('Project-Img-focus-RWD');
+            $("#Project-2022 .Project").addClass('Project-Img-focus-RWD');
         });
 
         $("#btn-2023-RWD").click(function () {
-            
+            $('.Roadmap-Years-RWD').removeClass('Roadmap-Years-focus');
+            $("#btn-2023-RWD").addClass('Roadmap-Years-focus');
+
             $('.Project-Year').removeClass('animate_start');
             $("#Project-2023").addClass('animate_start');
 
+            $('.Project').removeClass('Project-Img-focus-RWD');
+            $("#Project-2023 .Project ").addClass('Project-Img-focus-RWD');
         });
 
         $("#btn-2024-RWD").click(function () {
-            
+            $('.Roadmap-Years-RWD').removeClass('Roadmap-Years-focus');
+            $("#btn-2024-RWD").addClass('Roadmap-Years-focus');
+
             $('.Project-Year').removeClass('animate_start');
             $("#Project-2024").addClass('animate_start');
 
-    
+            $('.Project ').removeClass('Project-Img-focus-RWD');
+            $("#Project-2024 .Project ").addClass('Project-Img-focus-RWD');
         });
 
 

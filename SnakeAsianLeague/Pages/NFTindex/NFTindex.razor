@@ -15,15 +15,22 @@
 </head>
 
 <div class="NFTindex">
+  
     @*<Loading />*@
     @* <NFTindex_Register/> *@
-    @*<LoadingBazor>*@
+    <LoadingBazor>
         <NFTindex_Join />
         <NFTindex_Banner />
         <NFTindex_Flag />
         <NFTindex_Seignior />
-        <NFTindex_Carousel />
-    @*</LoadingBazor>  *@
+        <div class="NFTindex_BG_diamond">
+            <NFTindex_Carousel />
+            <NFTindex_SRC />
+            <NFTindex_Gameplay />
+            <NFTindex_Partner />
+        </div>
+        
+    </LoadingBazor>  
 </div>
 
 
@@ -35,7 +42,7 @@
         if (firstRender)
         {
             await JS.InvokeVoidAsync("installI18n");
-            await JS.InvokeVoidAsync("NFTindexCarousel");
+          
         }
 
     }

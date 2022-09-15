@@ -81,18 +81,22 @@
     right:0%;
 }
 .join-text {
-    width: 131px;
-    height: 33px;
+    /* width: 131px; */
+    height: 36px;
     position: absolute;
-    top: 24%;
-    left: 6.5%;
+    top: 21%;
+    left: 7.5%;
+}
+.join-text_CN{
+    width: 97px;
+    top: 21%;
 }
 @media all and (max-width: 1200px) {
     .join-text {
-        width: 97px;
-        height: 22px;
-        left: 7.5%;
-        top: 21%;
+        /* width: 97px; */
+        height: 23px;
+        left: 10.5%;
+        top: 19%;
     }
 
     .horizontalbar_left {
@@ -114,7 +118,9 @@
 }
 
 .join-button {
-    width: 114px;
+    /* width: 114px; */
+    min-width: 100px;
+    padding: 0 10px;
     height: 38px;
     /* background: url("../../images/NFTindex/NFTindex_pop/Button_1.png");
     background-size: cover; */
@@ -129,7 +135,7 @@
     justify-content: center;
     align-items: center;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Arvo', serif;  
     letter-spacing: 1px;
     text-decoration: none;
@@ -143,7 +149,7 @@
 @media all and (max-width: 1200px) {
     .join-button {
         border: 2px solid white;
-        width: 78px;
+        min-width: 75px;
         height: 27.5px;
         font-size: 10px;
         left: 12.5%;
@@ -199,7 +205,7 @@
     align-items: center;
     color: #fff;
     font-size: 15px;
-    font-family: Palatino;
+    font-family: 'Arvo', serif;
     font-weight: 700;
     letter-spacing: 1px;
     /* outline: none; */

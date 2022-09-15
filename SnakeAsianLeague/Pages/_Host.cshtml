@@ -87,8 +87,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/BezierPlugin.min.js"></script>
 
+    @*big Number*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/8.0.2/bignumber.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/8.0.2/bignumber.js"></script>
     @*web3JS*@
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+    @*sentry*@
+    <script src="https://browser.sentry-cdn.com/7.12.0/bundle.tracing.min.js" integrity="sha384-o3KQiYTQ9L5Y/dJz3i4P9UgxHGzKV/DejriFgBBIoUL170eRF1qFLlHE1xWucFbB" crossorigin="anonymous"></script>
+    <script src="https://browser.sentry-cdn.com/7.12.0/bundle.tracing.min.js" integrity="sha384-o3KQiYTQ9L5Y/dJz3i4P9UgxHGzKV/DejriFgBBIoUL170eRF1qFLlHE1xWucFbB" crossorigin="anonymous"></script>
+    
+
+    <script>
  
     <!-- jquery-loading v1.3.0 -->
     @* <link href="https://cdn.jsdelivr.net/npm/jquery-easy-loading@1.3.0/dist/jquery.loading.min.css" rel="stylesheet"
@@ -121,9 +131,11 @@
     <script autostart="false" src="_framework/blazor.server.js"></script>
     <script src="~/JavaScript/MarketPlace.js"></script>
     <script src="~/JavaScript/test.js"></script>  
-    <script src="~/JavaScript/InventoryAndMarketPlace/AddPolygon.js"></script>  
-    <script src="~/JavaScript/InventoryAndMarketPlace/AddPolygonUSDT.js"></script>  
-    <script src="~/JavaScript/Web3JS/web3JS.js"></script>  
+
+    <script src="~/JavaScript/MyProfile/InventoryAndMarketPlace/addNetworkAndCoin.js"></script>  
+    
+     <script src="~/JavaScript/MyProfile/InventoryAndMarketPlace/ABI_gather.js"></script>  
+    <script src="~/JavaScript/MyProfile/SWAP/SWAP.js"></script>      
     <script src="~/JavaScript/Rank.js"></script>
     <script src="~/JavaScript/NavMenu.js"></script>
     <script src="~/JavaScript/Myaccount.js"></script>
@@ -143,6 +155,15 @@
 
     @*自動重連*@
     <script>
+        Sentry.init({
+            dsn:"https://6ade3f118206413fb6f2c62213810897@o1382280.ingest.sentry.io/6707625",           
+            integrations: [new Sentry.BrowserTracing()],
+
+            tracesSampleRate: 1.0,
+        });
+      
+  
+
         async function connectionDown(options) {
             console.log("Connection Down ");
             for (let i = 0; i < options.maxRetries; i++) {
@@ -199,7 +220,10 @@
                 onConnectionUp: e => connectionUp(e)
             }
         });
+
+
     </script>
+
 
 </body>
 

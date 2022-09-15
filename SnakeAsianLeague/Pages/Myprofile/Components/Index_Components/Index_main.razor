@@ -1,8 +1,11 @@
 ﻿@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Backstage
+@using SnakeAsianLeague.Data.Services.Personal
+
 @inject ProfileService ProfileService
 @inject AppState AppState
 @inject IJSRuntime JS
+@inject InventoryService InventoryService
 
 <AuthorizeView>
     @* 已登入畫面 *@
@@ -101,13 +104,13 @@
                                 <a href="myprofile/index">
                                     <div class="assetItem">
                                         <img class="assetIcon" src="/images/Myprofile/ERNC.webp" alt="">
-                                        <span>ERNC</span>
+                                        <span>gERNC</span>
                                     </div>
                                     <div class="assetValue">0</div>
                                 </a>
                             </div>
 
-                            <div class="informationAssetBlock">
+                            @*<div class="informationAssetBlock">
                                 <a href="myprofile/index">
                                     <div class="assetItem">
                                         <img class="assetIcon" src="/images/Myprofile/MIPR.webp" alt="">
@@ -115,15 +118,15 @@
                                     </div>
                                     <div class="assetValue">0</div>
                                 </a>
-                            </div>
+                            </div>*@
 
                             <div class="informationAssetBlock">
                                 <a href="myprofile/index">
                                     <div class="assetItem">
                                         <img class="assetIcon" src="/images/Myprofile/SRC.webp" alt="">
-                                        <span>SRC</span>
+                                        <span>gSRC</span>
                                     </div>
-                                    <div class="assetValue">0</div>
+                                    <div class="assetValue">@gSRC</div>
                                 </a>
                             </div>
 
@@ -238,13 +241,13 @@
                             <a href="myprofile/index">
                                 <div class="assetItem">
                                     <img class="assetIcon" src="/images/Myprofile/ERNC.webp" alt="">
-                                    <span>ERNC</span>
+                                    <span>gERNC</span>
                                 </div>
                                 <div class="assetValue">0</div>
                             </a>
                         </div>
 
-                        <div class="informationAssetBlock">
+                        @*<div class="informationAssetBlock">
                             <a href="myprofile/index">
                                 <div class="assetItem">
                                     <img class="assetIcon" src="/images/Myprofile/MIPR.webp" alt="">
@@ -252,13 +255,13 @@
                                 </div>
                                 <div class="assetValue">0</div>
                             </a>
-                        </div>
+                        </div>*@
 
                         <div class="informationAssetBlock">
                             <a href="myprofile/index">
                                 <div class="assetItem">
                                     <img class="assetIcon" src="/images/Myprofile/SRC.webp" alt="">
-                                    <span>SRC</span>
+                                    <span>gSRC</span>
                                 </div>
                                 <div class="assetValue">0</div>
                             </a>
@@ -271,7 +274,7 @@
                                     <img class="assetIcon" src="/images/Myprofile/Knight.webp" alt="">
                                     <span>Rider</span>
                                 </div>
-                                <div class="assetValue">0</div>
+                                <div class="assetValue">@NFT_Rider_Count</div>
                             </a>
                         </div>
                         <div class="informationAssetBlock" id="informationAssetBlock-Lock">
@@ -306,16 +309,26 @@
     [Parameter]
     public EventCallback EnableEthereumAsync { get; set; }
 
-    /// <summary>
-    ///
-    /// </summary>
-    int NFT_Rider_Count = 0;
+    /// <summary> NFT數量 </summary>
+    private int NFT_Rider_Count;
+
+    /// <summary> gSRC數量 </summary>
+    private decimal gSRC;
 
     protected override async Task OnAfterRenderAsync(bool first)
     {
         if (first)
         {
-            NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+            if (NFT_Rider_Count !=  await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString()))
+            {
+                 NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+
+                 gSRC = await InventoryService.GetgSRCCurrency1(AppState.LoginStatus.userID.ToString());
+
+                 //強制渲染
+                 InvokeAsync(StateHasChanged);
+            }          
+         
             await JS.InvokeVoidAsync("setMateMaskLink");
             
         }

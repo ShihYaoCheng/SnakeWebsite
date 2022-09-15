@@ -1,15 +1,20 @@
-﻿    <SpinLoader IsLoading="isLoading"  Spinner="SpinnerType.Chase" >
+﻿@*首頁loading*@
+<head>    
+    <link href="/css/Shared/loadingBazor.css" rel="stylesheet"/> 
+</head>
+<SpinLoader IsLoading="isLoading"  Spinner="SpinnerType.Chase" >
 
-        <LoadingTemplate>
-            <div class="col-12" style="background-color:lightgray; height:100vh; vertical-align:middle ;display:flex; justify-content:center; align-items:center;">
-                <br/><br/>
-                <Chase Center ="true" Color="#c21f13" Size="70px"></Chase>
-            </div>
-        </LoadingTemplate>
-        <ContentTemplate>
-             @ChildContent
-        </ContentTemplate>
-    </SpinLoader>
+    <LoadingTemplate>
+        <div class="col-12 loadingBazor">
+            <br/><br/>
+                <img width="310" src="/images/loading/loading.gif" alt="">
+        </div>
+    </LoadingTemplate>
+    <ContentTemplate>
+
+            @ChildContent
+    </ContentTemplate>
+</SpinLoader>
 @code {
 
     [Parameter]

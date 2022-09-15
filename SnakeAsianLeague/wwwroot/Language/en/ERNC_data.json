@@ -1,0 +1,87 @@
+{
+  "banner": {
+    "title": "Empyreal Nucleus (ERNC)",
+    "text": "ERNC is an ERC20 governance money for PonPonSnake. Holders can participate in game decision voting, and also gain cool game items. It's the community's most valuable asset."
+  },
+
+  "card": {
+    "infoTitle": "ERNC Origin",
+    "infoText": "The Itza people believe that the ERNC is a relic from an ancient god. Even though they don't understand how ERNC works,  if they discover one, the seignior will exchange it for lots of rewards.",
+    "cardTitle-01": "Stake",
+    "cardText-01": "Users can seal their currency to participate in ERNC.They may also enhance their own governance and share the game's profits.",
+    "cardTitle-02": "Payment",
+    "cardText-02": "ERNC would be used to pay for high-level productions in the game, as well as to trade NFTs on the auction market or to swap to other crypto currencies.",
+    "cardTitle-03": "Governance",
+    "cardText-03": "85% of earnings will go into the decentralized treasury. Whoever stakes enough ERNC will gain governance authority, allowing them to vote on a reward distribution and resolutions."
+  },
+
+  "allocation": {
+    "infoTitle": "ERNC Allocation",
+    "infoText": "The primary value of the game and the goal for users to participate in the game is the ERNC's P2E reward allocation pool (Play-to-Earn Allocation Pool). Players will come together to encourage the release and future expansion of ERNC.",
+    "chartTitle": "Total 270,000,000 ERNC"
+  },
+
+  "chart": {
+    "label_01": "DAO Treasury",
+    "label_02": "CQI Team",
+    "label_03": "Event",
+    "label_04": "Develop",
+    "label_05": "Advisor",
+    "label_06": "Public Sale",
+    "label_07": "Private Placement",
+    "label_08": "Seed (0.06USD)",
+    "label_09": "Charity"
+  },
+
+  "table": {
+    "th-Type": "Type",
+    "th-Amount": "Amount",
+    "th-Unlock": "Unlock",
+
+    "td-Type-01": "DAO Treasury",
+    "td-Unlock-01": "unlock by competition",
+    "td-Type-02": "CQI Team",
+    "td-Unlock-02": "lock for 1~3 years, 2023 unlock 1/3.",
+    "td-Type-03": "Private Placement",
+    "td-Unlock-03": "2023 unlock after 1 year",
+    "td-Type-04": "Develop",
+    "td-Unlock-04": "lock for 1~3 years, 2023 unlock 1/3.",
+    "td-Type-05": "Seed (0.06USD)",
+    "td-Unlock-05": "2022 unlock after 1 year",
+    "td-Type-06": "Advisor",
+    "td-Unlock-06": "lock for 1~3 years, 2023 unlock 1/3.",
+    "td-Type-07": "Public Sale",
+    "td-Unlock-07": "2024 unlock after 1 year",
+    "td-Type-08": "Charity",
+    "td-Unlock-08": "3-year linear unlock",
+    "td-Type-09": "Event",
+    "td-Unlock-09": "lock for 1~3 years, 2023 unlock 1/3.",
+
+    "total": "ERNC Total 270,000,000 (100%)"
+  },
+  "Roadmap": {
+    "Road-Title": "PROJECT ROADMAP",
+    "Road-map-1-1": "9/1 Official Distribution",
+    "Road-map-1-2": "9/5 ERNC Claim to MetaMask",
+    "Road-map-1-3": "9/15 Loot Reward",
+    "Road-map-2-1": "10/1 Leader Board Award",
+    "Road-map-2-2": "10/7 (PVP) Champions League Prize",
+    "Road-map-2-3": "10/30 (PVP) Festival Prize",
+    "Road-map-3-1": "11/15 Recommendation Reward",
+    "Road-map-4-1": "12/1 Staking",
+    "Road-map-4-2": "12/15 Seed Offering",
+    "Road-map-5-1": "1/1 Swap ERNC/SRC",
+    "Road-map-6-1": "2/1 (PVE) Privateers Prize",
+    "Road-map-7-1": "4/1 Guild Award",
+    "Road-map-8-1": "6/1 VIP Award",
+    "Road-map-9-1": "8/1 Guild Staking",
+    "Road-map-10-1": "10/1 Reserves for BINANCE",
+    "Road-map-11-1": "12/1 Exchange USDT", 
+    "Road-map-11-2": "12/15 Private Offering",
+    "Road-map-12-1": "2/1 Connect to SECRET",
+    "Road-map-13-1": "6/1 Exchange SECRET",
+    "Road-map-14-1": "12/15 Public Sale"
+
+  }
+
+}

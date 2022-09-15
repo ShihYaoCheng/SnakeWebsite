@@ -66,22 +66,22 @@
             List.Add(rd);
             rd = new OptionKeyValue("d", "Wind", "web_i18n_22");
             List.Add(rd);
-            rd = new OptionKeyValue("e", "Light", "web_i18n_23");
-            List.Add(rd);
-            rd = new OptionKeyValue("f", "Dark", "web_i18n_24");
-            List.Add(rd);
-            rd = new OptionKeyValue("g", "Life", "web_i18n_25");
-            List.Add(rd);
-            rd = new OptionKeyValue("h", "Death", "web_i18n_26");
-            List.Add(rd);
-            rd = new OptionKeyValue("i", "Create", "web_i18n_27");
-            List.Add(rd);
-            rd = new OptionKeyValue("j", "Destroy ", "web_i18n_28");
-            List.Add(rd);
-            rd = new OptionKeyValue("k", "Time ", "web_i18n_29");
-            List.Add(rd);
-            rd = new OptionKeyValue("l", "Space ", "web_i18n_30");
-            List.Add(rd);
+            //rd = new OptionKeyValue("e", "Light", "web_i18n_23");
+            //List.Add(rd);
+            //rd = new OptionKeyValue("f", "Dark", "web_i18n_24");
+            //List.Add(rd);
+            //rd = new OptionKeyValue("g", "Life", "web_i18n_25");
+            //List.Add(rd);
+            //rd = new OptionKeyValue("h", "Death", "web_i18n_26");
+            //List.Add(rd);
+            //rd = new OptionKeyValue("i", "Create", "web_i18n_27");
+            //List.Add(rd);
+            //rd = new OptionKeyValue("j", "Destroy ", "web_i18n_28");
+            //List.Add(rd);
+            //rd = new OptionKeyValue("k", "Time ", "web_i18n_29");
+            //List.Add(rd);
+            //rd = new OptionKeyValue("l", "Space ", "web_i18n_30");
+            //List.Add(rd);
             return List;
         }
 

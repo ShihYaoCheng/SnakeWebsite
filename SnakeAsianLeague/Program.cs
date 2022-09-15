@@ -22,6 +22,8 @@ using SnakeAsianLeague.Data.Services.SnakeServerService;
 using System.Text;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using OpenTelemetry.Metrics;
+using SnakeAsianLeague.Data.Services.BlockChainProcessor;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +50,8 @@ builder.WebHost.UseSentry(options => options.TracesSampler = context =>
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
+builder.Services.AddOpenTelemetryMetrics(b => b.AddAspNetCoreInstrumentation().AddPrometheusExporter());
+
 builder.Services.AddSingleton<IDataAccess, DataAccess>();
 builder.Services.AddSingleton<LoginService>();
 builder.Services.AddSingleton<AsiaLeagueScheduleService>();
@@ -65,8 +69,14 @@ builder.Services.AddSingleton<AwardService>();
 builder.Services.AddSingleton<NFTService>();
 builder.Services.AddSingleton<OptionService>();
 builder.Services.AddSingleton<InventoryService>();
+builder.Services.AddSingleton<MetamaskTransfer>();
+
 builder.Services.AddSingleton<ProductsService>();
 builder.Services.AddSingleton<SnakeTableService>();
+
+builder.Services.AddSingleton<BlockChainProcessorSever>();
+
+
 
 
 builder.Services.AddHealthChecks();
@@ -136,6 +146,7 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
+app.UseOpenTelemetryPrometheusScrapingEndpoint();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

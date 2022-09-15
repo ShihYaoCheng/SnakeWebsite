@@ -18,37 +18,94 @@
     width: 600px;
     height: 540px;
     border-radius: 20px;
-    background: #253A4B;
+    background: #27616f;
+    position: relative;
 }
+@media(max-width :768px) {
+    .coinEchange {
+        width: 450px;
+        height: 405px;
+    }
+}
+
+@media(max-width :576px) {
+    .coinEchange {
+        width: 288px;
+        height: 370px;
+    }
+}
+
+
+.coinEchange-CancelBtn {
+    background: url("/images/Myprofile/SRCExchange/X-icon.png");
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    width: 20px;
+    height: 20px;
+    background-repeat: round;
+    border: none;
+}
+
+@media(max-width :576px) {
+    .coinEchange-CancelBtn {
+        top: 3%;
+        right: 4%;
+        width: 15px;
+        height: 15px;
+    }
+}
+
 /*貨幣交換*/
-.coinNum-Container{
+.coinNum-Container {
     width: 100%;
-    height: 60%;
+    height: 40%;
     display: flex;
-   
+    justify-content: center;
 }
 
 /*共用*/
 .coinTop {
     width: 100%;
-    height: 60%;
+    height:100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: #67AEA2;
-    padding-top: 20px;
-}
-
-.coinTop p {
-    margin-top: 10px;
-    font-size:25px;
+    
+    padding-top: 50px;
 }
 
 .coinEchange-Icon {
-    width:84px;
-    height:84px;
+    width: 84px;
+    height: 84px;
+
 }
+
+@media (max-width:768px) {
+    .coinTop {
+     padding-top: 37px;
+    }
+
+  
+    .coinEchange-Icon {
+        width: 63px;
+        height: 63px;
+    }
+}
+
+@media(max-width :576px) {
+    .coinTop {
+        padding-top: 24px;
+    }
+
+
+    .coinEchange-Icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
 /*個別*/
 .coinNum-beteen {
     width: calc(100%/5*2);
@@ -58,7 +115,7 @@
 }
 
 .coinNum-mid{
-    width: calc(100%/5*1);
+    width: calc(100%/10*1);
     height: 100%;
 }
 .coinNum-mid img{
@@ -66,43 +123,133 @@
     height:40px;
 }
 
-.replacedCoin {
-    border:3.5px solid black;
-    width:65%;   
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:25px;
-    color:#fff;
-    margin:20px auto;
-    padding:10px;
+@media(max-width :576px) {
+    .coinNum-mid img {
+        width: 20px;
+        height: 20px;
+    }
 }
+
+.replacedCoin {
+    border: 3.5px solid #426e7c;
+    border-radius: 15px;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: #fff;
+    margin: 20px auto;
+    padding: 10px;
+    background: #253a4b;
+}
+
+.replacedCoin-zone {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0 0 15px 0;
+}
+.replacedCoin-zone .left {
+    width: calc(100%/5*2);
+    text-align:center;
+}
+
+.replacedCoin-zone .mid {
+    width: calc(100%/10*1)
+}
+.replacedCoin-zone .right {
+    width: calc(100%/5*2);
+    text-align:center;
+}
+
+
+
 
 .increaseCoin {
     margin: 0 auto;
     font-size: 25px;
-    color: #EBFF04;
+    color: #FFA81D;
 }
 
+@media (max-width:768px) {
+    .replacedCoin {
+        border: 3px solid #fff;
+        font-size: 20px;
+        margin: 15px auto;
+        padding: 7.5px;
+    }
+    .increaseCoin {   
+        font-size: 20px;   
+    }
+}
+
+@media (max-width:576px) {
+    .replacedCoin {
+        border: 2.5px solid #fff;
+        font-size: 16px;
+        margin: 5px auto;  
+        padding: 5px;
+    }
+
+    .increaseCoin {
+        font-size: 16px;
+    }
+}
+
+.coinTitle {
+    background: #4B8B8B;
+    color:#fff;
+    border-radius:12px;
+    padding:0 10px;
+    font-size:24px;
+    margin:10px 0 0 0 ;
+}
+
+
+.coinTotalNum {
+    margin-top: 10px;
+    font-size: 25px;
+    color: #67AEA2;
+}
+
+@media (max-width:768px) {
+    .coinTitle {
+        font-size: 18px;
+        padding: 0 7.5px;
+    }
+    .coinTotalNum {
+        margin-top: 7.5px;
+        font-size:20px;
+    }
+}
+
+@media (max-width:576px) {
+    .coinTitle {
+        font-size: 14px;
+        padding: 0 5px;
+    }
+
+    .coinTotalNum {     
+        font-size: 16px;
+    }
+}
 /*range*/
 .coin-range[type="range"] {
-    margin: 20px auto;
+    margin: 15px auto 10px auto;
     width: 80% !important;
     display: block;
-    height: 70px;
-
-
+    height: 50px;
     border-radius: 5px;
-
 }
 .coin-range[type="range"]::-webkit-slider-thumb {
-    height: 60px;
+    height: 30px;
     width: 30px;
-    background: #EAFD0F;
-    border: none;
-    border-radius: 0;
+    background: #69ADA2;
+    border: 1px solid #69ADA2;
+    border-radius:50%;   
     box-shadow: 0 0 2px 0 #555;
-    margin-top: -15px;
+    margin-top: -7px;
 }
 
 .coin-range[type=range]::-webkit-slider-runnable-track {
@@ -110,9 +257,47 @@
     box-shadow: none;
     border: none;
     background: #D9D9D9;
-    height: 30px;
-    border-radius: inherit;
-    margin-right:-20px;
+    height: 15px;
+    border-radius: 5px;
+  
+}
+
+@media (max-width:768px) {
+
+    .coin-range[type="range"] {
+        margin: 15px auto;
+        height: 52.5px;
+        border-radius: 5px;
+    }
+
+    .coin-range[type="range"]::-webkit-slider-thumb {
+        height: 37.5px;
+        width: 37.5px;
+        margin-top: -11px;
+    }
+
+    .coin-range[type=range]::-webkit-slider-runnable-track {
+        height: 15px;  
+        margin-right: -15px;
+    }
+}
+@media (max-width:576px) {
+
+    .coin-range[type="range"] {   
+        height: 39px;
+        border-radius: 5px;
+    }
+
+    .coin-range[type="range"]::-webkit-slider-thumb {
+        height: 28px;
+        width: 28px;
+        margin-top: -8px;
+    }
+
+    .coin-range[type=range]::-webkit-slider-runnable-track {
+        height: 11px;
+        margin-right: -11px;
+    }
 }
 
 
@@ -120,7 +305,7 @@
 .coinEchange-BtnZone {
     width: 80%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 0 auto;
 }
 
@@ -130,6 +315,7 @@
     border-radius: 20px;
     border: none;
     font-size: 25px;
+    color:#fff;
 }
 
 .coinEchange-ExchangeBtn {
@@ -137,15 +323,31 @@
     color: #A1E7DF;
 }
 
-.coinEchange-CancelBtn {
-    background: #676767;
-    color: #FFFFFF;
-}
-
-
 .products-popup-open {
     top: 0;
     left: 0;
     opacity: 1 !important;
     z-index: 50 !important;
+}
+
+@media (max-width:768px) {
+    .coinEchange-BtnZone button {
+        width: 135px;
+        height: 45px;
+  
+        font-size: 20px;
+        color: #fff;
+    }
+}
+@media (max-width:576px) {
+
+    .coinEchange-BtnZone {
+        padding: 5px
+    }
+    .coinEchange-BtnZone button {
+        width: 100px;
+        height: 35px;
+        font-size: 14px;
+        color: #fff;
+    }
 }

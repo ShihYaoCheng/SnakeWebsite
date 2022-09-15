@@ -24,12 +24,12 @@
         /// <summary>
         /// 租金
         /// </summary>
-        public double rent { get; set; }
+        public decimal rent { get; set; }
 
         /// <summary>
         /// 累計租金(累計收益)
         /// </summary>
-        public double totalRevenue { get; set; }
+        public decimal totalRevenue { get; set; }
 
         public string name { get; set; }
 
@@ -48,5 +48,22 @@
         public bool isNFT { get; set; }
 
 
+        /// <summary>
+        /// 遊戲中是否開放
+        /// </summary>
+        public bool IsAvailableInGame { get; set; }
+
+
+        /// <summary>
+        /// 職業代碼
+        /// </summary>
+        public string occupationId { get; set; }
+    }
+
+
+    public class gSRCCurrency { 
+        public uint userId { get; set; }
+
+        public decimal nftCurrency1 { get; set; }
     }
 }

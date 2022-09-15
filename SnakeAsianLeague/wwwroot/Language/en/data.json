@@ -1,4 +1,6 @@
 {
+
+
   "input": {
     "placeholder": "a placeholder"
   },
@@ -42,15 +44,16 @@
     "LunarNewYear": "NewYear League",
     "News": "News",
     "Language": "Language",
-    "ConnectWallet":"Connect Wallet",
+    "ConnectWallet": "Connect Wallet",
 
     "signIn": "sign<br>in",
     "signOut": "Sign Out",
     "PersonalInfo": "Personal Info",
     "Esports": "eSport",
-    "AwardClaim": "Award Claim",
+    "AwardClaim": "Reward",
     "Myprofile": "My Account",
     "Inventory": "Inventory",
+    "Swap": "Swap",
 
     "Chinese": "中文",
     "English": "EN"
@@ -61,7 +64,8 @@
     "Account": "Account",
     "Esports": "eSport",
     "Reward": "Reward",
-    "Inventory": "Inventory"
+    "Inventory": "Inventory",
+    "Swap": "Swap"
   },
 
   "signInWindows": {
@@ -149,5 +153,21 @@
     "installMetamask": "Please Install Wallet",
     "asset": "Asset",
     "activities": "Activities"
+  },
+
+  "footer": {
+    "Snakelogo":"./images/Footer/logo_en.png",
+    "Home": "Home",
+    "Marketplace": "Marketplace",
+    "Arena": "Arena",
+    "GettingStarted": "Getting Started",
+    "News": "News",
+
+    "ERNC": "ERNC",
+    "WhitePaper": "WhitePaper",
+
+    "ContactUs": "Contact Us",
+    "JoinUs": "Join Us",
+    "CQITeam": "Our Team"
   }
 }

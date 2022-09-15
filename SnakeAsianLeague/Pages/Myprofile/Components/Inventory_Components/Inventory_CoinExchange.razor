@@ -1,25 +1,31 @@
 ﻿@inject IJSRuntime JS
 @using SnakeAsianLeague.Data.Entity.View
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.Metamask
+@using RestSharp;
+@using SnakeAsianLeague.Data.Services.Personal
+
+@inject AppState AppState
+@inject InventoryService InventoryService
+@inject MetamaskTransfer metamaskTransfer 
+
 <head>
     <link href="css/MyProfile/coinExchange.css" rel="stylesheet" />
 </head>
 
 <div class="coinEchange-container">
     <div class="coinEchange">
+         <button id="coinEchangeCancel" class="coinEchange-CancelBtn"></button>
+
         <div class="coinNum-Container">
              <div class="coinNum-beteen">
                  <div class="coinTop">
                     <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">
-                    <p>@Value.gTitle</p>
-                    <p>@Value.gNumber</p>
+                    <p class="coinTitle">@Value.gTitle</p>
+                    <p class="coinTotalNum">@Value.gNumber</p>
                  </div>
 
-                 <p class="replacedCoin">
-                    @Value.gNumberChange
-                 </p>
-                 <output class="increaseCoin" id="GSRCincrease">
-                    0
-                 </output>  
+     
              </div>
              <div class="coinNum-mid">
                  <div class="coinTop doubleArrow">
@@ -30,46 +36,136 @@
               <div class="coinNum-beteen">
                  <div class="coinTop">
                     <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">                                     
-                    <p>@Value.tokenTitle</p>
-                    <p>@Value.tokenNumber</p>
+                    <p class="coinTitle">@Value.tokenTitle</p>
+                    <p class="coinTotalNum">@Value.tokenNumber</p>
                  </div>
+     
+             </div>
+        </div>
+        <input class="coin-range" type="range" @onchange="(ChangeEventArgs e)=> coinRange(e)" min="-@Value.tokenNumber" max="@Value.gNumber"  oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
+   
+        <div class="replacedCoin-zone" >
+            <div class="left">
+                 <p class="replacedCoin">
+                    @Value.gNumberChange
+                 </p>
+                 <output class="increaseCoin" id="GSRCincrease">
+                    0
+                 </output>  
+            </div>
+            <div class="mid"></div>
+            <div class="right">
                  <p class="replacedCoin">
                      @Value.tokenNumberChange
                  </p>                  
                  <output class="increaseCoin"  id="SRCincrease">
                     0
                  </output>   
-             </div>
+            </div>
         </div>
-        <input class="coin-range" type="range" @onchange="(ChangeEventArgs e)=> coinRange(e)" min="-@Value.gNumber" max="@Value.tokenNumber"  oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
-        <p class="increaseCoin" id="gSRCincrease"> </p>  
+     @*   <p class="increaseCoin" id="gSRCincrease"> </p>  *@
       
-       <div class="coinEchange-BtnZone">
-           <button id="coinEchangeBtn" class="coinEchange-ExchangeBtn">Exchange</button>
-           <button id="coinEchangeCancel" class="coinEchange-CancelBtn">Cancel</button>
+       <div class="coinEchange-BtnZone" >
+           <button  id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
+        @*  <button  @onclick="SRCExchangeAllowanceClick">SRCExchangeAllowance </button>
+           <button  @onclick="blockChainInfoDTOClick">blockChainInfoDTOClick </button>
+           <div>
+               <p>SRCExchangeAllowance Data</p>
+               <p>@aa</p>
+           </div>
+            <div>
+               <p>blockChainInfoDTO Data</p>
+               <p>@bb</p>
+           </div>*@
        </div>
     </div>
 
 </div>
 @code {
+    //private readonly RestRequest test2 = new RestRequest("BackEnd/Accounts", Method.GET);
+    [Parameter]
+    public EventCallback refresh { get; set;}
+    private async Task clickRefresh()
+    {
+        await refresh.InvokeAsync();   
+    }
+
 
     [Parameter]
     public ExchangeCoin? Value { get; set; }
 
     private IJSObjectReference? coinEchangeJS;
+    decimal difference=0;
+    //private MetamaskTransfer metamaskTransfer ;
+    //private InventoryService inventoryService;
+
+    //private InventoryService blockChainInfoDTO  ;
+
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/InventoryAndMarketPlace/coinEchange.js");
+            @*
+            var request = new RestRequest(test2.Resource, test2.Method);
+            Console.Write(request);*@
+            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
             await coinEchangeJS.InvokeVoidAsync("coinEchange" ,".ExchangeBtn");
+
         }
     }
 
     public void coinRange  (ChangeEventArgs value)
     {
-        Value.gNumberChange = Value.gNumber- Int32.Parse(value.Value.ToString());
-        Value.tokenNumberChange = Value.tokenNumber + Int32.Parse(value.Value.ToString());
+        difference= decimal.Parse(value.Value.ToString());
+        Value.gNumberChange = Value.gNumber- decimal.Parse(value.Value.ToString());
+        Value.tokenNumberChange = Value.tokenNumber + decimal.Parse(value.Value.ToString());
     }
 
+    bool transactionResult = false;
+    decimal getAuthorizeNum ;
+    protected  async void coinEchangeBtn()
+    {
+        if (difference < 0)
+        {
+            @*鍊換game*@
+            transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1);
+            if (transactionResult)
+            {
+                await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
+
+            }
+            await clickRefresh();
+        }
+        else
+        {
+            @*game換鍊*@
+            getAuthorizeNum = await InventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
+            transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum );
+            if (transactionResult)
+            {
+                 await clickRefresh();
+            }
+           
+
+        }
+        //強制渲染
+        
+    }
+
+    //decimal aa;
+    //string bb;
+    //protected async void SRCExchangeAllowanceClick()
+    //{
+    //    aa = await InventoryService.SRCExchangeAllowance("0x3DD8F133C30cbc84B246f56cf8659B21595803a5");
+    //      InvokeAsync(StateHasChanged);
+    //}
+    //protected async void blockChainInfoDTOClick()
+    //{
+    //    bb =await InventoryService.BlockChainInfo();
+    //      InvokeAsync(StateHasChanged);
+    //}
+    
+
 }
+

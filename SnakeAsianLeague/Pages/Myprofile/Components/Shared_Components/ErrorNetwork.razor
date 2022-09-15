@@ -1,0 +1,30 @@
+﻿@inject IJSRuntime JS
+
+<head>
+    <link href="css/MyProfile/shared/ErrorNetwork.css" rel="stylesheet" />     
+  
+</head>
+
+
+<div class="errorContainer">
+    <div class="errorNav"> 
+        <p>Wrong Network</p>
+        <button  @onclick="AddPolygonClick">Switch to @Value </button>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public EventCallback<int> AddPolygon { get; set;}
+
+    [Parameter]
+    public string Value { get; set; }
+
+
+      private void AddPolygonClick()
+    {
+        AddPolygon.InvokeAsync();   
+    }
+
+    
+
+}

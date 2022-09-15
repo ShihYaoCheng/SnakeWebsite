@@ -1,6 +1,7 @@
 window.LanguageSwitch = async function (lang) {
   await i18next.changeLanguage(lang);
   $("body").localize().attr('class', `i18n-${lang}`);
+  if(window.i18nCallback) i18nCallback();
 }
 
 window.installI18n = async function () {
@@ -11,7 +12,7 @@ window.installI18n = async function () {
     {
       lng: lang ? lang : defaultLang,
       fallbackLng: defaultLang,
-      ns: ["data", "NFT_data","Home_data","ERNC_data"],
+          ns: ["data", "NFT_data", "Home_data", "ERNC_data", "gettingStarted_data"],
       defaultNS: "data",
       backend: {
         loadPath: "./Language/{{lng}}/{{ns}}.json",

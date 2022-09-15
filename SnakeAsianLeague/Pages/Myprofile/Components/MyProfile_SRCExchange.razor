@@ -1,40 +1,51 @@
-﻿@using SnakeAsianLeague.Pages.Myprofile.Components.Index_Components
+﻿@*已轉移至MyProfile_Swap頁面*@
 
+
+<!--
+@using SnakeAsianLeague.Data.Services.BlockChainProcessor
+@using SnakeAsianLeague.Pages.Myprofile.Components.Index_Components
+@inject IConfiguration Configuration
+@inject BlockChainProcessorSever linebot;
 @inject IJSRuntime JS
 <head>
-    <link href="css/Myprofile/SRCExchange.css" rel="stylesheet" />     
+    <link href="css/MyProfile/SRCSwap.css" rel="stylesheet" />     
   
 </head>
 
 <div class="SRCExchange-container">
-    <h2 class="SRCExchange-h2">SRC exchange</h2>
+
+   
+    @*<h2 class="SRCExchange-h2">SRC exchange</h2>*@
     <div class="coinView-container">
         <p class="coinView-Minimum">
-            Minimum: 1 SRC
+            @*Minimum: 1 SRC*@
         </p>
         <p class="coinView-GameWalletText">
-            From Game Wallet 
+            @*From Game Wallet*@ 
         </p>
-        
+      
         <div class="changeCoinZone">
             @*貨幣文字區塊*@
             <div class="coin-TextZone">
                 <div class="coin-Zone">
                     <p class="exchangeRate">
-                       
+                        <p class="coinView-Minimum ">
+                            Minimum: 1 SRC
+                        </p>
                     </p>
                     <div class="coin-type">
+                        <button @onclick="AddSRC" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
                         SRC
-                        <img src="/images/Myprofile/SRCExchange/SRC.webp"/>
+                        <img id="SRCimg" src="/images/Myprofile/SRCExchange/SRC.webp"/>
                     </div>
-                    <p class="avaliable">avaliable to swap: 978.1234</p>
+                    <p id="SRCTotalBalance" class="avaliable">Balance:@SRCTotal</p>
 
                 </div>
                 <div class="coin-Zone">
                     <div class="address-text">
                         <p class="toPolygon">
-                            To Polygon Wallet
-                            <span class="user-address">
+                            @*To Polygon Wallet*@
+                            <span class="user-address" hidden="@(true)">
                                 0x1231561561489451
                             </span>
                         </p>                   
@@ -48,87 +59,259 @@
                         
                         <img src="/images/Myprofile/SRCExchange/tether-usdt-logo.png"/>
                     </div>
-                    <p id="TotalBalance" class="avaliable">Total Balance: @web3jsData</p>
+                    <p id="USDTTotalBalance" class="avaliable">Balance:@USDTTotal</p>
 
                 </div>
             </div>
             @*貨幣數字區塊*@
             <div class="coin-NumZone">
                 <div class="coin-Zone">
-                    <p class="exchangeRate">
-                         =$33.25
+                    <p class="exchangeRate" id="usdPerSRCRate">
+                            ≈$@SwapRate USD
                     </p>
-                    <p class="coin-Num">
-                        5000
-                    </p>
+                    <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e.Value.ToString());}"/>
+                    @if (BalanceShort)
+                    {                        
+                        <div class="balanceShort">餘額不足</div>
+                    }
 
                 </div>
                 <div class="coin-Zone">
                     <div class="arrow-zone">
                         <img class="arrow-img" src="/images/Myprofile/SRCExchange/Arrow.png"/>
                         <button class="maxBTN miniSizeBtn">MAX</button>
+                       @*     <p class="coinView-Minimum miniSizeBtn">
+                                Minimum: 1 SRC
+                            </p>*@
                     </div>
                 </div>
                 <div class="coin-Zone">         
-                    <p class="coin-Num">
-                        0.0003
-                    </p>
+                    @*<input class="coin-Num" value=@USDTInput @onchange="(e)=>{USDTInputChange(e.Value.ToString());}"/>*@
+                    <div  class="coin-Num" >@USDTInput </div>
+                    <div class="coin-swapRate" id="usdtPerSRCRate"> 1 SRC ≈$ @SwapRate USDT</div>
 
                 </div>
             </div>
             @*最大按鈕區塊*@
             <div class="coin-MaxZone">
-                 <div class="coin-Zone">
-                 <div class="maxBTN-Zone">
-                     <button class="maxBTN">MAX</button>
-                 </div>
+                    <div class="coin-Zone">
+                    <div class="maxBTN-Zone">
+                        <button @onclick="maxBTN" class="maxBTN">MAX</button>
+                       
+                    </div>
                     
-                 </div>
+                    </div>
             </div>
         </div>
-
+       
     </div>
     <div class="Btn-container">
-        @if (inputBalance)
+        @*<button @onclick = "SwapToggleClick" > toggle exchange</button>*@
+
+        @if (Value)
         {
-            <button id="SwapBTN" class="SwapBTN">Swap</button>
+            @if (!BalanceShort)
+            {
+                <button id="SwapBTN" class="SwapBTN">Swap</button>
+            }
+            else
+            {
+                 <div class="SwapBTN SwapBTN-black">Swap</div>
+            }       
+            @if(!(netWorkRight)){<button class="greenBTN" @onclick="AddPolygon">Switch to @netWorkName </button>} 
         }
         else
         {
-             <div class="SwapBTN SwapBTN-black">Swap</div>
+            <button class="greenBTN" @onclick="loginButtonClick">Connect to Game</button>
         }
-       
-        <button class="greenBTN" @onclick="AddPolygon">Switch to Polygon </button>
-        <button class="greenBTN" @onclick="loginButtonClick">Connect to Game</button>
+
+
+     
 
     </div>
 
 </div>
 
-<ProductsPopup Value="#SwapBTN">    
-    Comfirm to Swap <span> 5000 </span> SRC to <span> 0.0003 </span>  USDT?
+
+@*右上角顯示錢包地址*@
+<div class="walletaddress">
+    <img class="userNetwork" src="/images/Myprofile/SRCExchange/rinkeby_logo.png" />
+    <p id="userAddress">
+        0x12345...
+    </p>
+
+
+</div>
+
+
+@*錯誤訊息*@
+
+@if (Value && !(netWorkRight))
+{
+<div class="errorContainer">
+    <div class="errorNav"> 
+        <p>Wrong Network</p>
+        <button  @onclick="AddPolygon">Switch to @netWorkName </button>
+    </div>
+</div>
+}
+
+@*彈窗*@
+
+<ProductsPopup Value="#SwapBTN"  Confirm ="confirm">       
+    Comfirm to Swap <span> @SRCInput </span> SRC to <span>  @USDTInput </span>  USDT?       
 </ProductsPopup>
+
+@*等待反灰*@
+<div class="lockWindows">
+    交易中
+</div>
+ @*
+ @if(SwapToggle){
+
+ }else{
+<ProductsPopup Value="#SwapBTN"  Confirm ="confirm">            
+        Comfirm to Swap <span> @USDTInput </span> USDT to <span> @SRCInput </span>  SRC?      
+</ProductsPopup>
+}*@
+
+
+@if (loading)
+{
+    <div class="isLoading"> 
+       
+        <Chase Center ="true" Color="#e74c3c"  Size="70px"/>
+    </div>
+    
+}
+
+
+
+
+
 
 
 @code {
-    bool inputBalance =true;
-    string web3jsData ;
 
+    string[] web3jsData ;
+
+    [Parameter]
+    public  bool  Value { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+      
+    @*
+        web3jsData = await JS.InvokeAsync<string[]>("RinkebyWeb3JS" ,Configuration["chainId"] );
+        SwapRate =Double.Parse(web3jsData[2]) ;
+        SRCTotal = Double.Parse(web3jsData[0]) ;
+
+        netWorkRight =  Convert.ToBoolean(web3jsData[3]);
+        USDTTotal = Double.Parse(web3jsData[1]) ;
+        *@
+
+    }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
+            await getMetaMaskData();
+            netWorkName = Configuration["chainName"];
+     
+            if (loading == true)
+            {
+                 loading = false;
+                  //強制渲染
+                InvokeAsync(StateHasChanged);
+            } 
+           
 
-            web3jsData = await JS.InvokeAsync<string>("web3JS");
-          
-            
         }
     }
+
+
+    protected async Task confirm(){ 
+        await JS.InvokeVoidAsync("web3JSConfirm",true,SRCInput,USDTInput,Configuration["USDT_token_addr"],Configuration["SRC_token_addr"],Configuration["SRCSwap_addr"],Configuration["ERC20_abi"],Configuration["SRCSwap_abi"]);
+        
+        getMetaMaskData();
+        //強制渲染
+        InvokeAsync(StateHasChanged);
+    }
+
+    Double SRCTotal = 0;
+    Double USDTTotal = 0;
+
+    Double SRCInput = 0;
+    Double USDTInput = 0;
+    Double SwapRate = 0.5;
+    bool loading = true;
+
+    bool netWorkRight = false;
+    string netWorkName = "Rinkeby";
+    bool BalanceShort =false;
+    public void SRCInputChange(string value)
+    {
+
+        if (value == null || value == "") value = "0";
+        SRCInput = double.Parse(value);
+        USDTInput = SRCInput * SwapRate;
+        if (SRCTotal < double.Parse(value)){
+            BalanceShort = true;          
+        }
+        else
+        {
+            BalanceShort = false;  
+        }
+
+    }
+
+    public void USDTInputChange(string value)
+    {
+        if (value == null || value == "") value = "0";
+        USDTInput = double.Parse(value);
+        SRCInput = USDTInput / SwapRate;
+    }
+
+    public async Task  getMetaMaskData()
+    {     
+        web3jsData = await JS.InvokeAsync<string[]>("web3JS" ,Configuration["chainId"] ,Configuration["USDT_token_addr"],Configuration["SRC_token_addr"],Configuration["SRCSwap_addr"],Configuration["ERC20_abi"],Configuration["SRCSwap_abi"]  );
+        SwapRate = Double.Parse(web3jsData[2]) ;
+        SRCTotal = Double.Parse(web3jsData[0]) ;
+        USDTTotal = Double.Parse(web3jsData[1]) ;
+        if (netWorkRight !=  Convert.ToBoolean(web3jsData[3]))
+        {
+             netWorkRight =  Convert.ToBoolean(web3jsData[3]);
+             //強制渲染
+            await InvokeAsync(StateHasChanged);
+        }
+       
+    }
+
+    public void maxBTN()
+    {
+        SRCInput = SRCTotal;
+
+
+        SRCInputChange(SRCInput.ToString());
+
+
+
+    }
+
+
+
+
+
     //切換並新增Polygon
     protected  async Task AddPolygon()
-    {      
-        await JS.InvokeVoidAsync("AddPolygonID");            
+    {
+    @*linebot.SemdLineNotifyMsg("test123");*@
+        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] );
+        await getMetaMaskData();
+
     }
     ////新增登入功能
     private async Task loginButtonClick()
@@ -141,6 +324,12 @@
         await JS.InvokeVoidAsync("AddPolygonUSDT");            
     }
 
+    protected  async Task AddSRC()
+    {      
+        await JS.InvokeVoidAsync("AddPolygonSRC");            
+    }
+
    
     
 }
+-->

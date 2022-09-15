@@ -1,0 +1,176 @@
+.NFTindex_Gameplay{
+    /* border: 1px solid red; */
+    width: 100%;
+    padding: 0 0 50px;
+    /* height: 1500px; */
+}
+.Gameplay-info{
+    width: 100%;
+}
+.Gameplay-mainImg-block-01{
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto 15px;
+}
+.mainImg-01{
+    max-width: 230px;
+    width: 35%;
+    margin: 40px;
+    filter: drop-shadow(10px 10px 15px rgba(32, 32, 32, 0.5)); 
+    transition: all .2s ease-out;
+}
+#Gameplay-info-solo .mainImg-01:hover{
+    filter: drop-shadow(0px 0px 20px rgba(255, 163, 163, 0.7)); 
+}
+#Gameplay-info-team .mainImg-01:hover{
+    filter: drop-shadow(0px 0px 20px rgba(221, 163, 255, 0.7)); 
+}
+
+#Diamond-01{
+    max-width: 220px;
+    width: 34%;
+}
+#Skeleton-01{
+    max-width: 200px;
+    width: 32%;
+}
+.Gameplay-mainImg-block-02{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.75), inset 0px 2px 0 0 rgba(255, 255, 255, 0.1);
+    background-image: linear-gradient(to bottom, hsla(180, 30%, 42%, 0.25), rgba(39, 97, 111, 0));
+    padding: 50px 10px 55px;
+    margin-bottom: 80px;
+
+    position: relative;
+}
+
+#Gameplay-info-team .Gameplay-mainImg-block-02{
+    margin-bottom: 0px;
+}
+
+
+.Gameplay-mainImg-block-02::before{
+    content: "";
+    max-width: 150px;
+    width: 20%;
+    height: 43px;
+    background-image: url(/images/NFTindex/NFTindex_Gameplay/flowerframe-01.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 60px;
+    position: absolute;
+    /* transform: translateX(-50%); */
+    top: -3%;
+    left: 2%;
+}
+.Gameplay-mainImg-block-02::after{
+    content: "";
+    max-width: 150px;
+    width: 20%;
+    height: 43px;
+    background-image: url(/images/NFTindex/NFTindex_Gameplay/flowerframe-02.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 60px;
+    position: absolute;
+    /* transform: translateX(-50%); */
+    top: -3%;
+    right: 2%;
+}
+
+.flowerframe{
+    width: 96%;
+    position: absolute;
+    transform: translateX(-50%);
+    top: -5%;
+    left: 50%;
+}
+.mainImg-02-block{
+    max-width: 180px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 35px;
+}
+.mainImg-02{
+
+    width: 100%;
+    margin-bottom: 20px;
+    filter: drop-shadow(10px 10px 15px rgba(32, 32, 32, 0.5)); 
+    transition: all .3s ease-in-out;
+}
+.mainImg-02:hover{
+    transform: rotateY(180deg);
+    filter: drop-shadow(0px 0px 15px rgba(196, 255, 254, 0.6));
+}
+.mainImg-02-text{
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 20px;
+}
+
+@media all and (max-width: 800px){
+    .mainImg-01{
+        margin: 20px;
+    }
+    .mainImg-02-block{
+        margin: 20px;
+    }
+}
+@media all and (max-width: 600px){
+    .Gameplay-mainImg-block-02{
+        margin-bottom: 60px;
+    }
+    .mainImg-01{
+        margin: 20px;
+    }
+    .mainImg-02{
+        /* min-width: 100px; */
+        width: 95%;
+    }
+    .mainImg-02-block{
+        margin: 8px;
+    }
+    .mainImg-02-text{
+        font-size: 14px;
+    }
+    .NFTindex_Gameplay{
+        padding: 0 0 50px;
+    }
+}
+@media all and (max-width: 400px){
+    .Gameplay-mainImg-block-01{
+        margin: 25px auto 25px;
+    }
+    .Gameplay-mainImg-block-02 {
+        margin-bottom: 50px;
+        padding: 45px 10px 40px;
+    }
+    .NFTindex-subtitle{
+        margin: 40px auto 16px;
+    }
+    .NFTindex-text{
+        line-height: 22px;
+    }
+    .mainImg-01{
+        margin: 15px;
+    }
+    .mainImg-02{
+        min-width: 96px;
+        margin-bottom: 15px;
+    }
+    .mainImg-02-text{
+        font-size: 13px;
+        line-height: 18px;
+    }
+}

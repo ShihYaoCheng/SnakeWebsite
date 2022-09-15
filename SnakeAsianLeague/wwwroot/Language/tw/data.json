@@ -1,4 +1,6 @@
 {
+
+
   "input": {
     "placeholder": "請填寫"
   },
@@ -30,7 +32,7 @@
 
     "GameFi": "GameFi",
     "ERNC": "ERNC",
-    "Marketplace": "NFT商城",
+    "Marketplace": "NFT交易所",
     "Arena": "聯賽",
     "AsiaLeague": "亞洲聯賽",
     "FestivalLeague": "節慶賽",
@@ -52,6 +54,7 @@
     "AwardClaim": "領獎通知",
     "Myprofile": "我的主頁",
     "Inventory": "資產明細",
+    "Swap": "資產兌換",
 
     "Chinese": "中文",
     "English": "EN"
@@ -62,7 +65,8 @@
     "Account": "我的主頁",
     "Esports": "我的賽事",
     "Reward": "領獎通知",
-    "Inventory": "資產明細"
+    "Inventory": "資產明細",
+    "Swap": "資產兌換"
   },
 
   "signInWindows": {
@@ -153,5 +157,21 @@
     "installMetamask": "請安裝 Wallet",
     "asset": "資產",
     "activities": "活動"
+  },
+
+  "footer": {
+    "Snakelogo":"./images/Footer/logo_cn.png",
+    "Home": "首頁",
+    "Marketplace": "NFT交易所",
+    "Arena": "聯賽",
+    "GettingStarted": "新手導覽",
+    "News": "最新消息",
+
+    "ERNC": "ERNC",
+    "WhitePaper": "白皮書",
+
+    "ContactUs": "聯絡我們",
+    "JoinUs": "加入我們",
+    "CQITeam": "CQI團隊"
   }
 }
