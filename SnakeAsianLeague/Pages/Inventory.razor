@@ -48,7 +48,7 @@ src.webp
                              <div class="MyCerrency-container">
                                 <div class=" MyCerrency-between">
                                     <a class="buyGameCoin" hidden="@(true)">buy</a>
-                                    <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
+                                    <img class="MyCerrency-Icon MyCerrency-Icon-ERNC" src="/images/Myprofile/ERNC.webp" alt="">
                                     <div class="MyCerrency-Detail">
                                         <p class="MyCerrency-Name">gERNC</p>
                              
@@ -56,12 +56,12 @@ src.webp
                                     </div>
                                 </div>
                                  <div class=" MyCerrency-mid">
-                                    <img class="MyCerrency-Icon" src="/images/Myprofile/doubleArrow.png" alt="">
+                                    <img class="doubleArrow" src="/images/Myprofile/doubleArrow.png" alt="">
           
                                 </div>
                                  <div class=" MyCerrency-between ">
                                     <button  class="addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" hidden="@(true)"></button>
-                                    <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
+                                    <img class="MyCerrency-Icon MyCerrency-Icon-ERNC" src="/images/Myprofile/ERNC.webp" alt="">
                                     <div class="MyCerrency-Detail">
                                         <p class="MyCerrency-Name">ERNC TOKEN</p>
                              
@@ -90,7 +90,7 @@ src.webp
                                         </div>
                                     </div>
                                      <div class=" MyCerrency-mid">
-                                        <img class="MyCerrency-Icon" src="/images/Myprofile/doubleArrow.png" alt="">
+                                        <img class="doubleArrow" src="/images/Myprofile/doubleArrow.png" alt="">
           
                                     </div>
                                      <div class=" MyCerrency-between">
@@ -987,7 +987,7 @@ src.webp
                 CountFilterSelected();
             }
         }
-       await  GetFilter();
+        await  GetFilter();
     }
 
     /// <summary>
@@ -1097,6 +1097,8 @@ src.webp
         AllBalance = await InventoryService.CalReceiveRent(UserID);
 
         StateHasChanged();
+        Refresh();
+
     }
     public void  ReceiveRentByUnitOnclick()
     {
@@ -1121,6 +1123,8 @@ src.webp
         TotalSRCCount = TotalSRCCount + Rent;
         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
         AllBalance = await InventoryService.CalReceiveRent(UserID);
+
+       Refresh();
     }
 
     //強制渲染的方法
