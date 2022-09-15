@@ -16,10 +16,11 @@
 
 .coinEchange {
     width: 600px;
-    height: 540px;
+    /* height: 540px; */
     border-radius: 20px;
     background: #27616f;
     position: relative;
+    padding: 0 0 20px 0;
 }
 @media(max-width :768px) {
     .coinEchange {
@@ -39,14 +40,17 @@
 .coinEchange-CancelBtn {
     background: url("/images/Myprofile/SRCExchange/X-icon.png");
     position: absolute;
-    top: 2%;
-    right: 3%;
-    width: 20px;
-    height: 20px;
+    top: 3%;
+    right: 2.5%;
+    width: 25px;
+    height: 25px;
     background-repeat: round;
     border: none;
+    transition: all .2s ease-in-out;
 }
-
+.coinEchange-CancelBtn:hover{
+    opacity: 0.7;
+}
 @media(max-width :576px) {
     .coinEchange-CancelBtn {
         top: 3%;
@@ -62,6 +66,7 @@
     height: 40%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 /*共用*/
@@ -137,10 +142,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 20px;
     color: #fff;
-    margin: 20px auto;
-    padding: 10px;
+    margin: 5px auto 10px;
+    padding: 5px;
     background: #253a4b;
 }
 
@@ -148,7 +153,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    margin: 0 0 15px 0;
+    margin: 0 0 20px 0;
 }
 .replacedCoin-zone .left {
     width: calc(100%/5*2);
@@ -168,7 +173,7 @@
 
 .increaseCoin {
     margin: 0 auto;
-    font-size: 25px;
+    font-size: 20px;
     color: #FFA81D;
 }
 
@@ -201,16 +206,18 @@
     background: #4B8B8B;
     color:#fff;
     border-radius:12px;
-    padding:0 10px;
-    font-size:24px;
-    margin:10px 0 0 0 ;
+    padding: 1.5px 20px;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    margin: 15px 0 0 0 ;
 }
 
 
 .coinTotalNum {
     margin-top: 10px;
-    font-size: 25px;
-    color: #67AEA2;
+    font-size: 20px;
+    /* color: #67AEA2; */
+    color: #FFA81D;
 }
 
 @media (max-width:768px) {
@@ -236,7 +243,7 @@
 }
 /*range*/
 .coin-range[type="range"] {
-    margin: 15px auto 10px auto;
+    margin: 35px auto 10px auto;
     width: 80% !important;
     display: block;
     height: 50px;
@@ -306,16 +313,19 @@
     width: 80%;
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }
 
 .coinEchange-BtnZone button {
-    width: 180px;
-    height: 60px;
-    border-radius: 20px;
+    width: 170px;
+    height: 50px;
+    border-radius: 15px;
     border: none;
-    font-size: 25px;
-    color:#fff;
+    font-size: 22px;
+    color: #fff;
+}
+.coinEchange-BtnZone button:hover{
+
 }
 
 .coinEchange-ExchangeBtn {

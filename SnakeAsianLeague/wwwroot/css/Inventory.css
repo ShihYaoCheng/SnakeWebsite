@@ -269,19 +269,19 @@
 
 
 .MyCerrency-mid img{
-    width:40px;
+    width: 55px;
   
 }
 
 @media all and (max-width: 1024px) {
     .MyCerrency-mid img {
-        width: 35px;
+        width: 50px;
     }
 }
 
 @media all and (max-width: 768px) {
     .MyCerrency-mid img {
-        width: 40px;
+        width: 45px;
     }
 }
 
@@ -309,7 +309,7 @@
 
 .MyCerrency-Icon {
     width: 70px;
-    animation: scale 2.5s 0s infinite;
+    /* animation: scale 2.5s 0s infinite; */
 }
 
 
@@ -331,16 +331,24 @@
     text-align:center;
     line-height: 30px;   
     color: var(--green-2);
-    font-size: 24px;
+    /* font-size: 20px; */
 }
 
 .MyCerrency-Name {
     width:100%;
-    margin-top:10px;
+    background: #4B8B8B;
+    color:#fff;
+    border-radius:12px;
+    padding: 1.5px 20px;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    margin: 15px auto 10px;
 }
 .MyCerrency-Amount {
-    margin-top: 10px;
+    margin-top: 5px;
     text-align: center;
+    color: #FFA81D;
+    font-size: 22px;
 }
 
 @media all and (max-width: 1024px) {
