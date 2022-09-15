@@ -374,14 +374,14 @@
 }
 @media (max-width: 1100px) {
     .content-S3 {
-        height: 9300px;
+        height: 10000px;
         /*height: 7760px;*/
     }
 }
 
 @media (max-width: 1024px) {
     .content-S3 {
-        height: 9000px;
+        height: 9400px;
         /*height: 7760px;*/
     }
 }
@@ -393,7 +393,7 @@
 }
 @media (max-width: 576px) {
     .content-S3 {
-        height: 7400px;
+        height: 7500px;
     }
 }
     /*...Event-Info...*/
