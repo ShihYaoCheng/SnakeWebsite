@@ -1023,7 +1023,7 @@
         //PPSRsCount = MetaData.TotalCount;
         List<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
         NFTDataList = pagelist;
-        //PPSRsCount = MetaData.TotalCount;
+        PPSRsCount = pagelist.Count;
         await JS.InvokeVoidAsync("installI18n");
         lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
         await lazyloadingJS.InvokeVoidAsync("LazyLoading");
