@@ -987,7 +987,7 @@ src.webp
                 CountFilterSelected();
             }
         }
-       await  GetFilter();
+        await  GetFilter();
     }
 
     /// <summary>
@@ -1097,6 +1097,8 @@ src.webp
         AllBalance = await InventoryService.CalReceiveRent(UserID);
 
         StateHasChanged();
+        Refresh();
+
     }
     public void  ReceiveRentByUnitOnclick()
     {
@@ -1121,6 +1123,8 @@ src.webp
         TotalSRCCount = TotalSRCCount + Rent;
         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
         AllBalance = await InventoryService.CalReceiveRent(UserID);
+
+       Refresh();
     }
 
     //強制渲染的方法
