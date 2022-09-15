@@ -69,6 +69,8 @@ builder.Services.AddSingleton<AwardService>();
 builder.Services.AddSingleton<NFTService>();
 builder.Services.AddSingleton<OptionService>();
 builder.Services.AddSingleton<InventoryService>();
+builder.Services.AddSingleton<MetamaskTransfer>();
+
 builder.Services.AddSingleton<ProductsService>();
 builder.Services.AddSingleton<SnakeTableService>();
 

@@ -37,13 +37,10 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         public OptionService(IConfiguration config, IOptions<ExternalServers> myConfiguration,HttpClient httpClient )
         {
             _config = config;
-            
-
-            
             externalServersConfig = myConfiguration.Value;
             
-            //ServerClient = new RestClient(externalServersConfig.UserServer);
-            ServerClient = new RestClient("https://rel.ponponsnake.com/api/user");
+            ServerClient = new RestClient(externalServersConfig.UserServer);
+            //ServerClient = new RestClient("https://rel.ponponsnake.com/api/user");
             Console.WriteLine("ServerClient.BaseUrl: " + ServerClient.BaseUrl);
             OptionKeyValue option = new OptionKeyValue();
             RarityList = option.Get_Default_Rarity();

@@ -190,9 +190,9 @@
                 LoadOptions();
                 await LoadRanks();
                 await InvokeAsync(StateHasChanged);
-                
+
             }
-            
+
         }        
     }
 
@@ -297,11 +297,18 @@
             {
                 if (i < 3)
                 {
-                    topThree[i] = RankView.Places[i].Place.WinnerName.ToString();
+                    if (!String.IsNullOrEmpty(RankView.Places[i].Place.WinnerName))
+                        topThree[i] = RankView.Places[i].Place.WinnerName;
+                    else
+                        topThree[i] = "";
                 }
                 else
                 {
-                   otherRanking[i-3] = RankView.Places[i].Place.ToString();
+                    if (!String.IsNullOrEmpty(RankView.Places[i].Place.WinnerName))
+                        otherRanking[i-3] = RankView.Places[i].Place.WinnerName;
+                    else
+                        otherRanking[i-3] = "";
+
                 }
             }
         }
