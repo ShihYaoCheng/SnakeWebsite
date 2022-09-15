@@ -42,25 +42,25 @@
      
              </div>
         </div>
-        <input class="coin-range" type="range" @onchange="(ChangeEventArgs e)=> coinRange(e)" min="-@Value.tokenNumber" max="@Value.gNumber"  oninput="GSRCincrease.value = -value; SRCincrease.value =value"/>
+        <input class="coin-range" step="0.001" value="@rangeValue"  @onchange="(ChangeEventArgs e)=> coinRange(e)" type="range" min="-@Value.tokenNumber" max="@Value.gNumber"  />
    
         <div class="replacedCoin-zone" >
             <div class="left">
-                 <p class="replacedCoin">
-                    @Value.gNumberChange
-                 </p>
-                 <output class="increaseCoin" id="GSRCincrease">
-                    0
-                 </output>  
+                 <input class="replacedCoin" value="@Value.gNumberChange" @onchange="(ChangeEventArgs e)=> coinInput(e ,true)" />
+                    
+              
+                 <div class="increaseCoin" id="GSRCincrease">
+                    @GSRCincrease
+                 </div>  
             </div>
             <div class="mid"></div>
             <div class="right">
-                 <p class="replacedCoin">
-                     @Value.tokenNumberChange
-                 </p>                  
-                 <output class="increaseCoin"  id="SRCincrease">
-                    0
-                 </output>   
+                 <input class="replacedCoin" value="@Value.tokenNumberChange" @onchange="(ChangeEventArgs e)=> coinInput(e,false)" />
+                   
+                        
+                 <div class="increaseCoin"  id="SRCincrease" >
+                    @SRCincrease
+                 </div>   
             </div>
         </div>
      @*   <p class="increaseCoin" id="gSRCincrease"> </p>  *@
@@ -96,6 +96,9 @@
 
     private IJSObjectReference? coinEchangeJS;
     decimal difference=0;
+    decimal rangeValue = 0;
+    decimal GSRCincrease = 0;
+    decimal SRCincrease = 0;
     //private MetamaskTransfer metamaskTransfer ;
     //private InventoryService inventoryService;
 
@@ -120,6 +123,51 @@
         difference= decimal.Parse(value.Value.ToString());
         Value.gNumberChange = Value.gNumber- decimal.Parse(value.Value.ToString());
         Value.tokenNumberChange = Value.tokenNumber + decimal.Parse(value.Value.ToString());
+
+        GSRCincrease = -difference;
+        SRCincrease = difference;
+    }
+
+    public void coinInput(ChangeEventArgs value ,bool SRCcheck)
+    {
+        //GSRC
+        if (SRCcheck)
+        {
+            if ( Value.gNumber - decimal.Parse(value.Value.ToString())<0){
+                difference = 0;                    
+            }
+            else
+            {
+                difference  =  Value.gNumber - decimal.Parse(value.Value.ToString());               
+            }
+
+
+        }
+        else
+        {
+            if (Value.tokenNumber - decimal.Parse(value.Value.ToString()) < 0)
+            {
+                difference = 0;          
+            }
+            else
+            {
+                difference  = -( Value.tokenNumber - decimal.Parse(value.Value.ToString()));
+            }
+
+
+        }
+        Value.gNumberChange = Value.gNumber- difference;
+        Value.tokenNumberChange = Value.tokenNumber + difference;
+        rangeValue = difference;
+
+        GSRCincrease = -difference;
+        SRCincrease = difference;
+
+        if(difference ==0)
+        {
+          
+            InvokeAsync(StateHasChanged);
+        }
     }
 
     bool transactionResult = false;
@@ -144,13 +192,13 @@
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum );
             if (transactionResult)
             {
-                 await clickRefresh();
+                await clickRefresh();
             }
-           
+
 
         }
         //強制渲染
-        
+
     }
 
     //decimal aa;

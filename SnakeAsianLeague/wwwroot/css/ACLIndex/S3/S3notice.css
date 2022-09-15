@@ -1,16 +1,17 @@
 ﻿/*...Notice...*/
 .Notice {
-    
+    background: url("/images/AsiaChampionsLeague/S3/Notice/NY_02c.png");
+    background-repeat: round;
+    padding-top: 150px;
+    height: 1500px;
 }
-.NoticeBG-container {
-    width: 100vw;
-    position: relative;
-}
-.NoticeBG {
-    width: 100vw;
-    position: absolute;
-    transform: scale(1.5);
-    top: -5%;
+
+.Notice-BG {
+    background: url("/images/AsiaChampionsLeague/S3/Notice/contract_base2.png");
+    background-repeat: round;
+    width:979px;
+    height:1131px;
+    margin:0 auto;
 }
 
 .Notice_TopTitle {
