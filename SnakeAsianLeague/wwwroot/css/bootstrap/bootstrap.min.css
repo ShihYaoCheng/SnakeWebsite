@@ -4206,7 +4206,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     .navbar-expand-sm .navbar-nav {
         -ms-flex-direction: row;
         flex-direction: row;
-        margin: 0 20px;
+        margin: 0 15px;
     }
 
     .navbar-expand-sm .navbar-nav .dropdown-menu {
