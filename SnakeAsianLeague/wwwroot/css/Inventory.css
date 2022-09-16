@@ -134,7 +134,7 @@
 .Inventory{
     /* border: 1px solid red; */
     max-width: 1150px;
-    margin: 200px auto 150px;
+    margin: 50px auto 150px;
     width: 85%;
     transition: all .15s ease-in-out;
 }
@@ -317,9 +317,6 @@
     /* animation: scale 2.5s 0s infinite; */
 }
 
-.MyCerrency-Icon-ERNC{
-    width: 80px;
-}
 
 .doubleArrow{
     width: 70px;
@@ -418,9 +415,6 @@
     }
     .MyCerrency-Icon{
         width: 80px;
-    }
-    .MyCerrency-Icon-ERNC {
-        width: 70px;
     }
 }
 
@@ -615,9 +609,7 @@
     .MyCerrency-Icon{
         width: 65px;
     }
-    .MyCerrency-Icon-ERNC{
-        width: 60px;
-    }
+
     .doubleArrow{
         width: 65px;
     }

@@ -246,8 +246,8 @@
             //Console.Write(Schedules);
 
             //2022/09/15
-            //S3CalendarJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/S3Calendar.js");
-            //await S3CalendarJS.InvokeVoidAsync("S3Calendar",Schedules);        
+            S3CalendarJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/S3Calendar.js");
+            await S3CalendarJS.InvokeVoidAsync("S3Calendar",Schedules);        
            
 
         }        

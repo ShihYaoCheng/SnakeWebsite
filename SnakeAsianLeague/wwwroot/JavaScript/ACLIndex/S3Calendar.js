@@ -1,6 +1,6 @@
 ﻿export function S3Calendar(SchedulesData) {
     //整理資料
-   
+    console.log("SchedulesData",SchedulesData)
     if (SchedulesData == null) return  
     var eventsData = []
     var GuildData = []

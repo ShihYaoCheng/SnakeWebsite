@@ -35,7 +35,11 @@
     @*Blaozr loading 套件*@
       <link href="_content/BlazorPro.Spinkit/spinkit.min.css" rel="stylesheet" />
     @* <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> *@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+@*    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>*@
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>*@
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.4.0.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"*@
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> *@
@@ -98,7 +102,7 @@
     <script src="https://browser.sentry-cdn.com/7.12.0/bundle.tracing.min.js" integrity="sha384-o3KQiYTQ9L5Y/dJz3i4P9UgxHGzKV/DejriFgBBIoUL170eRF1qFLlHE1xWucFbB" crossorigin="anonymous"></script>
     
 
-    <script>
+    
  
     <!-- jquery-loading v1.3.0 -->
     @* <link href="https://cdn.jsdelivr.net/npm/jquery-easy-loading@1.3.0/dist/jquery.loading.min.css" rel="stylesheet"
@@ -106,7 +110,7 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery-easy-loading@1.3.0/dist/jquery.loading.min.js"></script> *@
 
     <script>
-
+        console.log("Test code.jquery.com/jquery-3.6.0.js")
         function BlazorScrollToId(id) {
             const element = document.getElementById(id);
             if (element instanceof HTMLElement) {
