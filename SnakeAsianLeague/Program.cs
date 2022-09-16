@@ -49,7 +49,7 @@ builder.WebHost.UseSentry(options => options.TracesSampler = context =>
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-
+builder.Services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; }); //ด๚ธี
 builder.Services.AddOpenTelemetryMetrics(b => b.AddAspNetCoreInstrumentation().AddPrometheusExporter());
 
 builder.Services.AddSingleton<IDataAccess, DataAccess>();
