@@ -119,6 +119,7 @@
 
 
 .inventory-Background{
+    top: 0;
     width: 100%;
     height: 100vh;
     /* background-image: url(/images/Myaccount/my_match.webp);
@@ -146,22 +147,6 @@
     text-shadow: 2px 2px 5px #24242431;
 }
 
-@media all and (max-width: 800px){
-    .Inventory-Title{
-        font-size: 36px;
-    }
-}
-@media all and (max-width: 600px){
-    .Inventory{
-        margin: 120px auto 50px;
-    }
-}
-@media all and (max-width: 500px){
-    .Inventory-Title{
-        font-size: 32px;
-    }
-}
-
 .Secend-Block{
     /* border: 1px solid red; */
     margin: 30px 0 10px;
@@ -175,9 +160,39 @@
     text-shadow: 2px 2px 5px #24242431;
 }
 
+@media all and (max-width: 800px){
+    .Inventory-Title{
+        font-size: 36px;
+    }
+    .Secend-Title{
+        font-size: 26px;
+    }
+    .Secend-Block{
+        margin: 20px 0 10px;
+    }
+}
+@media all and (max-width: 600px){
+    .Inventory{
+        margin: 30px auto 50px;
+    }
+    
+}
+@media all and (max-width: 500px){
+    .Inventory-Title{
+        font-size: 32px;
+    }
+    .Secend-Title{
+        font-size: 22px;
+    }
+    .Secend-Block{
+        margin: 10px 0 10px;
+    }
+}
+
 .Inner-container {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 .Inner {
     width: 48%;
@@ -359,6 +374,7 @@
     text-align: center;
     color: #FFA81D;
     font-size: 20px;
+    letter-spacing: 0.5px;
 }
 
 @media all and (max-width: 1024px) {
@@ -486,6 +502,7 @@
 
 .AllBalance {
     color: var(--green-2);
+    letter-spacing: 0.5px;
 }
 
 .AllBalance span {
