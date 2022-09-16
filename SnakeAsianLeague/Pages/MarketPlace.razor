@@ -289,8 +289,8 @@
         <section class="marketPlaceHeader">
             
             <div class="marketPlaceTitle-Block ">
-                <div class="marketPlaceTitle">PonPonSnake's NFTs<br>@PPSRsCount PPSRs</div>
-                <button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea">Buy on Opensea</a ></button>
+                <div class="marketPlaceTitle" data-i18n="Inventory_data:sortOptions.NFTs">PonPonSnake's NFTs<br>@PPSRsCount PPSRs</div>
+                <button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea" data-i18n="Inventory_data:sortOptions.BuyonOpensea">Buy on Opensea</a ></button>
             </div>
             <NFT_Type/>
             <select class="sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))"   >
@@ -336,8 +336,8 @@
 
                                     <div class="NFTcard-inner">
                                         <div class="NFT-cardImg">
-                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                            <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                            <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                         </div>
 
                                         <div class="NFT-cardText Not-Price-Ver">
@@ -399,8 +399,8 @@
                                 <div class="NFTcard-inner">
 
                                     <div class="NFT-cardImg">
-                                        <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                        <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                        <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                        <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                     </div>
 
                                     <div class="NFT-cardText  Not-Price-Ver">
@@ -412,7 +412,7 @@
                                         <div class="NFT-PriceBlock">
                                             <div class="NFT-PriceMain">
 
-                                                <span class="NFT-Price">ComingSoon</span>
+                                                <span class="NFT-Price" data-i18n="Inventory_data:sortOptions.ComingSoon">ComingSoon</span>
                                             </div>
                                         </div>
                                           <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
@@ -452,8 +452,8 @@
 
                             <div class="NFTcard-inner">
                                 <div class="NFT-cardImg">
-                                    <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                    <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                    <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                    <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                 </div>
 
                                 <div class="NFT-cardText Not-Price-Ver">
@@ -517,7 +517,7 @@
                                     <div class="NFTcard-inner">
                                         <div class="NFT-cardImg">
                                             
-                                            <div  class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                            <div  class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance."data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                         </div>
 
                                         <div class="NFT-cardText Not-Price-Ver">
@@ -577,7 +577,7 @@
                                     <div class="NFTcard-inner">
 
                                         <div class="NFT-cardImg">
-                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
                                         </div>
                                         
                                         <div class="NFT-cardText">
@@ -618,7 +618,7 @@
                                     <div class="NFTcard-inner">
                                     
                                         <div class="NFT-cardImg">
-                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
                                         </div>
 
                                         <div class="NFT-cardText">
@@ -627,7 +627,7 @@
                                             <div class="NFT-PriceBlock">
                                                 <div class="NFT-PriceMain">
                                             
-                                                    <span class="NFT-Price">ComingSoon</span>
+                                                    <span class="NFT-Price" data-i18n="Inventory_data:sortOptions.ComingSoon">ComingSoon</span>
                                                 </div>
                                             @*  <div class="NFT-USD">231269.89 USD</div>*@
                                             </div>
@@ -659,7 +659,7 @@
                                 
                                     <div class="NFTcard-inner">
                                         <div class="NFT-cardImg">
-                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
                                         </div>
                                     
                                         <div class="NFT-cardText">
@@ -699,7 +699,7 @@
                                     <div class="NFTcard-inner">
 
                                         <div class="NFT-cardImg">
-                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
                                         </div>
                                     
                                         <div class="NFT-cardText">
@@ -711,7 +711,7 @@
                                                     @* <div class="NFT-PriceIcon-Border">
                                                         <img class="NFT-PriceIcon"  src="/images/MarketPlace/Polygon-eth-01.webp" alt="ETH ON POLYGON"  title="ETH ON POLYGON">
                                                         </div> *@
-                                                    <span class="NFT-Price">ComingSoon</span>
+                                                    <span class="NFT-Price" data-i18n="Inventory_data:sortOptions.ComingSoon">ComingSoon</span>
                                                 </div>
                                                 @*<div class="NFT-USD">231269.89 USD</div>*@
                                             </div>

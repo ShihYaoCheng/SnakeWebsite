@@ -372,13 +372,13 @@ src.webp
 
                         <select class="sortSelect Inventory-PPSR-sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))" > 
 
-                            <option disabled="" value="Sort" selected="" hidden="">Sort</option>
-                            <option value="Highest Earned">Highest Earned</option>
-                            <option value="Lowest Earned">Lowest Earned</option>
-                            <option value="Highest Price">Highest Price</option>
-                            <option value="Lowest Price">Lowest Price</option>
-                            <option value="Newest">Newest</option>
-                            <option value="Oldest">Oldest</option>
+                            <option disabled="" value="Sort"data-i18n="Inventory_data:sortOptions.Sort"  selected="" hidden="">Sort</option>
+                            <option value="Highest Earned"  data-i18n="Inventory_data:sortOptions.HighestEarned" >Highest Earned</option>
+                            <option value="Lowest Earned"   data-i18n="Inventory_data:sortOptions.LowestEarned" >Lowest Earned</option>
+                            <option value="Highest Price"   data-i18n="Inventory_data:sortOptions.HighestPrice" >Highest Price</option>
+                            <option value="Lowest Price"    data-i18n="Inventory_data:sortOptions.LowestPrice" >Lowest Price</option>
+                            <option value="Newest"          data-i18n="Inventory_data:sortOptions.Newest" >Newest</option>
+                            <option value="Oldest"          data-i18n="Inventory_data:sortOptions.Oldest"  >Oldest</option>
 
                         </select>
                     </div>
@@ -419,8 +419,8 @@ src.webp
 
                                                 <div class="NFTcard-inner">
                                                     <div class="NFT-cardImg">
-                                                        <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                                        <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                                     </div>
 
                                                     <div class="NFT-cardText Not-Price-Ver">
@@ -514,8 +514,8 @@ src.webp
                                                 <div class="NFTcard-inner">
 
                                                     <div class="NFT-cardImg">
-                                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                                     </div>
                                                 
                                                     <div class="NFT-cardText">
@@ -559,7 +559,7 @@ src.webp
                                                         <div class="NFT-PriceBlock">
                                                             <div class="NFT-PriceMain">
                                             
-                                                                <span class="NFT-Price">ComingSoon</span>
+                                                                <span class="NFT-Price" data-i18n="Inventory_data:sortOptions.ComingSoon">ComingSoon</span>
                                                             </div>
                                                         @*  <div class="NFT-USD">231269.89 USD</div>*@
                                                         </div>
@@ -603,8 +603,8 @@ src.webp
 
                                                 <div class="NFTcard-inner">
                                                     <div class="NFT-cardImg">
-                                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                                     </div>
                                                 
                                                     <div class="NFT-cardText">
@@ -870,7 +870,7 @@ src.webp
         if (firstRender)
         {
             await Refresh();
-            @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
+    @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterButtonClick");
