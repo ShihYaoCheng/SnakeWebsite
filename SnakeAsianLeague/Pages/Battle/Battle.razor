@@ -10,10 +10,20 @@
 </head>
 
 <div class="Battle_BG_diamond">
-    @* <Battle_Gameplay/> *@
+    <Battle_Gameplay/>
     
 </div>
 
 @code {
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("installI18n");
+          
+        }
+
+    }
 }

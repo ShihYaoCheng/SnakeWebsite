@@ -170,7 +170,7 @@ a, .btn-link {
 }
 
 .nav-item{
-    padding: 0px 2px;
+    padding: 0px 1px;
     position: relative;
     transition: all .2s ease-out;
     /* display: flex; */
