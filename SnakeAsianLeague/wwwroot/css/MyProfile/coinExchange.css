@@ -340,7 +340,7 @@
 }
 .coinEchange-BtnZone button:hover{
     /* transform: translateY(-1px); */
-    transform: scale(1.02);
+    transform: scale(1.01);
     opacity: 0.9;
 }
 

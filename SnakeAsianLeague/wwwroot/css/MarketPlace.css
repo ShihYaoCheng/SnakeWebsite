@@ -1146,7 +1146,7 @@ button.price-search-button:hover .search-icon{
 }
 
 .CollectBtn:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
     background-color: #f09607;
     color: var(--font-1);
     /* transition: all .1s ease-in; */
