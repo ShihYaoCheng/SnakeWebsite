@@ -253,11 +253,11 @@
     /* font-weight: 600; */
     margin-right: 5px;
     
-    font-size: 28px;
+    font-size: 24px;
     background: #4B8B8B;
     color: #fff;
     border-radius: 35px;
-    padding: 4.5px 24px;
+    padding: 3px 20px;
 }
 
 #coin-type-USDT{
@@ -625,7 +625,7 @@
     /* border: 2px solid #4B8B8B; */
     border: 2.5px solid #fff;
     font-size: 16px;
-    padding: 5px 18px;
+    padding: 2px 15px;
     letter-spacing: 0.5px;
     transition: all .1s ease-in-out;
 }
