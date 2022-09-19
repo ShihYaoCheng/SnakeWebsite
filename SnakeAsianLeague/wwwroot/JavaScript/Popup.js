@@ -92,7 +92,7 @@ window.ShowMSGcheckbox = function () {
 window.NFTcardAClick = function () {
     document.querySelectorAll(".NFTcardA").forEach((e) => {
         e.addEventListener('click', (e) => {
-            if (e.target.className == "Collect-Btn" || e.target.className == "Show-tag" || e.target.className ==  "ShowTag-arrow") {
+            if (e.target.className == "Collect-Btn" || e.target.className == "Show-tag" || e.target.className == "ShowTag-arrow" || e.target.className =="ShowTag-Text") {
                 e.preventDefault();
             }
         })
@@ -115,11 +115,11 @@ window.showTag = function () {
         if (ctrlElement.data==true) {
             ctrlElement.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "none"                     
             ctrlElement.data = false          
-            ctrlElement.innerHTML = `Show Tag <img class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">`          
+            ctrlElement.innerHTML = `<span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.ShowTag"></span> <img class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">`          
         } else {     
             ctrlElement.data = true
             ctrlElement.parentNode.parentNode.parentNode.parentNode.lastChild.style.display = "block"
-            ctrlElement.innerHTML = `Hide Tag <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">`
+            ctrlElement.innerHTML = ` <span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.HideTag"></span> <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">`
         }
        
        // e.target.parentNode.lastChild.style.display = "contents"

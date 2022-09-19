@@ -25,8 +25,8 @@
              <div class="coinNum-beteen">
                  <div class="coinTop">
                     <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">
-                    <p class="coinTitle">@Value.gTitle</p>
-                    <p class="coinTotalNum">@Value.gNumber</p>
+                    <p class="coinTitle" data-i18n="Inventory_data:otherTitle.@Value.gTitle"></p>
+                    <p class="coinTotalNum" >@Value.gNumber</p>
                  </div>
 
      
@@ -40,7 +40,7 @@
               <div class="coinNum-beteen">
                  <div class="coinTop">
                     <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">                                     
-                    <p class="coinTitle">@Value.tokenTitle</p>
+                    <p class="coinTitle" data-i18n="Inventory_data:otherTitle.@Value.tokenTitle" ></p>
                     <p class="coinTotalNum">@Value.tokenNumber</p>
                  </div>
      
@@ -70,7 +70,7 @@
      @*   <p class="increaseCoin" id="gSRCincrease"> </p>  *@
       
        <div class="coinEchange-BtnZone" >
-           <button  id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn">Exchange</button>
+           <button  id="coinEchangeBtn" class="coinEchange-ExchangeBtn" @onclick="coinEchangeBtn" data-i18n="Inventory_data:otherTitle.Exchange">Exchange</button>
         @*  <button  @onclick="SRCExchangeAllowanceClick">SRCExchangeAllowance </button>
            <button  @onclick="blockChainInfoDTOClick">blockChainInfoDTOClick </button>
            <div>

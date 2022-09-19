@@ -40,7 +40,7 @@
                 <div class="Inventory-Title" data-i18n="Sidebar.Inventory">Inventory</div>
 
                 <div class="Secend-Block">
-                    <div class="Secend-Title">My Currency</div>
+                    <div class="Secend-Title" data-i18n="Inventory_data:otherTitle.Inventory">My Currency</div>
                     @*.......修改位置.........*@
                  <div class="Inner-container" >
                          <div class="Inner" >
@@ -49,7 +49,7 @@
                                     <a class="buyGameCoin" hidden="@(true)">buy</a>
                                     <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.png" alt="">
                                     <div class="MyCerrency-Detail">
-                                        <p class="MyCerrency-Name">gERNC</p>
+                                        <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.gERNC">gERNC</p>
                              
                                         <p class="MyCerrency-Amount">0</p>
                                     </div>
@@ -62,7 +62,7 @@
                                     <button  class="addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" hidden="@(true)"></button>
                                     <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.png" alt="">
                                     <div class="MyCerrency-Detail">
-                                        <p class="MyCerrency-Name">ERNC TOKEN</p>
+                                        <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.ERNCToken">ERNC TOKEN</p>
                              
                                         <p class="MyCerrency-Amount">0</p>
                                     </div>
@@ -71,7 +71,7 @@
 
                              </div>
                              <div class="ExchangeBtn-container">
-                                  <button class="ExchangeBtn" @onclick ="()=>ExchangeBtn(true) " hidden="@(true)">
+                                  <button class="ExchangeBtn" @onclick ="()=>ExchangeBtn(true) " hidden="@(true)" data-i18n="Inventory_data:otherTitle.Exchange">
                                      Exchange
                                  </button>
                              </div>
@@ -83,7 +83,7 @@
                                        <a class="buyGameCoin" hidden="@(true)" >buy</a>
                                        <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.png" alt="">
                                         <div class="MyCerrency-Detail">
-                                            <p class="MyCerrency-Name">gSRC</p>
+                                            <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.gSRC">gSRC</p>
                              
                                             <p class="MyCerrency-Amount">@gSRC</p>
                                         </div>
@@ -96,7 +96,7 @@
                                          <button  class="addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRC"></button>
                                         <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.png" alt="">
                                         <div class="MyCerrency-Detail">
-                                            <p class="MyCerrency-Name">SRC TOKEN</p>
+                                            <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.SRCToken">SRC TOKEN</p>
                              
                                             <p class="MyCerrency-Amount">@tokenSRC</p>
                                         </div>
@@ -105,7 +105,7 @@
 
                                  </div>
                                  <div class="ExchangeBtn-container">
-                                     <button class="ExchangeBtn" @onclick ="()=>ExchangeBtn(false)">
+                                     <button class="ExchangeBtn" @onclick ="()=>ExchangeBtn(false)" data-i18n="Inventory_data:otherTitle.Exchange">
                                          Exchange
                                      </button>
                                  </div>
@@ -148,7 +148,7 @@
 
 
                 <div class="Secend-Block">
-                    <div class="Secend-Title">Inventory</div>
+                    <div class="Secend-Title" data-i18n="Inventory_data:otherTitle.Inventory">Inventory</div>
                     <div class="Secend-Inner" id="">
 
                         <NFT_Type />
@@ -161,7 +161,11 @@
                     <div class="Inventory-PPSR-Block-Nav">
                         <div>
                             <div class="Inventory-PPSR-Amount">@PPSRsCount PPSRs</div>
-                            <div class="AllBalance">Total Income: <span> @AllBalance </span> SRC </div>
+                            <div class="AllBalance">
+                                <span data-i18n="Inventory_data:otherTitle.TotalIncomeSRC">Total Income: </span>
+                                <span> @AllBalance </span> 
+                                <span data-i18n="Inventory_data:otherTitle.SRC">SRC </span> 
+                            </div>
                       
                         </div>
                         @if (AllBalance == 0)
@@ -173,7 +177,7 @@
                             }
                             else
                             {                         
-                                <div class=" CollectBtn CollectBtnSamll"   @onclick="eventArgs => { setValue(  eventArgs); }" >       
+                                <div  data-i18n="Inventory_data:otherTitle.CollectAllIncome" class=" CollectBtn CollectBtnSamll"   @onclick="eventArgs => { setValue(  eventArgs); }" >       
                                     Collect All Income
                                 </div>
                             }
@@ -187,7 +191,7 @@
                         }
                         else
                         {
-                            <div class="CollectBtn CollectBtnBig" @onclick="eventArgs => { setValue(  eventArgs); }" >             
+                            <div data-i18n="Inventory_data:otherTitle.CollectAllIncome" class="CollectBtn CollectBtnBig" @onclick="eventArgs => { setValue(  eventArgs); }" >             
                                 Collect All Income
                             </div>
                         }
@@ -204,7 +208,7 @@
                                         <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1482.288 1255.337)" fill=""/>
                                         <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1494.354 1264.03)" fill=""/>
                                     </g>
-                                    <p>Filter</p>
+                                    <p data-i18n="Inventory_data:otherTitle.Filter">Filter</p>
                                 </svg>
                             </div>
                             
@@ -213,7 +217,10 @@
 
 
                                     <section class="Sidebar-Filter-Block" id="Filter-Header">
-                                        <span>Filter(@FilterCount)</span>
+                                        <div class="Filter-Header-title">
+                                               <span data-i18n="Inventory_data:otherTitle.Filter">Filter</span><span>(@FilterCount)</span>
+                                        </div>
+                                     
                                         <div class="Filter-Header-Block">
                                             <button  hidden="@(true)" class="Filter-Button" id="Filter-Button-Reset">Reset</button>
                                             <button  hidden="@(true)" class="Filter-heart btn p-0 tippy-pop" data-content="Favorite" >
@@ -288,7 +295,7 @@
 
                                     <section class="Sidebar-Filter-Block" id="">
                                         <div class="Filter-Title">
-                                            <span>Rarity</span>
+                                            <span data-i18n="Inventory_data:Filter.Rarity">Rarity</span>
                                             <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                                         </div>
                                         <div class="Filter-Options">
@@ -297,7 +304,7 @@
                                             {
                                                 var key = @item.Key;
                                                 <label class="Filter-Button" for="@item.Value">
-                                                    <span data-i18n="@item.Datai18n">@item.Value</span>
+                                                    <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
                                                 </label>
                                                 <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
                                             }
@@ -309,7 +316,7 @@
 
                                     <section class="Sidebar-Filter-Block" id="">
                                         <div class="Filter-Title">
-                                            <span>Element</span>
+                                            <span data-i18n="Inventory_data:Filter.Element">Element</span>
                                             <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                                         </div>
                                         <div class="Filter-Options">
@@ -318,7 +325,7 @@
                                             {
                                                 var key = @item.Key;
                                                 <label class="Filter-Button" for="@item.Value">
-                                                    <span data-i18n="@item.Datai18n">@item.Value</span>
+                                                    <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
                                                 </label>
                                                 <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
                                             }
@@ -328,7 +335,7 @@
 
                                     <section class="Sidebar-Filter-Block" id="">
                                         <div class="Filter-Title">
-                                            <span>Class</span>
+                                            <span data-i18n="Inventory_data:Filter.Class">Class</span>
                                             <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                                         </div>
                                         <div class="Filter-Options">
@@ -337,7 +344,7 @@
                                             {
                                                 var key = @item.Key;
                                                 <label class="Filter-Button" for="@item.Value">
-                                                    <span data-i18n="@item.Datai18n">@item.Value</span>
+                                                    <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
                                                 </label>
                                                 <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
                                             } 
@@ -356,7 +363,7 @@
                                             {
                                                 var key = @item.Key;
                                                 <label class="Filter-Button" for="@item.Value">
-                                                    <span data-i18n="@item.Datai18n">@item.Value</span>
+                                                    <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
                                                 </label>
                                                 <input id="@item.Value"  class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
                                             }
@@ -371,13 +378,13 @@
 
                         <select class="sortSelect Inventory-PPSR-sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))" > 
 
-                            <option disabled="" value="Sort" selected="" hidden="">Sort</option>
-                            <option value="Highest Earned">Highest Earned</option>
-                            <option value="Lowest Earned">Lowest Earned</option>
-                            <option value="Highest Price">Highest Price</option>
-                            <option value="Lowest Price">Lowest Price</option>
-                            <option value="Newest">Newest</option>
-                            <option value="Oldest">Oldest</option>
+                            <option disabled="" value="Sort"data-i18n="Inventory_data:sortOptions.Sort"  selected="" hidden="">Sort</option>
+                            <option value="Highest Earned"  data-i18n="Inventory_data:sortOptions.HighestEarned" >Highest Earned</option>
+                            <option value="Lowest Earned"   data-i18n="Inventory_data:sortOptions.LowestEarned" >Lowest Earned</option>
+                            <option value="Highest Price"   data-i18n="Inventory_data:sortOptions.HighestPrice" >Highest Price</option>
+                            <option value="Lowest Price"    data-i18n="Inventory_data:sortOptions.LowestPrice" >Lowest Price</option>
+                            <option value="Newest"          data-i18n="Inventory_data:sortOptions.Newest" >Newest</option>
+                            <option value="Oldest"          data-i18n="Inventory_data:sortOptions.Oldest"  >Oldest</option>
 
                         </select>
                     </div>
@@ -419,7 +426,7 @@
                                                 <div class="NFTcard-inner">
                                                     <div class="NFT-cardImg">
                                                         <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                                     </div>
 
                                                     <div class="NFT-cardText Not-Price-Ver">
@@ -436,8 +443,8 @@
                                                                 <img src="/images/MarketPlace/SRC.webp"/>
                                                             </div>
                                                             <div class="rent-right">
-                                                                <p class="fee-Text" >Rental Fee: <span>  @item.nowRent </span> </p>
-                                                                <p class="balance-Text" >Balance: <span>  @item.totalRevenue </span> </p>
+                                                                <p class="fee-Text" ><span data-i18n="Inventory_data:otherTitle.RentalFee"> Rental Fee: </span> <span>  @item.nowRent </span> </p>
+                                                                <p class="balance-Text" ><span data-i18n="Inventory_data:otherTitle.Balance">Balance:</span> <span>  @item.totalRevenue </span> </p>
                                                             </div>
                                                         </div>
                                                         @if (@item.totalRevenue != 0)
@@ -445,14 +452,16 @@
                                                              <div class="CollectBtn-Container">
                                                                   <button  class="Collect-Btn"@onclick=" (eventArgs)  =>  { 
                                                                       setValueByUnit(  TokenID , totalRevenue, eventArgs); 
-                                                                      ReceiveRentByUnitOnclick();
-                                                                  }" >Collect Income</button>
+                                                                      ReceiveRentByUnitOnclick();  
+                                                                  }" 
+                                                                    data-i18n="Inventory_data:otherTitle.CollectIncome"
+                                                                  >Collect Income</button>
                                                             </div>
                                                         }
                                                         else
                                                         {
                                                              <div class="CollectBtn-Container">
-                                                                  <button  class="Collect-Btn-Finish" >No Balance</button>
+                                                                  <button  class="Collect-Btn-Finish" data-i18n="Inventory_data:otherTitle.NoBalance">No Balance</button>
                                                             </div>
                                                         }
                                                      
@@ -468,7 +477,7 @@
                                                             </div>*@
                                                         </div>
                                                                @*.................首拍拿掉的部分...................... *@
-                                                        <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
+                                                        <button  class="Show-tag" @onclick="reInstallI18n"><span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.ShowTag">Show Tag</span>   <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
                                                                        @*....................................... *@
                                                     </div>
                                                    
@@ -480,9 +489,9 @@
                                              @*.................tag 區域...................... *@
                                             <div class="tag-zone">                                                   
                                                     <div class="NFT-Label-block">
-                                                        <div class="NFT-Label">@item.RarityValue</div>
-                                                        @* <div class="NFT-Label">@item.ClassValue</div>*@
-                                                        <div class="NFT-Label">Survival master</div>
+                                                        <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.RarityValue">@item.RarityValue</div>
+                                                        @* <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.ClassValue">@item.ClassValue</div>*@
+                                                        @*<div class="NFT-Label" >Survival master</div>*@
                                                     </div>
                                             </div>
                                               @*....................................... *@
@@ -514,7 +523,7 @@
 
                                                     <div class="NFT-cardImg">
                                                         <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                                     </div>
                                                 
                                                     <div class="NFT-cardText">
@@ -529,8 +538,8 @@
                                                                 <img src="/images/MarketPlace/SRC.webp"/>
                                                             </div>
                                                             <div class="rent-right">
-                                                                <p class="fee-Text" >Rental Fee: <span> @item.nowRent </span> </p>
-                                                                <p class="balance-Text" >Balance: <span> @item.totalRevenue </span> </p>
+                                                                <p class="fee-Text" ><span data-i18n="Inventory_data:otherTitle.RentalFee"> Rental Fee: </span> <span> @item.nowRent </span> </p>
+                                                                <p class="balance-Text" ><span data-i18n="Inventory_data:otherTitle.Balance">Balance:</span> <span> @item.totalRevenue </span> </p>
                                                             </div>
                                                         </div>
                                                         @if (@item.totalRevenue != 0)
@@ -539,13 +548,15 @@
                                                                   <button  class="Collect-Btn"@onclick=" (eventArgs)  =>  { 
                                                                       setValueByUnit(  TokenID , totalRevenue, eventArgs); 
                                                                       ReceiveRentByUnitOnclick();
-                                                                  }" >Collect Income</button>
+                                                                  }" 
+                                                                  data-i18n="Inventory_data:otherTitle.CollectIncome"
+                                                                  >Collect Income</button>
                                                             </div>
                                                         }
                                                         else
                                                         {
                                                              <div class="CollectBtn-Container">
-                                                                  <button  class="Collect-Btn-Finish" >No Balance</button>
+                                                                  <button  class="Collect-Btn-Finish" data-i18n="Inventory_data:otherTitle.NoBalance">No Balance</button>
                                                             </div>
                                                         }
                                                      
@@ -558,12 +569,12 @@
                                                         <div class="NFT-PriceBlock">
                                                             <div class="NFT-PriceMain">
                                             
-                                                                <span class="NFT-Price">ComingSoon</span>
+                                                                <span class="NFT-Price" data-i18n="Inventory_data:sortOptions.ComingSoon">ComingSoon</span>
                                                             </div>
                                                         @*  <div class="NFT-USD">231269.89 USD</div>*@
                                                         </div>
                                                         @*<div class="NFT-EndTime">Ends in 30d 12h</div>*@
-                                                        <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
+                                                        <button  class="Show-tag" @onclick="reInstallI18n"> <span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.ShowTag">Show Tag</span>  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
                                                     </div>
 
                                                 </div>
@@ -571,11 +582,11 @@
                                            @*.................tag 區域...................... *@
                                                      
                                             <div class="tag-zone">
-                                                <button  class="Show-tag"> tag </button>
+                                              
                                                     <div class="NFT-Label-block">
-                                                        <div class="NFT-Label">@item.RarityValue</div>
+                                                        <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.RarityValue">@item.RarityValue</div>
                                                         @* <div class="NFT-Label">@item.ClassValue</div>*@
-                                                        <div class="NFT-Label">Survival master</div>
+                                                        @*<div class="NFT-Label">Survival master</div>*@
                                                     </div>
                                             </div>
                                                   @*....................................... *@
@@ -603,7 +614,7 @@
                                                 <div class="NFTcard-inner">
                                                     <div class="NFT-cardImg">
                                                         <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                                     </div>
                                                 
                                                     <div class="NFT-cardText">
@@ -869,7 +880,7 @@
         if (firstRender)
         {
             await Refresh();
-            @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
+    @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterButtonClick");
@@ -1146,5 +1157,10 @@
     private void CountFilterSelected()
     {
         FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count() + CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
+    }
+
+
+   public async Task reInstallI18n() { 
+        await JS.InvokeVoidAsync("installI18n");
     }
 }

@@ -25,10 +25,10 @@
         </div>
         <div class="products-imageContainer">
             <img src=@Ridder.ImgPath  alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-            <div hidden="@(@Ridder.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance.">Under Maintenance</div>
+            <div hidden="@(@Ridder.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
         </div>
         <div class="products-owned">
-            <span>Owned by&nbsp;</span>
+            <span data-i18n="Inventory_data:NFTDetails.Owned">Owned by&nbsp;</span>
             <span class="products-owned-address">@Ridder.Owned</span>
             @* <a href="" class="products-owned-address">@Ridder.Owned</a> *@
             @*(Address: 0xE8f3B....)*@
