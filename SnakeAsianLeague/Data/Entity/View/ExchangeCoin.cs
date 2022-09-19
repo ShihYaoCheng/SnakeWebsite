@@ -23,7 +23,7 @@ namespace SnakeAsianLeague.Data.Entity.View
         {
             imgUrl = Title;
             gTitle = "g" + Title;
-            tokenTitle = Title + " TOKEN";
+            tokenTitle = Title + "Token";
             gNumber = gCoin;
             tokenNumber = tokenCoin;
             gNumberChange = gCoin;
@@ -34,7 +34,7 @@ namespace SnakeAsianLeague.Data.Entity.View
         {
             imgUrl = Title;
             gTitle = "g" + Title;
-            tokenTitle = Title + " TOKEN";
+            tokenTitle = Title + "Token";
             gNumber = gCoin;
             tokenNumber = tokenCoin;
             gNumberChange = gCoin;

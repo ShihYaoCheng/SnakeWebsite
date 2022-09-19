@@ -29,7 +29,7 @@
     
     <section class="Sidebar-Filter-Block" id="Filter-mobile">
         <div class="">
-            @* <span>Filter</span> *@
+            @* <span data-i18n="Inventory_data:otherTitle.Filter">Filter</span> *@
             <svg  class="Filter-Icon" xmlns="http://www.w3.org/2000/svg" width="28.06" height="25.65" viewBox="0 0 28.06 25.65">
             <g id="" data-name="グループ 128" transform="translate(1508 -1239.175)">
                 <path id="" data-name="" d="M26.916,2.993H7.6A1.851,1.851,0,0,0,7.6.707H26.916a1.143,1.143,0,1,1,0,2.287Zm-22.224,0H1.144a1.143,1.143,0,1,1,0-2.287H4.692a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1241.443)" fill="#69ada2"/>
@@ -61,7 +61,8 @@
                     <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1494.354 1264.03)" fill="#69ada2"/>
                 </g>
                 </svg>
-                <span>Filter(@FilterCount)</span>
+                <span data-i18n="Inventory_data:otherTitle.Filter">Filter</span>
+                <span>(@FilterCount)</span>
                 <img class="Filter-web-arrow" style="margin: 5px; " data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
             </div>
             
@@ -204,7 +205,7 @@
 
                 <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
-                        <span>Rarity</span>
+                        <span data-i18n="Inventory_data:Filter.Rarity">Rarity</span>
                         <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                     </div>
                     <div class="Filter-Options">
@@ -214,7 +215,7 @@
                         {
                             var key = @item.Key;
                             <label class="Filter-Button" for="@item.Value">
-                                <span data-i18n="@item.Datai18n">@item.Value</span>
+                                <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
                             </label>
                             <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
                         }
@@ -225,7 +226,7 @@
 
                 <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
-                        <span>Element</span>
+                        <span data-i18n="Inventory_data:Filter.Element">Element</span>
                         <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                     </div>
                     <div class="Filter-Options">
@@ -234,7 +235,7 @@
                         {
                             var key = @item.Key;
                             <label class="Filter-Button" for="@item.Value">
-                                <span data-i18n="@item.Datai18n">@item.Value</span>
+                                <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
                             </label>
                             <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
                         }
@@ -243,7 +244,7 @@
 
                 <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
                     <div class="Filter-Title">
-                        <span>Class</span>
+                        <span data-i18n="Inventory_data:Filter.Class">Class</span>
                         <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
                     </div>
                     <div class="Filter-Options">
@@ -252,7 +253,7 @@
                         {
                             var key = @item.Key;
                             <label class="Filter-Button" for="@item.Value">
-                                <span data-i18n="@item.Datai18n">@item.Value</span>
+                                <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
                             </label>
                             <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
                         }
@@ -271,7 +272,7 @@
                         {
                             var key = @item.Key;
                             <label class="Filter-Button" for="@item.Value">
-                                <span data-i18n="@item.Datai18n">@item.Value</span>
+                                <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
                             </label>
                             <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
                         }
@@ -294,13 +295,13 @@
             </div>
             <NFT_Type/>
             <select class="sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))"   >
-                <option disabled="" value="Sort" selected="" hidden="">Sort</option>
-                <option value="Highest Earned">Highest Earned</option>
-                <option value="Lowest Earned">Lowest Earned</option>
-                <option value="Highest Price">Highest Price</option>
-                <option value="Lowest Price">Lowest Price</option>
-                <option value="Newest">Newest</option>
-                <option value="Oldest">Oldest</option>
+                <option disabled="" value="Sort" data-i18n="Inventory_data:sortOptions.Sort" selected="" hidden="">Sort</option>
+                <option value="Highest Earned" data-i18n="Inventory_data:sortOptions.HighestEarned">Highest Earned</option>
+                <option value="Lowest Earned"  data-i18n="Inventory_data:sortOptions.LowestEarned"  >Lowest Earned</option>
+                <option value="Highest Price"  data-i18n="Inventory_data:sortOptions.HighestPrice" >Highest Price</option>
+                <option value="Lowest Price"   data-i18n="Inventory_data:sortOptions.LowestPrice" >Lowest Price</option>
+                <option value="Newest"         data-i18n="Inventory_data:sortOptions.Newest" >Newest</option>
+                <option value="Oldest"         data-i18n="Inventory_data:sortOptions.Oldest" >Oldest</option>
             </select>
         </section>
         <section class="marketPlaceCardBLock">
@@ -336,7 +337,7 @@
 
                                     <div class="NFTcard-inner">
                                         <div class="NFT-cardImg">
-                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                             <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                         </div>
 
@@ -359,8 +360,14 @@
                                                     <span class="NFT-Currency-Price">123,456,789</span>
                                                 </div>*@
                                             </div>
-                                            <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
-                                                     
+
+                                            <button  @onclick="reInstallI18n" class="Show-tag"> 
+                                                <span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.ShowTag">Show Tag</span>  
+                                                <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  
+                                            </button>
+
+                                      
+
                                         </div>
                                     </div>
                                 </a>
@@ -369,9 +376,9 @@
                                                    @*.................tag 區域...................... *@
                                     <div class="tag-zone">                                                   
                                         <div class="NFT-Label-block">
-                                            <div class="NFT-Label">@item.RarityValue</div>
-                                            <div class="NFT-Label">@item.ClassValue</div>
-                                            <div class="NFT-Label">Survival master</div>
+                                            <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.RarityValue">@item.RarityValue</div>
+                                            <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.ClassValue">@item.ClassValue</div>
+                                            @*<div class="NFT-Label">Survival master</div>*@
                                         </div>
                                     </div>
                                               @*....................................... *@
@@ -399,7 +406,7 @@
                                 <div class="NFTcard-inner">
 
                                     <div class="NFT-cardImg">
-                                        <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                        <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                         <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                     </div>
 
@@ -415,16 +422,19 @@
                                                 <span class="NFT-Price" data-i18n="Inventory_data:sortOptions.ComingSoon">ComingSoon</span>
                                             </div>
                                         </div>
-                                          <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
+                                          <button  @onclick="reInstallI18n" class="Show-tag"> 
+                                              <span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.ShowTag">Show Tag</span>  
+                                              <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  
+                                          </button>
                                              
                                     </div>
                                 </div>
                             </a>
                               <div class="tag-zone">                                                   
                                         <div class="NFT-Label-block">
-                                            <div class="NFT-Label">@item.RarityValue</div>
-                                            <div class="NFT-Label">@item.ClassValue</div>
-                                            <div class="NFT-Label">Survival master</div>
+                                            <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.RarityValue">@item.RarityValue</div>
+                                            <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.ClassValue">@item.ClassValue</div>
+                                            @*<div class="NFT-Label">Survival master</div>*@
                                         </div>
                                     </div>
                         </div>
@@ -452,7 +462,7 @@
 
                             <div class="NFTcard-inner">
                                 <div class="NFT-cardImg">
-                                    <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                    <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                     <div hidden="@(@item.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                                 </div>
 
@@ -472,7 +482,10 @@
                                             <span class="NFT-Currency-Price">123,456,789</span>
                                         </div>*@
                                     </div>
-                                      <button  class="Show-tag"> Show Tag  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
+                                      <button  @onclick="reInstallI18n" class="Show-tag"> 
+                                          <span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.ShowTag">Show Tag</span> 
+                                          <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  
+                                      </button>
                                            
                           
                                 </div>
@@ -482,9 +495,9 @@
 
                         <div class="tag-zone">                                                   
                             <div class="NFT-Label-block">
-                                <div class="NFT-Label">@item.RarityValue</div>
-                                <div class="NFT-Label">@item.ClassValue</div>
-                                <div class="NFT-Label">Survival master</div>
+                                <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.RarityValue">@item.RarityValue</div>
+                                <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.ClassValue">@item.ClassValue</div>
+                                @*<div class="NFT-Label">Survival master</div>*@
                             </div>
                         </div>
                        
@@ -577,7 +590,7 @@
                                     <div class="NFTcard-inner">
 
                                         <div class="NFT-cardImg">
-                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                         </div>
                                         
                                         <div class="NFT-cardText">
@@ -618,7 +631,7 @@
                                     <div class="NFTcard-inner">
                                     
                                         <div class="NFT-cardImg">
-                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                         </div>
 
                                         <div class="NFT-cardText">
@@ -659,7 +672,7 @@
                                 
                                     <div class="NFTcard-inner">
                                         <div class="NFT-cardImg">
-                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                            <img data-src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                         </div>
                                     
                                         <div class="NFT-cardText">
@@ -699,7 +712,7 @@
                                     <div class="NFTcard-inner">
 
                                         <div class="NFT-cardImg">
-                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.png'">
+                                            <img data-src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
                                         </div>
                                     
                                         <div class="NFT-cardText">
@@ -1051,7 +1064,7 @@
 
         if (isLove)
         {
-            
+
         }
     }
 
@@ -1083,9 +1096,11 @@
         CheckBoxCountry.RemoveRange(0 ,CheckBoxCountry.Count);
         await JS.InvokeVoidAsync("installI18n");
 
-   
-    }
-    
 
+    }
+
+    public async Task reInstallI18n() { 
+        await JS.InvokeVoidAsync("installI18n");
+    }
 
 }
