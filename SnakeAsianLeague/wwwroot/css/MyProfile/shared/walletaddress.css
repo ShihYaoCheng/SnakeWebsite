@@ -11,7 +11,7 @@
     padding: 0 15px;
 }
 .walletBlock{
-    border: 3px solid var(--green-2);
+    /* border: 3px solid var(--green-2); */
     background: #ffffff;
     border-radius: 10px;
     display: flex;

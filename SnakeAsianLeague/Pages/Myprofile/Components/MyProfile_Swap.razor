@@ -36,11 +36,16 @@
                         </p>
                     </p>
                     <div class="coin-type">
-                        <button class="coin-type-addWallet" @onclick="AddSRC" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
-                        SRC
-                        <img id="SRCimg" src="/images/Myprofile/SRCExchange/SRC.webp"/>
+                        <div class="coin-type-icon">
+                            <img class="coin-type-icon" id="SRC-img" src="/images/Myprofile/SRCExchange/SRC.webp"/>
+                        </div>
+                        
+                        <p class="coin-type-name">SRC</p>
+                        
+                        <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRC" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
+
                     </div>
-                    <p id="SRCTotalBalance" class="avaliable">Balance:@SRCTotal</p>
+                    <p id="SRCTotalBalance" class="avaliable">Balance: @SRCTotal</p>
 
                 </div>
                 <div class="coin-Zone">
@@ -56,32 +61,51 @@
                 <div class="coin-Zone">
         
                     <div class="coin-type">
-                        <button class="coin-type-addWallet" @onclick="AddUSDT" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
-                        USDT
+                        <div class="coin-type-icon">
+                            <img class="" id="usdt-img" src="/images/Myprofile/SRCExchange/tether-usdt-logo.png"/>
+                        </div>
+
+                        <p class="coin-type-name">USDT</p>
                         
-                        <img src="/images/Myprofile/SRCExchange/tether-usdt-logo.png"/>
+                        <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddUSDT" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
+
                     </div>
-                    <p id="USDTTotalBalance" class="avaliable">Balance:@USDTTotal</p>
+                    <p id="USDTTotalBalance" class="avaliable">Balance: @USDTTotal</p>
 
                 </div>
             </div>
             @*貨幣數字區塊*@
             <div class="coin-NumZone">
                 <div class="coin-Zone">
-                    <p class="exchangeRate" id="usdPerSRCRate">
-                            ≈$@SwapRate USD
-                    </p>
-                    <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e.Value.ToString());}"/>
-                    @if (BalanceShort)
-                    {                        
-                        <div class="balanceShort">餘額不足</div>
-                    }
+                        <p class="exchangeRate" id="usdPerSRCRate">
+                                ≈$@SwapRate  USD
+                        </p>
+                        <div class="coin-Num-block">
+                            <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e.Value.ToString());}"/>
+                        <div class="maxBTN-Zone">
+                        <button @onclick="maxBTN" class="maxBTN">MAX</button>  
+                        </div>
+                        
+                        @if (BalanceShort)
+                        {                        
+                            <div class="balanceShort">
+                                <svg class="balanceShort-icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30.783 29.005">
+                                    <g id="warning-outline" transform="translate(-2.609 -3.497)">
+                                        <path id="Path_4" data-name="Path 4" d="M6.017,31.377H29.984a2.25,2.25,0,0,0,1.981-3.317L19.981,5.806a2.251,2.251,0,0,0-3.963,0L4.036,28.06a2.25,2.25,0,0,0,1.981,3.317Z" fill="none" stroke="#ec847b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"/>
+                                        <path id="Path_5" data-name="Path 5" d="M17.6,13.738l.4,8.578.4-8.575A.4.4,0,0,0,18,13.319h0a.4.4,0,0,0-.4.418Z" fill="none" stroke="#ec847b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"/>
+                                        <path id="Path_6" data-name="Path 6" d="M18,27.932a1.406,1.406,0,1,1,1.406-1.406A1.406,1.406,0,0,1,18,27.932Z" fill="#ec847b"/>
+                                    </g>
+                                </svg>
 
+                                餘額不足</div>
+                        }
+                    </div>
+                    
                 </div>
                 <div class="coin-Zone">
                     <div class="arrow-zone">
                         <img class="arrow-img" src="/images/Myprofile/SRCExchange/Arrow.png"/>
-                        <button class="maxBTN miniSizeBtn">MAX</button>
+                        @* <button class="maxBTN miniSizeBtn">MAX</button> *@
                        @*     <p class="coinView-Minimum miniSizeBtn">
                                 Minimum: 1 SRC
                             </p>*@
@@ -89,13 +113,18 @@
                 </div>
                 <div class="coin-Zone">         
                     @*<input class="coin-Num" value=@USDTInput @onchange="(e)=>{USDTInputChange(e.Value.ToString());}"/>*@
-                    <div  class="coin-Num" >@USDTInput </div>
                     <div class="coin-swapRate" id="usdtPerSRCRate"> 1 SRC ≈$ @SwapRate USDT</div>
-
+                    
+                    <div class="coin-Num-block">
+                    <div  class="coin-Num" >@USDTInput </div>
+                        <div class="maxBTN-Zone">
+                            @* <button @onclick="maxBTN" class="maxBTN">MAX</button>   *@
+                        </div>
+                    </div>
                 </div>
             </div>
             @*最大按鈕區塊*@
-            <div class="coin-MaxZone">
+            @* <div class="coin-MaxZone">
                     <div class="coin-Zone">
                     <div class="maxBTN-Zone">
                         <button @onclick="maxBTN" class="maxBTN">MAX</button>
@@ -103,7 +132,7 @@
                     </div>
                     
                     </div>
-            </div>
+            </div> *@
         </div>
        
     </div>
@@ -197,6 +226,7 @@
     {
         if (firstRender)
         {
+            await JS.InvokeVoidAsync("TippyInit");
             await getMetaMaskData();
             netWorkName = Configuration["chainName"];
             

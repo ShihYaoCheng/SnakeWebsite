@@ -274,6 +274,7 @@
     left: 10%;
     width: 30px;
     height:30px;
+    transition: all .1s ease-in-out;
 }
 
 .MyCerrency {

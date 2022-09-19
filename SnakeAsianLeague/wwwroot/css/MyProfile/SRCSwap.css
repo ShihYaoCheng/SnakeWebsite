@@ -1,15 +1,17 @@
 ﻿/* nav 當頁顯示 */
-#nav-myprofile > .nav-link {
+#nav-myprofile>.nav-link {
     background-color: unset;
 }
-#nav-swapsrc > .nav-link {
+
+#nav-swapsrc>.nav-link {
     background-color: #aad4cd;
 }
-.user-ul-web{
+
+.user-ul-web {
     display: none;
 }
 
-#Swapsrc_hover_bottom{
+#Swapsrc_hover_bottom {
     position: absolute;
     max-width: 300px;
     transform: translateX(-50%);
@@ -22,31 +24,33 @@
 }
 
 /* RWD NAV */
-@media all and (max-width: 1000px){
-    #nav-swapsrc{
+@media all and (max-width: 1000px) {
+    #nav-swapsrc {
         background-size: cover;
         background-position: center;
     }
 }
+
 /* NAV 資產頁面選單 */
-.nav-li-normal{
+.nav-li-normal {
     display: none;
 }
 
-.nav-li-particular{
+.nav-li-particular {
     display: flex;
     flex-direction: row;
 }
 
 /* RWD */
 @media (max-width: 1000px) {
-    .nav-li-particular{
+    .nav-li-particular {
         flex-direction: column;
     }
 }
+
 /* __________ */
 
-.Swap-Title{
+.Swap-Title {
     color: var(--green-2);
     font-size: 48px;
     font-weight: bold;
@@ -54,13 +58,15 @@
     text-shadow: 2px 2px 5px #24242431;
     /* margin: 0 20px; */
 }
-@media all and (max-width: 800px){
-    .Swap-Title{
+
+@media all and (max-width: 800px) {
+    .Swap-Title {
         font-size: 36px;
     }
 }
-@media all and (max-width: 500px){
-    .Swap-Title{
+
+@media all and (max-width: 500px) {
+    .Swap-Title {
         font-size: 32px;
     }
 }
@@ -106,15 +112,17 @@
         font-size: 28px;
     }
 }
-@media all and (max-width: 600px){
- .SRCExchange-container{
-    margin: 30px auto 50px;
- }
+
+@media all and (max-width: 600px) {
+    .SRCExchange-container {
+        margin: 30px auto 50px;
+    }
 }
+
 @media all and (max-width: 576px) {
 
     .SRCExchange-container {
-       
+
         /* height: 800px; */
     }
 
@@ -146,7 +154,7 @@
     color: #fff;
     width: 100%;
     text-align: left;
-    font-size: 16px;
+    font-size: 15px;
     padding-right: 14px;
     letter-spacing: 0.5px;
 }
@@ -177,7 +185,7 @@
     }
 
     .coinView-Minimum {
-        font-size: 12px;  
+        font-size: 12px;
     }
 
     .coinView-GameWalletText {
@@ -197,7 +205,7 @@
     }
 
     .coinView-Minimum {
-        left:10%;
+        left: 10%;
 
     }
 }
@@ -229,42 +237,72 @@
         height: 85%;
     }
 }
+
 /*共用*/
 .coin-Zone {
     width: 100%;
     height: calc(100%/10 *3.3);
 }
 
+
 /*文字區域*/
 .coin-TextZone {
     width: calc(100%/5 *2);
     height: 100%;
 }
-
+.coin-type-icon{
+    width: 55px;
+    /* padding-right: 10px; */
+    
+}
+.coin-type-icon img{
+    max-width: 50px;
+}
+#usdt-img{
+    max-width: 45px;
+}
 .coin-type {
-    font-size: 50px;
-    font-weight: 600;
-    display:flex;
-    align-items:center
+    display: flex;
+    align-items: center;
+    margin: 5px 0 5px 0;
+}
+.coin-type-name{
+    font-size: 36px;
+    line-height: 36px;
+    /* font-weight: 600; */
+    margin-right: 5px;
+    
+    font-size: 30px;
+    background: #4B8B8B;
+    color: #fff;
+    border-radius: 35px;
+    padding: 4.5px 24px;
+}
+.coin-type-addWallet {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px
 }
 
-    .coin-type img, .coin-type-addWallet {
-        width: 30px;
-        height: 30px;
-        margin:0 5px
-    }
-
-    .coin-type-addWallet {
-        background: url("/images/Myprofile/SRCExchange/addCoin.png");
-        background-repeat: round;
-        border: none;
-    }
-
-.avaliable {
-    font-size: 16px;
+.coin-type-addWallet {
+    background: url("/images/Myprofile/SRCExchange/addCoin.png");
+    background-repeat: round;
+    border: none;
+}
+.avaliable-block{
+    display: flex;
     letter-spacing: 0.5px;
 }
-
+.avaliable {
+    font-size: 16px;
+    margin-right: 5px;
+    /* color: var(--green-2); */
+    color: #FFA81D;
+    letter-spacing: 0.5px;
+}
+.avaliable-Total{
+    color: #FFA81D;
+}
 
 .address-text {
     width: 100%;
@@ -279,10 +317,11 @@
         font-size: 37.5px;
     }
 
-        .coin-type img, .coin-type-addWallet {
-            width: 40px;
-            height: 40px;
-        }
+    .coin-type img,
+    .coin-type-addWallet {
+        width: 40px;
+        height: 40px;
+    }
 
     .avaliable {
         font-size: 14px;
@@ -299,14 +338,16 @@
     .coin-TextZone {
         width: calc(100%/5*2);
     }
+
     .coin-type {
         font-size: 20px;
     }
 
-        .coin-type img, .coin-type-addWallet {
-            width: 24px;
-            height: 24px;
-        }
+    .coin-type img,
+    .coin-type-addWallet {
+        width: 24px;
+        height: 24px;
+    }
 
     .avaliable {
         font-size: 10px;
@@ -322,10 +363,11 @@
         font-size: 20px;
     }
 
-        .coin-type img, .coin-type-addWallet {
-            width: 18px;
-            height: 18px;
-        }
+    .coin-type img,
+    .coin-type-addWallet {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 
@@ -378,45 +420,63 @@
 .exchangeRate {
     text-align: right;
     font-size: 18px;
-    font-weight: 700;
-    width: 90%;
-    height: 30px;
-    padding: 0 45px 10px 0;
+    /* font-weight: 600; */
+    width: 70%;
+    /* height: 30px; */
+    /* padding: 0 45px 10px 0; */
     letter-spacing: 0.5px;
 }
-
+.coin-Num-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .coin-Num {
-    width: 90%;
-    margin: 0 auto;
+    width: 70%;
+    margin: 5px auto;
     border: 2px solid #69AEA3;
-    height: 85px;
+    /* height: 85px; */
     text-align: right;
     border-radius: 35px;
-    font-size: 31px;
-    padding-right: 15px;
+    font-size: 28px;
+    padding: 5px 20px;
     display: flex;
     justify-content: end;
     align-items: center;
-    background:none;
-    color:#fff;
+    background: none;
+    color: #fff;
+    letter-spacing: 0.5px;
+    line-height: 34px;
 }
 
 .coin-swapRate {
-    text-align:center;
-    padding-top:10px;
-    font-size:18px;
-  letter-spacing: 0.5px;
-}
-.balanceShort {
+    text-align: right;
+    /* padding-top: 10px; */
+    width: 90%;
+    margin: 0 a;
     font-size: 18px;
-    color: #eb2f06;
-    padding-top: 5px;
-    text-align: center;
-    width: 100%;
-    font-weight:700;
-    padding-left:30px;
+    letter-spacing: 0.5px;
 }
 
+.balanceShort {
+    font-size: 16px;
+    line-height: 18px;
+    color: #ec847b;
+    padding-top: 5px;
+    text-align: right;
+    width: 90%;
+    font-weight: 600;
+    padding-left: 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    letter-spacing: 0.5px;
+}
+.balanceShort-icon{
+    width: 16px;
+    margin: 0 5px;
+}
 .arrow-zone {
     width: 100%;
     height: 100%;
@@ -424,12 +484,12 @@
 }
 
 .arrow-img {
-    width: 57px;
-    height: 57px;
+    width: 35px;
+    /* height: 57px; */
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%)
+    transform: translate(-50%, -50%)
 }
 
 @media all and (max-width: 1024px) {
@@ -444,9 +504,11 @@
         height: 77px;
         font-size: 26px;
     }
+
     .coin-swapRate {
         font-size: 14px
     }
+
     .balanceShort {
         font-size: 14px
     }
@@ -475,9 +537,11 @@
         height: 54px;
         font-size: 18px;
     }
+
     .coin-swapRate {
         font-size: 12px
     }
+
     .balanceShort {
         font-size: 12px
     }
@@ -486,6 +550,7 @@
         width: 30px;
         height: 30px;
     }
+
     .coin-NumZone {
         width: calc(100%/5*3);
     }
@@ -496,9 +561,11 @@
         font-size: 10px;
         padding: 0 25px 0px 0;
     }
+
     .coin-swapRate {
         font-size: 10px
     }
+
     .balanceShort {
         font-size: 10px
     }
@@ -507,6 +574,7 @@
         width: calc(100%/10*6.5);
     }
 }
+
 /*...最大化按鈕...*/
 .coin-MaxZone {
     width: calc(100%/5 *1);
@@ -518,19 +586,20 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
+    margin: 0 10px;
+    width: 100px;
 }
 
 .maxBTN {
-    color: #69AEA3;
-    background: #FFFFFF;
-    width: 127px;
-    height: 50px;
-    border-radius: 43px;
-    border: 2px solid #69AEA3;
-    font-size: 28px;
-    margin-bottom:10px;
+    color: #ffffff;
+    background: none;
+    border-radius: 20px;
+    border: 2px solid #4B8B8B;
+    border: 2px solid #fff;
+    font-size: 16px;
+    padding: 5px 20px;
 }
 
 .miniSizeBtn {
@@ -539,9 +608,7 @@
 
 @media all and (max-width: 1024px) {
     .maxBTN {
-        width: 95px;
-        height: 38px;
-        font-size: 20px;
+        /* font-size: 20px; */
     }
 }
 
@@ -551,8 +618,7 @@
     }
 
     .maxBTN {
-        width: 71px;
-        height: 28px;
+
         font-size: 15px;
         position: absolute;
         right: 5%
@@ -565,8 +631,7 @@
 
 @media all and (max-width: 576px) {
     .maxBTN {
-        width: 54px;
-        height: 22px;
+
         font-size: 12px;
     }
 }
@@ -606,7 +671,7 @@
     border-radius: 26px;
     margin-bottom: 41px;
     font-size: 34px;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 @media all and (max-width: 1024px) {
@@ -662,8 +727,3 @@
     color: #fff !important;
     transition: all .15s ease-in-out;
 }
-
-
-
-
-
