@@ -152,6 +152,7 @@
     padding: 5px 10px;
     background: #253a4b;
     text-align: center;
+    letter-spacing: 0.5px;
 }
 
 .replacedCoin-zone {
@@ -178,8 +179,9 @@
 
 .increaseCoin {
     margin: 0 auto;
-    font-size: 16px;
+    font-size: 17px;
     color: #6aaaa9;
+    letter-spacing: 0.5px;
 }
 
 @media (max-width:768px) {
@@ -191,20 +193,20 @@
         padding: 3px 10px;
     }
     .increaseCoin {   
-        font-size: 15px;   
+        font-size: 16.5px;   
     }
 }
 
 @media (max-width:576px) {
     .replacedCoin {
         border: 2.5px solid #426e7c;
-        font-size: 16px;
-        margin: 5px auto;  
+        font-size: 15px;
+        margin: 5px auto 3px;  
         /* padding: 5px; */
     }
 
     .increaseCoin {
-        font-size: 16px;
+        font-size: 14.5px;
     }
 }
 
@@ -228,6 +230,7 @@
     font-size: 20px;
     /* color: #67AEA2; */
     color: #FFA81D;
+    letter-spacing: 0.5px;
 }
 
 @media (max-width:768px) {

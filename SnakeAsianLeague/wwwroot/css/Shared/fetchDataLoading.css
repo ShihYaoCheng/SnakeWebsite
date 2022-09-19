@@ -1,49 +1,51 @@
 ﻿.fetchDataLoading {
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 999;
-
+    letter-spacing: 2.5px;
     
 }
 .LoadingText {
-    font-size: 50px;
+    font-size: 40px;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     transform: translate(-50%,-50%);
-    top: 30%;
+    top: 40%;
     left: 50%;
+    white-space: nowrap;
+    font-family: Impact, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
 }
 @media (max-width: 768px) {
     .LoadingText {
-        font-size: 40px;
+        font-size: 35px;
         color: #fff;
         display: flex;
         justify-content: center;
         align-items: center;
         position: absolute;
         transform: translate(-50%,-50%);
-        top: 30%;
+        top: 40%;
         left: 50%;
     }
 }
 
 @media (max-width: 576px) {
     .LoadingText {
-        font-size: 25px;
+        font-size: 30px;
         color: #fff;
         display: flex;
         justify-content: center;
         align-items: center;
         position: absolute;
         transform: translate(-50%,-50%);
-        top: 30%;
+        top: 35%;
         left: 50%;
     }
 }
