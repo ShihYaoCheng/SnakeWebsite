@@ -28,14 +28,14 @@
       
         <div class="changeCoinZone">
             @*貨幣文字區塊*@
-            <div class="coin-TextZone">
+            <div class="coin-TextZone coin-TextZone-coinName">
                 <div class="coin-Zone">
                     <p class="exchangeRate">
                         <p class="coinView-Minimum ">
                             Minimum: 1 SRC
                         </p>
                     </p>
-                    <div class="coin-type">
+                    <div class="coin-type" id="coin-type-SRC">
                         <div class="coin-type-icon">
                             <img class="coin-type-icon" id="SRC-img" src="/images/Myprofile/SRCExchange/SRC.webp"/>
                         </div>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="coin-Zone">
         
-                    <div class="coin-type">
+                    <div class="coin-type" id="coin-type-USDT">
                         <div class="coin-type-icon">
                             <img class="" id="usdt-img" src="/images/Myprofile/SRCExchange/tether-usdt-logo.png"/>
                         </div>
@@ -82,10 +82,10 @@
                         </p>
                         <div class="coin-Num-block">
                             <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e.Value.ToString());}"/>
-                        <div class="maxBTN-Zone">
-                        <button @onclick="maxBTN" class="maxBTN">MAX</button>  
+                            <div class="maxBTN-Zone">
+                                <button @onclick="maxBTN" class="maxBTN">MAX</button>  
+                            </div>
                         </div>
-                        
                         @if (BalanceShort)
                         {                        
                             <div class="balanceShort">
@@ -97,11 +97,12 @@
                                     </g>
                                 </svg>
 
-                                餘額不足</div>
+                                餘額不足
+                            </div>
                         }
-                    </div>
                     
                 </div>
+
                 <div class="coin-Zone">
                     <div class="arrow-zone">
                         <img class="arrow-img" src="/images/Myprofile/SRCExchange/Arrow.png"/>
@@ -116,7 +117,7 @@
                     <div class="coin-swapRate" id="usdtPerSRCRate"> 1 SRC ≈$ @SwapRate USDT</div>
                     
                     <div class="coin-Num-block">
-                    <div  class="coin-Num" >@USDTInput </div>
+                        <div  class="coin-Num" >@USDTInput </div>
                         <div class="maxBTN-Zone">
                             @* <button @onclick="maxBTN" class="maxBTN">MAX</button>   *@
                         </div>
