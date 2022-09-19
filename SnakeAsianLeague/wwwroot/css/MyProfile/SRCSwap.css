@@ -75,8 +75,8 @@
 .SRCExchange-container {
     /* height: 1500px; */
     /* padding-top: 180px; */
-    max-width: 1024px;
-    width: 85%;
+    max-width: 900px;
+    width: 90%;
     margin: 50px auto;
 }
 
@@ -143,10 +143,10 @@
 /*...貨幣交換區塊...*/
 .coinView-container {
     border: 2px solid #69AEA3;
-    height: 511px;
+    /* height: 480px; */
     border-radius: 43px;
     color: #fff;
-    padding: 30px 5%;
+    padding: 5%;
     /* margin: 0 20px; */
 }
 
@@ -228,7 +228,7 @@
 .changeCoinZone {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 80%;
 }
 
@@ -241,13 +241,17 @@
 /*共用*/
 .coin-Zone {
     width: 100%;
-    height: calc(100%/10 *3.3);
+    /* height: calc(100%/10 *3.3); */
+    height: 100px;
 }
-
+.coin-TextZone-coinName{
+    max-width: 300px;
+    width: 100%;
+}
 
 /*文字區域*/
 .coin-TextZone {
-    width: calc(100%/5 *2);
+    /* width: calc(100%/5 *2); */
     height: 100%;
 }
 .coin-type-icon{
@@ -278,6 +282,12 @@
     border-radius: 35px;
     padding: 4.5px 24px;
 }
+
+#coin-type-USDT{
+    margin-top: 25px;
+}
+
+
 .coin-type-addWallet {
     width: 30px;
     height: 30px;
@@ -418,9 +428,9 @@
 }
 
 .exchangeRate {
-    text-align: right;
-    font-size: 18px;
-    /* font-weight: 600; */
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
     width: 70%;
     /* height: 30px; */
     /* padding: 0 45px 10px 0; */
@@ -450,11 +460,12 @@
 }
 
 .coin-swapRate {
-    text-align: right;
+    text-align: left;
     /* padding-top: 10px; */
     width: 90%;
-    margin: 0 a;
-    font-size: 18px;
+    /* margin: 0 auto; */
+    font-weight: 600;
+    font-size: 15px;
     letter-spacing: 0.5px;
 }
 
@@ -463,22 +474,22 @@
     line-height: 18px;
     color: #ec847b;
     padding-top: 5px;
-    text-align: right;
+    text-align: left;
     width: 90%;
     font-weight: 600;
-    padding-left: 30px;
+    /* padding-left: 30px; */
     display: flex;
     align-items: flex-start;
-    justify-content: flex-end;
+    justify-content: flex-start;
     flex-wrap: nowrap;
     letter-spacing: 0.5px;
 }
 .balanceShort-icon{
     width: 16px;
-    margin: 0 5px;
+    margin: 0 5px 0 0;
 }
 .arrow-zone {
-    width: 100%;
+    width: 70%;
     height: 100%;
     position: relative;
 }
@@ -501,7 +512,7 @@
     }
 
     .coin-Num {
-        height: 77px;
+        /* height: 77px; */
         font-size: 26px;
     }
 
@@ -516,7 +527,7 @@
 
     .arrow-img {
         width: 42px;
-        height: 42px;
+        /* height: 42px; */
     }
 }
 
@@ -548,7 +559,7 @@
 
     .arrow-img {
         width: 30px;
-        height: 30px;
+        /* height: 30px; */
     }
 
     .coin-NumZone {
@@ -588,7 +599,7 @@
     flex-direction: column;
     /* width: 100%;
     height: 100%; */
-    margin: 0 10px;
+    margin-left: 10px;
     width: 100px;
 }
 
@@ -647,10 +658,10 @@
 .SwapBTN {
     background: #FFA81D;
     color: #fff;
-    font-size: 36px;
-    width: 394px;
-    height: 84px;
-    border-radius: 26px;
+    font-size: 26px;
+    width: 250px;
+    height: 60px;
+    border-radius: 20px;
     border: none;
     margin: 36px 0 100px 0;
 }
@@ -677,8 +688,8 @@
 @media all and (max-width: 1024px) {
     .SwapBTN {
         font-size: 28px;
-        width: 300px;
-        height: 63px;
+        /* width: 300px;
+        height: 63px; */
         margin: 28px 0 75px 0;
     }
 
@@ -691,8 +702,8 @@
 
 @media all and (max-width: 768px) {
     .SwapBTN {
-        font-size: 20px;
-        width: 225px;
+        font-size: 22px;
+        width: 200px;
         height: 48px;
         margin: 21px 0 56px 0;
     }
