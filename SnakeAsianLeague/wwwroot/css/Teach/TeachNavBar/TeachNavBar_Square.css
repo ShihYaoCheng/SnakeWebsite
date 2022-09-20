@@ -3,6 +3,8 @@
     width: 130px;
     /* height: 100%; */
     position: relative;
+    background-color: #90bcb6;
+    border-radius: 10px;
 }
 
 .nav-square:not(:last-child) {
@@ -19,6 +21,7 @@
 .square-BG {
     width: 100%;
     height: 100%;
+    opacity: 0;
 }
 
 
@@ -48,7 +51,7 @@
     top: 57%;
     left: 50%;
     width: 77px;
-    
+    filter: drop-shadow(0px 0px 10px rgba(50, 237, 178, 0.4));
 }
 
 .square-Marquee {

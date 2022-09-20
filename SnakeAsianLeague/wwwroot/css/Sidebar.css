@@ -134,7 +134,7 @@ ul.accountManagementUl a:hover ::before{
         right: -30px;
     }
 }
-@media all and (max-width: 500px){
+@media all and (max-width: 800px){
     .myprofileSidebarButton{
         width: 45px;
         height: 50px;

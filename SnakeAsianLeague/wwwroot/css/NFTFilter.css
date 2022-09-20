@@ -337,7 +337,14 @@ input[type="radio"] {
     align-items: center;
     
 }
-.Filter-Header-Block{
+
+.Filter-Header-title {
+    display:flex;
+    justify-content:start;
+    align-items:center;
+}
+
+.Filter-Header-Block {
     display: flex;
     justify-content: space-between;
     align-items: center;

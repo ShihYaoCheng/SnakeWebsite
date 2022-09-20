@@ -119,6 +119,7 @@
 
 
 .inventory-Background{
+    top: 0;
     width: 100%;
     height: 100vh;
     /* background-image: url(/images/Myaccount/my_match.webp);
@@ -146,22 +147,6 @@
     text-shadow: 2px 2px 5px #24242431;
 }
 
-@media all and (max-width: 800px){
-    .Inventory-Title{
-        font-size: 36px;
-    }
-}
-@media all and (max-width: 600px){
-    .Inventory{
-        margin: 120px auto 50px;
-    }
-}
-@media all and (max-width: 500px){
-    .Inventory-Title{
-        font-size: 32px;
-    }
-}
-
 .Secend-Block{
     /* border: 1px solid red; */
     margin: 30px 0 10px;
@@ -175,9 +160,39 @@
     text-shadow: 2px 2px 5px #24242431;
 }
 
+@media all and (max-width: 800px){
+    .Inventory-Title{
+        font-size: 36px;
+    }
+    .Secend-Title{
+        font-size: 26px;
+    }
+    .Secend-Block{
+        margin: 20px 0 10px;
+    }
+}
+@media all and (max-width: 600px){
+    .Inventory{
+        margin: 30px auto 50px;
+    }
+    
+}
+@media all and (max-width: 500px){
+    .Inventory-Title{
+        font-size: 32px;
+    }
+    .Secend-Title{
+        font-size: 22px;
+    }
+    .Secend-Block{
+        margin: 10px 0 10px;
+    }
+}
+
 .Inner-container {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 .Inner {
     width: 48%;
@@ -259,6 +274,7 @@
     left: 10%;
     width: 30px;
     height:30px;
+    transition: all .1s ease-in-out;
 }
 
 .MyCerrency {
@@ -359,6 +375,7 @@
     text-align: center;
     color: #FFA81D;
     font-size: 20px;
+    letter-spacing: 0.5px;
 }
 
 @media all and (max-width: 1024px) {
@@ -404,7 +421,7 @@
 }
 .ExchangeBtn:hover{
     /* transform: translateY(-1px); */
-    transform: scale(1.02);
+    transform: scale(1.01);
     opacity: 0.9;
 }
 @media all and (max-width: 1200px){
@@ -486,6 +503,7 @@
 
 .AllBalance {
     color: var(--green-2);
+    letter-spacing: 0.5px;
 }
 
 .AllBalance span {
@@ -516,7 +534,7 @@
 
 .Inventory-PPSR-Filter{
     color: var(--green-2);
-    font-size: 24px;
+    font-size: 20px;
     border: 2px solid var(--green-2);
     border-radius: 16px;
     display: inline-flex;
@@ -651,7 +669,7 @@
 /* Inventory-PPSR-Filter-sortSelect 排序*/
 
 .Inventory-PPSR-sortSelect{
-    font-size: 24px;
+    font-size: 20px;
     margin: 10px;
     padding: 0 12px;
     height: 50px;
@@ -708,11 +726,26 @@
         /* justify-content: center; */
     }
 }
-
+@media all and (max-width: 1024px){
+    .Inventory-PPSR-Filter {
+        font-size: 16px;
+    }
+    .Inventory-PPSR-sortSelect{
+        font-size: 16px !important;
+    }
+}
 
 @media all and (max-width: 800px){
     .Inventory-CardBLock{
         margin-bottom: 50px;
+    }
+}
+@media all and (max-width: 768px){
+    .Inventory-PPSR-Filter {
+        font-size: 15px;
+    }
+    .Inventory-PPSR-sortSelect{
+        font-size: 15px !important;
     }
 }
 @media all and (max-width: 750px){
@@ -720,10 +753,16 @@
         justify-content: center;
     }
 }
-@media all and (max-width: 500px){
+@media all and (max-width: 576px){
     .Inventory-PPSR-Filter {
-        font-size: 16px;
+        font-size: 14px;
     }
+    .Inventory-PPSR-sortSelect{
+        font-size: 14px !important;
+    }
+}
+@media all and (max-width: 500px){
+
     .Inventory-PPSR-Filter .Filter-Icon {
         width: 22.44px;
         height: 20.52px;
@@ -731,9 +770,7 @@
     .Inventory-PPSR-Amount {
         font-size: 26px;
     }
-    .Inventory-PPSR-sortSelect{
-        font-size: 16px !important;
-    }
+
 }
 
 .IfNoCard{

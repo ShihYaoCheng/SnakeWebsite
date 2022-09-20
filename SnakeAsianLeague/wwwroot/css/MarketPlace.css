@@ -118,9 +118,17 @@
     --theme-font-1: #8Fcdc3;
     --theme-font-2: #276170;
     --theme-font-3: #a7e5db;
-    /* --theme-border: #427c72; */
+    /* --theme-border: #427c72; */ 
 }
-
+.card-bg-DarkSeaGreen {
+    --theme-bg-1: #8eb691;
+    --theme-bg-2: #8eb691;
+    --theme-bg-3: #8eb691;
+    --theme-font-1: #8Fcdc3;
+    --theme-font-2: #276170;
+    --theme-font-3: #a7e5db;
+    --blue-1: #35504b;
+}
 .card-bg-red {
     --theme-bg-1: #E58880;
     --theme-bg-2: #D06F6F;
@@ -129,7 +137,6 @@
     --theme-font-2: #823131;
     --theme-font-3: #ffd8d8;
     /* --theme-border: #7a1823; */
-    
 }
 
 .card-bg-grey {
@@ -414,126 +421,46 @@
     white-space: nowrap;
 }
 
-/* 粉紅色 首發 CARD */
-.card-bg-red {
+/* CARD */
+.NFTcard {
     background-color: var(--theme-bg-1);
     position: relative;
+    height: fit-content;
 }
-.card-bg-red::before{
-    content: url('/images/MarketPlace/NFT-Debut.png');
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-.card-bg-red .heart__path {
+
+.NFTcard .heart__path {
     fill: none;
     stroke: var(--theme-bg-2);
     /* stroke-width: 2; */
 }
-.card-bg-red .NFT-Number{
+.NFTcard .NFT-Number{
     background-color: var(--theme-bg-2);
     color:  var(--theme-font-1);
 }
 
-.card-bg-red .NFT-Name{
+.NFTcard .NFT-Name{
     color: var(--theme-font-2);
 }
-.card-bg-red .NFT-PriceBlock{
+.NFTcard .NFT-PriceBlock{
     background-color: var(--theme-bg-2);
 }
-.card-bg-red .NFT-Price {
+.NFTcard .NFT-Price {
     color: var(--theme-font-3);
 }
-.card-bg-red .NFT-PriceIcon-Border{
+.NFTcard .NFT-PriceIcon-Border{
     background-color: var(--theme-bg-3);
 }
-.card-bg-red .NFT-USD {
+.NFTcard .NFT-USD {
     color: var(--theme-font-1);
 }
 
-.card-bg-red .NFT-EndTime{
+.NFTcard .NFT-EndTime{
     color: var(--theme-font-2);
 }
 
-/* 綠色 一般 CARD */
-.card-bg-green {
-    background-color: var(--theme-bg-1);
-    position: relative;
-}
-
-.card-bg-green .heart__path {
-    fill: none;
-    stroke: var(--theme-bg-2);
-    /* stroke-width: 2; */
-}
-.card-bg-green .NFT-Number{
-    background-color: var(--theme-bg-2);
-    color:  var(--theme-font-1);
-}
-
-.card-bg-green .NFT-Name{
-    color: var(--theme-font-2);
-}
-.card-bg-green .NFT-PriceBlock{
-    background-color: var(--theme-bg-2);
-}
-.card-bg-green .NFT-Price {
-    color: var(--theme-font-3);
-}
-.card-bg-green .NFT-PriceIcon-Border{
-    background-color: var(--theme-bg-3);
-}
-.card-bg-green .NFT-USD {
-    color: var(--theme-font-1);
-}
-
-.card-bg-green .NFT-EndTime{
-    color: var(--theme-font-2);
-}
-
-/* 灰色 一般 CARD */
-.card-bg-grey {
-    background-color: var(--theme-bg-1);
-    position: relative;
-}
-
-.card-bg-grey .heart__path {
-    fill: none;
-    stroke: var(--theme-bg-2);
-    /* stroke-width: 2; */
-}
-.card-bg-grey .NFT-Number{
-    background-color: var(--theme-bg-2);
-    color:  var(--theme-font-1);
-}
-
-.card-bg-grey .NFT-Name{
-    color: var(--theme-font-2);
-}
-.card-bg-grey .NFT-PriceBlock{
-    background-color: var(--theme-bg-2);
-}
-.card-bg-grey .NFT-Price {
-    color: var(--theme-font-3);
-}
-.card-bg-grey .NFT-PriceIcon-Border{
-    background-color: var(--theme-bg-3);
-}
-.card-bg-grey .NFT-USD {
-    color: var(--theme-font-1);
-}
-
-.card-bg-grey .NFT-EndTime{
-    color: var(--theme-font-2);
-}
 
 /* ------------------- */
 
-.NFTcard {
-    /* cursor: pointer; */
-    height: fit-content;
-}
 @media all and (max-width: 1500px){
     .marketPlaceHeader{
         width: 90%;
@@ -570,6 +497,13 @@
         /* height: 175px; */
         height: 185px;
         /* height: 100%; */
+    }
+    .card-bg-red::before {
+        content: url('/images/MarketPlace/NFT-Debut.png');
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
     }
     .card-bg-red::before{
         content: url(/images/MarketPlace/NFT-Debut-s.png);
@@ -1146,7 +1080,7 @@ button.price-search-button:hover .search-icon{
 }
 
 .CollectBtn:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
     background-color: #f09607;
     color: var(--font-1);
     /* transition: all .1s ease-in; */

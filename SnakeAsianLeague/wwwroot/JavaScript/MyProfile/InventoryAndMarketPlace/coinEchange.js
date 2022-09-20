@@ -41,8 +41,8 @@ export async function withdraw(SRCInput) {
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
 	const SwapNumValue = SRCInput
-	let x = new BigNumber(parseInt(SwapNumValue));
-
+	let x = new BigNumber(SwapNumValue);
+	console.log(x)
 
 	try {
 		//驗證貨幣
@@ -98,7 +98,7 @@ export async function deposit(SRCInput) {
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
 	const SwapNumValue = SRCInput
-	let x = new BigNumber(parseInt(SwapNumValue));
+	let x = new BigNumber(SwapNumValue);
 	console.log("333",SwapNumValue)
 	try {
 		//驗證貨幣
