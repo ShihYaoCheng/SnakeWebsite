@@ -63,17 +63,17 @@ export async function withdraw(SRCInput) {
 
 
 		// 交易貨幣
-		const vendor = await new web3.eth.Contract(
-			SRCExchange_ABI,
-			SRCExchange_addr
-		);
+		//const vendor = await new web3.eth.Contract(
+		//	SRCExchange_ABI,
+		//	SRCExchange_addr
+		//);
 
-		request = await vendor.methods
-			.withdraw(x.shiftedBy(SRC_decimals).toString())
-			.send({
-				from: accounts[0],
-			});
-		alert("You have successfully sold SRC tokens!");
+		//request = await vendor.methods
+		//	.withdraw(x.shiftedBy(SRC_decimals).toString())
+		//	.send({
+		//		from: accounts[0],
+		//	});
+		//alert("You have successfully sold SRC tokens!");
 		$('.lockWindows')[0].style.display = 'none';
 
 
