@@ -37,12 +37,12 @@ export async function withdraw(SRCInput) {
 	//web3.TransactionManager.UseLegacyAsDefault = true;
 	const SRC_addr = "0xaBF22878C673C20865D9A1247c86FDe7B1165B7e"
 	const ERC20_abi = window.ERC20_abi
-	const SRCExchange_addr = "0x6C7c64D826E1D52f107881FfCcE01417F1B14BFa"
+	const SRCExchange_addr = "0x486dC2674912384121A125f9b141316445CD6933"
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
-	console.log(x)
+	console.log("以改合約地址")
 
 	try {
 		//驗證貨幣
@@ -94,12 +94,12 @@ export async function deposit(SRCInput) {
 	//web3.TransactionManager.UseLegacyAsDefault = true;
 	const SRC_addr = "0xaBF22878C673C20865D9A1247c86FDe7B1165B7e"
 	const ERC20_abi = window.ERC20_abi
-	const SRCExchange_addr = "0x6C7c64D826E1D52f107881FfCcE01417F1B14BFa"
+	const SRCExchange_addr = "0x486dC2674912384121A125f9b141316445CD6933"
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
-	console.log("333",SwapNumValue)
+	console.log("以改合約地址")
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
