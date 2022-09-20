@@ -10,6 +10,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
     {
         //public object ServerClient { get; private set; }
         private ExternalServers externalServersConfig;
+        private readonly RestClient BlockChainServerClient;
 
         private readonly RestClient ServerClient;
         public MetamaskTransfer(IOptions<ExternalServers> myConfiguration)
@@ -17,6 +18,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
 
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
+            BlockChainServerClient = new RestClient(externalServersConfig.NftWebApi);
             //ServerClient = new RestClient(externalServersConfig.UserServer);
             //ServerClient = new RestClient("https://rel.ponponsnake.com/api/user");
         }
@@ -34,22 +36,58 @@ namespace SnakeAsianLeague.Data.Services.Metamask
             public uint userId { get; set; }
         }
 
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="UserID"></param>
+        ///// <param name="amount"></param>
+        ///// <returns></returns>
+        //public async Task<bool> SRCTransferToDB(uint UserID, decimal amount)
+        //{
+        //    bool result = false;
+        //    try
+        //    {
+        //        string URL = "/User/SRC/TransferToDB";
+        //        TransferData transferData = new TransferData();
+        //        transferData.userId = UserID;
+        //        transferData.amount = amount;
 
+        //        string jsonData = JsonSerializer.Serialize(transferData);
+        //        var request = new RestRequest(URL, Method.POST);
+        //        request.AddJsonBody(jsonData);
+        //        request.AddHeader("Authorization", Authenticate());
+        //        IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+        //        if (restResponse.StatusCode == HttpStatusCode.OK)
+        //        {
+        //            ResultTransferData ResultData = JsonSerializer.Deserialize<ResultTransferData>(restResponse.Content);
+        //            result = ResultData.result;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string errormsg = ex.Message;
+        //    }
+        //    return result;
+        //}
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
         public async Task<bool> SRCTransferToDB(uint UserID, decimal amount)
         {
             bool result = false;
             try
             {
-                string URL = "/User/SRC/TransferToDB";
-                TransferData transferData = new TransferData();
-                transferData.userId = UserID;
-                transferData.amount = amount;
+                string URL = "/SRCExchange​/TransferToDB"; 
+                var request = new RestRequest(URL, Method.GET);
+                request.AddQueryParameter("userID", UserID.ToString());
+                request.AddQueryParameter("amount", amount.ToString());
+                IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
 
-                string jsonData = JsonSerializer.Serialize(transferData);
-                var request = new RestRequest(URL, Method.POST);
-                request.AddJsonBody(jsonData);
-                request.AddHeader("Authorization", Authenticate());
-                IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     ResultTransferData ResultData = JsonSerializer.Deserialize<ResultTransferData>(restResponse.Content);
@@ -62,7 +100,9 @@ namespace SnakeAsianLeague.Data.Services.Metamask
             }
             return result;
         }
-       
+
+
+
 
         private string Authenticate()
         {
@@ -80,5 +120,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
 
             public double amount { get; set; }
         }
+
+
     }
 }
