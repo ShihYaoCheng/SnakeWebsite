@@ -1162,6 +1162,11 @@ window.SRCExchange_ABI = [
     {
         "inputs": [
             {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            },
+            {
                 "internalType": "uint256",
                 "name": "amount",
                 "type": "uint256"
@@ -1179,3 +1184,4 @@ window.SRCExchange_ABI = [
         "type": "function"
     }
 ]
+
