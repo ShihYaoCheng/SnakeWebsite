@@ -534,7 +534,7 @@
 
 .Inventory-PPSR-Filter{
     color: var(--green-2);
-    font-size: 24px;
+    font-size: 20px;
     border: 2px solid var(--green-2);
     border-radius: 16px;
     display: inline-flex;
@@ -669,7 +669,7 @@
 /* Inventory-PPSR-Filter-sortSelect 排序*/
 
 .Inventory-PPSR-sortSelect{
-    font-size: 24px;
+    font-size: 20px;
     margin: 10px;
     padding: 0 12px;
     height: 50px;
@@ -726,11 +726,26 @@
         /* justify-content: center; */
     }
 }
-
+@media all and (max-width: 1024px){
+    .Inventory-PPSR-Filter {
+        font-size: 16px;
+    }
+    .Inventory-PPSR-sortSelect{
+        font-size: 16px !important;
+    }
+}
 
 @media all and (max-width: 800px){
     .Inventory-CardBLock{
         margin-bottom: 50px;
+    }
+}
+@media all and (max-width: 768px){
+    .Inventory-PPSR-Filter {
+        font-size: 15px;
+    }
+    .Inventory-PPSR-sortSelect{
+        font-size: 15px !important;
     }
 }
 @media all and (max-width: 750px){
@@ -738,10 +753,16 @@
         justify-content: center;
     }
 }
-@media all and (max-width: 500px){
+@media all and (max-width: 576px){
     .Inventory-PPSR-Filter {
-        font-size: 16px;
+        font-size: 14px;
     }
+    .Inventory-PPSR-sortSelect{
+        font-size: 14px !important;
+    }
+}
+@media all and (max-width: 500px){
+
     .Inventory-PPSR-Filter .Filter-Icon {
         width: 22.44px;
         height: 20.52px;
@@ -749,9 +770,7 @@
     .Inventory-PPSR-Amount {
         font-size: 26px;
     }
-    .Inventory-PPSR-sortSelect{
-        font-size: 16px !important;
-    }
+
 }
 
 .IfNoCard{

@@ -140,6 +140,7 @@
 }
 
 .replacedCoin {
+    outline: none;
     border: 3.5px solid #426e7c;
     border-radius: 15px;
     width: 65%;
@@ -154,7 +155,9 @@
     text-align: center;
     letter-spacing: 0.5px;
 }
-
+.replacedCoin:focus{
+    border: 2px solid #FFA81D !important;
+}
 .replacedCoin-zone {
     display: flex;
     width: 100%;
