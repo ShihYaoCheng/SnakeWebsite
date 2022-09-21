@@ -42,8 +42,8 @@ export async function withdraw(SRCInput) {
 
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
+
 	console.log(x)
-	
 
 	try {
 		//驗證貨幣
@@ -100,7 +100,7 @@ export async function deposit(SRCInput) {
 
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
-	console.log("333",SwapNumValue)
+	console.log("以改合約地址")
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
