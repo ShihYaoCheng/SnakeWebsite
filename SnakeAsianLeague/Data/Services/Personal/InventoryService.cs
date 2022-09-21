@@ -488,8 +488,6 @@ namespace SnakeAsianLeague.Data.Services.Personal
             request.AddQueryParameter("amount", amount.ToString());
             IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
 
-            //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeApprove URL :", BlockChainServerClient));
-            //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeApprove StatusCode :", restResponse.StatusCode));
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
