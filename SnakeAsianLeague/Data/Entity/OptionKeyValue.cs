@@ -36,17 +36,17 @@
         public List<OptionKeyValue> Get_Default_Rarity()
         {
             List<OptionKeyValue> List = new List<OptionKeyValue>();
-            OptionKeyValue rd = new OptionKeyValue("1", "Advanced", "web_i18n_12");
+            OptionKeyValue rd = new OptionKeyValue("1", "Advanced", "Filter.Advanced");
             List.Add(rd);
-            rd = new OptionKeyValue("2", "Rare", "web_i18n_13");
+            rd = new OptionKeyValue("2", "Rarity", "Filter.Rarity");
             List.Add(rd);
-            rd = new OptionKeyValue("3", "Epic", "web_i18n_14");
+            rd = new OptionKeyValue("3", "Epic", "Filter.Epic");
             List.Add(rd);
-            rd = new OptionKeyValue("4", "Legend", "web_i18n_15");
+            rd = new OptionKeyValue("4", "Legend", "Filter.Legend");
             List.Add(rd);
-            rd = new OptionKeyValue("5", "Abyss", "web_i18n_16");
+            rd = new OptionKeyValue("5", "Abyss", "Filter.Abyss");
             List.Add(rd);
-            rd = new OptionKeyValue("6", "Mythic ", "web_i18n_17");
+            rd = new OptionKeyValue("6", "Mythic ", "Filter.Mythic");
             List.Add(rd);
             return List;
         }
@@ -58,13 +58,13 @@
         public List<OptionKeyValue> Get_Default_Elements()
         {
             List<OptionKeyValue> List = new List<OptionKeyValue>();
-            OptionKeyValue rd = new OptionKeyValue("a", "Earth", "web_i18n_19");
+            OptionKeyValue rd = new OptionKeyValue("a", "Earth", "Filter.Earth");
             List.Add(rd);
-            rd = new OptionKeyValue("b", "Water", "web_i18n_20");
+            rd = new OptionKeyValue("b", "Water", "Filter.Water");
             List.Add(rd);
-            rd = new OptionKeyValue("c", "Fire", "web_i18n_21");
+            rd = new OptionKeyValue("c", "Fire", "Filter.Fire");
             List.Add(rd);
-            rd = new OptionKeyValue("d", "Wind", "web_i18n_22");
+            rd = new OptionKeyValue("d", "Wind", "Filter.Wind");
             List.Add(rd);
             //rd = new OptionKeyValue("e", "Light", "web_i18n_23");
             //List.Add(rd);
@@ -92,25 +92,25 @@
         public List<OptionKeyValue> Get_Default_Class()
         {
             List<OptionKeyValue> List = new List<OptionKeyValue>();
-            OptionKeyValue rd = new OptionKeyValue("1", "Tank", "web_i18n_32");
+            OptionKeyValue rd = new OptionKeyValue("1", "Tank", "Filter.Tank");
             List.Add(rd);
-            rd = new OptionKeyValue("2", "Protector", "web_i18n_33");
+            rd = new OptionKeyValue("2", "Protector", "Filter.Protector");
             List.Add(rd);
-            rd = new OptionKeyValue("3", "Survival master", "web_i18n_34");
+            rd = new OptionKeyValue("3", "Survival master", "Filter.Survival master");
             List.Add(rd);
-            rd = new OptionKeyValue("4", "Fighter", "web_i18n_35");
+            rd = new OptionKeyValue("4", "Fighter", "Filter.Fighter");
             List.Add(rd);
-            rd = new OptionKeyValue("5", "Ranger", "web_i18n_36");
+            rd = new OptionKeyValue("5", "Ranger", "Filter.Ranger");
             List.Add(rd);
-            rd = new OptionKeyValue("6", "Archer", "web_i18n_37");
+            rd = new OptionKeyValue("6", "Archer", "Filter.Archer");
             List.Add(rd);
-            rd = new OptionKeyValue("7", "Assassin", "web_i18n_38");
+            rd = new OptionKeyValue("7", "Assassin", "Filter.Assassin");
             List.Add(rd);
-            rd = new OptionKeyValue("8", "Support", "web_i18n_39");
+            rd = new OptionKeyValue("8", "Support", "Filter.Support");
             List.Add(rd);
-            rd = new OptionKeyValue("9", "Heal", "web_i18n_40");
+            rd = new OptionKeyValue("9", "Heal", "Filter.Heal");
             List.Add(rd);
-            rd = new OptionKeyValue("10", "Control ", "web_i18n_41");
+            rd = new OptionKeyValue("10", "Control ", "Filter.Control");
             List.Add(rd);
             return List;
         }

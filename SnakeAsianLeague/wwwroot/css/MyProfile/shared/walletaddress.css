@@ -1,71 +1,58 @@
-﻿
-/*右上角錢包*/
+﻿/*右上角錢包*/
 
 .walletaddress {
-    padding: 60px 18px 0 0;
-
-    width: 100vw;
-    height: 120px;
+    align-items: flex-end;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     z-index: 1;
+    margin-top: 65px;
+    padding: 0 15px;
+}
+.walletBlock{
+    /* border: 3px solid var(--green-2); */
+    background: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    flex-direction: row;
+    overflow: hidden;
+    padding: 3px 10px;
 }
 
 #userAddress {
-    border: 1px solid #05e7e8;
-    background: #38761d;
-    color: blue;
-    width: 150px;
-    height: 40px;
-    border-radius: 10px;
-    font-size: 20px;
+    color: var(--green-2);
+    font-size: 18px;
     font-weight: 500;
+    text-align: center;
     display: flex;
-    justify-content: center;
     align-items: center;
-    float: right;
+    justify-content: center;
+    margin-left: 10px;
+    padding: 2px 0 0 0 ;
 }
 
 .userNetwork {
-    width: 100px;
-    height: 30px;
-    margin: 5px 0;
-    float: right;
+    max-width: 100px;
+    width: 100%;
     background: #FFF;
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1000px) {
     .walletaddress {
-        padding: 60px 12px 0 0;
+        margin-top: 64px;
+    }
+    .userNetwork{
+        max-width: 90px;
     }
 
     #userAddress {
-        width: 130px;
-        height: 35px;
-        font-size: 18px;
-    }
-
-    .userNetwork {
-        width: 80px;
-        height: 25px;
-        margin: 5px 0;
-    }
-}
-
-@media all and (max-width: 1024px) {
-    .walletaddress {
-        padding: 60px 8px 0 0;
-    }
-
-    #userAddress {
-        width: 120px;
-        height: 35px;
         font-size: 16px;
     }
 
-    .userNetwork {
-        width: 75px;
-        height: 25px;
-        margin: 5px 0;
-    }
 }
 
 

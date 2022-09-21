@@ -1,92 +1,82 @@
 ﻿/*錯誤彈窗*/
 .errorContainer {
-    padding-top: 50px;
+    width: 100%;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background: rgb(0,0,0,0.5);
-    z-index: 1;
-    top: 0%;
+    z-index: 100;
+    top: 50px;
     left: 0%;
 }
 
 .errorNav {
     width: 100%;
-    height: 70px;
-    background: #f4cccc;
+    background: #FFE5BC;
     display: flex;
     justify-content: center;
     align-items: center;
     float: right;
-    width: 97%;
-    border-radius: 15px;
-    margin-right: 1%;
+    width: 100%;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro';
+    letter-spacing: 0.5px;
+    padding: 7px 0;
 }
 
-@media all and (max-width: 768px) {
-    .errorNav {
-        height: 50px;
-    }
-}
-
-@media all and (max-width: 768px) {
-    .errorNav {
-        width: 95%;
-    }
-}
 
 .errorNav button {
     color: #fff;
-    height: 50px;
     background: #67ADA2;
-    border: 3px solid #FFFFFF;
     border-radius: 15px;
     font-size: 20px;
-    margin-left: 50px;
-    width: 400px;
+    margin-left: 30px;
+    padding: 6px 25px;
+    border: none;
+    letter-spacing: 0.5px;
 }
 
 .errorNav p {
-    color: red;
-    font-size: 30px;
+    color: #ec847b;
+    font-size: 24px;
     font-weight: 700;
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1000px) {
+    .errorContainer{
+        top: 46px;
+    }
     .errorNav button {
-        width: 300px;
+        /* width: 300px; */
         font-size: 16px;
     }
 
     .errorNav p {
-        font-size: 26px;
+        font-size: 22px;
         font-weight: 700;
     }
 }
 
 @media all and (max-width: 768px) {
     .errorNav button {
-        width: 250px;
-        font-size: 14px;
-        height: 40px;
+        padding: 5px 25px;
     }
 
     .errorNav p {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 700;
     }
 }
 
 @media all and (max-width: 576px) {
+    .errorContainer{
+        top: 48px;
+    }
     .errorNav button {
-        width: 150px;
+
+        padding: 5px 15px;
         font-size: 14px;
-        height: 40px;
-        margin-left: 18px;
+        margin-left: 10px;
     }
 
     .errorNav p {
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 700;
     }
 }

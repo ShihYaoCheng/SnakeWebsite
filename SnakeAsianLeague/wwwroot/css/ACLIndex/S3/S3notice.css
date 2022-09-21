@@ -1,76 +1,149 @@
 ﻿/*...Notice...*/
 .Notice {
-    
+    background: url("/images/AsiaChampionsLeague/S3/Notice/NY_02c.png");
+    background-repeat: round;
+    padding-top: 500px;
+    height: 1900px;
 }
-.NoticeBG-container {
-    width: 100vw;
-    position: relative;
-}
-.NoticeBG {
-    width: 100vw;
-    position: absolute;
-    transform: scale(1.5);
-    top: -5%;
+
+.Notice-BG {
+    background: url("/images/AsiaChampionsLeague/S3/Notice/contract_base2.png");
+    background-repeat: round;
+    width: 979px;
+    height: 1131px;
+    margin: 0 auto;
+    padding-top: 30px;
 }
 
 .Notice_TopTitle {
-    margin: 36px 0 53px 0;
+    margin: 36px 0 35px 0;
     font-family: Microsoft JhengHei;
     font-size: 48px;
-    color: #fff;
+    color: #3a3048;
     text-align: center;
 }
 
 .Notice-Container {
-    width: 1272px;
-    height: 701px;
-    background: #fff;
+    width: 84%;
+    height:65%;
+    background: none;
     border-radius: 27px;
-    padding: 10px 10px 10px 40px;
+    padding: 10px 20px 10px 20px;
     margin: 0 auto;
     font-family: Microsoft JhengHei;
+    text-align: center;
 }
 
+
 @media (max-width: 1500px) {
-    .Notice-Container {
-        width: 90%;
+    .Notice {
+        background-repeat:no-repeat;
+    }
+    .Notice-BG {
+        width: 764px;
+        height: 882px;
+    }
+
+}
+@media (max-width: 1024px) {
+    .Notice_TopTitle {
+        font-size: 38px;
+        margin: 30px 0 30px 0;
+    }
+    .Notice {
+        height: 1400px;
+    }
+    .Notice-BG {
+        width: 624px;
+        height: 720px;
+    }
+}
+@media (max-width: 768px) {
+    .Notice {
+        height: 1200px;
+        padding-top:400px;
+    }
+    .Notice_TopTitle {
+        font-size: 34px;
+    }
+    .Notice-BG {
+        width: 514px;
+        height: 617px;
+    }
+
+    .Notice-Container {   
+        height:60%;
     }
 }
 
+@media (max-width: 576px) {
+    .Notice_TopTitle {
+        font-size: 32px;
+        margin: 15px 0 15px 0;
+    }
+    .Notice-BG {
+        width: 385px;
+        height: 500px;
+    }
+
+    .Notice-Container {
+        width: 87%;
+    }
+}
 .Notice-content {
     width: 100%;
     height: 100%;
-    background: #fff;
+    background:none;
     overflow-y: auto;
     overflow-x: hidden;
+    display:flex;
+    justify-content:space-between;
+    padding-left:5%;
+
 }
 
-    .Notice-content h2 {
-        /*font-size: 24px;
-color: #69ADA2;
-text-align: center ;
-font-family: Microsoft JhengHei;*/
-    }
+.Notice-content-left {
+    width:95%
+   
+}
+.Notice-content-right {
+    width: 5%
+}
+
+.Notice-content h2 {
+}
 
 
 
+.Notice-content::-webkit-scrollbar {
+    width: 15px !important;
+    
+    -webkit-box-shadow: none !important;
+    border: 0 !important;
+    background: #998559 !important;
+}
+
+.Notice-content::-webkit-scrollbar-thumb {
+    background: #5c5139 !important;
+    background-repeat: round !important;
+    width: 15px !important;
+}
+
+@media (max-width: 768px) {
     .Notice-content::-webkit-scrollbar {
-        width: 20px !important;
-        background: #fff !important;
-        -webkit-box-shadow: none !important;
-        border: 0 !important;
+        width: 10px !important;
+
     }
 
     .Notice-content::-webkit-scrollbar-thumb {
-        background: url("/images/AsiaChampionsLeague/S3/Notice/Notice_Bar.webp") !important;
-        background-repeat: round !important;
-        width: 15px !important;
+        width: 10px !important;
     }
+}
 
 
 .notice_title {
-    font-size: 36px;
-    color: #648ea1 !important;
+    font-size: 24px;
+    color: #605138 !important;
     margin: 20px 0 10px !important;
     text-align: center;
     line-height: 36px;
@@ -78,7 +151,7 @@ font-family: Microsoft JhengHei;*/
 
 
 .txt_title {
-    color: #648ea1 !important;
+    color: #605138 !important;
     font-size: 24px;
     margin: 40px 0 10px 0;
 }
@@ -93,12 +166,13 @@ font-family: Microsoft JhengHei;*/
     padding: 0 10px;
     /* text-indent: -1em;  */
     /* margin-left: 2em;   */
+    color: #605138 !important;
 }
 
 .title_border {
-    width: 90%;
+  /*  width: 90%;
     border: 1px solid #dee3e6 !important;
-    height: 1px;
+    height: 1px;*/
 }
 
 .event_txt02 {
@@ -107,38 +181,42 @@ font-family: Microsoft JhengHei;*/
     padding: 0 15px 0 40px;
     text-indent: -1em;
     line-height: 33px;
+    color: #605138 !important;
 }
 
 
 .event_txt03 {
-    font-size: 18px;
+    font-size: 24px;
     padding: 0 30px;
     margin-left: 2em;
     text-indent: -1em;
+    color: #605138 !important;
 }
 
 .event_txt04 {
-    font-size: 18px;
+    font-size: 24px;
     padding: 0 30px;
     margin-left: 3em;
     text-indent: -1em;
+    color: #605138 !important;
 }
 
 .event_txt05 {
-    font-size: 18px;
+    font-size: 24px;
     padding: 0 30px;
     margin-left: 4em;
     text-indent: -1em;
+    color: #605138 !important;
 }
 
 
-@media (max-width: 1200px) {
+@media (max-width: 1500px) {
     .notice_title {
-        font-size: 28px;
+        font-size: 22px;
     }
 
     .event_txt {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .event_txt02 {
@@ -165,58 +243,76 @@ font-family: Microsoft JhengHei;*/
     }
 
     .txt_title {
-        font-size: 24px;
+        font-size: 22px;
     }
 }
 
-@media all and (max-width: 800px) {
+@media (max-width: 1024px) {
     .notice_title {
-        font-size: 26px;
-    }
-
-    .notice {
-        padding: 30px 20px 30px 10px;
-    }
-
-    .event_note {
-        padding: 0 15px 0 15px;
-    }
-
-    .txt_title {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 600px) {
-    .notice_title {
-        font-size: 14px;
-        margin: 10px 0 10px;
+        font-size: 18px;
     }
 
     .event_txt {
-        font-size: 12px;
-        margin: 10px 0 0px;
+        font-size: 18px;
+    }
+
+    .event_txt02 {
+        font-size: 18px;
+    }
+
+
+    .event_txt03 {
+        font-size: 18px;
+    }
+
+    .event_txt04 {
+        font-size: 18px;
+    }
+
+    .event_txt05 {
+        font-size: 18px;
+    }
+
+
+    .event_note {
+        font-size: 18px;
+    }
+
+    .txt_title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .notice_title {
+        font-size: 14px;
+      
+    }
+
+    .event_txt {
+        font-size: 14px;
+   
     }
 
     .event_txt02 {
         font-size: 14px;
-        margin: 5px 0 0px;
+    
     }
 
     .txt_title {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .event_txt04 {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .event_txt05 {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .event_txt03 {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .event_note {
@@ -226,8 +322,6 @@ font-family: Microsoft JhengHei;*/
     }
 }
 
-@media (max-width: 400px) {
-}
 
 
 
@@ -235,17 +329,19 @@ font-family: Microsoft JhengHei;*/
 .Notice-Container .tg {
     border-collapse: collapse;
     border-spacing: 0;
+    margin: 20px auto;
+    color: #605138 !important;
 }
 
-    .Notice-Container .tg td {
-        border-style: solid;
-        border-width: 1px;
-        font-family: Arial, sans-serif;
-        font-size: 24px;
-        overflow: hidden;
-        padding: 10px 5px;
-        word-break: normal;
-    }
+.Notice-Container .tg td {
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
 
 .Notice-Container table {
     margin: 20px 0px 50px;
@@ -253,15 +349,25 @@ font-family: Microsoft JhengHei;*/
 }
 
 .Notice-Container table, .Notice-Container tr, .Notice-Container th, .Notice-Container td {
-    border: 1px solid #d2e1e9;
+    border: 1px solid #c6af7d;
     text-align: center;
-    font-size: 28px;
+    font-size: 24px;
     padding: 2px 4px;
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 1500px) {
     .Notice-Container .tg td {
-        font-size: 16px;
+        font-size: 22px;
+    }
+
+    .Notice-Container table, .Notice-Container tr, .Notice-Container th, .Notice-Container td {
+        font-size: 22px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .Notice-Container .tg td {
+        font-size: 18px;
     }
 
     .Notice-Container table, .Notice-Container tr, .Notice-Container th, .Notice-Container td {
@@ -283,8 +389,4 @@ font-family: Microsoft JhengHei;*/
     width: 20%;
 }
 
-@media (max-width: 500px) {
-    .Notice-Container td {
-        font-size: 13px;
-    }
-}
+

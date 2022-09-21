@@ -4206,7 +4206,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     .navbar-expand-sm .navbar-nav {
         -ms-flex-direction: row;
         flex-direction: row;
-        margin: 0 20px;
+        margin: 0 15px;
     }
 
     .navbar-expand-sm .navbar-nav .dropdown-menu {
@@ -4216,8 +4216,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     .navbar-expand-sm .navbar-nav .nav-link {
         /* padding-right: .5rem;
         padding-left: .5rem; */
-        padding-right: 10px;
-        padding-left: 10px;
+        padding-right: 7.5px;
+        padding-left: 7.5px;
     }
 
     .navbar-expand-sm > .container, .navbar-expand-sm > .container-fluid {

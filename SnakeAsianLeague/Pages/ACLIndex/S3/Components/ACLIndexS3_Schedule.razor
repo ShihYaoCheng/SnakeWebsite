@@ -10,7 +10,11 @@
         <link href="css/ACLIndex/S3/S3calendar.css" rel="stylesheet" />
 </head>
 
-<div class="Schedule">
+<div  class="Schedule-Container" >
+    <div class="Schedule-bottomPlate">
+
+    </div>
+    <div class="Schedule">
     <h2 id="Schedule" class="Schedule-title" >- Schedule -</h2>
     <div class="Schedule-BG-Container">
         <img class="Schedule-Group" data-src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
@@ -153,6 +157,9 @@
     </div>
 </div>
 
+</div>
+
+
 
 
 @code {
@@ -237,6 +244,8 @@
 
             string jsonString = JsonSerializer.Serialize(mobjList);    *@
             //Console.Write(Schedules);
+
+            //2022/09/15
             S3CalendarJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/S3Calendar.js");
             await S3CalendarJS.InvokeVoidAsync("S3Calendar",Schedules);        
            

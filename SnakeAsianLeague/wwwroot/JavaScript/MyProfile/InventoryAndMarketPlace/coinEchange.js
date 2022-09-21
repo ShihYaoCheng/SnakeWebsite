@@ -10,8 +10,11 @@ export function coinEchange(showId) {
         $(".coinEchange-container").removeClass("products-popup-open");
         $(".coin-range").val(0)
         $("#GSRCincrease").val(0)
-        $("#SRCincrease").val(0)
-        
+		$("#SRCincrease").val(0)
+		$("#GSRCincrease").val(0)
+		$("#SRCincrease").val(0)
+		
+		
     });
 	
     //確定交易，關閉視窗
@@ -34,12 +37,12 @@ export async function withdraw(SRCInput) {
 	//web3.TransactionManager.UseLegacyAsDefault = true;
 	const SRC_addr = "0xaBF22878C673C20865D9A1247c86FDe7B1165B7e"
 	const ERC20_abi = window.ERC20_abi
-	const SRCExchange_addr = "0x6C7c64D826E1D52f107881FfCcE01417F1B14BFa"
+	const SRCExchange_addr = "0x486dC2674912384121A125f9b141316445CD6933"
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
 	const SwapNumValue = SRCInput
-	let x = new BigNumber(parseInt(SwapNumValue));
-
+	let x = new BigNumber(SwapNumValue);
+	console.log("以改合約地址")
 
 	try {
 		//驗證貨幣
@@ -60,17 +63,17 @@ export async function withdraw(SRCInput) {
 
 
 		// 交易貨幣
-		const vendor = await new web3.eth.Contract(
-			SRCExchange_ABI,
-			SRCExchange_addr
-		);
+		//const vendor = await new web3.eth.Contract(
+		//	SRCExchange_ABI,
+		//	SRCExchange_addr
+		//);
 
-		request = await vendor.methods
-			.withdraw(x.shiftedBy(SRC_decimals).toString())
-			.send({
-				from: accounts[0],
-			});
-		alert("You have successfully sold SRC tokens!");
+		//request = await vendor.methods
+		//	.withdraw(x.shiftedBy(SRC_decimals).toString())
+		//	.send({
+		//		from: accounts[0],
+		//	});
+		//alert("You have successfully sold SRC tokens!");
 		$('.lockWindows')[0].style.display = 'none';
 
 
@@ -91,12 +94,12 @@ export async function deposit(SRCInput) {
 	//web3.TransactionManager.UseLegacyAsDefault = true;
 	const SRC_addr = "0xaBF22878C673C20865D9A1247c86FDe7B1165B7e"
 	const ERC20_abi = window.ERC20_abi
-	const SRCExchange_addr = "0x6C7c64D826E1D52f107881FfCcE01417F1B14BFa"
+	const SRCExchange_addr = "0x486dC2674912384121A125f9b141316445CD6933"
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
 	const SwapNumValue = SRCInput
-	let x = new BigNumber(parseInt(SwapNumValue));
-	console.log("333",SwapNumValue)
+	let x = new BigNumber(SwapNumValue);
+	console.log("以改合約地址")
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();

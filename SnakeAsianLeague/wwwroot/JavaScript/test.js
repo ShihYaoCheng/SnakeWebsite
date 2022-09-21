@@ -1,4 +1,22 @@
 ﻿
+window.exampleJsFunctions = {
+    callDotNetAndPrintData2: function (dotnetHelper) {
+        return dotnetHelper.invokeMethodAsync('Sum', 1, 3)
+            .then(data => {
+                console.log(data);
+            });
+    }
+};
+
+//export function testFunction() {
+//    console.log('112233')
+
+//    DotNet.invokeMethodAsync( 'Sum', 1, 2)
+//        .then(data => {
+//            console.log(data);
+//        });
+//}
+
 //window.AddPolygonID =  function () {
 //    document.getElementById('AddPolygonID').addEventListener('click', async () => {        
 //        try {          

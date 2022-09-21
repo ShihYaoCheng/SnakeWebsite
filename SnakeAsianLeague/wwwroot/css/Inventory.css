@@ -119,6 +119,7 @@
 
 
 .inventory-Background{
+    top: 0;
     width: 100%;
     height: 100vh;
     /* background-image: url(/images/Myaccount/my_match.webp);
@@ -134,7 +135,7 @@
 .Inventory{
     /* border: 1px solid red; */
     max-width: 1150px;
-    margin: 200px auto 150px;
+    margin: 50px auto 150px;
     width: 85%;
     transition: all .15s ease-in-out;
 }
@@ -144,22 +145,6 @@
     font-weight: bold;
     margin: 5px 0px;
     text-shadow: 2px 2px 5px #24242431;
-}
-
-@media all and (max-width: 800px){
-    .Inventory-Title{
-        font-size: 36px;
-    }
-}
-@media all and (max-width: 600px){
-    .Inventory{
-        margin: 120px auto 50px;
-    }
-}
-@media all and (max-width: 500px){
-    .Inventory-Title{
-        font-size: 32px;
-    }
 }
 
 .Secend-Block{
@@ -175,20 +160,50 @@
     text-shadow: 2px 2px 5px #24242431;
 }
 
+@media all and (max-width: 800px){
+    .Inventory-Title{
+        font-size: 36px;
+    }
+    .Secend-Title{
+        font-size: 26px;
+    }
+    .Secend-Block{
+        margin: 20px 0 10px;
+    }
+}
+@media all and (max-width: 600px){
+    .Inventory{
+        margin: 30px auto 50px;
+    }
+    
+}
+@media all and (max-width: 500px){
+    .Inventory-Title{
+        font-size: 32px;
+    }
+    .Secend-Title{
+        font-size: 22px;
+    }
+    .Secend-Block{
+        margin: 10px 0 10px;
+    }
+}
+
 .Inner-container {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 .Inner {
-    width: 47%;
+    width: 48%;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 2px solid var(--green-2);
     border-radius: 26px;
-    padding: 30px 0px;
+    padding: 30px 15px 25px;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1000px) {
     .Inner-container {        
         flex-direction: column;
     }
@@ -202,7 +217,10 @@
 
 @media all and (max-width: 564px) {
     .Inner {
-        padding: 15px 0px;
+        padding: 20px 10px;
+    }
+    .MyCerrency-between{
+        max-width: 100px;
     }
 
 }
@@ -220,7 +238,9 @@
 }
 .MyCerrency-container {
   width:100%;
-  display:flex
+  display:flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
 }
 
 .MyCerrency-between {
@@ -229,6 +249,8 @@
     align-items: center;
     width: calc(100%/5*2);
     position:relative;
+    max-width: 200px;
+    width: 100%;
 }
 
 .buyGameCoin {
@@ -252,6 +274,7 @@
     left: 10%;
     width: 30px;
     height:30px;
+    transition: all .1s ease-in-out;
 }
 
 .MyCerrency {
@@ -265,23 +288,24 @@
     display:flex;
     justify-content:center;
     align-items:center;
+    margin: 10px;
 }
 
 
 .MyCerrency-mid img{
-    width:40px;
+    width: 55px;
   
 }
 
 @media all and (max-width: 1024px) {
     .MyCerrency-mid img {
-        width: 35px;
+        width: 50px;
     }
 }
 
 @media all and (max-width: 768px) {
     .MyCerrency-mid img {
-        width: 40px;
+        width: 45px;
     }
 }
 
@@ -295,23 +319,24 @@
 
     .MyCerrency-between {
 
-        width: calc(100%/9*4);
+        /* width: calc(100%/9*4); */
     }
 
     .MyCerrency-mid {
-        width: calc(100%/9*1);
+        /* width: calc(100%/9*1); */
 
     }
-
- 
-
 }
 
 .MyCerrency-Icon {
-    width: 70px;
-    animation: scale 2.5s 0s infinite;
+    width: 90px;
+    /* animation: scale 2.5s 0s infinite; */
 }
 
+
+.doubleArrow{
+    width: 70px;
+}
 
 @keyframes scale {
     0%{
@@ -329,18 +354,28 @@
 
 .MyCerrency-Detail{
     text-align:center;
-    line-height: 30px;   
+  
     color: var(--green-2);
-    font-size: 24px;
+    /* font-size: 20px; */
 }
 
 .MyCerrency-Name {
     width:100%;
-    margin-top:10px;
+    background: #4B8B8B;
+    color:#fff;
+    border-radius:10px;
+    padding: 2px 20px;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    margin: 15px auto 0px;
+    line-height: 24px; 
 }
 .MyCerrency-Amount {
     margin-top: 10px;
     text-align: center;
+    color: #FFA81D;
+    font-size: 20px;
+    letter-spacing: 0.5px;
 }
 
 @media all and (max-width: 1024px) {
@@ -351,12 +386,17 @@
 
 @media all and (max-width: 768px) {
     .MyCerrency-Detail {
-        font-size: 22px;
+        /* font-size: 22px; */
     }
 }
 @media all and (max-width: 576px) {
     .MyCerrency-Detail {
-        font-size: 16px;
+        /* font-size: 16px; */
+    }
+    .MyCerrency-Name{
+        font-size: 14px;
+        line-height: 20px;
+        padding: 2px 20px;
     }
     .MyCerrency-Amount {
         margin-top: 0px;    
@@ -372,11 +412,27 @@
     border: 2px solid #fff;
     border-radius: 15px;
     background: none;
-    width: 195px;
-    height: 60px;
+    width: 170px;
+    height: 50px;
     margin: 20px auto 0 auto;
     color: #fff;
-    font-size: 25px;
+    font-size: 22px;
+    transition: all .1s ease-in-out;
+}
+.ExchangeBtn:hover{
+    /* transform: translateY(-1px); */
+    transform: scale(1.01);
+    opacity: 0.9;
+}
+@media all and (max-width: 1200px){
+
+    .MyCerrency-between{
+        max-width: 160px;
+        /* width: 70%; */
+    }
+    .MyCerrency-Icon{
+        width: 80px;
+    }
 }
 
 @media all and (max-width: 1024px) {
@@ -385,6 +441,9 @@
         font-size: 20px;
         height: 50px;
     }
+    .addWallet{
+        left: -5%;
+    }
 }
 
 @media all and (max-width: 768px) {
@@ -392,6 +451,9 @@
         width: 195px;
         font-size: 25px;
         height: 50px;
+    }
+    .MyCerrency-container{
+        justify-content: space-between;
     }
 }
 
@@ -441,6 +503,7 @@
 
 .AllBalance {
     color: var(--green-2);
+    letter-spacing: 0.5px;
 }
 
 .AllBalance span {
@@ -471,7 +534,7 @@
 
 .Inventory-PPSR-Filter{
     color: var(--green-2);
-    font-size: 24px;
+    font-size: 20px;
     border: 2px solid var(--green-2);
     border-radius: 16px;
     display: inline-flex;
@@ -565,7 +628,10 @@
         width: 65px;
     }
 
-
+    .doubleArrow{
+        width: 65px;
+    }
+    
 
 
 
@@ -603,7 +669,7 @@
 /* Inventory-PPSR-Filter-sortSelect 排序*/
 
 .Inventory-PPSR-sortSelect{
-    font-size: 24px;
+    font-size: 20px;
     margin: 10px;
     padding: 0 12px;
     height: 50px;
@@ -635,6 +701,7 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     margin-bottom: 100px;
+    min-height: 200px;
 }
 
 .Inventory-CardBLock .NFTcard{
@@ -659,11 +726,26 @@
         /* justify-content: center; */
     }
 }
-
+@media all and (max-width: 1024px){
+    .Inventory-PPSR-Filter {
+        font-size: 16px;
+    }
+    .Inventory-PPSR-sortSelect{
+        font-size: 16px !important;
+    }
+}
 
 @media all and (max-width: 800px){
     .Inventory-CardBLock{
         margin-bottom: 50px;
+    }
+}
+@media all and (max-width: 768px){
+    .Inventory-PPSR-Filter {
+        font-size: 15px;
+    }
+    .Inventory-PPSR-sortSelect{
+        font-size: 15px !important;
     }
 }
 @media all and (max-width: 750px){
@@ -671,10 +753,16 @@
         justify-content: center;
     }
 }
-@media all and (max-width: 500px){
+@media all and (max-width: 576px){
     .Inventory-PPSR-Filter {
-        font-size: 16px;
+        font-size: 14px;
     }
+    .Inventory-PPSR-sortSelect{
+        font-size: 14px !important;
+    }
+}
+@media all and (max-width: 500px){
+
     .Inventory-PPSR-Filter .Filter-Icon {
         width: 22.44px;
         height: 20.52px;
@@ -682,9 +770,7 @@
     .Inventory-PPSR-Amount {
         font-size: 26px;
     }
-    .Inventory-PPSR-sortSelect{
-        font-size: 16px !important;
-    }
+
 }
 
 .IfNoCard{

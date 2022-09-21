@@ -361,59 +361,68 @@
 /*.......內文.......*/
 /*..................*/
 
-.content {
+.content-S3 {
     width: 100%;
-    height: 10000px;   
-    /*height:7500px;*/
+    height: 10890px;
     background: url("/images/AsiaChampionsLeague/S3/background/background_board.webp");
+    background-repeat: round;
+}
+@media (max-width: 1500px) {
+    .content-S3 {
+        height: 10520px;
+    }
+}
+@media (max-width: 1100px) {
+    .content-S3 {
+        height: 10390px;
+        /*height: 7760px;*/
+    }
 }
 
-
 @media (max-width: 1024px) {
-    .content {
-        height: 9500px;
+    .content-S3 {
+        height: 9790px;
         /*height: 7760px;*/
     }
 }
 
 @media (max-width: 768px) {
-    .content {
-        /*height: 7000px;*/
+    .content-S3 {
+        height: 9000px;
     }
 }
 @media (max-width: 576px) {
-    .content {
-        height:7700px;
-        /*height: 7000px;*/
-        /*height: 6330px;*/
+    .content-S3 {
+        height: 7800px;
     }
 }
     /*...Event-Info...*/
+.Event-Info {
+    height: 2200px;
+    width: 100%;
+    padding-top: 106px;
+}
+
+@media (max-width: 1024px) {
     .Event-Info {
-        height: 2200px;
-        width: 100%;
+        height: 2000px;
     }
+}
 
-    @media (max-width: 1024px) {
-        .Event-Info {
-            height: 2000px;
-        }
+@media (max-width: 576px) {
+    .Event-Info {
+        height: 1600px;
     }
+}
 
-    @media (max-width: 576px) {
-        .Event-Info {
-            height: 1600px;
-        }
-    }
-
-    .Event-Info h2 {
-        color: #67ADA2;
-        text-align: center;
-        font-size: 48px;
-        margin: 106px auto 80px auto;
-        font-weight: 500;
-        font-family: Microsoft JhengHei;
-    }
+.Event-Info h2 {
+    color: #67ADA2;
+    text-align: center;
+    font-size: 48px;
+    margin: 0 auto 80px auto;
+    font-weight: 500;
+    font-family: Microsoft JhengHei;
+}
 
 .EventInfo-subtitle {
     color: #FFA81D;
@@ -962,90 +971,91 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
 
-    /*...Rules...*/
-    .Rules {
-        width: 100%;
-        height: 1500px;
-        background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Bottom.webp");
-        background-repeat: round;
+/*...Rules...*/
+.Rules {
+    width: 100%;
+    height: 1500px;
+    background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Bottom.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.Rules h2 {
+    color: #fff;
+    font-size: 48px;
+    padding-top: 186px;
+    margin: 0 auto 126px auto;
+    font-family: Microsoft JhengHei;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .Rules h2 {
+        font-size: 40px;
     }
+}
 
-        .Rules h2 {
-            color: #fff;
-            font-size: 48px;
-            padding-top: 186px;
-            margin: 0 auto 126px auto;
-            font-family: Microsoft JhengHei;
-            text-align: center;
-        }
+.Rules-owl-Container {
+    width: 1340px;
+    height: 1000px;
+    margin: 0 auto;
+    background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Screen Frame.webp");
+    background-repeat: round;
+}
 
-    @media (max-width: 768px) {
-        .Rules h2 {
-            font-size: 40px;
-        }
-    }
+.ACLS3RulesCarousel p {
+    font-size: 24px;
+    color: rgba(225,225,225,0.6);
+}
 
+.ACLS3RulesCarousel .item {
+    width: 1340px;
+    height: 1000px;
+    padding: 50px 160px;
+}
+
+.TypewriterPage2Mobile {
+    display: none;
+}
+
+@media (max-width: 1500px) {
     .Rules-owl-Container {
-        width: 1340px;
-        height: 1000px;
-        margin: 0 auto;
-        background: url("/images/AsiaChampionsLeague/S3/Rule/Rule_Screen Frame.webp");
-        background-repeat: round;
-    }
-
-    .ACLS3RulesCarousel p {
-        font-size: 24px;
-        color: rgba(225,225,225,0.6);
+        width: 1000px;
     }
 
     .ACLS3RulesCarousel .item {
-        width: 1340px;
+        width: 1000px;
+        padding: 50px 120px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .ACLS3RulesCarousel p {
+        font-size: 24px;
+    }
+
+    .Rules-owl-Container {
+        width: 90%;
         height: 1000px;
-        padding: 50px 160px;
+    }
+
+    .ACLS3RulesCarousel .item {
+        width: 90%;
+        height: 1000px;
+        padding: 50px 80px;
+    }
+}
+
+@media (max-width: 768px) {      
+
+    .ACLS3RulesCarousel .item {
+        padding: 50px 40px;
     }
 
     .TypewriterPage2Mobile {
-        display: none;
+        display: block;
     }
-
-    @media (max-width: 1500px) {
-        .Rules-owl-Container {
-            width: 1000px;
-        }
-
-        .ACLS3RulesCarousel .item {
-            width: 1000px;
-            padding: 50px 120px;
-        }
-    }
-
-    @media (max-width: 1024px) {
-        .ACLS3RulesCarousel p {
-            font-size: 24px;
-        }
-
-        .Rules-owl-Container {
-            width: 90%;
-            height: 1000px;
-        }
-
-        .ACLS3RulesCarousel .item {
-            width: 90%;
-            height: 1000px;
-            padding: 50px 80px;
-        }
-    }
-
-    @media (max-width: 768px) {      
-
-        .ACLS3RulesCarousel .item {
-            padding: 50px 40px;
-        }
-
-        .TypewriterPage2Mobile {
-            display: block;
-        }
-    }
+}
 
 @media (max-width: 576px) {
     .ACLS3RulesCarousel p {
@@ -1159,73 +1169,73 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
 
-    /*...Reward...*/
+/*...Reward...*/
+.Reward {
+    width: 1370px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1500px) {
     .Reward {
-        width: 1370px;
-        margin: 0 auto;
+        width: 1000px;
     }
+}
 
-    @media (max-width: 1500px) {
-        .Reward {
-            width: 1000px;
-        }
+@media (max-width: 1024px) {
+    .Reward {
+        width: 600px;
     }
+}
 
-    @media (max-width: 1024px) {
-        .Reward {
-            width: 600px;
-        }
+@media (max-width: 768px) {
+    .Reward {
+        width: 85%;
     }
+}
 
-    @media (max-width: 768px) {
-        .Reward {
-            width: 85%;
-        }
-    }
+.Reward h2 {
+    color: #63a99e;
+    margin: 86px auto 92px auto;
+    font-size: 48px;
+    font-family: Microsoft JhengHei;
+    text-align: center;
+}
 
+.Reward h3 {
+    color: #FFA71D;
+    font-size: 30px;
+    font-family: Microsoft JhengHei;
+    margin-bottom: 28px;
+}
+
+@media (max-width: 768px) {
     .Reward h2 {
-        color: #63a99e;
-        margin: 86px auto 92px auto;
-        font-size: 48px;
-        font-family: Microsoft JhengHei;
-        text-align: center;
+        font-size: 40px;
+        margin: 43px auto 46px auto;
     }
 
     .Reward h3 {
-        color: #FFA71D;
-        font-size: 30px;
-        font-family: Microsoft JhengHei;
-        margin-bottom: 28px;
+        font-size: 22px;
     }
-
-    @media (max-width: 768px) {
-        .Reward h2 {
-            font-size: 40px;
-            margin: 43px auto 46px auto;
-        }
-
-        .Reward h3 {
-            font-size: 22px;
-        }
-    }
+}
 
 
+.Reward-PtagContainer {
+    padding: 83px 103px 29px 103px;
+}
+
+@media (max-width: 1000px) {
     .Reward-PtagContainer {
-        padding: 83px 103px 29px 103px;
+        padding: 83px 0px 29px 0px;
     }
+}
 
-    @media (max-width: 1000px) {
-        .Reward-PtagContainer {
-            padding: 83px 0px 29px 0px;
-        }
-    }
-
-    .Reward p {
-        color: #FFA71D;
-        font-size: 18px;
-        font-family: Microsoft JhengHei;
-        margin-bottom: 60px;
-    }
+.Reward-PtagContainer p {
+    color: #FFA71D;
+    font-size: 18px;
+    font-family: Microsoft JhengHei;
+    margin-bottom: 60px;
+}
 
 .Reward-imgContainer {
     position: relative;
@@ -1237,89 +1247,185 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     margin: 0 auto;
 }
 
-    @media (max-width: 1500px) {
-        .Reward-imgContainer {
-            width: 100%;
-        }
+@media (max-width: 1500px) {
+    .Reward-imgContainer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Reward-imgContainer {
+        height: 130px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Reward-PtagContainer p {
+        font-size: 15px;
+        margin-bottom: 20px;
     }
 
-    @media (max-width: 1024px) {
-        .Reward-imgContainer {
-            height: 130px;
-        }
+    .Reward-PtagContainer {
+        padding: 20px 0px 15px 0px;
     }
 
-    @media (max-width: 576px) {
-        .Reward p {
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
-
-        .Reward-PtagContainer {
-            padding: 20px 0px 15px 0px;
-        }
-
-        .Reward-imgContainer {
-            height: 100px;
-        }
+    .Reward-imgContainer {
+        height: 100px;
     }
+}
 
+.Reward-ERNC {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.Reward-Word {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+@media (max-width: 1500px) {
     .Reward-ERNC {
-        position: absolute;
-        top: 5%;
-        left: 5%;
+        display: block;
+        height: 184px;
+        width: 200px;
     }
 
     .Reward-Word {
-        position: absolute;
-        bottom: 5%;
-        right: 5%;
+        display: block;
+        height: 25px;
+        width: 320px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Reward-ERNC {
+        height: 120px;
+        width: 130px;
     }
 
-    @media (max-width: 1500px) {
-        .Reward-ERNC {
-            display: block;
-            height: 184px;
-            width: 200px;
-        }
+    .Reward-Word {
+        height: 20px;
+        width: 249px;
+    }
+}
 
-        .Reward-Word {
-            display: block;
-            height: 25px;
-            width: 320px;
-        }
+@media (max-width: 576px) {
+    .Reward-ERNC {
+        display: block;
+        height: 92px;
+        width: 100px;
     }
 
-    @media (max-width: 1024px) {
-        .Reward-ERNC {
-            height: 120px;
-            width: 130px;
-        }
+    .Reward-Word {
+        height: 14px;
+        width: 180px;
+    }
+}
 
-        .Reward-Word {
-            height: 20px;
-            width: 249px;
-        }
+.BonusEdition {
+    width: 100%;
+    margin-bottom: 15px;
+
+}
+
+.avatar-container {
+    padding:100px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-container img{
+    width:450px;
+}
+
+.avatar-container p {
+    color: #fff;  
+    font-family:Arial;
+    text-align:center;
+}
+
+.avatar-title {
+    margin-top: 70px;
+    font-size: 25px;
+}
+
+.avatar-text {
+    font-size: 20px;
+}
+
+
+@media (max-width: 1500px) {
+    .avatar-container {
+        padding: 70px 0;
+    }
+    .avatar-container img {
+        width: 300px;
+    }
+    .avatar-title {
+        font-size: 24px;
     }
 
-    @media (max-width: 576px) {
-        .Reward-ERNC {
-            display: block;
-            height: 92px;
-            width: 100px;
-        }
+    .avatar-text {
+        font-size: 16px;
+    }
+}
 
-        .Reward-Word {
-            height: 14px;
-            width: 180px;
-        }
+@media (max-width: 1024px) {
+    .avatar-container {
+        padding: 50px 0;
     }
 
-    .BonusEdition {
-        width: 100%;
-        margin-bottom: 15px
+    .avatar-container img {
+        width: 188px;
     }
-    /*動畫*/
+
+    .avatar-title {
+        margin-top: 50px;
+        font-size: 18px;
+    }
+
+    .avatar-text {
+        font-size: 14px;
+    }
+}
+@media (max-width: 576px) {
+    .avatar-container {
+        padding: 30px 0;
+    }
+
+    .avatar-container img {
+        width: 156px;
+    }
+
+    .avatar-title {
+        margin-top: 30px;
+        font-size: 18px;
+        margin-bottom: 0px;
+    }
+
+    .avatar-text {
+        font-size: 10px;
+    }
+}
+@media (max-width: 365px) {
+
+    .avatar-container img {
+        width: 91px;
+    }
+    .avatar-title {
+        margin-top: 20px;
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+}
+
+
+/*動畫*/
 .Reward-imgContainer div {
     opacity: 0.6;
     width: 1975px;
@@ -1459,12 +1565,12 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
 @media (max-width: 1500px) {
-    .Ranking {
-        height: 1800px;
-    }
-    .Ranking-banner {
-        height:540px;
-    }
+.Ranking {
+    height: 1800px;
+}
+.Ranking-banner {
+    height:540px;
+}
 
 .Ranking-banner .Ranking-banner-bg {
     height: 280px;
@@ -1475,37 +1581,41 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 }
 }
 
-    @media (max-width: 1024px) {
-
-
-        .Ranking-banner {
-            height: 450px;         
-        }
-
-            .Ranking-banner .Ranking-banner-bg {
-                height: 210px;
-            }
-        .Ranking-banner-bg img {
-            height:50px;
-        }
-
-        .Ranking-banner-bg button {       
-            height: 50px;
-        }
-        .Ranking-banner .Ranking-banner-selectContainer {
-            height: 120px;
-        }
-
-        .Ranking-banner-selectContainer select {
-            width: 179px;
-            height: 23.2px;
-            font-size: 14px;
-        }
+@media (max-width: 1110px) {
+    .Ranking {
+        height: 2000px;
     }
+
+    .Ranking-banner {
+        height: 450px;
+    }
+
+        .Ranking-banner .Ranking-banner-bg {
+            height: 210px;
+        }
+
+    .Ranking-banner-bg img {
+        height: 50px;
+    }
+
+    .Ranking-banner-bg button {
+        height: 50px;
+    }
+
+    .Ranking-banner .Ranking-banner-selectContainer {
+        height: 120px;
+    }
+
+    .Ranking-banner-selectContainer select {
+        width: 179px;
+        height: 23.2px;
+        font-size: 14px;
+    }
+}
 
     @media (max-width: 768px) {
         .Ranking {
-            height: 1300px;
+            height: 1540px;
         }
 
         .Ranking-banner {
@@ -1533,6 +1643,9 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     }
 
     @media (max-width: 576px) {
+        .Ranking {
+            height: 1400px;
+        }
         .Ranking-banner {
             height: 240px;
         }
@@ -1590,11 +1703,11 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     top: -20%;
     left: 0%;
 }
-    .Ranking-Date p {
-        color: #478588;
-        font-size: 30px;
-        font-family:Arial;
-    }
+.Ranking-Date p {
+    color: #478588;
+    font-size: 30px;
+    font-family:Arial;
+}
 @media (max-width: 1100px) {
     .Ranking-Date {
         height: 60px;
@@ -2047,15 +2160,41 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
     color:black;
 }
 
-.Schedule {
+.Schedule-Container {
+    width: 100%;
+    height: 1240px;
+    position:relative;
+
+}
+.Schedule-bottomPlate {
     background: url("/images/AsiaChampionsLeague/S3/Calender/Calender_bottom.webp");
-    background-repeat: no-repeat;
+    background-size:cover;
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 1550px;
+    transform: translate(-50%,-50%) scale(1.15);
+    transform-origin: 50px 50px;
+    top: 50%;
+    left: 50%;
+}
+
+
+.Schedule {
+    position:absolute;
+    z-index:2;
     background-size: cover;
     width: 100%;
     height: 1550px;
 }
 
     @media (max-width: 576px) {
+        .Schedule-Container {       
+            height: 1120px;
+        }
+        .Schedule-bottomPlate {
+            height: 1300px;
+        }
         .Schedule {
             height: 1300px;
         }
@@ -2141,13 +2280,13 @@ box-shadow: 0px 0px 17px 3px rgba(254,236,151,0.64);
 }
     /*星期*/
 
-    .fc-col-header-cell-cushion {
-        color: #898989 !important;
-        font-size: 20.16px !important;
-        font-family: Microsoft JhengHei !important;
-        text-align: center;
-        font-weight: 300;
-    }
+.fc-col-header-cell-cushion {
+    color: #898989 !important;
+    font-size: 20.16px !important;
+    font-family: Microsoft JhengHei !important;
+    text-align: center;
+    font-weight: 300;
+}
 @media (max-width: 576px) {
     .fc-col-header-cell-cushion { 
         font-size: 16.16px !important;
