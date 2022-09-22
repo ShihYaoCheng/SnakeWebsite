@@ -31,18 +31,19 @@ export function coinEchange(showId) {
 }
 
 //轉換(提款) SRC > gSRC
-export async function withdraw(SRCInput) {
-	$('.lockWindows')[0].style.display = 'flex';
+export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
+
+
 	const web3 = await new Web3(Web3.givenProvider)
 	//web3.TransactionManager.UseLegacyAsDefault = true;
-	const SRC_addr = "0xaBF22878C673C20865D9A1247c86FDe7B1165B7e"
+	const SRC_addr = SRC_address
 	const ERC20_abi = window.ERC20_abi
-	const SRCExchange_addr = "0x486dC2674912384121A125f9b141316445CD6933"
+	const SRCExchange_addr = SRCExchange_address
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
-	console.log("以改合約地址")
+	
 
 	try {
 		//驗證貨幣
@@ -74,7 +75,7 @@ export async function withdraw(SRCInput) {
 		//		from: accounts[0],
 		//	});
 		//alert("You have successfully sold SRC tokens!");
-		$('.lockWindows')[0].style.display = 'none';
+	
 
 
 		return true
@@ -88,18 +89,19 @@ export async function withdraw(SRCInput) {
 }
 
 //轉換(存入) gSRC > SRC
-export async function deposit(SRCInput) {
-	$('.lockWindows')[0].style.display = 'flex';
+export async function deposit(SRCInput, SRC_address, SRCExchange_address) {
+	
+	
 	const web3 = await new Web3(Web3.givenProvider)
 	//web3.TransactionManager.UseLegacyAsDefault = true;
-	const SRC_addr = "0xaBF22878C673C20865D9A1247c86FDe7B1165B7e"
+	const SRC_addr = SRC_address
 	const ERC20_abi = window.ERC20_abi
-	const SRCExchange_addr = "0x486dC2674912384121A125f9b141316445CD6933"
+	const SRCExchange_addr = SRCExchange_address
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
-	console.log("以改合約地址")
+	
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
@@ -115,7 +117,7 @@ export async function deposit(SRCInput) {
 			SRCExchange_ABI,
 			SRCExchange_addr
 		);
-		console.log("222")
+		
 		let request = await vendor.methods
 			.deposit(x.shiftedBy(SRC_decimals).toString())
 			.send({
@@ -123,7 +125,7 @@ export async function deposit(SRCInput) {
 			});
 		console.log("request", request)
 		alert("You have successfully sold SRC tokens!");
-		$('.lockWindows')[0].style.display = 'none';
+		
 		console.log("1111")
 		return true
 	} catch (err) {
@@ -168,3 +170,13 @@ export async function CoinexchangeData(chainId ,SRC_address) {
 	return ["true", (addr_SRC_balance).toString()  ]
 
 }
+
+
+export async function lockWindowsShow() {
+	$('.lockWindows')[0].style.display = 'flex';
+}
+
+export async function lockWindowsHide() {
+	$('.lockWindows')[0].style.display = 'none';
+}
+

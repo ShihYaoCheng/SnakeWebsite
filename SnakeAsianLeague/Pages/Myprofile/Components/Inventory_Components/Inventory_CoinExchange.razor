@@ -5,6 +5,7 @@
 @using RestSharp;
 @using SnakeAsianLeague.Data.Services.Personal
 
+@inject IConfiguration Configuration
 @inject AppState AppState
 @inject InventoryService InventoryService
 @inject MetamaskTransfer metamaskTransfer 
@@ -189,16 +190,17 @@
             InvokeAsync(StateHasChanged);
         }
     }
-    @* TaskCompletionSource<bool>taskCompletionSource = new TaskCompletionSource<bool>();*@  
+    @* TaskCompletionSource<bool>taskCompletionSource = new TaskCompletionSource<bool>();*@
     bool transactionResult = false;
     decimal getAuthorizeNum ;
     protected  async Task coinEchangeBtn()
     {
+        await coinEchangeJS.InvokeAsync<bool>("lockWindowsShow");
         if (difference < 0)
         {
           
             @*鍊換game*@           
-            transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1);      
+            transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1,Configuration["SRC_token_addr"],Configuration["SRCExchange_addr"]);      
             if (transactionResult)
             {
                 await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
@@ -212,7 +214,7 @@
             getAuthorizeNum = await InventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
             if (getAuthorizeNum!=0)
             {
-                transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum );
+                transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum,Configuration["SRC_token_addr"],Configuration["SRCExchange_addr"] );
             }
             else
             {
@@ -223,10 +225,10 @@
                 await clickRefresh();
             }
 
-          
+
         }
         //強制渲染
-      await reSet();
+        await reSet();
     }
     public async Task reSet()
     {
@@ -234,6 +236,7 @@
         rangeValue = 0;
         GSRCincrease = 0;
         SRCincrease = 0;
+        await coinEchangeJS.InvokeAsync<bool>("lockWindowsHide");
     }
 
     //decimal aa;
