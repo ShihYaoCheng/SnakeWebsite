@@ -151,44 +151,65 @@
 
     public void coinInput(ChangeEventArgs value ,bool SRCcheck)
     {
-        //GSRC
-        if (SRCcheck)
+
+
+        if (value.Value == "")
         {
-            if ( Value.gNumber - decimal.Parse(value.Value.ToString())<0){
-                difference = 0;                    
-            }
-            else
-            {
-                difference  =  Value.gNumber - decimal.Parse(value.Value.ToString());               
-            }
-
-
+            difference = 0;
         }
         else
         {
-            if (Value.tokenNumber - decimal.Parse(value.Value.ToString()) < 0)
+            //GSRC
+            if (SRCcheck)
             {
-                difference = 0;          
+                if (Value.gNumber - decimal.Parse(value.Value.ToString()) < 0)
+                {
+                    difference = -(decimal.Parse(value.Value.ToString()) - Value.gNumber);
+                    if (Value.gNumber + Value.tokenNumber < decimal.Parse(value.Value.ToString()))
+                    {
+                        difference =  -Value.tokenNumber;
+                    }
+
+                    }
+                    else
+                    {
+                        difference = Value.gNumber - decimal.Parse(value.Value.ToString());
+                    }
+
+
+                }
+                else
+                {
+                    if (Value.tokenNumber - decimal.Parse(value.Value.ToString()) < 0)
+                    {
+                        difference = decimal.Parse(value.Value.ToString()) - Value.tokenNumber;
+                        if (Value.gNumber + Value.tokenNumber < decimal.Parse(value.Value.ToString()))
+                        {
+                            difference = Value.gNumber;
+                        }
+                    }
+                    else
+                    {
+                        difference = -(Value.tokenNumber - decimal.Parse(value.Value.ToString()));
+                    }
+
+
+                }
             }
-            else
+            Value.gNumberChange = Value.gNumber - difference;
+            Value.tokenNumberChange = Value.tokenNumber + difference;
+            rangeValue = difference;
+          
+            GSRCincrease = -difference;
+            SRCincrease = difference;
+
+            if (difference == 0)
             {
-                difference  = -( Value.tokenNumber - decimal.Parse(value.Value.ToString()));
+
+                InvokeAsync(StateHasChanged);
             }
-
-
-        }
-        Value.gNumberChange = Value.gNumber- difference;
-        Value.tokenNumberChange = Value.tokenNumber + difference;
-        rangeValue = difference;
-
-        GSRCincrease = -difference;
-        SRCincrease = difference;
-
-        if(difference ==0)
-        {
-
-            InvokeAsync(StateHasChanged);
-        }
+        
+       
     }
     @* TaskCompletionSource<bool>taskCompletionSource = new TaskCompletionSource<bool>();*@
     bool transactionResult = false;

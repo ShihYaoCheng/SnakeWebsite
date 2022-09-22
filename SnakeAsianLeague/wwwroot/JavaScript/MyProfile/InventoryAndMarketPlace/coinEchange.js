@@ -180,3 +180,7 @@ export async function lockWindowsHide() {
 	$('.lockWindows')[0].style.display = 'none';
 }
 
+export async function changeInputValue(value) {
+	$('.coin-range')[0].value = value;
+}
+
