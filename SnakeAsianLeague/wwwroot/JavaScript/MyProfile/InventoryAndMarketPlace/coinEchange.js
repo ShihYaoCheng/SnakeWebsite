@@ -43,12 +43,7 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
-<<<<<<< HEAD
-	
-=======
 
-	console.log(x)
->>>>>>> f4c009d963e5798e117558dd0a15e61acc841ec3
 
 	try {
 		//驗證貨幣

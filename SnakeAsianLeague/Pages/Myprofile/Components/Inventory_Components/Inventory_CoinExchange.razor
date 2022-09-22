@@ -195,7 +195,7 @@
     decimal getAuthorizeNum ;
     protected  async Task coinEchangeBtn()
     {
-        await coinEchangeJS.InvokeAsync<bool>("lockWindowsShow");
+        await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
         if (difference < 0)
         {
           
@@ -236,7 +236,7 @@
         rangeValue = 0;
         GSRCincrease = 0;
         SRCincrease = 0;
-        await coinEchangeJS.InvokeAsync<bool>("lockWindowsHide");
+        await coinEchangeJS.InvokeVoidAsync("lockWindowsHide");
     }
 
     //decimal aa;
