@@ -18,7 +18,7 @@
     "subtitle": {
       "createmetamask": "What exactly is MetaMask? To transact with a blockchain, you'll need a cryptocurrency wallet. This wallet is your key to the crypto universe. It gives you the ability to purchase, sell, or transfer assets on the blockchain.",
       "connectopensea": "For NFT purchase and sell transactions, OpenSea is utilized. Bidding on Opensea will get you the PonPonSnake Rider and Avatar. Connecting Opensea to your Metamask allows you to sync wallet info together.",
-      "createponponsnakegame": "Create your in-game account. Enter your phone, and we will send a 6 digit code to your phone.",
+      "createponponsnakegame": "Create your in-game account. Enter your phone, and we will send a 4 digit code to your phone.",
       "connectgameaccount": "In order to let PonPonSnake NFT be used in our game, we will need you to connect your Metamask wallet, so we can sync your data. All the earnings in the game will be sent to your metamask wallet.",
       "downloadandplay": "All Done! Now you can start your adventure in PonPonSnake!"
 
