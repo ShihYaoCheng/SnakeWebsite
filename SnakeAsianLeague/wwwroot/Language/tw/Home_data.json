@@ -65,7 +65,7 @@
     "registerButton": "註冊",
     "phoneNumber": "手機號碼",
     "title": "註冊帳號",
-    "text": "請輸入傳送到您手機的六位驗證碼",
+    "text": "請輸入傳送到您手機的四位驗證碼",
     "verifyCode": "驗證碼",
     "resend": "重傳",
     "userName": "用戶名",
