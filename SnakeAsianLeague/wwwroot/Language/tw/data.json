@@ -157,7 +157,10 @@
     "connectMetamask": "連結 Wallet",
     "installMetamask": "請安裝 Wallet",
     "asset": "資產",
-    "activities": "活動"
+    "activities": "活動",
+    "Address": "Address：",
+    "Bluemap": "Bluemap"
+
   },
 
   "footer": {

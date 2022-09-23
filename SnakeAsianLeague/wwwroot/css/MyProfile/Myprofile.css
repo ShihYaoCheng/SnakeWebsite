@@ -303,6 +303,16 @@ html{
     background-color: #3d7481;
     border-radius: 5px;
 }
+
+.metamaskAvailable p {
+    /* border: 1px solid red; */
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    padding: 0 8px;
+}
 .metamaskAvailable span{
     /* border: 1px solid red; */
     /* white-space: nowrap; */
@@ -454,7 +464,7 @@ html{
     /* margin-bottom: 40px; */
     cursor: pointer;
     transition: all .15s ease-in-out;
-    height: 228px;
+    height: 260px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -488,7 +498,7 @@ html{
 }
 .assetIcon{
     /* border: 1px solid red; */
-    margin: 15px auto 10px;
+    margin: 15px auto 40px;
     max-width: 150px;
     width: 50%;
     animation: scale 3s 0s infinite;
@@ -526,10 +536,11 @@ html{
 
 .assetItem span{
     position: absolute;
-    left: 69%;
+    left: 50%;
     bottom: 5px;
     color: #276170;
     font-size: 24px;
+    transform:translateX(-50%);
 }
 .assetValue{
     background-color: #27616F;
@@ -545,14 +556,13 @@ html{
     .assetValue{
         font-size: 26px;
     }
-    .assetItem span{
-        left: 67%;
+    .assetItem span{       
         font-size: 22px;
     }
 }
 @media all and (max-width: 800px){
     .informationAssetBlock{
-        height: 197px;
+        height: 245px;
     }
     .assetItem span{
         font-size: 18px;
@@ -563,7 +573,7 @@ html{
     }
     .assetIcon {
         width: 48%;
-        margin: 12px auto 8px;
+        margin: 12px auto 40px;
     }
 }
 

@@ -174,7 +174,7 @@
                         @if (AllBalance == 0)
                             {                        
 
-                               <div class="  CollectBtnBlack CollectBtnSamll" >                                 
+                               <div class="  CollectBtnBlack CollectBtnSamll" data-i18n="Inventory_data:otherTitle.NoBalance" >                                 
                                    No Balance
                                 </div>    
                             }
@@ -188,7 +188,7 @@
                     <div class="Inventory-PPSR-Select">
                         @if (AllBalance == 0)
                         {
-                            <div class="CollectBtnBlack CollectBtnBig" >         
+                            <div class="CollectBtnBlack CollectBtnBig"  data-i18n="Inventory_data:otherTitle.NoBalance" >         
                                 No Balance
                             </div>    
                         }
@@ -396,7 +396,7 @@
                         
                         @* 如果Card為0張時顯示導購連結，1張以上隱藏 *@
                         <div class="IfNoCard">
-                            <a href="MarketPlace">Buy PPSR >></a>
+                            <a href="MarketPlace" data-i18n="Inventory_data:otherTitle.BuyPPSR">Buy PPSR >></a>
                         </div>
 
                        
