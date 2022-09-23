@@ -275,7 +275,7 @@
     margin-top: -8px;
 }
 
-.coin-range[type=range]::-webkit-slider-runnable-track {
+.coin-range[type="range"]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
     box-shadow: none;
     border: none;
@@ -299,7 +299,7 @@
         margin-top: -11px;
     }
 
-    .coin-range[type=range]::-webkit-slider-runnable-track {
+    .coin-range[type="range"]::-webkit-slider-runnable-track {
         height: 15px;  
         margin-right: -15px;
     }
@@ -317,7 +317,7 @@
         margin-top: -8px;
     }
 
-    .coin-range[type=range]::-webkit-slider-runnable-track {
+    .coin-range[type="range"]::-webkit-slider-runnable-track {
         height: 11px;
         margin-right: -11px;
     }

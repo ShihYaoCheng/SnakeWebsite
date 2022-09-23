@@ -82,7 +82,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
             bool result = false;
             try
             {
-                string URL = "/SRCExchange​/TransferToDB"; 
+                string URL = "/SRCExchange/TransferToDB"; 
                 var request = new RestRequest(URL, Method.GET);
                 request.AddQueryParameter("userID", UserID.ToString());
                 request.AddQueryParameter("amount", amount.ToString());
@@ -91,7 +91,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     ResultTransferData ResultData = JsonSerializer.Deserialize<ResultTransferData>(restResponse.Content);
-                    result = ResultData.result;
+                    result = true;// ResultData.result;
                 }
             }
             catch (Exception ex)

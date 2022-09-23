@@ -68,7 +68,7 @@ window.AddPolygonUSDT = async function () {
     tokenAddress = '0xD92E713d051C37EbB2561803a3b5FBAbc4962431';
     tokenSymbol = 'TUSDT';
     tokenDecimals = 6;
-    tokenImage = 'https://polygonscan.com/token/images/tether_32.png';
+    tokenImage = 'https://storage.googleapis.com/pps-nft/token/USDT.png';
     try {
         // wasAdded is a boolean. Like any RPC method, an error may be thrown.
         const wasAdded = await window.ethereum.request({
@@ -105,7 +105,7 @@ window.AddPolygonSRC = async function () {
     tokenAddress = '0xaBF22878C673C20865D9A1247c86FDe7B1165B7e';
     tokenSymbol = 'SRC';
     tokenDecimals = 18;
-    tokenImage = $('#SRCimg')[0].currentSrc;
+    tokenImage = "https://storage.googleapis.com/pps-nft/token/SRC.png";
     try {
         // wasAdded is a boolean. Like any RPC method, an error may be thrown.
         const wasAdded = await window.ethereum.request({

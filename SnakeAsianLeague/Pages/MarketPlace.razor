@@ -290,7 +290,11 @@
         <section class="marketPlaceHeader">
             
             <div class="marketPlaceTitle-Block ">
-                <div class="marketPlaceTitle" data-i18n="Inventory_data:sortOptions.NFTs">PonPonSnake's NFTs<br>@PPSRsCount PPSRs</div>
+                <div class="marketPlaceTitle-container "> 
+                    <div class="marketPlaceTitle" data-i18n="Inventory_data:sortOptions.NFTs">PonPonSnake's NFTs</div>             
+                    <div class="marketPlaceTitle"> @PPSRsCount PPSRs</div>
+                </div>
+                
                 <button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea" data-i18n="Inventory_data:sortOptions.BuyonOpensea">Buy on Opensea</a ></button>
             </div>
             <NFT_Type/>
@@ -807,7 +811,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        @* await Refresh(); *@
+    @* await Refresh(); *@
     }
 
     private async Task Refresh()
