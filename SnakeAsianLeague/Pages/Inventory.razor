@@ -28,12 +28,15 @@
     <title>PonPonSnake 碰碰蛇｜Inventory</title>
 </head>
 
-<AuthorizeView>
-    <Authorized>
+
         <div class="inventory-Background"></div>
         
          @*右上角顯示錢包地址*@
-        <Walletaddress></Walletaddress>
+        @if (Value)
+        {
+            <Walletaddress></Walletaddress>
+        }
+
         <img id="SRCimg" src="/images/MarketPlace/SRC.webp" hidden="@(true)"/>
         <div class="Inventory-Block">
             <div class="Inventory">
@@ -714,7 +717,10 @@
     </section>
 
     @*..............騎士幣兌換 coinexchange 彈窗.......................*@
-    <Inventory_CoinExchange Value = "CoinData" refresh="refresh"></Inventory_CoinExchange>
+    @if (Value)
+    {
+        <Inventory_CoinExchange Value = "CoinData" refresh="refresh"></Inventory_CoinExchange>
+    }
     @*..............交易中反灰.......................*@
     <TransactWindow></TransactWindow>
 
@@ -727,19 +733,13 @@
         <ErrorNetwork AddPolygon ="AddPolygon" Value ="netWorkName"></ErrorNetwork>
     }
     @*載入畫面*@
-    @if (loading)
+    @if (loading && Value)
     {
         <FectchDataLoading />    
     }
 
 
-    </Authorized>
-    <NotAuthorized>
-        <div class="InventoryNotLogin">
-            <h1>Please Login First</h1>
-        </div>
-    </NotAuthorized>
-</AuthorizeView>
+
 
 
 @code {
@@ -764,14 +764,26 @@
     //SRC、ERNC兌換
     private async Task ExchangeBtn(bool check )
     {
-        if (check)
+
+        if (Value)
         {
-            CoinData.changeData("ERNC",100,100);  
-        } else
-        {
-            CoinData.changeData("SRC",gSRC,tokenSRC );    
+            if (check)
+            {
+                CoinData.changeData("ERNC", 100, 100);
+            }
+            else
+            {
+                CoinData.changeData("SRC", gSRC, tokenSRC);
+            }
+            await JS.InvokeVoidAsync("installI18n");
         }
-        await JS.InvokeVoidAsync("installI18n");
+        else
+        {
+            await JS.InvokeVoidAsync("loginButton", "loginButton");
+        }
+
+   
+
     }
     //取得錢包資訊
     private async Task getCoinData()
@@ -880,8 +892,9 @@
     {
         if (firstRender)
         {
+       
             await Refresh();
-    @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
+            @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterButtonClick");
@@ -895,11 +908,15 @@
             await JS.InvokeVoidAsync("ShowMSGcheckbox");    
 
             await JS.InvokeVoidAsync("showTag");   
+            if (Value)
+            {
+                RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/RentJump.js");
 
-            RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/RentJump.js");
-
-            coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
-            await getCoinData();
+                coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
+                await getCoinData();
+            }
+       
+         
 
             await loadingColse();
         }
@@ -1135,7 +1152,7 @@
         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
         AllBalance = await InventoryService.CalReceiveRent(UserID);
 
-       Refresh();
+        Refresh();
     }
 
     //強制渲染的方法
@@ -1147,8 +1164,17 @@
     }
     //新增SRC錢包
     protected  async Task AddSRC()
-    {      
-        await JS.InvokeVoidAsync("AddPolygonSRC");            
+    {
+        if (Value)
+        {
+            await JS.InvokeVoidAsync("AddPolygonSRC");
+        }
+        else
+        {
+            await JS.InvokeVoidAsync("loginButton", "loginButton");
+        }
+
+
     }
 
 

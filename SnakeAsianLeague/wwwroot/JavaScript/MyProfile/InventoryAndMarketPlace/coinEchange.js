@@ -124,9 +124,9 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address) {
 				from: accounts[0],
 			});
 		console.log("request", request)
-		alert("You have successfully sold SRC tokens!");
+		alert("You have successfully exchange SRC tokens!");
 		
-		console.log("1111")
+	
 		return true
 	} catch (err) {
 		console.log("error", err)	
@@ -148,6 +148,8 @@ export async function CoinexchangeData(chainId ,SRC_address) {
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts()
 	const networkID = await w3.eth.net.getId()
+
+
 	if (parseInt(chainId.slice(2)) != networkID) {
 		return ["false", "0"]
 	}
@@ -163,7 +165,7 @@ export async function CoinexchangeData(chainId ,SRC_address) {
 
 
 
-	$("#userAddress")[0].innerText = address[0].slice(0, 9) + "...."
+	$("#userAddress")[0].innerText = address[0].slice(0, 5) + "...." + address[0].slice(38)
 
 	
 	/*回傳*/
