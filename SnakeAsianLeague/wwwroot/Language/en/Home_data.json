@@ -103,7 +103,15 @@
     "swap-button": "Swap Now"
   },
 
-    "partners":{
-      "title":"Partners"
-    }
+  "partners":{
+    "title":"Partners"
+  },
+
+  "Scholar": {
+    "title": "PPS SEIGNIOR",
+    "text-01": "The one who owns a PPSR will be claimed as a \"Seignior\". These people will have special powers that can rule over PonPonSnake Universe.",
+    "privilege-A": "<span>privilege A</span> Each day the seignior will be able to receive SRC income.",
+    "privilege-B": "<span>privilege B</span> The seignior will have the power to decide the rental fee of the NFT they own.",
+    "privilege-C": "<span>privilege C</span> The seignior will effect the economic system of PonPonSnake universe."
+  }
 }
