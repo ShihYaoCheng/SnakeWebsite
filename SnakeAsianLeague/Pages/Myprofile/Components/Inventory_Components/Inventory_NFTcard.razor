@@ -108,7 +108,7 @@
     [Parameter]
     public EventCallback<NFTCardData>  setValueByUnit { get; set;}
   
-    NFTCardData NFTCard ;
+    NFTCardData NFTCard =new NFTCardData();
 
     private void clicksetValueByUnit(string TokenID ,decimal totalRevenue,object eventArgs)
     {
@@ -129,5 +129,14 @@
         await JS.InvokeVoidAsync("installI18n");
     }
 
-    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+          await JS.InvokeVoidAsync("NFTcardAClick");   
+          await JS.InvokeVoidAsync("CollectBtnPoP");   
+        }
+    }
+
+      
 }
