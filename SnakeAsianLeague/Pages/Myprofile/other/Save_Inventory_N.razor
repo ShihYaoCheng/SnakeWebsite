@@ -1,0 +1,128 @@
+﻿@*組件化前 NFTCARD原本內容*@
+@*這是一個暫存區塊，確定沒問題就可以刪除*@
+
+@* 
+     <div class="NFTcard card-bg-grey">
+    <div class="heart btn p-0 tippy-pop" data-content="Favorite">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                                    <path class="heart__path"
+                                                    d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                                    transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2" />
+                                                </svg>
+                                            </div>
+
+                                            <a class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
+                                      
+                                                <div class="NFTcard-inner">
+
+                                                    <div class="NFT-cardImg">
+                                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
+                                                    </div>
+                                                
+                                                    <div class="NFT-cardText">
+                                                        <div class="NFT-Number">#PPSR @item.Number</div>
+                                                        <div class="NFT-Name"  data-i18n=NFT_data:@item.serialNumber>
+                                                            @item.serialNumber
+                                                        </div>
+
+                                                         
+                                                        <div class="rent-container"  >
+                                                            <div class="rent-left">
+                                                                <img src="/images/MarketPlace/SRC.webp"/>
+                                                            </div>
+                                                            <div class="rent-right">
+                                                                <p class="fee-Text" ><span data-i18n="Inventory_data:otherTitle.RentalFee"> Rental Fee: </span> <span> @item.nowRent </span> </p>
+                                                                <p class="balance-Text" ><span data-i18n="Inventory_data:otherTitle.Balance">Balance:</span> <span> @item.totalRevenue </span> </p>
+                                                            </div>
+                                                        </div>
+                                                        @if (@item.totalRevenue != 0)
+                                                        {
+                                                             <div class="CollectBtn-Container">
+                                                           
+                                                                  <button  class="Collect-Btn"@onclick=" (eventArgs)  =>  {                                                                       
+                                                                      ReceiveRentByUnitOnclick();
+                                                                  }" 
+                                                                  data-i18n="Inventory_data:otherTitle.CollectIncome"
+                                                                  >Collect Income</button>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                             <div class="CollectBtn-Container">
+                                                                  <button  class="Collect-Btn-Finish" data-i18n="Inventory_data:otherTitle.NoBalance">No Balance</button>
+                                                            </div>
+                                                        }
+                                                     
+                                                    
+                                                    
+
+
+
+
+                                                        <div class="NFT-PriceBlock">
+                                                            <div class="NFT-PriceMain">
+                                            
+                                                                <span class="NFT-Price" data-i18n="Inventory_data:sortOptions.ComingSoon">ComingSoon</span>
+                                                            </div>
+                                                     
+                                                        </div>
+                                                   
+                                                        <button  class="Show-tag" @onclick="reInstallI18n"> <span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.ShowTag">Show Tag</span>  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
+                                                    </div>
+
+                                                </div>
+                                            </a>
+                                          
+                                                     
+                                            <div class="tag-zone">
+                                              
+                                                    <div class="NFT-Label-block">
+                                                        <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.RarityValue">@item.RarityValue</div>
+                                              
+                                                    </div>
+                                            </div>
+                                              </div>
+                                            *@
+
+@*                 <div class="NFTcard card-bg-green">
+                                            <div class="heart btn p-0 tippy-pop" data-content="Favorite">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                                                    <path class="heart__path"
+                                                    d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                                                    transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2" />
+                                                </svg>
+                                            </div>
+
+                                            <a class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
+                                           
+
+                                                <div class="NFTcard-inner">
+                                                    <div class="NFT-cardImg">
+                                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
+                                                    </div>
+                                                
+                                                    <div class="NFT-cardText">
+
+                                                        <div class="NFT-Number">#@item.Number</div>
+                                                        <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber >
+                                                            @item.serialNumber
+                                                        </div>
+                                         
+                                                        <div class="NFT-EndTime">Ends in @item.CalDays</div>
+                                                    </div>
+
+                                                
+                                                </div>
+                                            </a>
+
+
+                                        </div>
+                            *@
+
+@code {
+
+}

@@ -2,6 +2,7 @@
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Paging
 @using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.MarketPlace
 @using SnakeAsianLeague.Data.Services.Personal
 @using SnakeAsianLeague.Data.Entity.View
 @using Microsoft.AspNetCore.Components.Authorization
@@ -27,769 +28,69 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>PonPonSnake 碰碰蛇｜Inventory</title>
 </head>
-
-
         <div class="inventory-Background"></div>
         
          @*右上角顯示錢包地址*@
-        @if (Value)
+        @if (islogin)
         {
             <Walletaddress></Walletaddress>
         }
-
-        <img id="SRCimg" src="/images/MarketPlace/SRC.webp" hidden="@(true)"/>
         <div class="Inventory-Block">
             <div class="Inventory">
                 <div class="Inventory-Title" data-i18n="Sidebar.Inventory">Inventory</div>
 
-                <div class="Secend-Block">
-                    <div class="Secend-Title" data-i18n="Inventory_data:otherTitle.Inventory">My Currency</div>
-                    @*.......修改位置.........*@
-                 <div class="Inner-container" >
-                         <div class="Inner" >
-                             <div class="MyCerrency-container">
-                                <div class=" MyCerrency-between">
-                                    <a class="buyGameCoin" hidden="@(true)">buy</a>
-                                    <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.png" alt="">
-                                    <div class="MyCerrency-Detail">
-                                        <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.gERNC">gERNC</p>
-                             
-                                        <p class="MyCerrency-Amount">0</p>
-                                    </div>
-                                </div>
-                                 <div class=" MyCerrency-mid">
-                                    <img class="doubleArrow" src="/images/Myprofile/doubleArrow.png" alt="">
-          
-                                </div>
-                                 <div class=" MyCerrency-between ">
-                                    <button  class="addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" hidden="@(true)"></button>
-                                    <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.png" alt="">
-                                    <div class="MyCerrency-Detail">
-                                        <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.ERNCToken">ERNC TOKEN</p>
-                             
-                                        <p class="MyCerrency-Amount">0</p>
-                                    </div>
-                                </div>
-
-
-                             </div>
-                             <div class="ExchangeBtn-container">
-                                  <button class="ExchangeBtn" @onclick ="()=>ExchangeBtn(true) " hidden="@(true)" data-i18n="Inventory_data:otherTitle.Exchange">
-                                     Exchange
-                                 </button>
-                             </div>
-                        </div>
-
-                        <div class="Inner" >
-                                 <div class="MyCerrency-container">
-                                    <div class=" MyCerrency-between">
-                                       <a class="buyGameCoin" hidden="@(true)" >buy</a>
-                                       <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.png" alt="">
-                                        <div class="MyCerrency-Detail">
-                                            <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.gSRC">gSRC</p>
-                             
-                                            <p class="MyCerrency-Amount">@gSRC</p>
-                                        </div>
-                                    </div>
-                                     <div class=" MyCerrency-mid">
-                                        <img class="doubleArrow" src="/images/Myprofile/doubleArrow.png" alt="">
-          
-                                    </div>
-                                     <div class=" MyCerrency-between">
-                                         <button  class="addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRC"></button>
-                                        <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.png" alt="">
-                                        <div class="MyCerrency-Detail">
-                                            <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.SRCToken">SRC TOKEN</p>
-                             
-                                            <p class="MyCerrency-Amount">@tokenSRC</p>
-                                        </div>
-                                    </div>
-
-
-                                 </div>
-                                 <div class="ExchangeBtn-container">
-                                     <button class="ExchangeBtn" @onclick ="()=>ExchangeBtn(false)" data-i18n="Inventory_data:otherTitle.Exchange">
-                                         Exchange
-                                     </button>
-                                 </div>
-                         </div>
-                    </div>  
-        
-
-
-                  @*  <div class="Secend-Inner sssss" id="Secend-Block-MyCerrency">
-
-                        <div class="MyCerrency ttttt">
-                            <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
-                            <div class="MyCerrency-Detail">
-                                <p class="MyCerrency-Name">ERNC</p>
-                             
-                                <p class="MyCerrency-Amount">0</p>
-                            </div>
-                        </div>
-                         <div class="MyCerrency ttttt">
-                            <img class="MyCerrency-Icon" src="/images/Myprofile/MIPR.webp" alt="">
-                            <div class="MyCerrency-Detail">
-                                <p class="MyCerrency-Name">MIPR</p>
-                            
-                                <p class="MyCerrency-Amount">0</p>
-                            </div>
-                        </div>
-                        <div class="MyCerrency ttttt">
-                            <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.webp" alt="">
-                            <div class="MyCerrency-Detail">
-                                <p class="MyCerrency-Name">SRC</p>
-                              
-                                <p class="MyCerrency-Amount" id="TotalSRCCount">  @TotalSRCCount </p>
-                            </div>
-                        </div>
-
-                    </div>*@
-                   
-                     @*.......修改位置.........*@
+                @*exchange區塊*@
+                <div class="Secend-Block">  
+                        <Inventory_Exchange Value="CoinData" refresh="refresh" />  
                 </div>
 
-
+                @*切換區塊*@
                 <div class="Secend-Block">
-                    <div class="Secend-Title" data-i18n="Inventory_data:otherTitle.Inventory">Inventory</div>
-                    <div class="Secend-Inner" id="">
-
                         <NFT_Type />
-
-                    </div>
                 </div>
-               
-
-                <div class="Inventory-PPSR-Block" id="Inventory-PPSR-Block">
-                    <div class="Inventory-PPSR-Block-Nav">
-                        <div>
-                            <div class="Inventory-PPSR-Amount">@PPSRsCount PPSRs</div>
-                            <div class="AllBalance">
-                                <span data-i18n="Inventory_data:otherTitle.TotalIncomeSRC">Total Income: </span>
-                                <span> @AllBalance </span> 
-                                <span data-i18n="Inventory_data:otherTitle.SRC">SRC </span> 
-                            </div>
-                      
-                        </div>
-                        @if (AllBalance == 0)
-                            {                        
-
-                               <div class="  CollectBtnBlack CollectBtnSamll" data-i18n="Inventory_data:otherTitle.NoBalance" >                                 
-                                   No Balance
-                                </div>    
-                            }
-                            else
-                            {                         
-                                <div  data-i18n="Inventory_data:otherTitle.CollectAllIncome" class=" CollectBtn CollectBtnSamll"   @onclick="eventArgs => { setValue(  eventArgs); }" >       
-                                    Collect All Income
-                                </div>
-                            }
-                    </div>
-                    <div class="Inventory-PPSR-Select">
-                        @if (AllBalance == 0)
-                        {
-                            <div class="CollectBtnBlack CollectBtnBig"  data-i18n="Inventory_data:otherTitle.NoBalance" >         
-                                No Balance
-                            </div>    
-                        }
-                        else
-                        {
-                            <div data-i18n="Inventory_data:otherTitle.CollectAllIncome" class="CollectBtn CollectBtnBig" @onclick="eventArgs => { setValue(  eventArgs); }" >             
-                                Collect All Income
-                            </div>
-                        }
-
-
-                        <div class="Inventory-PPSR-Filter-Block">
-                            <div class="Inventory-PPSR-Filter Inventory-hover">
-                                <svg class="Filter-Icon" xmlns="http://www.w3.org/2000/svg" width="28.06" height="25.65" viewBox="0 0 28.06 25.65">
-                                    <g id="" data-name="" transform="translate(1508 -1239.175)">
-                                        <path id="" data-name="" d="M26.916,2.993H7.6A1.851,1.851,0,0,0,7.6.707H26.916a1.143,1.143,0,1,1,0,2.287Zm-22.224,0H1.144a1.143,1.143,0,1,1,0-2.287H4.692a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1241.443)" fill=""/>
-                                        <path id="" data-name="" d="M26.916,2.993h-3.1a1.851,1.851,0,0,0,0-2.287h3.1a1.143,1.143,0,1,1,0,2.287Zm-6.011,0H1.144a1.143,1.143,0,1,1,0-2.287H20.905a1.85,1.85,0,0,0,0,2.285Z" transform="translate(-1508 1250.135)" fill=""/>
-                                        <path id="" data-name="" d="M26.916,2.993H11.748a1.851,1.851,0,0,0,0-2.287H26.916a1.143,1.143,0,1,1,0,2.287Zm-18.077,0h-7.7a1.143,1.143,0,1,1,0-2.287h7.7a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1258.828)" fill=""/>
-                                        <path id="" data-name="" d="M-3.383-7.5A4.122,4.122,0,0,1,.735-3.383,4.122,4.122,0,0,1-3.383.735,4.122,4.122,0,0,1-7.5-3.383,4.122,4.122,0,0,1-3.383-7.5Zm0,5.947a1.832,1.832,0,0,0,1.83-1.83,1.832,1.832,0,0,0-1.83-1.83,1.832,1.832,0,0,0-1.83,1.83A1.832,1.832,0,0,0-3.383-1.553Z" transform="translate(-1498.471 1246.675)" fill=""/>
-                                        <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1482.288 1255.337)" fill=""/>
-                                        <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1494.354 1264.03)" fill=""/>
-                                    </g>
-                                    <p data-i18n="Inventory_data:otherTitle.Filter">Filter</p>
-                                </svg>
-                            </div>
-                            
-                            <aside class="marketPlaceSidebar Inventory-PPSR-Filter-Sidebar">
-                                <div class="marketPlaceSidebar-scroll">
-
-
-                                    <section class="Sidebar-Filter-Block" id="Filter-Header">
-                                        <div class="Filter-Header-title">
-                                               <span data-i18n="Inventory_data:otherTitle.Filter">Filter</span><span>(@FilterCount)</span>
-                                        </div>
-                                     
-                                        <div class="Filter-Header-Block">
-                                            <button  hidden="@(true)" class="Filter-Button" id="Filter-Button-Reset">Reset</button>
-                                            <button  hidden="@(true)" class="Filter-heart btn p-0 tippy-pop" data-content="Favorite" >
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                                                    <path class="heart__path"
-                                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="1.5" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </section>
-
-                                    <section  hidden="@(true)" class="Sidebar-Filter-Block" id="">
-
-                                        <label for="officialDebut" class="Sidebar-checkbox-label">
-                                            <input type="checkbox" id="officialDebut" class="Sidebar-checkbox">
-                                            <span>Only show the official debut</span>
-                                        </label>
-
-                                    </section>
-
-                                    <section  hidden="@(true)" class="Sidebar-Filter-Block" id="" >
-                                        <div class="Filter-Title">
-                                            <span>Price (ETH)</span>
-                                            <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
-                                        </div>
-                                        <div class="Filter-Options Filter-Radio">
-                                            <div class="range-Input">
-                                                <input type="range" name="" id="PriceRange" min="0" max="20" value="20" oninput="textInputRange.value = this.value">
-                                            </div>
-                                            <div class="range-Text">
-                                                <div class="ra-range">0</div>
-                                                <output id="textInputRange">20</output>
-                                                <div class="ra-range">20</div>
-                                            </div>
-
-                                        </div>
-
-
-                                    </section>
-                                    
-                                    <section  hidden="@(true)" class="Sidebar-Filter-Block" id="">
-                                        <div class="Filter-Title">
-                                            <span>Body Type</span>
-                                            <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
-                                        </div>
-                                        <div class="Filter-Options Filter-Radio">
-                                            <div class="bodyType-radio d-inline position-relative bgBorder">
-                                                <input style="--step:0" class="ra" type="radio" name="test" id="BodyType-1" value="1">
-                                                <input style="--step:1" class="ra" type="radio" name="test" id="BodyType-1.1" value="1.1">
-                                                <input style="--step:2" class="ra" type="radio" name="test" id="BodyType-1.2" value="1.2">
-                                                <input style="--step:3" class="ra" type="radio" name="test" id="BodyType-1.3" value="1.3">
-                                                <input style="--step:4" class="ra" type="radio" name="test" id="BodyType-1.4" value="1.4">
-                                                <input style="--step:5" class="ra" type="radio" name="test" id="BodyType-1.5" value="1.5">
-                                                <input style="--step:6" class="ra" type="radio" name="test" id="BodyType-1.6" value="1.6">
-                                            </div>
-
-                                            <div class="bodyType-label">
-                                                <label class="ra-label" for="BodyType-1">1</label>
-                                                <label class="ra-label" for="BodyType-1.1">1.1</label>
-                                                <label class="ra-label" for="BodyType-1.2">1.2</label>
-                                                <label class="ra-label" for="BodyType-1.3">1.3</label>
-                                                <label class="ra-label" for="BodyType-1.4">1.4</label>
-                                                <label class="ra-label" for="BodyType-1.5">1.5</label>
-                                                <label class="ra-label" for="BodyType-1.6">1.6</label>
-                                            </div>
-                                        </div>
-
-
-                                    </section>
-
-                                    <section class="Sidebar-Filter-Block" id="">
-                                        <div class="Filter-Title">
-                                            <span data-i18n="Inventory_data:Filter.Rarity">Rarity</span>
-                                            <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
-                                        </div>
-                                        <div class="Filter-Options">
-
-                                            @foreach (var item in RarityList)
-                                            {
-                                                var key = @item.Key;
-                                                <label class="Filter-Button" for="@item.Value">
-                                                    <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
-                                                </label>
-                                                <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
-                                            }
-                                            
-                                        </div>
-
-
-                                    </section>
-
-                                    <section class="Sidebar-Filter-Block" id="">
-                                        <div class="Filter-Title">
-                                            <span data-i18n="Inventory_data:Filter.Element">Element</span>
-                                            <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
-                                        </div>
-                                        <div class="Filter-Options">
-
-                                            @foreach (var item in ElementsList)
-                                            {
-                                                var key = @item.Key;
-                                                <label class="Filter-Button" for="@item.Value">
-                                                    <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
-                                                </label>
-                                                <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
-                                            }
-
-                                        </div>
-                                    </section>
-
-                                    <section class="Sidebar-Filter-Block" id="">
-                                        <div class="Filter-Title">
-                                            <span data-i18n="Inventory_data:Filter.Class">Class</span>
-                                            <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
-                                        </div>
-                                        <div class="Filter-Options">
-
-                                            @foreach (var item in ClassList)
-                                            {
-                                                var key = @item.Key;
-                                                <label class="Filter-Button" for="@item.Value">
-                                                    <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
-                                                </label>
-                                                <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
-                                            } 
-
-                                        </div>
-                                    </section>
-
-                                    <section class="Sidebar-Filter-Block" id="">
-                                        <div class="Filter-Title">
-                                            <span>Country</span>
-                                            <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
-                                        </div>
-                                        <div class="Filter-Options">
-
-                                            @foreach (var item in CountryList)
-                                            {
-                                                var key = @item.Key;
-                                                <label class="Filter-Button" for="@item.Value">
-                                                    <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
-                                                </label>
-                                                <input id="@item.Value"  class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
-                                            }
-
-                                        </div>
-                                    </section>
-                                </div>
-                            </aside>
-                            
-                        </div>
-
-
-                        <select class="sortSelect Inventory-PPSR-sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))" > 
-
-                            <option disabled="" value="Sort"data-i18n="Inventory_data:sortOptions.Sort"  selected="" hidden="">Sort</option>
-                            <option value="Highest Earned"  data-i18n="Inventory_data:sortOptions.HighestEarned" >Highest Earned</option>
-                            <option value="Lowest Earned"   data-i18n="Inventory_data:sortOptions.LowestEarned" >Lowest Earned</option>
-                            <option value="Highest Price"   data-i18n="Inventory_data:sortOptions.HighestPrice" >Highest Price</option>
-                            <option value="Lowest Price"    data-i18n="Inventory_data:sortOptions.LowestPrice" >Lowest Price</option>
-                            <option value="Newest"          data-i18n="Inventory_data:sortOptions.Newest" >Newest</option>
-                            <option value="Oldest"          data-i18n="Inventory_data:sortOptions.Oldest"  >Oldest</option>
-
-                        </select>
-                    </div>
+                <Inventory_PPSR Value="CoinData"/>
               
-                    <div class="Inventory-CardBLock">
-                        
-                        @* 如果Card為0張時顯示導購連結，1張以上隱藏 *@
-                        <div class="IfNoCard">
-                            <a href="MarketPlace" data-i18n="Inventory_data:otherTitle.BuyPPSR">Buy PPSR >></a>
-                        </div>
-
-                       
-
-                        @if(NFTDataList != null){
-                            @foreach( NFTData item in NFTDataList)
-                            {
-
-                                string TokenID = @item.TokenID;
-                                decimal totalRevenue =  @item.totalRevenue;
-                                if (@item.IsOfficial)
-                                {
-                                    if (@item.IsOpen)
-                                    {
-                                        @* 1.沒有顯示價格的版本 - 官方首拍 紅色*@
-                                        <div class="NFTcard card-bg-red">
-                                            <div class="heart btn p-0 tippy-pop" data-content="Favorite">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005" >
-                                                    <path class="heart__path"
-                                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" />
-                                                </svg>
-                                    
-                                            </div>
-
-                                            <a class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
-                                                @*<a href="@item.LinkURL" target="opensea">  </a>*@
-
-                                                <div class="NFTcard-inner">
-                                                    <div class="NFT-cardImg">
-                                                        <img src="@item.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
-                                                    </div>
-
-                                                    <div class="NFT-cardText Not-Price-Ver">
-                                                        <div class="NFT-card-header">
-                                                            <img  class="NFT-ElementsIcon" src="@item.ElementsIcon" alt="">
-                                                            <div class="NFT-Number"  >@item.Number</div>
-                                                        </div>
-                                                        <div class="NFT-Name"  data-i18n=NFT_data:@item.serialNumber>
-                                                            @item.serialNumber
-                                                        </div>
-                                                          @*.................首拍拿掉的部分...................... *@
-                                                        <div class="rent-container"  >
-                                                            <div class="rent-left">
-                                                                <img src="/images/MarketPlace/SRC.webp"/>
-                                                            </div>
-                                                            <div class="rent-right">
-                                                                <p class="fee-Text" ><span data-i18n="Inventory_data:otherTitle.RentalFee"> Rental Fee: </span> <span>  @item.nowRent </span> </p>
-                                                                <p class="balance-Text" ><span data-i18n="Inventory_data:otherTitle.Balance">Balance:</span> <span>  @item.totalRevenue </span> </p>
-                                                            </div>
-                                                        </div>
-                                                        @if (@item.totalRevenue != 0)
-                                                        {
-                                                             <div class="CollectBtn-Container">
-                                                                  <button  class="Collect-Btn"@onclick=" (eventArgs)  =>  { 
-                                                                      setValueByUnit(  TokenID , totalRevenue, eventArgs); 
-                                                                      ReceiveRentByUnitOnclick();  
-                                                                  }" 
-                                                                    data-i18n="Inventory_data:otherTitle.CollectIncome"
-                                                                  >Collect Income</button>
-                                                            </div>
-                                                        }
-                                                        else
-                                                        {
-                                                             <div class="CollectBtn-Container">
-                                                                  <button  class="Collect-Btn-Finish" data-i18n="Inventory_data:otherTitle.NoBalance">No Balance</button>
-                                                            </div>
-                                                        }
-                                                     
-                                                         @*....................................... *@
-                                                        <div class="NFT-Income-Block">
-                                                             @*<div class="NFT-Income-Block-title">Total Income</div>
-                                                            <div class="NFT-Income-Main">
-                                                               <div class="NFT-Income-Currency">
-                                                                    <span>SRC</span>
-                                                                    <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.webp" alt="">
-                                                                </div>
-                                                                <span class="NFT-Currency-Price">123,456,789</span>
-                                                            </div>*@
-                                                        </div>
-                                                               @*.................首拍拿掉的部分...................... *@
-                                                        <button  class="Show-tag" @onclick="reInstallI18n"><span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.ShowTag">Show Tag</span>   <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
-                                                                       @*....................................... *@
-                                                    </div>
-                                                   
-                                                </div> 
-
-                                                 
-                                            </a>
-                                             @*.................首拍拿掉的部分...................... *@
-                                             @*.................tag 區域...................... *@
-                                            <div class="tag-zone">                                                   
-                                                    <div class="NFT-Label-block">
-                                                        <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.RarityValue">@item.RarityValue</div>
-                                                        @* <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.ClassValue">@item.ClassValue</div>*@
-                                                        @*<div class="NFT-Label" >Survival master</div>*@
-                                                    </div>
-                                            </div>
-                                              @*....................................... *@
-                                                    @*....................................... *@
-                                        </div>
-
-
-
-
-
-                                    }
-                                    else
-                                    {
-                                        /*官方 預定販售NFT*/
-                                        <div class="NFTcard card-bg-grey">
-                                            <div class="heart btn p-0 tippy-pop" data-content="Favorite">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                                                    <path class="heart__path"
-                                                    d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                                    transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                                    stroke-width="2" />
-                                                </svg>
-                                            </div>
-
-                                            <a class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
-                                             @*<a href="@item.LinkURL" target="opensea"></a>*@
-                                                
-                                                <div class="NFTcard-inner">
-
-                                                    <div class="NFT-cardImg">
-                                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
-                                                    </div>
-                                                
-                                                    <div class="NFT-cardText">
-                                                        <div class="NFT-Number">#PPSR @item.Number</div>
-                                                        <div class="NFT-Name"  data-i18n=NFT_data:@item.serialNumber>
-                                                            @item.serialNumber
-                                                        </div>
-
-                                                             @*.................新增租金...................... *@
-                                                        <div class="rent-container"  >
-                                                            <div class="rent-left">
-                                                                <img src="/images/MarketPlace/SRC.webp"/>
-                                                            </div>
-                                                            <div class="rent-right">
-                                                                <p class="fee-Text" ><span data-i18n="Inventory_data:otherTitle.RentalFee"> Rental Fee: </span> <span> @item.nowRent </span> </p>
-                                                                <p class="balance-Text" ><span data-i18n="Inventory_data:otherTitle.Balance">Balance:</span> <span> @item.totalRevenue </span> </p>
-                                                            </div>
-                                                        </div>
-                                                        @if (@item.totalRevenue != 0)
-                                                        {
-                                                             <div class="CollectBtn-Container">
-                                                                  <button  class="Collect-Btn"@onclick=" (eventArgs)  =>  { 
-                                                                      setValueByUnit(  TokenID , totalRevenue, eventArgs); 
-                                                                      ReceiveRentByUnitOnclick();
-                                                                  }" 
-                                                                  data-i18n="Inventory_data:otherTitle.CollectIncome"
-                                                                  >Collect Income</button>
-                                                            </div>
-                                                        }
-                                                        else
-                                                        {
-                                                             <div class="CollectBtn-Container">
-                                                                  <button  class="Collect-Btn-Finish" data-i18n="Inventory_data:otherTitle.NoBalance">No Balance</button>
-                                                            </div>
-                                                        }
-                                                     
-                                                    
-                                                          @*....................................... *@
-
-
-
-
-                                                        <div class="NFT-PriceBlock">
-                                                            <div class="NFT-PriceMain">
-                                            
-                                                                <span class="NFT-Price" data-i18n="Inventory_data:sortOptions.ComingSoon">ComingSoon</span>
-                                                            </div>
-                                                        @*  <div class="NFT-USD">231269.89 USD</div>*@
-                                                        </div>
-                                                        @*<div class="NFT-EndTime">Ends in 30d 12h</div>*@
-                                                        <button  class="Show-tag" @onclick="reInstallI18n"> <span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.ShowTag">Show Tag</span>  <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  </button>
-                                                    </div>
-
-                                                </div>
-                                            </a>
-                                           @*.................tag 區域...................... *@
-                                                     
-                                            <div class="tag-zone">
-                                              
-                                                    <div class="NFT-Label-block">
-                                                        <div class="NFT-Label" data-i18n="Inventory_data:Filter.@item.RarityValue">@item.RarityValue</div>
-                                                        @* <div class="NFT-Label">@item.ClassValue</div>*@
-                                                        @*<div class="NFT-Label">Survival master</div>*@
-                                                    </div>
-                                            </div>
-                                                  @*....................................... *@
-                                        </div>
-
-                                    }
-                                }
-                                else
-                                {
-                                    if(@item.IsOpen){
-                    
-                                        <div class="NFTcard card-bg-green">
-                                            <div class="heart btn p-0 tippy-pop" data-content="Favorite">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                                                    <path class="heart__path"
-                                                    d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                                                    transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                                                    stroke-width="2" />
-                                                </svg>
-                                            </div>
-
-                                            <a class="NFTcardA" href="Products/@item.serialNumber/@item.TokenID" >
-                                            @*<a href="@item.LinkURL" target="opensea"></a>*@
-
-                                                <div class="NFTcard-inner">
-                                                    <div class="NFT-cardImg">
-                                                        <img src="@item.ImgPath" alt=""   onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                                                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
-                                                    </div>
-                                                
-                                                    <div class="NFT-cardText">
-
-                                                        <div class="NFT-Number">#@item.Number</div>
-                                                        <div class="NFT-Name" data-i18n=NFT_data:@item.serialNumber >
-                                                            @item.serialNumber
-                                                        </div>
-                                                        @*<div class="NFT-PriceBlock">
-                                                            <div class="NFT-PriceMain">
-                                                                <div class="NFT-PriceIcon-Border">
-                                                                    <img class="NFT-PriceIcon" src="/images/MarketPlace/Polygon-eth-01.webp"  alt="ETH ON POLYGON"  title="ETH ON POLYGON">
-                                                                </div>
-                                                                <span class="NFT-Price">$@item.Price</span>
-                                                            </div>
-                                                            <div class="NFT-USD">@item.USD USD</div>
-                                                        </div>*@
-                                                        <div class="NFT-EndTime">Ends in @item.CalDays</div>
-                                                    </div>
-
-                                                
-                                                </div>
-                                            </a>
-
-
-                                        </div>
-                            
-                                    }
-                                }
-                                
-                              
-
-                            }
-                        }
-
-
-                       
-                    </div>
-
-
-
-                    <div class="Pagination-Block">
-                        @*這裡要加頁碼*@
-                        <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage" /> 
-                    </div>
-
-
-
-
-                </div>
-
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-    @*.................全部領 彈窗...................... *@
-    <section class="products-popup-bg AllCollectPop">
-    
-        <div class="products-popupblock" >
-         
-            <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
-                <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
-                    fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
-            </svg>
-
-    
-            <div class="products-popup-content">
-                <div class="products-popup-text">Comfirm to Collect All <span >(@CollectBalance)</span> Income?</div>
-          
-                <button class="products-popup-submit" type="submit" @onclick="ReceiveRent" >Confirm </button>
             </div>
         </div>
-    </section>
-     @*.................個別領 彈窗...................... *@
-    <section class="products-popup-bg SingelAllCollectPop">
-    
-        <div class="products-popupblock" >
-         
-            <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
-                <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
-                    fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
-            </svg>
 
-    
-            <div class="products-popup-content">
-                <div class="products-popup-text"> Comfirm to Collect <p class="NFT-Number-Pop"></p> <span>(@CollectBalance)</span>  Income?  </div>
-                <div  class="show-msg"><img id="ShowMSGcheckbox" typeof="button" src="/images/MarketPlace/checkbox.webp"/> Do not show this message again </div>
-                <button class="products-popup-submit" @onclick="ReceiveRentByUnit" type="submit"  >Confirm  </button>
-            </div>
-        </div>
-    </section>
+    @*全部領 彈窗*@
+    <Inventory_AllCollectPop   Value=@CollectBalance ReceiveRent="ReceiveRent" ></Inventory_AllCollectPop>
 
-    @*..............騎士幣兌換 coinexchange 彈窗.......................*@
-    @if (Value)
-    {
-        <Inventory_CoinExchange Value = "CoinData" refresh="refresh"></Inventory_CoinExchange>
-    }
-    @*..............交易中反灰.......................*@
+     @*個別領 彈窗*@
+     <Inventory_SingelAllCollectPop Value=@CollectBalance  ReceiveRentByUnit="ReceiveRentByUnit" ></Inventory_SingelAllCollectPop>
+ 
+    @*交易中反灰*@
     <TransactWindow></TransactWindow>
 
-
-
     @*錯誤訊息*@
-
-    @if (Value && !(netWorkRight))
+    @if (islogin && !(netWorkRight))
     {
-        <ErrorNetwork AddPolygon ="AddPolygon" Value ="netWorkName"></ErrorNetwork>
+        <ErrorNetwork AddPolygon ="AddPolygon" Value =@netWorkName></ErrorNetwork>
     }
     @*載入畫面*@
-    @if (loading && Value)
+    @if (loading && islogin)
     {
         <FectchDataLoading />    
     }
 
-
-
-
-
 @code {
     //是否登入
-    [Parameter]
-    public bool Value { get; set; }
+     [CascadingParameter] bool islogin { get; set; }
     //loading
     bool loading = true; 
     //錢包鍊是否正確
     bool netWorkRight = false;
-    string netWorkName = "Rinkeby";
+    string netWorkName = "";
 
-    //騎士幣兌換
-    decimal gSRC =0 ;
-    decimal tokenSRC = 0 ;
-
-    decimal gERNC = 0;
-    decimal tokenERNC = 0;
-
+    //四個貨幣 SRC ERNC(遊戲、鏈上)
+    public CoinData CoinData = new CoinData(0, 0, 0, 0);
+    //取得JS獲得的錢包資訊
     string[] JSCoinData;
-    private ExchangeCoin CoinData = new ExchangeCoin( "ERNC" ,0,0 );
-    //SRC、ERNC兌換
-    private async Task ExchangeBtn(bool check )
-    {
-
-        if (Value)
-        {
-            if (check)
-            {
-                CoinData.changeData("ERNC", 100, 100);
-            }
-            else
-            {
-                CoinData.changeData("SRC", gSRC, tokenSRC);
-            }
-            await JS.InvokeVoidAsync("installI18n");
-        }
-        else
-        {
-            await JS.InvokeVoidAsync("loginButton", "loginButton");
-        }
-
-   
-
-    }
     //取得錢包資訊
     private async Task getCoinData()
     {
         JSCoinData = await coinEchangeJS.InvokeAsync<string[]>("CoinexchangeData"  ,Configuration["chainId"], Configuration["SRC_token_addr"]);
-        tokenSRC =decimal.Parse(JSCoinData[1]);
+        CoinData.tokenSRCchange(decimal.Parse(JSCoinData[1]));
 
          if (netWorkRight !=  Convert.ToBoolean(JSCoinData[0]))
         {
@@ -821,9 +122,6 @@
 
     //計算filter選擇數量
     private int FilterCount = 0;
-
-
-    //...騎士幣兌換
     /// <summary>
     /// 稀有度
     /// </summary>
@@ -872,7 +170,7 @@
 
         AllBalance = await InventoryService.CalReceiveRent(UserID);
 
-        gSRC = await InventoryService.GetgSRCCurrency1(UserID);
+        CoinData.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID));
         StateHasChanged();
     }
 
@@ -907,16 +205,17 @@
             await JS.InvokeVoidAsync("CollectBtnPoP");   
             await JS.InvokeVoidAsync("ShowMSGcheckbox");    
 
-            await JS.InvokeVoidAsync("showTag");   
-            if (Value)
+            await JS.InvokeVoidAsync("showTag");
+            netWorkName = Configuration["chainName"];
+            if (islogin)
             {
                 RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/RentJump.js");
 
                 coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
                 await getCoinData();
             }
-       
-         
+
+
 
             await loadingColse();
         }
@@ -957,7 +256,7 @@
     }
 
 
-        /* filter  */
+    /* filter  */
 
     /// <summary>
     /// 
@@ -992,11 +291,7 @@
         await GetFilter();
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="CheckID"></param>
-    /// <param name="checkedValue"></param>
+  
     private async void CheckboxElementsClicked(string CheckID, object checkedValue)
     {
         if ((bool)checkedValue)
@@ -1018,11 +313,7 @@
         await  GetFilter();
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="CheckID"></param>
-    /// <param name="checkedValue"></param>
+
     private async void CheckboxClassClicked(string CheckID, object checkedValue)
     {
         if ((bool)checkedValue)
@@ -1044,11 +335,7 @@
         await GetFilter();
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="CheckID"></param>
-    /// <param name="checkedValue"></param>
+
     private async void CheckboxCountryClicked(string CheckID, object checkedValue)
     {
         if ((bool)checkedValue)
@@ -1072,7 +359,6 @@
 
     private async Task GetFilter()
     { 
-
         PagedList<NFTData> pagelist = await InventoryService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
@@ -1081,36 +367,24 @@
 
     //private string UserID { get;set;}
     public string TokenID { get;set;}
-    /// <summary>
-    /// 
-    /// </summary>
-    private async void setValueByUnit( string ppsr ,decimal totalRevenue , object onClickValue)
+   
+    private async void setValueByUnit( NFTCardData NFTCard)
     {       
-        TokenID = ppsr;
-        CollectBalance = totalRevenue;
+        TokenID = NFTCard.ppsr;
+        CollectBalance = NFTCard.totalRevenue;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     private async void setValue( object onClickValue)
     {
         string UserID = AppState.LoginStatus.userID.ToString();
         //CollectBalance = await InventoryService.CalReceiveRent(UserID);
         CollectBalance = AllBalance;
     }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="UserID"></param>
-    /// <param name="ppsr"></param>
-    /// <returns></returns>
-    // ShowMSGState 取得個別視窗是否彈窗
+    
+    //取得個別視窗是否彈窗
     private bool ShowMSGState = false;
     public async Task ReceiveRentByUnit()
     {
-
         ShowMSGState = await JS.InvokeAsync<bool>("getShowMSGState"); 
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent = await InventoryService.ReceiveRentByUnit(UserID ,TokenID );
@@ -1121,7 +395,7 @@
         TotalSRCCount = TotalSRCCount + Rent;
         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero);
 
-        gSRC = TotalSRCCount;
+        CoinData.gSRC = TotalSRCCount;
         AllBalance = await InventoryService.CalReceiveRent(UserID);
 
         StateHasChanged();
@@ -1135,13 +409,11 @@
             ReceiveRentByUnit();
         }
     }
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="UserID"></param>
-    /// <returns></returns>
+    
+    //取得全部租金
     public async Task ReceiveRent( )
     {
+       
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent =  await InventoryService.ReceiveRent(UserID  );
         if (RentJumpJS != null)
@@ -1154,7 +426,6 @@
 
         Refresh();
     }
-
     //強制渲染的方法
     public async Task refresh()
     {
@@ -1162,23 +433,7 @@
         await getCoinData();
         await InvokeAsync(StateHasChanged);
     }
-    //新增SRC錢包
-    protected  async Task AddSRC()
-    {
-        if (Value)
-        {
-            await JS.InvokeVoidAsync("AddPolygonSRC");
-        }
-        else
-        {
-            await JS.InvokeVoidAsync("loginButton", "loginButton");
-        }
-
-
-    }
-
-
-     /// <summary>
+    /// <summary>
     /// 計算Filter 選取數量
     /// </summary>
     private void CountFilterSelected()
@@ -1186,8 +441,8 @@
         FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count() + CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
     }
 
-
-   public async Task reInstallI18n() { 
+    //重載多語系
+    public async Task reInstallI18n() { 
         await JS.InvokeVoidAsync("installI18n");
     }
 }

@@ -23,7 +23,9 @@
                  <MyProfile_MyAwardNotice/>
                 break;      
             case "inventory":
-                 <Inventory Value=true />
+                 <CascadingValue Value="true">
+                    <Inventory />
+                 </CascadingValue>
                 break;      
             case "swapsrc":        
                  <MyProfile_Swap Value=true/> 
@@ -51,7 +53,9 @@
                  <MyProfile_MyAwardNotice/>
                 break;      
             case "inventory":
-                 <Inventory Value=false/>
+                <CascadingValue Value="false">
+                    <Inventory />
+                 </CascadingValue>
                 break;  
            case "swapsrc":
                  <MyProfile_Swap Value=false/>
