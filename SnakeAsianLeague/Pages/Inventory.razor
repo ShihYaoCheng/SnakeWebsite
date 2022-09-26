@@ -53,12 +53,7 @@
             </div>
         </div>
 
-    @*全部領 彈窗*@
-    <Inventory_AllCollectPop   Value=@CollectBalance ReceiveRent="ReceiveRent" ></Inventory_AllCollectPop>
 
-     @*個別領 彈窗*@
-     <Inventory_SingelAllCollectPop Value=@CollectBalance  ReceiveRentByUnit="ReceiveRentByUnit" ></Inventory_SingelAllCollectPop>
- 
     @*交易中反灰*@
     <TransactWindow></TransactWindow>
 
@@ -102,46 +97,12 @@
     //切換並新增Polygon
     protected  async Task AddPolygon()
     {
-    @*linebot.SemdLineNotifyMsg("test123");*@
+        @*linebot.SemdLineNotifyMsg("test123");*@
         await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] );
         await getCoinData();
     }
 
-     //租金變數......
-    //所有Balance加總
-    private decimal AllBalance = 0;
-
-    //彈窗顯示領取的金額
-    private decimal CollectBalance  = 600; 
-
-    private IJSObjectReference? RentJumpJS;
     private IJSObjectReference? coinEchangeJS;
-    private int PPSRsCount;
-
-    private decimal TotalSRCCount = 0;
-
-    //計算filter選擇數量
-    private int FilterCount = 0;
-    /// <summary>
-    /// 稀有度
-    /// </summary>
-    private List<OptionKeyValue> RarityList = new List<OptionKeyValue>();
-    /// <summary>
-    /// 屬性
-    /// </summary>
-    private List<OptionKeyValue> ElementsList = new List<OptionKeyValue>();
-    /// <summary>
-    /// 職業專精
-    /// </summary>
-    private List<OptionKeyValue> ClassList= new List<OptionKeyValue>();
-    /// <summary>
-    /// 國家
-    /// </summary>
-    private List<OptionKeyValue> CountryList= new List<OptionKeyValue>();
-
-    private List<NFTData> NFTDataList;
-
-    public MetaData MetaData { get; set; } = new MetaData();
 
     protected override async Task OnInitializedAsync()
     {
@@ -149,55 +110,19 @@
         AppState.StateChanged += async (Source, Property)
         => await InvokeAsync(StateHasChanged);
 
-    }
-    private async Task Refresh()
-    {   
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        var LoginUser = authState.User;
-        string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
-
-        RarityList = await InventoryService.Get_Default_Rarity();
-        ElementsList = await InventoryService.Get_Default_Elements();
-        ClassList = await InventoryService.Get_Default_Class();
-        CountryList = await InventoryService.Get_Default_Country();
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID, 1,10);
-        NFTDataList = pagelist;
-
-        MetaData =  pagelist.MetaData;
-
-        TotalSRCCount = decimal.Parse( AppState.LoginStatus.nftCurrency1.ToString());
-        PPSRsCount = MetaData.TotalCount;
-
-        AllBalance = await InventoryService.CalReceiveRent(UserID);
-
-        CoinData.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID));
-        StateHasChanged();
-    }
-
-     private async Task DoStuff(ChangeEventArgs e)
-    {
-        
-        PagedList<NFTData> pagelist=await InventoryService.GetRiderNFTDataListOrderby( e.Value.ToString() ,1 ,10);
-
-        MetaData =  pagelist.MetaData;
-        NFTDataList = pagelist;
-        PPSRsCount = MetaData.TotalCount;
-    }
-
-
+    } 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-       
-            await Refresh();
+            await getGameCoin();
             @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterButtonClick");
             await JS.InvokeVoidAsync("FilterArrowSlideClick");
-            await JS.InvokeVoidAsync("InventoryFilterSidebarClick");
+           
             await JS.InvokeVoidAsync("CardAmountLinkDisplay");
             await JS.InvokeVoidAsync("TippyInit");
 
@@ -208,9 +133,7 @@
             await JS.InvokeVoidAsync("showTag");
             netWorkName = Configuration["chainName"];
             if (islogin)
-            {
-                RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/RentJump.js");
-
+            {     
                 coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
                 await getCoinData();
             }
@@ -238,209 +161,21 @@
         => await InvokeAsync(StateHasChanged);
     }
 
-    private async Task SelectedPage(int page)
+    public async Task getGameCoin()
     {
-        await GetRiderNFTDataPageList(page);
+         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+         var LoginUser = authState.User;
+         string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
+         CoinData.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID));
     }
 
-    private async Task GetRiderNFTDataPageList(int page)
-    {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        var LoginUser = authState.User;
-        string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
-
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID , page,10);
-        NFTDataList = pagelist;
-        MetaData = pagelist.MetaData;
-        PPSRsCount = MetaData.TotalCount;
-    }
-
-
-    /* filter  */
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public List<string> CheckBoxRarity { get; set; } = new List<string>();
-    public List<string> CheckBoxElements { get; set; } = new List<string>();
-    public List<string> CheckBoxClass { get; set; } = new List<string>();
-    public List<string> CheckBoxCountry { get; set; } = new List<string>();
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="CheckID"></param>
-    /// <param name="checkedValue"></param>
-    private async void CheckboxRarityClicked(string CheckID, object checkedValue)
-    {
-        if ((bool)checkedValue)
-        {
-            if (!CheckBoxRarity.Contains(CheckID))
-            {
-                CheckBoxRarity.Add(CheckID);
-                CountFilterSelected();
-            }
-        }
-        else
-        {
-            if (CheckBoxRarity.Contains(CheckID))
-            {
-                CheckBoxRarity.Remove(CheckID);
-                CountFilterSelected();
-            }
-        }
-        await GetFilter();
-    }
-
-  
-    private async void CheckboxElementsClicked(string CheckID, object checkedValue)
-    {
-        if ((bool)checkedValue)
-        {
-            if (!CheckBoxElements.Contains(CheckID))
-            {
-                CheckBoxElements.Add(CheckID);
-                CountFilterSelected();
-            }
-        }
-        else
-        {
-            if (CheckBoxElements.Contains(CheckID))
-            {
-                CheckBoxElements.Remove(CheckID);
-                CountFilterSelected();
-            }
-        }
-        await  GetFilter();
-    }
-
-
-    private async void CheckboxClassClicked(string CheckID, object checkedValue)
-    {
-        if ((bool)checkedValue)
-        {
-            if (!CheckBoxClass.Contains(CheckID))
-            {
-                CheckBoxClass.Add(CheckID);
-                CountFilterSelected();
-            }
-        }
-        else
-        {
-            if (CheckBoxClass.Contains(CheckID))
-            {
-                CheckBoxClass.Remove(CheckID);
-                CountFilterSelected();
-            }
-        }
-        await GetFilter();
-    }
-
-
-    private async void CheckboxCountryClicked(string CheckID, object checkedValue)
-    {
-        if ((bool)checkedValue)
-        {
-            if (!CheckBoxCountry.Contains(CheckID))
-            {
-                CheckBoxCountry.Add(CheckID);
-                CountFilterSelected();
-            }
-        }
-        else
-        {
-            if (CheckBoxCountry.Contains(CheckID))
-            {
-                CheckBoxCountry.Remove(CheckID);
-                CountFilterSelected();
-            }
-        }
-        await GetFilter();
-    }
-
-    private async Task GetFilter()
-    { 
-        PagedList<NFTData> pagelist = await InventoryService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
-        NFTDataList = pagelist;
-        MetaData = pagelist.MetaData;
-        PPSRsCount = MetaData.TotalCount;
-    }
-
-    //private string UserID { get;set;}
-    public string TokenID { get;set;}
-   
-    private async void setValueByUnit( NFTCardData NFTCard)
-    {       
-        TokenID = NFTCard.ppsr;
-        CollectBalance = NFTCard.totalRevenue;
-    }
-
-    private async void setValue( object onClickValue)
-    {
-        string UserID = AppState.LoginStatus.userID.ToString();
-        //CollectBalance = await InventoryService.CalReceiveRent(UserID);
-        CollectBalance = AllBalance;
-    }
-    
-    //取得個別視窗是否彈窗
-    private bool ShowMSGState = false;
-    public async Task ReceiveRentByUnit()
-    {
-        ShowMSGState = await JS.InvokeAsync<bool>("getShowMSGState"); 
-        string UserID = AppState.LoginStatus.userID.ToString();
-        var Rent = await InventoryService.ReceiveRentByUnit(UserID ,TokenID );
-        //if (RentJumpJS != null)
-        //{
-        //    await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
-        //}
-        TotalSRCCount = TotalSRCCount + Rent;
-        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero);
-
-        CoinData.gSRC = TotalSRCCount;
-        AllBalance = await InventoryService.CalReceiveRent(UserID);
-
-        StateHasChanged();
-        Refresh();
-
-    }
-    public void  ReceiveRentByUnitOnclick()
-    {
-        if (ShowMSGState)
-        {
-            ReceiveRentByUnit();
-        }
-    }
-    
-    //取得全部租金
-    public async Task ReceiveRent( )
-    {
-       
-        string UserID = AppState.LoginStatus.userID.ToString();
-        var Rent =  await InventoryService.ReceiveRent(UserID  );
-        if (RentJumpJS != null)
-        {
-            await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
-        }
-        TotalSRCCount = TotalSRCCount + Rent;
-        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
-        AllBalance = await InventoryService.CalReceiveRent(UserID);
-
-        Refresh();
-    }
     //強制渲染的方法
     public async Task refresh()
     {
-        await Refresh();
+        await getGameCoin();
         await getCoinData();
         await InvokeAsync(StateHasChanged);
     }
-    /// <summary>
-    /// 計算Filter 選取數量
-    /// </summary>
-    private void CountFilterSelected()
-    {
-        FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count() + CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
-    }
-
     //重載多語系
     public async Task reInstallI18n() { 
         await JS.InvokeVoidAsync("installI18n");

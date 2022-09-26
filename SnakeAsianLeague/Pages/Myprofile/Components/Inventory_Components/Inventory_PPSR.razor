@@ -231,7 +231,7 @@
                             
         </div>
 
-
+        @*下拉選單排序*@
         <select class="sortSelect Inventory-PPSR-sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))" > 
 
             <option disabled="" value="Sort"data-i18n="Inventory_data:sortOptions.Sort"  selected="" hidden="">Sort</option>
@@ -300,12 +300,23 @@
 <Inventory_SingelAllCollectPop Value=@CollectBalance  ReceiveRentByUnit="ReceiveRentByUnit" ></Inventory_SingelAllCollectPop>
  
 @code {
-    //四個貨幣 SRC ERNC(遊戲、鏈上)
+    @*四個貨幣 SRC ERNC(遊戲、鏈上)*@
     [Parameter]
     public CoinData Value { get; set; }
 
 
-    //filter
+    @*filter*@
+    //計算filter選擇數量
+    private int FilterCount = 0;
+    // 稀有度
+    private List<OptionKeyValue> RarityList = new List<OptionKeyValue>();  
+    /// 屬性  
+    private List<OptionKeyValue> ElementsList = new List<OptionKeyValue>();
+    /// 職業專精  
+    private List<OptionKeyValue> ClassList= new List<OptionKeyValue>(); 
+    /// 國家
+    private List<OptionKeyValue> CountryList= new List<OptionKeyValue>();
+
     public List<string> CheckBoxRarity { get; set; } = new List<string>();
     public List<string> CheckBoxElements { get; set; } = new List<string>();
     public List<string> CheckBoxClass { get; set; } = new List<string>();
@@ -410,81 +421,39 @@
         FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count() + CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
     }
 
-    //計算filter選擇數量
-    private int FilterCount = 0;
-    /// <summary>
-    /// 稀有度
-    /// </summary>
-    private List<OptionKeyValue> RarityList = new List<OptionKeyValue>();
-    /// <summary>
-    /// 屬性
-    /// </summary>
-    private List<OptionKeyValue> ElementsList = new List<OptionKeyValue>();
-    /// <summary>
-    /// 職業專精
-    /// </summary>
-    private List<OptionKeyValue> ClassList= new List<OptionKeyValue>();
-    /// <summary>
-    /// 國家
-    /// </summary>
-    private List<OptionKeyValue> CountryList= new List<OptionKeyValue>();
-    private List<NFTData> NFTDataList;
-
-    private async Task Refresh()
-    {   
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        var LoginUser = authState.User;
-        string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
-
-        RarityList = await InventoryService.Get_Default_Rarity();
-        ElementsList = await InventoryService.Get_Default_Elements();
-        ClassList = await InventoryService.Get_Default_Class();
-        CountryList = await InventoryService.Get_Default_Country();
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID, 1,10);
-        NFTDataList = pagelist;
-
-        MetaData =  pagelist.MetaData;
-
-        TotalSRCCount = decimal.Parse( AppState.LoginStatus.nftCurrency1.ToString());
-        PPSRsCount = MetaData.TotalCount;
-
-        AllBalance = await InventoryService.CalReceiveRent(UserID);
-
-        Value.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID));
-        StateHasChanged();
-    }
-
-    //碰碰蛇騎士數量
-    private int PPSRsCount;    
-
-    //下拉選單排序
+    @*下拉選單排序*@
     private async Task DoStuff(ChangeEventArgs e)
-    {
-        
+    {        
         PagedList<NFTData> pagelist=await InventoryService.GetRiderNFTDataListOrderby( e.Value.ToString() ,1 ,10);
 
         MetaData =  pagelist.MetaData;
         NFTDataList = pagelist;
         PPSRsCount = MetaData.TotalCount;
     }
-
+    
+    @*NFT卡片顯示*@
+    //NFT的List
+    private List<NFTData> NFTDataList;
+    //個別卡片的ID
     public string TokenID { get;set;}
-
-    //租金變數......
-    //所有Balance加總
-    private decimal AllBalance = 0;
     //彈窗顯示領取的金額
     private decimal CollectBalance  = 600; 
-    private IJSObjectReference? RentJumpJS;   
+    //所有領取租金數量
+    private decimal AllBalance = 0;
+    //計算租金加總後的SRC數量
     private decimal TotalSRCCount = 0;
-  
-    //個別領取彈窗變更資料
+    //碰碰蛇騎士數量
+    private int PPSRsCount;  
+    //跳錢JS
+    private IJSObjectReference? RentJumpJS;   
+
+    //個別領取按鈕變更資料
     private async void setValueByUnit( NFTCardData NFTCard)
     {       
         TokenID = NFTCard.ppsr;
         CollectBalance = NFTCard.totalRevenue;
     }
-    //全部領取彈窗變更資料
+    //全部領取按鈕變更資料
     private async void setValue( object onClickValue)
     {
         string UserID = AppState.LoginStatus.userID.ToString();
@@ -492,9 +461,9 @@
         CollectBalance = AllBalance;
     }
 
-     @*租金的內容*@    
-     //取得個別租金視窗是否彈窗
-    private bool ShowMSGState = false;
+    //個別租金彈窗
+    //是否彈窗勾選
+    private bool ShowMSGState = false; 
     public async Task ReceiveRentByUnit()
     {
         ShowMSGState = await JS.InvokeAsync<bool>("getShowMSGState"); 
@@ -506,8 +475,7 @@
         //}
         TotalSRCCount = TotalSRCCount + Rent;
         TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero);
-
-        Value.gSRC = TotalSRCCount;
+        Value.gSRCchange( TotalSRCCount);     
         AllBalance = await InventoryService.CalReceiveRent(UserID);
 
         StateHasChanged();
@@ -522,10 +490,9 @@
         }
     }
 
-    //取得全部租金
+    //全部租金彈窗
     public async Task ReceiveRent( )
-    {
-       
+    {       
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent =  await InventoryService.ReceiveRent(UserID  );
         if (RentJumpJS != null)
@@ -559,12 +526,40 @@
         PPSRsCount = MetaData.TotalCount;
     }
 
+    @*生命週期*@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+
         if (firstRender)
         {
-
             await Refresh();
+            RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/RentJump.js");
+            await JS.InvokeVoidAsync("InventoryFilterSidebarClick");
+            await JS.InvokeVoidAsync("installI18n");
         }
     }
+
+     private async Task Refresh()
+    {   
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var LoginUser = authState.User;
+        string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
+
+        RarityList = await InventoryService.Get_Default_Rarity();
+        ElementsList = await InventoryService.Get_Default_Elements();
+        ClassList = await InventoryService.Get_Default_Class();
+        CountryList = await InventoryService.Get_Default_Country();
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID, 1,10);
+        NFTDataList = pagelist;
+
+        MetaData =  pagelist.MetaData;
+
+        TotalSRCCount = decimal.Parse( AppState.LoginStatus.nftCurrency1.ToString());
+        PPSRsCount = MetaData.TotalCount;
+
+        AllBalance = await InventoryService.CalReceiveRent(UserID);
+
+        Value.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID));
+        StateHasChanged();
     }
+  }
