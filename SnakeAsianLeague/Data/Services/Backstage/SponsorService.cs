@@ -15,12 +15,12 @@ namespace SnakeAsianLeague.Data.Services.Backstage
     public class SponsorService
     {
         private ExternalServers externalServersConfig;
-        private readonly RestClient SnakeACLBackstageServer;
+        private readonly RestClient BackstageServer;
 
         public SponsorService(IOptions<ExternalServers> myConfiguration)
         {
             externalServersConfig = myConfiguration.Value;
-            SnakeACLBackstageServer = new RestClient(externalServersConfig.SnakeACLBackstageServer);
+            BackstageServer = new RestClient(externalServersConfig.BackstageServer);
         }
 
         public async Task<List<Sponsor>> GetSponsors()
@@ -29,7 +29,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 var LoginRestRequest = new RestRequest($"GetSponsors");
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Sponsor>>(restResponse.Content) ?? new List<Sponsor>();
@@ -48,7 +48,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 var LoginRestRequest = new RestRequest($"GetSponsorsByType?type={type}");
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Sponsor>>(restResponse.Content) ?? new List<Sponsor>();

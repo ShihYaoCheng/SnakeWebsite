@@ -15,13 +15,13 @@ namespace SnakeAsianLeague.Data.Services.Backstage
     public class AwardInfoService
     {
         private ExternalServers externalServersConfig;
-        private readonly RestClient SnakeACLBackstageServer;
+        private readonly RestClient BackstageServer;
 
         public AwardInfoService(IOptions<ExternalServers> myConfiguration) 
         {
 
             externalServersConfig = myConfiguration.Value;
-            SnakeACLBackstageServer = new RestClient(externalServersConfig.SnakeACLBackstageServer);
+            BackstageServer = new RestClient(externalServersConfig.BackstageServer);
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 var LoginRestRequest = new RestRequest($"GetAwardInfos");
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<AwardInfo>>(restResponse.Content) ?? new List<AwardInfo>();
@@ -62,7 +62,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 var LoginRestRequest = new RestRequest(string.Format("GetOneAwardInfo?userId={0}&prizeCode={1}&place={2}&isGuild={3}&station={4}", userId, prizeCode, place, isGuild, station));
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = Newtonsoft.Json.JsonConvert.DeserializeObject<AwardInfo>(restResponse.Content) ?? new AwardInfo();
@@ -90,7 +90,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 var LoginRestRequest = new RestRequest(string.Format("GetOneAwardInfoStatus?userId={0}&prizeCode={1}&place={2}&isGuild={3}&station={4}", userId, prizeCode, place, isGuild, station));
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     var data = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(restResponse.Content) ?? "0";
@@ -117,7 +117,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
                 string jsonData = JsonSerializer.Serialize(awardInfo);
                 var request = new RestRequest($"InsertAwardInfo", Method.POST);
                 request.AddJsonBody(jsonData);
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
+                IRestResponse restResponse = await BackstageServer.ExecuteAsync(request);
 
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -145,7 +145,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
                 string jsonData = JsonSerializer.Serialize(awardInfo);
                 var request = new RestRequest($"UpdateAwardInfo", Method.POST);
                 request.AddJsonBody(jsonData);
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
+                IRestResponse restResponse = await BackstageServer.ExecuteAsync(request);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = true;
