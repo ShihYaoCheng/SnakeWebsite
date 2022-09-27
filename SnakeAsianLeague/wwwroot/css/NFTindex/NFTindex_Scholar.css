@@ -1,21 +1,17 @@
 .NFTindex_Scholar{
     width: 100%;
-    /* height: 1000px; */
     background-color: #203240;
+
 }
 
 /* 學者介紹區塊 */
 .Scholar-Block {
-    /* border: 1px solid red; */
     padding: 50px 0 50px;
     width: 100%;
     position: relative;
-    /* height: 800px; */
 }
 
 .Scholar {
-    /* border: 1px solid yellow; */
-    /* max-width: 1920px; */
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -23,18 +19,14 @@
 }
 
 .Scholar-mainIcon-Block {
-    /* border: 1px solid rgb(64, 255, 0); */
-    /* max-width: 600px; */
     width: 45%;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     justify-content: flex-end;
     padding: 0 84px;
 
 }
 .Scholar-mainIcon{
-    /* border: 1px solid red; */
     position: relative;
     max-width: 500px;
     width: 100%;
@@ -59,15 +51,7 @@
     filter: drop-shadow(0px 0px 25px rgba(249, 210, 243, 0.672)) !important;
 }
 
-.main-Icon{
-    /* filter: drop-shadow(0px 5px 25px rgba(16, 16, 16, 0.7)); */
-}
-.Scholar-mainIcon:hover .main-Icon{
-    /* filter: none; */
-}
-
 .main-Icon-kirakira{
-    /* border: 1px solid yellow; */
     width: 150%;
     position: absolute;
     transform: translate(-50% ,-50%);
@@ -106,34 +90,24 @@
 
 
 .golden-frame {
-    /* position: absolute;
-    top: 0; */
     max-width: 500px;
     width: 100%;
     z-index: 3;
 }
 
 .main-Icon {
-    /* position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 52%; */
-
     width: 100%;
     z-index: 2;
 }
 
 .Scholar-Info-Block {
-    /* border: 1px solid rgb(90, 45, 238); */
     width: 55%;
     background-image: url("/images/NFTindex/NFTindex_Scholar/spaceship.png");
     background-position: center right;
     background-repeat: no-repeat;
     background-size: contain;
-    /* max-width: 1000px; */
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     justify-content: flex-start;
     position: relative;
     padding: 80px 20px 80px 130px ;
@@ -272,7 +246,6 @@
     width: 90%;
     border: 3.5px solid rgba(255, 255, 255);
     border-radius: 10px;
-    /* overflow: hidden; */
     margin: 0 auto;
     font-size: 0;
     z-index: 2;
@@ -286,22 +259,42 @@
 }
 
 
-
+.spaceship_blueprint{
+    width: 100%;
+    background-image: url("/images/NFTindex/NFTindex_Scholar/Travel_map.png");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 /* 藍圖區塊 */
+.blueprint{
+    width: 100%;
+    padding: 80px 0 0;
+}
 .blueprint-block{
     width: 100%;
+
+    margin: 0px auto 0;
+    max-width: 1200px;
+    width: 90%;
+    display: flex;
+
+    justify-content: center;
+    flex-wrap: wrap;
+
 }
 
 .blueprint-type-block{
-    max-width: 1000px;
-    width: 90%;
-    margin: 0 auto;
+    max-width: 300px;
+    width: 100%;
     display: flex;
+    margin: 0 2.5% 5% 2.5%;
 }
 .blueprint-item{
     max-width: 300px;
     width: 100%;
+
 }
 
 .blueprint-type-title{
@@ -315,33 +308,265 @@
     max-width: 300px;
     height: 300px;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.171);
+    background-color: rgba(255, 255, 255, 0.1);
     position: relative;
+    transition: all .1s ease-in-out;
 }
-.item-icon, .item-light, .item-blueprint{
-    position: absolute;
+/* .blueprint-type-BG:hover .item-blueprint{
+    filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
+} */
+
+
+@keyframes item-icon {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);    
+    }
+    100% {
+        transform: translateY(0px);    
+    }
 }
-.item-icon{
-    z-index: 2;
-}
+
+
 .item-light{
+    display: block;
+
+    position: absolute;
+    transition: all .1s ease-in-out;
     max-width: 250px;
     bottom: 75px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
+    width: 80%;
+    transition: all .1s ease-in-out;
+    animation: 
+    item-light  1s linear 0s forwards,
+    item-light-02  1s linear 1s infinite ;
 }
+
+@keyframes item-light {
+    0% {
+        transform: translateX(-50%) rotate3d(0, 1, 0, -240deg) scale(0);
+        transform-origin: bottom;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(-50%) rotate3d(0, 1, 0, 20deg) scale(1);
+        transform-origin: bottom;
+        opacity: 1;
+    }
+}
+
+@keyframes item-light-02 {
+    0% {
+        transform: translateX(-50%) rotate3d(0, 1, 0, 20deg) ;
+    }
+
+    100% {
+        transform: translateX(-50%) rotate3d(0, 1, 0, -20deg);
+
+    }
+}
+
+.item-icon{
+    position: absolute;
+    transition: all .1s ease-in-out;
+    z-index: 2;
+    width: 80%;
+    transition: all .1s ease-in-out;
+    animation: item-icon 5s linear infinite;
+}
+
+.item-light-hover{
+    display: none;
+
+    position: absolute;
+    transition: all .1s ease-in-out;
+    max-width: 250px;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 80%;
+}
+/* .blueprint-type-BG:hover .item-light{
+    display: none;
+}
+.blueprint-type-BG:hover .item-light-hover{
+    display: block;
+    animation: item-light linear 1s forwards 0s, 
+    item-light-02 linear 1s forwards 1s infinite ;
+
+} */
 .item-blueprint{
+        position: absolute;
+    transition: all .1s ease-in-out;
     max-width: 260px;
     width: 100%;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
+    width: 90%;
+    transition: all .1s ease-in-out;
 }
 
-#item-icon-01{
-    max-width: 140px;
+/* 武器動畫 */
+#icon-weapon{
+    max-width: 135px;
     top: 15px;
-    left: 110px;
+    left: 37%;
+    transform-origin: left bottom;
+}
+/* .blueprint-type-BG:hover #icon-weapon{
+    animation: icon-weapon 1s linear 0s infinite;
+    filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
+} */
+@keyframes icon-weapon {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    20% {
+        transform: rotateZ(20deg);
+    }
+    40% {
+        transform: rotateZ(0deg);
+    }
+    60% {
+        transform: rotateZ(25deg);
+    }
+    80% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+/* 飛船動畫 */
+#icon-spaceship {
+    max-width: 200px;
+    top: 25px;
+    left: 8.5%;
+    transform-origin: left bottom;
+    transition: all .1s ease-in-out;
+}
+/* .blueprint-type-BG:hover #icon-spaceship{
+    animation: spaceship-animation 1s ease-in-out 0s forwards,
+    spaceship-animation-float 3s linear 1s infinite;
+    transition: all .1s ease-in-out;
+} */
+@keyframes spaceship-animation {
+    0% {
+        transition: all .1s ease-in-out;
+        transform: rotate3d(0, 1, 0, -240deg) scale(0);
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+        filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0));
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 0deg) scale(1);
+        opacity: 1;
+        filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
+    }
+}
+@keyframes spaceship-animation-float {
+    0% {
+        transform: translateY(0px)  rotate3d(0, 1, 0, 0deg) scale(1);
+        opacity: 1;
+        filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
+
+    }
+    50% {
+        transform: translateY(-10px)  rotate3d(0, 1, 0, 0deg) scale(1);
+        opacity: 1;
+        filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
+
+    }
+    100% {
+        transform: translateY(0px)  rotate3d(0, 1, 0, 0deg) scale(1);
+        opacity: 1;
+        filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
+
+    }
+}
+/* 道具動畫 */
+#icon-props{
+    max-width: 135px;
+    top: 40px;
+    left: 26.5%;
+}
+/* .blueprint-type-BG:hover #icon-props{
+    filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
+
+    animation: props-animation 0.5s ease-in-out 0s forwards,
+    props-animation-float 3s linear .8s infinite;
+} */
+
+@keyframes props-animation {
+    0% {
+        transform: translateY(0px)  rotate3d(0, 1, 0, 0deg) scale(1);
+
+    }
+
+    100% {
+        transform: translateY(-20px)  rotate3d(0, 1, 0, 360deg) scale(1);
+
+    }
+}
+@keyframes props-animation-float {
+    0% {
+        transform: translateY(-20px)  rotate3d(0, 1, 0, 360deg) scale(1);
+    }
+    50% {
+        transform: translateY(-10px)  rotate3d(0, 1, 0, 360deg) scale(1);
+    }
+    100% {
+        transform: translateY(-20px)  rotate3d(0, 1, 0, 360deg) scale(1);
+    }
+}
+
+
+.blueprint-button-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blueprint-button {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    letter-spacing: 2.4px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px -1px 2px 0 rgb(0 0 0 / 50%), inset 0px 6px 0 0 rgb(255 255 255 / 54%);
+    background-image: linear-gradient(to top, #ff7400, #ffa443);
+    transition: all .1s ease-in;
+    margin: 0px auto 80px;
+}
+.blueprint-button:hover {
+    transition: all .2s ease-in-out;
+    transform: translateY(-2px) scale(1.01);
+}
+
+@media all and (max-width: 750px){
+    .blueprint-type-block{
+        margin: 0 auto 30px ;
+    }
+    .blueprint-button{
+        margin: 30px auto 80px;
+    }
 }
