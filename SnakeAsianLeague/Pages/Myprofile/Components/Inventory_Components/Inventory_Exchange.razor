@@ -1,0 +1,161 @@
+﻿@using SnakeAsianLeague.Data.Entity.View
+@inject IJSRuntime JS
+
+
+<div class="Secend-Title" data-i18n="Inventory_data:otherTitle.Inventory">My Currency</div>
+
+ @*.......修改位置.........*@
+<div class="Inner-container" >
+        <div class="Inner" >
+            <div class="MyCerrency-container">
+            <div class=" MyCerrency-between">
+                <a class="buyGameCoin" hidden="@(true)">buy</a>
+                <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.png" alt="">
+                <div class="MyCerrency-Detail">
+                    <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.gERNC">gERNC</p>
+                             
+                    <p class="MyCerrency-Amount">@Value.gERNC</p>
+                </div>
+            </div>
+                <div class=" MyCerrency-mid">
+                <img class="doubleArrow" src="/images/Myprofile/doubleArrow.png" alt="">
+          
+            </div>
+                <div class=" MyCerrency-between ">
+                <button  class="addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" hidden="@(true)"></button>
+                <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.png" alt="">
+                <div class="MyCerrency-Detail">
+                    <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.ERNCToken">ERNC TOKEN</p>
+                             
+                    <p class="MyCerrency-Amount">@Value.tokenERNC</p>
+                </div>
+            </div>
+
+
+            </div>
+            <div class="ExchangeBtn-container">
+                <button class="ExchangeBtn" @onclick ="()=>ExchangeBtnClick(true) " hidden="@(true)" data-i18n="Inventory_data:otherTitle.Exchange">
+                    Exchange
+                </button>
+            </div>
+    </div>
+
+    <div class="Inner" >
+                <div class="MyCerrency-container">
+                <div class=" MyCerrency-between">
+                    <a class="buyGameCoin" hidden="@(true)" >buy</a>
+                    <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.png" alt="">
+                    <div class="MyCerrency-Detail">
+                        <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.gSRC">gSRC</p>
+                             
+                        <p class="MyCerrency-Amount">@Value.gSRC </p>
+                    </div>
+                </div>
+                    <div class=" MyCerrency-mid">
+                    <img class="doubleArrow" src="/images/Myprofile/doubleArrow.png" alt="">
+          
+                </div>
+                    <div class=" MyCerrency-between">
+                        <button  class="addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRCClick"></button>
+                    <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.png" alt="">
+                    <div class="MyCerrency-Detail">
+                        <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.SRCToken">SRC TOKEN</p>
+                             
+                        <p class="MyCerrency-Amount">@Value.tokenSRC</p>
+                    </div>
+                </div>
+
+
+                </div>
+                <div class="ExchangeBtn-container">
+                    <button class="ExchangeBtn" @onclick ="()=>ExchangeBtnClick(false)" data-i18n="Inventory_data:otherTitle.Exchange">
+                        Exchange
+                    </button>
+                </div>
+        </div>
+</div>  
+        
+
+
+@*  <div class="Secend-Inner sssss" id="Secend-Block-MyCerrency">
+
+    <div class="MyCerrency ttttt">
+        <img class="MyCerrency-Icon" src="/images/Myprofile/ERNC.webp" alt="">
+        <div class="MyCerrency-Detail">
+            <p class="MyCerrency-Name">ERNC</p>
+                             
+            <p class="MyCerrency-Amount">0</p>
+        </div>
+    </div>
+        <div class="MyCerrency ttttt">
+        <img class="MyCerrency-Icon" src="/images/Myprofile/MIPR.webp" alt="">
+        <div class="MyCerrency-Detail">
+            <p class="MyCerrency-Name">MIPR</p>
+                            
+            <p class="MyCerrency-Amount">0</p>
+        </div>
+    </div>
+    <div class="MyCerrency ttttt">
+        <img class="MyCerrency-Icon" src="/images/Myprofile/SRC.webp" alt="">
+        <div class="MyCerrency-Detail">
+            <p class="MyCerrency-Name">SRC</p>
+                              
+            <p class="MyCerrency-Amount" id="TotalSRCCount">  @TotalSRCCount </p>
+        </div>
+    </div>
+
+</div>*@
+                   
+    @*.......修改位置.........*@
+
+    @*..............騎士幣兌換 coinexchange 彈窗.......................*@
+    @if (islogin)
+    {
+        <Inventory_CoinExchange Value = "ExchangeCoinData" refresh="refresh"></Inventory_CoinExchange>
+    }
+@code {
+    [Parameter]
+    public EventCallback refresh { get; set;}
+    //是否登入
+    [CascadingParameter] bool islogin { get; set; }
+
+    [Parameter]
+    public CoinData Value { get; set; }
+
+   //點選exchenge時
+    public ExchangeCoin ExchangeCoinData = new ExchangeCoin( "ERNC" ,0,0 );
+
+    private async Task ExchangeBtnClick(bool whichCoin)
+    {
+        if (islogin)
+        {
+            if (whichCoin)
+            {
+                ExchangeCoinData.changeData("ERNC", 100, 100);
+            }
+            else
+            {
+                ExchangeCoinData.changeData("SRC", Value.gSRC, Value.tokenSRC);
+            }
+            await JS.InvokeVoidAsync("installI18n");
+        }
+        else
+        {
+            await JS.InvokeVoidAsync("loginButton", "loginButton");
+        }
+
+    }
+
+     private async Task AddSRCClick()
+    {
+        if (islogin)
+        {
+            await JS.InvokeVoidAsync("AddPolygonSRC");
+        }
+        else
+        {
+            await JS.InvokeVoidAsync("loginButton", "loginButton");
+        }
+    }
+
+}
