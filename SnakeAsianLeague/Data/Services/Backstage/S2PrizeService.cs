@@ -15,12 +15,12 @@ namespace SnakeAsianLeague.Data.Services.Backstage
     public class S2PrizeService
     {
         private ExternalServers externalServersConfig;
-        private readonly RestClient SnakeACLBackstageServer;
+        private readonly RestClient BackstageServer;
 
         public S2PrizeService(IOptions<ExternalServers> myConfiguration)
         {
             externalServersConfig = myConfiguration.Value;
-            SnakeACLBackstageServer = new RestClient(externalServersConfig.SnakeACLBackstageServer);
+            BackstageServer = new RestClient(externalServersConfig.BackstageServer);
         }
 
 
@@ -36,7 +36,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 var LoginRestRequest = new RestRequest($"GetSeasonPrizes?seasonNum={seasonNum}");
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<S2Prize>>(restResponse.Content) ?? new List<S2Prize>();
@@ -61,7 +61,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 var LoginRestRequest = new RestRequest($"GetSeasonPrizesMyCard?seasonNum={seasonNum}");
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<S2Prize>>(restResponse.Content) ?? new List<S2Prize>();
@@ -81,7 +81,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 var LoginRestRequest = new RestRequest($"GetOnePrize?seasonNum={seasonNum}&station={station}&place={place}");
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = Newtonsoft.Json.JsonConvert.DeserializeObject<S2Prize>(restResponse.Content) ?? new S2Prize();

@@ -26,11 +26,10 @@ namespace SnakeAsianLeague.Data.Services.Backstage
 
         public ProfileService( IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
         {
-            //_db = db;
-            //_config = config;
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
             BackstageServer = new RestClient(externalServersConfig.BackstageServer);
+            Console.WriteLine(externalServersConfig.BackstageServer);
         }
 
         public async Task<List<Profile>> GetProfiles() 
