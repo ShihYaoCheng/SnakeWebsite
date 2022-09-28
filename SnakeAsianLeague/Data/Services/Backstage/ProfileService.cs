@@ -28,7 +28,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
         {
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
-            BackstageServer = new RestClient(externalServersConfig.BackstageServer);
+            BackstageServer = new RestClient(externalServersConfig.BackstageServer + "/identity");
             Console.WriteLine(externalServersConfig.BackstageServer);
         }
 
