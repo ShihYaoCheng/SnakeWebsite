@@ -22,15 +22,14 @@ namespace SnakeAsianLeague.Data.Services.Backstage
         
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
-        private readonly RestClient SnakeACLBackstageServer;
+        private readonly RestClient BackstageServer;
 
         public ProfileService( IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
         {
-            //_db = db;
-            //_config = config;
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
-            SnakeACLBackstageServer = new RestClient(externalServersConfig.SnakeACLBackstageServer);
+            BackstageServer = new RestClient(externalServersConfig.BackstageServer);
+            Console.WriteLine(externalServersConfig.BackstageServer);
         }
 
         public async Task<List<Profile>> GetProfiles() 
@@ -40,7 +39,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 var LoginRestRequest = new RestRequest($"GetProfiles");
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Profile>>(restResponse.Content) ?? new List<Profile>();
@@ -63,7 +62,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 var LoginRestRequest = new RestRequest($"GetOneProfileByUserId?userId={userId}");
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
+                IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(restResponse.Content) ?? new Profile();
@@ -89,7 +88,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
                 string jsonData = JsonSerializer.Serialize(profile);
                 var request = new RestRequest($"InsertProfile", Method.POST);
                 request.AddJsonBody(jsonData);
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
+                IRestResponse restResponse = await BackstageServer.ExecuteAsync(request);
 
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -117,7 +116,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
                 string jsonData = JsonSerializer.Serialize(profile);
                 var request = new RestRequest($"UpdateProfile", Method.POST);
                 request.AddJsonBody(jsonData);
-                IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
+                IRestResponse restResponse = await BackstageServer.ExecuteAsync(request);
 
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
