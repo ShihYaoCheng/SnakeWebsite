@@ -106,9 +106,12 @@ window.showTag = function () {
 
     $('.Show-tag').click(function (e) {
         var ctrlElement 
+        console.log(e.target.localName)
         if (e.target.localName == 'button') {
+            console.log(e.target)
             ctrlElement = e.target
         } else {
+            console.log(e.target.parentNode)
             ctrlElement = e.target.parentNode
         }
 

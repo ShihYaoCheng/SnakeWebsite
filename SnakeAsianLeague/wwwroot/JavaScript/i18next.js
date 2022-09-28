@@ -5,6 +5,7 @@ window.LanguageSwitch = async function (lang) {
 }
 
 window.installI18n = async function () {
+   
   const lang = localStorage['lang']
   // 網站預設語言
   const defaultLang = 'en'
@@ -12,7 +13,7 @@ window.installI18n = async function () {
     {
       lng: lang ? lang : defaultLang,
       fallbackLng: defaultLang,
-          ns: ["data", "NFT_data", "Home_data", "ERNC_data", "Started_data", "Battle_data","Inventory_data"],
+          ns: ["data", "Asian_data", "NFT_data", "Home_data", "ERNC_data", "Started_data", "Battle_data", "Inventory_data" ],
       defaultNS: "data",
       backend: {
         loadPath: "./Language/{{lng}}/{{ns}}.json",
@@ -21,10 +22,13 @@ window.installI18n = async function () {
     function (err, t) {
       jqueryI18next.init(i18next, $);
       $("body").localize();
-      $("#Language_Select").val(lang ? lang : defaultLang)
+        $("#Language_Select").val(lang ? lang : defaultLang)
+        window.lang = lang ? lang : defaultLang
     }
   );
-  $("#Language_Select").unbind('change').on("change", (e) => {
+    $("#Language_Select").unbind('change').on("change", (e) => {
+    window.lang = e.target.value   
+  
     localStorage.lang = e.target.value
     LanguageSwitch(e.target.value);
   });
@@ -33,4 +37,9 @@ window.installI18n = async function () {
 window.Localize = async function () {
   if ($('.NFTcard').length === 0) return
   setTimeout(() => $('.NFTcard').localize(), 10);
+}
+
+window.getlang = function () {
+    const lang = localStorage['lang']
+    return lang
 }
