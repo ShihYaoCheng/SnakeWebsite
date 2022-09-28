@@ -344,7 +344,7 @@
     transition: all .1s ease-in-out;
     animation: 
     item-light  1s linear 0s forwards,
-    item-light-02  1s linear 1s infinite ;
+    item-light-02  3s linear 1s infinite ;
 }
 
 @keyframes item-light {
