@@ -305,7 +305,7 @@
             </div>    
             
                 <li class="" id="nav-Language_Select">
-                    <select name="" id="Language_Select">
+                    <select name="" id="Language_Select" @onchange="(e)=>{changeLang(e);}" >
                         @* <option value="" disabled>Language</option> *@
                         <option class="Language_option" value="en">EN</option>
                         <option class="Language_option" value="tw">中文</option>
@@ -333,7 +333,7 @@
     private IJSObjectReference? AnimateJS;
     private IJSObjectReference? lazyloadingJS;
     protected async override Task OnInitializedAsync()
-    {
+    {      
         AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
 
@@ -372,7 +372,7 @@
     private async Task LoginSubmit()
     {
         SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest);
-        AppState.UpdateLoginStatus(this, snakeAccount);
+        AppState.UpdateLoginStatus(this, snakeAccount);       
         if (AppState.LoginStatus.IsLogin == true)
         {
             loginErrorShow = false;
@@ -456,11 +456,13 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
         if (firstRender){
+            //取得語言
+            AppState.getLang(await JS.InvokeAsync<string>("getlang"));
             footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
             BackToTopJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NavMenu/BackToTop.js");
             AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
             lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
-          
+           
             await BackToTopJS.InvokeVoidAsync("BackToTop");
             await AnimateJS.InvokeVoidAsync("Animate");
           /*  await lazyloadingJS.InvokeVoidAsync("LazyLoading");*/
@@ -488,4 +490,14 @@
         }
        
     }
+    private void changeLang(ChangeEventArgs e)
+    {
+        if (e.Value != null)
+        {
+               AppState.getLang( e.Value.ToString());
+        }
+     
+      
+    }
+
 }

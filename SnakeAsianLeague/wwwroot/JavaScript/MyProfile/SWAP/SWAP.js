@@ -74,7 +74,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 
 
 window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_address, SRC_address, SRCSwap_address) {
-	$('.lockWindows')[0].style.display = 'flex';
+
 	const web3 = await new Web3(Web3.givenProvider)
 	//web3.TransactionManager.UseLegacyAsDefault = true;
 	const USDT_addr = USDT_address
@@ -88,7 +88,7 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 	if (SwapToggle) {
 		//SRC 轉 USDT
 		SwapNumValue = SRCInput
-		let x = new BigNumber(parseInt(SwapNumValue));
+		let x = new BigNumber(SwapNumValue);
 
 		try {
 			//驗證貨幣
@@ -121,13 +121,15 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 					from: accounts[0],
 				});
 
-			$('.lockWindows')[0].style.display = 'none';
+
 			alert("You have successfully sold SRC tokens!");
 			console.log(request);
+			return true
 		} catch (err) {
 			console.error(err);
 			alert("交易失敗");
 			$('.lockWindows')[0].style.display = 'none';
+			return false
 		}
 
 	} else {

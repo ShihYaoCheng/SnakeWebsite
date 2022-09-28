@@ -2,9 +2,18 @@
     /* border: 1px solid red; */
     /* height: 1000px; */
     width: 100%;
+    padding-top: 100px;
 }
-
-
+@media all and (max-width: 800px){
+    .NFTindex_SRC {
+        padding-top: 80px;
+    }
+}
+@media all and (max-width: 500px){
+    .NFTindex_SRC {
+        padding-top: 60px;
+    }
+}
 .SRC-title-02 {
     font-family: Impact, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
     color: #fff;

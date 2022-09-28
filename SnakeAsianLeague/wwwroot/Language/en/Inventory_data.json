@@ -20,7 +20,7 @@
     "Rarity": "Rarity",
     "Element": "Element",
     "BodyType": "Body Type",
-    "Owned": "Owned by&nbsp;",
+    "Owned": "Owned by ",
     "UnderMaintenance": "Under Maintenance",
     "PPSRmaintenance": "This PPSR is temporarily under maintenance"
   },
@@ -42,7 +42,9 @@
     "TotalIncomeSRC": "Total Income",
     "SRC": "SRC",
     "CollectIncome": "Collect Income",
-    "CollectAllIncome": "Collect All Income"
+    "CollectAllIncome": "Collect All Income",
+    "BuyPPSR": "Buy PPSR >>"
+
 
   },
   "Filter": {
@@ -79,5 +81,39 @@
     "Heal": "Heal",
     "Control": "Control"
   },
-  "LoginMetaMask": "LoginMetaMask"
+  "LoginMetaMask": "LoginMetaMask",
+
+  "esports": {
+    "eventDetailed": "賽事詳細",
+    "eventsView": "查看賽事",
+    "RegistrationStatus": "報名狀態",
+    "FinalQualification": "決賽資格",
+    "individualGroup": "個人賽組",
+    "TeamCompetition": "隊伍賽組",
+    "notObtainedFinalQualification": " 尚未取得決賽資格",
+    "AsianLeagueOne": "亞洲聯賽第一季",
+    "ChristmasCelebrationTwentyOne": "聖誕節慶賽2021",
+    "NewYearFestivalTwentyOne": "跨年節慶賽2021"
+  },
+  "Reward": {
+    "AwardDetails": "得獎細項",
+    "ApplicationHasEnded": "申請已結束",
+    "signApplicationForm": "填寫申請表",
+    "ReviewInformation": "審核資料",
+    "DeliveryCompleted": "寄送完成",
+    "UntilAward": "尚未獲獎"
+  },
+  "SWAP": {
+    "Minimum": "Minimum",
+    "Balance": "Balance",
+    "MAX": "MAX",
+    "Swap": "Swap",
+    "ComfirmToSwap": "Comfirm to Swap ",
+    "Confirm": "Confirm",
+    "transacting": "transacting",
+    "ConnectToGame": "Connect to Game",
+    "WrongNetwork": "Wrong Network",
+    "SwitchYoMetWorkName": "Switch to netWorkName",
+    "LoadingData": "Loading Data"
+  }
 }

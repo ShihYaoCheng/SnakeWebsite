@@ -1,12 +1,15 @@
-﻿export function S3Calendar(SchedulesData) {
+﻿export function S3Calendar(getlang, SchedulesData) {
     //整理資料
-    console.log("SchedulesData",SchedulesData)
-    if (SchedulesData == null) return  
+
+    console.log("getlang", getlang)
+    console.log("SchedulesData", SchedulesData)
+    var lang = getlang
+    if (SchedulesData == null) return
     var eventsData = []
     var GuildData = []
     var FinalTime = []
     var individualData = []
-    var TilleType = ['Silver', 'Silver', 'Diamond', 'Master', 'Charity']
+    var TilleType = { "en": ['Silver', 'Silver', 'Diamond', 'Master', 'Charity'], "tw": ['123', '456', '789', '123', '456'] }  //['Silver', 'Silver', 'Diamond', 'Master', 'Charity']
     var beginType = ['#', 'W', 'M', 'S', 'F']
     var beginNumQ = [0, 0, 0, 0, 0]
     var beginNumS = [0, 0, 0, 0, 0]
@@ -18,7 +21,7 @@
                 beginNumQ[e.guildGameType] += 1
                 GuildData.push(
                     {
-                        title: beginType[e.guildGameType] + beginNumQ[e.guildGameType]  + ' ' + TilleType[e.guildGameType] + ' ' + 'Qualification(Squad)' ,// e.guildSchedule.slice(0, e.guildSchedule.length - 2),
+                        title: beginType[e.guildGameType] + beginNumQ[e.guildGameType] + ' ' + TilleType[lang][e.guildGameType] + ' ' + 'Qualification(Squad)' ,// e.guildSchedule.slice(0, e.guildSchedule.length - 2),
                         start: e.date,
                         backgroundColor: '#a86ce3',
                         borderColor: '#a86ce3',
@@ -35,7 +38,7 @@
 
                 FinalTime.push(
                     {
-                        title: beginType[e.guildGameType] + beginNumQ[e.guildGameType]  + ' ' + TilleType[e.guildGameType] + ' ' + 'Final'+' ' + '(Squad)' ,
+                        title: beginType[e.guildGameType] + beginNumQ[e.guildGameType] + ' ' + TilleType[lang][e.guildGameType] + ' ' + 'Final'+' ' + '(Squad)' ,
                         start: e.date.slice(0, 10),
                         display: 'background',
                         backgroundColor: '#C7B69A',
@@ -53,7 +56,7 @@
                 beginNumS[e.indGameType]+=1
                 individualData.push(
                     {
-                        title:    TilleType[e.indGameType] + ' ' + 'Qualification',
+                        title: TilleType[lang][e.indGameType] + ' ' + 'Qualification',
                         start: e.date,
                     }
                 )
@@ -104,7 +107,7 @@
 
 
     calendar.render();
-
+    //render()
     //hoverDiv()
 
     function hoverDiv(info) {
@@ -122,4 +125,8 @@
                 </div>
                 `   
     }
+    //function render() {
+    //    console.log("test")
+    //    calendar.render();
+    //}
 }

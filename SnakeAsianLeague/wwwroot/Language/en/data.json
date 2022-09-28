@@ -153,11 +153,14 @@
     "connectMetamask": "Connect Wallet",
     "installMetamask": "Please Install Wallet",
     "asset": "Asset",
-    "activities": "Activities"
+    "activities": "Activities",
+    "Address": "Address：",
+    "Bluemap": "Bluemap"
+
   },
 
   "footer": {
-    "Snakelogo":"./images/Footer/logo_en.png",
+    "Snakelogo": "./images/Footer/logo_en.png",
     "Home": "Home",
     "Marketplace": "Marketplace",
     "Battle": "Battle",
@@ -172,4 +175,6 @@
     "JoinUs": "Join Us",
     "CQITeam": "Our Team"
   }
+
+
 }
