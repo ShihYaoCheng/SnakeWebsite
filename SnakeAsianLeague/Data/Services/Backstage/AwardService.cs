@@ -21,7 +21,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
         public AwardService(IOptions<ExternalServers> myConfiguration)
         {
             externalServersConfig = myConfiguration.Value;
-            BackstageServer = new RestClient(externalServersConfig.BackstageServer);
+            BackstageServer = new RestClient(externalServersConfig.BackstageServer + "/identity");
         }
 
         public async Task<List<AwardDetail>> GetAwardDetails()
