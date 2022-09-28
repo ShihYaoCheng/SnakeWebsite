@@ -30,4 +30,7 @@ namespace SnakeAsianLeague.Data.Entity
 
 
     }
+    public class Lang {
+        public string lang { get; set; }
+    }
 }

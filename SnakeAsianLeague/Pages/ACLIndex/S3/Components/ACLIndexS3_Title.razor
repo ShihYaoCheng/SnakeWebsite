@@ -1,10 +1,18 @@
-﻿<div class="BannerBlockTitle">
-    <p data-aos="zoom-in-down" data-aos-duration="800">ASIA CHAMPIONS LEAGUE </p>
-    <p data-aos="flip-left" data-aos-duration="1000" data-aos-delay="500">2022</p>
-     <div class="BannerBlockNavLogo" data-aos="fade-down" data-aos-duration="800" data-aos-delay="800">
-        <img data-src="/images/AsiaChampionsLeague/S3/Header/logo_亞洲聯賽S3.webp" alt="">
+﻿@inject IJSRuntime JS
+
+<div class="BannerBlockTitle">
+    <p   data-i18n="Asian_data:main.title">ASIA CHAMPIONS LEAGUE </p>
+    <p >2022</p>
+     <div class="BannerBlockNavLogo" >
+        <img  alt=""  data-i18n="[src]Asian_data:main.LogoImg" src="/images/AsiaChampionsLeague/S3/Header/logoS3.webp" >
     </div>
 </div>
 @code {
-
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {           
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
 }

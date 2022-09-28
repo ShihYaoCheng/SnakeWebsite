@@ -1,0 +1,108 @@
+{
+  "main": {
+    "title": "ASIA CHAMPIONS LEAGUE",
+    "ACLSeason": "ACL Season",
+    "EventInfo": "Event Info",
+    "Rules": "Rules",
+    "Reward": "Reward",
+    "Ranking": "Ranking",
+    "Schedule": "Schedule",
+    "Notice": "Notice",
+    "EventInfoSubTitle": " Sign up now and get 10% SRC of the sign up fee!",
+    "MoreSRCbtn": "More Information for SRC",
+    "LogoImg": "/images/AsiaChampionsLeague/S3/Header/logoS3.webp"
+  },
+  "Reward": {
+    "title": "All top 8 Gets the Price",
+    "imgText": "Total Grand 191,155 ERNC",
+    "text_1": "This year we will be giving out “191,155 ERNC” in total for winners around the social community. We are delighted with the response gathered from last season and fully appreciate players who are willing to help us improve Pon Pon Snake’s game experience.",
+    "text_2": "Not Just the Top 3 obtain prizes, we also prepared several awards all the way to the Top 8. There will be different categories to participate in. For deeper information, you may take a look at the new distribution below:",
+    "SecretReward": " Secret Reward",
+    "SecretRewardText": "There will be a secret reward for the Top three of Asian Champion League.",
+    "BonusEdition_1": "/images/AsiaChampionsLeague/S3/Reward/Reward_Solo_Reward.webp",
+    "BonusEdition_2": "/images/AsiaChampionsLeague/S3/Reward/Reward_Squad_Reward.webp"
+  },
+
+  "Rules": {
+    "small_first": {
+      "sub_1": "1.Solo Battle Group :",
+      "sub_2": "(1)You will need to climb the ladder rank.",
+      "sub_3": "Players will earn 20 tickets each cycle(two days a cycle)",
+      "sub_4": "joining a battle will consume one ticket.",
+      "sub_5": "Every victory will give you one point, ",
+      "sub_6": "you won't be getting or losing any point if you lose a game",
+      "sub_7": "The top eight players will have permission for the finals",
+      "sub_8": "(Players must have over 10 points for attending the finals.)"
+    },
+    "small_second": {
+      "sub_1": "2. Squad Battle Group:",
+      "sub_2": "(1)Players can team up from one to five.",
+      "sub_3": "Captain can invite or dismiss any member.",
+      "sub_4": "(2)You will need to climb the ladder rank.",
+      "sub_5": "Six days will be a cycle.The first five",
+      "sub_6": "days will be rank matches,the sixth day is the final match,",
+      "sub_7": "every cycle the leader will",
+      "sub_8": "get 100 tickets and can distribute them to all the members.",
+      "sub_9": "Each team member can earn their",
+      "sub_10": "own score,be automatically added to the team points.",
+      "sub_11": "Joining a battle will all the wins will",
+      "sub_12": "consume one ticket.Every victory will give you one point,",
+      "sub_13": "you won't be getting or losing any point if you lose a game.",
+      "sub_14": "(3)During the final match, each team can have four players,",
+      "sub_15": "there must be at least one player attending the game to",
+      "sub_16": "be recognized as a valid match.",
+      "sub_17": "(4)If teams are out of tickets, there'll be more",
+      "sub_18": "tickets  in the store. The leaders are allowed to",
+      "sub_19": "buy 25 tickets each cycle (6 days)."
+    },
+    "small_third": {
+      "sub_1": "3. Final",
+      "sub_2": "Please enter the waiting room 5 mins before the Final begins.",
+      "sub_3": "There will be Three rounds in the Final:",
+      "sub_4": "·The first round will select Final Four players.",
+      "sub_5": "·The second round will select the final three players.",
+      "sub_6": "·The last round will decide First, second, third place player."
+
+
+    },
+
+    "big_first": {
+      "sub_1": "1.Solo Battle Group :",
+      "sub_2": "(1)You will need to climb the ladder rank.Players will earn 20 tickets each cycle(two days a cycle)",
+      "sub_3": "joining a battle will consume one ticket.Every victory will give you one point,",
+      "sub_4": "you won't be getting or losing any point if you lose a game.",
+      "sub_5": "The top eight players will have permission for the finals",
+      "sub_6": "(Players must have over 10 points for attending the finals.)"
+
+    },
+    "big_second": {
+      "sub_1": "2. Squad Battle Group:",
+      "sub_2": "(1)Players can team up from one to five.Captain can invite or dismiss any member.",
+      "sub_3": "(2)You will need to climb the ladder rank.Six days will be a cycle.The first five ",
+      "sub_4": "days will be rank matches,the sixth day is the final match,every cycle the leader will",
+      "sub_5": "get 100 tickets and can distribute them to all the members.Each team member can earn their",
+      "sub_6": "own score,be automatically added to the team points.Joining a battle will all the wins will",
+      "sub_7": "consume one ticket.Every victory will give you one point,",
+      "sub_8": "you won't be getting or losing any point if you lose a game.",
+      "sub_9": "(3)During the final match, each team can have four players,",
+      "sub_10": "there must be at least one player attending the game to be recognized as a valid match.",
+      "sub_11": "(4)If teams are out of tickets, there'll be more tickets  in the store. The leaders are allowed",
+      "sub_12": " to buy 25 tickets each cycle (6 days)."
+    },
+    "big_third": {
+      "sub_1": "3. Final",
+      "sub_2": "Please enter the waiting room 5 mins before the Final begins.There will be Three rounds in the Final:",
+      "sub_3": "·The first round will select Final Four players.",
+      "sub_4": "·The second round will select the final three players.",
+      "sub_5": "·The last round will decide First, second, third place player."
+
+
+    }
+  },
+
+  "Ranking": {
+    "toggleBtnSquad": "/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.webp",
+    "toggleBtnSolo": "/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.webp"
+
+  }
+}

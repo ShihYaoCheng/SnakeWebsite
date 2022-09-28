@@ -12,8 +12,7 @@ namespace SnakeAsianLeague.Data.Services
     {
 
         public SnakeAccount LoginStatus { get; private set; } = new SnakeAccount();
-
-
+        public Lang nowLang { get; set; } = new Lang();
 
         public void UpdateLoginStatus(ComponentBase Source, SnakeAccount loginStatus) 
         {
@@ -25,6 +24,15 @@ namespace SnakeAsianLeague.Data.Services
 
         private void NotifyStateChanged(ComponentBase Source, string Property)
             => StateChanged?.Invoke(Source, Property);
+
+        public void getLang(string value) {
+            this.nowLang.lang = value;
+            getLangChanged(value);
+        }
+        public event Action<string> langChanged;
+        private void getLangChanged(string value)
+           => langChanged?.Invoke(value);
+
 
     }
 }

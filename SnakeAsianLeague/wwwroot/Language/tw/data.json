@@ -164,7 +164,7 @@
   },
 
   "footer": {
-    "Snakelogo":"./images/Footer/logo_cn.png",
+    "Snakelogo": "./images/Footer/logo_cn.png",
     "Home": "首頁",
     "Marketplace": "NFT交易所",
     "Battle": "對戰",
@@ -179,4 +179,8 @@
     "JoinUs": "加入我們",
     "CQITeam": "CQI團隊"
   }
+
+
+
+
 }
