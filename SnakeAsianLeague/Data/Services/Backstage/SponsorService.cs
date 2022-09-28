@@ -20,7 +20,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
         public SponsorService(IOptions<ExternalServers> myConfiguration)
         {
             externalServersConfig = myConfiguration.Value;
-            BackstageServer = new RestClient(externalServersConfig.BackstageServer+ "/Identity");
+            BackstageServer = new RestClient(externalServersConfig.BackstageServer+ "/identity");
         }
 
         public async Task<List<Sponsor>> GetSponsors()
