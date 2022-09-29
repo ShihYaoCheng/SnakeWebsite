@@ -24,6 +24,7 @@ using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using OpenTelemetry.Metrics;
 using SnakeAsianLeague.Data.Services.BlockChainProcessor;
+using SnakeAsianLeague.Data.Services.Commodity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,7 +71,7 @@ builder.Services.AddSingleton<NFTService>();
 builder.Services.AddSingleton<OptionService>();
 builder.Services.AddSingleton<InventoryService>();
 builder.Services.AddSingleton<MetamaskTransfer>();
-
+builder.Services.AddSingleton<CommodityServices>();
 builder.Services.AddSingleton<ProductsService>();
 builder.Services.AddSingleton<SnakeTableService>();
 

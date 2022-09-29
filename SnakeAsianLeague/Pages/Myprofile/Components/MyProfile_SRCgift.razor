@@ -1,4 +1,9 @@
-﻿<head>
+﻿@using SnakeAsianLeague.Data.Entity.Commodity
+@using SnakeAsianLeague.Data.Services.Commodity
+@inject CommodityServices CommodityServices
+
+
+<head>
     <link href="css/MyProfile/SRCgift.css" rel="stylesheet" />   
     <link href="css/Inventory.css" rel="stylesheet" />   
     <link href="css/MarketPlace.css" rel="stylesheet" />   
@@ -26,7 +31,7 @@
                         </div>
                         <div class="NFT-cardText Not-Price-Ver">
                             <div class="giftData-container"    >
-                                <div class="giftData-title"> small box of SRC</div>
+                                <div class="giftData-title">  </div>
                                 <div class="srcZone-container">
                                     <div class="giftData-srcZone">
                                         <img  class="srcZone-img" src="/images/Myprofile/SRC.webp"/>
@@ -87,5 +92,13 @@
 
     </div>
 @code {
+    private List<IAPItem> IAPItemList;
 
+
+    protected override async Task OnInitializedAsync()
+    {
+        IAPItemList = await CommodityServices.GetIAPItem();
+
+        
+    }
 }
