@@ -1,4 +1,4 @@
-﻿export function S3Calendar(getlang, SchedulesData) {
+﻿window.S3Calendar =function (getlang, SchedulesData) {
     //整理資料
 
     console.log("getlang", getlang)

@@ -1,5 +1,8 @@
 ﻿@page "/myprofile/{router}"
+@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Pages.Myprofile.Components
+@inject AppState AppState
+
 
 <head>
     <link href="css/MyProfile/Myprofile.css" rel="stylesheet" /> 
@@ -67,4 +70,12 @@
 @code {
     [Parameter]
     public string router { get; set; } = "index";
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.langChanged += async (value)
+        => await InvokeAsync(StateHasChanged);
+    }
+
+       
 }

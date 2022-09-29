@@ -832,28 +832,49 @@ html{
 }
 
 #progress_bar_step_01::before{
-    content: "填寫申請表";
-    color: #ffffff;
-    font-size: 24px;
-    position: absolute;
-    top: -44px;
-}
-#progress_bar_step_02::before{
-    content: "審核資料";
-    color: #ffffff;
-    font-size: 24px;
-    position: absolute;
-    top: -44px;
-}
-#progress_bar_step_03::before{
-    content: "寄送完成";
+  
     color: #ffffff;
     font-size: 24px;
     position: absolute;
     top: -44px;
 }
 
-.progress_bar_border{
+.Application_tw::before {
+    content: "填寫申請表";
+}
+
+.Application_en::before {
+    content: "Fill in Application Form";
+}
+#progress_bar_step_02::before { 
+    color: #ffffff;
+    font-size: 24px;
+    position: absolute;
+    top: -44px;
+}
+.Audit_tw::before {
+    content: "審核資料";
+}
+.Audit_en::before {
+    content: "Verify";
+}
+
+
+#progress_bar_step_03::before {
+   
+    color: #ffffff;
+    font-size: 24px;
+    position: absolute;
+    top: -44px;
+}
+.Delivery_tw::before {
+    content: "寄送完成";
+}
+.Delivery_en::before {
+    content: "Complete";
+}
+
+.progress_bar_border {
     border-top: 2.5px solid #fff;
     /* max-width: 100px; */
     width: 100%;

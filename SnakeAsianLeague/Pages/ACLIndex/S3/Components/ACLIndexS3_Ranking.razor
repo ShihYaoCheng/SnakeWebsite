@@ -6,6 +6,7 @@
 @inject AsiaLeaguePlaceService AsiaLeaguePlaceService
 @inject AsiaLeagueScheduleService AsiaLeagueScheduleService
 @inject GuildMemberService GuildMemberService
+@implements IDisposable
 
 <div id="Ranking" class="Ranking" style="background:@BGcolor">     
     @*Banner*@
@@ -145,7 +146,11 @@
         await reload.InvokeAsync();   
     }
 
-
+       void IDisposable.Dispose()
+    {
+          AppState.langChanged -= async (value)
+        => await clickReload();
+    }
     protected override async Task OnInitializedAsync()
     {
         AppState.langChanged += async (value)
