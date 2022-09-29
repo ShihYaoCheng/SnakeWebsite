@@ -251,11 +251,102 @@
     z-index: 2;
     box-shadow: 4px 0px 10px 6px rgb(0 0 0 / 30%);
     position: relative;
+    overflow: hidden;
 }
 
 .spaceship-banner-block img {
     width: 100%;
     font-size: 0;
+}
+
+.SpaceshipBanner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    
+    display: none;
+}
+#Robot-left{
+    animation: Robot-left 13s ease-in-out 0s infinite;
+}
+
+@keyframes Robot-left {
+    0% {
+        transform: translateX(0px)  rotate3d(0, 1, 0, 0deg) scale(0.9);
+    }
+
+    50% {
+        transform: translateX(20px)  rotate3d(0, 1, 0, 20deg) scale(1);
+    }
+
+    100% {
+        transform: translateX(0px)  rotate3d(0, 1, 0, 0deg) scale(0.9);
+    }
+}
+
+#Robot-right{
+    animation: Robot-right 20s ease-in-out .5s infinite;
+}
+
+@keyframes Robot-right {
+    0% {
+        /* transform: translateY(0px)  rotate3d(0, 1, 0, 0deg) scale(1); */
+        transform: translateY(0px) scale(0.95);
+    }
+
+    50% {
+        /* transform: translateY(-20px)  rotate3d(0, 1, 0, -25deg) scale(1); */
+        transform: translate(20px,-20px) scale(1);
+    }
+
+    100% {
+        /* transform: translateY(0px)  rotate3d(0, 1, 0, 0deg) scale(1); */
+        transform: translateY(0px) scale(0.95);
+    }
+}
+
+#Robot-hand-only{
+    transform-origin: 61% 98%;
+    animation: Robot-hand-only 4s ease-in-out 0s infinite;
+}
+@keyframes Robot-hand-only {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    20% {
+        transform: rotateZ(18deg);
+    }
+    40% {
+        transform: rotateZ(-10deg);
+    }
+    60% {
+        transform: rotateZ(10deg);
+    }
+    80% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+#Front-cloud{
+    animation: Front-cloud 60s forwards 0s infinite;
+}
+@keyframes Front-cloud {
+    0% {
+        opacity: 1;
+        transform: translateX(0px) scale(1);
+    }
+    50% {
+        transform: translate(200px) scale(1.5);
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px) scale(1);
+    }
 }
 
 
@@ -568,5 +659,8 @@
     }
     .blueprint-button{
         margin: 30px auto 80px;
+    }
+    .Scholar-Block{
+        padding: 50px 0 0px;
     }
 }
