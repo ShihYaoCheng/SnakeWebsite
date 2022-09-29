@@ -1,5 +1,8 @@
 ﻿@using SnakeAsianLeague.Data.Entity.Commodity
+@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Commodity
+
+@inject AppState AppState
 @inject CommodityServices CommodityServices
 
 
@@ -20,42 +23,54 @@
                  
     <div class="Inventory-PPSR-Block" id="Inventory-PPSR-Block">  
     
-        <div class="Inventory-CardBLock">    
-            <div class="NFTcard card-bg-DarkSeaGreen">  
-                <a class="NFTcardA" href="" >
-                    @*<a href="@item.LinkURL" target="opensea">  </a>*@
+        <div class="Inventory-CardBLock">  
+            
 
-                    <div class="NFTcard-inner">
-                        <div class="NFT-cardImg">
-                            <img src="https://storage.googleapis.com/pps-nft/ppsr/NFT_Unit3_2c_2.png" alt="" >
-                        </div>
-                        <div class="NFT-cardText Not-Price-Ver">
-                            <div class="giftData-container"    >
-                                <div class="giftData-title">  </div>
-                                <div class="srcZone-container">
-                                    <div class="giftData-srcZone">
-                                        <img  class="srcZone-img" src="/images/Myprofile/SRC.webp"/>
-                                        <span class="srcZone-num" > X1200</span>
+            @if (IAPItemList != null)
+            {
+
+                @foreach (IAPItem item in IAPItemList)
+                {
+
+                    var SRCValue = @item.addValue + @item.addPlus;
+
+                    <div class="NFTcard card-bg-DarkSeaGreen">  
+                        <a class="NFTcardA" href="" >
+                            @*<a href="@item.LinkURL" target="opensea">  </a>*@
+
+                            <div class="NFTcard-inner">
+                                <div class="NFT-cardImg">
+                                    <img src= "@item.productUrl" alt="" >
+                                </div>
+                                <div class="NFT-cardText Not-Price-Ver">
+                                    <div class="giftData-container"    >
+                                        <div class="giftData-title">  </div>
+                                        <div class="srcZone-container">
+                                            <div class="giftData-srcZone">
+                                                <img  class="srcZone-img" src="/images/Myprofile/SRC.webp"/>
+                                                <span class="srcZone-num" > SRC @SRCValue</span>
+
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="giftData-btn-container">
+
+                                            <div class="usdValuation">  <span>≈USD</span> @item.priceUSD<span></span></div>
+                                            <button class="giftData-btn"  onclick="BuyPurchase( @item.priceUSDT , @item.productID)" > 
+                                                <span>USDT</span> <span class="giftData-btn-nun">@item.priceUSDT</span></button>
+
+                                        </div>
                                     </div>
-                                </div>
-                    
-                                <div class="giftData-btn-container">
-                                 
-                                    <div class="usdValuation">  <span>≈USD</span> <span>112233`</span></div>
-                                    <button class="giftData-btn"> <span>USDT</span> <span class="giftData-btn-nun">3.123</span></button>
-                       
-                                </div>
-                            </div>
 
-                        </div>               
-                    </div>                     
-                </a>        
-            </div>
-
-            <div class="NFTcard card-bg-red">  
+                                </div>               
+                            </div>                     
+                        </a>        
+                    </div>
+                }
+            }
+            @*<div class="NFTcard card-bg-red">  
                 <a class="NFTcardA" href="" >
-                    @*<a href="@item.LinkURL" target="opensea">  </a>*@
-
                     <div class="NFTcard-inner">
                         <div class="NFT-cardImg">
                             <img src="" alt="" >
@@ -65,15 +80,13 @@
                         </div>               
                     </div>                     
                 </a>
-            </div>
+            </div>*@
                        
        
 
      
-            <div class="NFTcard card-bg-red">  
+            @*<div class="NFTcard card-bg-red">  
                 <a class="NFTcardA" href="" >
-                    @*<a href="@item.LinkURL" target="opensea">  </a>*@
-
                     <div class="NFTcard-inner">
                         <div class="NFT-cardImg">
                             <img src="" alt="" >
@@ -83,7 +96,7 @@
                         </div>               
                     </div>                     
                 </a>        
-            </div>
+            </div>*@
 
         </div>
 
@@ -98,7 +111,13 @@
     protected override async Task OnInitializedAsync()
     {
         IAPItemList = await CommodityServices.GetIAPItem();
+    }
 
-        
+
+    public async Task BuyPurchase( decimal USDT,  string productID )
+    {
+       //uint UserID = AppState.LoginStatus.userID;
+       //bool result = await CommodityServices.PurchaseByUSDT( UserID, USDT, productID);
+
     }
 }
