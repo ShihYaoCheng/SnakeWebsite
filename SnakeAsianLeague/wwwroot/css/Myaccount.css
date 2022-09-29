@@ -458,10 +458,15 @@ html{
     .match_row_myawardnotice{
         justify-content: flex-start;
     }
-    .match_row_select{
+ 
+    
+}
+@media (max-width: 600px) {
+   
+
+    .match_row_select {
         flex-wrap: wrap;
     }
-    
 }
 
 
@@ -728,7 +733,7 @@ html{
 .receive_signUpEvent_button{
     border-radius: 50px;
     /* background-image: url(/images/Index/signUpEvent_button.webp); */
-    max-width: 220px;
+    max-width: 211px;
     width: 90%;
     color: #ffffff;
     font-weight: 500;
@@ -831,8 +836,7 @@ html{
     position: relative;
 }
 
-#progress_bar_step_01::before{
-  
+#progress_bar_step_01::before {
     color: #ffffff;
     font-size: 24px;
     position: absolute;
@@ -845,6 +849,9 @@ html{
 
 .Application_en::before {
     content: "Fill in Application Form";
+    white-space: normal;
+    text-align: center;
+    top: -102px !important;
 }
 #progress_bar_step_02::before { 
     color: #ffffff;
@@ -917,6 +924,9 @@ html{
         font-size: 18px;
         top: -35px;
     }
+    .Application_en::before {
+        top: -72px !important;
+    }
 }
 @media all and (max-width: 400px){
     .progress_bar_step_icon{
@@ -934,6 +944,8 @@ html{
         font-size: 16px;
         top: -30px;
     }
+
+  
 }
 
 
@@ -2285,5 +2297,11 @@ input[type="radio"]+.edit_label2{
 @media (max-width: 1000px){
     .my_match_select{
         font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .my_match_select {
+        font-size: 14px;
     }
 }

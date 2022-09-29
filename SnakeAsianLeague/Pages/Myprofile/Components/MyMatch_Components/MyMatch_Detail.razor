@@ -21,7 +21,7 @@
 
 
         <div class="match_row">
-            <div class="match_row_title">查看賽事</div>
+            <div class="match_row_title"  data-i18n="Inventory_data:esports.eventsView">查看賽事</div>
             <div class="match_row_status">
                 <InputSelect ValueExpression="@(()=>model.Season)"  Value="@model.Season"
                     ValueChanged="@((AsiaLeagueSeasons value) => OnValueChanged(value ))" class="my_match_select">
@@ -232,13 +232,13 @@
         switch (value)
         {
             case AsiaLeagueSeasons.AsiaLeagueS1:
-               name = AppState.nowLang.lang =="en" ? "test":"亞洲聯賽第一季";
+               name = AppState.nowLang.lang =="en" ? "ACL Season I":"亞洲聯賽第一季";
                 break;
             case AsiaLeagueSeasons.Xmas2021:
-               name = AppState.nowLang.lang =="en" ? "ttt":"聖誕節慶賽2021";
+               name = AppState.nowLang.lang =="en" ? "Christmas League 2021":"聖誕節慶賽2021";
                 break;
             case AsiaLeagueSeasons.NewYear2021:
-                name = AppState.nowLang.lang =="en" ? "eee":"跨年節慶賽2021";
+                name = AppState.nowLang.lang =="en" ? "New Year League 2021":"跨年節慶賽2021";
                 break;
             default:
                 name = "尚未開放";
