@@ -30,7 +30,7 @@
             <div class="coin-TextZone coin-TextZone-coinName">
                 <div class="coin-Zone">
                     <p class="exchangeRate">
-                        <p class="coinView-Minimum ">
+                        <p class="coinView-Minimum " data-i18n="Inventory_data:SWAP.Minimum">
                             Minimum: 1 SRC
                         </p>
                     </p>
@@ -44,7 +44,7 @@
                         <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRC" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
 
                     </div>
-                    <p id="SRCTotalBalance" class="avaliable">Balance: @SRCTotal</p>
+                    <p id="SRCTotalBalance" class="avaliable"><span data-i18n="Inventory_data:SWAP.Balance">Balance:</span>   @SRCTotal</p>
 
                 </div>
                 <div class="coin-Zone">
@@ -69,7 +69,7 @@
                         <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddUSDT" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
 
                     </div>
-                    <p id="USDTTotalBalance" class="avaliable">Balance: @USDTTotal</p>
+                    <p id="USDTTotalBalance" class="avaliable"><span data-i18n="Inventory_data:SWAP.Balance">Balance:</span>  @USDTTotal</p>
 
                 </div>
             </div>
@@ -82,7 +82,7 @@
                         <div class="coin-Num-block">
                             <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e.Value.ToString());}"/>
                             <div class="maxBTN-Zone">
-                                <button @onclick="maxBTN" class="maxBTN">MAX</button>  
+                                <button @onclick="maxBTN" class="maxBTN" data-i18n="Inventory_data:SWAP.MAX">MAX</button>  
                             </div>
                         </div>
                         @if (BalanceShort)
@@ -118,7 +118,7 @@
                     <div class="coin-Num-block">
                         <div  class="coin-Num" >@USDTInput </div>
                         <div class="maxBTN-Zone">
-                            @* <button @onclick="maxBTN" class="maxBTN">MAX</button>   *@
+                            @* <button @onclick="maxBTN" class="maxBTN" data-i18n="Inventory_data:SWAP.MAX">MAX</button>   *@
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
             @* <div class="coin-MaxZone">
                     <div class="coin-Zone">
                     <div class="maxBTN-Zone">
-                        <button @onclick="maxBTN" class="maxBTN">MAX</button>
+                       <button @onclick="maxBTN" class="maxBTN" data-i18n="Inventory_data:SWAP.MAX">MAX</button>
                        
                     </div>
                     
@@ -142,14 +142,14 @@
         @if (Value)
         {
           
-            <button id="SwapBTN" class="SwapBTN" hidden = "@BalanceShort">Swap</button>          
-            <div class="SwapBTN SwapBTN-black" hidden = "@(!(BalanceShort))">Swap</div>                   
+            <button id="SwapBTN" class="SwapBTN" hidden = "@BalanceShort" data-i18n="Inventory_data:SWAP.Swap">Swap</button>          
+            <div class="SwapBTN SwapBTN-black" hidden = "@(!(BalanceShort))" data-i18n="Inventory_data:SWAP.Swap">Swap</div>                   
 
-            @if(!(netWorkRight)){<button class="greenBTN" @onclick="AddPolygon">Switch to @netWorkName </button>} 
+            @if(!(netWorkRight)){<button class="greenBTN" @onclick="AddPolygon" > <span data-i18n="Inventory_data:SWAP.SwitchYoMetWorkName">Switch to </span>@netWorkName </button>} 
         }
         else
         {
-            <button class="greenBTN" @onclick="loginButtonClick">Connect to Game</button>
+            <button class="greenBTN" @onclick="loginButtonClick" data-i18n="Inventory_data:SWAP.ConnectToGame">Connect to Game</button>
         }
 
 
@@ -166,13 +166,13 @@
 
 @if (Value && !(netWorkRight))
 {
-    <ErrorNetwork AddPolygon ="AddPolygon" Value ="netWorkName"></ErrorNetwork>
+    <ErrorNetwork AddPolygon ="AddPolygon" Value ="@netWorkName"></ErrorNetwork>
 }
 
 @*彈窗*@
 
 <ProductsPopup Value="#SwapBTN"  Confirm ="confirm">       
-    Comfirm to Swap <span> @SRCInput </span> SRC to <span>  @USDTInput </span>  USDT?       
+    <span data-i18n="Inventory_data:SWAP.ComfirmToSwap">Comfirm to Swap</span>  <span> @SRCInput </span> SRC to <span>  @USDTInput </span>  USDT?       
 </ProductsPopup>
 
  @*交易中反灰*@

@@ -97,22 +97,22 @@
   "Reward": {
     "AwardDetails": "得獎細項",
     "ApplicationHasEnded": "申請已結束",
-    "signApplicationForm": "填寫申請表",
-    "ReviewInformation": "審核資料",
-    "DeliveryCompleted": "寄送完成",
+    "signApplicationForm": "progress_bar_step Application_tw",
+    "ReviewInformation": "progress_bar_step Audit_tw",
+    "DeliveryCompleted": "progress_bar_step Delivery_tw",
     "UntilAward": "尚未獲獎"
   },
   "SWAP": {
-    "Minimum": "Minimum",
-    "Balance": "Balance",
-    "MAX": "MAX",
-    "Swap": "Swap",
-    "ComfirmToSwap": "Comfirm to Swap ",
-    "Confirm": "Confirm",
-    "transacting": "transacting",
-    "ConnectToGame": "Connect to Game",
-    "WrongNetwork": "Wrong Network",
-    "SwitchYoMetWorkName": "Switch to netWorkName",
-    "LoadingData": "Loading Data"
+    "Minimum": "最低額度: 1 騎士幣",
+    "Balance": "餘額",
+    "MAX": "最大額度",
+    "Swap": "兌換",
+    "ComfirmToSwap": "確認兌換",
+    "Confirm": "確認",
+    "transacting": "兌換中",
+    "ConnectToGame": "連接遊戲",
+    "WrongNetwork": "網路錯誤",
+    "SwitchYoMetWorkName": "切換至",
+    "LoadingData": "資料載入中"
   }
 }

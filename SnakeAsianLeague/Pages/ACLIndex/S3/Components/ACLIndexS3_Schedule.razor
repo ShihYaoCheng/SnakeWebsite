@@ -7,7 +7,7 @@
 @inject AppState AppState
 @inject IJSRuntime JS
 @inject AsiaLeagueScheduleService AsiaLeagueScheduleService
-
+@implements IDisposable
 <head>
         <link href="css/ACLIndex/S3/S3calendar.css" rel="stylesheet" />
 </head>
@@ -167,9 +167,6 @@
 @code {
     private bool pop;
 
-    private IJSObjectReference? S3CalendarJS;
-
-
   @*  public int daySquare = 42;*@
     public int[][] daySquare = new int[][]
     {
@@ -246,26 +243,41 @@
 
             string jsonString = JsonSerializer.Serialize(mobjList);    *@
             //Console.Write(Schedules);
-
+            await JS.InvokeVoidAsync("S3Calendar",AppState.nowLang.lang,Schedules); 
+            
             //2022/09/15
-            S3CalendarJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/S3Calendar.js");
-            await S3CalendarJS.InvokeVoidAsync("S3Calendar",AppState.nowLang.lang,Schedules);        
+          
+                
 
         }        
     }
-    protected override async Task OnInitializedAsync()
-    { 
-        AppState.langChanged += async (value)
-       =>  await reloadCalendar()
-        ;
+    [Parameter]
+    public EventCallback reload { get; set; }
 
-
+    private async Task clickReload()
+    {
+        await reloadCalendar();
+        await reload.InvokeAsync();   
     }
+
+
+    void IDisposable.Dispose()
+    {
+          AppState.langChanged -= async (value)
+        =>  await clickReload();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.langChanged += async (value)
+        =>  await clickReload();
+    }
+
     public async Task reloadCalendar()
     {
         if (Schedules != null)
         {
-            await S3CalendarJS.InvokeVoidAsync("S3Calendar",AppState.nowLang.lang,Schedules)  ;       
+             await JS.InvokeVoidAsync("S3Calendar",AppState.nowLang.lang,Schedules);      
         }
        
     }

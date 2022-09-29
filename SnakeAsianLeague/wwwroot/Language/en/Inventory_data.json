@@ -84,28 +84,28 @@
   "LoginMetaMask": "LoginMetaMask",
 
   "esports": {
-    "eventDetailed": "賽事詳細",
+    "eventDetailed": "Event Information",
     "eventsView": "查看賽事",
-    "RegistrationStatus": "報名狀態",
-    "FinalQualification": "決賽資格",
-    "individualGroup": "個人賽組",
-    "TeamCompetition": "隊伍賽組",
-    "notObtainedFinalQualification": " 尚未取得決賽資格",
-    "AsianLeagueOne": "亞洲聯賽第一季",
-    "ChristmasCelebrationTwentyOne": "聖誕節慶賽2021",
-    "NewYearFestivalTwentyOne": "跨年節慶賽2021"
+    "RegistrationStatus": "Registration Status ",
+    "FinalQualification": "Final Qualification",
+    "individualGroup": "Solo Group",
+    "TeamCompetition": "Squad Group",
+    "notObtainedFinalQualification": " No Final Qualification",
+    "AsianLeagueOne": "ACL Season I",
+    "ChristmasCelebrationTwentyOne": "Christmas League 2021",
+    "NewYearFestivalTwentyOne": "New Year League 2021"
   },
   "Reward": {
-    "AwardDetails": "得獎細項",
-    "ApplicationHasEnded": "申請已結束",
-    "signApplicationForm": "填寫申請表",
-    "ReviewInformation": "審核資料",
-    "DeliveryCompleted": "寄送完成",
-    "UntilAward": "尚未獲獎"
+    "AwardDetails": "Application Steps",
+    "ApplicationHasEnded": "Application End",
+    "signApplicationForm": "progress_bar_step Application_en",
+    "ReviewInformation": "progress_bar_step Audit_en",
+    "DeliveryCompleted": "progress_bar_step Delivery_en",
+    "UntilAward": "Not Rewarded"
   },
   "SWAP": {
-    "Minimum": "Minimum",
-    "Balance": "Balance",
+    "Minimum": "Minimum: 1 SRC",
+    "Balance": "Balance:",
     "MAX": "MAX",
     "Swap": "Swap",
     "ComfirmToSwap": "Comfirm to Swap ",
@@ -113,7 +113,7 @@
     "transacting": "transacting",
     "ConnectToGame": "Connect to Game",
     "WrongNetwork": "Wrong Network",
-    "SwitchYoMetWorkName": "Switch to netWorkName",
+    "SwitchYoMetWorkName": "Switch to",
     "LoadingData": "Loading Data"
   }
 }

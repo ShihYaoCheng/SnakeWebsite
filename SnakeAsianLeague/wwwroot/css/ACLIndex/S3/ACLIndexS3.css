@@ -112,7 +112,7 @@
 .NavBlockSelect select{
     width: 170px !important;
     max-width: none;
-    font-size: 26px;
+    font-size: 16px;
     box-shadow: 2px 2px 8px #66666663;
     border: 3px solid rgb(123 156 165);
     height: 40px;
@@ -126,6 +126,10 @@
     background-size: auto;
     padding: 1px 12px 1px 20px;
     outline: 0;
+}
+
+.NavBlockSelect select div{
+    margin:0;
 }
 
 /*...list...*/
@@ -239,7 +243,7 @@
     }
     .NavBlockSelect select {
         width: 140px !important;
-        font-size: 22px;
+        font-size: 16px;
         height: 38px;
     }
 }
@@ -265,7 +269,7 @@
     }
     .NavBlockSelect select {
         width: 140px !important;
-        font-size: 22px;
+        font-size: 16px;
         height: 38px;
     }
 }
@@ -295,7 +299,7 @@
     }
     .NavBlockSelect select {
         width: 140px !important;
-        font-size: 23px;
+        font-size: 16px;
     }
     .NavBlockSelect {
         margin: 10px;
@@ -345,7 +349,7 @@
         height: 40px;
     }
     .NavBlockSelect select {
-        font-size: 20px;
+        font-size: 16px;
         height: 30px;
     }
 }

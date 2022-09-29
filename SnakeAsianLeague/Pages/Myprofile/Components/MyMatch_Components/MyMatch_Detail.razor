@@ -37,9 +37,9 @@
 
 
         <div class="match_row">
-            <div class="match_row_title">報名狀態</div>
+            <div class="match_row_title" data-i18n="Inventory_data:esports.RegistrationStatus">報名狀態</div>
             <div class="match_row_status">
-                <div class="registration_status @(model.IndRegistered ? "registered" : "") " id="personal_status">個人賽組
+                <div class="registration_status @(model.IndRegistered ? "registered" : "") " id="personal_status"><span data-i18n="Inventory_data:esports.individualGroup">個人賽組</span>
                     @if (model.IndRegistered)
                     {
                         <img class="registration_status_icon" id="signup_icon" src="/images/Myaccount/signup.webp" title="已報名" alt="">
@@ -49,7 +49,7 @@
                         <img class="registration_status_icon" id="no_signup_icon" src="/images/Myaccount/no-signup.webp" title="未報名" alt="">
                     }
                 </div>
-                <div class="registration_status @(model.GuildRegistered ? "registered" : "") " id="team_status">隊伍賽組
+                <div class="registration_status @(model.GuildRegistered ? "registered" : "") " id="team_status" data-i18n="Inventory_data:esports.TeamCompetition">隊伍賽組
                     @if (model.GuildRegistered)
                     {
                         <img class="registration_status_icon" id="signup_icon" src="/images/Myaccount/signup.webp" title="已報名" alt="">
@@ -63,12 +63,12 @@
         </div>
 
         <div class="match_row" id="final_qualification_block">
-            <div class="match_row_title">決賽資格</div>
+            <div class="match_row_title" data-i18n="Inventory_data:esports.FinalQualification" >決賽資格</div>
             <div class="match_row_show">
                 @if (model.FinalRightViews == null || model.FinalRightViews.Count == 0)
                 {
                     <div class="final_qualification_none">
-                        <div class="finals_none">尚未取得決賽資格</div>
+                        <div class="finals_none" data-i18n="Inventory_data:esports.notObtainedFinalQualification">尚未取得決賽資格</div>
                         @*<div class="finals_none">聯賽已結束</div>*@
                     </div>
                 }
@@ -232,13 +232,13 @@
         switch (value)
         {
             case AsiaLeagueSeasons.AsiaLeagueS1:
-                name = "亞洲聯賽第一季";
+               name = AppState.nowLang.lang =="en" ? "test":"亞洲聯賽第一季";
                 break;
             case AsiaLeagueSeasons.Xmas2021:
-                name = "聖誕節慶賽2021";
+               name = AppState.nowLang.lang =="en" ? "ttt":"聖誕節慶賽2021";
                 break;
             case AsiaLeagueSeasons.NewYear2021:
-                name = "跨年節慶賽2021";
+                name = AppState.nowLang.lang =="en" ? "eee":"跨年節慶賽2021";
                 break;
             default:
                 name = "尚未開放";
