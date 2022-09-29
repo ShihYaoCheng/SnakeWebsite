@@ -247,30 +247,30 @@
                     </div>
                 </div>
                 <div class="form_row">
-                    <label class="window_row_title" for="application_realname">姓名</label>
+                    <label class="window_row_title" for="application_realname_1">姓名</label>
                     <div class="window_row_show">
-                        <InputText @bind-Value="awardInfo.RealName" class="window_input" id="application_realname" name="application_realname" />
+                        <InputText @bind-Value="awardInfo.RealName" class="window_input" id="application_realname_1" name="application_realname" />
 
                     </div>
                 </div>
                 <div class="form_row">
-                    <label class="window_row_title" for="application_phone">聯絡電話</label>
+                    <label class="window_row_title" for="application_phone_1">聯絡電話</label>
                     <div class="window_row_show">
-                        <InputText @bind-Value="awardInfo.ContactNumber" class="window_input" id="application_phone" name="application_phone" />
+                        <InputText @bind-Value="awardInfo.ContactNumber" class="window_input" id="application_phone_1" name="application_phone" />
                     </div>
                 </div>
 
                 <div class="form_row">
-                    <label class="window_row_title" for="application_email">Email</label>
+                    <label class="window_row_title" for="application_email_1">Email</label>
                     <div class="window_row_show">
-                        <InputText @bind-Value="awardInfo.Email" class="window_input" id="application_email" name="application_email" />
+                        <InputText @bind-Value="awardInfo.Email" class="window_input" id="application_email_1" name="application_email" />
                     </div>
                 </div>
 
                 <div class="form_row">
-                    <label class="window_row_title" for="application_address">地址</label>
+                    <label class="window_row_title" for="application_address_1">地址</label>
                     <div class="window_row_show">
-                        <InputText @bind-Value="awardInfo.Address" class="window_input" id="application_address" name="application_address" />
+                        <InputText @bind-Value="awardInfo.Address" class="window_input" id="application_address_1" name="application_address" />
                     </div>
                 </div>
 
@@ -336,7 +336,7 @@
                 </div>
 
 
-                <button type="submit" id="application_window_submit" class="window_submit">
+                <button type="submit" id="application_window_submit_1" class="window_submit">
                     <img src="/images/Index/signUpEvent_button.webp" alt="">
                     <span>送出</span>
                 </button>
@@ -505,7 +505,16 @@
         await LoadData(model.Season);
 
     }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {            
+     
+            await JS.InvokeVoidAsync("installI18n");
 
+           
+        }
+    }
     protected async Task LoadData(AsiaLeagueSeasons season)
     {
         await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(model.Season);
