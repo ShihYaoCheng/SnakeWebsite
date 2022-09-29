@@ -67,7 +67,7 @@
                         @if (MetamaskAvailable && !string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
                         {
                             <div class="metamaskAvailable" title="點擊複製 Address" @onclick="textCopyClick">
-                                Address：<span>@AppState.LoginStatus.walletAddress</span>
+                                <p data-i18n="myprofile.Address">Address：</p> <span>@AppState.LoginStatus.walletAddress</span>
                                 <div id="copyTip">複製成功</div>
                             </div>
                         }
@@ -100,6 +100,7 @@
 
                     <div class="myprofileArea">
                         <div class="informationAssetBlockAll">
+                            @*gERNC*@
                             <div class="informationAssetBlock">
                                 <a href="myprofile/index">
                                     <div class="assetItem">
@@ -119,7 +120,7 @@
                                     <div class="assetValue">0</div>
                                 </a>
                             </div>*@
-
+                            @*gSRC*@
                             <div class="informationAssetBlock">
                                 <a href="myprofile/index">
                                     <div class="assetItem">
@@ -129,16 +130,37 @@
                                     <div class="assetValue">@gSRC</div>
                                 </a>
                             </div>
-
+                            @*NFT_Rider*@
                             <div class="informationAssetBlock">
                                 <a href="myprofile/inventory">
                                     <div class="assetItem">
                                         <img class="assetIcon" src="/images/Myprofile/Knight.webp" alt="">
-                                        <span>Rider</span>
+                                        <span data-i18n="Inventory_data:sortOptions.Rider">Rider</span>
                                     </div>
                                     <div class="assetValue">@NFT_Rider_Count</div>
                                 </a>
                             </div>
+                            @*藍圖*@
+                            <div class="informationAssetBlock">
+                                <a href="myprofile/inventory">
+                                    <div class="assetItem">
+                                        <img class="assetIcon" src="/images/Myprofile/bluemap_big.webp" alt="">
+                                        <span data-i18n="myprofile.Bluemap">Bluemap</span>
+                                    </div>
+                                    <div class="assetValue">@Bluemap_Count</div>
+                                </a>
+                            </div>
+                            @*土地*@
+ @*                           <div class="informationAssetBlock">
+                                <a href="myprofile/inventory">
+                                    <div class="assetItem">
+                                        <img class="assetIcon" src="/images/Myprofile/FloatingIsland_small.webp" alt="">
+                                        <span>FloatingIsland</span>
+                                    </div>
+                                    <div class="assetValue">0</div>
+                                </a>
+                            </div>*@
+                             @*ICON_Lock*@
                             <div class="informationAssetBlock" id="informationAssetBlock-Lock">
                                 <div class="assetItem">
                                     <img class="ICON_Lock" src="/images/Myprofile/ICON_Lock.webp" alt="">
@@ -237,6 +259,7 @@
 
                 <div class="myprofileArea">
                     <div class="informationAssetBlockAll">
+                         @*gERNC*@
                         <div class="informationAssetBlock">
                             <a href="myprofile/index">
                                 <div class="assetItem">
@@ -256,7 +279,7 @@
                                 <div class="assetValue">0</div>
                             </a>
                         </div>*@
-
+                         @*gSRC*@
                         <div class="informationAssetBlock">
                             <a href="myprofile/index">
                                 <div class="assetItem">
@@ -266,17 +289,42 @@
                                 <div class="assetValue">0</div>
                             </a>
                         </div>
-
+                          @*Rider*@
                         <div class="informationAssetBlock">
                             @* <a href="Inventory"> *@
                             <a href="myprofile/inventory">
                                 <div class="assetItem">
                                     <img class="assetIcon" src="/images/Myprofile/Knight.webp" alt="">
-                                    <span>Rider</span>
+                                    <span data-i18n="Inventory_data:sortOptions.Rider">Rider</span>
                                 </div>
-                                <div class="assetValue">@NFT_Rider_Count</div>
+                                <div class="assetValue">0</div>
                             </a>
                         </div>
+
+                         @*藍圖*@
+                        <div class="informationAssetBlock">
+                            <a href="myprofile/inventory">
+                                <div class="assetItem">
+                                    <img class="assetIcon" src="/images/Myprofile/bluemap_big.webp" alt="">
+                                    <span data-i18n="myprofile.Bluemap">Bluemap</span>
+                                </div>
+                                <div class="assetValue">0</div>
+                            </a>
+                        </div>
+                        @*土地*@
+
+@*                        <div class="informationAssetBlock">
+                            <a href="myprofile/inventory">
+                                <div class="assetItem">
+                                    <img class="assetIcon" src="/images/Myprofile/FloatingIsland_small.webp" alt="">
+                                    <span>FloatingIsland</span>
+                                </div>
+                                <div class="assetValue">0</div>
+                            </a>
+                        </div>*@
+
+
+                        @*ICON_Lock*@
                         <div class="informationAssetBlock" id="informationAssetBlock-Lock">
                             <div class="assetItem">
                                 <img class="ICON_Lock" src="/images/Myprofile/ICON_Lock.webp" alt="">
@@ -312,6 +360,8 @@
     /// <summary> NFT數量 </summary>
     private int NFT_Rider_Count;
 
+    /// <summary> 藍圖數量 </summary>
+    private int Bluemap_Count=0;
     /// <summary> gSRC數量 </summary>
     private decimal gSRC;
 

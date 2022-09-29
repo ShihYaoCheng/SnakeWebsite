@@ -10,7 +10,7 @@ namespace SnakeAsianLeague.Data.Entity.Config
         public Uri UserServer { get; set; }
         public Uri TableServer { get; set; }
 
-        public Uri SnakeACLBackstageServer { get; set; }
+        public Uri BackstageApiServer { get; set; }
 
         public Uri NftWebApi { get; set; }
     }

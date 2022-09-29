@@ -21,7 +21,7 @@
     "Rarity": "稀有度",
     "Element": "屬性",
     "BodyType": "體型",
-    "Owned": "持有者&nbsp;",
+    "Owned": "持有者 ",
     "UnderMaintenance": "維護中",
     "PPSRmaintenance": "此PPSR暫時維護中"
   },
@@ -29,9 +29,9 @@
     "Inventory": "我的資產",
     "MyCurrency": "持有貨幣",
     "Exchange": "轉換",
-    "ERNCToken": "九天稽核",
+    "ERNCToken": "九天基核",
     "SRCToken": "騎士幣",
-    "gERNC": "九天稽核(g)",
+    "gERNC": "九天基核(g)",
     "gSRC": "騎士幣(g)",
     "Debut": "首拍",
     "RentalFee": "租借費用",
@@ -43,7 +43,8 @@
     "TotalIncomeSRC": "總收入",
     "SRC": "騎士幣",
     "CollectIncome": "領取",
-    "CollectAllIncome": "一鍵領取"
+    "CollectAllIncome": "一鍵領取",
+    "BuyPPSR": "購買 PPSR  >>"
   },
   "Filter": {
     "Rarity": "稀有度",
@@ -79,5 +80,39 @@
     "Heal": "回復",
     "Control": "控制"
   },
-  "LoginMetaMask": "登入小狐狸錢包"
+  "LoginMetaMask": "登入小狐狸錢包",
+
+  "esports": {
+    "eventDetailed": "賽事詳細",
+    "eventsView": "查看賽事",
+    "RegistrationStatus": "報名狀態",
+    "FinalQualification": "決賽資格",
+    "individualGroup": "個人賽組",
+    "TeamCompetition": "隊伍賽組",
+    "notObtainedFinalQualification": " 尚未取得決賽資格",
+    "AsianLeagueOne": "亞洲聯賽第一季",
+    "ChristmasCelebrationTwentyOne": "聖誕節慶賽2021",
+    "NewYearFestivalTwentyOne": "跨年節慶賽2021"
+  },
+  "Reward": {
+    "AwardDetails": "得獎細項",
+    "ApplicationHasEnded": "申請已結束",
+    "signApplicationForm": "progress_bar_step Application_tw",
+    "ReviewInformation": "progress_bar_step Audit_tw",
+    "DeliveryCompleted": "progress_bar_step Delivery_tw",
+    "UntilAward": "尚未獲獎"
+  },
+  "SWAP": {
+    "Minimum": "最低額度: 1 騎士幣",
+    "Balance": "餘額",
+    "MAX": "最大額度",
+    "Swap": "兌換",
+    "ComfirmToSwap": "確認兌換",
+    "Confirm": "確認",
+    "transacting": "兌換中",
+    "ConnectToGame": "連接遊戲",
+    "WrongNetwork": "網路錯誤",
+    "SwitchYoMetWorkName": "切換至",
+    "LoadingData": "資料載入中"
+  }
 }

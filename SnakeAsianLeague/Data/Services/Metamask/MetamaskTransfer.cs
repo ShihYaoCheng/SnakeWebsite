@@ -91,7 +91,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     ResultTransferData ResultData = JsonSerializer.Deserialize<ResultTransferData>(restResponse.Content);
-                    result = ResultData.result;
+                    result = true;// ResultData.result;
                 }
             }
             catch (Exception ex)

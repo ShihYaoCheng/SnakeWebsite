@@ -1,0 +1,144 @@
+@inject IJSRuntime JS
+
+<head>
+    <link href="/css/NFTindex/NFTindex.css" rel="stylesheet" />
+    <link href="/css/NFTindex/NFTindex_Scholar.css" rel="stylesheet" />
+</head>
+
+<div class="NFTindex_Scholar">
+
+    @* 學者介紹區塊 *@
+    <div class="Scholar-Block">
+
+        <div class="Scholar">
+            <div class="Scholar-mainIcon-Block">
+                <div class="Scholar-mainIcon">
+                    @* <img class="golden-frame" src="/images/NFTindex/NFTindex_Seignior/golden-frame.png" alt=""> *@
+                    <img class="main-Icon" src="/images/NFTindex/NFTindex_Seignior/Ruler.png" alt="">
+                    <img class="main-Icon-kirakira" id="main-Icon-kirakira-001"
+                        src="/images/NFTindex/NFTindex_Seignior/white-kirakira-001.png" alt="">
+                    <img class="main-Icon-kirakira" id="main-Icon-kirakira-002"
+                        src="/images/NFTindex/NFTindex_Seignior/white-kirakira-002.png" alt="">
+                </div>
+            </div>
+            <div class="Scholar-Info-Block">
+                <div class="Scholar-Gradient"></div>
+                <div class="Scholar-Paragraph">
+                    <div class="Scholar-Title" data-i18n="Home_data:Scholar.title">碰碰蛇 學者</div>
+                    <div class="Scholar-Text-01" data-i18n="Home_data:Scholar.text-01">
+                        伊薩文明的發展，仰賴著稀有的天才發明家，他們的才智遠超過智力不高的伊薩人，如同達文西或特斯拉一般，為世界帶來超越時代的科技革命，這些天才被尊稱為"博士"，擁有改變伊薩世界的超凡知識與力量。
+                    </div>
+
+                    <div class="Scholar-Text-02">
+                        <div class="Scholar-Text-02-1" data-i18n="[html]Home_data:Scholar.privilege-A">
+                            <span>Privilege A</span>獲得玩家製造器械道具的藍圖授權金。
+                        </div>
+                        <div class="Scholar-Text-02-1" data-i18n="[html]Home_data:Scholar.privilege-B">
+                            <span>Privilege B</span>掌控世界材料的市場價格。
+                        </div>
+                        <div class="Scholar-Text-02-1" data-i18n="[html]Home_data:Scholar.privilege-C">
+                            <span>Privilege C</span>主導國家與公會社群。
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="spaceship_blueprint">
+        @* 飛船banner區塊 *@
+        <div class="spaceship-banner-block">
+            @* 靜態版 *@
+            <img src="/images/NFTindex/NFTindex_Scholar/spaceship-banner.jpg" alt="">
+
+            @* 01-造船廠天空背景 *@
+            @* <img id="" src="/images/NFTindex/NFTindex_Scholar/SpaceshipBanner/01-shipyardSky-BG2.png" alt=""> *@
+
+            @* 02-機器人(左) *@
+            <img class="SpaceshipBanner" id="Robot-left"
+                src="/images/NFTindex/NFTindex_Scholar/SpaceshipBanner/02-Robot-left.png" alt="">
+
+            @* 03-機器人(右) *@
+            <img class="SpaceshipBanner" id="Robot-right"
+                src="/images/NFTindex/NFTindex_Scholar/SpaceshipBanner/03-Robot-right.png" alt="">
+
+            @* 04-鷹架+雲 *@
+            <img class="SpaceshipBanner"
+                src="/images/NFTindex/NFTindex_Scholar/SpaceshipBanner/04-Scaffolding-Cloud.png" alt="">
+
+            @* 05-博士+欄杆 *@
+            <img class="SpaceshipBanner" id=""
+                src="/images/NFTindex/NFTindex_Scholar/SpaceshipBanner/05-Doctor-Railing.png" alt="">
+
+            @* 06-機器人(只有手) *@
+            <img class="SpaceshipBanner" id="Robot-hand-only"  src="/images/NFTindex/NFTindex_Scholar/SpaceshipBanner/06-Robot-hand-only.png"
+                alt="">
+
+            @* 07-博士+機器人(無手) *@
+            <img class="SpaceshipBanner" src="/images/NFTindex/NFTindex_Scholar/SpaceshipBanner/07-Robot-nohand.png"
+                alt="">
+
+            @* 08-前景雲 *@
+            <img class="SpaceshipBanner" id="Front-cloud" src="/images/NFTindex/NFTindex_Scholar/SpaceshipBanner/08-Front-cloud.png"
+                alt="">
+
+        </div>
+
+
+        @* 藍圖區塊 *@
+        <div class="blueprint">
+            <div class="blueprint-block">
+                <div class="blueprint-type-block">
+                    <div class="blueprint-item">
+                        <div class="blueprint-type-title" data-i18n="Home_data:Scholar.blueprint-type-01">武器藍圖</div>
+                        <div class="blueprint-type-BG">
+                            <img class="item-icon" id="icon-weapon"
+                                src="/images/NFTindex/NFTindex_Scholar/item-icon-01.png" alt="">
+                            <img class="item-light" src="/images/NFTindex/NFTindex_Scholar/item-light.png" alt="">
+                            @* <img class="item-light-hover" src="/images/NFTindex/NFTindex_Scholar/item-light.png"
+                                alt=""> *@
+                            <img class="item-blueprint" src="/images/NFTindex/NFTindex_Scholar/item-blueprint-01.png"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blueprint-type-block">
+                    <div class="blueprint-item">
+                        <div class="blueprint-type-title" data-i18n="Home_data:Scholar.blueprint-type-02">飛船藍圖</div>
+                        <div class="blueprint-type-BG">
+                            <img class="item-icon" id="icon-spaceship"
+                                src="/images/NFTindex/NFTindex_Scholar/item-icon-02.png" alt="">
+                            <img class="item-light" src="/images/NFTindex/NFTindex_Scholar/item-light.png" alt="">
+                            <img class="item-blueprint" src="/images/NFTindex/NFTindex_Scholar/item-blueprint-02.png"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blueprint-type-block">
+                    <div class="blueprint-item">
+                        <div class="blueprint-type-title" data-i18n="Home_data:Scholar.blueprint-type-03">道具藍圖</div>
+                        <div class="blueprint-type-BG">
+                            <img class="item-icon" id="icon-props"
+                                src="/images/NFTindex/NFTindex_Scholar/item-icon-03.png" alt="">
+                            <img class="item-light" src="/images/NFTindex/NFTindex_Scholar/item-light.png" alt="">
+                            <img class="item-blueprint" src="/images/NFTindex/NFTindex_Scholar/item-blueprint-03.png"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="blueprint-button-block">
+                <a href="MarketPlace">
+                    <button class="blueprint-button" data-i18n="Home_data:Scholar.button">碰碰蛇藍圖NFT</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+</div>

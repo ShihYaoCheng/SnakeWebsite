@@ -1,7 +1,8 @@
 @page "/ACLIndexS3"
 @inject IJSRuntime JS
+@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Pages.ACLIndex.S3.Components
-
+@inject AppState AppState
 @* 亞洲聯賽第三季 *@
 
 <head>
@@ -22,7 +23,7 @@
     <div class="BannerBlock">
         <div class="BannerBlockMain">
             <div class="BannerImg" id="BannerImg">
-                <img data-src="/images/AsiaChampionsLeague/S2/ACL_S2_BG.webp" alt="">
+                <img src="/images/AsiaChampionsLeague/S2/ACL_S2_BG.webp" alt="">
             </div>
             
             <ACLIndexS3_Title />
@@ -42,10 +43,13 @@
             <ACLIndexS3_Reward/>
 
             @*Ranking*@
-            <ACLIndexS3_Ranking/>
+            <ACLIndexS3_Ranking reload="reload"/>
 
-            @*Schedule*@
-            <ACLIndexS3_Schedule/>
+          
+             @*Schedule*@
+            <ACLIndexS3_Schedule reload="reload"/>
+            
+      
 
             @*Notice*@
             <ACLIndexS3_Notice/>
@@ -58,7 +62,12 @@
 
 
 @code {
-    private IJSObjectReference? lazyloadingJS;
+    //private IJSObjectReference? lazyloadingJS;
+    public async Task reload()
+    {
+        await InvokeAsync(StateHasChanged);
+    }
+
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -67,8 +76,8 @@
             await JS.InvokeVoidAsync("ACLS3ScheduleCarousel");
             await JS.InvokeVoidAsync("ACLS3RulesCarousel");   
             await JS.InvokeVoidAsync("installI18n");
-            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
-            await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+            //lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+            //await lazyloadingJS.InvokeVoidAsync("LazyLoading");
      
            
         }

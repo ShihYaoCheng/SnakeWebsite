@@ -1,5 +1,8 @@
 ﻿@page "/myprofile/{router}"
+@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Pages.Myprofile.Components
+@inject AppState AppState
+
 
 <head>
     <link href="css/MyProfile/Myprofile.css" rel="stylesheet" /> 
@@ -23,7 +26,9 @@
                  <MyProfile_MyAwardNotice/>
                 break;      
             case "inventory":
-                 <Inventory Value=true />
+                 <CascadingValue Value="true">
+                    <Inventory />
+                 </CascadingValue>
                 break;      
             case "swapsrc":        
                  <MyProfile_Swap Value=true/> 
@@ -51,7 +56,9 @@
                  <MyProfile_MyAwardNotice/>
                 break;      
             case "inventory":
-                 <Inventory Value=false/>
+                <CascadingValue Value="false">
+                    <Inventory />
+                 </CascadingValue>
                 break;  
            case "swapsrc":
                  <MyProfile_Swap Value=false/>
@@ -63,4 +70,12 @@
 @code {
     [Parameter]
     public string router { get; set; } = "index";
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.langChanged += async (value)
+        => await InvokeAsync(StateHasChanged);
+    }
+
+       
 }

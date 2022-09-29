@@ -157,11 +157,14 @@
     "connectMetamask": "連結 Wallet",
     "installMetamask": "請安裝 Wallet",
     "asset": "資產",
-    "activities": "活動"
+    "activities": "活動",
+    "Address": "錢包地址：",
+    "Bluemap": "藍圖"
+
   },
 
   "footer": {
-    "Snakelogo":"./images/Footer/logo_cn.png",
+    "Snakelogo": "./images/Footer/logo_cn.png",
     "Home": "首頁",
     "Marketplace": "NFT交易所",
     "Battle": "對戰",
@@ -176,4 +179,8 @@
     "JoinUs": "加入我們",
     "CQITeam": "CQI團隊"
   }
+
+
+
+
 }

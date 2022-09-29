@@ -116,16 +116,28 @@
     width: 105%;
 }
 .IconBlock-Img{
-    /* border: 1px solid red;  */
-    /* width: 120px; */
-    height: 93px;
-    /* margin-bottom: 8px; */
     position: absolute;
 }
 .IconBlock-Img img{
     /* width: 100%; */
     height: 100%;
 }
+#IconBlock-Img-01{
+    height: 64%;
+    left: 64px;
+    top: 55px;
+}
+#IconBlock-Img-02{
+    height: 48%;
+    left: 11px;
+    top: 81px
+}
+#IconBlock-Img-03{
+    height: 64%;
+    left: 35px;
+    top: 50px;
+}
+
 
 .IconBlock-Text{
     color: #ffffff;
@@ -174,9 +186,22 @@
     .IconBlock-BG {
         width: 103%;
     }
-    .IconBlock-Img{
-        height: 85px;
+    #IconBlock-Img-01{
+        height: 66%;
+        left: 58px;
+        top: 46px;
     }
+    #IconBlock-Img-02{
+        height: 49%;
+        left: 10px;
+        top: 70px;
+    }
+    #IconBlock-Img-03{
+        height: 66%;
+        left: 31px;
+        top: 46px;
+    }
+    
     .IconBlock-Text{
         font-size: 24px;
         letter-spacing: 1.4px;

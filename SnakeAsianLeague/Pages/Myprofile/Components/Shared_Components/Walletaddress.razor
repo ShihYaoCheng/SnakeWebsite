@@ -1,20 +1,26 @@
-﻿<head>
+﻿@inject IConfiguration Configuration
+<head>
     <link href="css/MyProfile/shared/walletaddress.css" rel="stylesheet" />     
-  
+    
 </head>
 
 <div class="walletaddress">
     <div class="walletBlock">
-        <img class="userNetwork" src="/images/Myprofile/SRCExchange/rinkeby_logo.png" />
+        <div class="chainName">@chainName</div>
         <p id="userAddress">
-            0x12345...
+            0x12...3456
         </p>
 </div>
 
 </div>
 
 @code {
-
+     string chainName ;
+    protected override void OnInitialized()
+    {      
+           chainName  = Configuration["chainName"];        
+    }
+   
 }
 
 

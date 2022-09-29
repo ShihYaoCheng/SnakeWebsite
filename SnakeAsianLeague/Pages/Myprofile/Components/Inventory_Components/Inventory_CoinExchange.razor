@@ -5,6 +5,7 @@
 @using RestSharp;
 @using SnakeAsianLeague.Data.Services.Personal
 
+@inject IConfiguration Configuration
 @inject AppState AppState
 @inject InventoryService InventoryService
 @inject MetamaskTransfer metamaskTransfer 
@@ -150,55 +151,77 @@
 
     public void coinInput(ChangeEventArgs value ,bool SRCcheck)
     {
-        //GSRC
-        if (SRCcheck)
+
+
+        if (value.Value == "")
         {
-            if ( Value.gNumber - decimal.Parse(value.Value.ToString())<0){
-                difference = 0;                    
-            }
-            else
-            {
-                difference  =  Value.gNumber - decimal.Parse(value.Value.ToString());               
-            }
-
-
+            difference = 0;
         }
         else
         {
-            if (Value.tokenNumber - decimal.Parse(value.Value.ToString()) < 0)
+            //GSRC
+            if (SRCcheck)
             {
-                difference = 0;          
+                if (Value.gNumber - decimal.Parse(value.Value.ToString()) < 0)
+                {
+                    difference = -(decimal.Parse(value.Value.ToString()) - Value.gNumber);
+                    if (Value.gNumber + Value.tokenNumber < decimal.Parse(value.Value.ToString()))
+                    {
+                        difference =  -Value.tokenNumber;
+                    }
+
+                    }
+                    else
+                    {
+                        difference = Value.gNumber - decimal.Parse(value.Value.ToString());
+                    }
+
+
+                }
+                else
+                {
+                    if (Value.tokenNumber - decimal.Parse(value.Value.ToString()) < 0)
+                    {
+                        difference = decimal.Parse(value.Value.ToString()) - Value.tokenNumber;
+                        if (Value.gNumber + Value.tokenNumber < decimal.Parse(value.Value.ToString()))
+                        {
+                            difference = Value.gNumber;
+                        }
+                    }
+                    else
+                    {
+                        difference = -(Value.tokenNumber - decimal.Parse(value.Value.ToString()));
+                    }
+
+
+                }
             }
-            else
+            Value.gNumberChange = Value.gNumber - difference;
+            Value.tokenNumberChange = Value.tokenNumber + difference;
+            rangeValue = difference;
+          
+            GSRCincrease = -difference;
+            SRCincrease = difference;
+
+            if (difference == 0)
             {
-                difference  = -( Value.tokenNumber - decimal.Parse(value.Value.ToString()));
+
+                InvokeAsync(StateHasChanged);
             }
-
-
-        }
-        Value.gNumberChange = Value.gNumber- difference;
-        Value.tokenNumberChange = Value.tokenNumber + difference;
-        rangeValue = difference;
-
-        GSRCincrease = -difference;
-        SRCincrease = difference;
-
-        if(difference ==0)
-        {
-
-            InvokeAsync(StateHasChanged);
-        }
+        
+       
     }
-    @* TaskCompletionSource<bool>taskCompletionSource = new TaskCompletionSource<bool>();*@  
+    @* TaskCompletionSource<bool>taskCompletionSource = new TaskCompletionSource<bool>();*@
     bool transactionResult = false;
     decimal getAuthorizeNum ;
     protected  async Task coinEchangeBtn()
     {
+        await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
         if (difference < 0)
         {
           
             @*鍊換game*@           
-            transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1);      
+            transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1,Configuration["SRC_token_addr"],Configuration["SRCExchange_addr"]);      
             if (transactionResult)
             {
                 await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
@@ -212,7 +235,7 @@
             getAuthorizeNum = await InventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
             if (getAuthorizeNum!=0)
             {
-                transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum );
+                transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum,Configuration["SRC_token_addr"],Configuration["SRCExchange_addr"] );
             }
             else
             {
@@ -223,10 +246,10 @@
                 await clickRefresh();
             }
 
-          
+
         }
         //強制渲染
-      await reSet();
+        await reSet();
     }
     public async Task reSet()
     {
@@ -234,6 +257,7 @@
         rangeValue = 0;
         GSRCincrease = 0;
         SRCincrease = 0;
+        await coinEchangeJS.InvokeVoidAsync("lockWindowsHide");
     }
 
     //decimal aa;

@@ -20,7 +20,7 @@
     "Rarity": "Rarity",
     "Element": "Element",
     "BodyType": "Body Type",
-    "Owned": "Owned by&nbsp;",
+    "Owned": "Owned by ",
     "UnderMaintenance": "Under Maintenance",
     "PPSRmaintenance": "This PPSR is temporarily under maintenance"
   },
@@ -42,7 +42,9 @@
     "TotalIncomeSRC": "Total Income",
     "SRC": "SRC",
     "CollectIncome": "Collect Income",
-    "CollectAllIncome": "Collect All Income"
+    "CollectAllIncome": "Collect All Income",
+    "BuyPPSR": "Buy PPSR >>"
+
 
   },
   "Filter": {
@@ -79,5 +81,39 @@
     "Heal": "Heal",
     "Control": "Control"
   },
-  "LoginMetaMask": "LoginMetaMask"
+  "LoginMetaMask": "LoginMetaMask",
+
+  "esports": {
+    "eventDetailed": "Event Information",
+    "eventsView": "查看賽事",
+    "RegistrationStatus": "Registration Status ",
+    "FinalQualification": "Final Qualification",
+    "individualGroup": "Solo Group",
+    "TeamCompetition": "Squad Group",
+    "notObtainedFinalQualification": " No Final Qualification",
+    "AsianLeagueOne": "ACL Season I",
+    "ChristmasCelebrationTwentyOne": "Christmas League 2021",
+    "NewYearFestivalTwentyOne": "New Year League 2021"
+  },
+  "Reward": {
+    "AwardDetails": "Application Steps",
+    "ApplicationHasEnded": "Application End",
+    "signApplicationForm": "progress_bar_step Application_en",
+    "ReviewInformation": "progress_bar_step Audit_en",
+    "DeliveryCompleted": "progress_bar_step Delivery_en",
+    "UntilAward": "Not Rewarded"
+  },
+  "SWAP": {
+    "Minimum": "Minimum: 1 SRC",
+    "Balance": "Balance:",
+    "MAX": "MAX",
+    "Swap": "Swap",
+    "ComfirmToSwap": "Comfirm to Swap ",
+    "Confirm": "Confirm",
+    "transacting": "transacting",
+    "ConnectToGame": "Connect to Game",
+    "WrongNetwork": "Wrong Network",
+    "SwitchYoMetWorkName": "Switch to",
+    "LoadingData": "Loading Data"
+  }
 }

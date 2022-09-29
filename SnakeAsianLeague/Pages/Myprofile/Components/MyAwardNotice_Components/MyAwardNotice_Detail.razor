@@ -23,13 +23,13 @@
 <EditForm Model="model">
                 <div class="receive_block">
 
-                    <div class="mypage" id="award">得獎細項</div>
+                    <div class="mypage" id="award" data-i18n="Inventory_data:Reward.AwardDetails">得獎細項</div>
 
                     <div class="match_row match_row_myawardnotice">
 
                         <div class="match_row_select">
 
-                            <div class="match_row_title">查看賽事</div>
+                            <div class="match_row_title" data-i18n="Inventory_data:esports.eventsView">查看賽事</div>
                             <div class="match_row_status">
 
                                 <InputSelect ValueExpression="@(()=>model.Season)" Value="@model.Season"
@@ -49,7 +49,7 @@
                             {
                                 <div class="receive_signUpEvent_button receive_over">
                                     <img src="/images/Index/receive_over.webp" alt="">
-                                    <span>申請已結束</span>
+                                    <span data-i18n="Inventory_data:Reward.ApplicationHasEnded">申請已結束</span>
                                 </div>
                             }
                             else if (model.Season == AsiaLeagueSeasons.Xmas2021 || model.Season == AsiaLeagueSeasons.NewYear2021)
@@ -86,7 +86,7 @@
                                         case 2:
                                             <div class="receive_signUpEvent_button receive_over">
                                                 <img src="/images/Index/receive_over.webp" alt="">
-                                                <span>申請已結束</span>
+                                                <span data-i18n="Inventory_data:Reward.ApplicationHasEnded">申請已結束</span>
                                             </div>
                                             break;
 
@@ -119,17 +119,17 @@
                     
 
                     <div class="progress_bar">
-                        <div class="progress_bar_step" id="progress_bar_step_01">
+                        <div class="progress_bar_step Application_tw" id="progress_bar_step_01" data-i18n="[class]Inventory_data:Reward.signApplicationForm">
                             @* <span>填寫申請表</span> *@
                             <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_01.webp" alt="">
                         </div>
                         <div class="progress_bar_border"></div>
-                        <div class="progress_bar_step" id="progress_bar_step_02">
+                        <div class="progress_bar_step Audit_tw" id="progress_bar_step_02" data-i18n="[class]Inventory_data:Reward.ReviewInformation">
                             @* <span>審核資料</span> *@
                             <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_02.webp" alt="">
                         </div>
                         <div class="progress_bar_border"></div>
-                        <div class="progress_bar_step" id="progress_bar_step_03">
+                        <div class="progress_bar_step Delivery_tw" id="progress_bar_step_03" data-i18n="[class]Inventory_data:Reward.DeliveryCompleted">
                             @* <span>寄送完成</span> *@
                             <img class="progress_bar_step_icon" src="/images/Myaccount/progress_bar_03.webp" alt="">
                         </div>
@@ -137,7 +137,7 @@
 
                     @if (model.AwardNoticeViews == null || model.AwardNoticeViews.Count == 0)
                     {
-                        <div class="none_awards">尚未獲獎</div>
+                        <div class="none_awards" data-i18n="Inventory_data:Reward.UntilAward">尚未獲獎</div>
                     }
                     else
                     {
@@ -727,16 +727,16 @@
         switch (value)
         {
             case AsiaLeagueSeasons.AsiaLeagueS1:
-                name = "亞洲聯賽第一季";
+                name = AppState.nowLang.lang =="en" ? "ACL Season I":"亞洲聯賽第一季";
                 break;
             case AsiaLeagueSeasons.Xmas2021:
-                name = "聖誕節慶賽2021";
+                name = AppState.nowLang.lang =="en" ? "Christmas League 2021":"聖誕節慶賽2021";
                 break;
             case AsiaLeagueSeasons.NewYear2021:
-                name = "跨年節慶賽2021";
+                name = AppState.nowLang.lang =="en" ? "New Year League 2021":"跨年節慶賽2021";
                 break;
             default:
-                name = "尚未開放";
+                name = AppState.nowLang.lang =="en" ? "尚未開放":"尚未開放";
                 break;
         }
 

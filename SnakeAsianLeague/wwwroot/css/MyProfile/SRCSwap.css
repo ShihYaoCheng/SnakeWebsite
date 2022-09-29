@@ -649,7 +649,7 @@
     /* width: 100%;
     height: 100%; */
     margin-left: 10px;
-    width: 100px;
+    width: 127px;
 }
 
 .maxBTN {
@@ -670,7 +670,11 @@
 .miniSizeBtn {
     display: none;
 }
-
+@media all and (max-width: 1000px) {
+    .maxBTN {
+        font-size: 14px;
+    }
+}
 
 
 @media all and (max-width: 768px) {
@@ -681,13 +685,13 @@
     .miniSizeBtn {
         display: block;
     }
+    .maxBTN {
+        font-size: 12px;
+    }
 }
 
 @media all and (max-width: 576px) {
-    .maxBTN {
 
-        font-size: 12px;
-    }
 }
 
 /*...按鈕部分...*/

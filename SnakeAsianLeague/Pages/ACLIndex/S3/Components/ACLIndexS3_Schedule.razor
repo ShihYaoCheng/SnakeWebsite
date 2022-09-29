@@ -1,23 +1,25 @@
 ﻿
 @using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.SnakeServerService
 @using System.Text.Json
 
+@inject AppState AppState
 @inject IJSRuntime JS
 @inject AsiaLeagueScheduleService AsiaLeagueScheduleService
-
+@implements IDisposable
 <head>
         <link href="css/ACLIndex/S3/S3calendar.css" rel="stylesheet" />
 </head>
 
-<div  class="Schedule-Container" >
+<div  class="Schedule-Container" >  
     <div class="Schedule-bottomPlate">
 
     </div>
     <div class="Schedule">
-    <h2 id="Schedule" class="Schedule-title" >- Schedule -</h2>
+    <h2 id="Schedule" class="Schedule-title" >- <span data-i18n="Asian_data:main.Schedule" >Schedule</span>  -</h2>
     <div class="Schedule-BG-Container">
-        <img class="Schedule-Group" data-src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
+        <img class="Schedule-Group" src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
         <div class="Schedule-BG">
                <div id='S3calendar'></div>
     <!--
@@ -28,12 +30,12 @@
                     {
                         <div class="item" >    
                          <div class="Schedule-Month">
-                            <img class="ScheduleMonth-prev" data-src="/images/AsiaChampionsLeague/S3/Calender/Calender_ Month button icon.webp">
+                            <img class="ScheduleMonth-prev" src="/images/AsiaChampionsLeague/S3/Calender/Calender_ Month button icon.webp">
                             @if(j==0){<p> July </p>} 
                             @if(j==1){<p> August </p>} 
                             @if(j==2){<p> September </p>} 
                             @if(j==3){<p> October </p>} 
-                            <img class="ScheduleMonth-next" data-src="/images/AsiaChampionsLeague/S3/Calender/Calender_ Month button icon.webp">
+                            <img class="ScheduleMonth-next" src="/images/AsiaChampionsLeague/S3/Calender/Calender_ Month button icon.webp">
                         </div>
 
                          <div class="Schedule-Week">
@@ -153,7 +155,7 @@
                 </div>
             </div>-->
         </div>
-        <img class="Schedule-Group-2" data-src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
+        <img class="Schedule-Group-2" src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
     </div>
 </div>
 
@@ -164,9 +166,6 @@
 
 @code {
     private bool pop;
-
-    private IJSObjectReference? S3CalendarJS;
-
 
   @*  public int daySquare = 42;*@
     public int[][] daySquare = new int[][]
@@ -244,14 +243,45 @@
 
             string jsonString = JsonSerializer.Serialize(mobjList);    *@
             //Console.Write(Schedules);
-
+            await JS.InvokeVoidAsync("S3Calendar",AppState.nowLang.lang,Schedules); 
+            
             //2022/09/15
-            S3CalendarJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/ACLIndex/S3Calendar.js");
-            await S3CalendarJS.InvokeVoidAsync("S3Calendar",Schedules);        
-           
+          
+                
 
         }        
     }
+    [Parameter]
+    public EventCallback reload { get; set; }
+
+    private async Task clickReload()
+    {
+        await reloadCalendar();
+        await reload.InvokeAsync();   
+    }
+
+
+    void IDisposable.Dispose()
+    {
+          AppState.langChanged -= async (value)
+        =>  await clickReload();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.langChanged += async (value)
+        =>  await clickReload();
+    }
+
+    public async Task reloadCalendar()
+    {
+        if (Schedules != null)
+        {
+             await JS.InvokeVoidAsync("S3Calendar",AppState.nowLang.lang,Schedules);      
+        }
+       
+    }
+
 
     @*
     public class WeatherForecast
