@@ -35,7 +35,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             List<S2Prize> result = new List<S2Prize>();
             try
             {
-                var LoginRestRequest = new RestRequest($"GetSeasonPrizes?seasonNum={seasonNum}");
+                var LoginRestRequest = new RestRequest($"api/Identity/GetSeasonPrizes?seasonNum={seasonNum}");
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -60,7 +60,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             List<S2Prize> result = new List<S2Prize>();
             try
             {
-                var LoginRestRequest = new RestRequest($"GetSeasonPrizesMyCard?seasonNum={seasonNum}");
+                var LoginRestRequest = new RestRequest($"api/Identity/GetSeasonPrizesMyCard?seasonNum={seasonNum}");
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -80,7 +80,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
            
             try
             {
-                var LoginRestRequest = new RestRequest($"GetOnePrize?seasonNum={seasonNum}&station={station}&place={place}");
+                var LoginRestRequest = new RestRequest($"api/Identity/GetOnePrize?seasonNum={seasonNum}&station={station}&place={place}");
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {

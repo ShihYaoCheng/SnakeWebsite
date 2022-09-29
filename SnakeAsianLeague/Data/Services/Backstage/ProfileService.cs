@@ -39,7 +39,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             List<Profile> result = new List<Profile>();
             try
             {
-                var LoginRestRequest = new RestRequest($"GetProfiles");
+                var LoginRestRequest = new RestRequest($"api/Identity/GetProfiles");
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -62,7 +62,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             Profile result = new Profile();          
             try
             {
-                var LoginRestRequest = new RestRequest($"GetOneProfileByUserId?userId={userId}");
+                var LoginRestRequest = new RestRequest($"api/Identity/GetOneProfileByUserId?userId={userId}");
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -87,7 +87,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 string jsonData = JsonSerializer.Serialize(profile);
-                var request = new RestRequest($"InsertProfile", Method.POST);
+                var request = new RestRequest($"api/Identity/InsertProfile", Method.POST);
                 request.AddJsonBody(jsonData);
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
 
@@ -115,7 +115,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 string jsonData = JsonSerializer.Serialize(profile);
-                var request = new RestRequest($"UpdateProfile", Method.POST);
+                var request = new RestRequest($"api/Identity/UpdateProfile", Method.POST);
                 request.AddJsonBody(jsonData);
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
 

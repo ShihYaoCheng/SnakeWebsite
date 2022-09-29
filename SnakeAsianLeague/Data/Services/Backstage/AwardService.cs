@@ -29,7 +29,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             List<AwardDetail> result = new List<AwardDetail>();
             try
             {
-                var LoginRestRequest = new RestRequest($"GetAwardDetails");
+                var LoginRestRequest = new RestRequest($"api/Identity/GetAwardDetails");
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -48,7 +48,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             List<AwardApplicationForm> result = new List<AwardApplicationForm>();
             try
             {
-                var LoginRestRequest = new RestRequest($"GetAwardApplicationForms");
+                var LoginRestRequest = new RestRequest($"api/Identity/GetAwardApplicationForms");
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -68,7 +68,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             int result = new int();
             try
             {
-                var LoginRestRequest = new RestRequest($"GetOneAwardDetailStatus?seasonNum={seasonNum}&isGuild={isGuild}&station={station}&place={place}&userId={userId}");
+                var LoginRestRequest = new RestRequest($"api/Identity/GetOneAwardDetailStatus?seasonNum={seasonNum}&isGuild={isGuild}&station={station}&place={place}&userId={userId}");
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -110,7 +110,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             List<AwardApplicationForm> resultList = new List<AwardApplicationForm>();
             try
             {
-                var LoginRestRequest = new RestRequest($"GetOneAwardDetailStatus?seasonNum={seasonNum}&userId={userId}");
+                var LoginRestRequest = new RestRequest($"api/Identity/GetOneAwardDetailStatus?seasonNum={seasonNum}&userId={userId}");
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -155,7 +155,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
                 data.AwardNoticeViews = AwardNoticeViews;
 
                 string jsonData = JsonSerializer.Serialize(data);
-                var request = new RestRequest($"UpdateAward", Method.POST);
+                var request = new RestRequest($"api/Identity/UpdateAward", Method.POST);
                 request.AddJsonBody(jsonData);
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
 
@@ -201,7 +201,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 string jsonData = JsonSerializer.Serialize(awardInfo);
-                var request = new RestRequest($"UpdateAward", Method.POST);
+                var request = new RestRequest($"api/Identity/UpdateAward", Method.POST);
                 request.AddJsonBody(jsonData);
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
 
@@ -224,7 +224,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 string jsonData = JsonSerializer.Serialize(awardDetail);
-                var request = new RestRequest($"InsertAwardDetail", Method.POST);
+                var request = new RestRequest($"api/Identity/InsertAwardDetail", Method.POST);
                 request.AddJsonBody(jsonData);
                 IRestResponse restResponse = await SnakeACLBackstageServer.ExecuteAsync(request);
 
