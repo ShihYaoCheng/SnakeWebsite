@@ -9,7 +9,7 @@
     var GuildData = []
     var FinalTime = []
     var individualData = []
-    var TilleType = { "en": ['Silver', 'Silver', 'Diamond', 'Master', 'Charity'], "tw": ['123', '456', '789', '123', '456'] }  //['Silver', 'Silver', 'Diamond', 'Master', 'Charity']
+    var TilleType = { "en": ['Silver', 'Silver', 'Diamond', 'Master', 'Charity'], "tw": ['白銀', '白銀', '鑽石', '大師', '公益'] }  //['Silver', 'Silver', 'Diamond', 'Master', 'Charity']
     var beginType = ['#', 'W', 'M', 'S', 'F']
     var beginNumQ = [0, 0, 0, 0, 0]
     var beginNumS = [0, 0, 0, 0, 0]

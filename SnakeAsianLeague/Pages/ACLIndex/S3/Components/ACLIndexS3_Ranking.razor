@@ -233,10 +233,10 @@
     public enum RankTypeChinese
     {
 
-        測試,
+        白銀,
         鑽石,
-        王者,
-        不知道
+        大師,
+        公益
     }
 
     public string GetRankOptionByType(int type , string ScheduleName,  string date ,string lang)
@@ -267,20 +267,20 @@
         }
         else
         {
-              switch (type)
+            switch (type)
             {
                 case 0:
                 case 1:
-                    optionString += RankTypeChinese.測試 + " "   ;
+                    optionString += RankTypeChinese.白銀 + " "   ;
                     break;
                 case 2:
                     optionString += RankTypeChinese.鑽石 + " "  ;
                     break;
                 case 3:
-                    optionString += RankTypeChinese.王者 + " "  ;
+                    optionString += RankTypeChinese.大師 + " "  ;
                     break;
                 case 4:
-                    optionString += RankTypeChinese.不知道 + " "  ;
+                    optionString += RankTypeChinese.公益 + " "  ;
                     break;
                 default:
                     break;
