@@ -1,4 +1,4 @@
-﻿
+﻿@using SnakeAsianLeague.Data.Entity.Config
 @using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.SnakeServerService
@@ -243,7 +243,7 @@
 
             string jsonString = JsonSerializer.Serialize(mobjList);    *@
             //Console.Write(Schedules);
-            await JS.InvokeVoidAsync("S3Calendar",AppState.nowLang.lang,Schedules); 
+            await JS.InvokeVoidAsync("S3Calendar",AppState.NowLanguage.ToString(),Schedules); 
             
             //2022/09/15
           
@@ -263,21 +263,36 @@
 
     void IDisposable.Dispose()
     {
-          AppState.langChanged -= async (value)
-        =>  await clickReload();
+        //  AppState.langChanged -= async (value)
+        //=>  await clickReload();
+
+        AppState.StateChanged -= async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
     }
 
     protected override async Task OnInitializedAsync()
     {
-        AppState.langChanged += async (value)
-        =>  await clickReload();
+        //AppState.langChanged += async (value)
+        //=>  await clickReload();
+
+        AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task AppState_StateChanged(ComponentBase Source, string Property)
+    {
+        if (Source != this)
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+
     }
 
     public async Task reloadCalendar()
     {
         if (Schedules != null)
         {
-             await JS.InvokeVoidAsync("S3Calendar",AppState.nowLang.lang,Schedules);      
+             await JS.InvokeVoidAsync("S3Calendar",AppState.NowLanguage.ToString(),Schedules);      
         }
        
     }
