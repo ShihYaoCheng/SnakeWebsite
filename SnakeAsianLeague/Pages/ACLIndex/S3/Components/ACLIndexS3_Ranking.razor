@@ -1,4 +1,5 @@
-﻿@using SnakeAsianLeague.Data.Entity.SnakeServer
+﻿@using SnakeAsianLeague.Data.Entity.Config
+@using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.SnakeServerService
 @using SnakeAsianLeague.Data.Entity.View
@@ -146,15 +147,21 @@
         await reload.InvokeAsync();   
     }
 
-       void IDisposable.Dispose()
+    void IDisposable.Dispose()
     {
-          AppState.langChanged -= async (value)
-        => await clickReload();
+       //  AppState.langChanged -= async (value)
+        //=>  await clickReload();
+
+        AppState.StateChanged -= async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
     }
     protected override async Task OnInitializedAsync()
     {
-        AppState.langChanged += async (value)
-        => await clickReload();
+        //AppState.langChanged += async (value)
+        //=>  await clickReload();
+
+        AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
     }
     public Boolean bannerToggle = true;
     public Boolean RankingView = false;
@@ -244,11 +251,11 @@
         公益
     }
 
-    public string GetRankOptionByType(int type , string ScheduleName,  string date ,string lang)
+    public string GetRankOptionByType(int type , string ScheduleName,  string date ,Multilingual lang)
     {
         string optionString = date + " ";
 
-        if (lang == "en")
+        if (lang == Multilingual.en)
         {
             switch (type)
             {
@@ -311,7 +318,7 @@
         soloOption.Clear();
         foreach (var s in squadOptionDate)
         {
-            string optionStr = GetRankOptionByType(s.GuildFinalType, s.GuildSchedule , s.Date.ToString("yyyy/MM/dd") ,AppState.nowLang.lang);
+            string optionStr = GetRankOptionByType(s.GuildFinalType, s.GuildSchedule , s.Date.ToString("yyyy/MM/dd") ,AppState.NowLanguage);
             squadOption.Add( optionStr);
 
         }
@@ -320,7 +327,7 @@
         soloOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(false);
         foreach (var s in soloOptionDate)
         {
-            string optionStr = GetRankOptionByType(s.IndFinalType, s.IndividualSchedule , s.Date.ToString("yyyy/MM/dd"),AppState.nowLang.lang);
+            string optionStr = GetRankOptionByType(s.IndFinalType, s.IndividualSchedule , s.Date.ToString("yyyy/MM/dd"),AppState.NowLanguage);
             soloOption.Add( optionStr);
 
         }

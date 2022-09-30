@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using SnakeAsianLeague.Data.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using SnakeAsianLeague.Data.Entity.Config;
 
 
 namespace SnakeAsianLeague.Data.Services
@@ -12,7 +9,9 @@ namespace SnakeAsianLeague.Data.Services
     {
 
         public SnakeAccount LoginStatus { get; private set; } = new SnakeAccount();
-        public Lang nowLang { get; set; } = new Lang();
+        //public Lang nowLang { get; set; } = new Lang();
+
+        public Multilingual NowLanguage { get; set; } = Multilingual.en;
 
         public void UpdateLoginStatus(ComponentBase Source, SnakeAccount loginStatus) 
         {
@@ -25,14 +24,23 @@ namespace SnakeAsianLeague.Data.Services
         private void NotifyStateChanged(ComponentBase Source, string Property)
             => StateChanged?.Invoke(Source, Property);
 
-        public void getLang(string value) {
-            this.nowLang.lang = value;
-            getLangChanged(value);
-        }
-        public event Action<string> langChanged;
-        private void getLangChanged(string value)
-           => langChanged?.Invoke(value);
 
+
+        //public void getLang(string value) {
+        //    this.nowLang.lang = value;
+        //    getLangChanged(value);
+        //}
+
+        //public event Action<string> langChanged;
+        //private void getLangChanged(string value)
+        //   => langChanged?.Invoke(value);
+
+
+        public void UpdateNowLanguage(ComponentBase Source, Multilingual lan)
+        {
+            this.NowLanguage = lan;
+            NotifyStateChanged(Source, "NowLanguage");
+        }
 
     }
 }
