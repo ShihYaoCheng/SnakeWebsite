@@ -1,4 +1,5 @@
 ﻿@inject IConfiguration Configuration
+@inject IJSRuntime JS
 <head>
     <link href="css/MyProfile/shared/walletaddress.css" rel="stylesheet" />     
     
@@ -15,10 +16,21 @@
 </div>
 
 @code {
-     string chainName ;
+    string chainName ;
+    private IJSObjectReference? getAddressJS;
     protected override void OnInitialized()
     {      
            chainName  = Configuration["chainName"];        
+    }    
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {         
+            getAddressJS  = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/getAddress.js");
+            await getAddressJS.InvokeVoidAsync("getAddress");
+             
+        }
     }
    
 }

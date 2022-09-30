@@ -165,7 +165,7 @@ export async function CoinexchangeData(chainId ,SRC_address) {
 
 
 
-	$("#userAddress")[0].innerText = address[0].slice(0, 5) + "...." + address[0].slice(38)
+	//$("#userAddress")[0].innerText = address[0].slice(0, 5) + "...." + address[0].slice(38)
 
 	
 	/*回傳*/
