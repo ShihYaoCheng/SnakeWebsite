@@ -1,10 +1,12 @@
 ﻿@using SnakeAsianLeague.Data.Entity.Commodity
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Commodity
+@using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 
 @inject AppState AppState
 @inject CommodityServices CommodityServices
-
+@inject IJSRuntime JS
+@inject IConfiguration Configuration
 
 <head>
     <link href="css/MyProfile/SRCgift.css" rel="stylesheet" />   
@@ -35,7 +37,7 @@
                     var SRCValue = @item.addValue + @item.addPlus;
 
                     <div class="NFTcard card-bg-DarkSeaGreen">  
-                        <a class="NFTcardA" href="" >
+                        <div class="NFTcardA" >
                             @*<a href="@item.LinkURL" target="opensea">  </a>*@
 
                             <div class="NFTcard-inner">
@@ -57,7 +59,7 @@
                                         <div class="giftData-btn-container">
 
                                             <div class="usdValuation">  <span>≈USD</span> @item.priceUSD<span></span></div>
-                                            <button class="giftData-btn"  onclick="BuyPurchase( @item.priceUSDT , @item.productID)" > 
+                                            <button class="giftData-btn"  @onclick="@(async ()=>{ await BuyPurchase( item.priceUSDT , item.productID);})" > 
                                                 <span>USDT</span> <span class="giftData-btn-nun">@item.priceUSDT</span></button>
 
                                         </div>
@@ -65,7 +67,7 @@
 
                                 </div>               
                             </div>                     
-                        </a>        
+                        </div>        
                     </div>
                 }
             }
@@ -103,9 +105,15 @@
     </div>
 
 
-    </div>
+</div>
+
+@*交易中反灰*@
+<TransactWindow></TransactWindow>
+
 @code {
     private List<IAPItem> IAPItemList;
+    private IJSObjectReference? PurchaseApproveJS;
+    private IJSObjectReference? coinEchangeJS;
 
 
     protected override async Task OnInitializedAsync()
@@ -113,11 +121,35 @@
         IAPItemList = await CommodityServices.GetIAPItem();
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {         
+            PurchaseApproveJS  = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/BuyPurchase/PurchaseApprove.js");       
+            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");  
+             //await JS.InvokeVoidAsync("NFTcardAClick");   
+        }
+    }
 
+    bool transactionResult;
     public async Task BuyPurchase( decimal USDT,  string productID )
     {
-       //uint UserID = AppState.LoginStatus.userID;
-       //bool result = await CommodityServices.PurchaseByUSDT( UserID, USDT, productID);
+
+        uint UserID = AppState.LoginStatus.userID;
+
+        await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
+        transactionResult =await PurchaseApproveJS.InvokeAsync<bool>("PurchaseApprove",USDT ,Configuration["USDT_token_addr"],Configuration["PurchaseApprove_address"]);
+
+
+
+
+        if (transactionResult)
+        {
+            bool result = await CommodityServices.PurchaseByUSDT( UserID, USDT, productID);
+        }
+        
+
+       await coinEchangeJS.InvokeVoidAsync("lockWindowsHide");
 
     }
 }

@@ -23,8 +23,8 @@
     justify-content:center;
 }
 .giftData-srcZone {
-    height: 40%;
-    width: 60%;
+    height: 50%;
+    width: 70%;
     background: #5c765e;
     border-radius: 7px;
     padding: 2px 8px;
@@ -39,13 +39,16 @@
 .giftData-srcZone span{
     font-size:25px;
 }
+.srcZone-num {
+    color:#fff
+}
 
 .giftData-btn-container {
     width: 100%;
     display: flex;
     height: 35%;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
 }
 
 .usdValuation {
@@ -54,6 +57,7 @@
     height: 25%;
     font-size: 25px;
     padding-right:5px;
+    color:#FFF;
 }
 
 .giftData-btn {
@@ -63,7 +67,7 @@
     width: 90%;
     border-radius: 15px;
     height: 70%;
-    font-size: 30px;
+    font-size: 25px;
     margin-top:5px; 
 }
 
