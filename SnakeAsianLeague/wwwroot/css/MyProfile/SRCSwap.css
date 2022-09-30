@@ -801,3 +801,16 @@
     color: #fff !important;
     transition: all .15s ease-in-out;
 }
+
+
+#accountManagementUl-SwapSRC li::before {
+    z-index: 1 !important;
+    opacity: 1 !important;
+    /* transition: all .2s ease-in-out; */
+}
+
+@media all and (max-width: 1920px) {
+    #accountManagementUl-SwapSRC li::before {
+        left: 65px !important;
+    }
+}

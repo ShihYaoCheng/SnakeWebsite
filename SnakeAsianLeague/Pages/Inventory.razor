@@ -25,6 +25,7 @@
     <link href="css/Pagination.css" rel="stylesheet" />
     <link href="css/Inventory.css" rel="stylesheet" />   
     <link href="css/Popup.css" rel="stylesheet" />
+    <link href="css/MyProfile/Inventory_arrow.css" rel="stylesheet" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>PonPonSnake 碰碰蛇｜Inventory</title>
 </head>
@@ -58,9 +59,9 @@
     <TransactWindow></TransactWindow>
 
     @*錯誤訊息*@
-    @if (islogin && !(netWorkRight))
+    @if (islogin )
     {
-        <ErrorNetwork AddPolygon ="AddPolygon" Value =@netWorkName></ErrorNetwork>
+        <ErrorNetwork AddPolygon ="AddPolygon" ></ErrorNetwork>
     }
     @*載入畫面*@
     @if (loading && islogin)
@@ -70,34 +71,24 @@
 
 @code {
     //是否登入
-     [CascadingParameter] bool islogin { get; set; }
+    [CascadingParameter] bool islogin { get; set; }
     //loading
-    bool loading = true; 
-    //錢包鍊是否正確
-    bool netWorkRight = false;
-    string netWorkName = "";
+    bool loading = true;  
 
     //四個貨幣 SRC ERNC(遊戲、鏈上)
     public CoinData CoinData = new CoinData(0, 0, 0, 0);
     //取得JS獲得的錢包資訊
-    string[] JSCoinData;
+    decimal JSCoinData;
     //取得錢包資訊
     private async Task getCoinData()
     {
-        JSCoinData = await coinEchangeJS.InvokeAsync<string[]>("CoinexchangeData"  ,Configuration["chainId"], Configuration["SRC_token_addr"]);
-        CoinData.tokenSRCchange(decimal.Parse(JSCoinData[1]));
-
-         if (netWorkRight !=  Convert.ToBoolean(JSCoinData[0]))
-        {
-             netWorkRight =  Convert.ToBoolean(JSCoinData[0]);
-             //強制渲染
-            await InvokeAsync(StateHasChanged);
-        }
+        JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,Configuration["chainId"], Configuration["SRC_token_addr"]);
+        CoinData.tokenSRCchange(JSCoinData);
+         
     }
     //切換並新增Polygon
     protected  async Task AddPolygon()
-    {
-        @*linebot.SemdLineNotifyMsg("test123");*@
+    {      
         await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] );
         await getCoinData();
     }
@@ -130,8 +121,7 @@
             
             await JS.InvokeVoidAsync("ShowMSGcheckbox");    
 
-            
-            netWorkName = Configuration["chainName"];
+          
             if (islogin)
             {     
                 coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");

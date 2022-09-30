@@ -151,7 +151,7 @@ export async function CoinexchangeData(chainId ,SRC_address) {
 
 
 	if (parseInt(chainId.slice(2)) != networkID) {
-		return ["false", "0"]
+		return 0
 	}
 	/* SRC */
 	const SRC_token_addr = SRC_address
@@ -169,7 +169,7 @@ export async function CoinexchangeData(chainId ,SRC_address) {
 
 	
 	/*回傳*/
-	return ["true", (addr_SRC_balance).toString()  ]
+	return addr_SRC_balance
 
 }
 

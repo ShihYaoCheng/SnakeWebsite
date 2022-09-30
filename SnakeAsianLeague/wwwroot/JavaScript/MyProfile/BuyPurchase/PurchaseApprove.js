@@ -44,9 +44,7 @@
 		//alert("You have successfully sold SRC tokens!");
 		return true
 	} catch (err) {
-		console.error(err);
-		alert("交易失敗");
-		$('.lockWindows')[0].style.display = 'none';
+		console.error(err);		;
 		return false
 	}
 

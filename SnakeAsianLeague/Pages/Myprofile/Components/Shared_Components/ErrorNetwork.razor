@@ -1,30 +1,48 @@
 ﻿@inject IJSRuntime JS
-
+@inject IConfiguration Configuration
 <head>
     <link href="css/MyProfile/shared/ErrorNetwork.css" rel="stylesheet" />     
   
 </head>
 
 
-<div class="errorContainer">
+<div class="errorContainer" hidden="@netWorkRight">
     <div class="errorNav"> 
         <p data-i18n="Inventory_data:SWAP.WrongNetwork">Wrong Network</p>
-        <button  @onclick="AddPolygonClick"><span data-i18n="Inventory_data:SWAP.SwitchYoMetWorkName">Switch to</span> @Value </button>
+        <button  @onclick="AddPolygonClick"><span data-i18n="Inventory_data:SWAP.SwitchYoMetWorkName">Switch to</span> @netWorkName </button>
     </div>
 </div>
 @code {
     [Parameter]
-    public EventCallback<int> AddPolygon { get; set;}
+    public EventCallback<int> AddPolygon { get; set;}   
+    private IJSObjectReference? ErrorNetworkJS;
 
-    [Parameter]
-    public string Value { get; set; }
-
-
-      private void AddPolygonClick()
+    string netWorkName;
+    bool netWorkRight =false;
+    private async Task AddPolygonClick()
     {
-        AddPolygon.InvokeAsync();   
+        await AddPolygon.InvokeAsync();
+        await checkNetwork();
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            netWorkName = Configuration["chainName"];
+            ErrorNetworkJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/ErrorNetwork.js");
+            await checkNetwork();
+        }
     }
 
-    
+    public async Task checkNetwork()
+    {
+        netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", Configuration["chainId"]);
+        if (netWorkRight)
+        {
+            //強制渲染
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
 
 }

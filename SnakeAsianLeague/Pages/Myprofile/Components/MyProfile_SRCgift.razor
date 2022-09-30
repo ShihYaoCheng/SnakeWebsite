@@ -1,6 +1,7 @@
 ﻿@using SnakeAsianLeague.Data.Entity.Commodity
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Commodity
+@using SnakeAsianLeague.Pages.Myprofile.Components.SRCgift_Components
 @using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 
 @inject AppState AppState
@@ -22,22 +23,18 @@
             <div class="Secend-Title" data-i18n="Inventory_data:otherTitle.Inventory">Inventory</div>
             <div class="Secend-Inner" id="">
 
-                <NFT_Type />
+                <SRCgift_CurrencyTab />
 
             </div>
         </div>
                  
     <div class="Inventory-PPSR-Block" id="Inventory-PPSR-Block">  
     
-        <div class="Inventory-CardBLock">  
-            
-
+        <div class="Inventory-CardBLock"> 
             @if (IAPItemList != null)
             {
-
                 @foreach (IAPItem item in IAPItemList)
                 {
-
                     var SRCValue = @item.addValue + @item.addPlus;
 
                     <div class="NFTcard card-bg-DarkSeaGreen">  
@@ -65,47 +62,15 @@
                                             <div class="usdValuation">  <span>≈USD</span> @item.priceUSD<span></span></div>
                                             <button class="giftData-btn"  @onclick="@(async ()=>{ await BuyPurchase( item.priceUSDT , item.productID);})" > 
                                                 <span>USDT</span> <span class="giftData-btn-nun">@item.priceUSDT</span></button>
-
                                         </div>
                                     </div>
-
                                 </div>               
                             </div>                     
                         </div>        
                     </div>
                 }
-            }
-            @*<div class="NFTcard card-bg-red">  
-                <a class="NFTcardA" href="" >
-                    <div class="NFTcard-inner">
-                        <div class="NFT-cardImg">
-                            <img src="" alt="" >
-                            <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
-                        </div>
-                        <div class="NFT-cardText Not-Price-Ver">
-                        </div>               
-                    </div>                     
-                </a>
-            </div>*@
-                       
-       
-
-     
-            @*<div class="NFTcard card-bg-red">  
-                <a class="NFTcardA" href="" >
-                    <div class="NFTcard-inner">
-                        <div class="NFT-cardImg">
-                            <img src="" alt="" >
-                            <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
-                        </div>
-                        <div class="NFT-cardText Not-Price-Ver">
-                        </div>               
-                    </div>                     
-                </a>        
-            </div>*@
-
+            }        
         </div>
-
     </div>
 
 
@@ -114,11 +79,53 @@
 @*交易中反灰*@
 <TransactWindow></TransactWindow>
 
+@*錯誤訊息*@
+@if (islogin )
+{
+    <ErrorNetwork AddPolygon ="AddPolygon" ></ErrorNetwork>
+}
+
+@*購買彈窗*@
+@if(showCheckoutPop){
+     @if(whetherCheckoutPop){
+        <SRCgift_CheckoutPop closeCheckoutPop="toggleCheckoutPop">   
+            <p>
+                感謝您購買<span> &lt; 商品名稱 &gt;</span>!
+            </p> 
+            <p>
+                您持有的騎士幣(g)增加了<span> &lt; 購買量 &gt;</span>枚，現在共有<span>&lt; 總量 &gt;</span>枚!
+            </p>   
+        </SRCgift_CheckoutPop>
+     }else{
+         <SRCgift_CheckoutPop closeCheckoutPop="toggleCheckoutPop">   
+                <p>
+                    已經取消購買 <span> &lt; 商品名稱 &gt;</span>
+                </p> 
+        </SRCgift_CheckoutPop>
+    }
+}
+
+
+
 @code {
+
+    bool showCheckoutPop = false;
+    bool whetherCheckoutPop = false;
+    public void toggleCheckoutPop(bool value)
+    {
+        showCheckoutPop = value;    
+    } 
+
+    //是否登入
+    [CascadingParameter] bool islogin { get; set; }
+
     private List<IAPItem> IAPItemList;
     private IJSObjectReference? PurchaseApproveJS;
     private IJSObjectReference? coinEchangeJS;
+    //private IJSObjectReference? CheckoutPopJS;
 
+    //是否網路正確
+    bool netWorkRight = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -131,29 +138,49 @@
         {         
             PurchaseApproveJS  = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/BuyPurchase/PurchaseApprove.js");       
             coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");  
-             //await JS.InvokeVoidAsync("NFTcardAClick");   
+            //CheckoutPopJS= await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/BuyPurchase/CheckoutPop.js");    
+            ////await JS.InvokeVoidAsync("NFTcardAClick"); 
+            //await CheckoutPopJS.InvokeVoidAsync("CheckoutPop");
+
         }
     }
-
+    //是否授權
     bool transactionResult;
     public async Task BuyPurchase( decimal USDT,  string productID )
     {
-
-        uint UserID = AppState.LoginStatus.userID;
-
-        await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
-        transactionResult =await PurchaseApproveJS.InvokeAsync<bool>("PurchaseApprove",USDT ,Configuration["USDT_token_addr"],Configuration["PurchaseApprove_address"]);
-
-
-
-
-        if (transactionResult)
+        if (islogin)
         {
-            bool result = await CommodityServices.PurchaseByUSDT( UserID, USDT, productID);
-        }
-        
+            uint UserID = AppState.LoginStatus.userID;
 
-       await coinEchangeJS.InvokeVoidAsync("lockWindowsHide");
+            await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
+            transactionResult = await PurchaseApproveJS.InvokeAsync<bool>("PurchaseApprove", USDT, Configuration["USDT_token_addr"], Configuration["PurchaseApprove_address"]);
+
+            if (transactionResult)
+            {
+                bool result = await CommodityServices.PurchaseByUSDT(UserID, USDT, productID);
+            }
+            else
+            {
+                whetherCheckoutPop = false;
+                toggleCheckoutPop(true);
+            }
+
+            await coinEchangeJS.InvokeVoidAsync("lockWindowsHide");
+        }
+        else
+        {
+            await JS.InvokeVoidAsync("loginButton", "loginButton");
+        }
+
 
     }
+
+    protected  async Task AddPolygon()
+    {
+    @*linebot.SemdLineNotifyMsg("test123");*@
+        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] );
+     
+
+    }
+
 }

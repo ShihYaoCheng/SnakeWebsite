@@ -31,7 +31,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 	const networkID = await w3.eth.net.getId()
 
 	if (parseInt(chainId.slice(2)) != networkID) {
-		return ["0", "0", "0", "false"]
+		return [0,0,0]
 	}
 
 	/*USDT */
@@ -68,7 +68,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 	$("#usdPerSRCRate")[0].innerText = "≈$ " + (usdPerSRCRate).toString().slice(0, 7) + "USD"
 	$("#usdtPerSRCRate")[0].innerText = '1 SRC ≈$ ' + (usdtPerSRCRate).toString().slice(0, 7) + " USDT"
 
-	return [addr_SRC_balance.toString(), addr_USDT_balance.toString(), (usdtPerSRCRate).toString().slice(0, 7), 'true']
+	return [addr_SRC_balance, addr_USDT_balance, parseFloat( (usdtPerSRCRate).toString().slice(0, 7))]
 }
 
 
