@@ -17,146 +17,23 @@
 
     </div>
     <div class="Schedule">
-    <h2 id="Schedule" class="Schedule-title" >- <span data-i18n="Asian_data:main.Schedule" >Schedule</span>  -</h2>
-    <div class="Schedule-BG-Container">
-        <img class="Schedule-Group" src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
-        <div class="Schedule-BG">
-               <div id='S3calendar'></div>
-    <!--
-            <div class="Schedule-Carousel">        
-                <div class="owl-carousel owl-theme ACLS3ScheduleCarousel">
-                    @{finalsNum=0;}
-                    @for( int j = 0; j < 4 ; j++)
-                    {
-                        <div class="item" >    
-                         <div class="Schedule-Month">
-                            <img class="ScheduleMonth-prev" src="/images/AsiaChampionsLeague/S3/Calender/Calender_ Month button icon.webp">
-                            @if(j==0){<p> July </p>} 
-                            @if(j==1){<p> August </p>} 
-                            @if(j==2){<p> September </p>} 
-                            @if(j==3){<p> October </p>} 
-                            <img class="ScheduleMonth-next" src="/images/AsiaChampionsLeague/S3/Calender/Calender_ Month button icon.webp">
-                        </div>
+        <h2 id="Schedule" class="Schedule-title" >- <span data-i18n="Asian_data:main.Schedule" >Schedule</span>  -</h2>
+        <div class="Schedule-BG-Container">
+            <img class="Schedule-Group" src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
 
-                         <div class="Schedule-Week">
-                            <p>MON</p>
-                            <p>TUES</p>
-                            <p>WED</p>
-                            <p>THURS</p>
-                            <p>FRI</p>
-                            <p>SAT</p>
-                            <p>SUN</p>
-                        </div>
+            <div class="Schedule-BG">
+
+                @if (Schedules != null)
+                {
+                     <div id='S3calendar'></div>
                     
-                        
-                            @for(int i = 1  ; i < daySquare[j][0] ;i++)
-                            {    
-                                
-                                @*是否為當月日期*@
-                                @if(daySquare[j][2]<=i && daySquare[j][2]+daySquare[j][1] > i ){
-                                    nowDay =  i-daySquare[j][2]+1;
-                                    @*比賽日*@
-                                   @if (matchDate[j].Contains(nowDay))
-                                    {
-                                         @*是否決賽*@
-                                        if (finalsDate[j].Contains(nowDay ))
-                                        {
-
-                                            <div class="DaySquare DaySquareMatchColor DaySquareFinalsDate"   >
-                                                <div>                                               
-                                                   
-                                                    <p class="finals-DaySquare-Title">@finalsString[finalsNum][0]</p>
-                                                    @nowDay 
-                                                </div>          
-                                          
-                                                 <div class="finals-Data-Pop @finalsString[finalsNum][1]">
-                                                   
-                                                    <p class="finals-Data-Pop-title"> @finalsString[finalsNum][0] </p>
-                                                    <div class="finals-Data-Popt-Time">
-                                                        <p> Starting Time：</p>
-                                                        <p>比賽時間是~~~~~~</p>
-                                                    </div>                                                     
-
-                                                </div> 
-                                                
-                                                
-                                          
-                                            </div>
-                                            finalsNum += 1;
-                                        }
-                                        else{
-                                             <div class="DaySquare DaySquareMatchColor">@nowDay </div>
-                                        }
-                                    }
-                                    else{         
-                                        @*其他日期*@
-                                        <div class="DaySquare DaySquareColor">@nowDay </div>
-                                    }                           
-                                }
-                                else{
-                                    <div class="DaySquare"></div>                             
-                                }
-                            }
-                        @*個人賽、團體賽、公益賽顯示*@
-                        @switch (j){
-                            case 0 :
-                                <div class ="ScheduleBannerBlock soloBannerBlock soloBlock-0">#1 Silver Qualification (Solo)</div>               
-
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-0">W1 Silver Qualification(Squad)</div> 
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-1">W2 Silver Qualification(Squad)</div> 
-                            
-                                <div class ="ScheduleBannerBlock charityBannerBlock charityBlock-0 ">F1 Charity Qualification</div> 
-                            break;
-                            case 1 :
-                                <div class ="ScheduleBannerBlock soloBannerBlock soloBlock-1">#2 Silver Qualification (Solo) </div> 
-                                <div class ="ScheduleBannerBlock soloBannerBlock soloBlock-2">M1 Diamond Qualification (Solo) </div> 
-                                <div class ="ScheduleBannerBlock soloBannerBlock soloBlock-3">#3 Silver Qualification (Solo) </div> 
-                                <div class ="ScheduleBannerBlock soloBannerBlock soloBlock-4">#4 Silver Qualification (Solo) </div> 
-
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-2 ">M1 Diamond Qualification(Squad) </div> 
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-3 ">W3 Silver Qualification(Squad) </div> 
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-4 ">W4 Silver Qualification(Squad) </div> 
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-5 ">M2 Diamond Qualification(Squad) </div> 
-
-                                <div class ="ScheduleBannerBlock charityBannerBlock charityBlock-1 ">F2 Charity Qualification</div> 
-
-                            break;
-                            case 2 :
-                                <div class ="ScheduleBannerBlock soloBannerBlock soloBlock-5">M2 Diamond Qualification (Solo)</div> 
-                                <div class ="ScheduleBannerBlock soloBannerBlock soloBlock-6">#5 Silver Qualification (Solo)</div> 
-                                <div class ="ScheduleBannerBlock soloBannerBlock soloBlock-7">#6 Silver Qualification (Solo)</div>                    
-
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-6 ">M2 Diamond Qualification(Squad)</div> 
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-7 ">W5 Silver Qualification(Squad)</div> 
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-8 ">W6 Silver Qualification(Squad)</div> 
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-9 ">M3 Diamond Qualification(Squad)</div> 
-
-                                <div class ="ScheduleBannerBlock charityBannerBlock charityBlock-2 ">F3 Charity Qualification</div> 
-
-                            break;
-
-                            case 3 :                          
-                                <div class ="ScheduleBannerBlock soloBannerBlock soloBlock-8">M2 Diamond Qualification (Solo)</div>                    
-                                <div class ="ScheduleBannerBlock soloBannerBlock soloBlock-9">S1 Master Qualification (Solo)</div>     
-
-                                <div class ="ScheduleBannerBlock squadBannerBlock squadBlock-10 ">S1 Master Qualification(Squad)</div> 
-          
-
-                            break;
-
-
-                        }                  
+                }
+                
                
-
-                        </div>
-                    }
-            
-               
-                </div>
-            </div>-->
+   
+            </div>
+            <img class="Schedule-Group-2" src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
         </div>
-        <img class="Schedule-Group-2" src="/images/AsiaChampionsLeague/S3/Calender/Group.webp"> 
-    </div>
 </div>
 
 </div>
@@ -165,16 +42,17 @@
 
 
 @code {
+
     private bool pop;
 
-  @*  public int daySquare = 42;*@
+    @*  public int daySquare = 42;*@
     public int[][] daySquare = new int[][]
     {
-     @* 總格子數，總天數，第幾天開始*@
-     new int[] {  42 ,31 ,5 },
-     new int[] {  42 ,31 ,1},
-     new int[] {  42 ,30 ,4 },
-     new int[] {  42 ,31 ,6  }
+         @* 總格子數，總天數，第幾天開始*@
+         new int[] {  42 ,31 ,5 },
+         new int[] {  42 ,31 ,1},
+         new int[] {  42 ,30 ,4 },
+         new int[] {  42 ,31 ,6  }
     };
     @*比賽日*@
     public int[][] matchDate  = new int[][]
@@ -196,89 +74,33 @@
     public  int finalsNum = 0 ;
     public string[][]  finalsString= new string[][]
     {
-     new string[] {"W1 Silver Final (Squad)" ,"PopR"},
-     new string[] {"W2 Silver Final (Squad)","PopR"},
-     new string[] {"M1 Diamond Final (Squad)","PopR"},
-     new string[] {"W3 Silver Final (Squad)","PopR"},
-     new string[] {"W4 Silver Final (Squad)","PopR"},
-     new string[] {"M2 Diamond Final (Squad)","PopR"},
-     new string[] {"W5 Silver Final (Squad)","PopR"},
-     new string[] {"W6 Silver Final (Squad)","PopR"},
-     new string[] {"M3 Diamond Final (Squad)","PopR"},
-     new string[] {"S1 Silver Final (Squad)","PopR"},
+         new string[] {"W1 Silver Final (Squad)" ,"PopR"},
+         new string[] {"W2 Silver Final (Squad)","PopR"},
+         new string[] {"M1 Diamond Final (Squad)","PopR"},
+         new string[] {"W3 Silver Final (Squad)","PopR"},
+         new string[] {"W4 Silver Final (Squad)","PopR"},
+         new string[] {"M2 Diamond Final (Squad)","PopR"},
+         new string[] {"W5 Silver Final (Squad)","PopR"},
+         new string[] {"W6 Silver Final (Squad)","PopR"},
+         new string[] {"M3 Diamond Final (Squad)","PopR"},
+         new string[] {"S1 Silver Final (Squad)","PopR"},
     };
 
     public int nowDay;
 
     List<AsiaLeagueSchedule> Schedules;
-    
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {   
-        if (firstRender){
-       
-            //List<AsiaLeagueSchedule> objList = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
 
-            Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
-           @*Console.WriteLine(objList);
-
-            List<EventObject> mobjList = new List<EventObject>();
-
-
-            var GroupList  = objList.Where(m=>m.GuildStation != -1).GroupBy(m => m.GuildStation).ToList();
-
-            var mGroupList  = objList.Where(m=>m.IndStation != -1 ).GroupBy(m => m.IndStation).ToList();
-
-
-            foreach (var item in GroupList)
-            {
-                EventObject obj = new EventObject();
-                obj.title = item.First().GuildSchedule +"~" +item.Last().GuildSchedule;
-                obj.start = item.First().Date.ToString();
-                obj.end = item.Last().Date.ToString();
-                mobjList.Add(obj);
-            }
-            
-           
-            
-
-            string jsonString = JsonSerializer.Serialize(mobjList);    *@
-            //Console.Write(Schedules);
-            await JS.InvokeVoidAsync("S3Calendar",AppState.NowLanguage.ToString(),Schedules); 
-            
-            //2022/09/15
-          
-                
-
-        }        
-    }
     [Parameter]
     public EventCallback reload { get; set; }
 
-    private async Task clickReload()
-    {
-        await reloadCalendar();
-        await reload.InvokeAsync();   
-    }
-
+ 
 
     void IDisposable.Dispose()
     {
-        //  AppState.langChanged -= async (value)
-        //=>  await clickReload();
 
         AppState.StateChanged -= async (Source, Property)
             => await InvokeAsync(StateHasChanged);
     }
-
-    protected override async Task OnInitializedAsync()
-    {
-        //AppState.langChanged += async (value)
-        //=>  await clickReload();
-
-        AppState.StateChanged += async (Source, Property)
-            => await InvokeAsync(StateHasChanged);
-    }
-
     private async Task AppState_StateChanged(ComponentBase Source, string Property)
     {
         if (Source != this)
@@ -287,6 +109,28 @@
         }
 
     }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+
+        Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
+        
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            
+        }
+        await reloadCalendar(); 
+    }
+
+
+    
 
     public async Task reloadCalendar()
     {
@@ -297,41 +141,6 @@
        
     }
 
-
-    @*
-    public class WeatherForecast
-    {
-        public DateTimeOffset Date { get; set; }
-        public int TemperatureCelsius { get; set; }
-        public string? Summary { get; set; }
-    }
-
-    public class EventObject
-    {
-         public string id	             { get; set; }
-        public string groupId	         { get; set; }
-        public string allDay	         { get; set; }
-        public string start	             { get; set; }
-        public string end	             { get; set; }
-        public string startStr	         { get; set; }
-        public string endStr	         { get; set; }
-        public string title	             { get; set; }
-        public string url	             { get; set; }
-        public string classNames	     { get; set; }
-        public string editable	         { get; set; }
-        public string startEditable	     { get; set; }
-        public string durationEditable	 { get; set; }
-        public string resourceEditable	 { get; set; }
-        public string display	         { get; set; }
-        public string overlap	         { get; set; }
-        public string constraint	     { get; set; }
-        public string backgroundColor	 { get; set; }
-        public string borderColor	     { get; set; }
-        public string textColor	         { get; set; }
-        public string extendedProps	     { get; set; }
-        public string source	         { get; set; }
-    }
-    *@
 
 
   
