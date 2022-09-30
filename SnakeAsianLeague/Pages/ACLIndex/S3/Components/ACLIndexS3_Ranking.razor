@@ -17,7 +17,7 @@
     <div id="Ranking" class="Ranking" style="background:@BGcolor">     
         @*Banner*@
 
-        @if (bannerToggle )
+        @if (model.RankOptionIsGuild )
         {
             @*Squad*@
             <div class="Ranking-banner squadBanner">
@@ -34,12 +34,12 @@
                                 
 
                                 <EditForm Model="model">
-                                    <InputSelect ValueExpression="@(()=>model.SelectOptionSchedule)"  Value="@model.SelectOptionSchedule"
-                                        ValueChanged="@((AsiaLeagueSchedule value) => SelectOptionChange(value ))" class="my_match_select">
+                                    <InputSelect ValueExpression="@(()=>model.RankOptionStation)"  Value="@model.RankOptionStation"
+                                        ValueChanged="@((int value) => SelectOptionChange(value ))" class="my_match_select">
                                     
                                             @foreach (var s in squadOptionDate)
                                             {
-                                                <option class="my_match_option" value="@s">@GetRankOptionByType(s.GuildFinalType, s.GuildSchedule , s.Date.ToString("yyyy/MM/dd"))</option>
+                                                <option class="my_match_option" value="@s.GuildStation">@GetRankOptionByType(s.GuildFinalType, s.GuildSchedule , s.Date.ToString("yyyy/MM/dd"))</option>
                                             }
                                     </InputSelect>
 
@@ -66,12 +66,12 @@
                             
 
                             <EditForm Model="model">
-                                <InputSelect ValueExpression="@(()=>model.SelectOptionSchedule)"  Value="@model.SelectOptionSchedule"
-                                    ValueChanged="@((AsiaLeagueSchedule value) => SelectOptionChange(value ))" class="my_match_select">
+                                <InputSelect ValueExpression="@(()=>model.RankOptionStation)"  Value="@model.RankOptionStation"
+                                    ValueChanged="@((int value) => SelectOptionChange(value ))" class="my_match_select" >
                                     
                                         @foreach (var s in soloOptionDate)
                                         {
-                                            <option class="my_match_option" value="@s">@GetRankOptionByType(s.IndFinalType, s.IndividualSchedule , s.Date.ToString("yyyy/MM/dd"))</option>
+                                            <option class="my_match_option" value="@s.IndStation">@GetRankOptionByType(s.IndFinalType, s.IndividualSchedule , s.Date.ToString("yyyy/MM/dd"))</option>
                                         }
                                 </InputSelect>
 
@@ -175,27 +175,24 @@
         公益
     }
 
-
-    RankView RankView;
-    Boolean RankOptionIsGuild;
-    int RankOptionStation;
-
-     /*BannerOption*/
+    /*BannerOption*/
     List<AsiaLeagueSchedule> squadOptionDate;
     List<AsiaLeagueSchedule> soloOptionDate;
 
-    Model model = new Model();
-    class Model
+
+    //選項
+    OptionModel model = new OptionModel();
+    class OptionModel
     {
-        public AsiaLeagueSchedule SelectOptionSchedule { get; set; } = new AsiaLeagueSchedule();
-        //public List<AsiaLeagueSchedule> squadOptionDate { get; set; }  = new List<AsiaLeagueSchedule>();
+        public Boolean RankOptionIsGuild { get; set; } 
+        public int RankOptionStation { get; set; }
+        
     }
 
+    RankView RankView;
 
     void IDisposable.Dispose()
     {
-        //  AppState.langChanged -= async (value)
-        //=>  await clickReload();
 
         AppState.StateChanged -= async (Source, Property)
             => await InvokeAsync(StateHasChanged);
@@ -212,14 +209,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        //AppState.langChanged += async (value)
-        //=>  await clickReload();
 
         AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
 
-        RankOptionIsGuild = true;
-        RankOptionStation = 1;
+        model.RankOptionIsGuild = true;
+        model.RankOptionStation = 1;
 
         await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
         await LoadOptions();
@@ -229,22 +224,19 @@
 
     }
 
-    private async Task SelectOptionChange(AsiaLeagueSchedule value)
+    private async Task SelectOptionChange(int value)
     {
-        RankOptionStation = RankOptionIsGuild ? value.GuildStation : value.IndStation;
+        //model.RankOptionStation = model.RankOptionIsGuild ? value.GuildStation : value.IndStation;
+        model.RankOptionStation = value;
         await LoadRanks();
 
     }
 
 
 
-
-
-
-    public Boolean bannerToggle = true;
     public Boolean RankingView = false;
     public string BGcolor = "#d9d3f9";
-    public void changeBanner(Boolean value)
+    public async Task changeBanner(Boolean value)
     {
         if (value)
         {
@@ -254,10 +246,9 @@
         {
             BGcolor = "#d4e2f8";
         }
-        bannerToggle = value;
-        RankOptionIsGuild = value;
-        RankOptionStation = 1;
-        LoadRanks();
+        model.RankOptionIsGuild = value;
+        model.RankOptionStation = 1;
+        await LoadRanks();
     }
 
  
@@ -340,9 +331,6 @@
         squadOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(true);
         soloOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(false);
 
-        //squadOption.Clear();
-        //soloOption.Clear();
-
         //squadOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(true);
         //foreach (var s in  squadOptionDate)
         //{
@@ -351,7 +339,6 @@
 
         //}
 
-
         //soloOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(false);
         //foreach (var s in soloOptionDate)
         //{
@@ -359,31 +346,30 @@
         //    soloOption.Add( optionStr);
 
         //}
-        //Console.WriteLine();
     }
 
     protected async Task LoadRanks()
     {
         RankView = new RankView();
-        RankView.IsGuild = RankOptionIsGuild;
-        RankView.Station = RankOptionStation;
+        RankView.IsGuild = model.RankOptionIsGuild;
+        RankView.Station = model.RankOptionStation;
 
-        AsiaLeagueSchedule schedule = AsiaLeagueScheduleService.GetOneScheduleByIsGuildAndStation(RankOptionIsGuild,RankOptionStation);
+        AsiaLeagueSchedule schedule = AsiaLeagueScheduleService.GetOneScheduleByIsGuildAndStation(model.RankOptionIsGuild,model.RankOptionStation);
 
         if (schedule != null)
         {
-            RankView.Title = RankOptionIsGuild ? schedule.GuildSchedule : schedule.IndividualSchedule;
+            RankView.Title = model.RankOptionIsGuild ? schedule.GuildSchedule : schedule.IndividualSchedule;
             RankView.MatchDate = schedule.Date;
         }
 
 
 
-        List<AsiaLeaguePlace> Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesByIsGuildAndStation(AsiaLeagueSeasons.AsiaLeagueS3,RankOptionIsGuild,RankOptionStation);
+        List<AsiaLeaguePlace> Places = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesByIsGuildAndStation(AsiaLeagueSeasons.AsiaLeagueS3,model.RankOptionIsGuild,model.RankOptionStation);
         List<AsiaLeaguePlaceView> PlacesViews = new List<AsiaLeaguePlaceView>();
 
         foreach (AsiaLeaguePlace p in Places)
         {
-            if (RankOptionIsGuild)
+            if (model.RankOptionIsGuild)
             {
                 List<GuildMember> members = await GuildMemberService.GetGuildMembersByGuildId(p.WinnerId);
                 PlacesViews.Add(new AsiaLeaguePlaceView(p, members));
@@ -421,7 +407,7 @@
             }
         }
 
-        RankView.QualifyingDates = AsiaLeagueScheduleService.GetQualifyingDates(RankOptionIsGuild, RankOptionStation);
+        RankView.QualifyingDates = AsiaLeagueScheduleService.GetQualifyingDates(model.RankOptionIsGuild, model.RankOptionStation);
 
         await InvokeAsync(StateHasChanged);
     }
