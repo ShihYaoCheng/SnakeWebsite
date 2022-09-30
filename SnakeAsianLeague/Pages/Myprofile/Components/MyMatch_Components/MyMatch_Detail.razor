@@ -6,13 +6,14 @@
 @using SnakeAsianLeague.Data.Entity.Config;
 
 
-@inject AppState AppState
+
 @inject AsiaLeagueRegistrationService AsiaLeagueRegistrationService
 @inject QualifyingCompetitionRecordService QualifyingCompetitionRecordService
 @inject AsiaLeagueScheduleService AsiaLeagueScheduleService
 @inject AsiaLeagueFinalQualifiedIdentityService AsiaLeagueFinalQualifiedIdentityService
 @inject GuildMemberService GuildMemberService
 
+@inject AppState AppState
 @implements IDisposable
 
 
@@ -31,7 +32,7 @@
                                     {
                                         <option class="my_match_option" value="@v">@GetSeasonName((AsiaLeagueSeasons)v)</option>
                                     }
-                    </InputSelect>
+                </InputSelect>
                
             </div>
         </div>

@@ -3,158 +3,213 @@
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.SnakeServerService
 @using SnakeAsianLeague.Data.Entity.View
-@inject AppState AppState
+
+
 @inject AsiaLeaguePlaceService AsiaLeaguePlaceService
 @inject AsiaLeagueScheduleService AsiaLeagueScheduleService
 @inject GuildMemberService GuildMemberService
+
+@inject AppState AppState
 @implements IDisposable
 
-<div id="Ranking" class="Ranking" style="background:@BGcolor">     
-    @*Banner*@
+@if(squadOptionDate != null && soloOptionDate != null)
+{
+    <div id="Ranking" class="Ranking" style="background:@BGcolor">     
+        @*Banner*@
 
-    @if (bannerToggle)
-    {
-        @*Squad*@
-        <div class="Ranking-banner squadBanner">
-            <div class="Ranking-banner-bg">
-                 <p> - <span  data-i18n="Asian_data:main.Ranking">Ranking</span> - </p>
-                 <img data-i18n="[src]Asian_data:Ranking.toggleBtnSquad"  src="/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.webp"  >
-                 <button @onclick="()=>changeBanner(false)"></button>                
-            </div> 
-                  <div class="Ranking-banner-selectContainer">     
+        @if (bannerToggle )
+        {
+            @*Squad*@
+            <div class="Ranking-banner squadBanner">
+                <div class="Ranking-banner-bg">
+                     <p> - <span  data-i18n="Asian_data:main.Ranking">Ranking</span> - </p>
+                     <img data-i18n="[src]Asian_data:Ranking.toggleBtnSquad"  src="/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.webp"  >
+                     <button @onclick="()=>changeBanner(false)"></button>                
+                </div> 
+                      <div class="Ranking-banner-selectContainer">     
                     
-                    <div class="Ranking-banner-select"> 
+                            <div class="Ranking-banner-select"> 
                         
-                        <img class ="Bar"  src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.webp" />    
-                        <select @onchange = "(e)=>selectChange(e)" >
-                        @{int i = 0;}
-                        @foreach(var date in squadOption )
-                        {
-                               i++;
-                                <option value= "@i">@date</option>
-                             
-                        }         
-                        </select>
+                                <img class ="Bar"  src="./images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select BAR-1.webp" />    
+                                
+
+                                <EditForm Model="model">
+                                    <InputSelect ValueExpression="@(()=>model.SelectOptionSchedule)"  Value="@model.SelectOptionSchedule"
+                                        ValueChanged="@((AsiaLeagueSchedule value) => SelectOptionChange(value ))" class="my_match_select">
+                                    
+                                            @foreach (var s in squadOptionDate)
+                                            {
+                                                <option class="my_match_option" value="@s">@GetRankOptionByType(s.GuildFinalType, s.GuildSchedule , s.Date.ToString("yyyy/MM/dd"))</option>
+                                            }
+                                    </InputSelect>
+
+                                </EditForm>
+                            
+                            </div>
                     </div>
-                </div>
-        </div>
-    }
-    else
-    {
-        @*solo*@
-        <div class="Ranking-banner soloBanner">
-            <div class="Ranking-banner-bg">     
-                <p> - <span  data-i18n="Asian_data:main.Ranking">Ranking</span> - </p>
-                 <img data-i18n="[src]Asian_data:Ranking.toggleBtnSolo" src= "/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.webp"  >
-                 <button @onclick="()=>changeBanner(true)"></button>
-            </div> 
-               <div class="Ranking-banner-selectContainer">  
+            </div>
+        }
+        else
+        {
+            @*solo*@
+            <div class="Ranking-banner soloBanner">
+                <div class="Ranking-banner-bg">     
+                    <p> - <span  data-i18n="Asian_data:main.Ranking">Ranking</span> - </p>
+                     <img data-i18n="[src]Asian_data:Ranking.toggleBtnSolo" src= "/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.webp"  >
+                     <button @onclick="()=>changeBanner(true)"></button>
+                </div> 
+                   <div class="Ranking-banner-selectContainer">  
                
-                    <div class="Ranking-banner-select"> 
+                        <div class="Ranking-banner-select"> 
                        
-                        <img class ="Bar"  src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.webp" />    
-                        <select   @onchange = "(e)=>selectChange(e)">
-                        @{int i = 0;}
-                        @foreach(var date in soloOption)
-                        {
-                              i++;
-                             <option value="@i" >@date</option>
-                           
-                        }                       
-                        </select>
-                    </div>
-                 </div>
-        </div>
-    }    
-    @*Date*@
+                            <img class ="Bar"  src="./images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Solo Select Bar-1.webp" />   
+                            
+
+                            <EditForm Model="model">
+                                <InputSelect ValueExpression="@(()=>model.SelectOptionSchedule)"  Value="@model.SelectOptionSchedule"
+                                    ValueChanged="@((AsiaLeagueSchedule value) => SelectOptionChange(value ))" class="my_match_select">
+                                    
+                                        @foreach (var s in soloOptionDate)
+                                        {
+                                            <option class="my_match_option" value="@s">@GetRankOptionByType(s.IndFinalType, s.IndividualSchedule , s.Date.ToString("yyyy/MM/dd"))</option>
+                                        }
+                                </InputSelect>
+
+                            </EditForm>
+
+                        </div>
+                     </div>
+            </div>
+        }    
+        @*Date*@
     
 
                 
-    @*Place*@
-    <div class="Ranking-Place">
-        <div class="Ranking-Place-left">
-            <div class="Ranking-Date" >
-                <p>Qualification Date : 5/29 ~ 5/28</p>
-            </div>
-            @*第一名*@
-            <div class="Ranking_First">
-                <img class="shineCrown" src="/images/AsiaChampionsLeague/S3/Ranking/Place/pngegg.webp"/>
-                <img  src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠1.webp"/>
-                @if (RankingView)
-                {
-                    <h3>
-                            @topThree[0]
-                    </h3>
-                }
-              @*<p>
-                    @topThree[0][1]
-                </p>*@ 
-            </div>
-            @*第二名*@
-            <div class="Ranking_Second">
-                <img  src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠2.webp"/>
-                @if (RankingView)
-                {
-                    <h3>
-                        @topThree[1]
-                    </h3>
-                }
-              @*<p>
-                    @topThree[1][1]
-                </p>*@ 
-            </div>
-            @*第三名*@
-            <div class="Ranking_third">
-                <img  src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠3.webp"/>
-                 @if (RankingView)
-                {               
-                    <h3>
-                        @topThree[2]
-                    </h3>
-                }
-              @*<p>
-                    @topThree[2][1]
-                </p>*@ 
-            </div>
-        </div>
-        <div class="Ranking-Place-right">
-            <div class="Ranking-Place-Other">
-                @if (RankingView) { 
-               
-                @foreach(var name in otherRanking)
-                {
-                    <div class="Place-Other-container">                  
+        @*Place*@
+        <div class="Ranking-Place">
+            <div class="Ranking-Place-left">
+                <div class="Ranking-Date" >
+                    <p>Qualification Date : 5/29 ~ 5/28</p>
+                </div>
+                @*第一名*@
+                <div class="Ranking_First">
+                    <img class="shineCrown" src="/images/AsiaChampionsLeague/S3/Ranking/Place/pngegg.webp"/>
+                    <img  src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠1.webp"/>
+                    @if (RankingView)
+                    {
                         <h3>
-                            @name
+                                @topThree[0]
                         </h3>
-                        @*<p>
-                            @name[1]
-                        </p>*@
-                    </div>
-                }          
-                }
+                    }
+                  @*<p>
+                        @topThree[0][1]
+                    </p>*@ 
+                </div>
+                @*第二名*@
+                <div class="Ranking_Second">
+                    <img  src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠2.webp"/>
+                    @if (RankingView)
+                    {
+                        <h3>
+                            @topThree[1]
+                        </h3>
+                    }
+                  @*<p>
+                        @topThree[1][1]
+                    </p>*@ 
+                </div>
+                @*第三名*@
+                <div class="Ranking_third">
+                    <img  src="/images/AsiaChampionsLeague/S3/Ranking/Place/皇冠3.webp"/>
+                     @if (RankingView)
+                    {               
+                        <h3>
+                            @topThree[2]
+                        </h3>
+                    }
+                  @*<p>
+                        @topThree[2][1]
+                    </p>*@ 
+                </div>
+            </div>
+            <div class="Ranking-Place-right">
+                <div class="Ranking-Place-Other">
+                    @if (RankingView) { 
+               
+                    @foreach(var name in otherRanking)
+                    {
+                        <div class="Place-Other-container">                  
+                            <h3>
+                                @name
+                            </h3>
+                            @*<p>
+                                @name[1]
+                            </p>*@
+                        </div>
+                    }          
+                    }
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+}
+
+
 @code {
     [Parameter]
     public EventCallback reload { get; set; }
 
-    private async Task clickReload()
+    public enum RankType
     {
-        await LoadOptions();
-        await reload.InvokeAsync();   
+        Silver,
+        Diamond,
+        Master,
+        Charity
     }
+    public enum RankTypeChinese
+    {
+        白銀,
+        鑽石,
+        大師,
+        公益
+    }
+
+
+    RankView RankView;
+    Boolean RankOptionIsGuild;
+    int RankOptionStation;
+
+     /*BannerOption*/
+    List<AsiaLeagueSchedule> squadOptionDate;
+    List<AsiaLeagueSchedule> soloOptionDate;
+
+    Model model = new Model();
+    class Model
+    {
+        public AsiaLeagueSchedule SelectOptionSchedule { get; set; } = new AsiaLeagueSchedule();
+        //public List<AsiaLeagueSchedule> squadOptionDate { get; set; }  = new List<AsiaLeagueSchedule>();
+    }
+
 
     void IDisposable.Dispose()
     {
-       //  AppState.langChanged -= async (value)
+        //  AppState.langChanged -= async (value)
         //=>  await clickReload();
 
         AppState.StateChanged -= async (Source, Property)
             => await InvokeAsync(StateHasChanged);
     }
+
+    private async Task AppState_StateChanged(ComponentBase Source, string Property)
+    {
+        if (Source != this)
+        {
+            await InvokeAsync(StateHasChanged);
+        }
+
+    }
+
     protected override async Task OnInitializedAsync()
     {
         //AppState.langChanged += async (value)
@@ -162,7 +217,30 @@
 
         AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
+
+        RankOptionIsGuild = true;
+        RankOptionStation = 1;
+
+        await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
+        await LoadOptions();
+        
+        await LoadRanks();
+
+
     }
+
+    private async Task SelectOptionChange(AsiaLeagueSchedule value)
+    {
+        RankOptionStation = RankOptionIsGuild ? value.GuildStation : value.IndStation;
+        await LoadRanks();
+
+    }
+
+
+
+
+
+
     public Boolean bannerToggle = true;
     public Boolean RankingView = false;
     public string BGcolor = "#d9d3f9";
@@ -182,16 +260,7 @@
         LoadRanks();
     }
 
-    public void selectChange(ChangeEventArgs e)
-    {
-        RankOptionStation = int.Parse( e.Value.ToString());
-        LoadRanks();
-    }
-
-    /*BannerOption*/
-    public List<string> squadOption = new List<string>();
-
-    public List<string> soloOption = new List<string>();  
+ 
 
 
     /*排名name*/
@@ -206,56 +275,11 @@
 
 
 
-
-    RankView RankView;
-    Boolean RankOptionIsGuild;
-    int RankOptionStation;
-
-    List<AsiaLeagueSchedule> Schedules;
-    List<AsiaLeagueSchedule> squadOptionDate;
-    List<AsiaLeagueSchedule> soloOptionDate;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {   
-        if (firstRender){
-            RankOptionIsGuild = true;
-            RankOptionStation = 1;
-
-            Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
-
-            if (Schedules != null)
-            {
-                LoadOptions();
-                await LoadRanks();
-                await InvokeAsync(StateHasChanged);
-
-            }
-
-        }        
-    }
-
-    public enum RankType
-    {
-
-        Silver,
-        Diamond,
-        Master,
-        Charity
-    }
-    public enum RankTypeChinese
-    {
-
-        白銀,
-        鑽石,
-        大師,
-        公益
-    }
-
-    public string GetRankOptionByType(int type , string ScheduleName,  string date ,Multilingual lang)
+    public string GetRankOptionByType(int type , string ScheduleName,  string date )
     {
         string optionString = date + " ";
 
-        if (lang == Multilingual.en)
+        if (AppState.NowLanguage == Multilingual.en)
         {
             switch (type)
             {
@@ -314,24 +338,28 @@
     protected async Task LoadOptions()
     {
         squadOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(true);
-        squadOption.Clear();
-        soloOption.Clear();
-        foreach (var s in squadOptionDate)
-        {
-            string optionStr = GetRankOptionByType(s.GuildFinalType, s.GuildSchedule , s.Date.ToString("yyyy/MM/dd") ,AppState.NowLanguage);
-            squadOption.Add( optionStr);
-
-        }
-
-
         soloOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(false);
-        foreach (var s in soloOptionDate)
-        {
-            string optionStr = GetRankOptionByType(s.IndFinalType, s.IndividualSchedule , s.Date.ToString("yyyy/MM/dd"),AppState.NowLanguage);
-            soloOption.Add( optionStr);
 
-        }
-        Console.WriteLine();
+        //squadOption.Clear();
+        //soloOption.Clear();
+
+        //squadOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(true);
+        //foreach (var s in  squadOptionDate)
+        //{
+        //    string optionStr = GetRankOptionByType(s.GuildFinalType, s.GuildSchedule , s.Date.ToString("yyyy/MM/dd") );
+        //    squadOption.Add( optionStr);
+
+        //}
+
+
+        //soloOptionDate =AsiaLeagueScheduleService.GetSchedulesByIsGuild(false);
+        //foreach (var s in soloOptionDate)
+        //{
+        //    string optionStr = GetRankOptionByType(s.IndFinalType, s.IndividualSchedule , s.Date.ToString("yyyy/MM/dd") );
+        //    soloOption.Add( optionStr);
+
+        //}
+        //Console.WriteLine();
     }
 
     protected async Task LoadRanks()
@@ -397,6 +425,9 @@
 
         await InvokeAsync(StateHasChanged);
     }
+
+
+
 
 
 }
