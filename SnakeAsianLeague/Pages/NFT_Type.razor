@@ -5,10 +5,17 @@
  <div class="Secend-Inner" id="">
     <div class="NFT-Type"  id="">
 
-        <div class="Secend-Block-Inventory Inventory-hover Inventory-hover-Click" id="">
+        <div class="Secend-Block-Inventory Inventory-hover Inventory-hover-Click" id=""@onclick="()=>{clickToggleType(0);}" style="@(ToggleTypeStyle ==0 ? "background : #27616F" : "background : #253a4b") ">
             @* <a href="Inventory#Inventory-PPSR-Block"> *@
             <img class="Secend-Inventory-Icon" src="/images/Myprofile/Knight.webp" data-src="/images/Myprofile/Knight.webp"  alt="">
             <div class="Inventory-Name" data-i18n="Inventory_data:sortOptions.Rider">Rider</div>
+            @* </a> *@
+        </div>
+
+        <div class="Secend-Block-Inventory Inventory-hover Inventory-hover-Click" id="" @onclick="()=>{clickToggleType(1);}" style="@(ToggleTypeStyle ==1 ? "background :  #27616F" : "background : #253a4b") ">
+            @* <a href="Inventory#Inventory-PPSR-Block"> *@
+            <img class="Secend-Inventory-Icon" src="/images/Myprofile/bluemap_big.webp" data-src="/images/Myprofile/bluemap_big.webp" alt="" >
+            <div class="Inventory-Name"  data-i18n="myprofile.Bluemap">bluemap</div>
             @* </a> *@
         </div>
 
@@ -17,22 +24,20 @@
             <img class="Secend-Inventory-Icon" src="/images/GameFi/ICON_Lock.webp"  data-src="/images/GameFi/ICON_Lock.webp" alt="" style="width: 46px; opacity: 0.7;">
             @* </a> *@
         </div>
-       @*@if (AllBalance == 0)
-        {
-           <div class="Secend-Block-Inventory  CollectBtnBlack CollectBtnBig" >         
-               No Balance
-            </div>    
-        }
-        else
-        {
-            <div class="Secend-Block-Inventory  CollectBtn CollectBtnBig" >            
-                Collect <span> @AllBalance</span> Income
-            </div>
-        }*@ 
+
  
     
     </div>
 </div>
 @code{
+    [Parameter]
+    public EventCallback<int> toggleType { get; set;}
+
+    int ToggleTypeStyle= 0;
+    private void clickToggleType(int value)
+    {
+        toggleType.InvokeAsync(value);
+        ToggleTypeStyle = value;
+    }
 
 }

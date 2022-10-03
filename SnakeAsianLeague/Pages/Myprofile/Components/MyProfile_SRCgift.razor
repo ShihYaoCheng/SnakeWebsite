@@ -22,9 +22,7 @@
         <div class="Secend-Block">
             <div class="Secend-Title" data-i18n="Inventory_data:otherTitle.Inventory">Inventory</div>
             <div class="Secend-Inner" id="">
-
                 <SRCgift_CurrencyTab />
-
             </div>
         </div>
                  
@@ -146,7 +144,7 @@
     }
     //是否授權
     bool transactionResult;
-    public async Task BuyPurchase( decimal USDT,  string productID )
+    public async Task BuyPurchase( double USDT,  string productID )
     {
         if (islogin)
         {

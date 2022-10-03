@@ -91,13 +91,10 @@
     List<AsiaLeagueSchedule> Schedules;
 
     [Parameter]
-    public EventCallback reload { get; set; }
-
- 
+    public EventCallback reload { get; set; } 
 
     void IDisposable.Dispose()
     {
-
         AppState.StateChanged -= async (Source, Property)
             => await InvokeAsync(StateHasChanged);
     }
@@ -107,17 +104,13 @@
         {
             await InvokeAsync(StateHasChanged);
         }
-
     }
-
     protected override async Task OnInitializedAsync()
     {
-
         AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
 
         Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.AsiaLeagueS3);
-        
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -128,10 +121,6 @@
         }
         await reloadCalendar(); 
     }
-
-
-    
-
     public async Task reloadCalendar()
     {
         if (Schedules != null)

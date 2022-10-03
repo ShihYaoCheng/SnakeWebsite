@@ -2,6 +2,7 @@
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Paging
 @using SnakeAsianLeague.Data.Services.MarketPlace
+@using SnakeAsianLeague.Pages.Myprofile.Components.Inventory_Components
 
 @inject OptionService OptionService
 
@@ -297,7 +298,9 @@
                 
                 <button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea" data-i18n="Inventory_data:sortOptions.BuyonOpensea">Buy on Opensea</a ></button>
             </div>
-            <NFT_Type/>
+
+            <NFT_Type toggleType="toggleType"/>
+
             <select class="sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))"   >
                 <option disabled="" value="Sort" data-i18n="Inventory_data:sortOptions.Sort" selected="" hidden="">Sort</option>
                 <option value="Highest Earned" data-i18n="Inventory_data:sortOptions.HighestEarned">Highest Earned</option>
@@ -308,10 +311,12 @@
                 <option value="Oldest"         data-i18n="Inventory_data:sortOptions.Oldest" >Oldest</option>
             </select>
         </section>
-        <section class="marketPlaceCardBLock">
-        
-       
 
+        <section class="marketPlaceCardBLock">  
+            @switch (NFTtype)
+            {
+                case 0 :
+            @*預計組件化*@
             @if (NFTDataList != null) 
             {
                 @foreach (NFTData item in NFTDataList)
@@ -746,27 +751,23 @@
             } 
 
           
+    
 
+
+                    break;
+                case 1 :
+                    @*暫時樣式*@
+                    <Inventory_BlueMap></Inventory_BlueMap>
+                    break;
+            }
+            
+         
         </section>
-        @*<div class="Pagination-Block">
-            <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage" />
-        </div>*@
+ 
     </main>
-
-
 
 </div>
 
-
-
-
-
-
-
-<style>
-    
-
-</style>
 
 @code {
     private IJSObjectReference? lazyloadingJS;    
@@ -836,7 +837,7 @@
         List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize);
         NFTDataList = pagelist;
         PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
-
+           await lazyloadingJS.InvokeVoidAsync("LazyLoading");
         StateHasChanged();
     }
 
@@ -845,6 +846,7 @@
     {
         if (firstRender)
         {
+            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");   
             await Refresh();
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");
@@ -860,11 +862,10 @@
 
             await JS.InvokeVoidAsync("showTag");   
 
-            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+            
             await lazyloadingJS.InvokeVoidAsync("LazyLoading");
-
         }
-
+     
     }
 
     private async Task DoStuff(ChangeEventArgs e)
@@ -1106,6 +1107,13 @@
 
     public async Task reInstallI18n() { 
         await JS.InvokeVoidAsync("installI18n");
+    }
+
+    int NFTtype;
+    public async Task toggleType(int value)
+    {
+        NFTtype = value;
+        await Refresh();
     }
 
 }
