@@ -60,10 +60,10 @@ namespace SnakeAsianLeague.Data.Services.Commodity
         /// <param name="USDT"></param>
         /// <param name="productID"></param>
         /// <returns></returns>
-        public async Task<bool> PurchaseByUSDT(uint UserID , decimal USDT , string productID)
+        public async Task<bool> PurchaseByUSDT(uint UserID , double USDT , string productID)
         {
             bool result = false;
-            decimal amountOfUSDT = USDT;
+            double amountOfUSDT = USDT;
             if (mIAPItems.Count > 0)
             {
                 amountOfUSDT = mIAPItems.Where(m => m.productID == productID).First().priceUSDT;
