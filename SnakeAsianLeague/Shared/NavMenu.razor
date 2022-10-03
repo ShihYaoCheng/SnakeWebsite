@@ -2,6 +2,7 @@
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity
 @using System.Security.Claims
+@using SnakeAsianLeague.Data.Entity.Config
 
 @inject IJSRuntime JS
 @*@inject LoginService loginService*@
@@ -127,6 +128,12 @@
                                 <a class="nav-link text-light" href="myprofile/swapsrc" data-i18n="[html]Sidebar.Swap">Swap</a>
                                 <img class="nav_hover_bottom" id="Swapsrc_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
                             </li>
+
+                            <li class="nav-item nav-personal" id="nav-SRCPakage" >
+                                <a class="nav-link text-light" href="myprofile/srcgift" data-i18n="[html]Sidebar.Swap">SRC Pakage</a>
+                                <img class="nav_hover_bottom" id="SRCPakage_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                            </li>
+
                         </div>
                         
                     }
@@ -229,12 +236,13 @@
                     </li>
                 </div>
 
-            <div class="LoginUser">
-                @if( AppState.LoginStatus.IsLogin)
-                {
+                <div class="LoginUser">
+                    @if( AppState.LoginStatus.IsLogin)
+                    {
                     
-                    <li class="nav-item" id="nav-user" >              
-                        @*<LoginDisplay />*@
+                        <li class="nav-item" id="nav-user" >              
+                            @*<LoginDisplay />*@
+
 
                         @* <div class="user text-light nav-link" @onclick="ToggleUserNavMenu"> *@
                         <div class="user text-light nav-link">
@@ -274,42 +282,56 @@
                                 <a href="myprofile/inventory" id="inventory" data-i18n="[html]nav.Inventory">Inventory</a>
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
-                           <li class="user-ul-web" id="nav_ul-swapsrc" >
+                            <li class="user-ul-web" id="nav_ul-swapsrc" >
                                 <a href="myprofile/swapsrc" id="swapsrc" data-i18n="[html]nav.Swap">Swap</a>
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
-                            <li>
-                                <div @onclick="logoutButtonClick">
-                                <a href=""  id="" data-i18n="[html]nav.signOut">Sign Out</a>
-                                </div>
+                            <li class="user-ul-web" id="nav_ul-SRCPakage" >
+                                <a href="myprofile/srcgift" id="SRCPakage" >SRC Pakage</a>
+                                <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
-                        </ul>          
-                    </li>
-                    
-                }
-                else
-                {
-                    
-                    <li class="nav-item" id="nav-ConnectWallet">
-                         @* data-i18n="nav.ConnectWallet" *@
-                        <a class="" href="myprofile/index">Connect Wallet</a>
-                        <img class="nav_hover_bottom" id="ConnectWallet_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
-                    </li>
+                            <li>
+                                <div @onclick="logoutButtonClick"></div>
+                                <a href=""  id="" data-i18n="[html]nav.signOut">Sign Out</a>
+</li>
+</ul>
+                            @* <div class="user text-light nav-link" @onclick="ToggleUserNavMenu"> *@
+                       
+                            <img class="nav_hover_bottom" id="user_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
 
-                    <li class="nav-item" id="">
-                        <button id="login_button" class="" @onclick="loginButtonClick" data-i18n="[html]nav.signIn">Sign<br>In</button>
-                    </li>
 
-                }
+                            <div class="slide_button">
+                                <img data-src="./images/Other/chevron-down.webp" src="./images/Other/chevron-down.webp" alt="">
+                            </div>
+                            @* <ul class="nav_ul_slide" id="user-ul" hidden="@collapseUserNavMenu"> *@
+              
+                      
+                         </li>
+                    }
+                    else
+                    {
+                    
+                        <li class="nav-item" id="nav-ConnectWallet">
+                             @* data-i18n="nav.ConnectWallet" *@
+                            <a class="" href="myprofile/index">Connect Wallet</a>
+                            <img class="nav_hover_bottom" id="ConnectWallet_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
+                        </li>
+
+                        <li class="nav-item" id="">
+                            <button id="login_button" class="" @onclick="loginButtonClick" data-i18n="[html]nav.signIn">Sign<br>In</button>
+                        </li>
+
+                    }
                 
-            </div>    
+                </div>    
             
                 <li class="" id="nav-Language_Select">
-                    <select name="" id="Language_Select" @onchange="(e)=>{changeLang(e);}" >
+                    <select name="" id="Language_Select"  @onchange="(e)=>{ChangeLang(e);}" >
                         @* <option value="" disabled>Language</option> *@
-                        <option class="Language_option" value="en">EN</option>
+                        <option class="Language_option" value="en" >EN</option>
                         <option class="Language_option" value="tw">中文</option>
                     </select>
+
                 </li>
             
                 
@@ -457,7 +479,7 @@
     {   
         if (firstRender){
             //取得語言
-            AppState.getLang(await JS.InvokeAsync<string>("getlang"));
+            //AppState.getLang(await JS.InvokeAsync<string>("getlang"));
             footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
             BackToTopJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NavMenu/BackToTop.js");
             AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
@@ -490,11 +512,12 @@
         }
        
     }
-    private void changeLang(ChangeEventArgs e)
+    private async Task ChangeLang(ChangeEventArgs e)
     {
         if (e.Value != null)
         {
-               AppState.getLang( e.Value.ToString());
+            Multilingual lan = (Multilingual)Enum.Parse(typeof(Multilingual  ), e.Value.ToString(), false);
+            AppState.UpdateNowLanguage( this, lan);
         }
      
       

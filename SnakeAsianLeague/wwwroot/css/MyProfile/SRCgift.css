@@ -23,8 +23,8 @@
     justify-content:center;
 }
 .giftData-srcZone {
-    height: 40%;
-    width: 60%;
+    height: 50%;
+    width: 70%;
     background: #5c765e;
     border-radius: 7px;
     padding: 2px 8px;
@@ -39,13 +39,16 @@
 .giftData-srcZone span{
     font-size:25px;
 }
+.srcZone-num {
+    color:#fff
+}
 
 .giftData-btn-container {
     width: 100%;
     display: flex;
     height: 35%;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
 }
 
 .usdValuation {
@@ -54,6 +57,7 @@
     height: 25%;
     font-size: 25px;
     padding-right:5px;
+    color:#FFF;
 }
 
 .giftData-btn {
@@ -63,7 +67,7 @@
     width: 90%;
     border-radius: 15px;
     height: 70%;
-    font-size: 30px;
+    font-size: 25px;
     margin-top:5px; 
 }
 
@@ -88,3 +92,113 @@
         font-size: 15px; 
     }
 }
+
+
+
+
+#accountManagementUl-SRCPakage {
+    background-color: #67AEA2;
+    border-radius: 0 50px 50px 0;
+    transform: scale(1.01);
+    color: #fff !important;
+    transition: all .15s ease-in-out;
+}
+
+#accountManagementUl-SRCPakage li::before {
+    z-index: 1 !important;
+    opacity: 1 !important;
+    /* transition: all .2s ease-in-out; */
+}
+
+@media all and (max-width: 1920px) {
+    #accountManagementUl-SRCPakage li::before {
+        left: 65px !important;
+    }
+}
+
+
+
+
+/*CheckoutPop*/
+.products-popup-close {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+.products-popup-close:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+@media all and (max-width: 600px) {
+    .products-popup-close {
+        top: 12px;
+        right: 12px;
+        width: 22px;
+        height: 22px;
+    }
+}
+.CheckoutPop-container {    
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    top: 50px;
+    background: rgba(0,0,0,0.5);
+    left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CheckoutPop {
+    position: relative;
+    background-color: var(--green-1);
+    max-width: 630px;
+    width: 80%;
+    max-height: 80vh;
+    border-radius: 20px;
+    z-index: 50;
+    box-shadow: 5px 5px 10px #0606063f;
+ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 50px 0;
+}
+.CheckoutPop-content {
+    width: 80%;
+    background-color: #253a4b;
+    border-radius: 10px;
+    color: #5f9d51;
+    padding: 10px 20px;
+    font-size: 22px;
+}
+
+.CheckoutPop-content span {
+    color: #FFA81D;
+}
+.CheckoutPop-btn {
+    color: var(--white);
+    font-size: 22px;
+    border: none;
+    background: var(--orange-1);
+    border-radius: 13px;
+    padding: 4px 28px 6px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    transition: all .1s ease-in-out;
+    border:2px solid var(--white);
+    margin-top:20px;
+}
+
+
+    /*#253a4b*/
+    /*#4B8B8B*/
+    /*#FFA81D*/
+
+    /*var(--green-2)*/

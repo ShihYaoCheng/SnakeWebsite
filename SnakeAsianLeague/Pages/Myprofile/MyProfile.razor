@@ -26,7 +26,7 @@
                  <MyProfile_MyAwardNotice/>
                 break;      
             case "inventory":
-                 <CascadingValue Value="true">
+                 <CascadingValue Value=true>
                     <Inventory />
                  </CascadingValue>
                 break;      
@@ -34,7 +34,9 @@
                  <MyProfile_Swap Value=true/> 
                 break;     
             case "srcgift":        
-                 <MyProfile_SRCgift /> 
+                <CascadingValue Value=true>
+                    <MyProfile_SRCgift /> 
+                </CascadingValue>
                 break;     
         }
 
@@ -56,15 +58,18 @@
                  <MyProfile_MyAwardNotice/>
                 break;      
             case "inventory":
-                <CascadingValue Value="false">
+                <CascadingValue Value=false>
                     <Inventory />
                  </CascadingValue>
                 break;  
            case "swapsrc":
                  <MyProfile_Swap Value=false/>
                  break;
-            case "SRCgift":
-                 <MyProfile_SRCgift />
+            case "srcgift":
+                <CascadingValue Value=false>
+                    <MyProfile_SRCgift /> 
+                </CascadingValue>
+              
                 break;    
         }
     </NotAuthorized>
@@ -76,8 +81,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        AppState.langChanged += async (value)
-        => await InvokeAsync(StateHasChanged);
+        //AppState.langChanged += async (value)
+        //=> await InvokeAsync(StateHasChanged);
     }
 
        

@@ -3,15 +3,17 @@
 @using SnakeAsianLeague.Data.Services.SnakeServerService
 @using SnakeAsianLeague.Data.Entity.View
 @using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Entity.Config;
 
 
-@inject AppState AppState
+
 @inject AsiaLeagueRegistrationService AsiaLeagueRegistrationService
 @inject QualifyingCompetitionRecordService QualifyingCompetitionRecordService
 @inject AsiaLeagueScheduleService AsiaLeagueScheduleService
 @inject AsiaLeagueFinalQualifiedIdentityService AsiaLeagueFinalQualifiedIdentityService
 @inject GuildMemberService GuildMemberService
 
+@inject AppState AppState
 @implements IDisposable
 
 
@@ -30,7 +32,7 @@
                                     {
                                         <option class="my_match_option" value="@v">@GetSeasonName((AsiaLeagueSeasons)v)</option>
                                     }
-                    </InputSelect>
+                </InputSelect>
                
             </div>
         </div>
@@ -232,13 +234,13 @@
         switch (value)
         {
             case AsiaLeagueSeasons.AsiaLeagueS1:
-               name = AppState.nowLang.lang =="en" ? "ACL Season I":"亞洲聯賽第一季";
+               name = AppState.NowLanguage == Multilingual.en ? "ACL Season I":"亞洲聯賽第一季";
                 break;
             case AsiaLeagueSeasons.Xmas2021:
-               name = AppState.nowLang.lang =="en" ? "Christmas League 2021":"聖誕節慶賽2021";
+               name = AppState.NowLanguage == Multilingual.en ? "Christmas League 2021":"聖誕節慶賽2021";
                 break;
             case AsiaLeagueSeasons.NewYear2021:
-                name = AppState.nowLang.lang =="en" ? "New Year League 2021":"跨年節慶賽2021";
+                name = AppState.NowLanguage == Multilingual.en ? "New Year League 2021":"跨年節慶賽2021";
                 break;
             default:
                 name = "尚未開放";

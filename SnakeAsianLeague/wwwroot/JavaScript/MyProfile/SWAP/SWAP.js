@@ -31,7 +31,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 	const networkID = await w3.eth.net.getId()
 
 	if (parseInt(chainId.slice(2)) != networkID) {
-		return ["0", "0", "0", "false"]
+		return [0,0,0]
 	}
 
 	/*USDT */
@@ -51,7 +51,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 	let addr_SRC_balance = await SRC_dai_contract.methods.balanceOf(address[0]).call() / 10 ** SRC_decimals
 
 	$(".user-address")[0].innerText = address[0].slice(0, 9) + "...."
-	$("#userAddress")[0].innerText = address[0].slice(0, 9) + "...."
+	//$("#userAddress")[0].innerText = address[0].slice(0, 5) + "...." + address[0].slice(38)
 	$("#USDTTotalBalance")[0].innerText = 'Balance: ' + addr_USDT_balance
 	$("#SRCTotalBalance")[0].innerText = 'Balance: ' + addr_SRC_balance
 
@@ -68,7 +68,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 	$("#usdPerSRCRate")[0].innerText = "≈$ " + (usdPerSRCRate).toString().slice(0, 7) + "USD"
 	$("#usdtPerSRCRate")[0].innerText = '1 SRC ≈$ ' + (usdtPerSRCRate).toString().slice(0, 7) + " USDT"
 
-	return [addr_SRC_balance.toString(), addr_USDT_balance.toString(), (usdtPerSRCRate).toString().slice(0, 7), 'true']
+	return [addr_SRC_balance, addr_USDT_balance, parseFloat( (usdtPerSRCRate).toString().slice(0, 7))]
 }
 
 

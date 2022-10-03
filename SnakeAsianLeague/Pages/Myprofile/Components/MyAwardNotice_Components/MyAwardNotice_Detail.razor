@@ -6,6 +6,8 @@
 @using SnakeAsianLeague.Data.Services.Backstage
 @using BlazorInputFile
 @using System.IO
+@using SnakeAsianLeague.Data.Entity.Config;
+
 
 @inject IJSRuntime JS
 @inject AppState AppState
@@ -736,16 +738,16 @@
         switch (value)
         {
             case AsiaLeagueSeasons.AsiaLeagueS1:
-                name = AppState.nowLang.lang =="en" ? "ACL Season I":"亞洲聯賽第一季";
+                name = AppState.NowLanguage ==Multilingual.en ? "ACL Season I":"亞洲聯賽第一季";
                 break;
             case AsiaLeagueSeasons.Xmas2021:
-                name = AppState.nowLang.lang =="en" ? "Christmas League 2021":"聖誕節慶賽2021";
+                name = AppState.NowLanguage ==Multilingual.en ? "Christmas League 2021":"聖誕節慶賽2021";
                 break;
             case AsiaLeagueSeasons.NewYear2021:
-                name = AppState.nowLang.lang =="en" ? "New Year League 2021":"跨年節慶賽2021";
+                name = AppState.NowLanguage ==Multilingual.en ? "New Year League 2021":"跨年節慶賽2021";
                 break;
             default:
-                name = AppState.nowLang.lang =="en" ? "尚未開放":"尚未開放";
+                name = AppState.NowLanguage ==Multilingual.en ? "尚未開放":"尚未開放";
                 break;
         }
 
