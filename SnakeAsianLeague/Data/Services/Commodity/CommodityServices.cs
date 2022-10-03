@@ -40,7 +40,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
             {
 
 
-
+                mIAPItems = new List<IAPItem>();
                 iAPItems = JsonSerializer.Deserialize<List<IAPItem>>(restResponse.Content) ?? new List<IAPItem>();
                 mIAPItems = iAPItems;
 
@@ -60,10 +60,10 @@ namespace SnakeAsianLeague.Data.Services.Commodity
         /// <param name="USDT"></param>
         /// <param name="productID"></param>
         /// <returns></returns>
-        public async Task<bool> PurchaseByUSDT(uint UserID , double USDT , string productID)
+        public async Task<bool> PurchaseByUSDT(uint UserID , decimal USDT , string productID)
         {
             bool result = false;
-            double amountOfUSDT = USDT;
+            decimal amountOfUSDT = USDT;
             if (mIAPItems.Count > 0)
             {
                 amountOfUSDT = mIAPItems.Where(m => m.productID == productID).First().priceUSDT;

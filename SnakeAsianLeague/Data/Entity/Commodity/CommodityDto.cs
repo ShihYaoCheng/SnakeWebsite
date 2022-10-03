@@ -22,8 +22,8 @@
         public int limitCount { get; set; }
         public int price { get; set; }
 
-        public double priceUSD { get; set; }
-        public double priceUSDT { get; set; }
+        public decimal priceUSD { get; set; }
+        public decimal priceUSDT { get; set; }
          
 
     }
