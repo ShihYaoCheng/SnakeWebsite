@@ -24,7 +24,7 @@
     align-items: center;
     justify-content: flex-end;
     padding: 0 84px;
-
+    z-index: 2;
 }
 .Scholar-mainIcon{
     position: relative;
