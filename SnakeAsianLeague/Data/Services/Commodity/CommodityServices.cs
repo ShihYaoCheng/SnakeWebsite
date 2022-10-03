@@ -38,8 +38,15 @@ namespace SnakeAsianLeague.Data.Services.Commodity
             IRestResponse restResponse = await BackstageServerClient.ExecuteGetAsync(RestRequest);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
+
+
+                mIAPItems = new List<IAPItem>();
                 iAPItems = JsonSerializer.Deserialize<List<IAPItem>>(restResponse.Content) ?? new List<IAPItem>();
                 mIAPItems = iAPItems;
+
+           
+
+
             }
             return iAPItems;
         }

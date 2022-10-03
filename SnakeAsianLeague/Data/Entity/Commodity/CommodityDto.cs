@@ -24,6 +24,7 @@
 
         public decimal priceUSD { get; set; }
         public decimal priceUSDT { get; set; }
+         
 
     }
 }
