@@ -61,6 +61,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
                 item.priceUSD = 2.51;
                 item.priceUSDT = 2.52;
                 iAPItems.Add(item);
+                item = new IAPItem();
                 item.platform = "blockchain";
                 item.productID = "com.cqigames.snakeknight.nftcurrency1_2";
                 item.productUrl = "https://dev.origingaia.com/backstage/UploadImages/512x512/com.cqigames.snakeknight.nftcurrency1_2.png";
@@ -77,6 +78,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
                 item.priceUSD = 4.76;
                 item.priceUSDT = 4.77;
                 iAPItems.Add(item);
+                item = new IAPItem();
                 item.platform = "blockchain";
                 item.productID = "com.cqigames.snakeknight.nftcurrency1_3";
                 item.productUrl = "https://dev.origingaia.com/backstage/UploadImages/512x512/com.cqigames.snakeknight.nftcurrency1_3.png";
@@ -93,6 +95,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
                 item.priceUSD = 9.8;
                 item.priceUSDT = 9.81;
                 iAPItems.Add(item);
+                item = new IAPItem();
                 item.platform = "blockchain";
                 item.productID = "com.cqigames.snakeknight.nftcurrency1_4";
                 item.productUrl = "https://dev.origingaia.com/backstage/UploadImages/512x512/com.cqigames.snakeknight.nftcurrency1_4.png";
@@ -109,6 +112,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
                 item.priceUSD = 19.84;
                 item.priceUSDT = 19.85;
                 iAPItems.Add(item);
+                item = new IAPItem();
                 item.platform = "blockchain";
                 item.productID = "com.cqigames.snakeknight.nftcurrency1_5";
                 item.productUrl = "https://dev.origingaia.com/backstage/UploadImages/512x512/com.cqigames.snakeknight.nftcurrency1_5.png";
@@ -125,6 +129,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
                 item.priceUSD = 39.95;
                 item.priceUSDT = 39.96;
                 iAPItems.Add(item);
+                item = new IAPItem();
                 item.platform = "blockchain";
                 item.productID = "com.cqigames.snakeknight.nftcurrency1_6";
                 item.productUrl = "https://dev.origingaia.com/backstage/UploadImages/512x512/com.cqigames.snakeknight.nftcurrency1_6.png";
@@ -141,7 +146,6 @@ namespace SnakeAsianLeague.Data.Services.Commodity
                 item.priceUSD = 80.16;
                 item.priceUSDT = 80.17;
                 iAPItems.Add(item);
-
                 mIAPItems = iAPItems;
 
            
