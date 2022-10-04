@@ -4,7 +4,7 @@
 @using SnakeAsianLeague.Data.Services.SnakeServerService
 @using SnakeAsianLeague.Data.Entity.View
 
-
+@inject IJSRuntime JS
 @inject AsiaLeaguePlaceService AsiaLeaguePlaceService
 @inject AsiaLeagueScheduleService AsiaLeagueScheduleService
 @inject GuildMemberService GuildMemberService
@@ -23,7 +23,7 @@
             <div class="Ranking-banner squadBanner">
                 <div class="Ranking-banner-bg">
                      <p> - <span  data-i18n="Asian_data:main.Ranking">Ranking</span> - </p>
-                     <img data-i18n="[src]Asian_data:Ranking.toggleBtnSquad"  src="/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad select-3.webp"  >
+                     <img data-i18n="[src]Asian_data:main.BarSquad"  src=/images/AsiaChampionsLeague/S3/Ranking/Squad/Ranking_Squad_select.webp  >
                      <button @onclick="()=>changeBanner(false)"></button>                
                 </div> 
                       <div class="Ranking-banner-selectContainer">     
@@ -55,7 +55,7 @@
             <div class="Ranking-banner soloBanner">
                 <div class="Ranking-banner-bg">     
                     <p> - <span  data-i18n="Asian_data:main.Ranking">Ranking</span> - </p>
-                     <img data-i18n="[src]Asian_data:Ranking.toggleBtnSolo" src= "/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect-3.webp"  >
+                     <img data-i18n="[src]Asian_data:main.BarSolo" src= "/images/AsiaChampionsLeague/S3/Ranking/SOLO/Ranking_Soloselect.webp"  >
                      <button @onclick="()=>changeBanner(true)"></button>
                 </div> 
                    <div class="Ranking-banner-selectContainer">  
@@ -248,6 +248,7 @@
         }
         model.RankOptionIsGuild = value;
         model.RankOptionStation = 1;
+        await JS.InvokeVoidAsync("installI18n");
         await LoadRanks();
     }
 

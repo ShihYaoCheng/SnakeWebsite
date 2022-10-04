@@ -468,13 +468,22 @@
     position:relative;
 }
 .full_Tickeet {
-    background: url("/images/AsiaChampionsLeague/S3/More Info/Full season ticket/Tickeet full season _ whole.png");
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Full season ticket/Tickeet_full_season_whole.webp");
+}
+.full_Tickeet_tw {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Full season ticket/Tickeet_full_season_whole_tw.webp");
 }
 .Mid_Tickeet {
-    background: url("/images/AsiaChampionsLeague/S3/More Info/Mid season ticket/Mid Season_ Whloe.png");
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mid season ticket/Mid_Season_Whloe.webp");
+}
+.Mid_Tickeet_tw {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mid season ticket/Mid_Season_Whloe_tw.webp");
 }
 .Late_Tickeet {
-    background: url("/images/AsiaChampionsLeague/S3/More Info/Late season ticket/Late_Season_ Whloe.png");
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Late season ticket/Late_Season_Whloe.webp");
+}
+.Late_Tickeet_tw {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Late season ticket/Late_Season_Whloe.webp");
 }
 
 .register-time {
@@ -532,15 +541,24 @@
 }
 
 .full_Tickeet_Mobile {
-    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_full season_ticket.png");
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_full_season_ticket.webp");
 }
-
 .Mid_Tickeet_Mobile {
-    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_late _ticket.png");
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_late_ticket.webp");
 }
 .Late_Tickeet_Mobile {
-    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_Mid_ticket.png");
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_Mid_ticket.webp");
 }
+.full_Tickeet_Mobile_tw {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_full_season_ticket_tw.webp");
+}
+.Mid_Tickeet_Mobile_tw {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_late_ticket_tw.webp");
+}
+.Late_Tickeet_Mobile_tw {
+    background: url("/images/AsiaChampionsLeague/S3/More Info/Mobile/Mobile_Mid_ticket_tw.webp");
+}
+
 .ticket-MobileImg {
     width: 150px;
     height: 497px;
