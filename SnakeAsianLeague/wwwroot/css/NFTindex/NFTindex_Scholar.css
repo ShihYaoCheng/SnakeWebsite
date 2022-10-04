@@ -119,13 +119,13 @@
 }
 
 #main-Icon-kirakira-003{
-    animation: halo 70s linear infinite;
+    animation: main-Icon-halo 70s linear infinite;
     z-index: -1;
     opacity: 0.8;
     filter: grayscale(50%);
 }
  
-@keyframes halo {
+@keyframes main-Icon-halo {
     0%{
         opacity: 0;
     }
@@ -468,10 +468,10 @@
     filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
 }
 #blueprint-type-BG-spaceship:hover{
-    box-shadow: inset 0px 0px 15px 5px rgba(159, 209, 252, 0.7);
+    box-shadow: inset 0px 0px 15px 5px rgba(137, 190, 217, 0.7);
 }
 #blueprint-type-BG-spaceship:hover .item-blueprint{
-    filter: drop-shadow(0px 0px 15px rgba(159, 209, 252, 0.7));
+    filter: drop-shadow(0px 0px 15px rgba(137, 190, 217, 0.7));
 }
 
 .item-light{
@@ -648,7 +648,7 @@
         left: 33%;
         transform: translateY(0px) scale(1);
         opacity: 1;
-        filter: drop-shadow(0px 0px 15px rgba(159, 209, 252, 0.7));
+        filter: drop-shadow(0px 0px 15px rgba(137, 190, 217 , 0.7));
     }
 }
 @keyframes spaceship-animation-float {
