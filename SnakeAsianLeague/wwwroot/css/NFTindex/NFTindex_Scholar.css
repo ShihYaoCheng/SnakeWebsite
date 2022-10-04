@@ -32,8 +32,11 @@
     width: 100%;
     transition: all .2s ease-in-out;
 
-    animation: mainIcon-filter 3s ease-in-out  infinite;
+    /* animation: mainIcon-filter 5s ease-in-out  infinite; */
+    filter: drop-shadow(0px 0px 25px rgba(255, 243, 162, 0.672));
+
 }
+
 @keyframes mainIcon-filter {
     0% {
         filter: drop-shadow(0px 0px 25px rgba(255, 243, 162, 0.672));
@@ -45,6 +48,38 @@
         filter: drop-shadow(0px 0px 25px rgba(255, 243, 162, 0.672));
     }
 }
+
+.main-Icon-kirakira-000{
+    width: 150%;
+    position: absolute;
+    transform: translate(-50% ,-50%);
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    transition: all .2s ease-in-out;
+    /* z-index: -1; */
+
+    animation: main-Icon-kirakira-000 5s ease-in-out  infinite;
+}
+
+@keyframes main-Icon-kirakira-000 {
+    0% {
+        transform: translate(-50% ,-50%) scale(1.1);
+        opacity: 0.5;    
+    }
+    50% {
+        transform: translate(-50% ,-50%) scale(1);
+        opacity: 0.3;   
+    }
+    100% {
+        transform: translate(-50% ,-50%) scale(1.1);
+        opacity: 0.5;  
+    }
+}
+.main-Icon-kirakira-000:hover{
+    animation: none;
+}
+
 .Scholar-mainIcon:hover{
     transition: all .2s ease-in-out;
     animation: none;
@@ -203,7 +238,7 @@
 
 .Scholar-Text-02-1{
     margin-bottom: 20px;
-    /* text-align: center; */
+    text-align: center;
 }
 
 
@@ -662,8 +697,9 @@
     justify-content: center;
 }
 .blueprint-button {
-    width: 200px;
+    /* width: 200px; */
     height: 40px;
+    padding: 0 20px;
     font-size: 16px;
     letter-spacing: 2.4px;
     color: #fff;
