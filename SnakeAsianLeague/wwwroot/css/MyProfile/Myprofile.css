@@ -484,7 +484,7 @@ html{
     align-items: center;
 }
 .ICON_Lock{
-    width: 150px;
+    width: 130px;
     opacity: 0.6;
     margin: 0 auto;
 }
@@ -498,10 +498,10 @@ html{
 }
 .assetIcon{
     /* border: 1px solid red; */
-    margin: 15px auto 40px;
-    max-width: 150px;
+    margin: 15px auto 50px;
+    max-width: 120px;
     width: 50%;
-    animation: scale 3s 0s infinite;
+    /* animation: scale 3s 0s infinite; */
 }
 @keyframes scale{
 
@@ -573,7 +573,7 @@ html{
     }
     .assetIcon {
         width: 48%;
-        margin: 12px auto 40px;
+        margin: 12px auto 50px;
     }
 }
 
