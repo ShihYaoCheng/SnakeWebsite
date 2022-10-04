@@ -64,8 +64,8 @@ window.AddPolygonID = async function (chainId, chainName, recUrls) {
 
 //新增鍊上貨幣
 //USDT
-window.AddPolygonUSDT = async function () {
-    tokenAddress = '0xD92E713d051C37EbB2561803a3b5FBAbc4962431';
+window.AddPolygonUSDT = async function (USDT_token_addr) {
+    tokenAddress = USDT_token_addr;
     tokenSymbol = 'TUSDT';
     tokenDecimals = 6;
     tokenImage = 'https://storage.googleapis.com/pps-nft/token/USDT.png';
@@ -100,9 +100,9 @@ window.AddPolygonUSDT = async function () {
 }
 
 //SRC
-window.AddPolygonSRC = async function () {
+window.AddPolygonSRC = async function (SRC_token_addr) {
 
-    tokenAddress = '0xaBF22878C673C20865D9A1247c86FDe7B1165B7e';
+    tokenAddress = SRC_token_addr;
     tokenSymbol = 'SRC';
     tokenDecimals = 18;
     tokenImage = "https://storage.googleapis.com/pps-nft/token/SRC.png";

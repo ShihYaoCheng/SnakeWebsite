@@ -4,7 +4,7 @@
 	const address = await w3.eth.requestAccounts()
 	const networkID = await w3.eth.net.getId()
 
-	console.log()
+	console.log(chainId, networkID )
 	if (parseInt(chainId.slice(2)) != networkID) {
 		return false
 	}
