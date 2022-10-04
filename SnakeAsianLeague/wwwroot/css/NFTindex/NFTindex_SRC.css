@@ -67,6 +67,23 @@
     width: 40%;
     margin: 60px auto 20px;
     transition: all .2s ease-in-out;
+    animation: SRC-icon 3s ease-in-out  infinite;
+}
+
+@keyframes SRC-icon {
+    0% {
+        filter: drop-shadow(0px 0px 25px  rgb(131, 255, 166, 0.7));
+  
+    }
+    50% {
+        filter: drop-shadow(0px 0px 20px  rgb(131, 255, 166, 0.3));
+ 
+    }
+    100% {
+        filter: drop-shadow(0px 0px 25px  rgb(131, 255, 166, 0.7));
+  
+    }
+
 }
 .SRC-icon img{
     width: 100%;
