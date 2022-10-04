@@ -41,5 +41,5 @@ window.Localize = async function () {
 
 window.getlang = function () {
     const lang = localStorage['lang']
-    return lang
+    return lang 
 }

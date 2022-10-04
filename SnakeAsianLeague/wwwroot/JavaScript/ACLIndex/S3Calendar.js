@@ -98,6 +98,7 @@
             center: 'prev,title,next',
             right: ''
         },
+        locale: lang == "en" ?"en-us" :"zh-tw",
         events: eventsData,
         eventDidMount: function (info) {
         
