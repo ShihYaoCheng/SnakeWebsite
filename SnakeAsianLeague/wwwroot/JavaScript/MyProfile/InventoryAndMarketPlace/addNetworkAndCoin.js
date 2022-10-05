@@ -73,7 +73,7 @@ window.AddPolygonID = async function (chainId, chainName, recUrls, nativeCurrenc
 //USDT
 window.AddPolygonUSDT = async function (USDT_token_addr, USDT_Decimals) {
     tokenAddress = USDT_token_addr;
-    tokenSymbol = 'TUSDT';
+    tokenSymbol = 'USDT';
     tokenDecimals = USDT_Decimals;
     tokenImage = 'https://storage.googleapis.com/pps-nft/token/USDT.png';
     try {
