@@ -1,4 +1,4 @@
-﻿@using SnakeAsianLeague.Shared.NavMenu_Component
+@using SnakeAsianLeague.Shared.NavMenu_Component
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity
 @using System.Security.Claims
@@ -291,8 +291,8 @@
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
                             <li>
-                                <div @onclick="logoutButtonClick"></div>
-                                <a href=""  id="" data-i18n="[html]nav.signOut">Sign Out</a>
+                                <div @onclick="logoutButtonClick">
+                                <a href=""  id="" data-i18n="[html]nav.signOut">Sign Out</a></div>
 </li>
 </ul>
                             @* <div class="user text-light nav-link" @onclick="ToggleUserNavMenu"> *@
