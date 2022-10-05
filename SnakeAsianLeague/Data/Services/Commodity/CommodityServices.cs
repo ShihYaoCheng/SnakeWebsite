@@ -41,7 +41,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
 
 
                 mIAPItems = new List<IAPItem>();
-                //iAPItems = JsonSerializer.Deserialize<List<IAPItem>>(restResponse.Content) ?? new List<IAPItem>();
+                iAPItems = JsonSerializer.Deserialize<List<IAPItem>>(restResponse.Content) ?? new List<IAPItem>();
 
                 //IAPItem item = new IAPItem();
 
