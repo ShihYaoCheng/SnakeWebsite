@@ -1,5 +1,7 @@
 ﻿//新增鍊
-window.AddPolygonID = async function (chainId, chainName, recUrls) {
+window.AddPolygonID = async function (chainId, chainName, recUrls, nativeCurrencyName, nativeCurrencyDecimals) {
+    const web3 = new Web3(Web3.givenProvider)
+    chainId = web3.utils.toHex(chainId);
     console.log(chainId, chainName, recUrls)
     try {
         await window.ethereum.request({
@@ -15,7 +17,12 @@ window.AddPolygonID = async function (chainId, chainName, recUrls) {
                         {
                             chainId: chainId,
                             chainName: chainName,
-                            rpcUrls: [recUrls]
+                            rpcUrls: [recUrls],
+                            nativeCurrency: {
+                                "name": nativeCurrencyName,
+                                "symbol": nativeCurrencyName,
+                                "decimals": nativeCurrencyDecimals
+                            }
                         },
                     ],
                 });
@@ -64,10 +71,10 @@ window.AddPolygonID = async function (chainId, chainName, recUrls) {
 
 //新增鍊上貨幣
 //USDT
-window.AddPolygonUSDT = async function () {
-    tokenAddress = '0xD92E713d051C37EbB2561803a3b5FBAbc4962431';
+window.AddPolygonUSDT = async function (USDT_token_addr, USDT_Decimals) {
+    tokenAddress = USDT_token_addr;
     tokenSymbol = 'TUSDT';
-    tokenDecimals = 6;
+    tokenDecimals = USDT_Decimals;
     tokenImage = 'https://storage.googleapis.com/pps-nft/token/USDT.png';
     try {
         // wasAdded is a boolean. Like any RPC method, an error may be thrown.
@@ -100,11 +107,11 @@ window.AddPolygonUSDT = async function () {
 }
 
 //SRC
-window.AddPolygonSRC = async function () {
+window.AddPolygonSRC = async function (SRC_token_addr, SRC_Decimals ) {
 
-    tokenAddress = '0xaBF22878C673C20865D9A1247c86FDe7B1165B7e';
+    tokenAddress = SRC_token_addr;
     tokenSymbol = 'SRC';
-    tokenDecimals = 18;
+    tokenDecimals = SRC_Decimals;
     tokenImage = "https://storage.googleapis.com/pps-nft/token/SRC.png";
     try {
         // wasAdded is a boolean. Like any RPC method, an error may be thrown.

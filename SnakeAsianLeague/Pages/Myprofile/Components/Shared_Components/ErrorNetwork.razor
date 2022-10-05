@@ -15,6 +15,10 @@
 @code {
     [Parameter]
     public EventCallback<int> AddPolygon { get; set;}   
+
+    [Parameter]
+    public EventCallback getCoinData { get; set;}   
+
     private IJSObjectReference? ErrorNetworkJS;
 
     string netWorkName;
@@ -39,6 +43,7 @@
         netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", Configuration["chainId"]);
         if (netWorkRight)
         {
+            getCoinData.InvokeAsync();
             //強制渲染
             await InvokeAsync(StateHasChanged);
         }
