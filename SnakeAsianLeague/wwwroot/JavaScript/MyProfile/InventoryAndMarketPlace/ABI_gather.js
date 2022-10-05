@@ -653,7 +653,7 @@ window.SRCSwap_abi = [
         "anonymous": false,
         "inputs": [
             {
-                "indexed": false,
+                "indexed": true,
                 "internalType": "address",
                 "name": "user",
                 "type": "address"
@@ -836,6 +836,25 @@ window.SRCSwap_abi = [
     {
         "inputs": [
             {
+                "internalType": "uint256",
+                "name": "amountOfUSD",
+                "type": "uint256"
+            }
+        ],
+        "name": "tokenPerUSD",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "amountOfToken",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "address",
                 "name": "newOwner",
                 "type": "address"
@@ -863,11 +882,11 @@ window.SRCSwap_abi = [
         "inputs": [
             {
                 "internalType": "uint256",
-                "name": "amountOfUSDT",
+                "name": "amountOfToken",
                 "type": "uint256"
             }
         ],
-        "name": "usdPerUSDT",
+        "name": "usdPerToken",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -885,25 +904,6 @@ window.SRCSwap_abi = [
             {
                 "internalType": "uint256",
                 "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "amountOfUSD",
-                "type": "uint256"
-            }
-        ],
-        "name": "usdtPerUSD",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "amountOfToken",
                 "type": "uint256"
             }
         ],
@@ -935,6 +935,8 @@ window.SRCSwap_abi = [
         "type": "receive"
     }
 ]
+
+
 window.SRCExchange_ABI = [
     {
         "inputs": [
