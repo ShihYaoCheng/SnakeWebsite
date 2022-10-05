@@ -115,14 +115,14 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 				SRCSwap_abi,
 				SRCSwap_addr
 			);
-
+			console.log("~~~~~~~成功囉", vendor)
 			request = await vendor.methods
 				.swapSRCtoUSDT(x.shiftedBy(SRC_decimals).toString())
 				.send({
 					from: accounts[0],
 				});
-
-
+			console.log(request,"成功囉~~~~~~~")
+		
 			alert("You have successfully sold SRC tokens!");
 			console.log(request);
 			return true

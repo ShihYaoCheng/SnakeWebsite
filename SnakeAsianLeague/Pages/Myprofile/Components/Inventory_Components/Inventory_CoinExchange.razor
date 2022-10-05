@@ -214,20 +214,25 @@
     @* TaskCompletionSource<bool>taskCompletionSource = new TaskCompletionSource<bool>();*@
     bool transactionResult = false;
     decimal getAuthorizeNum ;
+    bool TransferToDB = false;
     protected  async Task coinEchangeBtn()
     {
         await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
         if (difference < 0)
         {
           
-            @*鍊換game*@           
+            @*鍊換game*@
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1,Configuration["SRC_token_addr"],Configuration["SRCExchange_addr"]);      
             if (transactionResult)
             {
-                await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
+                TransferToDB = await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
             }
-             
-            await clickRefresh();
+            if (TransferToDB)
+            {
+                System.Threading.Thread.Sleep(15000);
+                await clickRefresh();
+            }
+            
         }
         else
         {

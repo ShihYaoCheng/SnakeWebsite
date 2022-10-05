@@ -98,10 +98,10 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address) {
 	const ERC20_abi = window.ERC20_abi
 	const SRCExchange_addr = SRCExchange_address
 	const SRCExchange_ABI = window.SRCExchange_ABI
-
+	console.log("SRCInput", SRCInput, "SRC_address", SRC_address, "SRCExchange_address", SRCExchange_address)
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
-	
+	console.log("x",x)
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
@@ -111,13 +111,13 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address) {
 		);
 		//精度
 		let SRC_decimals = parseInt(await tokenContract.methods.decimals().call())
-
+		console.log("xSRC_decimals", SRC_decimals)
 		// 交易貨幣
 		const vendor = await new web3.eth.Contract(
 			SRCExchange_ABI,
 			SRCExchange_addr
 		);
-		
+		console.log("x", x.shiftedBy(SRC_decimals).toString())
 		let request = await vendor.methods
 			.deposit(x.shiftedBy(SRC_decimals).toString())
 			.send({
