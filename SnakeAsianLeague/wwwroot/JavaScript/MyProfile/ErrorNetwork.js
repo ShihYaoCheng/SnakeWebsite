@@ -5,7 +5,8 @@
 	const networkID = await w3.eth.net.getId()
 
 	console.log(chainId, networkID )
-	if (parseInt(chainId.slice(2)) != networkID) {
+	if (chainId != networkID) {
+		console.log("??")
 		return false
 	}
 	return true

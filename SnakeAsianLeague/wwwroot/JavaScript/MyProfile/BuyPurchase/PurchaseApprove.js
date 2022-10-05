@@ -5,7 +5,7 @@
 	//web3.TransactionManager.UseLegacyAsDefault = true;
 	const USDT_address = USDTaddress
 	const ERC20_abi = window.ERC20_abi
-	const SRCExchange_addr = "0x0C59F0fe842952A41A64438E46dDa826631d4B7F" //SRCExchange_address
+	const SRCExchange_addr = SRCExchange_address //SRCExchange_address
 
 	const SwapNumValue = PurchaseInput
 	let x = new BigNumber(SwapNumValue);

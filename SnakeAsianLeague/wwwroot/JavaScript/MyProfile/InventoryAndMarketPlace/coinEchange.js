@@ -150,7 +150,7 @@ export async function CoinexchangeData(chainId ,SRC_address) {
 	const networkID = await w3.eth.net.getId()
 
 
-	if (parseInt(chainId.slice(2)) != networkID) {
+	if (chainId != networkID) {
 		return 0
 	}
 	/* SRC */

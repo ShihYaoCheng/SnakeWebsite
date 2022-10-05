@@ -70,7 +70,7 @@
     @*錯誤訊息*@
     @if (islogin )
     {
-        <ErrorNetwork AddPolygon ="AddPolygon" ></ErrorNetwork>
+        <ErrorNetwork AddPolygon ="AddPolygon"  getCoinData="getCoinData"></ErrorNetwork>
     }
     @*載入畫面*@
     @if (loading && islogin)
@@ -98,7 +98,7 @@
     //切換並新增Polygon
     protected  async Task AddPolygon()
     {      
-        await JS.InvokeVoidAsync("AddPolygonID",Configuration["inputChainId"], Configuration["chainName"],  Configuration["recUrls"] );
+        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] ,  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"]);
         await getCoinData();
     }
 
@@ -116,7 +116,7 @@
     {
         if (firstRender)
         {
-            await getGameCoin();
+            
             @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");
@@ -126,11 +126,12 @@
             await JS.InvokeVoidAsync("CardAmountLinkDisplay");
             await JS.InvokeVoidAsync("TippyInit");           
 
-            await JS.InvokeVoidAsync("ShowMSGcheckbox");              
+            await JS.InvokeVoidAsync("ShowMSGcheckbox");     
+
             if (islogin)
             {     
                 coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
-                await getCoinData();
+                await getGameCoin();
             }
             await loadingColse();
         }

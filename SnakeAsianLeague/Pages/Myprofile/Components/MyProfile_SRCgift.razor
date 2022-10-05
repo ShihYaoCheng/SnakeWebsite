@@ -176,7 +176,7 @@
     protected  async Task AddPolygon()
     {
     @*linebot.SemdLineNotifyMsg("test123");*@
-        await JS.InvokeVoidAsync("AddPolygonID",Configuration["inputChainId"], Configuration["chainName"],  Configuration["recUrls"] );
+        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] ,  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"]);
      
 
     }

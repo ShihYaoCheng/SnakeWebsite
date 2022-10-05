@@ -314,7 +314,7 @@
     protected  async Task AddPolygon()
     {
         @*linebot.SemdLineNotifyMsg("test123");*@
-        await JS.InvokeVoidAsync("AddPolygonID",Configuration["inputChainId"], Configuration["chainName"],  Configuration["recUrls"] );
+        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"],  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"] );
         await getMetaMaskData();
 
     }
@@ -332,7 +332,7 @@
     {
         if (Value)
         {
-            await JS.InvokeVoidAsync("AddPolygonUSDT" , Configuration["USDT_token_addr"]);
+            await JS.InvokeVoidAsync("AddPolygonUSDT" , Configuration["USDT_token_addr"] ,Configuration["USDT_Decimals"]);
         }
         else
         {
@@ -345,7 +345,7 @@
     {      
         if (Value)
         {
-            await JS.InvokeVoidAsync("AddPolygonSRC" ,Configuration["SRC_token_addr"] );     
+            await JS.InvokeVoidAsync("AddPolygonSRC" ,Configuration["SRC_token_addr"] ,Configuration["SRC_Decimals"] );     
         }
         else
         {
