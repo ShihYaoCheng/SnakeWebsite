@@ -172,7 +172,11 @@ namespace SnakeAsianLeague.Data.Services.Commodity
             {
                 amountOfUSDT = mIAPItems.Where(m => m.productID == productID).First().priceUSDT;
             }
-            RestRequest RestRequest = new RestRequest($"​CQIPurchase​/PurchaseByUSDT?userID={UserID}&amountOfUSDT={amountOfUSDT}&productID={productID}");
+
+
+
+            RestRequest RestRequest = new RestRequest($"/CQIPurchase/PurchaseByUSDT?userID={UserID}&amountOfUSDT={amountOfUSDT}&productID={productID}");
+            //RestRequest RestRequest = new RestRequest($"​CQIPurchase​/PurchaseByUSDT?userID={UserID}&amountOfUSDT={amountOfUSDT}&productID={productID}");
 
             IRestResponse restResponse = await NftWebApiServerClient.ExecuteGetAsync(RestRequest);
             if (restResponse.StatusCode == HttpStatusCode.OK)
