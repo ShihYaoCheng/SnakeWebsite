@@ -7,10 +7,11 @@
     } else {
         const Accounts = await ethereum.request({ method: 'eth_requestAccounts' });
         console.log(Accounts)
-        if (Accounts[0] != "") {
-            return true
-        } else {
-            return false
-        }       
+        return Accounts[0] 
+        //if (Accounts[0] != "") {
+        //    return true
+        //} else {
+        //    return false
+        //}       
     }
 }

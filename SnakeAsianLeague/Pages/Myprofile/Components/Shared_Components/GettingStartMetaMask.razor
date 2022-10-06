@@ -1,8 +1,18 @@
-﻿
+﻿@using SnakeAsianLeague.Data.Services
+
 @inject IJSRuntime JS
+@inject AppState AppState
 @if (getStartMetaMask)
 {
     @ChildContent
+}
+else
+{
+    <div style="width:100%; height:500px; display:flex; justify-content:center; align-items: center; font-size:50px "> 
+        <p>不符合你家的錢包</p> 
+        <p>你的綁定地址為：@AppState.LoginStatus.walletAddress</p>
+        <button @onclick ="reflash">已修改完成</button>
+    </div>
 }
 
 
@@ -16,21 +26,29 @@
 
     private IJSObjectReference? gettingStartMetaMaskJS;
     bool getStartMetaMask = false;
+    string address = ""; 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             gettingStartMetaMaskJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/gettingStartMetaMask.js");
-            getStartMetaMask = await gettingStartMetaMaskJS.InvokeAsync<bool>("gettingStartMetaMask");
-            if (getStartMetaMask)
-            {     
-                //強制渲染
-            InvokeAsync(StateHasChanged);
-                
-            }
-
+            await reflash();
         }
-
+       
+  
     }
+    public async Task reflash()
+    {
+         address = await gettingStartMetaMaskJS.InvokeAsync<string>("gettingStartMetaMask");
+            if (address == AppState.LoginStatus.walletAddress)
+            {
+                getStartMetaMask = true;    
+             
+            }      
+        InvokeAsync(StateHasChanged);
+    }
+
+
 }
+
