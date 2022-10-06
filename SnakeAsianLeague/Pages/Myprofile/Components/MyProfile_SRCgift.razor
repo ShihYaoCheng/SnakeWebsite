@@ -127,9 +127,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-          Console.Write("前")
+        Console.Write("前");
         IAPItemList = await CommodityServices.GetIAPItem();
-        Console.Write("後")
+        Console.Write("後");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
