@@ -126,8 +126,11 @@
     bool netWorkRight = false;
 
     protected override async Task OnInitializedAsync()
-    {      
+    {
+        Console.WriteLine("MyProfile_STCgift init");
         IAPItemList = await CommodityServices.GetIAPItem();
+        
+        Console.WriteLine("MyProfile_STCgift init end");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
