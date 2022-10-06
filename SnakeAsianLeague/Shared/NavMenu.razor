@@ -480,8 +480,8 @@
         if (firstRender){
             //取得語言
             //AppState.getLang();
-            Multilingual lan = (Multilingual)Enum.Parse(typeof(Multilingual  ),  await JS.InvokeAsync<string>("getlang"), false);           
-            AppState.UpdateNowLanguage(this,lan);
+            //Multilingual lan = (Multilingual)Enum.Parse(typeof(Multilingual  ),  await JS.InvokeAsync<string>("getlang"), false);           
+            AppState.UpdateNowLanguage(this, Multilingual.en);
             footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
             BackToTopJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NavMenu/BackToTop.js");
             AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
