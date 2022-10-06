@@ -372,7 +372,7 @@
 
 
         @*SnakeAccount test = await authService.AuthLoginByUserId("10009");
-        AppState.UpdateLoginStatus(this, test);*@
+            AppState.UpdateLoginStatus(this, test);*@
     }
 
     void IDisposable.Dispose()
@@ -478,11 +478,16 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
-        if (firstRender){
+        if (firstRender)
+        {
             //取得語言
-            //AppState.getLang();
-            //Multilingual lan = (Multilingual)Enum.Parse(typeof(Multilingual  ),  await JS.InvokeAsync<string>("getlang"), false);           
-            //AppState.UpdateNowLanguage(this, Multilingual.en);
+            var getStorageLan = await JS.InvokeAsync<string>("getlang");
+            if (getStorageLan != null)
+            {
+                Multilingual lan = (Multilingual)Enum.Parse(typeof(Multilingual  ),  getStorageLan, false);           
+                AppState.UpdateNowLanguage(this, lan);
+            }
+            
             footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
             BackToTopJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NavMenu/BackToTop.js");
             AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
