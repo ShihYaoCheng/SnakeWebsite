@@ -1,21 +1,18 @@
-﻿@page "/test"
-@using SnakeAsianLeague.Data.Services
-
+﻿
 @inject IJSRuntime JS
+@if (getStartMetaMask)
+{
+    @ChildContent
+}
 
 
-<head>
-    <link href="css/test.css" rel="stylesheet" />
-</head>
 
-<div class="test-container">
-
-</div>
 
 
 @code {
 
-
+    [Parameter]
+    public RenderFragment? ChildContent   { get; set; }
 
     private IJSObjectReference? gettingStartMetaMaskJS;
     bool getStartMetaMask = false;
@@ -25,9 +22,15 @@
         if (firstRender)
         {
             gettingStartMetaMaskJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/gettingStartMetaMask.js");
-            getStartMetaMask = await gettingStartMetaMaskJS.InvokeAsync<bool>("gettingStartMetaMask");            
+            getStartMetaMask = await gettingStartMetaMaskJS.InvokeAsync<bool>("gettingStartMetaMask");
+            if (getStartMetaMask)
+            {     
+                //強制渲染
+            InvokeAsync(StateHasChanged);
+                
+            }
+
         }
 
     }
-
 }
