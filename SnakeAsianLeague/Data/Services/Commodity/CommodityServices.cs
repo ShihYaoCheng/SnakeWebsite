@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Options;
 using RestSharp;
 using SnakeAsianLeague.Data.Entity.Commodity;
 using SnakeAsianLeague.Data.Entity.Config;
@@ -14,15 +15,19 @@ namespace SnakeAsianLeague.Data.Services.Commodity
         private readonly RestClient BackstageServerClient;
         private readonly RestClient NftWebApiServerClient;
 
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
         private List<IAPItem> mIAPItems;
 
-        public CommodityServices(IOptions<ExternalServers> myConfiguration)
+        public CommodityServices(IOptions<ExternalServers> myConfiguration , IHttpContextAccessor httpContextAccessor)
         {
             externalServersConfig = myConfiguration.Value;
 
             BackstageServerClient = new RestClient(externalServersConfig.BackstageApiServer);
 
             NftWebApiServerClient = new RestClient(externalServersConfig.NftWebApi);
+
+            _httpContextAccessor = httpContextAccessor;
         }
 
         /// <summary>
@@ -38,6 +43,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
             IRestResponse restResponse = await BackstageServerClient.ExecuteGetAsync(RestRequest);
 
             //Console.WriteLine(restResponse.Content);
+            string host = _httpContextAccessor.HttpContext.Request.Host.Value;
 
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
@@ -45,6 +51,16 @@ namespace SnakeAsianLeague.Data.Services.Commodity
 
                 mIAPItems = new List<IAPItem>();
                 iAPItems = JsonSerializer.Deserialize<List<IAPItem>>(restResponse.Content) ?? new List<IAPItem>();
+
+                
+                foreach (IAPItem item in iAPItems)
+                {
+
+                    //"https://dev.origingaia.com/backstage/UploadImages/512x512/com.cqigames.snakeknight.nftcurrency1_1.png";
+                    item.productUrl = string.Format("https://{0}/{1}", host , item.productUrl);//
+                    
+                }
+
 
                 //IAPItem item = new IAPItem();
 
