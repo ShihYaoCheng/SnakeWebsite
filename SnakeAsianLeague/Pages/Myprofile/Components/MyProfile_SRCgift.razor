@@ -19,61 +19,65 @@
 
 @*<Walletaddress></Walletaddress>
 *@
-<div class="Inventory">
-    <div class="Secend-Block">
-        <div class="Secend-Title" data-i18n="Inventory_data:otherTitle.Inventory">Inventory</div>
-        <div class="Secend-Inner" id="">
-            <SRCgift_CurrencyTab />
+
+<div class="SRCgift-block">
+    <div class="Inventory">
+        <div class="Secend-Block">
+            <div class="Secend-Title" data-i18n="Inventory_data:SRCPackage.SRCPackage">SRC Package</div>
+            <div class="Secend-Inner" id="">
+                <SRCgift_CurrencyTab />
+            </div>
         </div>
-    </div>
-                 
-    <div class="Inventory-PPSR-Block" id="Inventory-PPSR-Block">  
-    
-        <div class="Inventory-CardBLock"> 
-            @if (IAPItemList != null)
-            {
-                @foreach (IAPItem item in IAPItemList)
+                    
+        <div class="Inventory-PPSR-Block" id="Inventory-PPSR-Block">  
+        
+            <div class="Inventory-CardBLock"> 
+                @if (IAPItemList != null)
                 {
-                    var SRCValue = @item.addValue + @item.addPlus;
+                    @foreach (IAPItem item in IAPItemList)
+                    {
+                        var SRCValue = @item.addValue + @item.addPlus;
 
-                    <div class="NFTcard card-bg-DarkSeaGreen">  
-                        <div class="NFTcardA" >
-                            @*<a href="@item.LinkURL" target="opensea">  </a>*@
+                        <div class="NFTcard card-bg-DarkSeaGreen">  
+                            <div class="NFTcardA" >
+                                @*<a href="@item.LinkURL" target="opensea">  </a>*@
 
-                            <div class="NFTcard-inner">
-                                <div class="NFT-cardImg">
-                                    <img src= "@item.productUrl" alt="" >
-                                </div>
-                                <div class="NFT-cardText Not-Price-Ver">
-                                    <div class="giftData-container"    >
-                                        <div class="giftData-title">  </div>
-                                        <div class="srcZone-container">
-                                            <div class="giftData-srcZone">
-                                                <img  class="srcZone-img" src="/images/Myprofile/SRC.webp"/>
-                                                <span class="srcZone-num" > SRC @SRCValue</span>
+                                <div class="NFTcard-inner">
+                                    <div class="NFT-cardImg">
+                                        <img src= "@item.productUrl" alt="" >
+                                    </div>
+                                    <div class="NFT-cardText Not-Price-Ver">
+                                        <div class="giftData-container"    >
+                                            <div class="giftData-title">  </div>
+                                            <div class="srcZone-container">
+                                                <div class="giftData-srcZone">
+                                                    <img  class="srcZone-img" src="/images/Myprofile/SRC.webp"/>
+                                                    <span class="srcZone-num" > SRC @SRCValue</span>
 
-                                                
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="giftData-btn-container">
+
+                                                <div class="usdValuation">  <span>≈USD</span> @item.priceUSD<span></span></div>
+                                                <button class="giftData-btn"  @onclick="@(async ()=>{ await BuyPurchase( item.priceUSDT , item.productID);})" > 
+                                                    <span>USDT</span> <span class="giftData-btn-nun">@item.priceUSDT</span></button>
                                             </div>
                                         </div>
-
-                                        <div class="giftData-btn-container">
-
-                                            <div class="usdValuation">  <span>≈USD</span> @item.priceUSD<span></span></div>
-                                            <button class="giftData-btn"  @onclick="@(async ()=>{ await BuyPurchase( item.priceUSDT , item.productID);})" > 
-                                                <span>USDT</span> <span class="giftData-btn-nun">@item.priceUSDT</span></button>
-                                        </div>
-                                    </div>
-                                </div>               
-                            </div>                     
-                        </div>        
-                    </div>
-                }
-            }        
+                                    </div>               
+                                </div>                     
+                            </div>        
+                        </div>
+                    }
+                }        
+            </div>
         </div>
+
+
     </div>
-
-
 </div>
+
 
 @*交易中反灰*@
 <TransactWindow></TransactWindow>

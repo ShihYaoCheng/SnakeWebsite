@@ -1324,6 +1324,7 @@ position: relative;
 }
 .MarketPlaceButton p{
     /* margin: 0 10px; */
+    letter-spacing: 1px;
 }
 
 @media all and (max-width: 500px){

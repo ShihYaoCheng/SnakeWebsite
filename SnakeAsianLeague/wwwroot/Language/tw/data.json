@@ -56,6 +56,7 @@
     "Myprofile": "我的主頁",
     "Inventory": "資產明細",
     "Swap": "資產兌換",
+    "SRCPackage": "騎士幣禮包",
 
     "Chinese": "中文",
     "English": "EN"
@@ -67,7 +68,8 @@
     "Esports": "我的賽事",
     "Reward": "領獎通知",
     "Inventory": "資產明細",
-    "Swap": "資產兌換"
+    "Swap": "資產兌換",
+    "SRCPackage": "SRC禮包"
   },
 
   "signInWindows": {
