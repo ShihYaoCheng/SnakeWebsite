@@ -53,13 +53,13 @@ namespace SnakeAsianLeague.Data.Services.Commodity
                 iAPItems = JsonSerializer.Deserialize<List<IAPItem>>(restResponse.Content) ?? new List<IAPItem>();
 
                 
-                foreach (IAPItem item in iAPItems)
-                {
+                //foreach (IAPItem item in iAPItems)
+                //{
 
-                    //"https://dev.origingaia.com/backstage/UploadImages/512x512/com.cqigames.snakeknight.nftcurrency1_1.png";
-                    item.productUrl = string.Format("https://{0}/backstage/{1}", host , item.productUrl);//
+                //    //"https://dev.origingaia.com/backstage/UploadImages/512x512/com.cqigames.snakeknight.nftcurrency1_1.png";
+                //    item.productUrl = string.Format("https://{0}/backstage/{1}", host , item.productUrl);//
                     
-                }
+                //}
 
 
                 //IAPItem item = new IAPItem();
