@@ -1,5 +1,8 @@
 ﻿namespace SnakeAsianLeague.Data.Entity
 {
+
+
+
     public class NFTData
     {
 

@@ -1,0 +1,117 @@
+﻿@using SnakeAsianLeague.Data.Entity
+@inject IJSRuntime JS
+
+@*愛心的部分*@
+<div class="heart btn p-0 tippy-pop  @(Value.IsLove ? "heartClickRed" : "") " data-content="Favorite"    @onclick="eventArgs => { clickHeartToggleButton(  Value.TokenID ,Value.IsLove, eventArgs); }" >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005" >
+        <path class="heart__path"
+        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="2" />
+    </svg>
+                                    
+</div> 
+
+<a  class="NFTcardA" href="Products/@Value.serialNumber/@Value.Number" >
+@*<a href="@Value.LinkURL" target="opensea"> </a>*@                                    
+    <div class="NFTcard-inner">
+        <div class="NFT-cardImg">
+            <img data-src="@Value.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+       
+           if( @Value.IsOfficial ==true && @Value.IsOpen ==true ){
+           }else{
+               @*非紅色*@
+               <div hidden="@(@Value.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
+           
+           }
+        </div>
+                                        
+        <div class="NFT-cardText Not-Price-Ver">
+            @if ( @Value.IsOfficial ==true && @Value.IsOpen ==true )
+            {
+                @*紅*@
+                <div class="NFT-Number"> #PPSR @Value.Number</div>
+            }
+            else
+            {
+                @*非紅*@
+                <div class="NFT-card-header">
+                    <img  class="NFT-ElementsIcon" data-src="@Value.ElementsIcon" alt="">
+                    <div class="NFT-Number"> @Value.Number</div>
+                </div>
+            }          
+
+            @*名*@
+            <div class="NFT-Name" data-i18n=NFT_data:@Value.serialNumber>@Value.serialNumber</div>
+            
+            @*...價格區塊...*@
+            @if(@Value.IsOfficial == false ){
+                @*綠*@
+                <div class="NFT-Income-Block">
+                    @* <div class="NFT-Income-Block-title">Total Income</div>
+                    <div class="NFT-Income-Main">
+                        <div class="NFT-Income-Currency">
+                            <span>SRC</span>
+                            <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.webp" alt="">
+                        </div>
+                        <span class="NFT-Currency-Price">123,456,789</span>
+                    </div>*@
+                </div>
+            }else{
+                <div class="NFT-PriceBlock">
+                    <div class="NFT-PriceMain" >
+                        @if (@Value.IsOpen)
+                        {
+                            @*紅*@
+                            <div class="NFT-PriceIcon-Border" title="ETH ON POLYGON" data-content="ETH ON POLYGON">
+                                <img class="NFT-PriceIcon" data-src="/images/MarketPlace/Polygon-eth-01.webp" alt="ETH ON POLYGON">
+                            </div>
+                            <span class="NFT-Price">@Value.Price</span>
+                        }
+                        else{
+                            @*灰*@
+                            <span class="NFT-Price" data-i18n="Inventory_data:sortOptions.ComingSoon">ComingSoon</span>    
+                        }
+                    </div>
+                    @*<div class="NFT-USD">@Value.USD USD</div>*@      
+                </div>
+            }            
+            @*...展開按鈕...*@
+            <button  @onclick="reInstallI18n" class="Show-tag"> 
+                <span class="ShowTag-Text" data-i18n="Inventory_data:otherTitle.ShowTag">Show Tag</span>  
+                <img   class="ShowTag-arrow" src="/images/MarketPlace/MP-arrow-gray.png" data-src="/images/MarketPlace/MP-arrow-gray.png">  
+            </button>
+           
+            @*<div class="NFT-EndTime">Ends in @Value.CalDays</div>*@
+        </div>
+                                        
+    </div>
+</a>
+
+@*...分類區塊...*@
+<div class="tag-zone">                                                   
+    <div class="NFT-Label-block">
+        <div class="NFT-Label" data-i18n="Inventory_data:Filter.@Value.RarityValue">@Value.RarityValue</div>
+        <div class="NFT-Label" data-i18n="Inventory_data:Filter.@Value.ClassValue">@Value.ClassValue</div>
+        @*<div class="NFT-Label">Survival master</div>*@
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public NFTData Value{get;set;}
+
+    [Parameter]
+    public EventCallback<HeartParameter> HeartToggleButton { get; set;}
+
+    private void clickHeartToggleButton(string TokenId , bool isLove,  object checkedValue)
+    {
+        HeartParameter value = new HeartParameter(TokenId, isLove, checkedValue);
+        HeartToggleButton.InvokeAsync(value);   
+    }
+
+     public async Task reInstallI18n() { 
+        await JS.InvokeVoidAsync("installI18n");
+    }
+}
