@@ -351,14 +351,6 @@
     [Parameter]
     public bool MetamaskAvailable { get; set; }
 
-    //[Parameter]
-    //public EventCallback EditProfileButtonOnClick { get; set; }
-
-    //public void EditProfile()
-    //{
-    //    EditProfileButtonOnClick.InvokeAsync();
-    //}
-
     [Parameter]
     public EventCallback EnableEthereumAsync { get; set; }
 
@@ -374,22 +366,16 @@
     {
         if (first)
         {
-            if (NFT_Rider_Count !=  await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString()))
-            {
-                 NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+            NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+            gSRC = await InventoryService.GetgSRCCurrency1(AppState.LoginStatus.userID.ToString());
 
-                 gSRC = await InventoryService.GetgSRCCurrency1(AppState.LoginStatus.userID.ToString());
-
-                 //強制渲染
-                 InvokeAsync(StateHasChanged);
-            }          
+      
+            //強制渲染
+            await InvokeAsync(StateHasChanged);
          
-            await JS.InvokeVoidAsync("setMateMaskLink");
-            
+            //await JS.InvokeVoidAsync("setMateMaskLink");
         }
     }
-
-    
 
 
     public void EnableEthereum()
@@ -406,16 +392,7 @@
     {
         await JS.InvokeVoidAsync("loginButton", "loginButton");
     }
-	
 
-    //protected override async Task OnAfterRenderAsync(bool firstRender)
-    //{
-    //    if (firstRender)
-    //    {
-    //        await JS.InvokeVoidAsync("setMateMaskLink");
-    //    }
-
-    //}
 	//private async Task web3Button()
  //   {
  //       await JS.InvokeVoidAsync("web3button");
