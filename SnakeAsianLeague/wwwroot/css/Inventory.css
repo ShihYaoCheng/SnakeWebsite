@@ -709,6 +709,9 @@
     }
 }
 @media all and (max-width: 1024px){
+    .Inventory .CollectBtnBlack {
+        font-size: 16px !important;
+    }
     .Inventory-PPSR-Filter {
         font-size: 16px;
     }
@@ -723,12 +726,12 @@
     }
 }
 @media all and (max-width: 768px){
-    .Inventory-PPSR-Filter {
+    /* .Inventory-PPSR-Filter {
         font-size: 15px;
     }
     .Inventory-PPSR-sortSelect{
         font-size: 15px !important;
-    }
+    } */
 }
 @media all and (max-width: 750px){
     .Inventory-CardBLock{
@@ -736,12 +739,12 @@
     }
 }
 @media all and (max-width: 576px){
-    .Inventory-PPSR-Filter {
+    /* .Inventory-PPSR-Filter {
         font-size: 14px;
     }
     .Inventory-PPSR-sortSelect{
         font-size: 14px !important;
-    }
+    } */
 }
 @media all and (max-width: 500px){
 
