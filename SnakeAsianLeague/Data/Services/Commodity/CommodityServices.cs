@@ -57,7 +57,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
                 {
 
                     //"https://dev.origingaia.com/backstage/UploadImages/512x512/com.cqigames.snakeknight.nftcurrency1_1.png";
-                    item.productUrl = string.Format("https://{0}/{1}", host , item.productUrl);//
+                    item.productUrl = string.Format("https://{0}/backstage/{1}", host , item.productUrl);//
                     
                 }
 
