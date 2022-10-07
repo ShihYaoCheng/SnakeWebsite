@@ -14,17 +14,23 @@
 else
 {
     <div class="getStartMetaMask-container" > 
-        <p>MetaMask錢包資訊錯誤</p> 
-        @if (address == "")
-        {
-            <p>未登入MetaMask</p>
-        }
-        else
-        {
-           <p>你登入的錢包地址為：@address</p>
-        }
+        <p class="getStartMetaMask-title">MetaMask錢包資訊錯誤</p> 
+        <div class="getStartMetaMask-content">
+            @if (address == "")
+            {
+                <p class="getStartMetaMask-notLogin">未登入MetaMask</p>
+            }
+            else
+            {
+                <p>你登入的錢包地址為：</p>
+                <span class="getStartMetaMask-address">@address</span>
+                <p>你的綁定地址為：</p>
+                <span class="getStartMetaMask-address">@AppState.LoginStatus.walletAddress</span>
+            }
 
-        <p>你的綁定地址為：@AppState.LoginStatus.walletAddress</p>
+           
+        </div>
+
         <button @onclick ="reflash">已修改完成</button>
     </div>
 }
