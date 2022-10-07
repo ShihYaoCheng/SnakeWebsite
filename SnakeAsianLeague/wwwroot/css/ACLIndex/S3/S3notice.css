@@ -16,11 +16,14 @@
 }
 
 .Notice_TopTitle {
-    margin: 36px 0 35px 0;
+    margin: 36px 0 15px 0;
     font-family: Microsoft JhengHei;
-    font-size: 48px;
+    font-size: 34px;
     color: #3a3048;
     text-align: center;
+    text-decoration: underline;
+    text-decoration-thickness: 2.5px;
+    text-underline-offset: 8px;
 }
 
 .Notice-Container {
@@ -47,7 +50,7 @@
 }
 @media (max-width: 1024px) {
     .Notice_TopTitle {
-        font-size: 38px;
+        font-size: 30px;
         margin: 30px 0 30px 0;
     }
     .Notice {
@@ -64,7 +67,7 @@
         padding-top:400px;
     }
     .Notice_TopTitle {
-        font-size: 34px;
+        font-size: 26px;
     }
     .Notice-BG {
         width: 514px;
@@ -78,7 +81,7 @@
 
 @media (max-width: 576px) {
     .Notice_TopTitle {
-        font-size: 32px;
+        font-size: 22px;
         margin: 15px 0 15px 0;
     }
     .Notice-BG {
@@ -103,8 +106,8 @@
 }
 
 .Notice-content-left {
-    width:95%
-   
+    width: 95%;
+    text-align: left;
 }
 .Notice-content-right {
     width: 5%
@@ -142,9 +145,9 @@
 
 
 .notice_title {
-    font-size: 24px;
+    font-size: 22px;
     color: #605138 !important;
-    margin: 20px 0 10px !important;
+    margin: 10px 0 10px !important;
     text-align: center;
     line-height: 36px;
 }
@@ -152,16 +155,21 @@
 
 .txt_title {
     color: #605138 !important;
-    font-size: 24px;
+    font-size: 20px;
     margin: 40px 0 10px 0;
 }
-
-.event_note {
+#event_rules{
     font-size: 14px;
+    line-height: 20px;
+    opacity: 0.7;
+}
+.event_note {
+    font-size: 12px;
+
 }
 
 .event_txt {
-    font-size: 24px;
+    font-size: 20px;
     margin: 20px 0 0px;
     padding: 0 10px;
     /* text-indent: -1em;  */
@@ -176,25 +184,26 @@
 }
 
 .event_txt02 {
-    font-size: 24px;
+    font-size: 18px;
     margin: 10px 0 0px;
     padding: 0 15px 0 40px;
     text-indent: -1em;
-    line-height: 33px;
+    line-height: 30px;
     color: #605138 !important;
 }
 
 
 .event_txt03 {
-    font-size: 24px;
+    font-size: 18px;
     padding: 0 30px;
     margin-left: 2em;
     text-indent: -1em;
+    line-height: 30px;
     color: #605138 !important;
 }
 
 .event_txt04 {
-    font-size: 24px;
+    font-size: 18px;
     padding: 0 30px;
     margin-left: 3em;
     text-indent: -1em;
@@ -202,7 +211,7 @@
 }
 
 .event_txt05 {
-    font-size: 24px;
+    font-size: 18px;
     padding: 0 30px;
     margin-left: 4em;
     text-indent: -1em;
@@ -212,107 +221,112 @@
 
 @media (max-width: 1500px) {
     .notice_title {
-        font-size: 22px;
+        font-size: 16px;
     }
 
     .event_txt {
-        font-size: 22px;
+        font-size: 16px;
     }
 
     .event_txt02 {
-        font-size: 22px;
+        font-size: 16px;
+        line-height: 26px;
     }
 
 
     .event_txt03 {
-        font-size: 22px;
+        font-size: 16px;
     }
 
     .event_txt04 {
-        font-size: 22px;
+        font-size: 16px;
     }
 
     .event_txt05 {
-        font-size: 22px;
+        font-size: 16px;
     }
 
 
     .event_note {
-        font-size: 22px;
+        font-size: 16px;
         text-align: start;
     }
 
     .txt_title {
-        font-size: 22px;
+        font-size: 16px;
     }
 }
 
 @media (max-width: 1024px) {
     .notice_title {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .event_txt {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .event_txt02 {
-        font-size: 18px;
+        font-size: 14px;
+        line-height: 20px;
     }
 
 
     .event_txt03 {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .event_txt04 {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .event_txt05 {
-        font-size: 18px;
+        font-size: 14px;
     }
 
 
     .event_note {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .txt_title {
-        font-size: 18px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 576px) {
     .notice_title {
-        font-size: 14px;
-      
+        font-size: 16px;
+        line-height: 22px;
     }
-
+    #event_rules{
+        font-size: 10px;
+        line-height: 16px;
+    }
     .event_txt {
-        font-size: 14px;
+        font-size: 12px;
    
     }
 
     .event_txt02 {
-        font-size: 14px;
-    
+        font-size: 12px;
+        line-height: 20px;
     }
 
     .txt_title {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .event_txt04 {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .event_txt05 {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .event_txt03 {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .event_note {
@@ -337,7 +351,7 @@
     border-style: solid;
     border-width: 1px;
     font-family: Arial, sans-serif;
-    font-size: 24px;
+    font-size: 16px;
     overflow: hidden;
     padding: 10px 5px;
     word-break: normal;
@@ -345,33 +359,33 @@
 
 .Notice-Container table {
     margin: 20px 0px 50px;
-    width: 50%;
+    width: 70%;
 }
 
 .Notice-Container table, .Notice-Container tr, .Notice-Container th, .Notice-Container td {
     border: 1px solid #c6af7d;
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
     padding: 2px 4px;
 }
 
 @media all and (max-width: 1500px) {
     .Notice-Container .tg td {
-        font-size: 22px;
+        font-size: 16px;
     }
 
     .Notice-Container table, .Notice-Container tr, .Notice-Container th, .Notice-Container td {
-        font-size: 22px;
+        font-size: 16px;
     }
 }
 
 @media all and (max-width: 768px) {
     .Notice-Container .tg td {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .Notice-Container table, .Notice-Container tr, .Notice-Container th, .Notice-Container td {
-        font-size: 18px;
+        font-size: 14px;
     }
 }
 
