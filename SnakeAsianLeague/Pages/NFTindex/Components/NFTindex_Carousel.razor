@@ -12,6 +12,8 @@
         <div class="swiper NFTindex-Carousel-Block">
 
             <div class="swiper-wrapper" id="NFTindex-Carousel">
+
+                @* 蛇一級 / 蛇皇 *@
                 <div class="swiper-slide">
 
                     <div class=" Card-Grade" id="Card-Grade-01">
@@ -20,7 +22,8 @@
                             <div class="Card-Grade-Image">
                                 <img class="Card-Grade-halo"
                                     src="/images/NFTindex/NFTindex_Carousel/Card-Grade-01-halo.png" alt="">
-                                <div class="Coming-Soon" data-i18n="Inventory_data:sortOptions.ComingSoon">Coming Soon</div>
+                                <div class="Coming-Soon" data-i18n="Inventory_data:sortOptions.ComingSoon">Coming Soon
+                                </div>
                                 <img class="Card-Grade-icon" id="Card-Grade-icon-01"
                                     src="/images/NFTindex/NFTindex_Carousel/Snake-icon-01.png" alt="">
                             </div>
@@ -52,6 +55,49 @@
 
                 </div>
 
+                @* 蛇二級 / 蛇王騎靈 Legendary Rider *@
+                <div class="swiper-slide">
+
+                    <div class=" Card-Grade" id="Card-Grade-02-1">
+                        <div class="Card-Grade-Content">
+                            <div class="Card-Grade-Title" data-i18n="[html]Home_data:carousel.name-02-1">Spirit Snake
+                                Rider</div>
+                            <div class="Card-Grade-Image">
+                                <img class="Card-Grade-halo"
+                                    src="/images/NFTindex/NFTindex_Carousel/Card-Grade-02-halo-1.png" alt="">
+                                @* <div class="Coming-Soon">Coming Soon</div> *@
+                                <img class="Card-Grade-KindMap" id="Card-Grade-KindMap-02-1"
+                                    src="/images/NFTindex/NFTindex_Carousel/Card-Grade-KindMap-02-1.png" alt="">
+                                <img class="Card-Grade-icon" id="Card-Grade-icon-02-1"
+                                    src="/images/NFTindex/NFTindex_Carousel/Snake-icon-02-1.png" alt="">
+                            </div>
+
+                            <div class="Card-Grade-text" data-i18n="[html]Home_data:carousel.text-02-1">
+                                The rider is completely connected to the serpent and will be the
+                                strongest of all. They will be able to carry out the most powerful attack and skills. If
+                                the rider dies, the snake will enter into the abyss and wait alone until it reaches the
+                                amphiptere level.
+                            </div>
+                            <div class="Card-Grade-price">
+                                ETH >100
+                            </div>
+                        </div>
+
+                        <img class="Card-Diamond Card-Diamond-01"
+                            src="/images/NFTindex/NFTindex_Carousel/diamond-02-1.png" alt="">
+                        <img class="Card-Diamond Card-Diamond-02"
+                            src="/images/NFTindex/NFTindex_Carousel/diamond-02-1.png" alt="">
+                        <img class="Card-Diamond Card-Diamond-03"
+                            src="/images/NFTindex/NFTindex_Carousel/diamond-02-1.png" alt="">
+                        <img class="Card-Diamond Card-Diamond-04"
+                            src="/images/NFTindex/NFTindex_Carousel/diamond-02-1.png" alt="">
+
+                        <div class="Card-Grade-aperture"></div>
+                    </div>
+
+                </div>
+
+                @* 蛇二級 / 蛇騎靈 Spirit Snake Rider *@
                 <div class="swiper-slide">
 
                     <div class=" Card-Grade" id="Card-Grade-02">
@@ -92,6 +138,7 @@
 
                 </div>
 
+                @* 蛇三級 / 蛇騎士 Snake Rider *@
                 <div class="swiper-slide">
 
                     <div class=" Card-Grade" id="Card-Grade-03">
@@ -131,6 +178,7 @@
                     </div>
                 </div>
 
+                @* 蛇四級 / 異蛇 Snake *@
                 <div class="swiper-slide">
 
                     <div class=" Card-Grade" id="Card-Grade-05">
@@ -168,6 +216,7 @@
                     </div>
                 </div>
 
+                @* 蛇四級 / 蛇咒列隊 Snake Train *@
                 <div class="swiper-slide">
 
                     <div class=" Card-Grade" id="Card-Grade-06">
@@ -206,6 +255,7 @@
                     </div>
                 </div>
 
+                @* 蛇四級 / 鐵甲蛇 Iron Snake *@
                 <div class="swiper-slide">
                     <div class=" Card-Grade" id="Card-Grade-07">
                         <div class="Card-Grade-Content">
@@ -258,17 +308,107 @@
 
 @code {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {
+
+
+
+
+
+
+
         if (firstRender)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         {
+
+
+
+
+
+
+
             // Carousel.js
+
+
+
+
+
+
+
             await JS.InvokeVoidAsync("NFTindexCarouselJS");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
-

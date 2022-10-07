@@ -25,7 +25,8 @@
   },
   "snakeClass": {
     "name-01": "蛇皇",
-    "name-02": "神騎靈",
+    "name-02-1":"蛇王騎靈",
+    "name-02": "蛇騎靈",
     "name-03": "蛇騎士",
     "name-04": "鐵甲蛇騎士",
     "name-05": "異蛇",
@@ -39,6 +40,7 @@
   },
   "carousel": {
     "name-01": "<span style=\"font-weight:600;\">蛇皇</span>",
+    "name-02-1": "<span style=\"font-weight:600;\">蛇王騎靈</span>",
     "name-02": "<span style=\"font-weight:600;\">蛇騎靈</span>",
     "name-03": "<span style=\"font-weight:600;\">蛇騎士</span>",
     "name-04": "<span style=\"font-weight:600;\">鐵甲蛇騎士</span>",
@@ -47,6 +49,7 @@
     "name-07": "<span style=\"font-weight:600;\">鐵甲蛇</span>",
 
     "text-01": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">蛇皇是最為強大的生物，祂是由騎士的靈魂和靈蛇所結合而成。蛇皇將會生長出強壯的頭角、翅膀、爪子，甚至會配帶專屬兵器。祂們的壽命將達到數千年，並且主宰這個世界。</div>",
+    "text-02-1": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">此時的蛇將進化成為蛇王，騎士也將成為最強大的存在。這將是蛇與騎士共存中最強大的型態，在此形態下的騎士能夠發揮最猛烈的攻勢及技能。若是騎士殞落則蛇也將回到深淵化為蛇皇。</div>",
     "text-02": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">蛇騎靈進化的蛇將輕易的支配其他生靈，並獲取更強大的靈力。這些蛇擁有卓越的魔力，這將助長蛇騎士的力量。成為蛇騎靈的騎士將獲得王國至高的榮耀，甚至被邀請加入「蛇騎士貴族」。</div>",
     "text-03": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">蛇騎士在此階段，蛇的身長將會超越騎士，甚至變得比騎士更強大。由於和騎士之間的羈絆，蛇將成為騎士探索以及戰鬥最佳的夥伴。蛇和騎士都將成為王國的英雄並且獲得榮譽。</div>",
     "text-05": "<div style=\"padding-top: 15px; font-size: 13.5px; text-align: start;\">異蛇伊薩大地上最常見的蛇種，異蛇是由異晶孕育而成，但牠們通常獨來獨往直到找到與自己心有靈犀的蛇騎士才會和此騎士立下誓約。</span>",
