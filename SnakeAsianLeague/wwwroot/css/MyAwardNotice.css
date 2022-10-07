@@ -129,7 +129,7 @@
 }
 @media all and (max-width: 1920px){
     #accountManagementUl-Reward li::before{
-    left: 65px !important;
+    left: 55px !important;
     }
 }
 
@@ -147,6 +147,6 @@
 }
 @media all and (max-width: 1920px){
     #accountManagementUl-Reward li::before{
-    left: 65px !important;
+    left: 55px !important;
     }
 } */

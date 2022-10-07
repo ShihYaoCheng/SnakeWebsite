@@ -115,5 +115,8 @@
     "WrongNetwork": "Wrong Network",
     "SwitchYoMetWorkName": "Switch to",
     "LoadingData": "Loading Data"
+  },
+  "SRCPackage":{
+    "SRCPackage":"SRC Package"
   }
 }

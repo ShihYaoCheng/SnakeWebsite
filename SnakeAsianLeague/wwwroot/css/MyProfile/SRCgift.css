@@ -1,4 +1,8 @@
-﻿.giftData-container {
+﻿.SRCgift-block{
+    padding: 100px 0;
+}
+
+.giftData-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -9,9 +13,9 @@
 .giftData-title {
     color: #3c5242;
     height: 30%;
-    width: 100%;
+    width: 90%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     font-weight: 700;
     font-size:25px;
@@ -23,26 +27,46 @@
     justify-content:center;
 }
 .giftData-srcZone {
-    height: 50%;
-    width: 70%;
+    height: 45%;
+    width: 90%;
+
+
+    display: flex;
+    justify-content: center;
+    /* justify-content: flex-start; */
+    align-items: center;
     background: #5c765e;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+.srcZone-coinType{
+    /* background: #5c765e;
     border-radius: 7px;
-    padding: 2px 8px;
+    padding: 5px 10px; */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 15px 0 0;
 }
 .giftData-srcZone img {
     width: 35px;
-    margin-right:5px;
+    margin-right: 5px;
 }
-.giftData-srcZone span{
+/* .giftData-srcZone span{
     font-size:25px;
-}
+} */
 .srcZone-num {
-    color:#fff
+    color:#fff;
+    font-size: 20px;
 }
 
+.srcZone-count{
+    color:#fff;
+    font-size: 22px;
+}
+.srcZone-icon{
+    font-size: 15px;
+}
 .giftData-btn-container {
     width: 100%;
     display: flex;
@@ -54,10 +78,11 @@
 .usdValuation {
     text-align: end;
     width: 90%;
-    height: 25%;
-    font-size: 25px;
+    /* height: 25%; */
+    font-size: 17px;
     padding-right:5px;
-    color:#FFF;
+    /* color:#FFF; */
+    color: #35504b;
 }
 
 .giftData-btn {
@@ -65,27 +90,38 @@
     border: 0;
     color: #ffffff;
     width: 90%;
-    border-radius: 15px;
-    height: 70%;
-    font-size: 25px;
-    margin-top:5px; 
+    border-radius: 10px;
+    /* height: 70%; */
+    height: 45%;
+    font-size: 24px;
+    /* margin-top:5px;  */
 }
-
+.giftData-btn:hover {
+    transform: scale(1.01);
+    opacity: 0.9;
+    /* background-color: #f09607; */
+}
 @media all and (max-width: 1500px) {
     .giftData-title {
         font-size: 16px;
     }
 
     .giftData-srcZone img {
-        width: 25px;      
+        width: 23px;   
+        margin-right: 3px;   
     }
 
-    .giftData-srcZone span {
+    .srcZone-num{
         font-size: 15px;
     }
-
+    .srcZone-count {
+        font-size: 15px;
+    }
+    .srcZone-icon{
+        font-size: 10px;
+    }
     .usdValuation {
-        font-size: 15px;
+        font-size: 12px;
     }
 
     .giftData-btn {
@@ -96,7 +132,7 @@
 
 
 
-#accountManagementUl-SRCPakage {
+#accountManagementUl-SRCPackage {
     background-color: #67AEA2;
     border-radius: 0 50px 50px 0;
     transform: scale(1.01);
@@ -104,15 +140,15 @@
     transition: all .15s ease-in-out;
 }
 
-#accountManagementUl-SRCPakage li::before {
+#accountManagementUl-SRCPackage li::before {
     z-index: 1 !important;
     opacity: 1 !important;
     /* transition: all .2s ease-in-out; */
 }
 
 @media all and (max-width: 1920px) {
-    #accountManagementUl-SRCPakage li::before {
-        left: 65px !important;
+    #accountManagementUl-SRCPackage li::before {
+        left: 55px !important;
     }
 }
 

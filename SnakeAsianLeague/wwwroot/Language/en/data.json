@@ -55,6 +55,7 @@
     "Myprofile": "My Account",
     "Inventory": "Inventory",
     "Swap": "Swap",
+    "SRCPackage": "SRC Package",
 
     "Chinese": "中文",
     "English": "EN"
@@ -66,7 +67,8 @@
     "Esports": "eSport",
     "Reward": "Reward",
     "Inventory": "Inventory",
-    "Swap": "Swap"
+    "Swap": "Swap",
+    "SRCPackage": "SRC Package"
   },
 
   "signInWindows": {
@@ -155,8 +157,8 @@
     "asset": "Asset",
     "activities": "Activities",
     "Address": "Address：",
-    "Bluemap": "Bluemap"
-
+    "Bluemap": "Bluemap",
+    "ComingSoon": "Coming Soon"
   },
 
   "footer": {
