@@ -138,10 +138,8 @@
         AppState.StateChanged += async (Source, Property)
         => await InvokeAsync(StateHasChanged);
 
-        Console.WriteLine("MyProfile_STCgift init");
         IAPItemList = await CommodityServices.GetIAPItem();
         
-        Console.WriteLine("MyProfile_STCgift init end");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
