@@ -345,16 +345,6 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <returns></returns>
         public async Task<decimal> ReceiveRentByUnit(string userId, string ppsr)
         {
-            /* 20220728假資料
-            * by chenyuwei
-            */
-            //decimal result = decimal.Parse(NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue.ToString());
-            //NFTDataList.Where(m => m.TokenID == ppsr).First().totalRevenue = 0;
-            //return Math.Round(result, 3, MidpointRounding.AwayFromZero);
-
-            /* 20220907 API 串接完成
-             * by chenyuwei
-             */
             decimal result = 0;
             ppsr = string.Format("#{0}", ppsr);
             //ppsr = ppsr.Replace("#", "%23");
@@ -367,9 +357,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
-                //result = JsonSerializer.Deserialize<CountData>(restResponse.Content);
-                CountData data = JsonSerializer.Deserialize<CountData>(restResponse.Content) ?? new CountData() ;
-                result = data.count;
+                result = JsonSerializer.Deserialize<decimal>(restResponse.Content);
             }
             
             return result;
@@ -383,24 +371,6 @@ namespace SnakeAsianLeague.Data.Services.Personal
         public async Task<decimal> ReceiveRent(string userId)
         {
 
-            /* 20220728假資料
-            * by chenyuwei
-            */
-
-
-
-
-            //decimal result = decimal.Parse(NFTDataList.Select(m => m.totalRevenue).Sum().ToString());
-            //foreach (var item in NFTDataList)
-            //{
-            //    item.totalRevenue = 0;
-            //}
-            //return Math.Round(result, 3, MidpointRounding.AwayFromZero);
-
-
-            /* 20220907 API 串接完成
-            * by chenyuwei
-            */
             decimal result = 0;
             
             string URL = "/NFT/ReceiveRent";
@@ -411,9 +381,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
-                //result = JsonSerializer.Deserialize<CountData>(restResponse.Content);
-                CountData data = JsonSerializer.Deserialize<CountData>(restResponse.Content) ?? new CountData();
-                result = data.count;
+                result = JsonSerializer.Deserialize<decimal>(restResponse.Content) ;
             }
             return result;
 
