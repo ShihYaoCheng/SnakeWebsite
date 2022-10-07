@@ -38,7 +38,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             List<Profile> result = new List<Profile>();
             try
             {
-                var LoginRestRequest = new RestRequest($"api/Identity/GetProfiles");
+                var LoginRestRequest = new RestRequest($"Identity/GetProfiles");
                 IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -61,7 +61,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             Profile result = new Profile();          
             try
             {
-                var LoginRestRequest = new RestRequest($"api/Identity/GetOneProfileByUserId?userId={userId}");
+                var LoginRestRequest = new RestRequest($"Identity/GetOneProfileByUserId?userId={userId}");
                 IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -86,7 +86,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 string jsonData = JsonSerializer.Serialize(profile);
-                var request = new RestRequest($"api/Identity/InsertProfile", Method.POST);
+                var request = new RestRequest($"Identity/InsertProfile", Method.POST);
                 request.AddJsonBody(jsonData);
                 IRestResponse restResponse = await BackstageServer.ExecuteAsync(request);
 
@@ -114,7 +114,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 string jsonData = JsonSerializer.Serialize(profile);
-                var request = new RestRequest($"api/Identity/UpdateProfile", Method.POST);
+                var request = new RestRequest($"Identity/UpdateProfile", Method.POST);
                 request.AddJsonBody(jsonData);
                 IRestResponse restResponse = await BackstageServer.ExecuteAsync(request);
 

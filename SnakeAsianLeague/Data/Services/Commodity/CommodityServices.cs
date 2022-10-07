@@ -33,7 +33,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
         public async Task<List<IAPItem>> GetIAPItem()
         {
             List<IAPItem> iAPItems = new List<IAPItem>();
-            string URL = $"api/Identity/GetIIAPItems";
+            string URL = $"Identity/GetIIAPItems";
             RestRequest RestRequest = new RestRequest(URL);
             Console.WriteLine("tttest");
             IRestResponse restResponse = await BackstageServerClient.ExecuteGetAsync(RestRequest);
