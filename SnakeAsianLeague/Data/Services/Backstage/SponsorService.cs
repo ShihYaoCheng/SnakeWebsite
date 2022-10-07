@@ -28,7 +28,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             List<Sponsor> result = new List<Sponsor>();
             try
             {
-                var LoginRestRequest = new RestRequest($"api/Identity/GetSponsors");
+                var LoginRestRequest = new RestRequest($"Identity/GetSponsors");
                 IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -47,7 +47,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             List<Sponsor> result = new List<Sponsor>();
             try
             {
-                var LoginRestRequest = new RestRequest($"api/Identity/GetSponsorsByType?type={type}");
+                var LoginRestRequest = new RestRequest($"Identity/GetSponsorsByType?type={type}");
                 IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
