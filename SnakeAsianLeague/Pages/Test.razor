@@ -17,39 +17,17 @@
 
 
 
-        //private DotNetObjectReference<Day22SampleService>? objRef;
-        //public async Task<string> callDotNetAndPrintData2()
-        //{
-        //objRef = DotNetObjectReference.Create(new Day22SampleService());
-        //return await JSRuntime.InvokeAsync<string>("exampleJsFunctions.callDotNetAndPrintData2", objRef);
-        //}
+    private IJSObjectReference? gettingStartMetaMaskJS;
+    bool getStartMetaMask = false;
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            gettingStartMetaMaskJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/gettingStartMetaMask.js");
+            getStartMetaMask = await gettingStartMetaMaskJS.InvokeAsync<bool>("gettingStartMetaMask");            
+        }
 
-    //protected override async Task OnAfterRenderAsync(bool firstRender)
-    //{
-    //    if (firstRender)
-    //    {
-    //        testJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/test.js");
-    //        if (testJS != null)
-    //        {
-    //            await testJS.InvokeVoidAsync("testFunction");
-
-    //        }
-    //        //if (companyAssetsJS != null)
-    //        //{
-    //        //    if (SRCquantity == -1 )//-1觸發渲染用 
-    //        //    {
-    //        //        SRCquantity = decimal.Parse( await companyAssetsJS.InvokeAsync<string>("getSRCquantity")   )  ;
-    //        //        companyUSDT = decimal.Parse( await companyAssetsJS.InvokeAsync<string>("getCompanyUSDT" ,Configuration["SRCSwap_addr"]   )  )  ;
-         
-    //        //        //強制渲染
-    //        //        InvokeAsync(StateHasChanged);
-    //        //    }
-         
-    //        //}  
-            
-    //    }
-
-    //}
+    }
 
 }

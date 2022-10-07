@@ -10,6 +10,7 @@ window.AddPolygonID = async function (chainId, chainName, recUrls, nativeCurrenc
         });
     } catch (switchError) {
         if (switchError.code === 4902) {
+            console.log("test")
             try {
                 await window.ethereum.request({
                     method: 'wallet_addEthereumChain',
@@ -21,7 +22,7 @@ window.AddPolygonID = async function (chainId, chainName, recUrls, nativeCurrenc
                             nativeCurrency: {
                                 "name": nativeCurrencyName,
                                 "symbol": nativeCurrencyName,
-                                "decimals": nativeCurrencyDecimals
+                                "decimals": parseInt(nativeCurrencyDecimals)
                             }
                         },
                     ],

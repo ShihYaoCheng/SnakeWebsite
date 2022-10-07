@@ -8,6 +8,7 @@
 @inject CommodityServices CommodityServices
 @inject IJSRuntime JS
 @inject IConfiguration Configuration
+@implements IDisposable
 
 <head>
     <link href="css/MyProfile/SRCgift.css" rel="stylesheet" />   
@@ -16,8 +17,8 @@
 </head>
 
 
-<Walletaddress></Walletaddress>
-
+@*<Walletaddress></Walletaddress>
+*@
 <div class="Inventory">
         <div class="Secend-Block">
             <div class="Secend-Title" data-i18n="Inventory_data:otherTitle.Inventory">Inventory</div>
@@ -127,7 +128,13 @@
 
     protected override async Task OnInitializedAsync()
     {
+        AppState.StateChanged += async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+
+        Console.WriteLine("MyProfile_STCgift init");
         IAPItemList = await CommodityServices.GetIAPItem();
+        
+        Console.WriteLine("MyProfile_STCgift init end");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -142,6 +149,13 @@
 
         }
     }
+
+    void IDisposable.Dispose()
+    {
+        AppState.StateChanged -= async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+    }
+
     //是否授權
     bool transactionResult;
     public async Task BuyPurchase( double USDT,  string productID )

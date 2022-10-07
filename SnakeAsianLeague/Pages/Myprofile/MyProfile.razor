@@ -1,6 +1,7 @@
 ﻿@page "/myprofile/{router}"
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Pages.Myprofile.Components
+@using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject AppState AppState
 
 
@@ -27,15 +28,21 @@
                 break;      
             case "inventory":
                  <CascadingValue Value=true>
-                    <Inventory />
+                     <GettingStartMetaMask>
+                            <Inventory />
+                     </GettingStartMetaMask>                 
                  </CascadingValue>
                 break;      
-            case "swapsrc":        
-                 <MyProfile_Swap Value=true/> 
+            case "swapsrc":    
+                     <GettingStartMetaMask>
+                         <MyProfile_Swap Value=true/> 
+                  </GettingStartMetaMask>  
                 break;     
             case "srcgift":        
                 <CascadingValue Value=true>
-                    <MyProfile_SRCgift /> 
+                    <GettingStartMetaMask>
+                        <MyProfile_SRCgift /> 
+                    </GettingStartMetaMask>   
                 </CascadingValue>
                 break;     
         }

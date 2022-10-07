@@ -1,4 +1,4 @@
-﻿@using SnakeAsianLeague.Shared.NavMenu_Component
+@using SnakeAsianLeague.Shared.NavMenu_Component
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity
 @using System.Security.Claims
@@ -133,7 +133,7 @@
                                 <a class="nav-link text-light" href="myprofile/srcgift" data-i18n="[html]Sidebar.Swap">SRC Pakage</a>
                                 <img class="nav_hover_bottom" id="SRCPakage_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
                             </li>
-
+                            
                         </div>
                         
                     }
@@ -291,10 +291,11 @@
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
                             <li>
-                                <div @onclick="logoutButtonClick"></div>
-                                <a href=""  id="" data-i18n="[html]nav.signOut">Sign Out</a>
-</li>
-</ul>
+                                <div @onclick="logoutButtonClick">
+                                    <a href=""  id="" data-i18n="[html]nav.signOut">Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>
                             @* <div class="user text-light nav-link" @onclick="ToggleUserNavMenu"> *@
                        
                             <img class="nav_hover_bottom" id="user_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
@@ -371,7 +372,7 @@
 
 
         @*SnakeAccount test = await authService.AuthLoginByUserId("10009");
-        AppState.UpdateLoginStatus(this, test);*@
+            AppState.UpdateLoginStatus(this, test);*@
     }
 
     void IDisposable.Dispose()
@@ -477,11 +478,16 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
-        if (firstRender){
+        if (firstRender)
+        {
             //取得語言
-            //AppState.getLang();
-            Multilingual lan = (Multilingual)Enum.Parse(typeof(Multilingual  ),  await JS.InvokeAsync<string>("getlang"), false);           
-            AppState.UpdateNowLanguage(this,lan);
+            var getStorageLan = await JS.InvokeAsync<string>("getlang");
+            if (getStorageLan != null)
+            {
+                Multilingual lan = (Multilingual)Enum.Parse(typeof(Multilingual  ),  getStorageLan, false);           
+                AppState.UpdateNowLanguage(this, lan);
+            }
+            
             footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
             BackToTopJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NavMenu/BackToTop.js");
             AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
