@@ -52,8 +52,15 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
-
+        /// <summary>
+        /// NFT 原始資料
+        /// </summary>
         List<NFTData> datas;
+
+        /// <summary>
+        /// 篩選後NFT資料
+        /// </summary>
+        List<NFTData> Filter =  new List<NFTData>();
 
         /// <summary>
         /// 取得OpenSeaURL NFT資產 官方網址
@@ -232,16 +239,10 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             }
 
 
-            ///*加入一隻 Coming Soon*/
-            //NFTData data1 = new NFTData();
-            //data1.Number ="0";
-            //data1.Name = "Coming Soon";
-            //data1.IsOpen = false;
-            //data1.IsOfficial = true;
-            //data1.ImgPath = data1.ImgPath==null ? "/images/MarketPlace/NFTproduct.webp" : data1.ImgPath;
-            //datas.Add(data1);
 
             datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
+
+            Filter = datas;
             return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
         }
 
@@ -345,16 +346,13 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             }
 
 
-            ///*加入一隻 Coming Soon*/
-            //NFTData data1 = new NFTData();
-            //data1.Number ="0";
-            //data1.Name = "Coming Soon";
-            //data1.IsOpen = false;
-            //data1.IsOfficial = true;
-            //data1.ImgPath = data1.ImgPath==null ? "/images/MarketPlace/NFTproduct.webp" : data1.ImgPath;
-            //datas.Add(data1);
             datas = datas.DistinctBy(m => m.TokenID).ToList();
             datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
+
+
+
+            Filter = datas;
+
             return datas;
         }
 
@@ -395,30 +393,30 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         {
             if (OrderByString == "Highest Earned" || OrderByString == "Sort")
             {
-                datas = datas.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Number).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Number).ToList();
                 
             }
             if (OrderByString == "Lowest Earned")
             {
-                datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
             }
             if (OrderByString == "Highest Price")
             {
-                datas = datas.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Price).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Price).ToList();
             }
             if (OrderByString == "Lowest Price")
             {
-                datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Price).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Price).ToList();
             }
             if (OrderByString == "Newest")
             {
-                datas = datas.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.EndTime).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.EndTime).ToList();
             }
             if (OrderByString == "Oldest")
             {
-                datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.EndTime).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenBy(m => m.EndTime).ToList();
             }
-            return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
+            return PagedList<NFTData>.ToPagedList(Filter, PageNumber, PageSize);
         }
 
 
@@ -438,36 +436,12 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         public async Task<PagedList<NFTData>> Get_NFT_by_Filter(int PageNumber, int PageSize , List<string> Rarity , List<string> Elements, List<string> Class, List<string> Country)
         {
 
-            List<NFTData> Filter = new List<NFTData>();
+            
             Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
             Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
             Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
             Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
-            //if (Rarity.Count == 0)
-            //{
-            //    Rarity = RarityList.Select(m=>m.Key).ToList();
-            //    //Rarity.Add("");
-            //}
-            //if (Elements.Count == 0)
-            //{
-            //    Elements = ElementsList.Select(m => m.Key).ToList();
-            //    //Elements.Add("");
-            //}
-            //if (Class.Count == 0)
-            //{
-            //    Class = ClassList.Select(m => m.Key).ToList();
-            //    //Class.Add("");
-            //}
-            //if (Country.Count == 0)
-            //{
-            //    Country = CountryList.Select(m => m.Key).ToList();
-            //    Country.Add("");
-            //    Country.Add(null);
-            //}
-            //|| Country.Contains(m.Country)
-
             Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey) ).ToList();
-
             return PagedList<NFTData>.ToPagedList(Filter, PageNumber, PageSize);
         }
 
@@ -485,7 +459,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         public async Task<List<NFTData>> Get_NFT_by_Filter( List<string> Rarity, List<string> Elements, List<string> Class, List<string> Country)
         {
 
-            List<NFTData> Filter = new List<NFTData>();
+            
             Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
             Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
             Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;

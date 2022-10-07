@@ -812,7 +812,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-    @* await Refresh(); *@
+        @* await Refresh(); *@
     }
 
     private async Task Refresh()
@@ -837,7 +837,7 @@
         List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize);
         NFTDataList = pagelist;
         PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
-           await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+        await lazyloadingJS.InvokeVoidAsync("LazyLoading");
         StateHasChanged();
     }
 
@@ -862,21 +862,25 @@
 
             await JS.InvokeVoidAsync("showTag");   
 
-            
+
             await lazyloadingJS.InvokeVoidAsync("LazyLoading");
         }
-     
+
     }
+
+
+
+    private string OrderByString { get; set; }
 
     private async Task DoStuff(ChangeEventArgs e)
     {
-        //PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( e.Value.ToString() ,1 ,10);
-        //MetaData =  pagelist.MetaData;
-        //NFTDataList = pagelist;
-        //PPSRsCount = MetaData.TotalCount;
-        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber, PageSize);
+
+        OrderByString = e.Value.ToString();
+        PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( e.Value.ToString() ,1 ,10);
+        MetaData =  pagelist.MetaData;
         NFTDataList = pagelist;
-        PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
+        PPSRsCount = MetaData.TotalCount;
+        PageNumber = 0;
         await JS.InvokeVoidAsync("installI18n");
     }
 
@@ -905,9 +909,15 @@
 
 
         PageNumber++;
-        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber, PageSize);
-        NFTDataList = pagelist;
 
+        PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( OrderByString ,PageNumber ,10);
+        MetaData =  pagelist.MetaData;
+        NFTDataList = pagelist;
+        PPSRsCount = MetaData.TotalCount;
+
+        //List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber, PageSize);
+        //NFTDataList = pagelist;
+        //PPSRsCount = MetaData.TotalCount;
         await JS.InvokeVoidAsync("Localize");
 
 
