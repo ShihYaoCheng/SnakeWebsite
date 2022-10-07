@@ -167,7 +167,7 @@ html{
     color: #f8f9fa;
     font-size: 32px;
     font-weight: 600;
-    letter-spacing: 10px;
+    letter-spacing: 1.5px;
     border-bottom: 2px solid #ffffff73;
     padding: 2px 6px 2px 10px;
 }
@@ -472,12 +472,14 @@ html{
 
 .match_row_title{
     color: #fff;
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 500;
     padding: 5px 20px;
     border-right: 3px solid #4F887E;
     margin: 18px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    min-width: 200px;
+    letter-spacing: 0.5px;
 }
 
 
@@ -564,7 +566,7 @@ html{
     padding: 10px 30px;
     margin: 10px auto;
     font-weight: 500;
-    font-size: 28px;
+    font-size: 24px;
     padding: 20px;
     box-shadow: inset 0px 0px 6px 4px #324e6038;
     background-image: linear-gradient(to right,#4F615E 0% ,#38403e8f 80%, #4F615E 100%);
@@ -745,7 +747,7 @@ html{
     transition: all .1s ease-out;
     margin: 5px 0;
     position: relative;
-    font-size: 22px;
+    font-size: 18px;
     letter-spacing: 1px;
 }
 
@@ -804,7 +806,7 @@ html{
     padding: 30px;
     margin: 50px 0 10px;
     font-weight: 500;
-    font-size: 28px;
+    font-size: 24px;
     box-shadow: inset 0px 0px 6px 4px #324e6038;
     background-image: linear-gradient(to right,#4F615E 0% ,#38403e8f 80%, #4F615E 100%);
     /* background-color: #4F615E; */
@@ -838,9 +840,9 @@ html{
 
 #progress_bar_step_01::before {
     color: #ffffff;
-    font-size: 24px;
+    font-size: 18px;
     position: absolute;
-    top: -44px;
+    top: -32px;
 }
 
 .Application_tw::before {
@@ -851,13 +853,16 @@ html{
     content: "Fill in Application Form";
     white-space: normal;
     text-align: center;
-    top: -102px !important;
+    top: -75px !important;
+    line-height: 22px;
+    letter-spacing: 0.5px;
 }
 #progress_bar_step_02::before { 
     color: #ffffff;
-    font-size: 24px;
+    font-size: 18px;
     position: absolute;
-    top: -44px;
+    top: -32px;
+    letter-spacing: 0.5px;
 }
 .Audit_tw::before {
     content: "審核資料";
@@ -870,9 +875,10 @@ html{
 #progress_bar_step_03::before {
    
     color: #ffffff;
-    font-size: 24px;
+    font-size: 18px;
     position: absolute;
-    top: -44px;
+    top: -32px;
+    letter-spacing: 0.5px;
 }
 .Delivery_tw::before {
     content: "寄送完成";
@@ -2287,7 +2293,7 @@ input[type="radio"]+.edit_label2{
 .my_match_select{
     margin: 10px;
     outline: none;
-    font-size: 22px;
+    font-size: 20px;
     padding: 5px 10px;
     border-radius: 7px;
     border: none;
