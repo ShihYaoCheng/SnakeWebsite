@@ -531,9 +531,9 @@
 
 .ticket-img .SRC-logo {
     position: absolute;
-    width: 10%;
-    top: 22%;
-    right: 6%;
+    width: 9%;
+    top: 23%;
+    right: 7%;
 }
 
 .ticketMobile {
@@ -601,7 +601,7 @@
     }
     .ticket-img .SRC-logo {
         width: 8%;
-        right: 7%;
+        right: 7.5%;
     }
 }
 

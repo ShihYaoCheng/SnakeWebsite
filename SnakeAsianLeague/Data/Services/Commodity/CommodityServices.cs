@@ -35,11 +35,9 @@ namespace SnakeAsianLeague.Data.Services.Commodity
             List<IAPItem> iAPItems = new List<IAPItem>();
             string URL = $"Commodity/GetIAPItems";
             RestRequest RestRequest = new RestRequest(URL);
-            Console.WriteLine("tttest");
             IRestResponse restResponse = await BackstageServerClient.ExecuteGetAsync(RestRequest);
 
-            Console.WriteLine(restResponse.StatusCode);
-            Console.WriteLine(restResponse.Content);
+            //Console.WriteLine(restResponse.Content);
 
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
