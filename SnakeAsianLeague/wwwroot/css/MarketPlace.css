@@ -462,7 +462,13 @@
     color: var(--theme-font-2);
 }
 
-
+.card-bg-red::before {
+    content: url('/images/MarketPlace/NFT-Debut.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
 /* ------------------- */
 
 @media all and (max-width: 1500px){
@@ -502,13 +508,7 @@
         height: 185px;
         /* height: 100%; */
     }
-    .card-bg-red::before {
-        content: url('/images/MarketPlace/NFT-Debut.png');
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-    }
+
     .card-bg-red::before{
         content: url(/images/MarketPlace/NFT-Debut-s.png);
         width: 30%;

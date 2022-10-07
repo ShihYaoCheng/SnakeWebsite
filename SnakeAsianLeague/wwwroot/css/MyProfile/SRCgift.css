@@ -64,7 +64,9 @@
     color:#fff;
     font-size: 22px;
 }
-
+.srcZone-icon{
+    font-size: 15px;
+}
 .giftData-btn-container {
     width: 100%;
     display: flex;
@@ -105,13 +107,19 @@
     }
 
     .giftData-srcZone img {
-        width: 25px;      
+        width: 23px;   
+        margin-right: 3px;   
     }
 
-    .giftData-srcZone span {
+    .srcZone-num{
         font-size: 15px;
     }
-
+    .srcZone-count {
+        font-size: 15px;
+    }
+    .srcZone-icon{
+        font-size: 10px;
+    }
     .usdValuation {
         font-size: 12px;
     }
