@@ -33,7 +33,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             List<AwardInfo> result = new List<AwardInfo>();
             try
             {
-                var LoginRestRequest = new RestRequest($"api/Identity/GetAwardInfos");
+                var LoginRestRequest = new RestRequest($"Identity/GetAwardInfos");
                 IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -61,7 +61,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             AwardInfo result = new AwardInfo();
             try
             {
-                var LoginRestRequest = new RestRequest(string.Format("api/Identity/GetOneAwardInfo?userId={0}&prizeCode={1}&place={2}&isGuild={3}&station={4}", userId, prizeCode, place, isGuild, station));
+                var LoginRestRequest = new RestRequest(string.Format("Identity/GetOneAwardInfo?userId={0}&prizeCode={1}&place={2}&isGuild={3}&station={4}", userId, prizeCode, place, isGuild, station));
                 IRestResponse restResponse = await BackstageServer.ExecuteGetAsync(LoginRestRequest);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -115,7 +115,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 string jsonData = JsonSerializer.Serialize(awardInfo);
-                var request = new RestRequest($"api/Identity/InsertAwardInfo", Method.POST);
+                var request = new RestRequest($"Identity/InsertAwardInfo", Method.POST);
                 request.AddJsonBody(jsonData);
                 IRestResponse restResponse = await BackstageServer.ExecuteAsync(request);
 
@@ -143,7 +143,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             try
             {
                 string jsonData = JsonSerializer.Serialize(awardInfo);
-                var request = new RestRequest($"api/Identity/UpdateAwardInfo", Method.POST);
+                var request = new RestRequest($"Identity/UpdateAwardInfo", Method.POST);
                 request.AddJsonBody(jsonData);
                 IRestResponse restResponse = await BackstageServer.ExecuteAsync(request);
                 if (restResponse.StatusCode == HttpStatusCode.OK)
