@@ -310,11 +310,25 @@
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
                             <li class="user-ul-web" id="nav_ul-swapsrc" >
-                                <a href="myprofile/swapsrc" id="swapsrc" data-i18n="[html]nav.Swap">Swap</a>
+                                @if (IsMobile)
+                                {
+                                     <a href="https://metamask.app.link/dapp/dev.origingaia.com/myprofile/swapsrc" id="swapsrc" data-i18n="[html]nav.Swap">Swap</a>
+                                }else{
+                                    <a href="myprofile/swapsrc" id="swapsrc" data-i18n="[html]nav.Swap">Swap</a>
+                                }
+
+                               
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
                             <li class="user-ul-web" id="nav_ul-SRCPackage" >
-                                <a href="myprofile/srcgift" id="SRCPackage"  data-i18n="[html]nav.SRCPackage">SRC Package</a>
+
+                                @if (IsMobile)
+                                {
+                                    <a href="https://metamask.app.link/dapp/dev.origingaia.com/myprofile/srcgift" id="SRCPackage"  data-i18n="[html]nav.SRCPackage">SRC Package</a>
+                                }else{
+                                    <a href="myprofile/srcgift" id="SRCPackage"  data-i18n="[html]nav.SRCPackage">SRC Package</a>
+                                }
+                                
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
                             <li>
