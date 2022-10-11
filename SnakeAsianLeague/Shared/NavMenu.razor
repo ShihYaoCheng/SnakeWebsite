@@ -121,7 +121,13 @@
                                 <img class="nav_hover_bottom" id="MyAwardNotice_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
                             </li>
                             <li class="nav-item nav-personal" id="nav-Inventory" hidden="@(false)">
-                                <a class="nav-link text-light" href="https://metamask.app.link/dapp/dev.origingaia.com/myprofile/inventory" data-i18n="[html]Sidebar.Inventory">Inventory</a>
+                                @if (IsMobile)
+                                {
+                                    <a class="nav-link text-light" href="https://metamask.app.link/dapp/dev.origingaia.com/myprofile/inventory" data-i18n="[html]Sidebar.Inventory">Inventory</a>     
+                                }else{
+                                    <a class="nav-link text-light" href="myprofile/inventory" data-i18n="[html]Sidebar.Inventory">Inventory</a>
+                                }
+                               
                                 <img class="nav_hover_bottom" id="Inventory_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
                             </li>
                              <li class="nav-item nav-personal" id="nav-swapsrc" >
@@ -279,7 +285,14 @@
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
                             <li class="user-ul-web" id="nav_ul-Inventory" hidden="@(false)">
-                                <a href="https://metamask.app.link/dapp/dev.origingaia.com/myprofile/inventory"  id="inventory" data-i18n="[html]nav.Inventory">Inventory</a>
+                                @if (IsMobile)
+                                {
+                                    <a href="https://metamask.app.link/dapp/dev.origingaia.com/myprofile/inventory"  id="inventory" data-i18n="[html]nav.Inventory">Inventory</a>
+                                }else{
+                                    <a href="myprofile/inventory" id="inventory" data-i18n="[html]nav.Inventory">Inventory</a>
+                                }
+
+                              
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
                             <li class="user-ul-web" id="nav_ul-swapsrc" >
@@ -355,6 +368,7 @@
     private IJSObjectReference? BackToTopJS;
     private IJSObjectReference? AnimateJS;
     private IJSObjectReference? lazyloadingJS;
+    private IJSObjectReference? IsMobileJS;
     protected async override Task OnInitializedAsync()
     {      
         AppState.StateChanged += async (Source, Property)
@@ -371,7 +385,7 @@
         }
 
 
-        @*SnakeAccount test = await authService.AuthLoginByUserId("10009");
+    @*SnakeAccount test = await authService.AuthLoginByUserId("10009");
             AppState.UpdateLoginStatus(this, test);*@
     }
 
@@ -475,6 +489,7 @@
         collapseNavMenu = true;
     }
 
+    bool IsMobile = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {   
@@ -492,6 +507,7 @@
             BackToTopJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NavMenu/BackToTop.js");
             AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
             lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+            IsMobileJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/IsMobile.js");
            
             await BackToTopJS.InvokeVoidAsync("BackToTop");
             await AnimateJS.InvokeVoidAsync("Animate");
@@ -500,6 +516,8 @@
             await JS.InvokeVoidAsync("Carousel");                
             await JS.InvokeVoidAsync("navbarSlide");            
             await JS.InvokeVoidAsync("selectChangeLocation");
+            IsMobile =await IsMobileJS.InvokeAsync<bool>("IsMobile");
+
             
         }
         
