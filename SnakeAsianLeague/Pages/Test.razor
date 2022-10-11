@@ -1,7 +1,18 @@
 ﻿@page "/test"
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Paging
 @using SnakeAsianLeague.Data.Services
-
+@using SnakeAsianLeague.Data.Services.MarketPlace
+@using SnakeAsianLeague.Data.Services.Personal
+@using SnakeAsianLeague.Data.Entity.View
+@using Microsoft.AspNetCore.Components.Authorization
+@using SnakeAsianLeague.Pages.Myprofile.Components.Inventory_Components
+@using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject IJSRuntime JS
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject InventoryService InventoryService
+@inject AppState AppState
+@inject IConfiguration Configuration
 
 
 <head>
@@ -9,7 +20,8 @@
 </head>
 
 <div class="test-container">
-
+      <button @onclick="addAndSwitch" style="width:100px; height100px; background:blue">addAndSwitch </button>
+    <button @onclick="addNetwork" style="width:100px; height100px; background:red">addNetwork </button>
 </div>
 
 
@@ -17,17 +29,28 @@
 
 
 
-    private IJSObjectReference? gettingStartMetaMaskJS;
-    bool getStartMetaMask = false;
+    //private IJSObjectReference? gettingStartMetaMaskJS;
+    //bool getStartMetaMask = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            gettingStartMetaMaskJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/gettingStartMetaMask.js");
-            getStartMetaMask = await gettingStartMetaMaskJS.InvokeAsync<bool>("gettingStartMetaMask");            
+            //gettingStartMetaMaskJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/gettingStartMetaMask.js");
+            //getStartMetaMask = await gettingStartMetaMaskJS.InvokeAsync<bool>("gettingStartMetaMask");       
+
+
         }
 
+    }
+       public async Task addAndSwitch()
+    {
+         await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] ,  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"]);
+    }
+
+    public async Task addNetwork()
+    {
+         await JS.InvokeVoidAsync("addnewNetwork",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] ,  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"]);
     }
 
 }

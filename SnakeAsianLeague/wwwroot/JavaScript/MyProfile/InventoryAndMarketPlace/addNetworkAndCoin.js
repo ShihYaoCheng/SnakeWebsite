@@ -34,39 +34,69 @@ window.AddPolygonID = async function (chainId, chainName, recUrls, nativeCurrenc
 
     }
 
-    /*
 
-    export function AddPolygonID() {
-        console.log(123)
+
+
+    window.addnewNetwork = async function (chainId, chainName, recUrls, nativeCurrencyName, nativeCurrencyDecimals) {
+        const web3 = new Web3(Web3.givenProvider)
+        chainId = web3.utils.toHex(chainId);
         try {
             await window.ethereum.request({
-                method: 'wallet_switchEthereumChain',
-                params: [{ chainId: '0x89' }],
+                method: 'wallet_addEthereumChain',
+                params: [
+                    {
+                        chainId: chainId,
+                        chainName: chainName,
+                        rpcUrls: [recUrls],
+                        nativeCurrency: {
+                            "name": nativeCurrencyName,
+                            "symbol": nativeCurrencyName,
+                            "decimals": parseInt(nativeCurrencyDecimals)
+                        }
+                    },
+                ],
             });
-        } catch (switchError) {
-            if (switchError.code === 4902) {
-                try {
-                    await window.ethereum.request({
-                        method: 'wallet_addEthereumChain',
-                        params: [
-                            {
-                                chainId: '0x89',
-                                chainName: 'Polygon',
-                                rpcUrls: ['https://polygon-rpc.com'] 
-                            },
-                        ],
-                    });
-                } catch (addError) {
-
-                }
-            }
+        } catch (addError) {
 
         }
     }
+        
+
+    
+
+/*
+
+export function AddPolygonID() {
+    console.log(123)
+    try {
+        await window.ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: '0x89' }],
+        });
+    } catch (switchError) {
+        if (switchError.code === 4902) {
+            try {
+                await window.ethereum.request({
+                    method: 'wallet_addEthereumChain',
+                    params: [
+                        {
+                            chainId: '0x89',
+                            chainName: 'Polygon',
+                            rpcUrls: ['https://polygon-rpc.com'] 
+                        },
+                    ],
+                });
+            } catch (addError) {
+
+            }
+        }
+
+    }
+}
 */
-    window.ethereum.on('chainChanged', (chainId) => {
-        console.log(chainId) // 0x38 if it's BSC
-    })
+window.ethereum.on('chainChanged', (chainId) => {
+    console.log(chainId) // 0x38 if it's BSC
+})
 
 }
 
