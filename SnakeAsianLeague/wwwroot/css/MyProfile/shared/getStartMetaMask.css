@@ -15,7 +15,7 @@
     color: #f8f9fa;
     font-size: 28px;
     font-weight: 600;
-    letter-spacing: 10px;
+    letter-spacing: 2px;
     border-bottom: 2px solid #ffffff73;
     padding: 2px 6px 2px 10px;
 }
@@ -48,7 +48,7 @@
 .getStartMetaMask-container button {
     background: #FFA81D;
     color: #fff;
-    font-size: 2ˋpx;
+    font-size: 22px;
     width: 250px;
     height: 60px;
     border-radius: 20px;
