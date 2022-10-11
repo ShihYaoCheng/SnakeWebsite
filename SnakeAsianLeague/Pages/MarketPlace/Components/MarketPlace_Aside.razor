@@ -1,0 +1,460 @@
+﻿@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services.MarketPlace
+@inject OptionService OptionService
+@inject IJSRuntime JS
+
+<aside class="marketPlaceSidebar marketPlaceSidebar-Web">
+    <section class="Sidebar-Filter-Block" id="Filter-Header">
+            
+        <div class="Filter-Title-Block Filter-Web" >
+            <svg  class="Filter-Icon" width="25" id="Filter-Icon-Web" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 28.06 25.65">
+            <g id="" data-name="" transform="translate(1508 -1239.175)">
+                <path id="" data-name="" d="M26.916,2.993H7.6A1.851,1.851,0,0,0,7.6.707H26.916a1.143,1.143,0,1,1,0,2.287Zm-22.224,0H1.144a1.143,1.143,0,1,1,0-2.287H4.692a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1241.443)" fill="#69ada2"/>
+                <path id="" data-name="" d="M26.916,2.993h-3.1a1.851,1.851,0,0,0,0-2.287h3.1a1.143,1.143,0,1,1,0,2.287Zm-6.011,0H1.144a1.143,1.143,0,1,1,0-2.287H20.905a1.85,1.85,0,0,0,0,2.285Z" transform="translate(-1508 1250.135)" fill="#69ada2"/>
+                <path id="" data-name="" d="M26.916,2.993H11.748a1.851,1.851,0,0,0,0-2.287H26.916a1.143,1.143,0,1,1,0,2.287Zm-18.077,0h-7.7a1.143,1.143,0,1,1,0-2.287h7.7a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1258.828)" fill="#69ada2"/>
+                <path id="" data-name="" d="M-3.383-7.5A4.122,4.122,0,0,1,.735-3.383,4.122,4.122,0,0,1-3.383.735,4.122,4.122,0,0,1-7.5-3.383,4.122,4.122,0,0,1-3.383-7.5Zm0,5.947a1.832,1.832,0,0,0,1.83-1.83,1.832,1.832,0,0,0-1.83-1.83,1.832,1.832,0,0,0-1.83,1.83A1.832,1.832,0,0,0-3.383-1.553Z" transform="translate(-1498.471 1246.675)" fill="#69ada2"/>
+                <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1482.288 1255.337)" fill="#69ada2"/>
+                <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1494.354 1264.03)" fill="#69ada2"/>
+            </g>
+            </svg>
+            <span data-i18n="Inventory_data:otherTitle.Filter">Filter&nbsp;</span>
+            <span>(@FilterCount)</span>
+            <img class="Filter-web-arrow" style="margin: 5px; " data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+        </div>
+            
+        <div class="Filter-Header-Block">
+            <button  hidden="@(false)" class="Filter-Button" id="Filter-Button-Reset">Reset</button>
+            <button  hidden="@(true)" class="Filter-heart btn p-0 tippy-pop" data-content="Favorite" @onclick=FilterLove>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                    <path class="heart__path"
+                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5" />
+                </svg>
+            </button>
+        </div>
+    </section>
+        
+        <div class="marketPlaceSidebar-scroll marketPlaceSidebar-scroll-Web">
+
+
+
+
+            <section hidden="@(true)" class="Sidebar-Filter-Block" id="">
+
+                @* <label for="officialDebut" class="Sidebar-checkbox-label">
+                    <input type="checkbox" id="officialDebut">
+                    Only show the official debut
+                </label> *@
+                <label for="officialDebut" class="Sidebar-checkbox-label">
+                    <input type="checkbox" id="officialDebut" class="Sidebar-checkbox">
+                    <span>Only show the official debut</span>
+                </label>
+
+            </section>
+
+            @* <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                <div class=" -Title">
+                    <span>Price (ETH)</span>
+                    <img class="Filter-arrow" src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                </div>
+                <div class="Filter-Options Filter-Radio">
+                    <div class="slider-area-wrapper">
+                        <div id="skipstep" class="slider"></div>
+                    </div>
+
+                    <div class="range-Text">
+                        <div class="" id="skip-value-lower">0</div>
+                        <div class="" id="skip-value-upper">10</div>
+                    </div>
+                </div>
+            </section> *@
+
+
+            <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span>Price (ETH)</span>
+                    <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                </div>
+
+                <div class="Filter-Options Filter-Range">
+                    <div class="range-Text price-range-Text">
+                        @* placeholder = 未輸入時的預設字 *@
+                        <div class="price-label">
+                            <label for="price-minmum">Min</label>
+                            <input class="price-textInputRange" id="price-minmum" placeholder="0" value="0">
+                        </div>
+                        <span>～</span>
+                        <div class="price-label">
+                            <label for="price-maximum">Max</label>
+                            <input class="price-textInputRange" id="price-maximum"  placeholder="10" value="10">
+                        </div>
+                    </div>
+
+                    <button class="price-search-button" type="submit" Title="Search">
+                        @* <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+                        <path  d="M24.923,15.231a9.334,9.334,0,0,0-2.845-6.847,9.338,9.338,0,0,0-6.847-2.846A9.332,9.332,0,0,0,8.383,8.383a9.332,9.332,0,0,0-2.845,6.848,9.339,9.339,0,0,0,2.845,6.847,9.333,9.333,0,0,0,6.848,2.845,9.33,9.33,0,0,0,6.847-2.845A9.344,9.344,0,0,0,24.923,15.231ZM36,33.231A2.807,2.807,0,0,1,33.231,36a2.571,2.571,0,0,1-1.947-.822l-7.421-7.4a14.815,14.815,0,0,1-8.632,2.683,14.961,14.961,0,0,1-5.917-1.2A14.912,14.912,0,0,1,1.2,21.148a15.176,15.176,0,0,1,0-11.834A14.912,14.912,0,0,1,9.314,1.2a15.176,15.176,0,0,1,11.834,0,14.912,14.912,0,0,1,8.113,8.113,14.943,14.943,0,0,1,1.2,5.917,14.812,14.812,0,0,1-2.683,8.632L35.2,31.284A2.65,2.65,0,0,1,36,33.231Z" />
+                        </svg> *@
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 18 18">
+                        <g id="bx-search-alt" transform="translate(-3 -3)">
+                            <path id="パス_185" data-name="パス 185" d="M10.7,18.4a7.65,7.65,0,0,0,4.711-1.623L19.639,21,21,19.64l-4.23-4.23A7.688,7.688,0,1,0,10.7,18.4Zm0-13.471A5.773,5.773,0,1,1,4.924,10.7,5.779,5.779,0,0,1,10.7,4.924Z" />
+                            <path id="パス_186" data-name="パス 186" d="M14.509,11.311a1.76,1.76,0,0,1,.52,1.251H16.8a3.517,3.517,0,0,0-1.038-2.5,3.616,3.616,0,0,0-5,0l1.249,1.252A1.808,1.808,0,0,1,14.509,11.311Z" transform="translate(-2.552 -2.087)" />
+                        </g>
+                        </svg>
+
+
+                    </button>
+                </div> 
+
+
+            </section>
+
+            <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span>Price (ETH)</span>
+                    <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                </div>
+                <div class="Filter-Options Filter-Radio">
+                    <div class="range-Input">
+                        <input type="range" name="" id="PriceRange" min="0" max="20" value="20" oninput="textInputRange.value = this.value">
+                    </div>
+                    <div class="range-Text">
+                        <div class="ra-range">0</div>
+                        <output id="textInputRange">20</output>
+                        <div class="ra-range">20</div>
+                    </div>
+
+                </div>
+
+
+            </section>
+                
+            <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span>Body Type</span>
+                    <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                </div>
+                <div class="Filter-Options Filter-Radio">
+                    <div class="bodyType-radio d-inline position-relative bgBorder">
+                        <input style="--step:0" class="ra" type="radio" name="test" id="BodyType-1" value="1">
+                        <input style="--step:1" class="ra" type="radio" name="test" id="BodyType-1.1" value="1.1">
+                        <input style="--step:2" class="ra" type="radio" name="test" id="BodyType-1.2" value="1.2">
+                        <input style="--step:3" class="ra" type="radio" name="test" id="BodyType-1.3" value="1.3">
+                        <input style="--step:4" class="ra" type="radio" name="test" id="BodyType-1.4" value="1.4">
+                        <input style="--step:5" class="ra" type="radio" name="test" id="BodyType-1.5" value="1.5">
+                        <input style="--step:6" class="ra" type="radio" name="test" id="BodyType-1.6" value="1.6">
+                    </div>
+
+                    <div class="bodyType-label">
+                        <label class="ra-label" for="BodyType-1">1</label>
+                        <label class="ra-label" for="BodyType-1.1">1.1</label>
+                        <label class="ra-label" for="BodyType-1.2">1.2</label>
+                        <label class="ra-label" for="BodyType-1.3">1.3</label>
+                        <label class="ra-label" for="BodyType-1.4">1.4</label>
+                        <label class="ra-label" for="BodyType-1.5">1.5</label>
+                        <label class="ra-label" for="BodyType-1.6">1.6</label>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span data-i18n="Inventory_data:Filter.Rarity">Rarity</span>
+                    <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                </div>
+                <div class="Filter-Options">
+
+
+                    @foreach (var item in RarityList)
+                    {
+                        var key = @item.Key;
+                        <label class="Filter-Button" for="@item.Value">
+                            <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
+                        </label>
+                        <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxRarityClicked(key, eventArgs.Value); }" />
+                    }
+                </div>
+
+
+            </section>
+
+            <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span data-i18n="Inventory_data:Filter.Element">Element</span>
+                    <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                </div>
+                <div class="Filter-Options">
+
+                    @foreach (var item in ElementsList)
+                    {
+                        var key = @item.Key;
+                        <label class="Filter-Button" for="@item.Value">
+                            <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
+                        </label>
+                        <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxElementsClicked(key, eventArgs.Value); }" />
+                    }
+                </div>
+            </section>
+
+            <section hidden="@(false)"  class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span data-i18n="Inventory_data:Filter.Class">Class</span>
+                    <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                </div>
+                <div class="Filter-Options">
+
+                    @foreach (var item in ClassList)
+                    {
+                        var key = @item.Key;
+                        <label class="Filter-Button" for="@item.Value">
+                            <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
+                        </label>
+                        <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxClassClicked(key, eventArgs.Value); }" />
+                    }
+
+                </div>
+            </section>
+
+            <section hidden="@(true)"  class="Sidebar-Filter-Block" id="">
+                <div class="Filter-Title">
+                    <span>Country</span>
+                    <img class="Filter-arrow" data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+                </div>
+                <div class="Filter-Options">
+
+                    @foreach (var item in CountryList)
+                    {
+                        var key = @item.Key;
+                        <label class="Filter-Button" for="@item.Value">
+                            <span data-i18n="Inventory_data:@item.Datai18n">@item.Value</span>
+                        </label>
+                        <input id="@item.Value" class="Filter-Button-checkbox" type="checkbox" @onchange="eventArgs => { CheckboxCountryClicked(key, eventArgs.Value); }" />
+                    }
+
+
+                </div>
+            </section>
+        </div>
+</aside>
+    
+@code {
+    //改變NFT數量
+    [Parameter]
+    public EventCallback<List<NFTData>> changeNFTDataList { get; set;}
+
+    private void getNFTDataList(List<NFTData>  value)
+    {
+        changeNFTDataList.InvokeAsync(value);   
+    }
+    //改變騎士數量
+    [Parameter]
+    public EventCallback<int> changePPSRsCount { get; set;}
+
+    private void getPPSRsCount(int value)
+    {
+        changePPSRsCount.InvokeAsync(value);   
+    }    
+    //啟動語言跟圖片刷新  
+    [Parameter]
+    public EventCallback reFreshJS { get; set;}
+
+    private async Task ReFreshJS()
+    {
+        reFreshJS.InvokeAsync();   
+    }    
+
+    //稀有度
+    private List<OptionKeyValue> RarityList = new List<OptionKeyValue>(); 
+    //屬性  
+    private List<OptionKeyValue> ElementsList = new List<OptionKeyValue>();   
+    //職業專精
+    private List<OptionKeyValue> ClassList= new List<OptionKeyValue>();
+    //國家
+    private List<OptionKeyValue> CountryList= new List<OptionKeyValue>();
+
+    //OpenSeaURL NFT資產 官方網址   
+    private string OpenSeaURL;
+
+    //頁數
+    private int PageNumber = 1 ;
+    private int PageSize = 10;
+    //篩選數量
+    private int FilterCount = 0;
+
+    private async Task Refresh()
+    {
+        RarityList = await OptionService.Get_Default_Rarity();
+        ElementsList = await OptionService.Get_Default_Elements();
+        ClassList = await OptionService.Get_Default_Class();
+        CountryList = await OptionService.Get_Default_Country();
+        OpenSeaURL = await OptionService.Get_OpenSeaURL();
+
+        PageNumber = 1;
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize);
+        getNFTDataList( pagelist);
+        getPPSRsCount( await OptionService.GetNFTRiderUnitsCount());
+        //await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+        StateHasChanged();
+    }
+
+    private IJSObjectReference? lazyloadingJS;    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Refresh();
+            //lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+            //await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+
+        }
+    }
+
+    public List<string> CheckBoxRarity { get; set; } = new List<string>();
+    public List<string> CheckBoxElements { get; set; } = new List<string>();
+    public List<string> CheckBoxClass { get; set; } = new List<string>();
+    public List<string> CheckBoxCountry { get; set; } = new List<string>();
+
+    private async void CheckboxRarityClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxRarity.Contains(CheckID))
+            {
+                CheckBoxRarity.Add(CheckID);
+                CountFilterSelected();
+            }
+        }
+        else
+        {
+            if ( CheckBoxRarity.Contains(CheckID))
+            {
+                CheckBoxRarity.Remove(CheckID);
+                CountFilterSelected();
+            }
+        }
+
+        await GetFilter();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private async void CheckboxElementsClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxElements.Contains(CheckID))
+            {
+                CheckBoxElements.Add(CheckID);
+                CountFilterSelected();
+            }
+        }
+        else
+        {
+            if (CheckBoxElements.Contains(CheckID))
+            {
+                CheckBoxElements.Remove(CheckID);
+                CountFilterSelected();
+            }
+        }
+
+        await  GetFilter();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private async void CheckboxClassClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxClass.Contains(CheckID))
+            {
+                CheckBoxClass.Add(CheckID);
+                CountFilterSelected();
+            }
+        }
+        else
+        {
+            if (CheckBoxClass.Contains(CheckID))
+            {
+                CheckBoxClass.Remove(CheckID);
+                CountFilterSelected();
+            }
+        }
+
+        await GetFilter();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="CheckID"></param>
+    /// <param name="checkedValue"></param>
+    private async void CheckboxCountryClicked(string CheckID, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!CheckBoxCountry.Contains(CheckID))
+            {
+                CheckBoxCountry.Add(CheckID);
+                CountFilterSelected();
+            }
+        }
+        else
+        {
+            if (CheckBoxCountry.Contains(CheckID))
+            {
+                CheckBoxCountry.Remove(CheckID);
+                CountFilterSelected();
+            }
+        }
+        await GetFilter();
+    }
+
+    private async Task GetFilter()
+    { 
+
+        //PagedList<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( 1,10 ,CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
+        //NFTDataList = pagelist;
+        //MetaData = pagelist.MetaData;
+        //PPSRsCount = MetaData.TotalCount;
+        List<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
+        getNFTDataList(pagelist);
+        getPPSRsCount( pagelist.Count);
+        await ReFreshJS();
+    }
+    private void CountFilterSelected()
+    {
+        FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count() + CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
+    }
+
+     // 斷是否有點擊篩選我的最愛
+    private bool iSFilterHeart = false;
+    // 點擊，篩選我的最愛
+    private async Task FilterLove()
+    {
+        iSFilterHeart = !iSFilterHeart;
+        //PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( 1,10);
+        //NFTDataList = pagelist;
+        //MetaData = pagelist.MetaData;
+        //PPSRsCount = MetaData.TotalCount;
+
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( );
+        getNFTDataList( pagelist);
+        getPPSRsCount( pagelist.Count);
+
+        //清空篩選
+        CheckBoxRarity.RemoveRange(0 ,CheckBoxRarity.Count);
+        CheckBoxElements.RemoveRange(0 ,CheckBoxElements.Count);
+        CheckBoxClass.RemoveRange(0 ,CheckBoxClass.Count);
+        CheckBoxCountry.RemoveRange(0 ,CheckBoxCountry.Count);
+        await ReFreshJS();
+    }
+}

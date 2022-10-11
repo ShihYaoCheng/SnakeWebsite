@@ -11,21 +11,22 @@
     </svg>
                                     
 </div> 
-
+@*卡片整體*@
 <a  class="NFTcardA" href="Products/@Value.serialNumber/@Value.Number" >
 @*<a href="@Value.LinkURL" target="opensea"> </a>*@                                    
     <div class="NFTcard-inner">
+        @*卡片左圖*@
         <div class="NFT-cardImg">
             <img data-src="@Value.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
        
-           if( @Value.IsOfficial ==true && @Value.IsOpen ==true ){
+           @if( @Value.IsOfficial ==true && @Value.IsOpen ==true ){
            }else{
                @*非紅色*@
                <div hidden="@(@Value.isAvailableInGame)" class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
            
            }
         </div>
-                                        
+        @*卡片右邊內容*@                       
         <div class="NFT-cardText Not-Price-Ver">
             @if ( @Value.IsOfficial ==true && @Value.IsOpen ==true )
             {

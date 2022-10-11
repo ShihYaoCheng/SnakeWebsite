@@ -39,7 +39,7 @@
     <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.0.0-rc9.6" />
     <PackageReference Include="Radzen.Blazor" Version="3.17.3" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
-    <PackageReference Include="Sentry.AspNetCore" Version="3.20.1" />
+    <PackageReference Include="Sentry.AspNetCore" Version="3.22.0" />
   </ItemGroup>
 
   <ItemGroup>
