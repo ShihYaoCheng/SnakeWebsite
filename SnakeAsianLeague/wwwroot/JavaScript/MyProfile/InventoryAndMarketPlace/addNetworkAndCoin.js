@@ -2,37 +2,60 @@
 window.AddPolygonID = async function (chainId, chainName, recUrls, nativeCurrencyName, nativeCurrencyDecimals) {
     const web3 = new Web3(Web3.givenProvider)
     chainId = web3.utils.toHex(chainId);
-    console.log(chainId, chainName, recUrls)
-    try {
-        await window.ethereum.request({
-            method: 'wallet_switchEthereumChain',
-            params: [{ chainId: chainId }],
-        });
-    } catch (switchError) {
-        if (switchError.code === 4902) {
-            console.log("test")
-            try {
-                await window.ethereum.request({
-                    method: 'wallet_addEthereumChain',
-                    params: [
-                        {
-                            chainId: chainId,
-                            chainName: chainName,
-                            rpcUrls: [recUrls],
-                            nativeCurrency: {
-                                "name": nativeCurrencyName,
-                                "symbol": nativeCurrencyName,
-                                "decimals": parseInt(nativeCurrencyDecimals)
-                            }
-                        },
-                    ],
-                });
-            } catch (addError) {
 
-            }
+    if (navigator.vendor.indexOf('Apple') != -1 || /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile/i.test(navigator.userAgent)) {
+        try {
+            await window.ethereum.request({
+                method: 'wallet_addEthereumChain',
+                params: [
+                    {
+                        chainId: chainId,
+                        chainName: chainName,
+                        rpcUrls: [recUrls],
+                        nativeCurrency: {
+                            "name": nativeCurrencyName,
+                            "symbol": nativeCurrencyName,
+                            "decimals": parseInt(nativeCurrencyDecimals)
+                        }
+                    },
+                ],
+            });
+        } catch (addError) {
+
         }
+    } else {
+        try {
+            await window.ethereum.request({
+                method: 'wallet_switchEthereumChain',
+                params: [{ chainId: chainId }],
+            });
+        } catch (switchError) {
+            if (switchError.code === 4902) {
+                try {
+                    await window.ethereum.request({
+                        method: 'wallet_addEthereumChain',
+                        params: [
+                            {
+                                chainId: chainId,
+                                chainName: chainName,
+                                rpcUrls: [recUrls],
+                                nativeCurrency: {
+                                    "name": nativeCurrencyName,
+                                    "symbol": nativeCurrencyName,
+                                    "decimals": parseInt(nativeCurrencyDecimals)
+                                }
+                            },
+                        ],
+                    });
+                } catch (addError) {
 
+                }
+            }
+
+        }
     }
+
+  
 
 
 
