@@ -46,7 +46,7 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 
 	var test123 = true
 
-/*	try {*/
+	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
 		const tokenContract = await new web3.eth.Contract(
@@ -62,11 +62,12 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 		.send({
 			from: accounts[0],
 		})
-		.on("error", function (error) {
-
-			alert("抓到錯誤了")
-		return false
-		});
+		//.on("error", function (error) {
+			
+		//console.log("13213")
+		//console.log("request", error)
+		
+		//});
 	
 
 
@@ -86,12 +87,12 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 
 
 		
-	//} catch (err) {
-	//	console.error(err);
-	//	alert("交易失敗");
+	} catch (err) {
+		console.error(err);
+		alert("交易失敗");
 	
-	//	return false
-	//}
+		return false
+	}
 
 }
 
