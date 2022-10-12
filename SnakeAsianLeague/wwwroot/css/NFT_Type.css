@@ -45,10 +45,10 @@
     border: 2px solid var(--green-2);
     border-radius: 20px;
     margin: 0px 30px 30px 0;
-    padding: 5px 20px;
+    padding: 5px 10px;
     color: var(--green-2);
     font-size: 24px;
-    min-width: 240px;
+    min-width: 210px;
     height: 70px;
 
     cursor: pointer;
@@ -75,9 +75,11 @@
 .Secend-Inventory-Icon {
     width: 56px;
 }
-
+#USDT-Icon{
+    width: 45px;
+}
 .Inventory-Name{
-    margin: 0 30px 0 20px;
+    margin: 0 15px 0 15px;
     line-height: 30px;
     white-space: nowrap;
 }
@@ -87,14 +89,17 @@
         margin: 0px 16px 15px 0;
         min-width: 160px;
         padding: 5px 10px;
-        font-size: 20px;
+        font-size: 18px;
         height: 60px;
     }
     .Secend-Inventory-Icon {
         width: 42px;
     }
+    #USDT-Icon{
+        width: 35px;
+    }
     .Inventory-Name{
-        margin: 0 5px 0 5px;
+        margin: 0 5px 0 10px;
     }
 }
 
