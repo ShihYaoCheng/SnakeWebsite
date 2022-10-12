@@ -170,44 +170,44 @@
                         difference =  -Value.tokenNumber;
                     }
 
-                    }
-                    else
-                    {
-                        difference = Value.gNumber - decimal.Parse(value.Value.ToString());
-                    }
-
-
                 }
                 else
                 {
-                    if (Value.tokenNumber - decimal.Parse(value.Value.ToString()) < 0)
-                    {
-                        difference = decimal.Parse(value.Value.ToString()) - Value.tokenNumber;
-                        if (Value.gNumber + Value.tokenNumber < decimal.Parse(value.Value.ToString()))
-                        {
-                            difference = Value.gNumber;
-                        }
-                    }
-                    else
-                    {
-                        difference = -(Value.tokenNumber - decimal.Parse(value.Value.ToString()));
-                    }
-
-
+                    difference = Value.gNumber - decimal.Parse(value.Value.ToString());
                 }
-            }
-            Value.gNumberChange = Value.gNumber - difference;
-            Value.tokenNumberChange = Value.tokenNumber + difference;
-            rangeValue = difference;
-          
-            GSRCincrease = -difference;
-            SRCincrease = difference;
 
-            if (difference == 0)
+
+            }
+            else
             {
+                if (Value.tokenNumber - decimal.Parse(value.Value.ToString()) < 0)
+                {
+                    difference = decimal.Parse(value.Value.ToString()) - Value.tokenNumber;
+                    if (Value.gNumber + Value.tokenNumber < decimal.Parse(value.Value.ToString()))
+                    {
+                        difference = Value.gNumber;
+                    }
+                }
+                else
+                {
+                    difference = -(Value.tokenNumber - decimal.Parse(value.Value.ToString()));
+                }
 
-                InvokeAsync(StateHasChanged);
+
             }
+        }
+        Value.gNumberChange = Value.gNumber - difference;
+        Value.tokenNumberChange = Value.tokenNumber + difference;
+        rangeValue = difference;
+          
+        GSRCincrease = -difference;
+        SRCincrease = difference;
+
+        if (difference == 0)
+        {
+
+            InvokeAsync(StateHasChanged);
+        }
         
        
     }

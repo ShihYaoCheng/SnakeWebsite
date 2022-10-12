@@ -44,8 +44,9 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
 
+	var test123 = true
 
-	try {
+/*	try {*/
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
 		const tokenContract = await new web3.eth.Contract(
@@ -62,12 +63,13 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 			from: accounts[0],
 		})
 		.on("error", function (error) {
-			console.log("13213")
-			console.log("request", error)
-			return false
+			
+		console.log("13213")
+		console.log("request", error)
+		return false
 		});
 	
-		
+
 
 		// 交易貨幣
 		//const vendor = await new web3.eth.Contract(
@@ -81,16 +83,16 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 		//		from: accounts[0],
 		//	});
 		//alert("You have successfully sold SRC tokens!");
+	return true
+
+
+		
+	//} catch (err) {
+	//	console.error(err);
+	//	alert("交易失敗");
 	
-
-
-		return true
-	} catch (err) {
-		console.error(err);
-		alert("交易失敗");
-		$('.lockWindows')[0].style.display = 'none';
-		return false
-	}
+	//	return false
+	//}
 
 }
 
