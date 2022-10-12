@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Options;
 using RestSharp;
 using SnakeAsianLeague.Data.Entity;
 using SnakeAsianLeague.Data.Entity.Config;
@@ -89,7 +89,7 @@ namespace SnakeAsianLeague.Data.Services.Products
         {
             string LinkURL = _config.GetValue<string>("OpenSeaLink");
             string asset_contract_address = _config.GetValue<string>("asset_contract_address");
-
+            TokenID = TokenID.Replace("%", "").Trim();
             return string.Format(LinkURL, asset_contract_address, TokenID);
         }
 
