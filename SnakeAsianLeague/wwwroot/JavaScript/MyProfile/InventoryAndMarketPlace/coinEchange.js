@@ -58,10 +58,16 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 			SRCExchange_addr,
 			x.shiftedBy(SRC_decimals).toString()
 		)
-			.send({
-				from: accounts[0],
-			});
-
+		.send({
+			from: accounts[0],
+		})
+		.on("error", function (error) {
+			console.log("13213")
+			console.log("request", error)
+			return false
+		});
+	
+		
 
 		// 交易貨幣
 		//const vendor = await new web3.eth.Contract(

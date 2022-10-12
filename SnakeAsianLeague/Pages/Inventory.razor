@@ -92,8 +92,7 @@
     private async Task getCoinData()
     {
         JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,Configuration["chainId"], Configuration["SRC_token_addr"]);
-        CoinData.tokenSRCchange(JSCoinData);
-         
+        CoinData.tokenSRCchange(JSCoinData);         
     }
     //切換並新增Polygon
     protected  async Task AddPolygon()
@@ -116,7 +115,11 @@
     {
         if (firstRender)
         {
-            
+              if (islogin)
+            {     
+                coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
+                await getGameCoin();
+            }
             @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");
@@ -128,11 +131,7 @@
 
             await JS.InvokeVoidAsync("ShowMSGcheckbox");     
 
-            if (islogin)
-            {     
-                coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
-                await getGameCoin();
-            }
+          
             await loadingColse();
         }
     }
