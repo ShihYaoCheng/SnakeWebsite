@@ -115,7 +115,9 @@
     .giftData-title {
         font-size: 16px;
     }
-
+    .giftData-srcZone {
+        height: 55%;
+    }
     .giftData-srcZone img {
         width: 23px;   
         margin-right: 3px;   
@@ -136,6 +138,7 @@
 
     .giftData-btn {
         font-size: 15px; 
+        height: 48%;
     }
 }
 
