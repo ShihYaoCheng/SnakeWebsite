@@ -63,9 +63,8 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 			from: accounts[0],
 		})
 		.on("error", function (error) {
-			
-		console.log("13213")
-		console.log("request", error)
+
+			alert("抓到錯誤了")
 		return false
 		});
 	
