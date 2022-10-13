@@ -1,8 +1,8 @@
 @page "/"
 
 @using SnakeAsianLeague.Pages.NFTindex.Components
-
-
+@using SnakeAsianLeague.Data.Services.BlockChain
+@inject BlockChainProcessorSever BlockChainSever
 @inject IJSRuntime JS
 
 <head>
@@ -43,6 +43,7 @@
 
         if (firstRender)
         {
+            await  BlockChainSever.GetBlockChainInfoDTO();
             await JS.InvokeVoidAsync("installI18n");
           
         }

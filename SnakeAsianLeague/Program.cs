@@ -23,7 +23,7 @@ using System.Text;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using OpenTelemetry.Metrics;
-using SnakeAsianLeague.Data.Services.BlockChainProcessor;
+using SnakeAsianLeague.Data.Services.BlockChain;
 using SnakeAsianLeague.Data.Services.Commodity;
 
 var builder = WebApplication.CreateBuilder(args);
