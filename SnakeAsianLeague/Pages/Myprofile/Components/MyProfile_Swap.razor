@@ -2,6 +2,7 @@
 @using SnakeAsianLeague.Pages.Myprofile.Components.Index_Components
 @using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject IConfiguration Configuration
+@inject BlockChainProcessorSever BlockChainSever
 @inject BlockChainProcessorSever linebot;
 @inject IJSRuntime JS
 
@@ -210,7 +211,7 @@
     {
         if (firstRender)
         {
-            netWorkName = Configuration["chainName"];
+            netWorkName = BlockChainSever.BlockChainInfoDTO.blockChain;
             await JS.InvokeVoidAsync("TippyInit");
 
 
@@ -236,7 +237,12 @@
     bool nextTime;
     protected async Task confirm(){ 
         await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
-        nextTime =  await JS.InvokeAsync<bool>("web3JSConfirm",true,SRCInput,USDTInput,Configuration["USDT_token_addr"],Configuration["SRC_token_addr"],Configuration["SRCSwap_addr"]  );
+
+        var USDT_token_addr = BlockChainSever.BlockChainInfoDTO.usdtAddress;
+        var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+        var SRCSwap_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCSwap;
+
+        nextTime =  await JS.InvokeAsync<bool>("web3JSConfirm",true,SRCInput,USDTInput,USDT_token_addr,SRC_token_addr,SRCSwap_addr  );
         if (nextTime)
         {
             await getMetaMaskData();
@@ -283,7 +289,14 @@
     //取得現在比率、SRCT總數、USDT總數
     public async Task  getMetaMaskData()
     {     
-        web3jsData = await JS.InvokeAsync<decimal[]>("web3JS" ,Configuration["chainId"] ,Configuration["USDT_token_addr"],Configuration["SRC_token_addr"],Configuration["SRCSwap_addr"]  );
+
+
+        int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
+        var USDT_token_addr = BlockChainSever.BlockChainInfoDTO.usdtAddress;
+        var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+        var SRCSwap_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCSwap;
+
+        web3jsData = await JS.InvokeAsync<decimal[]>("web3JS" ,chainId ,USDT_token_addr,SRC_token_addr,SRCSwap_addr  );
         SwapRate = web3jsData[2] ;
         SRCTotal = web3jsData[0] ;
         USDTTotal = web3jsData[1] ;
@@ -314,7 +327,14 @@
     protected  async Task AddPolygon()
     {
         @*linebot.SemdLineNotifyMsg("test123");*@
-        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"],  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"] );
+        int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
+        var chainName = BlockChainSever.BlockChainInfoDTO.blockChain;
+        var recUrls = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
+        var nativeCurrencyName = BlockChainSever.BlockChainInfoDTO.nativeCurrencyName;
+        int nativeCurrencyDecimals = BlockChainSever.BlockChainInfoDTO.nativeCurrencyDecimals;
+
+        await JS.InvokeVoidAsync("AddPolygonID",chainId, chainName, recUrls,  nativeCurrencyName, nativeCurrencyDecimals);  
+        
         await getMetaMaskData();
 
     }
@@ -332,7 +352,10 @@
     {
         if (Value)
         {
-            await JS.InvokeVoidAsync("AddPolygonUSDT" , Configuration["USDT_token_addr"] ,Configuration["USDT_Decimals"]);
+            
+            var USDT_token_addr = BlockChainSever.BlockChainInfoDTO.usdtAddress;
+            int USDT_Decimals = BlockChainSever.BlockChainInfoDTO.usdtDecimals;
+            await JS.InvokeVoidAsync("AddPolygonUSDT" , USDT_token_addr ,USDT_Decimals);
         }
         else
         {
@@ -345,7 +368,9 @@
     {      
         if (Value)
         {
-            await JS.InvokeVoidAsync("AddPolygonSRC" ,Configuration["SRC_token_addr"] ,Configuration["SRC_Decimals"] );     
+            var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+            int SRC_Decimals = BlockChainSever.BlockChainInfoDTO.srcDecimals;
+            await JS.InvokeVoidAsync("AddPolygonSRC" ,SRC_token_addr ,SRC_Decimals );     
         }
         else
         {

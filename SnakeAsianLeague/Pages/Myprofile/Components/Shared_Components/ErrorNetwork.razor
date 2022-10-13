@@ -1,5 +1,7 @@
-﻿@inject IJSRuntime JS
+﻿@using SnakeAsianLeague.Data.Services.BlockChain
+@inject IJSRuntime JS
 @inject IConfiguration Configuration
+@inject BlockChainProcessorSever BlockChainSever
 <head>
     <link href="css/MyProfile/shared/ErrorNetwork.css" rel="stylesheet" />     
   
@@ -32,7 +34,7 @@
     {
         if (firstRender)
         {
-            netWorkName = Configuration["chainName"];
+            netWorkName = BlockChainSever.BlockChainInfoDTO.blockChain;
             ErrorNetworkJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/ErrorNetwork.js");
             await checkNetwork();
         }
@@ -40,7 +42,8 @@
 
     public async Task checkNetwork()
     {
-        netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", Configuration["chainId"]);
+        int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
+        netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", chainId);
         if (netWorkRight)
         {
             getCoinData.InvokeAsync();

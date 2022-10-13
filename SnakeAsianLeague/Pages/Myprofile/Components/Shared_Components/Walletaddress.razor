@@ -1,4 +1,6 @@
-﻿@inject IConfiguration Configuration
+﻿@using SnakeAsianLeague.Data.Services.BlockChain
+@inject BlockChainProcessorSever BlockChainSever
+@inject IConfiguration Configuration
 @inject IJSRuntime JS
 <head>
     <link href="css/MyProfile/shared/walletaddress.css" rel="stylesheet" />     
@@ -20,7 +22,8 @@
     private IJSObjectReference? getAddressJS;
     protected override void OnInitialized()
     {      
-           chainName  = Configuration["chainName"];        
+           chainName  = BlockChainSever.BlockChainInfoDTO.blockChain;
+           
     }    
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

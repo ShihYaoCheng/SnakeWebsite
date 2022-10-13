@@ -1,5 +1,7 @@
-﻿@using SnakeAsianLeague.Pages.Teach.Components.All_components
+﻿@using SnakeAsianLeague.Data.Services.BlockChain
+@using SnakeAsianLeague.Pages.Teach.Components.All_components
 @inject IJSRuntime JS
+@inject BlockChainProcessorSever BlockChainSever
 @inject IConfiguration Configuration
 
 <head>
@@ -75,6 +77,13 @@
 </div>
 @code {
     protected  async Task AddPolygon()    {   
-        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] ,  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"]);       
+
+        int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
+        var chainName = BlockChainSever.BlockChainInfoDTO.blockChain;
+        var recUrls = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
+        var nativeCurrencyName = BlockChainSever.BlockChainInfoDTO.nativeCurrencyName;
+        int nativeCurrencyDecimals = BlockChainSever.BlockChainInfoDTO.nativeCurrencyDecimals;
+
+        await JS.InvokeVoidAsync("AddPolygonID",chainId, chainName, recUrls,  nativeCurrencyName, nativeCurrencyDecimals);       
     }
 }
