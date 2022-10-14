@@ -473,7 +473,7 @@ input[type="text"]::-webkit-input-placeholder {
     background-image: url("../images/Footer/bxs-down-arrow.png");
     background-image: url("../images/Footer/bxs-down-arrow.png");
     background-image: url("../images/Footer/bxs-down-arrow.png");
-    background-position: right 0.5em top 50%, 0 0;
+    background-position: right 0.3em top 50%, 0 0;
     background-size: contain, cover;
     background-repeat: no-repeat, repeat;
 }
