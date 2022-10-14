@@ -111,7 +111,7 @@
 
     //private InventoryService blockChainInfoDTO  ;
 
-
+    //private IJSObjectReference? TransferEventsJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -121,6 +121,8 @@
             Console.Write(request);*@
             coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
             await coinEchangeJS.InvokeVoidAsync("coinEchange" ,".ExchangeBtn");
+
+            //TransferEventsJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/TransferEvents.js");          
 
         }
     }
@@ -222,19 +224,21 @@
         await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
         if (difference < 0)
         {
-          
+
             var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
             var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;
-
+            var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
             @*鍊換game*@
+            //await TransferEventsJS.InvokeVoidAsync("TransferEvents" ,socketServerUri , SRC_token_addr,"tokenSRC");
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1,SRC_token_addr,SRCExchange_addr);      
+           
             if (transactionResult)
             {
                 TransferToDB = await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
             }
             if (TransferToDB)
             {
-                System.Threading.Thread.Sleep(15000);
+            //System.Threading.Thread.Sleep(5000);
                 await clickRefresh();
             }
             

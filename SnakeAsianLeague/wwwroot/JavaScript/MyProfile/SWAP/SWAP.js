@@ -23,9 +23,10 @@ window.web3JS = async function () {
 }*/
 /*Rinkeby 網路 */
 
-window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_address) {
+window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_address, wssURL) {
 
 	/*引用web3 、獲取地址跟鍊*/
+	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL))
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts()
 	const networkID = await w3.eth.net.getId()
@@ -38,7 +39,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 	/*USDT */
 	const USDT_token_addr = USDT_address
 	const USDT_abi = window.ERC20_abi
-	const dai_contract = new w3.eth.Contract(USDT_abi, USDT_token_addr)
+	const dai_contract = new web3.eth.Contract(USDT_abi, USDT_token_addr)
 
 	let decimals = await dai_contract.methods.decimals().call()
 	let addr_USDT_balance = await dai_contract.methods.balanceOf(address[0]).call() / 10 ** decimals
@@ -46,7 +47,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 	/* SRC */
 	const SRC_token_addr = SRC_address
 	const SRC_abi = window.ERC20_abi
-	const SRC_dai_contract = new w3.eth.Contract(SRC_abi, SRC_token_addr)
+	const SRC_dai_contract = new web3.eth.Contract(SRC_abi, SRC_token_addr)
 
 	let SRC_decimals = await SRC_dai_contract.methods.decimals().call()
 	let addr_SRC_balance = await SRC_dai_contract.methods.balanceOf(address[0]).call() / 10 ** SRC_decimals
@@ -62,7 +63,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 
 
 
-	const SRCSwap_dai_contract = new w3.eth.Contract(SRCSwap_abi, SRCSwap_addr);
+	const SRCSwap_dai_contract = new web3.eth.Contract(SRCSwap_abi, SRCSwap_addr);
 	console.log(SRCSwap_dai_contract.methods)
 	let usdPerSRCRate = await SRCSwap_dai_contract.methods.usdPerSRC().call() / 10 ** 18
 	let usdtPerSRCRate = await SRCSwap_dai_contract.methods.usdtPerSRC().call() / 10 ** 18

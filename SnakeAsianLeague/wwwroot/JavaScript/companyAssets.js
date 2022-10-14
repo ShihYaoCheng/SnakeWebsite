@@ -22,9 +22,10 @@
 
 
 
-export async function getCompanyUSDT(SRCSwap_address) {
+export async function getCompanyUSDT(SRCSwap_address, wssURL) {
 	
 	/*引用web3 、獲取地址跟鍊*/
+	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL))
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts() //要換company_address
 
@@ -32,7 +33,7 @@ export async function getCompanyUSDT(SRCSwap_address) {
 	const SRCSwap_addr = SRCSwap_address
 	const SRCSwap_abi = window.SRCSwap_abi
 	try {	
-		const SRCSwap_dai_contract = new w3.eth.Contract(SRCSwap_abi, SRCSwap_addr);
+		const SRCSwap_dai_contract = new web3.eth.Contract(SRCSwap_abi, SRCSwap_addr);
 		console.log(SRCSwap_dai_contract.methods)
 		//let decimals = await SRCSwap_dai_contract.methods.decimals().call()
 		const CompanyUSDT = (await SRCSwap_dai_contract.methods.balanceOfUSDT().call()/10**6 ).toString()	
