@@ -349,7 +349,7 @@
 
 @media all and (max-width:768px) {
     .contact-pop {
-        width: 80%;
+        width: 90%;
     }
 
     .contact-container {
@@ -382,17 +382,18 @@
     font-size: 30px;
     font-weight: 400;
     color: #ffffff;
+    line-height: 30px;
 }
 
 @media all and (max-width: 1000px) {
     .contact06 .contactTitle p {
-        font-size: 24px;
+        /* font-size: 24px; */
     }
 }
 
 @media all and (max-width: 600px) {
     .contact06 .contactTitle p {
-        font-size: 22px;
+        /* font-size: 22px; */
     }
 }
 
@@ -438,7 +439,7 @@ input[type="email"]::placeholder {
 
     .contact06 .contactForm form input[type="text"],
     input[type="email"] {
-        height: 26px;
+        /* height: 26px; */
     }
 }
 
@@ -653,11 +654,18 @@ input[type="text"]::-webkit-input-placeholder {
     input[type="button"] {
         font-size: 20px;
     }
-
+    .contact06 .contactForm form select{
+        font-size: 20px;
+    }
+    .contact06 .contactForm form option{
+        font-size: 20px;
+    }
     .contact06 .contactForm form textarea {
         font-size: 20px;
     }
-
+    .contact06 .contactForm form input[type="file"]{
+        font-size: 12px;
+    }
     .contact06 .contactTitle {
         margin: 30px 0 5px 0;
     }
@@ -727,8 +735,8 @@ input[type="text"]::-webkit-input-placeholder {
 @media all and (max-width: 768px) {
 
     .contact-close {
-        height: 65px;
-        width: 65px;
+        height: 60px;
+        width: 60px;
     }
 
     .contact-close img {
