@@ -186,32 +186,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 }
 
 
-                //decimal HighestOfferPrice = await GetSpiderHighestOffer(data.Number);
-
-                //if (HighestOfferPrice != 0)
-                //{
-                //    data.Price = HighestOfferPrice.ToString();
-                //    data.IsOpen = true;
-                //    data.IsOfficial = true;
-                //}
-                //else
-                //{
-                //    decimal SalePrice = await GetSpiderSale(data.Number);
-
-                //    if (SalePrice != 0)
-                //    {
-                //        data.Price = SalePrice.ToString();
-                //        data.IsOpen = true;
-                //        data.IsOfficial = false;
-                //    }
-                //    else
-                //    {
-                //        data.IsOpen = false;
-                //        data.IsOfficial = false;
-                //    }
-                //}
-
-
                 List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
                 if (RarityElements[2] != null)
                 {
@@ -252,12 +226,12 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<List<NFTData>> GetNFTDataPageList(int pageNumber, int pageSize)
+        public async Task<List<NFTData>> GetNFTDataPageList(int pageNumber, int pageSize ,string PPSRContractAddress)
         {
 
             string ImgPath = _config.GetValue<string>("googleapis");
             string LinkURL = _config.GetValue<string>("OpenSeaLink");
-            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
+            string asset_contract_address = PPSRContractAddress;
 
             List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits(pageNumber , pageSize);
             Console.WriteLine("GetNFTRiderUnits: " + NFT_Riders.Count);
@@ -325,7 +299,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                     Rarity = RarityElements[2].Substring(0, 1);
                     Elements = RarityElements[2].Substring(1, 1);
                 }
-                data.ImgPath = string.Format(ImgPath + "?fit=max&w=600", "ppsr", NFT_Riders[i].serialNumber);
+                data.ImgPath = string.Format(ImgPath, "ppsr", NFT_Riders[i].serialNumber);
                 data.LinkURL = string.Format(LinkURL, asset_contract_address, NFT_Riders[i].castings[0].tokenId);
                 data.RarityKey = Rarity;
                 data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
