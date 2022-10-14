@@ -95,8 +95,9 @@
     {
         int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
         var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+        string socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
 
-        JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,chainId, SRC_token_addr);
+        JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,chainId, SRC_token_addr , socketServerUri);
         CoinData.tokenSRCchange(JSCoinData);         
     }
     //切換並新增Polygon
@@ -126,10 +127,11 @@
     {
         if (firstRender)
         {
-              if (islogin)
+            if (islogin)
             {     
                 coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
                 await getGameCoin();
+              
             }
             @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");

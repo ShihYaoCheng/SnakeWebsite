@@ -1,18 +1,18 @@
 ﻿@page "/test"
-@using SnakeAsianLeague.Data.Entity
-@using SnakeAsianLeague.Data.Paging
-@using SnakeAsianLeague.Data.Services
-@using SnakeAsianLeague.Data.Services.MarketPlace
-@using SnakeAsianLeague.Data.Services.Personal
-@using SnakeAsianLeague.Data.Entity.View
-@using Microsoft.AspNetCore.Components.Authorization
-@using SnakeAsianLeague.Pages.Myprofile.Components.Inventory_Components
-@using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject IJSRuntime JS
-@inject AuthenticationStateProvider AuthenticationStateProvider
-@inject InventoryService InventoryService
-@inject AppState AppState
+@using SnakeAsianLeague.Data.Entity.View
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.BlockChain
+@using SnakeAsianLeague.Data.Services.Metamask
+@using RestSharp;
+@using SnakeAsianLeague.Data.Services.Personal
+
 @inject IConfiguration Configuration
+@inject AppState AppState
+@inject BlockChainProcessorSever BlockChainSever
+@inject InventoryService InventoryService
+@inject MetamaskTransfer metamaskTransfer 
+
 
 
 <head>
@@ -20,8 +20,7 @@
 </head>
 
 <div class="test-container">
-      <button @onclick="addAndSwitch" style="width:100px; height100px; background:blue">addAndSwitch </button>
-    <button @onclick="addNetwork" style="width:100px; height100px; background:red">addNetwork </button>
+    <p id="testNum"> @test</p>
 </div>
 
 
@@ -29,28 +28,21 @@
 
 
 
-    //private IJSObjectReference? gettingStartMetaMaskJS;
-    //bool getStartMetaMask = false;
-
+    private IJSObjectReference? TransferEventsJS;
+    string test="123";
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            //gettingStartMetaMaskJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/gettingStartMetaMask.js");
-            //getStartMetaMask = await gettingStartMetaMaskJS.InvokeAsync<bool>("gettingStartMetaMask");       
-
+            TransferEventsJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/TransferEvents.js");
+            var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+            var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;
+            var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
+            test = await TransferEventsJS.InvokeAsync<string>("TransferEvents",socketServerUri , SRC_token_addr,"tokenSRC");
+            Console.Write(test);
 
         }
 
     }
-       public async Task addAndSwitch()
-    {
-         await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] ,  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"]);
-    }
-
-    public async Task addNetwork()
-    {
-         await JS.InvokeVoidAsync("addnewNetwork",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] ,  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"]);
-    }
-
+ 
 }
