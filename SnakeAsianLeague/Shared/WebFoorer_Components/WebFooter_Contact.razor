@@ -46,11 +46,14 @@
                                 data-i18n="[placeholder]contact.content"></textarea>
                         </label>
 
-                        <input class="feedback-file" type="file" name="feedbackImg" id="feedbackImg">
-
+                        <label id="feedback-file" for="feedbackImg">
+                            <input class="feedback-file-button" type="button" id="feedback-file-button" value="上傳檔案">
+                            <span id="feedback-file-text">未選擇任何檔案</span>
+                            <input class="feedback-file-input" type="file" name="feedbackImg" id="feedbackImg">
+                        </label>
 
                         <label for="sendMessageButton">
-                            <input type="button" value="送出" id="sendMessageButton" @onclick="SendFeedbackClick"
+                            <input  class="feedback-submit" type="button" value="送出" id="sendMessageButton" @onclick="SendFeedbackClick"
                                 data-i18n="[value]contact.send">
                         </label>
 
