@@ -1,8 +1,13 @@
-﻿using System.Net;
+﻿using Microsoft.Extensions.Options;
+using RestSharp;
+using SnakeAsianLeague.Data.Entity.BlockChain;
+using SnakeAsianLeague.Data.Entity.Config;
+using System.Net;
 using System.Text;
+using System.Text.Json;
 using System.Web;
 
-namespace SnakeAsianLeague.Data.Services.BlockChainProcessor
+namespace SnakeAsianLeague.Data.Services.BlockChain
 {
     public class BlockChainProcessorSever
     {
@@ -10,9 +15,15 @@ namespace SnakeAsianLeague.Data.Services.BlockChainProcessor
 
         
         string channelAccessToken = "rEkO8R7f6dQDmdMrobDtiUkaSFbINS5kfKM3ozup4zQGssi3NL4Msak/VtnNKo6LgIv2tCb/VufpihcZ5GADLYiXtjLT5Hz6wYyqsUcK3W7UaIKxVQlo/Ris/rAOwsCikKdcD0p1frf9RKz8bpNJhQdB04t89/1O/w1cDnyilFU=";
+        private ExternalServers externalServersConfig;
+        private readonly RestClient NftServerClient;
 
-        public BlockChainProcessorSever()
+        public BlockChainInfoDTO BlockChainInfoDTO { get; private set; } = new BlockChainInfoDTO();
+
+        public BlockChainProcessorSever(IOptions<ExternalServers> myConfiguration)
         {
+            externalServersConfig = myConfiguration.Value;
+            NftServerClient = new RestClient(externalServersConfig.NftWebApi);
 
         }
 
@@ -59,6 +70,28 @@ namespace SnakeAsianLeague.Data.Services.BlockChainProcessor
             var responseStream = response.GetResponseStream();
             var responseMsg = responseStream != null ? new StreamReader(responseStream).ReadToEnd() : "Null Response";
 
+        }
+
+
+        public async Task GetBlockChainInfoDTO()
+        {
+            BlockChainInfoDTO result = new BlockChainInfoDTO();
+
+            try
+            {
+                RestRequest request = new RestRequest($"BlockChainInfo/GetBlockChainInfo");
+                IRestResponse restResponse = await NftServerClient.ExecuteGetAsync(request);
+
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = JsonSerializer.Deserialize<BlockChainInfoDTO>(restResponse.Content) ?? new BlockChainInfoDTO();
+                }
+            }
+            catch (Exception)
+            {
+                result = new BlockChainInfoDTO();
+            }
+            this.BlockChainInfoDTO = result;
         }
 
     }
