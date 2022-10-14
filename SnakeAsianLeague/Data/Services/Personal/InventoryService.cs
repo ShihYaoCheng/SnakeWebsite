@@ -19,6 +19,10 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
         List<NFTData> NFTDataList;
+        /// <summary>
+        /// 排序後
+        /// </summary>
+        List<NFTData> Filter;
 
 
         public List<OptionKeyValue> RarityList = new List<OptionKeyValue>() { };
@@ -86,11 +90,11 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<PagedList<NFTData>> GetRiderNFTDataPageList(string UserID, int PageNumber, int PageSize)
+        public async Task<PagedList<NFTData>> GetRiderNFTDataPageList(string UserID, int PageNumber, int PageSize ,string PPSRContractAddress)
         {
             string ImgPath = _config.GetValue<string>("googleapis");
             string LinkURL = _config.GetValue<string>("OpenSeaLink");
-            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
+            string asset_contract_address = PPSRContractAddress;
 
             List<RiderUnit> NFT_Riders = await Get_NFT_RiderByUserID(UserID);
 
@@ -199,6 +203,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             //NFTDataList.Add(data1);
 
             NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
+            Filter = NFTDataList;
             return PagedList<NFTData>.ToPagedList(NFTDataList, PageNumber, PageSize);
 
         }
@@ -208,30 +213,30 @@ namespace SnakeAsianLeague.Data.Services.Personal
         {
             if (OrderByString == "Highest Earned" || OrderByString == "Sort")
             {
-                NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Number).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Number).ToList();
 
             }
             if (OrderByString == "Lowest Earned")
             {
-                NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
             }
             if (OrderByString == "Highest Price")
             {
-                NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Price).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Price).ToList();
             }
             if (OrderByString == "Lowest Price")
             {
-                NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Price).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Price).ToList();
             }
             if (OrderByString == "Newest")
             {
-                NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.EndTime).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.EndTime).ToList();
             }
             if (OrderByString == "Oldest")
             {
-                NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenBy(m => m.EndTime).ToList();
+                Filter = Filter.OrderBy(m => m.IsOpen == false).ThenBy(m => m.EndTime).ToList();
             }
-            return PagedList<NFTData>.ToPagedList(NFTDataList, PageNumber, PageSize);
+            return PagedList<NFTData>.ToPagedList(Filter, PageNumber, PageSize);
         }
 
 
@@ -247,8 +252,6 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <returns></returns>
         public async Task<PagedList<NFTData>> Get_NFT_by_Filter(int PageNumber, int PageSize, List<string> Rarity, List<string> Elements, List<string> Class, List<string> Country)
         {
-
-            List<NFTData> Filter = new List<NFTData>();
             Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
             Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
             Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
@@ -465,74 +468,11 @@ namespace SnakeAsianLeague.Data.Services.Personal
         }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="UserID"></param>
-        /// <param name="amount"></param>
-        ///// <returns></returns>
-        //public async Task<decimal> SRCExchangeAllowance( string walletAddress)
-        //{
-
-        //    decimal result = 0;
-        //    string URL = "/SRCExchange/Allowance";
-        //    var request = new RestRequest(URL, Method.GET);
-        //    request.AddQueryParameter("walletAddress", walletAddress);
-        //    IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
-
-        //    //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance URL :", BlockChainServerClient));
-        //    //Console.WriteLine(string.Format("{0} : {1}", "SRCExchangeAllowance StatusCode :", restResponse.StatusCode));
-        //    if (restResponse.StatusCode == HttpStatusCode.OK)
-        //    {
-        //        AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
-        //        result = data.allowance;
-        //    }
-        //    return result;
-        //}
 
 
 
 
-        public class BlockChainInfoDTO
-        {
-            public string? blockChain { get; set; }
-            public int chainId { get; set; }             // ChainId
-            public string? chainRPCUrl { get; set; }     // RPCUrl
-            public string? socketServerUri { get; set; } // 接收Event回傳的Socket伺服器位置
-                                                         // PPSR合約
-            public string? adminWalletAddress_PPSR { get; set; }
-            public string? contractAddress_PPSR { get; set; }
-            public decimal balanceOf_PPSR { get; set; } // 剩餘瓦斯費
-                                                        // SRCExchange合約
-            public string? adminWalletAddress_SRCExchange { get; set; }
-            public string? contractAddress_SRCExchange { get; set; }
-            public decimal balanceOf_SRCExchange { get; set; }  // 剩餘瓦斯費
-        }
-
-
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="UserID"></param>
-        ///// <param name="amount"></param>
-        ///// <returns></returns>
-        //public async Task<string> BlockChainInfo()
-        //{
-
-        //    string result = "";
-        //    string URL = "/BlockChainInfo/GetBlockChainInfo";
-        //    var request = new RestRequest(URL, Method.GET);
-        //    IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
-
-        //    //Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo URL :", BlockChainServerClient));
-        //    //Console.WriteLine(string.Format("{0} : {1}", "BlockChainInfo StatusCode :", restResponse.StatusCode));
-        //    if (restResponse.StatusCode == HttpStatusCode.OK)
-        //    {
-        //        BlockChainInfoDTO data = JsonSerializer.Deserialize<BlockChainInfoDTO>(restResponse.Content) ?? new BlockChainInfoDTO();
-        //        result = data.blockChain;
-        //    }
-        //    return result;
-        //}
+      
     }
 
 }

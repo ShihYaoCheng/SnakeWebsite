@@ -1,6 +1,8 @@
 ﻿@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Data.Services.MarketPlace
 @inject OptionService OptionService
+@inject BlockChainProcessorSever BlockChainSever
 @inject IJSRuntime JS
 
 <aside class="marketPlaceSidebar marketPlaceSidebar-Web">
@@ -292,7 +294,8 @@
         OpenSeaURL = await OptionService.Get_OpenSeaURL();
 
         PageNumber = 1;
-        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize);
+        var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize ,contractAddress_PPSR);
         getNFTDataList( pagelist);
         getPPSRsCount( await OptionService.GetNFTRiderUnitsCount());
         //await lazyloadingJS.InvokeVoidAsync("LazyLoading");
