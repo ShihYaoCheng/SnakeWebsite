@@ -228,6 +228,7 @@
 #year {
     max-width: 310px;
     top: -37%;
+    filter: drop-shadow(0px -5px 12px rgba(253, 212, 109, 0.35));
 }
 
 #light {
