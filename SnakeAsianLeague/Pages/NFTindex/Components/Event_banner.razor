@@ -1,85 +1,66 @@
 @inject IJSRuntime JS
 
 <head>
-    <link href="css/SnakeIndex.css" rel="stylesheet" />
     <link href="css/NFTindex/Event_banner.css" rel="stylesheet" />
 </head>
 
-<div class="event_banner" id="SnakeBanner">
-        @* @onclick="event_banner_SlideClick" *@
-        <a class="" href="ACLIndexS2">
-            <img class="event_banner_logo" id="" src="/images/AsiaChampionsLeague/S2/ACL_S2_LOGO.webp" alt="">
-        </a>
-        @* <img class="event_banner_chinese_border" id="event_banner_chinese_border" src="/images/LunarNewYear/chinese_border.webp" alt=""> *@
+@* SnakeBanner *@
+<div class="eventBannerS3" id="SnakeBanner">
 
-        <div id="event_banner_close" @onclick="eventBannerCloseClick">
+    <div class="eventBannerS3-BG">
+        <div id="event_banner_close" @onclick="eventBannerS3CloseClick">
             <img src="/images/OfficialWeb/event_banner/event_banner_close.webp" alt="">
         </div>
+        <a class="eventBanner-link" href="ACLIndexS3">
+            <div class="eventBannerS3-battleImg">
+                <img class="battleImg" id="banner_S3_solo" src="/images/EventBanner/ACL_S3/banner_S3_solo.png" alt="">
+                <img class="battleImg" id="banner_S3_group" src="/images/EventBanner/ACL_S3/banner_S3_group.png" alt="">
+            </div>
 
-        
-        <a class="event_link" href="ACLIndexS2">
-            <div class="event_banner_bg">
-                <div class="shine"></div>
-                @* <img class="event_banner_img"  id="event_banner_img_xmas"src="/images/OfficialWeb/event_banner/event_banner_xmas.webp" alt=""> *@
-                <div class="event_banner_txt">
-                    @* <p class="goToEvent_date">2022 / 1 / 24 ~ 2 / 8</p> *@
-                    @* <p class="Event_name">2022<br>ASIA CHAMPIONS LEAGUE S2</p> *@
-                    <img class="event_banner_title" id="" src="/images/OfficialWeb/event_banner/ASIA CHAMPIONS LEAGUE-2022.webp" alt="">
-                    @* <p>好禮歡樂送</p> *@
-                    <div class="knight_icon_block banner_knight_icon_block">
-                        <img class="knight_icon banner_knight_icon"
-                            src="/images/OfficialWeb/knight_icon_01.webp" alt="">
-                        <img class="knight_icon banner_knight_icon" 
-                            src="/images/OfficialWeb/knight_icon_02.webp" alt="">
-                        <img class="knight_icon banner_knight_icon" 
-                            src="/images/OfficialWeb/knight_icon_03.webp" alt="">
-                        <img class="knight_icon banner_knight_icon" 
-                            src="/images/OfficialWeb/knight_icon_04.webp" alt="">
-                        <img class="knight_icon banner_knight_icon" 
-                            src="/images/OfficialWeb/knight_icon_05.webp" alt="">
-                    </div>
-                </div>
+            <div class="cloud-bottom">
+                <img class="cloud" id="cloud-01" src="/images/EventBanner/ACL_S3/cloud-01.png" alt="">
+                <img class="cloud" id="cloud-02" src="/images/EventBanner/ACL_S3/cloud-02.png" alt="">
+            </div>
 
-                <div class="event_banner_goToEvent">
-                    <div class="event_banner_goToEvent_pc">
-                        <div class="event_banner_goToEvent_pc_txt">
+            <div class="center">
+                <img class="centerImg" id="light" src="/images/EventBanner/ACL_S3/light.png" alt="">
+                <img class="centerImg" id="year" src="/images/EventBanner/ACL_S3/year.png" alt="">
+                <img class="centerImg" id="ACL_S3_logo" src="/images/EventBanner/ACL_S3/ACL_S3_logo.png" alt="">
 
-                            @* <p>現正熱烈報名中</p>
-                            <div id="timeCountdown"></div> *@
-                        </div>
+                <img class="centerImg" id="more" src="/images/EventBanner/ACL_S3/more.png" alt="">
 
-                        <a href="ACLIndexS2">
-                            <div class="event_banner_goToEvent_pc_button" data-i18n="Inventory_data:sortOptions.ComingSoon">
-                                Coming Soon...
-                            </div>
-                        </a>
-                    </div>
-                    <div class="event_banner_goToEvent_mobile">
-                        <a href="LunarNewYear">
-                        <img class="event_banner_button" src="/images/OfficialWeb/event_banner/event_button.webp" alt="">
-                        </a>
-                        @* <p>報名 2 / 7 截止</p> *@
-                    </div>
-                </div>
+            </div>
+
+            <div class="cloud-top">
+                <img class="cloud" id="cloud-03" src="/images/EventBanner/ACL_S3/cloud-03.png" alt="">
+                <img class="cloud" id="cloud-04" src="/images/EventBanner/ACL_S3/cloud-04.png" alt="">
+                <img class="cloud" id="cloud-05" src="/images/EventBanner/ACL_S3/cloud-05.png" alt="">
             </div>
         </a>
     </div>
+
+</div>
+
+
+
+
+
 @code {
     private IJSObjectReference? Banner;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            Banner = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SnakeIndex/Banner.js");
+            Banner = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SnakeIndex/Banner.js");
         }
     }
 
 
-    private async Task eventBannerCloseClick()
+    private async Task eventBannerS3CloseClick()
     {
         if (Banner != null)
         {
-            await Banner.InvokeVoidAsync("eventBannerClose");
+            await Banner.InvokeVoidAsync("eventBannerS3Close");
         }
     }
 }

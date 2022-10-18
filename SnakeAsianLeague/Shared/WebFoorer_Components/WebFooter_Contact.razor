@@ -25,40 +25,43 @@
                             <input type="text" name="phone" id="phone" placeholder="請輸入手機號碼"
                                 data-i18n="[placeholder]contact.phone">
                         </label>
-                        @* <label for="feedbackType">
+
+                        @* 舊的feedbackType *@
+                        <label for="feedbackType">
                             <input type="text" name="feedbackType" id="feedbackType" placeholder="請選擇回饋類型"
                             data-i18n="[placeholder]contact.feedbackType">
-                            </label> *@
+                        </label>
 
-                        <select id="feedbackType" name="feedbackType">
+                        @* <select id="feedbackType" name="feedbackType">
                             <option value="請選擇回饋類型" data-i18n="contact.feedbackType" disabled>feedback types</option>
                             <option value="帳號密碼相關">帳號密碼相關</option>
                             <option value="執行連線相關">執行連線相關</option>
                             <option value="遊戲內容相關">遊戲內容相關</option>
                             <option value="儲值購買相關">儲值購買相關</option>
-                            <option value="活動/產包相關">活動/產包相關</option>
+                            <option value="活動競賽相關">活動競賽相關</option>
                             <option value="官網/公司資訊相關">官網/公司資訊相關</option>
                             <option value="其他問題相關">其他問題相關</option>
-                        </select>
+                        </select> *@
 
                         <label for="content">
                             <textarea name="content" id="content" cols="30" rows="10" placeholder="請輸入回饋內容"
                                 data-i18n="[placeholder]contact.content"></textarea>
                         </label>
 
-                        <label id="feedback-file" for="feedbackImg">
-                            @* 改樣式及中英文切換用 *@
+                        @* 改樣式及中英文切換用 / 上傳的input file *@
+                        @* <label id="feedback-file" for="feedbackImg">
+                            
                             <input class="feedback-file-button" type="button" id="feedback-file-button" value="上傳檔案">
                             <span id="feedback-file-text">未選擇任何檔案</span>
                             
-                            @* 上傳的input file *@
+                            
                             <input class="feedback-file-input" type="file" name="feedbackImg" id="feedbackImg">
-                        </label>
+                        </label> *@
 
                         <label for="sendMessageButton">
                             <input  class="feedback-submit" type="button" value="送出" id="sendMessageButton" @onclick="SendFeedbackClick"
                                 data-i18n="[value]contact.send">
-                        </label>
+                        </label> 
 
                     </form>
                 </div>
