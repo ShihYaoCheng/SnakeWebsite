@@ -543,6 +543,9 @@ input[type="text"]::-webkit-input-placeholder {
     /* border: 1px solid red; */
     margin: 5px 0 10px;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 #feedbackImg{
     position: absolute;

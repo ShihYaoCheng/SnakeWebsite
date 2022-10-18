@@ -2,6 +2,11 @@
     $('.event_banner').hide();
 }
 
+export function eventBannerS3Close() {
+    $('.eventBannerS3').hide();
+    console.log('eventBannerS3Close')
+}
+
 export function BannerMove() {
     window.addEventListener('scroll', () => {
         /*可見高度 */
