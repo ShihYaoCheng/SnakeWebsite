@@ -1,15 +1,9 @@
 using Blazor.Analytics;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SnakeAsianLeague.Areas.Identity;
-using SnakeAsianLeague.Data;
 using SnakeAsianLeague.Data.Entity.Config;
 using SnakeAsianLeague.Data.Services;
 using SnakeAsianLeague.Data.Services.Backstage;
@@ -50,7 +44,7 @@ builder.WebHost.UseSentry(options => options.TracesSampler = context =>
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; }); //´ú¸Õ
+builder.Services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; }); //ï¿½ï¿½ï¿½ï¿½
 builder.Services.AddOpenTelemetryMetrics(b => b.AddAspNetCoreInstrumentation().AddPrometheusExporter());
 
 builder.Services.AddSingleton<IDataAccess, DataAccess>();
@@ -146,6 +140,15 @@ else
 }
 
 app.UseHttpsRedirection();
+
+if(!app.Environment.IsDevelopment())
+{
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        OnPrepareResponse = context => { context.Context.Response.Headers
+            .Append("Cache-Control", "max-age=1200"); }
+    });
+}
 
 app.UseStaticFiles();
 
