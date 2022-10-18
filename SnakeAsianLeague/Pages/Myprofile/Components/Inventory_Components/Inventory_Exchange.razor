@@ -1,6 +1,7 @@
 ﻿@using SnakeAsianLeague.Data.Entity.View
+@using SnakeAsianLeague.Data.Services.BlockChain
 @inject IJSRuntime JS
-
+@inject BlockChainProcessorSever BlockChainSever
 @inject IConfiguration Configuration
 
 <div class="Secend-Title" data-i18n="Inventory_data:otherTitle.MyCurrency">My Currency</div>
@@ -62,7 +63,7 @@
                     <div class="MyCerrency-Detail">
                         <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.SRCToken">SRC TOKEN</p>
                              
-                        <p class="MyCerrency-Amount">@Value.tokenSRC</p>
+                        <p class="MyCerrency-Amount" id="tokenSRC">@Value.tokenSRC</p>
                     </div>
                 </div>
 
@@ -151,7 +152,9 @@
     {
         if (islogin)
         {
-            await JS.InvokeVoidAsync("AddPolygonSRC",Configuration["SRC_token_addr"] ,Configuration["SRC_Decimals"]);
+            var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+            var SRC_Decimals = BlockChainSever.BlockChainInfoDTO.srcDecimals;
+            await JS.InvokeVoidAsync("AddPolygonSRC",SRC_token_addr ,SRC_Decimals);
         }
         else
         {

@@ -150,9 +150,10 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address) {
 
 
 //取得鍊上資料
-export async function CoinexchangeData(chainId ,SRC_address) {
+export async function CoinexchangeData(chainId ,SRC_address,wssURL) {
 
 	/*引用web3 、獲取地址跟鍊*/
+	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL))
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts()
 	const networkID = await w3.eth.net.getId()
@@ -164,7 +165,7 @@ export async function CoinexchangeData(chainId ,SRC_address) {
 	/* SRC */
 	const SRC_token_addr = SRC_address
 	const SRC_abi = window.ERC20_abi
-	const SRC_dai_contract = new w3.eth.Contract(SRC_abi, SRC_token_addr)
+	const SRC_dai_contract = new web3.eth.Contract(SRC_abi, SRC_token_addr)
 
 	let SRC_decimals = await SRC_dai_contract.methods.decimals().call()
 	let addr_SRC_balance = await SRC_dai_contract.methods.balanceOf(address[0]).call() / 10 ** SRC_decimals

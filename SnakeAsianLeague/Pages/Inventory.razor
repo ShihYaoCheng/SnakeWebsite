@@ -2,6 +2,7 @@
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Paging
 @using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Data.Services.MarketPlace
 @using SnakeAsianLeague.Data.Services.Personal
 @using SnakeAsianLeague.Data.Entity.View
@@ -11,6 +12,7 @@
 @inject IJSRuntime JS
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject InventoryService InventoryService
+@inject BlockChainProcessorSever BlockChainSever
 @inject AppState AppState
 @inject IConfiguration Configuration
 
@@ -91,13 +93,23 @@
     //取得錢包資訊
     private async Task getCoinData()
     {
-        JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,Configuration["chainId"], Configuration["SRC_token_addr"]);
+        int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
+        var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+        string socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
+
+        JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,chainId, SRC_token_addr , socketServerUri);
         CoinData.tokenSRCchange(JSCoinData);         
     }
     //切換並新增Polygon
     protected  async Task AddPolygon()
     {      
-        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] ,  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"]);
+        int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
+        var chainName = BlockChainSever.BlockChainInfoDTO.blockChain;
+        var recUrls = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
+        var nativeCurrencyName = BlockChainSever.BlockChainInfoDTO.nativeCurrencyName;
+        int nativeCurrencyDecimals = BlockChainSever.BlockChainInfoDTO.nativeCurrencyDecimals;
+
+        await JS.InvokeVoidAsync("AddPolygonID",chainId, chainName,  recUrls ,  nativeCurrencyName,  nativeCurrencyDecimals);
         await getCoinData();
     }
 
@@ -115,10 +127,11 @@
     {
         if (firstRender)
         {
-              if (islogin)
+            if (islogin)
             {     
                 coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
                 await getGameCoin();
+              
             }
             @* await JS.InvokeVoidAsync("myprofileSidebar"); *@
             await JS.InvokeVoidAsync("installI18n");

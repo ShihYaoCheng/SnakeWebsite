@@ -1,4 +1,7 @@
 export function Feedback (Feedback) {
+    $("#feedbackImg").change(function () {
+        $("#feedback-file-text").html($("#feedbackImg").val());
+    })
 
     function sendFeedback() {
         let formData = `{"userNickname":"${$("#userNickname").val()}","email":"${$("#email").val()}","mobilePhone":"${$("#phone").val()}","feedbackType":"${$("#feedbackType").val()}","content":"${$("textarea#content").val()}"}`;

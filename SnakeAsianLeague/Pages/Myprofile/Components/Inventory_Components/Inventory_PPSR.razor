@@ -2,6 +2,7 @@
 @using SnakeAsianLeague.Data.Entity.View
 @using SnakeAsianLeague.Data.Paging
 @using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Data.Services.MarketPlace
 @using SnakeAsianLeague.Data.Services.Personal
 @using Microsoft.AspNetCore.Components.Authorization
@@ -9,6 +10,7 @@
 @inject IJSRuntime JS
 @inject AppState AppState
 @inject InventoryService InventoryService
+@inject BlockChainProcessorSever BlockChainSever
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
 
@@ -517,8 +519,8 @@
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var LoginUser = authState.User;
         string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
-
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID , page,10);
+        var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID , page,10 ,contractAddress_PPSR);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;
@@ -548,7 +550,8 @@
         ElementsList = await InventoryService.Get_Default_Elements();
         ClassList = await InventoryService.Get_Default_Class();
         CountryList = await InventoryService.Get_Default_Country();
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID, 1,10);
+        var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID, 1,10 ,contractAddress_PPSR);
         NFTDataList = pagelist;
 
         MetaData =  pagelist.MetaData;

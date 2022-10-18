@@ -1,11 +1,13 @@
 ﻿@using SnakeAsianLeague.Data.Entity.Commodity
 @using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Data.Services.Commodity
 @using SnakeAsianLeague.Pages.Myprofile.Components.SRCgift_Components
 @using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 
 @inject AppState AppState
 @inject CommodityServices CommodityServices
+@inject BlockChainProcessorSever BlockChainSever
 @inject IJSRuntime JS
 @inject IConfiguration Configuration
 @implements IDisposable
@@ -144,7 +146,7 @@
         => await InvokeAsync(StateHasChanged);
 
         IAPItemList = await CommodityServices.GetIAPItem();
-        
+
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -174,8 +176,11 @@
         {
             uint UserID = AppState.LoginStatus.userID;
 
+            var USDT_token_addr = BlockChainSever.BlockChainInfoDTO.usdtAddress;
+            var PurchaseApprove_address = BlockChainSever.BlockChainInfoDTO.contractAddress_CQIPurchase;
+
             await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
-            transactionResult = await PurchaseApproveJS.InvokeAsync<bool>("PurchaseApprove", USDT, Configuration["USDT_token_addr"], Configuration["PurchaseApprove_address"]);
+            transactionResult = await PurchaseApproveJS.InvokeAsync<bool>("PurchaseApprove", USDT, USDT_token_addr, PurchaseApprove_address);
 
             if (transactionResult)
             {
@@ -200,7 +205,13 @@
     protected  async Task AddPolygon()
     {
     @*linebot.SemdLineNotifyMsg("test123");*@
-        await JS.InvokeVoidAsync("AddPolygonID",Configuration["chainId"], Configuration["chainName"],  Configuration["recUrls"] ,  Configuration["nativeCurrencyName"],  Configuration["nativeCurrencyDecimals"]);
+        int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
+        var chainName = BlockChainSever.BlockChainInfoDTO.blockChain;
+        var recUrls = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
+        var nativeCurrencyName = BlockChainSever.BlockChainInfoDTO.nativeCurrencyName;
+        int nativeCurrencyDecimals = BlockChainSever.BlockChainInfoDTO.nativeCurrencyDecimals;
+
+        await JS.InvokeVoidAsync("AddPolygonID",chainId, chainName, recUrls , nativeCurrencyName,  nativeCurrencyDecimals);
      
 
     }

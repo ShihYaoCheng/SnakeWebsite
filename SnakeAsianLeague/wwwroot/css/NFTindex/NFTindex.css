@@ -28,6 +28,7 @@
 .NFTindex {
     width: 100%;
     background-color: #203240;
+    position: relative;
 }
 
 .NFTindex_BG {

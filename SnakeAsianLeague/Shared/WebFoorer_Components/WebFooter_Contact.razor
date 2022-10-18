@@ -1,112 +1,251 @@
 ﻿@inject IJSRuntime JS
 
 
-<div class="footer-contact"  id ="footerContact" @onclick="@(()=>clickClose())">
-    <div class="contact-pop " id="contactPop" >
-       
+<div class="footer-contact" id="footerContact" @onclick="@(()=>clickClose())">
+    <div class="contact-pop " id="contactPop">
 
-        <div id ="contactContainer"  class="contact-container">
-          <div class="contact06" id="contact06">
-            <div class="contactTitle" data-aos="fade-up" data-aos-duration="300">
-                <p data-i18n="contact.title">We’d love to hear from you</p>    
+
+        <div id="contactContainer" class="contact-container">
+            <div class="contact06" id="contact06">
+                <div class="contactTitle" data-aos="fade-up" data-aos-duration="300">
+                    <p data-i18n="contact.title">We’d love to hear from you</p>
+                </div>
+
+                <div class="contactForm" data-aos="fade-up" data-aos-duration="300">
+                    <form action="">
+                        <label for="userNickname">
+                            <input type="text" name="userNickname" id="userNickname" placeholder="請輸入姓名"
+                                data-i18n="[placeholder]contact.name">
+                        </label>
+                        <label for="email">
+                            <input type="email" name="" id="email" placeholder="請輸入e-mail"
+                                data-i18n="[placeholder]contact.mail">
+                        </label>
+                        <label for="phone">
+                            <input type="text" name="phone" id="phone" placeholder="請輸入手機號碼"
+                                data-i18n="[placeholder]contact.phone">
+                        </label>
+
+                        @* 舊的feedbackType *@
+                        <label for="feedbackType">
+                            <input type="text" name="feedbackType" id="feedbackType" placeholder="請選擇回饋類型"
+                            data-i18n="[placeholder]contact.feedbackType">
+                        </label>
+
+                        @* <select id="feedbackType" name="feedbackType">
+                            <option value="請選擇回饋類型" data-i18n="contact.feedbackType" disabled>feedback types</option>
+                            <option value="帳號密碼相關">帳號密碼相關</option>
+                            <option value="執行連線相關">執行連線相關</option>
+                            <option value="遊戲內容相關">遊戲內容相關</option>
+                            <option value="儲值購買相關">儲值購買相關</option>
+                            <option value="活動競賽相關">活動競賽相關</option>
+                            <option value="官網/公司資訊相關">官網/公司資訊相關</option>
+                            <option value="其他問題相關">其他問題相關</option>
+                        </select> *@
+
+                        <label for="content">
+                            <textarea name="content" id="content" cols="30" rows="10" placeholder="請輸入回饋內容"
+                                data-i18n="[placeholder]contact.content"></textarea>
+                        </label>
+
+                        @* 改樣式及中英文切換用 / 上傳的input file *@
+                        @* <label id="feedback-file" for="feedbackImg">
+                            
+                            <input class="feedback-file-button" type="button" id="feedback-file-button" value="上傳檔案">
+                            <span id="feedback-file-text">未選擇任何檔案</span>
+                            
+                            
+                            <input class="feedback-file-input" type="file" name="feedbackImg" id="feedbackImg">
+                        </label> *@
+
+                        <label for="sendMessageButton">
+                            <input  class="feedback-submit" type="button" value="送出" id="sendMessageButton" @onclick="SendFeedbackClick"
+                                data-i18n="[value]contact.send">
+                        </label> 
+
+                    </form>
+                </div>
+                <div class="reach-FB">
+                    <p>Or reach out to us directly at</p> <span> <a
+                            href="https://www.facebook.com/PonponSnake">facebook</a> </span>
+                </div>
+                <button class="contact-FB" href="https://www.facebook.com/PonponSnake" />
             </div>
-
-            <div class="contactForm" data-aos="fade-up" data-aos-duration="300">
-                <form action="">
-                    <label for="userNickname">
-                        <input type="text" name="userNickname" id="userNickname" placeholder="請輸入姓名" data-i18n="[placeholder]contact.name">
-                    </label>
-                    <label for="email">
-                        <input type="email" name="" id="email" placeholder="請輸入e-mail" data-i18n="[placeholder]contact.mail">
-                    </label>
-                    <label for="phone">
-                        <input type="text" name="phone" id="phone" placeholder="請輸入手機號碼" data-i18n="[placeholder]contact.phone">
-                    </label>
-                    <label for="feedbackType">
-                        <input type="text" name="feedbackType" id="feedbackType" placeholder="請選擇回饋類型" data-i18n="[placeholder]contact.feedbackType">
-                    </label>
-                    <label for="content">
-                        <textarea name="content" id="content" cols="30" rows="10" placeholder="請輸入回饋內容" data-i18n="[placeholder]contact.content"></textarea>
-                    </label>
-                    <label for="sendMessageButton">
-                        <input type="button" value="送出" id="sendMessageButton" @onclick="SendFeedbackClick" data-i18n="[value]contact.send">
-                    </label>
-
-                </form>
-            </div>
-            <div class="reach-FB">
-               <p>Or reach out to us directly at</p>  <span> <a href="https://www.facebook.com/PonponSnake">facebook</a> </span>
-             </div>
-                 <button class="contact-FB" href="https://www.facebook.com/PonponSnake" />
-           </div>
-           <img data-src ="/images/Footer/open-envelope.webp"  src ="/images/Footer/open-envelope.webp" class="open-envelop" id="openEnvelop"/>
-            <img data-src ="/images/Footer/close-envelope.webp" src ="/images/Footer/close-envelope.webp" class=" close-envelop" id="closeEnvelop" />
+            <img data-src="/images/Footer/open-envelope.webp" src="/images/Footer/open-envelope.webp"
+                class="open-envelop" id="openEnvelop" />
+            <img data-src="/images/Footer/close-envelope.webp" src="/images/Footer/close-envelope.webp"
+                class=" close-envelop" id="closeEnvelop" />
         </div>
-   
-       
-        
-         <div id="appreciate"  class="contact-container appreciate">
+
+
+
+        <div id="appreciate" class="contact-container appreciate">
             <div class="appreciate-Title">
                 We appreciate your feed back.
             </div>
-            <button class="appreciate-goback" @onclick="@(()=>clickClose())" id ="appreciateGoback">
-               <img data-src="/images/Footer/GoBack.webp" src="/images/Footer/GoBack.webp" />
+            <button class="appreciate-goback" @onclick="@(()=>clickClose())" id="appreciateGoback">
+                <img data-src="/images/Footer/GoBack.webp" src="/images/Footer/GoBack.webp" />
                 <span>
-                   &nbsp Go back
+                    &nbsp Go back
                 </span>
             </button>
             <div class="appreciate-space">
 
             </div>
             <div class="reach-FB">
-                 <p>Or reach out to us directly at</p>  <span> <a href="https://www.facebook.com/PonponSnake">facebook</a> </span>
+                <p>Or reach out to us directly at</p> <span> <a href="https://www.facebook.com/PonponSnake">facebook</a>
+                </span>
             </div>
 
-             <a class="contact-FB" href="https://www.facebook.com/PonponSnake" ></a>
-         
-        </div>
-  
+            <a class="contact-FB" href="https://www.facebook.com/PonponSnake"></a>
 
-        <div class ="contact-close" id = "contactClose" @onclick="@(()=>clickClose())">
-            <img data-src="/images/Footer/arrow.webp" src="/images/Footer/arrow.webp" @onclick="@(()=>clickClose())"/>
         </div>
-       </div>
+
+
+        <div class="contact-close" id="contactClose" @onclick="@(()=>clickClose())">
+            <img data-src="/images/Footer/arrow.webp" src="/images/Footer/arrow.webp" @onclick="@(()=>clickClose())" />
+        </div>
+    </div>
 </div>
 @code {
-    private IJSObjectReference? footerContactJS;
-    private IJSObjectReference? FeedbackJS;
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {   
-        if(firstRender){
-            footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
-            FeedbackJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/Feedback.js");
-            await FeedbackJS.InvokeVoidAsync("Feedback", "Feedback");
-        }
-    }
 
-    private async Task SendFeedbackClick()
+
+
+    private IJSObjectReference? footerContactJS;
+
+
+
+    private IJSObjectReference? FeedbackJS;
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+
+
     {
 
-        if (footerContactJS != null)
+
+
+        if (firstRender)
+
         {
-            await footerContactJS.InvokeVoidAsync("FooterAnimation");
+
+
+
+            footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
+
+
+
+            FeedbackJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/Feedback.js");
+
+
+
+            await FeedbackJS.InvokeVoidAsync("Feedback", "Feedback");
+
+
+
         }
-        //先不動模組化
-        if (FeedbackJS != null)
-        {
-           await FeedbackJS.InvokeVoidAsync("Feedback", "Feedback");
-        }
-       
+
+
+
     }
+
+
+
+
+
+
+
+    private async Task SendFeedbackClick()
+
+
+
+    {
+
+
+
+
+
+
+
+        if (footerContactJS != null)
+
+
+
+        {
+
+
+
+            await footerContactJS.InvokeVoidAsync("FooterAnimation");
+
+
+
+        }
+
+
+
+        //先不動模組化
+
+
+
+        if (FeedbackJS != null)
+
+
+
+        {
+
+
+
+            await FeedbackJS.InvokeVoidAsync("Feedback", "Feedback");
+
+
+
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
 
 
     private async Task clickClose()
+
+
+
     {
+
+
+
         if (footerContactJS != null)
+
+
+
         {
+
+
+
             await footerContactJS.InvokeVoidAsync("FooterContactHide");
+
+
+
         }
+
+
+
     }
 
 
-    }
+}

@@ -1,8 +1,10 @@
 @page "/"
 
 @using SnakeAsianLeague.Pages.NFTindex.Components
+@using SnakeAsianLeague.Pages.SnakeIndex.Components
 
-
+@using SnakeAsianLeague.Data.Services.BlockChain
+@inject BlockChainProcessorSever BlockChainSever
 @inject IJSRuntime JS
 
 <head>
@@ -18,34 +20,52 @@
   
     @*<Loading />*@
     @* <NFTindex_Register/> *@
-    <LoadingBazor>
-        <NFTindex_Join />
-        <NFTindex_Banner />
-        <NFTindex_Flag />
-        <NFTindex_Seignior />
 
-        <div class="NFTindex_BG_diamond">
-            <NFTindex_Carousel />
-            <NFTindex_Scholar />
-            <NFTindex_SRC />
-            @* <NFTindex_Gameplay /> *@
-            <NFTindex_Partner />
-        </div>
-        
-    </LoadingBazor>  
+    <main class="">
+        <LoadingBazor>
+            <NFTindex_Join />
+            <NFTindex_Banner />
+            <NFTindex_Flag />
+            <NFTindex_Seignior />
+
+            <div class="NFTindex_BG_diamond">
+                <NFTindex_Carousel />
+                <NFTindex_Scholar />
+                <NFTindex_SRC />
+                @* <NFTindex_Gameplay /> *@
+                <NFTindex_Partner />
+            </div>
+
+        </LoadingBazor>  
+    </main>
+    <Event_banner />
 </div>
 
 
 @code {
 
+    private IJSObjectReference? BannerJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
 
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("installI18n");            
+            BannerJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SnakeIndex/Banner.js");
+            await BannerJS.InvokeVoidAsync("BannerMove");
+            await  BlockChainSever.GetBlockChainInfoDTO();
           
         }
 
+    }
+
+
+    private async Task event_banner_SlideClick()
+    {
+        if (BannerJS != null)
+        {
+            await BannerJS.InvokeVoidAsync("event_banner_Slide");
+        }
+    
     }
 }
