@@ -76,20 +76,22 @@ namespace SnakeAsianLeague.Data.Services.BlockChain
         public async Task GetBlockChainInfoDTO()
         {
             BlockChainInfoDTO result = new BlockChainInfoDTO();
-
+            IRestResponse restResponse = new RestResponse();
             try
             {
-                RestRequest request = new RestRequest($"BlockChainInfo/GetBlockChainInfo");
-                IRestResponse restResponse = await NftServerClient.ExecuteGetAsync(request);
+                RestRequest request = new RestRequest($"BC_BlockChainInfo/GetBlockChainInfo");
+                restResponse = await NftServerClient.ExecuteGetAsync(request);
 
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = JsonSerializer.Deserialize<BlockChainInfoDTO>(restResponse.Content) ?? new BlockChainInfoDTO();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 result = new BlockChainInfoDTO();
+                Console.WriteLine(restResponse.Content);
+
             }
             this.BlockChainInfoDTO = result;
         }
