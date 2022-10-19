@@ -87,9 +87,9 @@ namespace SnakeAsianLeague.Data.Services.Products
         /// <returns></returns>
         public async Task<string> Get_OpenSeaURL(string TokenID , string PPSRContractAddress)
         {
-            string LinkURL = _config.GetValue<string>("OpenSeaLink");
+            //string LinkURL = _config.GetValue<string>("OpenSeaLink");
             TokenID = TokenID.Replace("%", "").Trim();
-            return string.Format(LinkURL, PPSRContractAddress, TokenID);
+            return string.Format("https://testnets.opensea.io/assets/mumbai/"+ PPSRContractAddress + "/"+ TokenID);
         }
 
         /// <summary>
