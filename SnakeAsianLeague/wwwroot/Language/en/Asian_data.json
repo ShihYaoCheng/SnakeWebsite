@@ -305,5 +305,9 @@
     "part7-4": "c. When players participate in this activity, it means that they fully understand all the contents and rules and will abide by them. If it is verified that there are any violations of the competition regulations, CQI GAMES has the right to cancel all awards and demand compensation for the resulting damages.",
     "part7-5": "d. If the winner has already received the prize, but it is verified that there are any violations of the competition regulations, CQI GAMES still has the right to take back the awards and demand compensation for the damages."
 
+  },
+
+  "eventBanner": {
+    "more": "/images/EventBanner/ACL_S3/more.png"
   }
 }
