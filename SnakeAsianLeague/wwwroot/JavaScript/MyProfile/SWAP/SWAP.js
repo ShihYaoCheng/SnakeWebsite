@@ -51,7 +51,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 	let SRC_decimals = await SRC_dai_contract.methods.decimals().call()
 	let addr_SRC_balance = await SRC_dai_contract.methods.balanceOf(address[0]).call() / 10 ** SRC_decimals
 
-	$(".user-address")[0].innerText = address[0].slice(0, 9) + "...."
+	/*$(".user-address")[0].innerText = address[0].slice(0, 9) + "...."*/
 	//$("#userAddress")[0].innerText = address[0].slice(0, 5) + "...." + address[0].slice(38)
 	$("#USDTTotalBalance")[0].innerText = 'Balance: ' + addr_USDT_balance
 	$("#SRCTotalBalance")[0].innerText = 'Balance: ' + addr_SRC_balance
