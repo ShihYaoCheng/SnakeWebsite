@@ -49,3 +49,24 @@
 	}
 
 }
+
+
+export async function getUSDT(wssURL, USDT_address) {
+	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL))
+	const w3 = new Web3(Web3.givenProvider)
+	const address = await w3.eth.requestAccounts()
+	const networkID = await w3.eth.net.getId()
+	console.log("address", address ,"networkID", networkID)
+	//if (chainId != networkID) {
+	//	return 0
+	//}
+
+	const USDT_token_addr = USDT_address
+	const USDT_abi = window.ERC20_abi
+	const dai_contract = new web3.eth.Contract(USDT_abi, USDT_token_addr)
+	let decimals = await dai_contract.methods.decimals().call()
+	let addr_USDT_balance = await dai_contract.methods.balanceOf(address[0]).call() / 10 ** decimals
+
+	return addr_USDT_balance;
+
+}

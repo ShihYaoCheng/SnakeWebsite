@@ -6,7 +6,7 @@ window.loginButton = function (loginButton) {
 
 
 // 點擊背景 點擊login "X" 關閉login彈窗
-window.loginClose = function (loginClose) {
+window.loginClose = function () {
     $(".login_block").removeClass("open");
 }
 
