@@ -384,7 +384,7 @@
 </nav>
 
 <!-- login block-->
-<LoginBlock loginCloseClick="loginCloseClick" loginErrorShow=@loginErrorShow LoginSubmit="LoginSubmit" loginRequest=@loginRequest />
+<LoginBlock  loginErrorShow=@loginErrorShow LoginSubmit="LoginSubmit" loginRequest=@loginRequest />
 
 <!-- Back to top -->
 <BackToTop />
@@ -441,7 +441,7 @@
         if (AppState.LoginStatus.IsLogin == true)
         {
             loginErrorShow = false;
-            await loginCloseClick();
+            await JS.InvokeVoidAsync("loginClose");
             await JS.InvokeVoidAsync("myprofileSidebar");
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("navbarSlide");
@@ -484,10 +484,7 @@
         await JS.InvokeVoidAsync("loginButton", "loginButton");
     }
 
-    private async Task loginCloseClick()
-    {
-        await JS.InvokeVoidAsync("loginClose", "loginClose");
-    }
+
 
     private async Task LanguageSwitchClick(string lang)
     {

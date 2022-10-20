@@ -30,8 +30,7 @@ window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_addr
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts()
 	const networkID = await w3.eth.net.getId()
-
-	console.log("chainId", chainId, "networkID", networkID )
+	
 	if (chainId != networkID) {
 		return [0,0,0]
 	}
