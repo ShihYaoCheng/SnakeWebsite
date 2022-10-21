@@ -211,8 +211,8 @@
         //    Blazor.start();
         // });
 
-        if (!(/^((?!chrome|android).)*safari/i.test(navigator.userAgent))) { 
-            console.log("not safari")
+        //if (!(/^((?!chrome|android).)*safari/i.test(navigator.userAgent))) { 
+            
             window.Blazor.start({
                 reconnectionOptions: {
                     maxRetries: 30,
@@ -223,7 +223,7 @@
                     onConnectionUp: e => connectionUp(e)
                 }
             });
-        }
+        //}
 
 
 
