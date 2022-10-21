@@ -20,9 +20,13 @@ export function chartInit() {
 
         window.i18nCallback = i18nCallback
     });
-
-    $(window).on('scroll', init)
-
+    
+    $(window).on('scroll', () => {
+        if (window.location.pathname == "/ERNC") {
+            init()
+        }
+    })
+    
     function init() {
         if (window.scrollY > position) {
             const i18n_label = i18next.t('ERNC_data:chart', { returnObjects: true });
@@ -297,8 +301,14 @@ export function chartInitRwd() {
         //控制圓餅出現頁面高度 ex: (...) - 100
         positionRwd = (rectRwd.top - rectRwd.height) - 200
     });
-
-    $(window).on('scroll', initRwd)
+   
+    $(window).on('scroll', () => {
+        if (window.location.pathname == "/ERNC") {
+            initRwd()
+        }
+    })
+   
+    
 
     function initRwd() {
         if (window.scrollY > positionRwd) {
