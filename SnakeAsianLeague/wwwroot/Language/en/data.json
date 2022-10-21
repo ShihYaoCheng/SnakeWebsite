@@ -136,7 +136,16 @@
     "name": "your name",
     "mail": "email",
     "phone": "phone number",
-    "feedbackType": "feedback types",
+
+    "FeedbackType": "Feedback Type",
+    "Account": "Account (Safety & Data)",
+    "Network": "Network (Lag, Low FPS, Hardware)",
+    "GameBasic": "PonPonSnake Game Basic",
+    "Purchase": "In-Game Purchase",
+    "Event": "Event/ Champion League",
+    "Website": "Website/ Company Info",
+    "Other": "Other Issues",
+
     "content": "What's about",
     "send": "Submit"
   },
@@ -175,7 +184,8 @@
 
     "ContactUs": "Contact Us",
     "JoinUs": "Join Us",
-    "CQITeam": "Our Team"
+    "CQITeam": "Our Team",
+    "Terms_Of_Service": "Terms of Service"
   }
 
 

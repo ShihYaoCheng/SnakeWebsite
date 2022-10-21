@@ -140,7 +140,16 @@
     "name": "請輸入姓名",
     "mail": "請輸入e-mail",
     "phone": "請輸入手機號碼",
-    "feedbackType": "請選擇回饋類型",
+
+    "FeedbackType": "請選擇回饋類型",
+    "Account": "帳號密碼相關",
+    "Network": "執行連線相關",
+    "GameBasic": "遊戲內容相關",
+    "Purchase": "儲值購買相關",
+    "Event": "活動競賽相關",
+    "Website": "官網/公司資訊相關",
+    "Other": "其他問題相關",
+
     "content": "請輸入回饋內容",
     "send": "送出"
   },
@@ -179,7 +188,8 @@
 
     "ContactUs": "聯絡我們",
     "JoinUs": "加入我們",
-    "CQITeam": "CQI團隊"
+    "CQITeam": "CQI團隊",
+    "Terms_Of_Service": "使用者條款"
   }
 
 
