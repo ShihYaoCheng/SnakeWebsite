@@ -22,7 +22,7 @@ export function chartInit() {
     });
     
     $(window).on('scroll', () => {
-        if (window.location.pathname == "/ERNC") {
+        if (window.location.pathname == "/") {
             init()
         }
     })
@@ -303,7 +303,7 @@ export function chartInitRwd() {
     });
    
     $(window).on('scroll', () => {
-        if (window.location.pathname == "/ERNC") {
+        if (window.location.pathname == "/") {
             initRwd()
         }
     })
