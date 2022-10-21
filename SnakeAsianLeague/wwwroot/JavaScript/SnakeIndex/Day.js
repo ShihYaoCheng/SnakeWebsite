@@ -1,6 +1,6 @@
 export function dayjsInit() {
     
-    // console.log('dayjs', dayjs);
+    
     dayjs().format()
 
     // 倒數
@@ -23,7 +23,7 @@ export function dayjsInit() {
         const leave3 = leave2 % (60 * 1000) // 計算分鐘數後剩餘的毫秒數
         const seconds = Math.round((leave3 / 1000))
 
-        // console.log("倒數" + days + "日" + hours + "時" + minutes + "分" + seconds + "秒");
+        
 
         if(seconds > 0){
             var countdown = "<span>倒數 </span>" + days + "<span> 日 </span>" + hours + "<span> 時 </span>" + minutes + "<span> 分 </span>" + seconds + "<span> 秒</span>";
