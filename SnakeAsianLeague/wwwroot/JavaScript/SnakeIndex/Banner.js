@@ -4,7 +4,7 @@
 
 export function eventBannerS3Close() {
     $('.eventBannerS3').hide();
-    console.log('eventBannerS3Close')
+   
 }
 
 export function BannerMove() {

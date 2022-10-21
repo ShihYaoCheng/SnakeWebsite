@@ -211,17 +211,20 @@
         //    Blazor.start();
         // });
 
+        //if (!(/^((?!chrome|android).)*safari/i.test(navigator.userAgent))) { 
+            
+            window.Blazor.start({
+                reconnectionOptions: {
+                    maxRetries: 30,
+                    retryIntervalMilliseconds: 500,
+                },
+                reconnectionHandler: {
+                    onConnectionDown: e => connectionDown(e),
+                    onConnectionUp: e => connectionUp(e)
+                }
+            });
+        //}
 
-        window.Blazor.start({
-            reconnectionOptions: {
-                maxRetries: 30,
-                retryIntervalMilliseconds: 500,
-            },
-            reconnectionHandler: {
-                onConnectionDown: e => connectionDown(e),
-                onConnectionUp: e => connectionUp(e)
-            }
-        });
 
 
     </script>

@@ -6,7 +6,7 @@ window.Carousel = function (Carousel) {
         loop: true,
         nav: true,
     });
-    // console.log('Carousel init1');
+    
 }
 
 window.ACLS3RulesCarousel = function () {
@@ -94,7 +94,7 @@ window.ACLS3ScheduleCarousel = function () {
 
 
 window.GameFiCarousel = function () {
-    console.log('GameFiCarousel init22', Swiper);
+   
     new Swiper('.GameFi-Carousel-Block', {
         spaceBetween: 100,
         // autoplay: {

@@ -41,7 +41,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             
             ServerClient = new RestClient(externalServersConfig.UserServer);
             //ServerClient = new RestClient("https://rel.ponponsnake.com/api/user");
-            Console.WriteLine("ServerClient.BaseUrl: " + ServerClient.BaseUrl);
+            //Console.WriteLine("ServerClient.BaseUrl: " + ServerClient.BaseUrl);
             OptionKeyValue option = new OptionKeyValue();
             RarityList = option.Get_Default_Rarity();
             ElementsList = option.Get_Default_Elements();
@@ -234,7 +234,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             string asset_contract_address = PPSRContractAddress;
 
             List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits(pageNumber , pageSize);
-            Console.WriteLine("GetNFTRiderUnits: " + NFT_Riders.Count);
+            //Console.WriteLine("GetNFTRiderUnits: " + NFT_Riders.Count);
             datas = new List<NFTData>();
 
 
@@ -481,9 +481,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
 
                 //Console.WriteLine(" api 抓到比數 :" + nFTRiderUnits.Where(m => m.mintCount > 0).ToList().Count);
-
-                Console.WriteLine(" api 抓到比數 :" + nFTRiderUnits.Where(m => m.mintCount > 0).ToList().Count);
-
 
                 return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
             }

@@ -1,6 +1,5 @@
 window.myprofileSidebar = function () {
-    if ($('.myprofileSidebarButton').length === 0) return
-    console.log('1111111111')
+    if ($('.myprofileSidebarButton').length === 0) return   
     $('.myprofileSidebarButton').click(function (e) {
         $('.myprofileSidebar').toggleClass('SidebarOpen');
     });
