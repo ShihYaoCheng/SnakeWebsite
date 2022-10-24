@@ -176,7 +176,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 else
                 {
                     data.ClassKey = "1";
-                }
+                } 
                 data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
 
                 int value = myObject.Next(1, 1000);
