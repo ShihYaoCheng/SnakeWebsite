@@ -142,16 +142,51 @@
     }
 
     @*...排序...*@
-    private string OrderByString { get; set; }   
+    private string OrderByString { get; set; }
     private async Task DoStuff(ChangeEventArgs e)
     {
+
         OrderByString = e.Value.ToString();
-        PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( e.Value.ToString() ,1 ,10);
-        MetaData =  pagelist.MetaData;
-        NFTDataList = pagelist;
-        PPSRsCount = MetaData.TotalCount;
-        PageNumber = 0;
+
+        if (OrderByString == "HighestEarned" || OrderByString == "Sort")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Number).ToList();
+        }
+        if (OrderByString == "LowestEarned")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
+        }
+        if (OrderByString == "HighestPrice")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Price).ToList();
+        }
+        if (OrderByString == "LowestPrice")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Price).ToList();
+        }
+        if (OrderByString == "Newest")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.EndTime).ToList();
+        }
+        if (OrderByString == "Oldest")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenBy(m => m.EndTime).ToList();
+        }
+
+
+
+
+
+        //OrderByString = e.Value.ToString();
+        //var contractAddress_PPSR = BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
+        //PagedList<NFTData> pagelist = await OptionService.NFTDataListOrderby(e.Value.ToString(), 1, 10, contractAddress_PPSR);
+        //MetaData = pagelist.MetaData;
+        //NFTDataList = pagelist;
+        //PPSRsCount = MetaData.TotalCount;
+        //PageNumber = 0;
         await JS.InvokeVoidAsync("installI18n");
+        await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+        StateHasChanged();
     }
 
     public MetaData MetaData { get; set; } = new MetaData();
@@ -172,10 +207,10 @@
     private async Task AfterRenderLocalize()
     {
         PageNumber++;
-
-        PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( OrderByString ,PageNumber ,10);
+        var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
+        PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( OrderByString ,PageNumber ,10 ,contractAddress_PPSR);
         MetaData =  pagelist.MetaData;
-        NFTDataList = pagelist;
+        NFTDataList.AddRange(pagelist);
         PPSRsCount = MetaData.TotalCount;
 
         //List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber, PageSize);

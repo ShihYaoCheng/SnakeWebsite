@@ -110,116 +110,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         }
 
 
-
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="PageNumber"></param>
-        /// <param name="PageSize"></param>
-        /// <returns></returns>
-        public async Task<PagedList<NFTData>> GetNFTDataPageList_PagedList( int PageNumber , int PageSize)
-        {
-
-            string ImgPath = _config.GetValue<string>("googleapis");
-            string LinkURL = _config.GetValue<string>("OpenSeaLink");
-            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
-
-            List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits(PageNumber , PageSize);
-            Console.WriteLine("GetNFTRiderUnits: " + NFT_Riders.Count);
-            datas = new List<NFTData>();
-
-
-            Random myObject = new Random();
-
-            
-            string Rarity = "";
-            string Elements = "";
-
-            OpenseaAssetsData rd = new OpenseaAssetsData();
-
-            for (int i = 0; i < NFT_Riders.Count; i++)
-            {
-                
-
-                NFTData data = new NFTData();
-                data.TokenID = NFT_Riders[i].castings[0].tokenId;
-                data.Number =  string.Format(" PPSR {0}",NFT_Riders[i].castings[0].tokenId);
-                data.Name = NFT_Riders[i].name;
-                data.serialNumber = NFT_Riders[i].serialNumber;
-                //可能沒有拍賣紀錄
-
-
-
-
-                if (i % 50 == 0)
-                {
-                    rd = await GetOpenseaNFTRider(i + 1, 50);
-                }
-
-                assets assets = new assets();
-
-                if (rd.assets != null)
-                {
-                    //遊戲api有資料但是還 沒上opensea/沒上鏈
-                    assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets();
-                }
-
-                if (assets.last_sale != null)
-                {
-                    string total_price = assets.last_sale.total_price;
-                    Decimal decimals = Convert.ToDecimal(Math.Pow(10, assets.last_sale.payment_token.decimals));
-                    Decimal Price = Decimal.Parse(total_price.ToString()) / Decimal.Parse(decimals.ToString());
-                    Decimal usd_price = 0;
-                    Decimal.TryParse(assets.last_sale.payment_token.usd_price ?? "0", out usd_price);
-                    data.Price = Price.ToString();    //myObject.Next(value, value * 10);
-                    data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture);
-                    data.IsOpen = true;
-                    data.IsOfficial = true;
-
-                }
-                else
-                {
-                    data.IsOfficial = true;
-                    data.IsOpen = false;
-                }
-
-
-                List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
-                if (RarityElements[2] != null)
-                {
-                    Rarity = RarityElements[2].Substring(0, 1);
-                    Elements = RarityElements[2].Substring(1, 1);
-                }
-                data.ImgPath = string.Format(ImgPath + "?fit=max&w=600", "ppsr", NFT_Riders[i].serialNumber);
-                data.LinkURL = string.Format(LinkURL , asset_contract_address, NFT_Riders[i].castings[0].tokenId);
-                data.RarityKey = Rarity;
-                data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
-                data.Elements = Elements;
-                data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.webp", ElementsList.Where(m => m.Key == Elements).First().Value);
-                data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
-                data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
-                //data.Country = CountryList[CountryInt].ToString();
-
-                int value = myObject.Next(1, 1000);
-                data.EndTime = DateTime.Now.AddDays(value);
-                data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
-                               + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
-
-                data.isAvailableInGame = NFT_Riders[i].castings[0].isAvailableInGame;
-
-                datas.Add(data);
-            }
-
-
-
-            datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
-
-            Filter = datas;
-            return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -309,7 +199,9 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
                 //data.Country = CountryList[CountryInt].ToString();
 
-                int value = myObject.Next(1, 1000);
+                //int value = myObject.Next(1, 1000);
+                int value = int.Parse(data.TokenID);
+
                 data.EndTime = DateTime.Now.AddDays(value);
                 data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
                                + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
@@ -336,11 +228,10 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<PagedList<NFTData>> GetNFTDataPageListbyPage(int PageNumber, int PageSize)
-        {
-
-            return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
-        }
+        //public async Task<PagedList<NFTData>> GetNFTDataPageListbyPage(int PageNumber, int PageSize)
+        //{
+        //    return PagedList<NFTData>.ToPagedList(datas, PageNumber, PageSize);
+        //}
 
         /// <summary>
         /// 篩選頁數
@@ -350,7 +241,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <returns></returns>
         public async Task<List<NFTData>> GetNFTDataPageListbyPage()
         {
-
             return datas;
         }
 
@@ -363,8 +253,11 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<PagedList<NFTData>> NFTDataListOrderby(string OrderByString , int PageNumber, int PageSize)
+        public async Task<PagedList<NFTData>> NFTDataListOrderby(string OrderByString , int PageNumber, int PageSize , string PPSRContractAddress)
         {
+          //  datas = await GetNFTDataPageList(PageNumber, PageSize,  PPSRContractAddress);
+
+
             if (OrderByString == "Highest Earned" || OrderByString == "Sort")
             {
                 Filter = Filter.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Number).ToList();
@@ -394,9 +287,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         }
 
 
-
-
-
         /// <summary>
         /// 
         /// </summary>
@@ -407,17 +297,15 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="Class"></param>
         /// <param name="Country"></param>
         /// <returns></returns>
-        public async Task<PagedList<NFTData>> Get_NFT_by_Filter(int PageNumber, int PageSize , List<string> Rarity , List<string> Elements, List<string> Class, List<string> Country)
-        {
-
-            
-            Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
-            Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
-            Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
-            Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
-            Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey) ).ToList();
-            return PagedList<NFTData>.ToPagedList(Filter, PageNumber, PageSize);
-        }
+        //public async Task<PagedList<NFTData>> Get_NFT_by_Filter(int PageNumber, int PageSize, List<string> Rarity, List<string> Elements, List<string> Class, List<string> Country)
+        //{
+        //    Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
+        //    Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
+        //    Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
+        //    Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
+        //    Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey)).ToList();
+        //    return PagedList<NFTData>.ToPagedList(Filter, PageNumber, PageSize);
+        //}
 
 
         /// <summary>
@@ -432,15 +320,11 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <returns></returns>
         public async Task<List<NFTData>> Get_NFT_by_Filter( List<string> Rarity, List<string> Elements, List<string> Class, List<string> Country)
         {
-
-            
             Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
             Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
             Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
             Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
-           
             Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey)).ToList();
-
             return Filter;
         }
 
@@ -455,33 +339,13 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <returns></returns>
         private async Task<List<NFTRiderUnits>> GetNFTRiderUnits( int pageNumber ,  int pageSize )
         {
-            //var LoginRestRequest = new RestRequest($"NFT/UnitBatch?pageNumber={pageNumber}&pageSize={pageSize}");
-            //LoginRestRequest.AddHeader("Authorization", Authenticate());
-
-            //IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
-            ////Console.WriteLine(" ResponseUri :" + restResponse.ResponseUri);
-            //if (restResponse.StatusCode == HttpStatusCode.OK)
-            //{
-            //    List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
-            //    //Console.WriteLine(" api 抓到比數 :" + nFTRiderUnits.Where(m => m.mintCount > 0).ToList().Count);
-
-            //    return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
-            //}
-            //return new List<NFTRiderUnits>();
-
-
             string URL = $"NFT/Units";
-
             var mLoginRestRequest = new RestRequest(URL);
             mLoginRestRequest.AddHeader("Authorization", Authenticate());
-
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(mLoginRestRequest);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
                 List<NFTRiderUnits> nFTRiderUnits = JsonSerializer.Deserialize<List<NFTRiderUnits>>(restResponse.Content) ?? new List<NFTRiderUnits>();
-
-                //Console.WriteLine(" api 抓到比數 :" + nFTRiderUnits.Where(m => m.mintCount > 0).ToList().Count);
-
                 return nFTRiderUnits.Where(m => m.mintCount > 0).ToList();
             }
             return new List<NFTRiderUnits>();
@@ -519,28 +383,28 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// </summary>
         /// <param name="TokenID"></param>
         /// <returns></returns>
-        private async Task<OpenseaOffersData> Get_NFTRider_Offers(string TokenID )
-        {
-            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
-            string RetrieveAssets = _config.GetValue<string>("RetrieveOffers");
-            string X_API_KEY = _config.GetValue<string>("X-API-KEY");
-            string URL = string.Format(RetrieveAssets, asset_contract_address, TokenID );
-            RestClient client = new RestClient(URL);
-            RestRequest request = new RestRequest(Method.GET);
-            /*opensea 正式環境 需要加入這2段*/
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("X-API-KEY", X_API_KEY);
-            IRestResponse response = client.Execute(request);
+        //private async Task<OpenseaOffersData> Get_NFTRider_Offers(string TokenID )
+        //{
+        //    string asset_contract_address = _config.GetValue<string>("asset_contract_address");
+        //    string RetrieveAssets = _config.GetValue<string>("RetrieveOffers");
+        //    string X_API_KEY = _config.GetValue<string>("X-API-KEY");
+        //    string URL = string.Format(RetrieveAssets, asset_contract_address, TokenID );
+        //    RestClient client = new RestClient(URL);
+        //    RestRequest request = new RestRequest(Method.GET);
+        //    /*opensea 正式環境 需要加入這2段*/
+        //    request.AddHeader("Accept", "application/json");
+        //    request.AddHeader("X-API-KEY", X_API_KEY);
+        //    IRestResponse response = client.Execute(request);
 
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                OpenseaOffersData rd = JsonSerializer.Deserialize<OpenseaOffersData>(response.Content) ?? new OpenseaOffersData();
+        //    if (response.StatusCode == HttpStatusCode.OK)
+        //    {
+        //        OpenseaOffersData rd = JsonSerializer.Deserialize<OpenseaOffersData>(response.Content) ?? new OpenseaOffersData();
 
-                return rd;
-            }
-            return new OpenseaOffersData();
+        //        return rd;
+        //    }
+        //    return new OpenseaOffersData();
 
-        }
+        //}
 
 
 
@@ -610,44 +474,44 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="limit">顯示幾筆資料/抓取資料筆數</param>
         /// 
         /// <returns></returns>
-        //public async Task<OpenseaAssetsData> GetOpenseaNFTRider(int PageNumber, int PageSize)
-        public async Task<decimal> GetSpiderHighestOffer(string TokenID)
-        {
-            decimal result = 0;
-            string asset_contract_address = _config.GetValue<string>("asset_contract_address");
-            string OpenSeaLink = _config.GetValue<string>("OpenSeaLink");
-            string URL = string.Format(OpenSeaLink, asset_contract_address, TokenID);
+        ////public async Task<OpenseaAssetsData> GetOpenseaNFTRider(int PageNumber, int PageSize)
+        //public async Task<decimal> GetSpiderHighestOffer(string TokenID)
+        //{
+        //    decimal result = 0;
+        //    string asset_contract_address = _config.GetValue<string>("asset_contract_address");
+        //    string OpenSeaLink = _config.GetValue<string>("OpenSeaLink");
+        //    string URL = string.Format(OpenSeaLink, asset_contract_address, TokenID);
 
-            HttpClient httpClient = new HttpClient();
+        //    HttpClient httpClient = new HttpClient();
 
 
-            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "http://developer.github.com/v3/#user-agent-required");
-            var responseMessage = await httpClient.GetAsync(URL); //發送請求
+        //    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "http://developer.github.com/v3/#user-agent-required");
+        //    var responseMessage = await httpClient.GetAsync(URL); //發送請求
 
-            if (responseMessage.StatusCode == HttpStatusCode.OK)
-            {
-                string responseResult = responseMessage.Content.ReadAsStringAsync().Result;//取得內容
+        //    if (responseMessage.StatusCode == HttpStatusCode.OK)
+        //    {
+        //        string responseResult = responseMessage.Content.ReadAsStringAsync().Result;//取得內容
 
-                string value1 = "<div class=\"Overflowreact__OverflowContainer-sc-7qr9y8-0 jPSCbX Price--amount\" tabindex=\"-1\">";
-                string value2 = "<!-- --> <span class=\"Price--raw-symbol\"></span>";
-                var str1 = responseResult.IndexOf(value1);
-                var str2 = responseResult.IndexOf(value2);
-                if (str1 != str2  && str1 != -1 && str2 != -1 && str2 > str1)
-                {
-                    var price = responseResult.Substring(str1 + value1.Length , str2 - str1 - value1.Length);
+        //        string value1 = "<div class=\"Overflowreact__OverflowContainer-sc-7qr9y8-0 jPSCbX Price--amount\" tabindex=\"-1\">";
+        //        string value2 = "<!-- --> <span class=\"Price--raw-symbol\"></span>";
+        //        var str1 = responseResult.IndexOf(value1);
+        //        var str2 = responseResult.IndexOf(value2);
+        //        if (str1 != str2  && str1 != -1 && str2 != -1 && str2 > str1)
+        //        {
+        //            var price = responseResult.Substring(str1 + value1.Length , str2 - str1 - value1.Length);
 
-                    decimal.TryParse(price, out result);
+        //            decimal.TryParse(price, out result);
                     
-                }
-                Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
-                return result;
-            }
-            else
-            {
-                Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
-            }
-            return result;
-        }
+        //        }
+        //        Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
+        //        return result;
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
+        //    }
+        //    return result;
+        //}
 
         /// <summary>
         /// 呼叫opensea api 依照資產地址
@@ -659,48 +523,48 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// 
         /// <returns></returns>
         //public async Task<OpenseaAssetsData> GetOpenseaNFTRider(int PageNumber, int PageSize)
-        public async Task<decimal> GetSpiderSale(string TokenID)
-        {
-            decimal result = 0;
-            //string asset_contract_address = _config.GetValue<string>("asset_contract_address");
-            //string OpenSeaLink = _config.GetValue<string>("OpenSeaLink");
+        //public async Task<decimal> GetSpiderSale(string TokenID)
+        //{
+        //    decimal result = 0;
+        //    //string asset_contract_address = _config.GetValue<string>("asset_contract_address");
+        //    //string OpenSeaLink = _config.GetValue<string>("OpenSeaLink");
 
-            string OpenSeaURL = _config.GetValue<string>("OpenSeaURL");
+        //    string OpenSeaURL = _config.GetValue<string>("OpenSeaURL");
 
             
-            string URL = string.Format(OpenSeaURL);
+        //    string URL = string.Format(OpenSeaURL);
 
-            HttpClient httpClient = new HttpClient();
+        //    HttpClient httpClient = new HttpClient();
 
 
-            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "http://developer.github.com/v3/#user-agent-required");
-            var responseMessage = await httpClient.GetAsync(URL); //發送請求
+        //    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "http://developer.github.com/v3/#user-agent-required");
+        //    var responseMessage = await httpClient.GetAsync(URL); //發送請求
 
-            if (responseMessage.StatusCode == HttpStatusCode.OK)
-            {
-                string responseResult = responseMessage.Content.ReadAsStringAsync().Result;//取得內容
+        //    if (responseMessage.StatusCode == HttpStatusCode.OK)
+        //    {
+        //        string responseResult = responseMessage.Content.ReadAsStringAsync().Result;//取得內容
 
-                string value1 = "class=\"Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 VerticalAlignedreact__VerticalAligned-sc-b4hiel-0 CenterAlignedreact__CenterAligned-sc-cjf6mn-0 Avatarreact__AvatarContainer-sc-sbw25j-0 uqDNW jYqxGr ksFzlZ iXcsEj cgnEmv dukFGY\"><span class=\"Blockreact__Block-sc-1xf18x6-0 Avatarreact__ImgAvatar-sc-sbw25j-1 uqDNW hzWBaN\" style=\"display:inline-block\"></span></div></div><div class=\"Overflowreact__OverflowContainer-sc-7qr9y8-0 jPSCbX Price--amount\" tabindex=\"-1\">";
-                string value2 = "<!-- --> <span class=\"Price--raw-symbol\"></span></div></div></div></div></div></div></div>";
+        //        string value1 = "class=\"Blockreact__Block-sc-1xf18x6-0 Flexreact__Flex-sc-1twd32i-0 FlexColumnreact__FlexColumn-sc-1wwz3hp-0 VerticalAlignedreact__VerticalAligned-sc-b4hiel-0 CenterAlignedreact__CenterAligned-sc-cjf6mn-0 Avatarreact__AvatarContainer-sc-sbw25j-0 uqDNW jYqxGr ksFzlZ iXcsEj cgnEmv dukFGY\"><span class=\"Blockreact__Block-sc-1xf18x6-0 Avatarreact__ImgAvatar-sc-sbw25j-1 uqDNW hzWBaN\" style=\"display:inline-block\"></span></div></div><div class=\"Overflowreact__OverflowContainer-sc-7qr9y8-0 jPSCbX Price--amount\" tabindex=\"-1\">";
+        //        string value2 = "<!-- --> <span class=\"Price--raw-symbol\"></span></div></div></div></div></div></div></div>";
 
-                var str1 = responseResult.IndexOf(value1);
-                var str2 = responseResult.IndexOf(value2);
-                if (str1 != str2 && str1 != -1 && str2 != -1  && str2> str1)
-                {
-                    var price = responseResult.Substring(str1 + value1.Length, str2 - str1 - value1.Length);
+        //        var str1 = responseResult.IndexOf(value1);
+        //        var str2 = responseResult.IndexOf(value2);
+        //        if (str1 != str2 && str1 != -1 && str2 != -1  && str2> str1)
+        //        {
+        //            var price = responseResult.Substring(str1 + value1.Length, str2 - str1 - value1.Length);
 
-                    decimal.TryParse(price, out result);
+        //            decimal.TryParse(price, out result);
 
-                }
-                Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
-                return result;
-            }
-            else
-            {
-                Console.WriteLine( string.Format( "{0} : {1}" , URL, responseMessage.StatusCode));
-            }
-            return result;
-        }
+        //        }
+        //        Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
+        //        return result;
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine( string.Format( "{0} : {1}" , URL, responseMessage.StatusCode));
+        //    }
+        //    return result;
+        //}
 
 
 
