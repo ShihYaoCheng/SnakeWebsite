@@ -4160,7 +4160,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     flex-grow: 1;
     -ms-flex-align: center;
     align-items: center;
-
+    backdrop-filter: blur(3px);
 }
 
 .navbar-toggler {
@@ -6544,7 +6544,8 @@ a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover
 /* NAV */
 .bg-dark {
     /* background-color: #c3fbffe3 !important;   */
-    background-color: #CDF5EE !important; 
+    /* background-color: #CDF5EE !important;  */
+    background-color: #cdf5f5cc !important; 
     /* background-image: url(/images/Other/nav_banner.webp);
     background-repeat: no-repeat;
     background-size: cover;

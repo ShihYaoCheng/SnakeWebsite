@@ -8,8 +8,8 @@
 .Service-BG{
     /* border: 1px solid red; */
     width: 100%;
-    background-image: url(/images/Company_Info/Terms_Of_Service/Pic_left.png);
-    background-position: center left;
+    background-image: url(/images/Company_Info/PrivacyPolicy/Pic_left.png) !important;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
     padding: 150px 0 120px;
@@ -17,15 +17,15 @@
 }
 
 .Service-main{
-    /* border: 1px solid red; */
+    border: 1px solid red;
     max-width: 1100px;
     width: 95%;
     margin: 0 auto;
 
-    background-image: url(/images/Company_Info/Terms_Of_Service/Billboard.png);
+    background-image: url(/images/Company_Info/PrivacyPolicy/Paper_base.png);
     background-repeat: round;
     /* background-repeat: no-repeat; */
-    padding: 100px 0 90px;
+    padding: 130px 0 140px;
     position: relative;
     font-family: Noto Sans CJK TC, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
 
@@ -38,14 +38,15 @@
     max-width: 95px;
 }
 .Service-inner{
+    border: 1px solid red;
     width: 78%;
     border-radius: 15px;
-    background-color: #AB8558;
+    /* background-color: #AB8558; */
     margin: 0 auto;
-    height: 600px;
-    color: #FBE7C6;
+    height: 550px;
+    color: #70583C;
 
-    padding: 50px 0px 30px 30px; 
+    padding: 50px 0px 40px 30px; 
 
     position: relative;
 }
@@ -64,26 +65,27 @@
     margin-bottom: 15px;
 }
 .Service-title{
-    background-color: #6D5C43;
-    border: 3px solid #D8B874;
+    background-color: #AB8558;
+    /* border: 3px solid #D8B874; */
     border-radius: 34px;
     display: inline-block;
-    padding: 3px 30px 7px 60px;
+    padding: 3px 30px 4px 30px;
     font-size: 24px;
     /* font-weight: 600; */
     letter-spacing: 1px;
     /* transform: translateY(-40px); */
-
+    color: #E8D8BA;
     position: absolute;
-    top: -28px;
+    top: -8px;
     left: 30px;
 }
 
 #note{
-    position: absolute;
+    /* position: absolute;
     top: -30px;
-    left: -30px;
-    width: 95px;
+    left: -30px; */
+    width: 35px;
+    margin-right: 5px;
     /* width: 40%; */
 }
 
