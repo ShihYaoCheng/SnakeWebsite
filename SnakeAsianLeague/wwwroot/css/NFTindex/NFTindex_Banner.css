@@ -207,7 +207,7 @@
 
 
 /* 中心主角示意圖 */
-/* .centralProtagonist{
+.centralProtagonist{
     position: absolute;
     top: 56px;
     left: 50%;
@@ -215,7 +215,9 @@
     opacity: 0.5;
     max-width: 1500px;
     width: 100%;
-} */
+
+    display: none;
+}
 
 .CenterBlock{
     /* border: 1px solid rgb(228, 237, 43); */
