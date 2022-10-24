@@ -184,7 +184,7 @@ input[type="radio"] {
 
 .marketPlaceSidebar{
     /* border: 1px solid red; */
-    width: 300px;
+    width: 320px;
     /* min-height: calc(100vh - 70px); */
     /* min-height: 100vh; */
     background-color: var(--green-1);
