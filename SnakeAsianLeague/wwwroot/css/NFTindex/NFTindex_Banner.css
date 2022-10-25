@@ -912,6 +912,8 @@
     }
 
 }
+
+/* 手機板關閉部分元件及動畫 */
 @media all and (max-width: 430px){
     .NFTindexBanner_BG{
         height: 580px;
@@ -922,6 +924,34 @@
     }
     .NFTindexBanner_title{
         font-size: 20px;
+    }
+
+    #fruit_block{
+        display: none;
+    }
+    #yellow-kirakira{
+        opacity: 1;
+        animation: unset;
+    }
+    #veil{
+        animation: unset;
+    }
+    #rainbow{
+        animation: unset;
+    }
+    #stage-light{
+        animation: unset;
+        opacity: 1;
+    }
+    #treasureChest-light{
+        animation: unset;
+    }
+    #white-kirakira{
+        animation: unset;
+    }
+    #treasureChest-ERNC{
+        transform: translateY(-5px);
+        animation: unset;
     }
 }
 @media all and (max-width: 410px){
