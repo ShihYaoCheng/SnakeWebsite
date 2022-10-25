@@ -17,15 +17,15 @@
 }
 
 .Service-main{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     max-width: 1100px;
     width: 95%;
     margin: 0 auto;
 
-    background-image: url(/images/Company_Info/PrivacyPolicy/Paper_base.png);
+    background-image: url(/images/Company_Info/PrivacyPolicy/Paper_base-02.png);
     background-repeat: round;
     /* background-repeat: no-repeat; */
-    padding: 130px 0 140px;
+    padding: 200px 0 200px;
     position: relative;
     font-family: Noto Sans CJK TC, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
 
@@ -38,16 +38,14 @@
     max-width: 95px;
 }
 .Service-inner{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 78%;
+    background-color: #ab855852;
     border-radius: 15px;
-    /* background-color: #AB8558; */
     margin: 0 auto;
-    height: 550px;
+    height: 600px;
     color: #70583C;
-
-    padding: 50px 0px 40px 30px; 
-
+    padding: 40px 0px 40px 30px;
     position: relative;
 }
 .Service-text{
@@ -64,20 +62,23 @@
 .Service-text p{
     margin-bottom: 15px;
 }
-.Service-title{
-    background-color: #AB8558;
-    /* border: 3px solid #D8B874; */
+.Privacy-title{
+    /* background-color: #8d734c; */
+    background-color: #8d734c52;
+    /* border: 2px solid #D8B874; */
     border-radius: 34px;
     display: inline-block;
-    padding: 3px 30px 4px 30px;
+    padding: 5px 30px 6px 30px;
     font-size: 24px;
     /* font-weight: 600; */
     letter-spacing: 1px;
-    /* transform: translateY(-40px); */
-    color: #E8D8BA;
+    transform: translateX(-50%);
+    color: #e8d8ba;
+    z-index: 5;
     position: absolute;
-    top: -8px;
-    left: 30px;
+    top: 170px;
+    left: 50%;
+    box-shadow: inset 0px 0px 20px 5px #d8b8749c;
 }
 
 #note{
@@ -96,24 +97,28 @@
 
 .Service-text::-webkit-scrollbar-thumb {
     border-radius: 10px  !important;
-    background-color: #cbac79 !important;
+    background-color: #af9b77 !important;
     border: none  !important;
 }
 
 .Service-text::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px  !important;
-    background: #ab8558 !important;
+    background: #eed7a0 !important;
 }
 @media all and (max-width: 1920px){
     .Service-BG{
-        padding: 110px 0 90px;
+        padding: 130px 0 90px;
     }
     .Service-main{
         max-width: 1000px;
     }
     .Service-inner{
-        height: 480px;
+        height: 500px;
+        padding: 40px 0px 40px 30px;
+    }
+    .Privacy-title{
+        top: 142px;
     }
 }
 @media all and (max-width: 1000px){
