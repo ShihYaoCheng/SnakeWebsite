@@ -29,7 +29,8 @@ a, .btn-link {
 
     list-style: none;
     padding: 0px;
-    background: #276170;
+    /* background: #276170; */
+    background:#40828d;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -40,7 +41,7 @@ a, .btn-link {
         display: none;
     
         /* background: #315380ad; */
-        background: #276170;
+        /* background: #276170; */
         list-style: none;
         padding: 0px;
         /* margin-top: 6px; */
@@ -228,7 +229,8 @@ a, .btn-link {
     transition: all .1s ease-out;
 }
 .nav-link:hover{
-    background-color: #aad4cd;
+    /* background-color: #aad4cd; */
+    background-color:#b1d7d9;
     border-radius: 10px;
 }
 
@@ -324,7 +326,7 @@ a, .btn-link {
 }
 
 #nav-ConnectWallet{
-    background-color: #4baab2;
+    background-color: #40828d;
     border-radius: 14px;
     display: flex;
     align-items: center;
