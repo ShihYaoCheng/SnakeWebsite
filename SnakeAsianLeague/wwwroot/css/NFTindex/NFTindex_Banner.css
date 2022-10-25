@@ -937,6 +937,7 @@
         animation: unset;
     }
     #rainbow{
+        opacity: 1;
         animation: unset;
     }
     #stage-light{
