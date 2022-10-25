@@ -4160,7 +4160,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     flex-grow: 1;
     -ms-flex-align: center;
     align-items: center;
-    backdrop-filter: blur(3px);
+    /* backdrop-filter: blur(3px); */
 }
 
 .navbar-toggler {
