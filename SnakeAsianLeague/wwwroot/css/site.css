@@ -8,6 +8,10 @@
     font-family: 'AlumniSans-Bold';
     src: url(/font/AlumniSans-Bold.woff) format('woff');
 }
+@font-face {
+    font-family: 'Arvo-Bold';
+    src: url(/font/Arvo-Bold.tiff) format('tiff');
+}
 
 html, body {
     /* font-family: 'Noto Sans TC','Helvetica Neue', Helvetica, Arial, sans-serif; */
@@ -175,6 +179,8 @@ a, .btn-link {
     transition: all .2s ease-out;
     /* display: flex; */
     /* justify-content: center; */
+    font-family: 'Arvo', sans-serif,'Noto Sans TC' !important;
+
 }
 
 @media all and (max-width: 1000px){
@@ -480,7 +486,7 @@ a, .btn-link {
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
 
     border-radius: 10px;
@@ -1309,7 +1315,7 @@ position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 15px;
     padding: 5px 15px 4px;
     margin: 6px 15px;
     transition: all .1s ease-in-out;
@@ -1329,7 +1335,8 @@ position: relative;
 }
 .MarketPlaceButton p{
     /* margin: 0 10px; */
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
+
 }
 
 @media all and (max-width: 500px){
@@ -1475,6 +1482,7 @@ position: relative;
 }
 .others_arrow{
     margin: 8px 0;
+    width: 45px;
 }
 
 .nav-others >.nav-link:hover{
@@ -1515,9 +1523,9 @@ position: relative;
     /* border: 1px solid red;  */
     color: #1c4c58;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     margin: 0 auto;
-    line-height: 30px;
+    line-height: 24px;
     border-bottom: 2.5px solid #1c4c58;
     padding: 18px;
 
