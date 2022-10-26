@@ -2,8 +2,9 @@
 
 /* nav 當頁顯示 */
 #nav-snakeIndex>.nav-link {
-    background-color: #aad4cd;
-    background-color: #cdf5f578;
+    background-color: #b1d7d9;
+    box-shadow: inset 0px 0px 8px 0px #7da9ac8c;
+    /* background-color: #cdf5f578; */
 }
 
 #snakeIndex_hover_bottom {

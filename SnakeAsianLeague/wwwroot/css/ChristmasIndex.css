@@ -13,12 +13,14 @@ body{
 
 
 #nav-Arena >.nav-link{
-    background-color: #aad4cd;
+    background-color: #b1d7d9;
+    box-shadow: inset 0px 0px 8px 0px #7da9ac8c;
 }
 
 #nav_ChristmasIndex {
     color: white;
-    background-color: #aad4cd;
+    background-color: #b1d7d9;
+    box-shadow: inset 0px 0px 8px 0px #7da9ac8c;
 }
 
 #ChristmasIndex_hover_bottom, #Arena_hover_bottom{
