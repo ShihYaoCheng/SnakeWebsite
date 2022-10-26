@@ -177,26 +177,23 @@ a, .btn-link {
     padding: 0px 1.5px;
     position: relative;
     transition: all .2s ease-out;
-    /* display: flex; */
-    /* justify-content: center; */
-    font-family: 'Arvo', sans-serif,'Noto Sans TC' !important;
+
+    /* font-family: 'Arvo', sans-serif,'Noto Sans TC' !important; */
 
 }
 
 @media all and (max-width: 1000px){
     .nav-item{
         padding: 8px 15px;
-        /* flex-direction: column; */
     }
 }
 
 
 .nav-item a, .nav-item_a {
-    /* border-radius: 4px; */
-    /* height: 3.5rem; */
+
     display: flex;
     justify-content: center;
-    /* line-height: 3.5rem; */
+
     line-height: 3rem;
     white-space: nowrap;
     text-decoration: none;
