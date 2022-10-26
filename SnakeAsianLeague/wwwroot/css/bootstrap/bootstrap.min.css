@@ -6553,6 +6553,8 @@ a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover
     box-shadow: inset 0px -2px 8px 0px #7da9acd1, 0px 2px 8px #06060663;
     /* max-width: 1920px; */
     margin: 0 auto;
+    font-family: 'Arvo', serif;
+    letter-spacing: 0.8px;
 }
 
 
