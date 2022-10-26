@@ -96,10 +96,11 @@ a, .btn-link {
 .nav_ul_slide li{
     transition: all .3s ease-out;
     position: relative;
+    box-shadow: inset 0px 0px 8px #40818d8b;
 }
 
 .nav_ul_slide li a{
-    font-size: 16px;
+    font-size: 15px;
 }
 
 
@@ -198,7 +199,7 @@ a, .btn-link {
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.8px;
     cursor: pointer;
@@ -323,26 +324,27 @@ a, .btn-link {
 .LoginUser{
     display: flex;
     flex-direction: row;
+    /* align-items: center; */
 }
 
 #nav-ConnectWallet{
     background-color: #40828d;
-    border-radius: 14px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    border: 3px solid #aad4cd;
+    width: 72px;
+    /* border: 3px solid #aad4cd; */
     box-shadow: 2px 2px 4px 0px #1c4c581e;
     transition: all .1s ease-in;
     margin: 3px auto;
-    height: 45px;
+    height: 38px;
 }
 #nav-ConnectWallet a{
     padding: 6px 10px;
-    font-size: 14px;
+    font-size: 13px;
     color: #ffffff;
-    line-height: 16px ;
+    line-height: 14px ;
     text-decoration: none;
     text-align: center;
     white-space: unset;
@@ -356,7 +358,7 @@ a, .btn-link {
 
     }
     #nav-ConnectWallet{
-        width: 50%;
+        width: 45%;
         margin-bottom: 10px;
     }
 }
@@ -411,18 +413,19 @@ a, .btn-link {
     align-items: center; 
     justify-content: center;
     font-size: 16px;
+    margin-left: 5px;
 }
 
 #Language_Select{
-    width: 95px;
-    height: 30px;
-    margin-left: 5px;
+    width: 80px;
+    height: 25px;
+    /* margin-left: 5px; */
     outline: none;
     /* padding: 3px; */
     border-radius: 15px;
     background-color: #1C4C58;
     border: none;
-    max-width: 100px;
+    /* max-width: 100px; */
     color: #69ADA2;
     -moz-appearance: none;
     appearance: none;
@@ -434,7 +437,7 @@ a, .btn-link {
     /* padding: 1px; */
     outline: 0;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .Language_option{
@@ -478,7 +481,7 @@ a, .btn-link {
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.8px;
     border-radius: 10px;
@@ -486,7 +489,7 @@ a, .btn-link {
 
 .userIcon {
     /* border: solid rgb(209, 94, 28) 1px; */
-    margin: 0 5px;
+    margin: 0 5px 0 0;
     transform: translateY(-4px);
     fill: #1C4C58;
 }
@@ -494,13 +497,13 @@ a, .btn-link {
 .userNumber {
     /* border: solid rgb(67, 28, 209) 1px; */
     /* color: #f7f7f7; */
-    margin-right: 10px;
+    /* margin-right: 10px; */
     /* font-size: 16px; */
 }
 
 #login_button, #logout_button {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border: none;
     border-radius: 50%;
     color: #ffffff;
@@ -520,7 +523,7 @@ a, .btn-link {
     transition: all .2s ease-out;
     font-weight: 600;
     letter-spacing: 0.8px;
-    line-height: 16px;
+    line-height: 14px;
 }
 
 #login_button:hover, #logout_button:hover {
@@ -566,7 +569,7 @@ a, .btn-link {
 .nav-item ul li:hover{
     color: white;
     /* background-image: url(/images/Other/nav_hover.webp);*/
-background-color: #aad4cd;
+background-color: #aad4cdd4;
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -1663,6 +1666,20 @@ position: relative;
     .GoBack-2{
         font-size: 36px;
     }
+
+    .nav-item a, .nav-item_a{
+        font-size: 18px;
+    }
+    .user {
+        font-size: 18px;
+    }
+    #nav-ConnectWallet a{
+        font-size: 15px;
+    }
+    #Language_Select{
+        width: 95px;
+        height: 30px;
+    }
 }
 
 @media all and (max-width: 600px){
@@ -1731,6 +1748,6 @@ body:not(.rz-default-scrollbars) ::-webkit-scrollbar {
         font-size: 15px;
     }
     #Language_Select{
-        font-size: 15px;
+        font-size: 16px;
     }
 }

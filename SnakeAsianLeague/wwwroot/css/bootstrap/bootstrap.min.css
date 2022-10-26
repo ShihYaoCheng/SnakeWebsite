@@ -4206,7 +4206,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     .navbar-expand-sm .navbar-nav {
         -ms-flex-direction: row;
         flex-direction: row;
-        margin: 0 15px;
+        margin: 0 10px;
     }
 
     .navbar-expand-sm .navbar-nav .dropdown-menu {
@@ -4240,8 +4240,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 @media screen and (min-width: 1000px) and (max-width: 1200px){
 
     .navbar-expand-sm .navbar-nav .nav-link {
-        padding-right: 7.5px;
-        padding-left: 7.5px;
+        padding-right: 10px;
+        padding-left: 10px;
     }
 }
 
@@ -6545,12 +6545,12 @@ a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover
 .bg-dark {
     /* background-color: #c3fbffe3 !important;   */
     /* background-color: #CDF5EE !important;  */
-    background-color: #cdf5f5cc !important; 
+    background-color: #cdf5f5f2 !important; 
     /* background-image: url(/images/Other/nav_banner.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center; */
-    box-shadow: 0px 2px 8px #06060663;
+    box-shadow: inset 0px -2px 8px 0px #7da9acd1, 0px 2px 8px #06060663;
     /* max-width: 1920px; */
     margin: 0 auto;
 }
