@@ -274,6 +274,9 @@ namespace SnakeAsianLeague.Data.Services.Products
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = JsonSerializer.Deserialize<NowRentAndTotalRevenue>(restResponse.Content) ?? new NowRentAndTotalRevenue();
+
+                    result.nowRent = Math.Floor(result.nowRent * 100) / 100;
+                    result.totalRevenue = Math.Floor(result.totalRevenue * 100) / 100;
                 }
             }
             catch (Exception)
@@ -309,11 +312,16 @@ namespace SnakeAsianLeague.Data.Services.Products
             }
             return result;
         }
-        
 
 
 
 
+        public class NFTUnitPriceDTO
+        {
+            public string Address { get; set; }
+            public string PPSR { get; set; }     // 首拍編號
+            public decimal Price { get; set; }       // 價錢 
+        }
 
         /// <summary>
         /// 改變租金
@@ -321,18 +329,26 @@ namespace SnakeAsianLeague.Data.Services.Products
         /// <param name="UserID"></param>
         /// <param name="ppsrID"></param>
         /// <param name="Price"></param>
-        public async Task<bool> ChangeRent(int UserID, string ppsr, int Price)
+        public async Task<bool> ChangeRent(string Address, string ppsr, decimal Price)
         {
             bool result = false;
             try
             {
-                string URL = "/NFT/ ";
+                NFTUnitPriceDTO dto = new NFTUnitPriceDTO();
+                dto.Address = Address;
+                dto.PPSR = "#"+ppsr;
+                dto.Price = Price;
+
+                string URL = "/NFT/ChangeRent";
                 RestRequest request = new RestRequest(URL, Method.POST);
                 request.AddHeader("Authorization", Authenticate());
                 request.AddHeader(RequestKey.Key, RequestKey.Value);
-                request.AddQueryParameter("userID", UserID.ToString());
-                request.AddQueryParameter("ppsr", ppsr);
-                request.AddQueryParameter("price", Price.ToString());
+
+                JsonParameter JP = new JsonParameter("", dto);
+                request.AddParameter(JP);
+
+
+
                 var response = await ServerClient.ExecuteAsync(request);
                 result = response.StatusCode == HttpStatusCode.OK;
             }
@@ -451,41 +467,5 @@ namespace SnakeAsianLeague.Data.Services.Products
             string result = string.Format(" {0} %", Wapon + Pet);
             return result;
         }
-
-
-
-
-
-        //public class Knights
-        //{
-        //    public int playerKnightID { get; set; }
-        //    public int level { get; set; }
-
-        //    public int skill1 { get; set; }
-
-        //    public int skill2 { get; set; }
-
-        //    public int autoAtk { get; set; }
-
-        //    public int isOwned { get; set; }
-
-        //    public int petKey { get; set; }
-
-        //    public int skinList { get; set; }
-
-        //    public int skinID { get; set; }
-
-        //    public int weaponSkinList { get; set; }
-
-        //    public int weaponSkinID { get; set; }
-
-        //    public int knightID { get; set; }
-        //}
-        public void GetValue()
-        {
-            
-        }
-
-
     }
 }

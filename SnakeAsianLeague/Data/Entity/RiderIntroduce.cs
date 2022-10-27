@@ -138,11 +138,11 @@
         /// <summary>
         /// 現在租金
         /// </summary>
-        public double nowRent { get; set; }
+        public decimal nowRent { get; set; }
         /// <summary>
         /// 累計收益
         /// </summary>
-        public double totalRevenue { get; set;   }
+        public decimal totalRevenue { get; set;   }
     }
 }
 

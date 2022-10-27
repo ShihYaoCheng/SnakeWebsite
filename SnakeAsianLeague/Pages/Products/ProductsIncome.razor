@@ -1,7 +1,9 @@
 
 @using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Products
 @inject ProductsService ProductsService;
+@inject AppState AppState
 
 @if (Ridder.Income != null)
 {
@@ -31,13 +33,14 @@
                         <img class="products-currency-icon products-currency-SRC" id="" src="/images/Products/SRC.webp"
                             alt="">
                     </div>
-                    <div class="products-TopBid-price " id="AppearanceFee-edit"> @*Owned-edit*@
+                    <div class="products-TopBid-price Owned-edit " id="AppearanceFee-edit"> @*Owned-edit*@
                         <div class="products-TopBid-price-value">@Ridder.Income.nowRent</div>
-                        <img class="edit-icon" src="/images/Products/edit_icon.webp" alt="">
-                    </div>
-                
+                        <img class="edit-icon" src="/images/Products/edit_icon.png" alt="">
+                    </div>                
                 </div>
         
+
+               
             </div>
 
         
@@ -47,18 +50,27 @@
 
 
     </section>
+
+    <ProductsPopup  NowRent =@Ridder.Income.nowRent TokenID =@TokenID />
 }
 
 @code{
 
-     [Parameter]
+
+    [Parameter]
+    public decimal NowRent { get; set; }
+
+    [Parameter]
+    public string UserId { get; set; }
+
+
+    [Parameter]
     public string TokenID { get; set; }
 
      [Parameter]
     public RiderIntroduce Ridder { get; set; }
     protected override async Task OnInitializedAsync()
     {
-        
         await Refresh();
     }
 
