@@ -4,7 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
+ @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@100;200;300;400;500;600;700&family=Bowlby+One&family=Lalezar&family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap');
 :root {
     --blue: #007bff;
     --indigo: #6610f2;
@@ -4160,7 +4160,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     flex-grow: 1;
     -ms-flex-align: center;
     align-items: center;
-
+    /* backdrop-filter: blur(3px); */
 }
 
 .navbar-toggler {
@@ -4206,7 +4206,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     .navbar-expand-sm .navbar-nav {
         -ms-flex-direction: row;
         flex-direction: row;
-        margin: 0 15px;
+        margin: 0 10px;
     }
 
     .navbar-expand-sm .navbar-nav .dropdown-menu {
@@ -4240,8 +4240,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 @media screen and (min-width: 1000px) and (max-width: 1200px){
 
     .navbar-expand-sm .navbar-nav .nav-link {
-        padding-right: 7.5px;
-        padding-left: 7.5px;
+        padding-right: 10px;
+        padding-left: 10px;
     }
 }
 
@@ -6544,14 +6544,17 @@ a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover
 /* NAV */
 .bg-dark {
     /* background-color: #c3fbffe3 !important;   */
-    background-color: #CDF5EE !important; 
+    /* background-color: #CDF5EE !important;  */
+    background-color: #cdf5f5f2 !important; 
     /* background-image: url(/images/Other/nav_banner.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center; */
-    box-shadow: 0px 2px 8px #06060663;
+    box-shadow: inset 0px -2px 8px 0px #7da9acd1, 0px 2px 8px #06060663;
     /* max-width: 1920px; */
     margin: 0 auto;
+    font-family: 'Arvo', sans-serif,'Noto Sans TC' !important;
+    letter-spacing: 0.8px;
 }
 
 

@@ -207,7 +207,7 @@
 
 
 /* 中心主角示意圖 */
-/* .centralProtagonist{
+.centralProtagonist{
     position: absolute;
     top: 56px;
     left: 50%;
@@ -215,7 +215,9 @@
     opacity: 0.5;
     max-width: 1500px;
     width: 100%;
-} */
+
+    display: none;
+}
 
 .CenterBlock{
     /* border: 1px solid rgb(228, 237, 43); */
@@ -236,6 +238,8 @@
     position: absolute;
     top: 0%;
     left: 0%;
+
+    /* display: none; */
 }
 .w100{
     width: 100%;
@@ -244,6 +248,8 @@
 /* 水果 */
 #fruit_block{
     /* opacity: 0.5; */
+
+    /* display: none; */
 }
 #fruit-01{
     z-index: 1;
@@ -861,7 +867,20 @@
     #Steps-02{
         width: 80%;
     }
+}
 
+/* 手機板關閉部分元件及動畫 */
+#mobile-01{
+    z-index: 9;
+}
+#mobile-02{
+    z-index: 12;
+}
+#mobile-03{
+    z-index: 17;
+}
+.mobile-show{
+    display: none;
 }
 @media all and (max-width: 500px){
     .NFTindexBanner_BG{
@@ -880,6 +899,43 @@
     #Steps-02{
         width: 90%;
     }
+
+    /* 手機板關閉部分元件及動畫 */
+    #fruit_block{
+        display: none;
+    }
+    .mobile-none{
+        display: none;
+    }
+    .mobile-show{
+        display: block;
+    }
+
+    /* #yellow-kirakira{
+        opacity: 1;
+        animation: unset;
+    }
+    #veil{
+        animation: unset;
+    }
+    #rainbow{
+        opacity: 1;
+        animation: unset;
+    }
+    #stage-light{
+        animation: unset;
+        opacity: 1;
+    }
+    #treasureChest-light{
+        animation: unset;
+    }
+    #white-kirakira{
+        animation: unset;
+    }
+    #treasureChest-ERNC{
+        transform: translateY(-5px);
+        animation: unset;
+    } */
 }
 @media all and (max-width: 480px){
     .NFTindexBanner_BG{
@@ -906,6 +962,8 @@
     }
 
 }
+
+
 @media all and (max-width: 430px){
     .NFTindexBanner_BG{
         height: 580px;

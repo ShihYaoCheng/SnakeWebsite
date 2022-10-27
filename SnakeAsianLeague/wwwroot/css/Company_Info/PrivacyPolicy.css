@@ -8,11 +8,11 @@
 .Service-BG{
     /* border: 1px solid red; */
     width: 100%;
-    background-image: url(/images/Company_Info/Terms_Of_Service/Pic_left.png);
-    background-position: center left;
+    background-image: url(/images/Company_Info/PrivacyPolicy/Pic_left.png) !important;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
-    padding: 150px 0 120px;
+    padding: 120px 0 80px;
 
 }
 
@@ -22,10 +22,10 @@
     width: 95%;
     margin: 0 auto;
 
-    background-image: url(/images/Company_Info/Terms_Of_Service/Billboard.png);
+    background-image: url(/images/Company_Info/PrivacyPolicy/Paper_base-02.png);
     background-repeat: round;
     /* background-repeat: no-repeat; */
-    padding: 100px 0 90px;
+    padding: 200px 0 180px;
     position: relative;
     font-family: Noto Sans CJK TC, adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
 
@@ -38,17 +38,37 @@
     max-width: 95px;
 }
 .Service-inner{
+    /* border: 1px solid red; */
     width: 78%;
+    background-color: #ab855852;
     border-radius: 15px;
-    background-color: #AB8558;
     margin: 0 auto;
-    height: 600px;
-    color: #FBE7C6;
-
-    padding: 50px 0px 30px 30px; 
-
+    height: 500px;
+    color: #70583C;
+    padding: 50px 0px 45px 30px;
     position: relative;
 }
+
+.Privacy-title{
+    background-color: #8d734c;
+    /* background-color: #8d734c52; */
+    border: 4px solid #D8B874;
+    border-radius: 34px;
+    display: inline-block;
+    padding: 3px 30px 4px 30px;
+    font-size: 24px;
+    /* font-weight: 600; */
+    letter-spacing: 1px;
+    transform: translate(-50%, -50%);
+    color: #e8d8ba;
+    z-index: 5;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    white-space: nowrap;
+    box-shadow: inset 0px 0px 20px 5px #d8b8749c;
+}
+
 .Service-text{
     width: 90%;
     height: 100%;
@@ -63,28 +83,10 @@
 .Service-text p{
     margin-bottom: 15px;
 }
-.Service-title{
-    background-color: #6D5C43;
-    border: 3px solid #D8B874;
-    border-radius: 34px;
-    display: inline-block;
-    padding: 3px 30px 7px 60px;
-    font-size: 24px;
-    /* font-weight: 600; */
-    letter-spacing: 1px;
-    /* transform: translateY(-40px); */
-
-    position: absolute;
-    top: -28px;
-    left: 30px;
-}
 
 #note{
-    position: absolute;
-    top: -30px;
-    left: -30px;
-    width: 95px;
-    /* width: 40%; */
+    width: 32px;
+    margin-bottom: 2px;
 }
 
 /* 改scrollbar樣式 */
@@ -94,37 +96,51 @@
 
 .Service-text::-webkit-scrollbar-thumb {
     border-radius: 10px  !important;
-    background-color: #cbac79 !important;
+    background-color: #bba67f !important;
     border: none  !important;
 }
 
 .Service-text::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px  !important;
-    background: #ab8558 !important;
+    background: #fae5b3  !important;
 }
 @media all and (max-width: 1920px){
     .Service-BG{
-        padding: 110px 0 90px;
+        padding: 110px 0 70px;
     }
     .Service-main{
         max-width: 1000px;
+        padding: 182px 0 162px;
     }
     .Service-inner{
-        height: 480px;
+        height: 450px;
+        width: 76%;
+        padding: 50px 0px 45px 30px;
+    }
+    .Privacy-title{
+        /* top: 300px; */
     }
 }
 @media all and (max-width: 1000px){
     .Service-BG{
-        padding: 110px 0 90px;
+        padding: 100px 0 60px;
     }
-    .Service-title{
+    .Privacy-title{
         font-size: 19px;
+        padding: 4px 26px 4px 26px;
+        border: 3px solid #D8B874;
+    }
+    #note{
+        width: 28px;
+        margin-right: 2px;
+    }
+    .Service-main{
+        padding: 155px 0 135px;
     }
     .Service-inner{
-        width: 81%;
-        padding: 40px 0px 30px 10px;
-        height: 400px;
+        height: 380px;
+        padding: 40px 0px 30px 20px;
     }
     .Service-text{
         font-size: 14px;
@@ -132,14 +148,8 @@
     .Service-text p{
         margin-bottom: 15px;
     }
-    .Service-title{
-        padding: 4px 25px 7px 50px;
-    }
-    #note{
-        width: 80px;
-        top: -25px;
-        left: -28px;
-    }
+
+
 }
 @media all and (max-width: 450px){
     .Service-BG {
@@ -161,5 +171,6 @@
     }
     .Service-text{
         padding-right: unset;
+        color: #e8d8ba;
     }
 }

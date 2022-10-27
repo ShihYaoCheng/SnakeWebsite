@@ -29,7 +29,8 @@ a, .btn-link {
 
     list-style: none;
     padding: 0px;
-    background: #276170;
+    /* background: #276170; */
+    background:#40828d;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -40,7 +41,7 @@ a, .btn-link {
         display: none;
     
         /* background: #315380ad; */
-        background: #276170;
+        /* background: #276170; */
         list-style: none;
         padding: 0px;
         /* margin-top: 6px; */
@@ -58,7 +59,7 @@ a, .btn-link {
 .slide_button{
     /* border-top: 3px solid black;
     border-right: 3px solid black; */
-    background-color: #ffebe7;
+    background-color: #a4c7c5;
     border-radius: 50%;
     width: 23px;
     height: 23px;
@@ -72,7 +73,7 @@ a, .btn-link {
     display: none;  
 }
 .slide_button img{
-    width: 15px;
+    width: 13px;
 }
 .slide_button:hover{
     cursor: pointer;
@@ -95,18 +96,17 @@ a, .btn-link {
 .nav_ul_slide li{
     transition: all .3s ease-out;
     position: relative;
+    box-shadow: inset 0px 0px 8px #40818d8b;
 }
 
 .nav_ul_slide li a{
-    font-size: 16px;
+    font-size: 14px;
 }
 
 
 
 
-#mypage{
-    font-size: 16px;
-}
+
 
 #mypage:hover{
     width: 100%;
@@ -173,33 +173,32 @@ a, .btn-link {
     padding: 0px 1.5px;
     position: relative;
     transition: all .2s ease-out;
-    /* display: flex; */
-    /* justify-content: center; */
+
+    /* font-family: 'Arvo', sans-serif,'Noto Sans TC' !important; */
+
 }
 
 @media all and (max-width: 1000px){
     .nav-item{
         padding: 8px 15px;
-        /* flex-direction: column; */
     }
 }
 
 
 .nav-item a, .nav-item_a {
-    /* border-radius: 4px; */
-    /* height: 3.5rem; */
+
     display: flex;
     justify-content: center;
-    /* line-height: 3.5rem; */
+
     line-height: 3rem;
     white-space: nowrap;
     text-decoration: none;
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
-    letter-spacing: 0.8px;
+    /* letter-spacing: 0.8px; */
     cursor: pointer;
     width: 100%;
 }
@@ -217,7 +216,8 @@ a, .btn-link {
     /* background-color: rgba(255,255,255,0.1); */
     color: white;
     /* background-image: url(/images/Other/nav_hover.webp);*/
-    /* background-color: #aad4cd; */
+    /* background-color: #b1d7d9;
+    box-shadow: inset 0px 0px 8px 0px #7da9ac8c; */
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -228,7 +228,10 @@ a, .btn-link {
     transition: all .1s ease-out;
 }
 .nav-link:hover{
-    background-color: #aad4cd;
+    /* background-color: #b1d7d9;
+    box-shadow: inset 0px 0px 8px 0px #7da9ac8c; */
+    background-color:#b1d7d9;
+    box-shadow: inset 0px 0px 8px 0px #7da9ac8c;
     border-radius: 10px;
 }
 
@@ -271,7 +274,7 @@ a, .btn-link {
     align-items: center;
     font-size: 20px;
     font-weight: 600;
-    letter-spacing: 0.8px;
+    /* letter-spacing: 0.8px; */
     cursor: pointer;
     /* text-shadow: #585858 1px 1px 2px; */
 }
@@ -321,26 +324,27 @@ a, .btn-link {
 .LoginUser{
     display: flex;
     flex-direction: row;
+    /* align-items: center; */
 }
 
 #nav-ConnectWallet{
-    background-color: #4baab2;
-    border-radius: 14px;
+    background-color: #40828d;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    border: 3px solid #aad4cd;
+    width: 72px;
+    /* border: 3px solid #aad4cd; */
     box-shadow: 2px 2px 4px 0px #1c4c581e;
     transition: all .1s ease-in;
-    margin: 3px auto;
-    height: 45px;
+    margin: 6px auto;
+    height: 38px;
 }
 #nav-ConnectWallet a{
     padding: 6px 10px;
-    font-size: 14px;
+    font-size: 12px;
     color: #ffffff;
-    line-height: 16px ;
+    line-height: 14px ;
     text-decoration: none;
     text-align: center;
     white-space: unset;
@@ -354,7 +358,7 @@ a, .btn-link {
 
     }
     #nav-ConnectWallet{
-        width: 50%;
+        width: 45%;
         margin-bottom: 10px;
     }
 }
@@ -409,18 +413,19 @@ a, .btn-link {
     align-items: center; 
     justify-content: center;
     font-size: 16px;
+    margin-left: 5px;
 }
 
 #Language_Select{
-    width: 95px;
-    height: 30px;
-    margin-left: 5px;
+    width: 80px;
+    height: 25px;
+    /* margin-left: 5px; */
     outline: none;
     /* padding: 3px; */
     border-radius: 15px;
     background-color: #1C4C58;
     border: none;
-    max-width: 100px;
+    /* max-width: 100px; */
     color: #69ADA2;
     -moz-appearance: none;
     appearance: none;
@@ -432,7 +437,8 @@ a, .btn-link {
     /* padding: 1px; */
     outline: 0;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
+    letter-spacing: 0.8px;
 }
 
 .Language_option{
@@ -476,37 +482,38 @@ a, .btn-link {
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
-    letter-spacing: 0.8px;
+
     border-radius: 10px;
 }
 
 .userIcon {
     /* border: solid rgb(209, 94, 28) 1px; */
-    margin: 0 5px;
-    transform: translateY(-4px);
+    margin: 0 3px 0 0;
+    transform: translateY(-2px);
     fill: #1C4C58;
+    width: 15.5px;
 }
 
 .userNumber {
     /* border: solid rgb(67, 28, 209) 1px; */
     /* color: #f7f7f7; */
-    margin-right: 10px;
+    /* margin-right: 10px; */
     /* font-size: 16px; */
 }
 
 #login_button, #logout_button {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border: none;
     border-radius: 50%;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 15px;
     outline: none;
-    font-size: 14px;
+    font-size: 13px;
     white-space: nowrap;
-    margin: 0 10px;
+    margin: 2px 10px;
     text-align: center;
     background-image: url(/images/Other/login.webp);
     background-position: center;
@@ -518,7 +525,7 @@ a, .btn-link {
     transition: all .2s ease-out;
     font-weight: 600;
     letter-spacing: 0.8px;
-    line-height: 16px;
+    line-height: 14px;
 }
 
 #login_button:hover, #logout_button:hover {
@@ -564,7 +571,7 @@ a, .btn-link {
 .nav-item ul li:hover{
     color: white;
     /* background-image: url(/images/Other/nav_hover.webp);*/
-background-color: #aad4cd;
+background-color: #aad4cdd4;
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -1304,7 +1311,7 @@ position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 15px;
     padding: 5px 15px 4px;
     margin: 6px 15px;
     transition: all .1s ease-in-out;
@@ -1324,7 +1331,8 @@ position: relative;
 }
 .MarketPlaceButton p{
     /* margin: 0 10px; */
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
+
 }
 
 @media all and (max-width: 500px){
@@ -1408,7 +1416,7 @@ position: relative;
 .ACLIndexNavbar ul li a{
     color: #fff;
     font-size: 14px;
-    letter-spacing: 0.8px;
+    /* letter-spacing: 0.8px; */
     font-weight: bold;
     text-decoration: none;
     padding: 1.5px 20px 0px;
@@ -1470,10 +1478,12 @@ position: relative;
 }
 .others_arrow{
     margin: 8px 0;
+    width: 45px;
 }
 
 .nav-others >.nav-link:hover{
     background: none;
+    box-shadow: unset;
 }
 
 .others-flex{
@@ -1492,7 +1502,8 @@ position: relative;
     }
     .nav-others:hover{
         /* background-image: url(/images/Other/nav_hover.webp);*/
-        /* background-color: #aad4cd; */
+        /* background-color: #b1d7d9;
+    box-shadow: inset 0px 0px 8px 0px #7da9ac8c; */
     }
 }
 
@@ -1510,9 +1521,9 @@ position: relative;
     /* border: 1px solid red;  */
     color: #1c4c58;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     margin: 0 auto;
-    line-height: 30px;
+    line-height: 24px;
     border-bottom: 2.5px solid #1c4c58;
     padding: 18px;
 
@@ -1661,6 +1672,28 @@ position: relative;
     .GoBack-2{
         font-size: 36px;
     }
+
+    .nav-item a, .nav-item_a{
+        font-size: 17px;
+    }
+    .nav_ul_slide li a{
+        font-size: 15px;
+    }
+    .user {
+        font-size: 17px;
+    }
+    #nav-ConnectWallet a{
+        font-size: 13px;
+    }
+    #login_button, #logout_button{
+        width: 50px;
+        height: 50px;
+    }
+    #Language_Select{
+        width: 97px;
+        height: 30px;
+        font-size: 14px;
+    }
 }
 
 @media all and (max-width: 600px){
@@ -1723,10 +1756,10 @@ body:not(.rz-default-scrollbars) ::-webkit-scrollbar {
 
 @media screen and (min-width: 1000px) and (max-width: 1100px){
     .nav-item a, .nav-item_a{
-        font-size: 15px;
+        font-size: 14px;
     }
     .user {
-        font-size: 15px;
+        font-size: 14px;
     }
     #Language_Select{
         font-size: 15px;

@@ -2,7 +2,8 @@
 
 /* nav 當頁顯示 */
 #nav-ERNC >.nav-link{
-    background-color: #aad4cd;
+    background-color: #b1d7d9;
+    box-shadow: inset 0px 0px 8px 0px #7da9ac8c;
 }
 
 #ERNC_hover_bottom{
