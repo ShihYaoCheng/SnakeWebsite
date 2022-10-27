@@ -12,6 +12,8 @@
         public string Name { get; set; }
         public string Owned { get; set; }
 
+        public string walletAddress { get; set; }
+
         public NowRentAndTotalRevenue Income { get; set; }
 
         public string ImgPath { get; set; }

@@ -135,6 +135,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                     {
                         /*Owned*/
                         Rider.Owned = result.castings[0].owner;
+                        Rider.walletAddress = asset_contract_address;
                         if (Rider.Owned.Length > 20)
                         {
                             Rider.Owned = string.Format("{0}...{1}", Rider.Owned.Substring(0, 5), Rider.Owned.Substring(Rider.Owned.Length - 4, 4));
@@ -150,7 +151,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                         /*Owned*/
                         //Rider.Owned = asset_contract_address;
 
-
+                        Rider.walletAddress = asset_contract_address;
                         Rider.Owned = string.Format("{0}...{1}", asset_contract_address.Substring(0, 5), asset_contract_address.Substring(asset_contract_address.Length - 4, 4));
                         /*Income*/
                         Rider.Income = new NowRentAndTotalRevenue();

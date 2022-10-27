@@ -63,6 +63,9 @@
     [Parameter]
     public string UserId { get; set; }
 
+    [Parameter]
+    public string walletAddress { get; set; }
+
 
     [Parameter]
     public string TokenID { get; set; }
@@ -76,6 +79,8 @@
 
     private async Task Refresh()
     {     
+
+        walletAddress = AppState.LoginStatus.walletAddress; 
         Ridder =await ProductsService.Get_RiderIntroduce();
         StateHasChanged();
     }
