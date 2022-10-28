@@ -62,12 +62,6 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 		.send({
 			from: accounts[0],
 		})
-			.then(function (receipt, error) {
-				console.log("receipt", receipt)
-			console.log("error", error)
-		})
-		console.log("request", request)
-
 		//.on("error", function (error) {
 			
 		//console.log("13213")
@@ -97,11 +91,6 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 		console.error(err);
 		alert("交易失敗");
 	
-		return false
-	} finally {
-		
-		alert("結束交易了拉");
-
 		return false
 	}
 
