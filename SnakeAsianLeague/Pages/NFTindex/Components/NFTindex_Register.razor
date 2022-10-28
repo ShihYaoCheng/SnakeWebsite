@@ -286,7 +286,7 @@
             }
             loginRequest.phone = PhoneNum;
             loginRequest.password = PasswordCheck;
-            SnakeAccount snakeAccount = await AuthService.AuthLogin(loginRequest);
+            SnakeAccount snakeAccount = await AuthService.AuthLogin(loginRequest,true);
             AppState.UpdateLoginStatus(this, snakeAccount);
 
             AlertTitle = "Register Successed";

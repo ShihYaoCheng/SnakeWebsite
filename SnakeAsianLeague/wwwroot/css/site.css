@@ -743,6 +743,13 @@ position: relative;
     border-radius: 5px;
 }
 
+.autoLoginLabel {
+    font-size: 14px;
+    text-align: center;
+    color: #e0eeff;
+    text-shadow: #ffffff8f 1px 1px 16px;
+}
+
 .login_input:focus {
     outline: none;
     box-shadow: #ffffffcf 0px 0px 8px 0px;
