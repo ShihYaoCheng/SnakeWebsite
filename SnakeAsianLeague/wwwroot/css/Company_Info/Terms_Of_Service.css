@@ -116,7 +116,7 @@
 }
 @media all and (max-width: 1000px){
     .Service-BG{
-        padding: 110px 0 90px;
+        padding: 90px 0 90px;
     }
     .Service-title{
         font-size: 19px;
@@ -141,9 +141,9 @@
         left: -28px;
     }
 }
-@media all and (max-width: 450px){
+@media all and (max-width: 550px){
     .Service-BG {
-        padding: 100px 0 50px;
+        padding: 95px 0 50px;
         background-position: top left;
     }
     .Service-main{
@@ -154,7 +154,7 @@
         display: none;
     }
     .Service-inner{
-        padding: 50px 0px 0px;
+        padding: 47px 0px 0px;
         width: 95%;
         height: unset;
         background-color: unset;

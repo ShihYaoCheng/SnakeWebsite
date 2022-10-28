@@ -960,8 +960,8 @@ input[type="text"]::-webkit-input-placeholder {
 .webFooter-inner-update {
     /* border: 1px solid red; */
     margin: 0 auto;
-    max-width: 1500px;
-    width: 80%;
+    max-width: 1200px;
+    width: 90%;
 }
 
 .webFooter-dlex-update {
@@ -970,7 +970,7 @@ input[type="text"]::-webkit-input-placeholder {
     justify-content: space-between;
     /* width: 80%; */
     margin: 0px auto;
-    padding: 60px 0 0;
+    padding: 30px 0 0;
     flex-wrap: wrap;
 }
 
@@ -980,13 +980,13 @@ input[type="text"]::-webkit-input-placeholder {
 
 .CQI-Game-update {
     /* border: 1px solid red; */
-    max-width: 320px;
+    max-width: 250px;
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .CQI-Title-update {
@@ -995,12 +995,11 @@ input[type="text"]::-webkit-input-placeholder {
     font-size: 40px;
     /* border-bottom: 1px solid #67ADA2; */
     font-weight: 600;
-    padding-bottom: 10px;
 }
 
 .footer-logo {
-    max-width: 300px;
-    width: 100%;
+    max-width: 200px;
+    width: 60%;
 }
 
 .CQI-Icons-all-update {
@@ -1008,7 +1007,7 @@ input[type="text"]::-webkit-input-placeholder {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 10px auto 30px;
+    margin: 10px auto 10px;
 }
 
 .CQI-Icons-update {
@@ -1021,7 +1020,7 @@ input[type="text"]::-webkit-input-placeholder {
 }
 
 .CQI-Icons-update img {
-    width: 50px;
+    width: 40px;
 }
 
 /* page-links-update */
@@ -1034,7 +1033,7 @@ input[type="text"]::-webkit-input-placeholder {
     /* flex-wrap: wrap; */
     justify-content: space-between;
     color: #67ADA2 !important;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 
 }
 
@@ -1057,19 +1056,19 @@ input[type="text"]::-webkit-input-placeholder {
     list-style: none;
     transition: all .1s ease-in-out;
 
-    line-height: 34px;
+    line-height: 32px;
 
 }
 
 .link-row-Title-update {
     color: #253A4B;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
 
 }
 
 .link-row-li-update {
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
     flex-direction: column;
 }
@@ -1086,17 +1085,19 @@ input[type="text"]::-webkit-input-placeholder {
     /* border:  1px solid red; */
     /* max-width: 1920px; */
     /* width: 80%; */
-    margin: 0 auto 50px;
-    font-size: 20px;
-    line-height: 36px;
+    margin: 0 0 10px 25px;
+    font-size: 16px;
+    line-height: 28px;
     font-weight: 500;
+    align-self: flex-start;
+    text-align: start;
 }
 
 /* Copyright-update */
 .Copyright-update {
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0 15px;
     margin: 0px auto;
 }
 
@@ -1109,43 +1110,10 @@ input[type="text"]::-webkit-input-placeholder {
         max-width: 500px;
     }
 
-    .CQI-Game-update {
-        max-width: 280px;
-    }
-
-    .CQI-Title-update {
-        font-size: 36px;
-    }
-
-    .CQI-Icons-update img {
-        width: 43px;
-    }
-
-    .CQI-Icons-all-update {
-        margin: 5px auto 25px;
-    }
-
-    .link-row-Title-update {
-        font-size: 20px;
-    }
-
-    .link-row-li-update {
-        font-size: 18px;
-    }
-
-    .contact-information-update {
-        font-size: 18px;
-    }
 }
 
 @media all and (max-width: 1000px) {
     .webFooter-dlex-update {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact-information-update {
-        display: flex;
         flex-direction: column;
         align-items: center;
     }
@@ -1157,10 +1125,12 @@ input[type="text"]::-webkit-input-placeholder {
     .page-links-update {
         margin-bottom: 30px;
     }
-
-    .contact-information-update {
-        margin: 0 auto 30px;
+    .contact-information-update{
+        font-size: 15px;
+        margin: 0 0 10px 0px;
+        align-self: center;
     }
+
 }
 
 @media all and (max-width: 600px) {
@@ -1173,13 +1143,12 @@ input[type="text"]::-webkit-input-placeholder {
         margin: 0 30px 10px 10px;
     }
 
-    .contact-information-update {
-        line-height: 30px;
-    }
-
     .Copyright-update {
         font-size: 14px;
         line-height: 18px;
+    }
+    .CQI-Icons-update img{
+        width: 38px;
     }
 }
 
