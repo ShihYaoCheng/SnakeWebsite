@@ -432,14 +432,13 @@
 </nav>
 
 <!-- login block-->
-<LoginBlock  loginErrorShow=@loginErrorShow LoginSubmit="LoginSubmit" loginRequest=@loginRequest />
+<LoginBlock   />
 
 <!-- Back to top -->
 <BackToTop />
 
 @code 
-{
-    public LoginRequest loginRequest = new LoginRequest();
+{    
     private IJSObjectReference? footerContactJS;
     private IJSObjectReference? BackToTopJS;
     private IJSObjectReference? AnimateJS;
@@ -482,26 +481,26 @@
     /// 登入
     /// </summary>
     /// <returns></returns>
-    private async Task LoginSubmit()
-    {
-        SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest);
-        AppState.UpdateLoginStatus(this, snakeAccount);       
-        if (AppState.LoginStatus.IsLogin == true)
-        {
-            loginErrorShow = false;
-            await JS.InvokeVoidAsync("loginClose");
-            await JS.InvokeVoidAsync("myprofileSidebar");
-            await JS.InvokeVoidAsync("installI18n");
-            await JS.InvokeVoidAsync("navbarSlide");
-            //HandleClick();
+    //private async Task LoginSubmit()
+    //{
+    //    SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest , true);
+    //    AppState.UpdateLoginStatus(this, snakeAccount);       
+    //    if (AppState.LoginStatus.IsLogin == true)
+    //    {
+    //        loginErrorShow = false;
+    //        await JS.InvokeVoidAsync("loginClose");
+    //        await JS.InvokeVoidAsync("myprofileSidebar");
+    //        await JS.InvokeVoidAsync("installI18n");
+    //        await JS.InvokeVoidAsync("navbarSlide");
+    //        //HandleClick();
 
-        }
-        else
-        {
-            loginErrorShow = true;
-        }
+    //    }
+    //    else
+    //    {
+    //        loginErrorShow = true;
+    //    }
 
-    }
+    //}
 
     /// <summary>
     /// 登出按鈕
@@ -545,7 +544,7 @@
 
     string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    bool loginErrorShow { get; set; } = false;
+    //bool loginErrorShow { get; set; } = false;
 
     void ToggleNavMenu()
     {

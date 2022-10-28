@@ -42,7 +42,7 @@
 
             if (loginRequest != null)
             {
-                SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest);
+                SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest,true);
                 AppState.UpdateLoginStatus(this, snakeAccount);
 
                 NavigationManager.NavigateTo("/myprofile/index",true);

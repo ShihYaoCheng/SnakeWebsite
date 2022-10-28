@@ -1,5 +1,8 @@
 ﻿@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services
 @inject IJSRuntime JS
+@inject IAuthService authService
+@inject AppState AppState
 
 <div class="login_block" id="login_block">
     <div class="login_block_bg" @onclick="loginCloseClick"></div>
@@ -24,8 +27,12 @@
                 <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">密碼</label>
                 <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=loginRequest.password required>
             </div>
+            <div  style="margin-bottom: 10px;">
+                 <input type="checkbox" id="autoLogin" name="autoLogin" @onchange="(e)=>{toggleAutoLogin(e);}"   >
+                 <label class="autoLoginLabel"  for="autoLogin">是否維持登入狀態</label>
+            </div>
             <div type="text" class="login_error" hidden="@(!loginErrorShow)"  data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>
-            <div id="login_submit" @onclick="@LoginSubmitBtn">                
+            <div id="login_submit" @onclick="@LoginSubmit">                
                 <img data-src="/images/Index/signUpEvent_button.webp" src="/images/Index/signUpEvent_button.webp"alt="">
                 <span data-i18n="[html]signInWindows.SignIn">登入</span>                
             </div>
@@ -34,12 +41,14 @@
 </div>
 
 @code {
-     [Parameter]
-    public Boolean loginErrorShow { get; set;}
+    // [Parameter]
+    //public Boolean loginErrorShow { get; set;}
+    public LoginRequest loginRequest = new LoginRequest();
 
+    bool loginErrorShow;
 
-    [Parameter]
-    public  LoginRequest loginRequest { get; set;}
+    //[Parameter]
+    //public  LoginRequest loginRequest { get; set;}
 
 
     private async Task loginCloseClick()
@@ -48,13 +57,42 @@
     }
 
 
-     [Parameter]
-    public EventCallback<int> LoginSubmit { get; set;}
+    // [Parameter]
+    //public EventCallback<int> LoginSubmit { get; set;}
 
-     private void LoginSubmitBtn()
+    // private void LoginSubmitBtn()
+    //{
+    //    LoginSubmit.InvokeAsync();   
+    //}
+
+    bool autoLogin =false;
+    private  async Task toggleAutoLogin(ChangeEventArgs value )
     {
-        LoginSubmit.InvokeAsync();   
+        if (value.Value != null)
+        {
+             autoLogin = (bool)value.Value == true ? true :false ;
+        }       
     }
 
+    private async Task LoginSubmit()
+    {
+        SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest , autoLogin);
+        AppState.UpdateLoginStatus(this, snakeAccount);       
+        if (AppState.LoginStatus.IsLogin == true)
+        {
+            loginErrorShow = false;
+            await JS.InvokeVoidAsync("loginClose");
+            await JS.InvokeVoidAsync("myprofileSidebar");
+            await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("navbarSlide");
+            //HandleClick();
+
+        }
+        else
+        {
+            loginErrorShow = true;
+        }
+
+    }
 
 }

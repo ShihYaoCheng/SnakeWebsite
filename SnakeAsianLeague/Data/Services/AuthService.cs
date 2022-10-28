@@ -37,16 +37,20 @@ namespace SnakeAsianLeague.Data.Services
         /// </summary>
         /// <param name="SnakeAccount"></param>
         /// <returns></returns>
-        public async Task<SnakeAccount> AuthLogin(LoginRequest loginRequest)
+        public async Task<SnakeAccount> AuthLogin(LoginRequest loginRequest , bool IsAutoLogin)
         {
             SnakeAccount response = await tryLogin(loginRequest);
             if (response.IsLogin)
             {
-                string token = await GetAuthenticationToken(loginRequest);
-                //string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiIxMTQwNyIsIk5hbWUiOiLmv5Xmv5XnjYXlrZDkuLgiLCJQaG9uZSI6Iis4ODY5NzU1MTE3MzMiLCJXYWxsZXRBZGRyZXNzIjoiIiwiZXhwIjoxNjQ4MDI0NjE5LCJpc3MiOiJjcWlBdXRoRGVtbyJ9.fijum60o3s-G1CEt4fztdlXfpviVVG9h7DqEyG9L9B4";
-                await _localStorage.SetItemAsync("authToken", token);
+                if (IsAutoLogin)
+                {
+                    string token = await GetAuthenticationToken(loginRequest);
+                    //string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiIxMTQwNyIsIk5hbWUiOiLmv5Xmv5XnjYXlrZDkuLgiLCJQaG9uZSI6Iis4ODY5NzU1MTE3MzMiLCJXYWxsZXRBZGRyZXNzIjoiIiwiZXhwIjoxNjQ4MDI0NjE5LCJpc3MiOiJjcWlBdXRoRGVtbyJ9.fijum60o3s-G1CEt4fztdlXfpviVVG9h7DqEyG9L9B4";
+                    await _localStorage.SetItemAsync("authToken", token);
+
+                    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+                }     
                 ((CustomAuthStateProvider)_authenticationStateProvider).MarkUserAsAuthenticated(response.name);
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
                 return response;
             }
             else
