@@ -50,7 +50,7 @@
 
 .NFTindex_BG_diamond {
     width: 100%;
-    background-image: url(/images/NFTindex/NFTindex_BG_diamond.png);
+    background-image: url(/images/NFTindex/NFTindex_BG_diamond-000.png);
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -127,4 +127,17 @@
         /* line-height: 22px; */
         font-size: 14px;
     }
+}
+
+
+.PPSRidersNFT-BG{
+    /* border: 1px solid rgba(255, 0, 0, 0); */
+    width: 100%;
+    /* clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%); */
+    background-image: url("/images/NFTindex/NFTindex_Seignior/Mid_bottom.png");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 1000px; */
+    /* padding-bottom: 150px; */
 }

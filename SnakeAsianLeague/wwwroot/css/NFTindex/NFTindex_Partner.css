@@ -1,8 +1,12 @@
 .NFTindex_Partner{
     /* border: 1px solid red; */
     width: 100%;
-    padding: 50px 0 150px;
+    padding: 100px 0 150px;
     /* height: 1500px; */
+    /* background-color: #203240; */
+    background-color: #21384c;
+    /* background-color: #1d3143; */
+    /* background-color: #213445; */
 }
 
 .partner-block{
@@ -73,6 +77,9 @@
     }
 }
 @media all and (max-width: 500px){
+    .NFTindex_Partner{
+        padding: 80px 0 150px;
+    }
     .partner-board{
         display: none;
     }

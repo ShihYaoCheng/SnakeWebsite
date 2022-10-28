@@ -6,9 +6,9 @@
     background-repeat: no-repeat;
     background-size: cover; */
     /* max-width: 1000px; */
-    margin-top: -250px;
+    /* margin-top: -250px; */
     /* height: 1000px; */
-    padding: 300px 0 30px;
+    padding: 0px 0 80px;
 }
 
 .NFTindex-Carousel-All{
@@ -393,7 +393,7 @@
         width: 90%;
     }
     .NFTindexCarousel{
-        padding: 180px 0 50px;
+        padding: 0px 0 50px;
     }
     .Card-Grade{
         width: 270px;
@@ -477,7 +477,7 @@
         max-width: 800px;
     }
     .NFTindexCarousel {
-        padding: 180px 0 0px;
+        /* padding: 0px 0 0px; */
     }
 }
 @media all and (max-width: 1000px){
@@ -489,7 +489,7 @@
         width: 90%;
     }
     .NFTindexCarousel {
-        padding: 150px 0 0px;
+        /* padding: 0px 0 50px; */
     }
 }
 @media all and (max-width: 500px){

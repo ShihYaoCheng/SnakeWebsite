@@ -782,7 +782,7 @@
     box-shadow: 0px -1px 2px 0 rgb(0 0 0 / 50%), inset 0px 6px 0 0 rgb(255 255 255 / 54%);
     background-image: linear-gradient(to top, #ff7400, #ffa443);
     transition: all .2s ease-in;
-    margin: 0px auto 80px;
+    margin: 0px auto 120px;
 }
 .blueprint-button:hover {
     transition: all .2s ease-in-out;
@@ -797,6 +797,6 @@
         margin: 30px auto 80px;
     }
     .Scholar-Block{
-        padding: 50px 0 0px;
+        padding: 80px 0 0px;
     }
 }

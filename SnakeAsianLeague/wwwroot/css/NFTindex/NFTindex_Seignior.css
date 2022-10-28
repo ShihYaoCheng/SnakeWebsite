@@ -1,16 +1,19 @@
 .NFTindex_Seignior {
     width: 100%;
-    background-color: #203240;
+    /* background-color: #203240; */
     /* margin: 100px auto; */
 }
 
 /* PPS SEIGNIOR 主ICON 與介紹 */
 .Seignior-Block {
     /* border: 1px solid red; */
-    padding: 50px 0 80px;
+    padding: 120px 0 0px;
     width: 100%;
     position: relative;
     /* height: 800px; */
+    /* background-image: linear-gradient(to bottom, #203240 0%,#20324076 3%, #20324076 5%,#203240cc 15%, #203240 85%,#20324022 97%, #20324000 100%); */
+    background-image: linear-gradient(to bottom, #203240 0%,#20324076 0%, #20324076 3%,#203240cc 15%, #203240 80%,#20324085 93%, #20324000 100%);
+
 }
 
 
@@ -34,7 +37,7 @@
     align-items: center;
     /* justify-content: center; */
     justify-content: flex-end;
-    padding: 0 84px;
+    padding: 0px 84px 0px;
 
 }
 .PPSSeignior-mainIcon{
@@ -130,7 +133,7 @@
 .PPSSeignior-Info-Block {
     /* border: 1px solid rgb(90, 45, 238); */
     width: 55%;
-    background-image: url("/images/NFTindex/NFTindex_Seignior/team.png");
+    background-image: url("/images/NFTindex/NFTindex_Seignior/team-01.png");
     background-position: center right;
     background-repeat: no-repeat;
     background-size: contain;
@@ -150,7 +153,10 @@
     width: 100%;
     height: 100%;
     background: no-repeat center top / 100% 100%;
-    background-image: linear-gradient(to bottom, #203240 0%, #203240af 10%, #20324000 20%, #20324000 80%, #203240af 90%, #203240 100%);
+    /* background-image: linear-gradient(to bottom, #203240 0%, #203240af 10%, #20324000 20%, #20324000 80%, #203240af 90%, #203240 100%); */
+    
+    /* background-image: linear-gradient(to right, #20324000 0%, #203240af 10%, #2032409c 20%, #2032409c 80%, #203240af 90%, #20324000 100%); */
+
     z-index: 1;
 }
 
@@ -164,6 +170,8 @@
     /* margin: 30px auto; */
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
     z-index: 10;
+
+    text-shadow: rgba(0, 0, 0, 0.674) 0.1em 0.1em 0.2em;
 }
 .PPSSeignior-Title {
     font-size: 30px;
@@ -225,17 +233,16 @@
     background-size: cover;
     /* height: 1000px; */
     /* padding-bottom: 150px; */
-
-
 }
+
 .PPSRidersNFT-Gradient-Outside{
     position: relative;
     width: 100%;
-    padding: 80px 0 150px;
+    padding: 50px 0 0px;
 
     
 }
-.PPSRidersNFT-Gradient{
+/* .PPSRidersNFT-Gradient{
     position: absolute;
     top: 0;
     left: 0;
@@ -247,7 +254,7 @@
     z-index: 1;
 
     display: none;
-}
+} */
 
 .PPSRidersNFT-Block{
     /* border: 1px solid red; */
@@ -651,7 +658,7 @@
 
 
     .PPSRidersNFT-Gradient-Outside{
-        padding: 100px 0 200px;
+        padding: 0px 0 0px;
     }
     .PPSRidersNFT-Block{
         flex-direction: column;
