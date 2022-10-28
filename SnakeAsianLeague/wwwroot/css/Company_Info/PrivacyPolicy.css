@@ -86,7 +86,7 @@
 
 #note{
     width: 32px;
-    margin-bottom: 2px;
+    margin: 0px 1px 3px 0px;
 }
 
 /* 改scrollbar樣式 */
@@ -107,7 +107,7 @@
 }
 @media all and (max-width: 1920px){
     .Service-BG{
-        padding: 110px 0 70px;
+        padding: 90px 0 70px;
     }
     .Service-main{
         max-width: 1000px;
@@ -124,11 +124,11 @@
 }
 @media all and (max-width: 1000px){
     .Service-BG{
-        padding: 100px 0 60px;
+        padding: 90px 0 50px;
     }
     .Privacy-title{
         font-size: 19px;
-        padding: 4px 26px 4px 26px;
+        padding: 3px 26px 3px 26px;
         border: 3px solid #D8B874;
     }
     #note{
@@ -136,7 +136,7 @@
         margin-right: 2px;
     }
     .Service-main{
-        padding: 155px 0 135px;
+        padding: 150px 0 135px;
     }
     .Service-inner{
         height: 380px;
@@ -151,9 +151,9 @@
 
 
 }
-@media all and (max-width: 450px){
+@media all and (max-width: 550px){
     .Service-BG {
-        padding: 100px 0 50px;
+        padding: 75px 0 50px;
         background-position: top left;
     }
     .Service-main{
@@ -164,7 +164,7 @@
         display: none;
     }
     .Service-inner{
-        padding: 50px 0px 0px;
+        padding: 47px 0px 0px;
         width: 95%;
         height: unset;
         background-color: unset;
