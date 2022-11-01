@@ -51,7 +51,7 @@
     transition: all .1s ease-in-out;
     font-family: 'Arvo', sans-serif,'Noto Sans TC' !important;
     letter-spacing: 0.5px;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
     white-space: nowrap;
 }
 .title:hover .title-hover{
@@ -61,6 +61,7 @@
 .title-hover-show{
     opacity: 1;
     z-index: 20;
+    color: #fff !important;
 }
 
 @media all and (max-width: 500px){
