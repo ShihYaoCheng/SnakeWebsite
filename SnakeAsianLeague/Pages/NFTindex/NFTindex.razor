@@ -9,7 +9,7 @@
 
 <head>
     <title>PonPonSnake｜Home</title>
-    <link href="/css/NFTindex/NFTindex.css" rel="stylesheet"/>
+    <link href="/css/NFTindex/NFTindex.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.1/swiper-bundle.css"
         integrity="sha512-xTLlG+jNUAbKTCLpdibgQptrCWCqMDQHombvHK7T2S2bQW5zKZtDMssUw3ftsoJ+T9cATQmdNsPIgopUlUWz8g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,61 +17,144 @@
 </head>
 
 <div class="NFTindex">
-  
+
     @*<Loading />*@
     @* <NFTindex_Register/> *@
 
     <main class="">
         <LoadingBazor>
             <NFTindex_Join />
-            <NFTindex_Banner />
-            <NFTindex_Flag /> 
 
-            <div class="PPSRidersNFT-BG">
+            <div class="sec" id="sec-01" data-num="1">
+                <NFTindex_Banner />
+                <NFTindex_Flag />
+            </div>
+
+            <div class="PPSRidersNFT-BG sec" id="sec-02" data-num="2">
                 <NFTindex_Seignior />
                 <NFTindex_Carousel />
             </div>
 
-            
+            <div class="sec"  id="sec-03" data-num="3">
                 <NFTindex_Scholar />
-                
-            <div class="NFTindex_BG_diamond">        
-                <NFTindex_SRC />
+            </div>
 
-            
+            <div class="sec"  id="sec-04" data-num="4">
+                <NFTindex_SRC />
+            </div>
+
+            <div class="sec"  id="sec-05" data-num="5">
                 <NFTindex_Partner />
             </div>
 
-        </LoadingBazor>  
+        </LoadingBazor>
+
+
     </main>
+    <NFTindex_Navigation />
     <Event_banner />
 </div>
 
 
 @code {
 
+
+
+
+
+
+
     private IJSObjectReference? BannerJS;
+
+
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
+
+
+
     {
 
+
+
+
+
+
+
         if (firstRender)
+
+
+
         {
-            await JS.InvokeVoidAsync("installI18n");            
-            BannerJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/SnakeIndex/Banner.js");
+
+
+
+            await JS.InvokeVoidAsync("installI18n");
+
+
+
+            BannerJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SnakeIndex/Banner.js");
+
+
+
             await BannerJS.InvokeVoidAsync("BannerMove");
-            await  BlockChainSever.GetBlockChainInfoDTO();
-          
+
+
+
+            await BlockChainSever.GetBlockChainInfoDTO();
+
+
+
+
+
+
+
         }
+
+
+
+
+
+
 
     }
 
 
+
+
+
+
+
+
+
+
+
     private async Task event_banner_SlideClick()
+
+
+
     {
+
+
+
         if (BannerJS != null)
+
+
+
         {
+
+
+
             await BannerJS.InvokeVoidAsync("event_banner_Slide");
+
+
+
         }
-    
+
+
+
+
+
+
+
     }
 }

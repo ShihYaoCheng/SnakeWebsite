@@ -1,3 +1,11 @@
+.NFTindex_BG_diamond {
+    width: 100%;
+    background-image: url(/images/NFTindex/NFTindex_BG_diamond-000.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .NFTindex_SRC {
     /* border: 1px solid red; */
     /* height: 1000px; */

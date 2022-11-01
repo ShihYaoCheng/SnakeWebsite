@@ -111,7 +111,7 @@
   },
 
   "Scholar": {
-    "title": "PPS Researcher",
+    "title": "PPS RESEARCHER",
     "text-01": "The improvement of the Itza world relies on creative researchers. These researchers are far smarter than Itzans, such as Leonardo da Vinci and Tesla, they bring revolution to the world. The greatest researchers will be referred to as \"Doctorates\", and they will have the knowledge and capacity to transform the world.",
     "privilege-A": "<span>Privilege A</span><br> Earn royalties from players through constructing airships or items.",
     "privilege-B": "<span>Privilege B</span><br> Control the market price of materials.",
@@ -122,5 +122,14 @@
     "blueprint-type-03":"Item Blueprint",
 
     "button":"PPS Blueprint NFTs"
+  },
+
+  "Navigation":{
+    "sec-01": "PonPonSnake",
+    "sec-02": "Seignior",
+    "sec-03": "Researcher",
+    "sec-04": "SRC",
+    "sec-05": "Partners"
   }
+  
 }

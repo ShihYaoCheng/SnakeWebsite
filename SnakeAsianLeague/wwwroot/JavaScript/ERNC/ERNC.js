@@ -500,7 +500,7 @@ export function chartInitRwd() {
 
 // PROJECT ROADMAP
 export function roadMapScrollLeft() {
-    console.log('roadMapScrollLeft')
+    // console.log('roadMapScrollLeft')
 
     $(document).ready(function () {
         $("#btn-2022").click(function () {
