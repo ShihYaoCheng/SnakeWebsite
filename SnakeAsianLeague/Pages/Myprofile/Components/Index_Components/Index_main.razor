@@ -40,7 +40,7 @@
                                     <div class="playerInfoRowTitle" data-i18n="myprofile.phone">Phone</div>
                                     <div class="playerInfoRowShow">@AppState.LoginStatus.phone</div>
                                 </div>
-
+                               
                                 @if (!MetamaskAvailable)
                                 {
 
@@ -227,26 +227,14 @@
                                     <div class="playerInfoRowShow">Please sign in</div>
                                 </div>
 
-                                @if (!MetamaskAvailable)
-                                {
-
-                                    <button class="btnMetamask"  @onclick="loginButtonClick" >
-                                        <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"
-                                        target="_blank">
-                                            <span style="margin: 5px 20px;" data-i18n="myprofile.installMetamask">Please
-                                                Install Metamask</span>
-                                        </a>
-                                    </button>
-
-                                }
-                                else if (MetamaskAvailable && string.IsNullOrEmpty(AppState.LoginStatus.walletAddress))
-                                {
+                         
+                                
                                     <button type="button" class="btnMetamask" @onclick="loginButtonClick">
                                         <span data-i18n="myprofile.connectMetamask">Connect Metamask</span>
                                         <img src="/images/Myprofile/btnMetamask_icon.webp" alt="">
                                     </button>
 
-                                }
+                                
                             </div>
                         </div>
 

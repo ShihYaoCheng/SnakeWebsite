@@ -970,9 +970,9 @@ html{
 
 /* checkbox 樣式 */
 /* 元々のチェックボックス（非表示） */
-input[type="checkbox"]{
+/*input[type="checkbox"]{
     display: none;
-}
+}*/
 /* チェックボックスの代わりを成すラベル */
 input[type="checkbox"]+.receive_label{
     display: none;
