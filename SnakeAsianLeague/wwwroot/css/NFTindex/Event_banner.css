@@ -310,7 +310,7 @@
 }
 
 
-@media all and (max-width: 1500px) {
+@media all and (max-width: 1920px) {
     .eventBannerS3-BG {
         max-width: 799px;
         height: 165.5px;

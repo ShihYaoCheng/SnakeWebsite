@@ -634,6 +634,9 @@
         height: 50px;
         margin: 0px auto 35px;
     }
+    .PPSRidersNFT-Block{
+        margin: 0 auto 50px;
+    }
 }
 
 @media all and (max-width: 1000px){

@@ -1,5 +1,5 @@
 export function NFTindexNavigation() {
-    console.log('NFTindexNavigation')
+    // console.log('NFTindexNavigation')
 
     const callback = (entries, observer) => {
         entries.forEach((entry) => {

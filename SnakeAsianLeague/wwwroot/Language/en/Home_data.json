@@ -122,5 +122,14 @@
     "blueprint-type-03":"Item Blueprint",
 
     "button":"PPS Blueprint NFTs"
+  },
+
+  "Navigation":{
+    "sec-01": "PonPonSnake",
+    "sec-02": "Seignior",
+    "sec-03": "Researcher",
+    "sec-04": "SRC",
+    "sec-05": "Partners"
   }
+  
 }
