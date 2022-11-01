@@ -1,0 +1,48 @@
+@inject IJSRuntime JS
+
+<head>
+    <link href="/css/NFTindex/NFTindex_Navigation.css" rel="stylesheet" />
+</head>
+
+<div class="NFTindex_Navigation">
+    <div class="title_wrap">
+        <div class="title t1">
+            <a href="#sec-01">
+                <span class="title-hover">PonPonSnake</span>
+            </a>
+        </div>
+        <div class="title t2">
+            <a href="#sec-02">
+                <span class="title-hover">Seighior</span>
+            </a>
+        </div>
+        <div class="title t3">
+            <a href="#sec-03">
+                <span class="title-hover">Researcher</span>
+            </a>
+        </div>
+        <div class="title t4">
+            <a href="#sec-04">
+                <span class="title-hover">SRC</span>
+            </a>
+        </div>
+        <div class="title t5">
+            <a href="#sec-05">
+                <span class="title-hover">Partners</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+@code {
+    private IJSObjectReference? NFTindexNavigationJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            NFTindexNavigationJS = await
+            JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NFTindex/NFTindex_Navigation.js");
+            await NFTindexNavigationJS.InvokeVoidAsync("NFTindexNavigation");
+        }
+    }
+}
