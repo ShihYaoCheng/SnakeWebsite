@@ -8,6 +8,7 @@
     height: 141px;
     z-index: 100;
     filter: drop-shadow(-2px 0px 15px rgba(20, 68, 61, 0.7));
+    transition: all .3s ease-in;
 }
 @media all and (max-width: 1920px) {
     .join-container {
@@ -19,7 +20,8 @@
 
 @media all and (max-width: 1000px) {
     .join-container {
-        display:none;
+        display: none;
+       
     }
 }
 .join-BG {
@@ -28,7 +30,18 @@
     background: url('../../images/NFTindex/NFTindex_pop/Pop_BG.png');
     background-size: cover;
     position: relative;
+  
 }
+
+.join-hover {
+    transform: translateX(90%);
+  
+}
+
+.join-hover:hover {
+    transform: translateX(0);
+}
+
 
 .join-ventini {
     position:absolute;
