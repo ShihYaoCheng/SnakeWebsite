@@ -388,7 +388,7 @@
     white-space: nowrap;
 }
 
-/* 蛇王 */
+/*  蛇一級 蛇皇 */
 #SnakeIcons-Block-01{
     max-width: 200px;
     height: 165px;
@@ -401,9 +401,7 @@
     top: 50%;
 }
 
-/* 蛇二級 */
-
-/* 蛇王騎靈 Legendary Rider */
+/* 蛇二級 蛇王騎靈 Legendary Rider */
 #SnakeIcons-Block-02{
     /* border: 1px solid red; */
     max-width: 150px;
@@ -418,7 +416,7 @@
     opacity: 0.65;
 }
 
-/* 蛇騎靈 Spirit Snake Rider */
+/* 蛇三級 蛇騎靈 Spirit Snake Rider */
 #SnakeIcons-Block-03{
     max-width: 90px;
     height: 110px;
@@ -431,7 +429,7 @@
     width: 160%;
 }
 
-/* 蛇三級 */
+/* 蛇四級 */
 #SnakeIcons-Block-04{
     max-width: 85px;
     height: 103px;
@@ -457,7 +455,7 @@
     width: 160%;
 }
 
-/* 蛇四級  */
+/* 蛇五級  */
 #SnakeIcons-Block-06{
     max-width: 70px;
     height: 80px;
