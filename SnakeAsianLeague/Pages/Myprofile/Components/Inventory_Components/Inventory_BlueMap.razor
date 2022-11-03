@@ -1,81 +1,65 @@
-﻿<div class="Inventory-CardBLock"> 
-    <div class="NFTcard card-bg-red">
-        <div class="NFTcardA" >
-            @*<a href="@Value.LinkURL" target="opensea">  </a>*@
-            <div class="NFTcard-inner">
-                <div class="NFT-cardImg">
-                    <img src="" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                    <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
+﻿@using SnakeAsianLeague.Data.Entity.BlockChain
+@using SnakeAsianLeague.Data.Services.MarketPlace
+
+
+@inject OptionService OptionService
+
+
+<div class="Inventory-CardBLock"> 
+    @if (DataList != null)
+    {
+        foreach (MetadataList item in DataList)
+        { 
+            <div class="NFTcard card-bg-red">
+                <div class="NFTcardA" >
+                    @*<a href="@Value.LinkURL" target="opensea">  </a>*@
+                    <div class="NFTcard-inner">
+                        <div class="NFT-cardImg">
+                            <img data-src="@item.image" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+                            <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
+                        </div>
+
+                        <div class="NFT-cardText Not-Price-Ver">
+
+
+                            <div class="NFT-card-header">
+                                <img  class="NFT-ElementsIcon" src="" alt="">
+                                <div class="NFT-Number"  >@item.serialNumber</div>
+                            </div>
+                            <div class="NFT-Name"  data-i18n="">
+                                @item.name
+                            </div>
+                        </div>                                                   
+                    </div>                                                  
                 </div>
 
-                <div class="NFT-cardText Not-Price-Ver">
-
-
-                    <div class="NFT-card-header">
-                        <img  class="NFT-ElementsIcon" src="" alt="">
-                        <div class="NFT-Number"  >123</div>
-                    </div>
-                    <div class="NFT-Name"  data-i18n="">
-                        name
-                    </div>
-                </div>                                                   
-            </div>                                                  
-        </div>
-
-    </div>
-
-    <div class="NFTcard card-bg-red">
-        <div class="NFTcardA" >
-            @*<a href="@Value.LinkURL" target="opensea">  </a>*@
-            <div class="NFTcard-inner">
-                <div class="NFT-cardImg">
-                    <img src="" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                    <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
-                </div>
-
-                <div class="NFT-cardText Not-Price-Ver">
-
-
-                    <div class="NFT-card-header">
-                        <img  class="NFT-ElementsIcon" src="" alt="">
-                        <div class="NFT-Number"  >123</div>
-                    </div>
-                    <div class="NFT-Name"  data-i18n="">
-                        name
-                    </div>
-                </div>                                                   
-            </div>                                                  
-        </div>
-
-    </div>
-
-    <div class="NFTcard card-bg-red">
-        <div class="NFTcardA" >
-            @*<a href="@Value.LinkURL" target="opensea">  </a>*@
-            <div class="NFTcard-inner">
-                <div class="NFT-cardImg">
-                    <img src="" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                    <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
-                </div>
-
-                <div class="NFT-cardText Not-Price-Ver">
-
-
-                    <div class="NFT-card-header">
-                        <img  class="NFT-ElementsIcon" src="" alt="">
-                        <div class="NFT-Number"  >123</div>
-                    </div>
-                    <div class="NFT-Name"  data-i18n="">
-                        name
-                    </div>
-                </div>                                                   
-            </div>                                                  
-        </div>
-
-    </div>
-
-
+            </div>
+        }
+    }
 </div>
 @code {
+
+    int BlueMapTotalCount = 0;
+
+    [Parameter]
+    public List<MetadataList>  DataList { get; set;}
+
+    private IJSObjectReference? lazyloadingJS;    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Refresh();
+        }
+    }
+
+
+    private async Task Refresh()
+    {  
+        DataList = await OptionService.GetPPSIMetadataList();
+        BlueMapTotalCount = DataList.Count;
+        StateHasChanged();
+    }
+
 
 }

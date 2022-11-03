@@ -4,6 +4,7 @@ using HtmlAgilityPack;
 using Microsoft.Extensions.Options;
 using RestSharp;
 using SnakeAsianLeague.Data.Entity;
+using SnakeAsianLeague.Data.Entity.BlockChain;
 using SnakeAsianLeague.Data.Entity.Config;
 using SnakeAsianLeague.Data.Paging;
 using System;
@@ -22,7 +23,8 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
-        
+        private readonly RestClient BlockChainServerClient;
+
 
 
 
@@ -40,6 +42,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             externalServersConfig = myConfiguration.Value;
             
             ServerClient = new RestClient(externalServersConfig.UserServer);
+            BlockChainServerClient = new RestClient(externalServersConfig.NftWebApi);
             //ServerClient = new RestClient("https://rel.ponponsnake.com/api/user");
             //Console.WriteLine("ServerClient.BaseUrl: " + ServerClient.BaseUrl);
             OptionKeyValue option = new OptionKeyValue();
@@ -649,6 +652,78 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 string errormsg = ex.Message;
             }
             return result;
+        }
+
+        /// <summary>
+        /// NFT PPS 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> GetPPSMetadataList()
+        {
+            bool result = false;
+            try
+            {
+                string URL = "/BC_CharacterContract/NFTMetadataList";
+                var request = new RestRequest(URL, Method.GET);
+                IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    NFTMetaData ResultData = JsonSerializer.Deserialize<NFTMetaData>(restResponse.Content);
+                    List<MetadataList> DataList = new List<MetadataList>();
+
+                    foreach (var item in ResultData.metadataList)
+                    {
+                        var json = item.Value;
+                        MetadataList rd = JsonSerializer.Deserialize<MetadataList>(json);
+                        DataList.Add(rd);
+                    }
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                string errormsg = ex.Message;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// NFT PPSI 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<MetadataList>> GetPPSIMetadataList()
+        {
+            List<MetadataList> DataList = new List<MetadataList>();
+            try
+            {
+
+
+                string URL = "/BC_PPSI/NFTMetadataList";
+                var request = new RestRequest(URL, Method.GET);
+                IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    NFTMetaData ResultData = JsonSerializer.Deserialize<NFTMetaData>(restResponse.Content);
+
+
+                    foreach (var item in ResultData.metadataList)
+                    {
+                        var json = item.Value;
+                        MetadataList rd = JsonSerializer.Deserialize<MetadataList>(json);
+                        DataList.Add(rd);
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                string errormsg = ex.Message;
+            }
+            return DataList;
         }
     }
 }
