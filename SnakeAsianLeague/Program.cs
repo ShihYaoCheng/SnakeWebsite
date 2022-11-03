@@ -57,6 +57,7 @@ builder.Services.AddSingleton<AsiaLeaguePlaceService>();
 builder.Services.AddSingleton<AsiaLeagueRegistrationService>();
 builder.Services.AddSingleton<ProfileService>();
 builder.Services.AddSingleton<AwardInfoService>();
+builder.Services.AddSingleton<OfficialWebsiteData>();
 builder.Services.AddSingleton<SponsorService>();
 builder.Services.AddSingleton<S2PrizeService>();
 builder.Services.AddSingleton<AsiaLeagueFinalQualifiedIdentityService>();

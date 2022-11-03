@@ -1,48 +1,51 @@
 ﻿@page "/test"
-@inject IJSRuntime JS
-@using SnakeAsianLeague.Data.Entity.View
 @using SnakeAsianLeague.Data.Services
-@using SnakeAsianLeague.Data.Services.BlockChain
-@using SnakeAsianLeague.Data.Services.Metamask
-@using RestSharp;
-@using SnakeAsianLeague.Data.Services.Personal
-
-@inject IConfiguration Configuration
+@using SnakeAsianLeague.Data.Services.Backstage
+@inject OfficialWebsiteData OfficialWebsiteData
 @inject AppState AppState
-@inject BlockChainProcessorSever BlockChainSever
-@inject InventoryService InventoryService
-@inject MetamaskTransfer metamaskTransfer 
-
-
-
 <head>
     <link href="css/test.css" rel="stylesheet" />
 </head>
 
 <div class="test-container">
-    <p id="testNum"> @test</p>
+    <p>點下載的API: @DownloadHitsText</p>
+    <button @onclick="DownloadHits"> 點下載的API</button>
+    <p>點註冊的API: @RegisterText</p>
+    <button @onclick="Register"> 點註冊的API</button>
+   @* <p id="testNum"> @test</p>*@
 </div>
 
 
 @code {
-
-
-
-    private IJSObjectReference? TransferEventsJS;
-    string test="123";
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    string DownloadHitsText="還沒變";
+    uint userID = 0000;  
+    public async Task DownloadHits()
     {
-        if (firstRender)
-        {
-            TransferEventsJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/TransferEvents.js");
-            var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
-            var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;
-            var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
-            test = await TransferEventsJS.InvokeAsync<string>("TransferEvents",socketServerUri , SRC_token_addr,"tokenSRC");
-            Console.Write(test);
-
-        }
-
+        userID=AppState.LoginStatus.userID;
+        DownloadHitsText = await OfficialWebsiteData.DownloadHits(userID);
     }
+
+    string RegisterText = "還沒變";
+    public async Task Register()
+    {
+        RegisterText = await OfficialWebsiteData.Register();
+    }
+
+    //private IJSObjectReference? TransferEventsJS;
+    //string test="123";
+    //protected override async Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    if (firstRender)
+    //    {
+    //        TransferEventsJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/TransferEvents.js");
+    //        var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+    //        var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;
+    //        var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
+    //        test = await TransferEventsJS.InvokeAsync<string>("TransferEvents",socketServerUri , SRC_token_addr,"tokenSRC");
+    //        Console.Write(test);
+
+    //    }
+
+    //}
  
 }
