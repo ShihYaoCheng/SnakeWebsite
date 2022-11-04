@@ -29,7 +29,7 @@
         /// <summary>
         /// 累計租金(累計收益)
         /// </summary>
-        public decimal totalRevenue { get; set; }
+        public List<TotalRevenue> totalRevenue { get; set; }
 
         public string name { get; set; }
 
@@ -57,7 +57,17 @@
         /// <summary>
         /// 職業代碼
         /// </summary>
-        public string occupationId { get; set; }
+        //public string occupationId { get; set; }
+    }
+
+
+
+
+    public class TotalRevenue
+    { 
+        public int currencyType { get; set; }
+
+        public decimal price { get; set; }
     }
 
 
@@ -67,3 +77,5 @@
         public decimal nftCurrency1 { get; set; }
     }
 }
+
+
