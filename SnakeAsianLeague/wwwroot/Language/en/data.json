@@ -72,6 +72,7 @@
   },
 
   "signInWindows": {
+    "WhetheLogged": "Whether to remain logged in",
     "PonPonSnake": "PonPonSnake",
     "PhoneNumber": "<div class=\"signInWindows\">Phone Number</div>",
     "Password": "<div class=\"signInWindows\">Password</div>",

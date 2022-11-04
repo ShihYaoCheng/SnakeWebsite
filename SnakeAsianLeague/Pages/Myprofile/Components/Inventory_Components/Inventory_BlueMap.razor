@@ -1,18 +1,22 @@
-﻿@using SnakeAsianLeague.Data.Entity.BlockChain
+﻿@*@using SnakeAsianLeague.Data.Entity.BlockChain
 @using SnakeAsianLeague.Data.Services.MarketPlace
 
 
-@inject OptionService OptionService
+@inject OptionService OptionService*@
 
-
+@*MarketPlace的飛船藍圖改到MarketPlace_PPSBP..............................*@
 <div class="Inventory-CardBLock"> 
-    @if (DataList != null)
+    @if(false){
+    
+   
+
+   @* @if (DataList != null)
     {
         foreach (MetadataList item in DataList)
         { 
             <div class="NFTcard card-bg-red">
                 <div class="NFTcardA" >
-                    @*<a href="@Value.LinkURL" target="opensea">  </a>*@
+                  
                     <div class="NFTcard-inner">
                         <div class="NFT-cardImg">
                             <img data-src="@item.image" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
@@ -35,31 +39,32 @@
 
             </div>
         }
+    }*@
     }
 </div>
 @code {
+    //MarketPlace的飛船藍圖改到MarketPlace_PPSBP..............................
+    //int BlueMapTotalCount = 0;
 
-    int BlueMapTotalCount = 0;
+    //[Parameter]
+    //public List<MetadataList>  DataList { get; set;}
 
-    [Parameter]
-    public List<MetadataList>  DataList { get; set;}
-
-    private IJSObjectReference? lazyloadingJS;    
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await Refresh();
-        }
-    }
+    //private IJSObjectReference? lazyloadingJS;    
+    //protected override async Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    if (firstRender)
+    //    {
+    //        await Refresh();
+    //    }
+    //}
 
 
-    private async Task Refresh()
-    {  
-        DataList = await OptionService.GetPPSIMetadataList();
-        BlueMapTotalCount = DataList.Count;
-        StateHasChanged();
-    }
+    //private async Task Refresh()
+    //{  
+    //    DataList = await OptionService.GetPPSIMetadataList();
+    //    BlueMapTotalCount = DataList.Count;
+    //    StateHasChanged();
+    //}
 
 
 }

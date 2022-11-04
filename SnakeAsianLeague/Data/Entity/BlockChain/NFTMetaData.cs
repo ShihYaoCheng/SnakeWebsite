@@ -19,6 +19,7 @@
         public string type { get; set; }
         public string serialNumber { get; set; }
         public string animation_url { get; set; }
+        public string LinkURL { get; set; }
     }
 
 

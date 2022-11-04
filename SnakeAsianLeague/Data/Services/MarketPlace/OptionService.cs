@@ -69,9 +69,20 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// 取得OpenSeaURL NFT資產 官方網址
         /// </summary>
         /// <returns></returns>
-        public async Task<string> Get_OpenSeaURL()
+        public async Task<string> Get_OpenSeaURL( int NFTtype)
         {
-            string OpenSeaURL = _config.GetValue<string>("OpenSeaURL");            
+            string url = "";
+            switch (NFTtype)
+            {
+                case 0:
+                    url = "OpenSeaURL_PPSR";
+                    break;
+                case 1:
+                    url = "OpenSeaURL_PPSBP";
+                    break;
+            }
+
+            string OpenSeaURL = _config.GetValue<string>(url);            
             return OpenSeaURL;
         }
 
@@ -693,13 +704,14 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// NFT PPSI 
         /// </summary>
         /// <returns></returns>
-        public async Task<List<MetadataList>> GetPPSIMetadataList()
+        public async Task<List<MetadataList>> GetPPSIMetadataList(string contractAddress_PPSR)
         {
             List<MetadataList> DataList = new List<MetadataList>();
             try
             {
 
-
+                string LinkURL = _config.GetValue<string>("OpenSeaLink");
+                
                 string URL = "/BC_PPSI/NFTMetadataList";
                 var request = new RestRequest(URL, Method.GET);
                 IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
@@ -711,8 +723,13 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
                     foreach (var item in ResultData.metadataList)
                     {
-                        var json = item.Value;
+                        var json = item.Value;                        
                         MetadataList rd = JsonSerializer.Deserialize<MetadataList>(json);
+
+                        //取得url
+                        int num = item.Key;
+                        string getLinkURL = string.Format(LinkURL, contractAddress_PPSR, num);
+                        rd.LinkURL = getLinkURL;
                         DataList.Add(rd);
                     }
 
