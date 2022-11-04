@@ -270,7 +270,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 650px;
+    max-width: 600px;
     width: 100%;
     z-index: 3;
 
@@ -287,10 +287,21 @@
     z-index: 0;
 }
 #PPSRidersNFT-Icons-row-02{
+    
     width: 70%;
 }
 #PPSRidersNFT-Icons-row-03{
-    width: 95%;
+    width: 70%;
+}
+#PPSRidersNFT-Icons-row-04{
+    width: 74%;
+    margin-top: -10px;
+}
+#PPSRidersNFT-Icons-row-04 .SnakeIcons-Block-All{
+    margin: 10px;
+}
+#PPSRidersNFT-Icons-row-05{
+    margin-top: -2px;
 }
 .animate_start #PPSRidersNFT-Icons-row-01{
     animation: SnakeRow-display 0.7s ease-in 0s forwards;
@@ -299,9 +310,12 @@
     animation: SnakeRow-display 0.7s ease-in 0.4s forwards;
 }
 .animate_start #PPSRidersNFT-Icons-row-03{
-    animation: SnakeRow-display 0.7s ease-in 0.8s forwards;
+    animation: SnakeRow-display 0.7s ease-in 0.4s forwards;
 }
 .animate_start #PPSRidersNFT-Icons-row-04{
+    animation: SnakeRow-display 0.7s ease-in 0.8s forwards;
+}
+.animate_start #PPSRidersNFT-Icons-row-05{
     animation: SnakeRow-display 0.7s ease-in 1.2s forwards;
 }
 @keyframes SnakeRow-display {
@@ -323,7 +337,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    margin: 15px;
 }
 
 
@@ -364,9 +378,9 @@
 }
 
 .SnakeIcons-Block-Name{
-    font-size: 18px;
+    font-size: 15px;
     color: white;
-    margin-top: 12px;
+    margin-top: 9px;
     text-shadow: 0px 0px 5px rgba(193, 185, 185, 0.802);
     z-index: 10;
     letter-spacing: 1px;
@@ -374,53 +388,38 @@
     white-space: nowrap;
 }
 
-/* 蛇王 */
+/*  蛇一級 蛇皇 */
 #SnakeIcons-Block-01{
-    max-width: 320px;
-    height: 264px;
+    max-width: 200px;
+    height: 165px;
 }
 #SnakeIcons-Block-01 .PPSRidersNFT-Icons-Snake{
     
 }
 #SnakeIcons-Block-01 .PPSRidersNFT-Icons-BG{
     width: 150%;
-    top: 55%;
+    top: 50%;
 }
 
-/* 蛇二級 */
-
-/* 蛇王騎靈 Legendary Rider */
-#SnakeIcons-Block-02-1{
-    /* border: 1px solid red; */
-    max-width: 190px;
-    height: 170px;
-}
-#SnakeIcons-Block-02-1 .PPSRidersNFT-Icons-Snake{
-    
-    
-}
-#SnakeIcons-Block-02-1 .PPSRidersNFT-Icons-BG{
-    width: 125%;
-    opacity: 0.65;
-}
-
-/* 蛇騎靈 Spirit Snake Rider */
+/* 蛇二級 蛇王騎靈 Legendary Rider */
 #SnakeIcons-Block-02{
-    max-width: 138px;
-    height: 170px;
+    /* border: 1px solid red; */
+    max-width: 150px;
+    height: 134px;
 }
 #SnakeIcons-Block-02 .PPSRidersNFT-Icons-Snake{
     
     
 }
 #SnakeIcons-Block-02 .PPSRidersNFT-Icons-BG{
-    width: 160%;
+    width: 125%;
+    opacity: 0.65;
 }
 
-/* 蛇三級 */
+/* 蛇三級 蛇騎靈 Spirit Snake Rider */
 #SnakeIcons-Block-03{
-    max-width: 120px;
-    height: 145px;
+    max-width: 90px;
+    height: 110px;
 }
 #SnakeIcons-Block-03 .PPSRidersNFT-Icons-Snake{
     
@@ -430,10 +429,10 @@
     width: 160%;
 }
 
-
+/* 蛇四級 */
 #SnakeIcons-Block-04{
-    max-width: 115px;
-    height: 145px;
+    max-width: 85px;
+    height: 103px;
 }
 #SnakeIcons-Block-04 .PPSRidersNFT-Icons-Snake{
     
@@ -443,22 +442,23 @@
     width: 160%;
 }
 
-/* 蛇四級  */
+
 #SnakeIcons-Block-05{
-    max-width: 90px;
-    height: 103px;
+    max-width: 80px;
+    height: 100px;
 }
 #SnakeIcons-Block-05 .PPSRidersNFT-Icons-Snake{
     
     
 }
 #SnakeIcons-Block-05 .PPSRidersNFT-Icons-BG{
-    width: 180%;
+    width: 160%;
 }
 
+/* 蛇五級  */
 #SnakeIcons-Block-06{
-    max-width: 105px;
-    height: 100px;
+    max-width: 70px;
+    height: 80px;
 }
 #SnakeIcons-Block-06 .PPSRidersNFT-Icons-Snake{
     
@@ -468,16 +468,28 @@
     width: 180%;
 }
 
-
 #SnakeIcons-Block-07{
-    max-width: 95px;
-    height: 100px;
+    max-width: 90px;
+    height: 86px;
 }
 #SnakeIcons-Block-07 .PPSRidersNFT-Icons-Snake{
     
     
 }
 #SnakeIcons-Block-07 .PPSRidersNFT-Icons-BG{
+    width: 180%;
+}
+
+
+#SnakeIcons-Block-08{
+    max-width: 77px;
+    height: 79px;
+}
+#SnakeIcons-Block-08 .PPSRidersNFT-Icons-Snake{
+    
+    
+}
+#SnakeIcons-Block-08 .PPSRidersNFT-Icons-BG{
     width: 180%;
 }
 
@@ -576,43 +588,46 @@
         width: 75%;
     }
     #PPSRidersNFT-Icons-row-03{
-        width: 100%;
+        width: 75%;
+    }
+    #PPSRidersNFT-Icons-row-04{
+        width: 72%;
     }
     #SnakeIcons-Block-01 {
-        max-width: 230px;
-        height: 190px;
-    }
-    #SnakeIcons-Block-02-1 {
-        max-width: 150px;
-        height: 134px;
+        max-width: 170px;
+        height: 139px;
     }
     #SnakeIcons-Block-02 {
-        max-width: 106px;
-        height: 134px;
+        max-width: 130px;
+        height: 117px;
     }
     #SnakeIcons-Block-03 {
-        max-width: 90px;
-        height: 108px;
+        max-width: 80px;
+        height: 98px;
     }
     #SnakeIcons-Block-04 {
-        max-width: 90px;
-        height: 110px;
+        max-width: 70px;
+        height: 85px;
     }
     #SnakeIcons-Block-05 {
+        max-width: 68px;
+        height: 85px;
+    }
+    #SnakeIcons-Block-06 {
         max-width: 60px;
         height: 68px;
     }
-    #SnakeIcons-Block-06 {
+    #SnakeIcons-Block-07 {
         max-width: 74px;
         height: 70px;
     }
-    #SnakeIcons-Block-07 {
+    #SnakeIcons-Block-08 {
         max-width: 65px;
         height: 68px;
     }
     .SnakeIcons-Block-Name{
-        font-size: 14px;
-        margin-top: 10px;
+        font-size: 13px;
+        margin-top: 6px;
     }
     .PPSRidersNFT-Info{
         padding: 0 40px;
@@ -656,7 +671,7 @@
     .PPSSeignior-Info-Block{
         width: 100%;
         justify-content: center;
-        padding: 50px 0;
+        padding: 50px 0 30px;
     }
 
 
@@ -669,12 +684,20 @@
     }
     .PPSRidersNFT-IconsAll{
         margin-bottom: 50px;
+        max-width: 530px;
     }
     .PPSRidersNFT-InfoBlock{
         width: 90%;
     }
-    #PPSRidersNFT-Icons-row-03{
-        width: 100%;
+    #PPSRidersNFT-Icons-row-04{
+        margin-top: -8px;
+        width: 68%;
+    }
+    #PPSRidersNFT-Icons-row-05{
+        margin-top: 0px;
+    }
+    .SnakeIcons-Block-All{
+        margin: 10px;
     }
 }
 @media all and (max-width: 500px){
@@ -682,35 +705,54 @@
         width: 100%;
     }
     #SnakeIcons-Block-01 {
-        max-width: 200px;
-        height: 166px;
+        max-width: 150px;
+        height: 123px;
     }
     #PPSRidersNFT-Icons-row-02{
         width: 80%;
     }
-    #SnakeIcons-Block-02-1 {
-        max-width: 120px;
-        height: 105px;
+    #PPSRidersNFT-Icons-row-03{
+        width: 80%;
     }
     #SnakeIcons-Block-02 {
-        max-width: 86px;
-        height: 105px;
-    }
-    #PPSRidersNFT-Icons-row-03{
-        width: 100%;
+        max-width: 110px;
+        height: 99px;
     }
     #SnakeIcons-Block-03 {
-        max-width: 75px;
-        height: 91px;
+        max-width: 70px;
+        height: 86px;
+    }
+    #PPSRidersNFT-Icons-row-04{
+        width: 80%;
+        margin-top: -5px;
+    }
+    #PPSRidersNFT-Icons-row-05{
+        margin-top: 0px;
     }
     #SnakeIcons-Block-04 {
-        max-width: 75px;
-        height: 91px;
+        max-width: 65px;
+        height: 79px;
+    }
+    #SnakeIcons-Block-05 {
+        max-width: 62px;
+        height: 78px;
+    }
+    #SnakeIcons-Block-06{
+        max-width: 50px;
+        height: 57px;
+    }
+    #SnakeIcons-Block-07{
+        max-width: 63px;
+        height: 60px;
+    }
+    #SnakeIcons-Block-08{
+        max-width: 56px;
+        height: 58px;
     }
     .PPSRidersNFT-IconsAll{
         width: 100%;
     }
     .SnakeIcons-Block-All{
-        margin: 20px 10px;
+        margin: 10px 10px;
     }
 }
