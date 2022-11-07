@@ -117,9 +117,9 @@
     "privilege-B": "<span>Privilege B</span><br> Control the market price of materials.",
     "privilege-C": "<span>Privilege C</span><br> Dominant Guilds and the whole Community.",
     
-    "blueprint-type-01":"Weapon Blueprint",
-    "blueprint-type-02":"Airship Blueprint",
-    "blueprint-type-03":"Item Blueprint",
+    "type-01":"Weapon Blueprint",
+    "type-02":"Airship Blueprint",
+    "type-03":"Item Blueprint",
 
     "button":"PPS Blueprint NFTs"
   },
@@ -128,8 +128,9 @@
     "sec-01": "PonPonSnake",
     "sec-02": "Seignior",
     "sec-03": "Researcher",
-    "sec-04": "SRC",
-    "sec-05": "Partners"
+    "sec-04": "Landlord",
+    "sec-05": "SRC",
+    "sec-06": "Partners"
   }
   
 }

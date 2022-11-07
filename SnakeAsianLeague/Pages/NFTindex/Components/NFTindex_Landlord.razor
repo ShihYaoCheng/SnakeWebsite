@@ -1,0 +1,107 @@
+
+@inject IJSRuntime JS
+
+<head>
+    <link href="/css/NFTindex/NFTindex_Landlord.css" rel="stylesheet" />
+</head>
+
+<div class="NFTindex_Landlord">
+    @* 領地介紹區塊 *@
+    <div class="Landlord-Block">
+
+        <div class="Landlord">
+            <div class="Landlord-mainIcon-Block">
+                <div class="Landlord-mainIcon">
+                    <img class="main-Icon" src="/images/NFTindex/NFTindex_Scholar/PhD-icon.png" alt="">
+                    <img class="main-Icon-kirakira-000" id="main-Icon-kirakira-000"
+                        src="/images/NFTindex/NFTindex_Scholar/glow.png" alt="">
+                    <img class="main-Icon-kirakira" id="main-Icon-kirakira-003"
+                        src="/images/NFTindex/NFTindex_Banner/halo.png" alt="">
+
+                </div>
+            </div>
+            <div class="Landlord-Info-Block">
+                @* <div class="Landlord-Gradient"></div> *@
+                <div class="Landlord-Paragraph">
+                    <div class="Landlord-Title" data-i18n="Home_data:Landlord.title">PPS LANDLORD</div>
+                    <div class="Landlord-Text-01" data-i18n="Home_data:Landlord.text-01">
+                        There are still areas of the abyss that no Itzans have explored. "Landlords" are the dignitaries who occupy these lands. They will be the most powerful overlords and will be able to control everything in the abyss.
+
+                    </div>
+
+                    <div class="Landlord-Text-02">
+                        <div class="Landlord-Text-02-1" data-i18n="[html]Home_data:Landlord.privilege-A">
+                            <span>Privilege A</span><br>The Landlord will control all of the land's income.
+                        </div>
+                        <div class="Landlord-Text-02-1" data-i18n="[html]Home_data:Landlord.privilege-B">
+                            <span>Privilege B</span><br>The Landlord will have an impact on the market price of land.
+                        </div>
+                        <div class="Landlord-Text-02-1" data-i18n="[html]Home_data:Landlord.privilege-C">
+                            <span>Privilege C</span><br>The Landlord will be able to hire level designers to develop their land.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+        @* 領地banner區塊 *@
+        <div class="Landlord-banner-block">
+            @* 靜態版 *@
+            <img src="/images/NFTindex/NFTindex_Scholar/spaceship-banner.jpg" alt="">
+
+        </div>
+
+        @* 種類區塊 *@
+        <div class="LandlordType">
+            <div class="LandlordType-block">
+
+                
+                @* 01-Snake God Emerge 蛇皇降世*@
+                <div class="LandlordType-type-block">
+                    <div class="LandlordType-item">
+                        <div class="LandlordType-type-title" data-i18n="Home_data:Landlord.type-01">Snake God Emerge</div>
+                        <div class="LandlordType-type-BG">
+                            <img class="LandlordType-item-icon" id="icon-snakegod"
+                                src="/images/NFTindex/NFTindex_Landlord/snakegod.png" alt="">
+                            <img class="LandlordType-item-light" src="/images/NFTindex/NFTindex_Scholar/item-light.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                @* 02-Level Editor 領地編輯 *@
+                <div class="LandlordType-type-block">
+                    <div class="LandlordType-item">
+                        <div class="LandlordType-type-title" data-i18n="Home_data:Landlord.type-02">Level Editor</div>
+                        <div class="LandlordType-type-BG" id="LandlordType-BG-spaceship">
+                            <img class="LandlordType-item-icon" id="icon-land"
+                                src="/images/NFTindex/NFTindex_Landlord/land.png" alt="">
+                            <img class="LandlordType-item-light"  id="LandlordType-item-light-blue" src="/images/NFTindex/NFTindex_Scholar/item-light-02.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                @* 03-Customize Monster 怪物自訂 *@
+                <div class="LandlordType-type-block">
+                    <div class="LandlordType-item">
+                        <div class="LandlordType-type-title" data-i18n="Home_data:Landlord.type-03">Customize Monster</div>
+                        <div class="LandlordType-type-BG">
+                            <img class="LandlordType-item-icon" id="icon-frog"
+                                src="/images/NFTindex/NFTindex_Landlord/frog.png" alt="">
+                            <img class="LandlordType-item-light" src="/images/NFTindex/NFTindex_Scholar/item-light.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="LandlordType-button-block">
+                <a href="MarketPlace">
+                    <button class="LandlordType-button" data-i18n="Home_data:Landlord.button">PPS Landlord NFTs</button>
+                </a>
+            </div>
+        </div>
+
+
+</div>

@@ -118,9 +118,9 @@
       "privilege-B": "<span>特權 B</span><br> 掌控世界材料的市場價格。",
       "privilege-C": "<span>特權 C</span><br> 主導國家與公會社群。",
       
-      "blueprint-type-01":"武器藍圖",
-      "blueprint-type-02":"飛船藍圖",
-      "blueprint-type-03":"道具藍圖",
+      "type-01":"武器藍圖",
+      "type-02":"飛船藍圖",
+      "type-03":"道具藍圖",
 
       "button":"碰碰蛇藍圖NFT"
     },
@@ -129,8 +129,9 @@
       "sec-01": "碰碰蛇",
       "sec-02": "領主",
       "sec-03": "學者",
-      "sec-04": "騎士幣",
-      "sec-05": "合作夥伴"
+      "sec-04": "領地",
+      "sec-05": "騎士幣",
+      "sec-06": "合作夥伴"
     }
 
 }

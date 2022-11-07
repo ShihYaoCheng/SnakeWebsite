@@ -258,11 +258,12 @@
 
 .PPSRidersNFT-Block{
     /* border: 1px solid red; */
-    max-width: 1500px;
+    max-width: 1450px;
     width: 95%;
     margin: 0 auto 100px;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: space-evenly;
     z-index: 3;
 }
 .PPSRidersNFT-IconsAll{
@@ -270,7 +271,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 600px;
+    max-width: 550px;
     width: 100%;
     z-index: 3;
 
@@ -505,7 +506,7 @@
 }
 .PPSRidersNFT-Info{
     border: solid 7px #fff;
-    max-width: 600px;
+    max-width: 580px;
     width: 90%;
     /* height: 763px; */
     padding:  0 50px;
@@ -553,7 +554,6 @@
 
 
 @media all and (max-width: 1500px){
-
     .PPSSeignior-mainIcon-Block{
         padding: 0 50px;
         width: 40%;
@@ -582,7 +582,7 @@
     }
 
     .PPSRidersNFT-IconsAll{
-        max-width: 600px;
+        max-width: 500px;
     }
     #PPSRidersNFT-Icons-row-02{
         width: 75%;
@@ -629,10 +629,13 @@
         font-size: 13px;
         margin-top: 6px;
     }
+    .PPSRidersNFT-InfoBlock{
+        max-width: 600px;
+    }
     .PPSRidersNFT-Info{
         padding: 0 40px;
         border: solid 5px #fff;
-        max-width: 450px;
+        max-width: 500px;
         letter-spacing: 1.5px;
     }
     .PPSRidersNFT-Info-Title{
@@ -671,19 +674,19 @@
     .PPSSeignior-Info-Block{
         width: 100%;
         justify-content: center;
-        padding: 50px 0 30px;
+        padding: 0px 0 30px;
     }
 
 
     .PPSRidersNFT-Gradient-Outside{
-        padding: 0px 0 0px;
+        padding: 30px 0 0px;
     }
     .PPSRidersNFT-Block{
         flex-direction: column;
         align-items: center;
     }
     .PPSRidersNFT-IconsAll{
-        margin-bottom: 50px;
+        margin: 20px auto 50px;
         max-width: 530px;
     }
     .PPSRidersNFT-InfoBlock{

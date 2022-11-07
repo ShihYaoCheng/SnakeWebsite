@@ -40,10 +40,14 @@
             </div>
 
             <div class="sec"  id="sec-04" data-num="4">
-                <NFTindex_SRC />
+                @* <NFTindex_Landlord /> *@
             </div>
 
             <div class="sec"  id="sec-05" data-num="5">
+                <NFTindex_SRC />
+            </div>
+
+            <div class="sec"  id="sec-06" data-num="6">
                 <NFTindex_Partner />
             </div>
 
@@ -58,103 +62,32 @@
 
 @code {
 
-
-
-
-
-
-
     private IJSObjectReference? BannerJS;
-
-
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
-
-
 
     {
 
-
-
-
-
-
-
         if (firstRender)
-
-
 
         {
 
-
-
             await JS.InvokeVoidAsync("installI18n");
-
-
-
             BannerJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SnakeIndex/Banner.js");
 
-
-
             await BannerJS.InvokeVoidAsync("indexScrollEvent");
-
-
-
             await BlockChainSever.GetBlockChainInfoDTO();
 
-
-
-
-
-
-
         }
-
-
-
-
-
-
 
     }
 
 
-
-
-
-
-
-
-
-
-
     private async Task event_banner_SlideClick()
-
-
-
     {
-
-
-
         if (BannerJS != null)
 
-
-
         {
-
-
-
             await BannerJS.InvokeVoidAsync("event_banner_Slide");
-
-
-
         }
-
-
-
-
-
-
-
     }
 }
