@@ -15,9 +15,9 @@
         <img class="shine-BG" src="/images/Teach/PAGE5_GLOW.png" />
     </div>
     <div class="Download-block-title" data-i18n="Started_data:gettingStarted.page5.title">
-        PonPonSnake GO! @DownloadHitsText
+        PonPonSnake GO!
     </div>
-    
+   
     <a @onclick="DownloadHits" class="yellow-button" href="https://play.google.com/store/apps/details?id=com.cqigames.snakeknight" target="_blank">
         <button>                      
             <img class="Download-button-icon" src="/images/Teach/icon/button-googlePlay.png"/>
@@ -45,11 +45,10 @@
 </div>
 
 @code {
-    uint userID = 0;  
-    string DownloadHitsText="還沒變";
+    uint userID = 0;     
     public async Task DownloadHits()
     {
-        userID=AppState.LoginStatus.userID;
-        DownloadHitsText = await OfficialWebsiteData.DownloadHits(userID);
+         userID=AppState.LoginStatus.userID;
+         await OfficialWebsiteData.DownloadHits(userID);
     }
 }

@@ -16,27 +16,30 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             ServerClient = new RestClient(externalServersConfig.BackstageApiServer);
         }
 
-        public async Task<string> Register(){
+        public async Task Register(uint UserID)
+        {
             restRequest = new RestRequest("OfficialWebsiteData/Register" , Method.GET);
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(restRequest);
-            string returnText = "沒接到";
-            if(restResponse.StatusCode == HttpStatusCode.OK)
-            {
-                returnText = restResponse.Content;
-            }
-            return returnText;
+            //以下是測試
+            //string returnText = "沒接到";
+            //if(restResponse.StatusCode == HttpStatusCode.OK)
+            //{
+            //    returnText = restResponse.Content;
+            //}
+          
         }
 
-        public async Task<string> DownloadHits(uint UserID)
+        public async Task DownloadHits(uint UserID)
         {
             restRequest = new RestRequest($"OfficialWebsiteData/DownloadHits?UserID={UserID}");
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(restRequest);
-            string returnText = "沒接到";
-            if (restResponse.StatusCode == HttpStatusCode.OK)
-            {
-                returnText = restResponse.Content;
-            }
-            return returnText;
+            //以下是測試
+            //string returnText = "沒接到";
+            //if (restResponse.StatusCode == HttpStatusCode.OK)
+            //{
+            //    returnText = restResponse.Content;
+            //}
+            
         }
 
 
