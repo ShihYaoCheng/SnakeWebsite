@@ -277,8 +277,7 @@
     //國家
     private List<OptionKeyValue> CountryList= new List<OptionKeyValue>();
 
-    //OpenSeaURL NFT資產 官方網址   
-    private string OpenSeaURL;
+ 
 
     //頁數
     private int PageNumber = 1 ;
@@ -292,7 +291,7 @@
         ElementsList = await OptionService.Get_Default_Elements();
         ClassList = await OptionService.Get_Default_Class();
         CountryList = await OptionService.Get_Default_Country();
-        OpenSeaURL = await OptionService.Get_OpenSeaURL();
+ 
 
         PageNumber = 1;
         var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;

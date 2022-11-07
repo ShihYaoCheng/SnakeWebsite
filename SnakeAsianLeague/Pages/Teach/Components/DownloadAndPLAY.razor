@@ -1,5 +1,9 @@
 ﻿
 @using SnakeAsianLeague.Pages.Teach.Components.All_components
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.Backstage
+@inject OfficialWebsiteData OfficialWebsiteData
+@inject AppState AppState
 <head>
     <link href="/css/Teach/DownloadAndPLAY.css" rel="stylesheet" />
 </head>
@@ -13,8 +17,8 @@
     <div class="Download-block-title" data-i18n="Started_data:gettingStarted.page5.title">
         PonPonSnake GO!
     </div>
-    
-    <a class="yellow-button" href="https://play.google.com/store/apps/details?id=com.cqigames.snakeknight" target="_blank">
+   
+    <a @onclick="DownloadHits" class="yellow-button" href="https://play.google.com/store/apps/details?id=com.cqigames.snakeknight" target="_blank">
         <button>                      
             <img class="Download-button-icon" src="/images/Teach/icon/button-googlePlay.png"/>
             <div class="Download-icon-text" data-i18n="Started_data:gettingStarted.page5.btn1">Android</div>
@@ -23,7 +27,7 @@
         </button>
     </a>
 
-    <a class="yellow-button"  href="https://apps.apple.com/us/app/%E7%A2%B0%E7%A2%B0%E8%9B%87-2/id1504212624" target="_blank">
+    <a @onclick="DownloadHits" class="yellow-button"  href="https://apps.apple.com/us/app/%E7%A2%B0%E7%A2%B0%E8%9B%87-2/id1504212624" target="_blank">
         <button>
             <img class="Download-button-icon" src="/images/Teach/icon/button-ios.png"/>
             <div class="Download-icon-text" data-i18n="Started_data:gettingStarted.page5.btn2">IOS</div>
@@ -32,7 +36,7 @@
         </button>
     </a>
 
-    <a class="yellow-button"  href="https://ponponsnake.oss-cn-hangzhou.aliyuncs.com/PonPonSnake.apk">
+    <a @onclick="DownloadHits" class="yellow-button"  href="https://ponponsnake.oss-cn-hangzhou.aliyuncs.com/PonPonSnake.apk">
         <button>
             <img class="Download-button-icon" src="/images/Teach/icon/button-APK.png"/>
             <div class="Download-icon-text" data-i18n="Started_data:gettingStarted.page5.btn3">>APK File</div>
@@ -41,5 +45,10 @@
 </div>
 
 @code {
-
+    uint userID = 0;     
+    public async Task DownloadHits()
+    {
+         userID=AppState.LoginStatus.userID;
+         await OfficialWebsiteData.DownloadHits(userID);
+    }
 }

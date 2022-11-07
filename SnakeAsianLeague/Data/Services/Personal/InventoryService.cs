@@ -169,14 +169,16 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
                 data.Elements = Elements;
                 data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.webp", ElementsList.Where(m => m.Key == Elements).First().Value);
-                if (NFT_Riders[i].occupationId != null)
-                {
-                    data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
-                }
-                else
-                {
-                    data.ClassKey = "1";
-                } 
+                //if (NFT_Riders[i].occupationId != null)
+                //{
+                //    data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
+                //}
+                //else
+                //{
+                    
+                //}
+
+                data.ClassKey = "1";
                 data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
 
                 int value = myObject.Next(1, 1000);
@@ -188,7 +190,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
                 //租金
                 data.nowRent = Decimal.Round(NFT_Riders[i].rent, 3);
                 //累計租金(累計收益)
-                data.totalRevenue = Decimal.Round(NFT_Riders[i].totalRevenue, 3);
+                //data.totalRevenue = Decimal.Round(NFT_Riders[i].totalRevenue, 3);
 
                 NFTDataList.Add(data);
 
@@ -312,6 +314,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
+
                 RiderList lists = JsonSerializer.Deserialize<RiderList>(restResponse.Content) ?? new RiderList();
 
                 //自有
@@ -319,8 +322,10 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
                 //租任
                 //List<RiderUnit> result = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
-
                 return result;
+
+
+
             }
             return new List<RiderUnit>();
 
@@ -398,7 +403,8 @@ namespace SnakeAsianLeague.Data.Services.Personal
         public async Task<decimal> CalReceiveRent(string userId)
         {
             List<RiderUnit> DataList = await Get_NFT_RiderByUserID(userId);
-            decimal result = decimal.Parse(DataList.Select(m => m.totalRevenue).Sum().ToString());
+            //decimal result = decimal.Parse(DataList.Select(m => m.totalRevenue).Sum().ToString());
+            decimal result = 0;
             return Math.Round(result, 3, MidpointRounding.AwayFromZero);
         }
 

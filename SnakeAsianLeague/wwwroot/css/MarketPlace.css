@@ -139,6 +139,15 @@
     --theme-font-3: #ffd8d8;
     /* --theme-border: #7a1823; */
 }
+.card-bg-red-notBefore {
+    --theme-bg-1: #E58880;
+    --theme-bg-2: #D06F6F;
+    --theme-bg-3: #ffd8d8;
+    --theme-font-1: #F7cdc4;
+    --theme-font-2: #823131;
+    --theme-font-3: #ffd8d8;
+    /* --theme-border: #7a1823; */
+}
 
 .card-bg-grey {
     --theme-bg-1: #959595;

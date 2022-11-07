@@ -73,6 +73,7 @@
   },
 
   "signInWindows": {
+    "WhetheLogged": "是否維持登入狀態",
     "PonPonSnake": "登入碰碰蛇帳號",
     "PhoneNumber": "手機",
     "Password": "密碼",

@@ -2,7 +2,8 @@
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Entity
-
+@using SnakeAsianLeague.Data.Services.Backstage
+@inject OfficialWebsiteData OfficialWebsiteData
 @inject IAuthService AuthService
 @inject IJSRuntime JS
 @inject AppState AppState
@@ -159,6 +160,7 @@
     @* void AlertShow() => displayAlert = true; *@
     void AlertCancel() => displayAlert = false;
 
+    uint userID = 0; 
 
     public PhoneMemberRegisterDTO RegisterDTO { get; set; } = new PhoneMemberRegisterDTO();
 
@@ -293,6 +295,10 @@
             AlertDatai18n = "registerSuccessed";
             AlertContent = "";
             AlertShow();
+
+            //呼叫總計註冊API
+            userID=AppState.LoginStatus.userID;
+            await OfficialWebsiteData.Register(userID );
 
             EditFormCancel();
 

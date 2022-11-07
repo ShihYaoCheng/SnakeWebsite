@@ -45,15 +45,15 @@
             </svg>
 
 
-            <img class="Filter-mobile-arrow" style="margin: 5px; "
-                data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+            <img class="Filter-mobile-arrow" style="margin: 5px; " data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
         </div>
     </section>
     
     @*側邊欄*@
-
-    <MarketPlace_Aside changeNFTDataList="changeNFTDataList"  changePPSRsCount="changePPSRsCount" reFreshJS="reFreshJS"/>
-
+    @if (NFTtype == 0)
+    {
+        <MarketPlace_Aside changeNFTDataList="changeNFTDataList"  changePPSRsCount="changePPSRsCount" reFreshJS="reFreshJS"/>
+    }
     
     @*主要內容區塊*@
     <main class="marketPlaceMain">
@@ -61,8 +61,17 @@
             
             <div class="marketPlaceTitle-Block ">
                 <div class="marketPlaceTitle-container "> 
-                    <div class="marketPlaceTitle" data-i18n="Inventory_data:sortOptions.NFTs">PonPonSnake's NFTs</div>             
-                    <div class="marketPlaceTitle"> @PPSRsCount PPSRs</div>
+                    <div class="marketPlaceTitle" data-i18n="Inventory_data:sortOptions.NFTs">PonPonSnake's NFTs</div>         
+                    @switch (NFTtype)
+                    {
+                        case 0 :
+                              <div class="marketPlaceTitle"> @PPSRsCount PPSRs</div>                   
+                            break;
+                        case 1 :
+                            <div class="marketPlaceTitle"> @PPSBPsCount PPSBP</div>
+                            break;
+                    }  
+                 
                 </div>
                 
                 <button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea" data-i18n="Inventory_data:sortOptions.BuyonOpensea">Buy on Opensea</a ></button>
@@ -70,7 +79,11 @@
             @*騎士、藍圖切換*@
             <NFT_Type toggleType="toggleType"/>
             @*排序*@
-            <MarketPlace_NFTselect DoStuff="DoStuff"/>
+            @if (NFTtype == 0)
+            {
+                <MarketPlace_NFTselect DoStuff="DoStuff"/>
+            }
+            
         </section>
 
         @*NFT內容*@
@@ -78,12 +91,10 @@
             @switch (NFTtype)
             {
                 case 0 :
-                    <MarketPlace_PPSR Value="NFTDataList" HeartToggleButton="HeartToggleButton" AfterRenderLocalize ="AfterRenderLocalize"/>
-                   
+                    <MarketPlace_PPSR Value="NFTDataList" HeartToggleButton="HeartToggleButton" AfterRenderLocalize ="AfterRenderLocalize"/>                   
                     break;
-                case 1 :
-                    @*暫時樣式*@
-                    <Inventory_BlueMap></Inventory_BlueMap>
+                case 1 :                   
+                    <MarketPlace_PPSBP getPPSBPsCount="getPPSBPsCount"></MarketPlace_PPSBP>
                     break;
             }  
         </section> 
@@ -98,6 +109,8 @@
     private List<NFTData> NFTDataList;
     //騎士數量
     private int PPSRsCount;   
+    //飛船藍圖數量
+    private int PPSBPsCount;  
     //OpenSeaURL NFT資產 官方網址   
     private string OpenSeaURL;
     //頁數
@@ -108,15 +121,20 @@
 
     private async Task Refresh()
     {  
-        OpenSeaURL = await OptionService.Get_OpenSeaURL();
+        OpenSeaURL = await OptionService.Get_OpenSeaURL(NFTtype);
         PageNumber = 1;
 
         var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
+        
         List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize , contractAddress_PPSR);
         NFTDataList = pagelist;
         PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
         await lazyloadingJS.InvokeVoidAsync("LazyLoading");
         StateHasChanged();
+    }
+    public void getPPSBPsCount( int count)
+    {
+        PPSBPsCount = count;
     }
 
 
@@ -234,7 +252,7 @@
     }
 
     @*...切換騎士跟藍圖...*@
-    int NFTtype;
+    int NFTtype=0;
     public async Task toggleType(int value)
     {
         NFTtype = value;

@@ -29,7 +29,7 @@
             </div>
             <div  style="margin-bottom: 10px;">
                  <input type="checkbox" id="autoLogin" name="autoLogin" @onchange="(e)=>{toggleAutoLogin(e);}"   >
-                 <label class="autoLoginLabel"  for="autoLogin">是否維持登入狀態</label>
+                 <label class="autoLoginLabel"  for="autoLogin" data-i18n="[html]signInWindows.WhetheLogged">是否維持登入狀態</label>
             </div>
             <div type="text" class="login_error" hidden="@(!loginErrorShow)"  data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>
             <div id="login_submit" @onclick="@LoginSubmit">                
