@@ -146,8 +146,10 @@ if(!app.Environment.IsDevelopment())
 {
     app.UseStaticFiles(new StaticFileOptions
     {
-        OnPrepareResponse = context => { context.Context.Response.Headers
-            .Append("Cache-Control", "max-age=1200"); }
+        OnPrepareResponse = context => 
+        { 
+            context.Context.Response.Headers.Append("Cache-Control", "max-age=1800"); 
+        }
     });
 }
 
