@@ -18,7 +18,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
 
         public async Task Register(uint UserID)
         {
-            restRequest = new RestRequest("OfficialWebsiteData/Register" , Method.GET);
+            restRequest = new RestRequest($"OfficialWebsiteLog/Register?UserID={UserID}", Method.GET);
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(restRequest);
             //以下是測試
             //string returnText = "沒接到";
@@ -31,7 +31,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
 
         public async Task DownloadHits(uint UserID)
         {
-            restRequest = new RestRequest($"OfficialWebsiteData/DownloadHits?UserID={UserID}");
+            restRequest = new RestRequest($"OfficialWebsiteLog/DownloadHits?UserID={UserID}");
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(restRequest);
             //以下是測試
             //string returnText = "沒接到";
@@ -39,7 +39,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             //{
             //    returnText = restResponse.Content;
             //}
-            
+
         }
 
 
