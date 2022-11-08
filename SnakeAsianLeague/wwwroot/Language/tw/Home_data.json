@@ -128,9 +128,9 @@
   "Landlord": {
     "title": "碰碰蛇領主",
     "text-01": "在深淵之中有許多人們尚未到達、未知的領土，而佔有這些領土的權貴們被稱為「領主」，領主將擁有支配深淵之中萬物的能力，也會是深淵最強大的霸主。",
-    "privilege-A": "<span>特權 A </span><br> 能掌控土地上的所有收益",
-    "privilege-B": "<span>特權 B</span><br> 將影響領土在市場上的價格",
-    "privilege-C": "<span>特權 C </span><br> 將能雇用關卡設計師來打造屬於自己的一片地",
+    "privilege-A": "<span>特權 A </span><br> 能掌控土地上的所有收益。",
+    "privilege-B": "<span>特權 B</span><br> 將影響領土在市場上的價格。",
+    "privilege-C": "<span>特權 C </span><br> 將能雇用關卡設計師來打造屬於自己的一片地。",
 
     "type-01": "蛇皇降世",
     "type-02": "領地編輯",
