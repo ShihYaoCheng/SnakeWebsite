@@ -297,7 +297,7 @@
             AlertShow();
 
             //呼叫總計註冊API
-            userID=AppState.LoginStatus.userID;
+            userID=snakeAccount.userID;
             await OfficialWebsiteData.Register(userID );
 
             EditFormCancel();
