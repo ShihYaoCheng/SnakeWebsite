@@ -10,7 +10,7 @@
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: right bottom;
-    /* background-color: #2e4457e2; */
+    background-color: #2e4457e2;
     background-blend-mode: multiply;
 }
 
@@ -649,6 +649,9 @@
 }
 
 @media all and (max-width: 600px){
+    .NFTindex_Landlord{
+        background-size: 85%;
+    }
     .LandlordType {
         padding: 50px 0 0;
     }
