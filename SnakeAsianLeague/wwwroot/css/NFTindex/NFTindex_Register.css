@@ -178,7 +178,7 @@
 
 .products-popup-open{
     opacity: 1 !important;
-    z-index: 50 !important;
+    z-index: 250 !important;
 }
 .products-popup-close{
     width: 25px;

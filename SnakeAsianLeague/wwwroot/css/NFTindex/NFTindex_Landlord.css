@@ -335,7 +335,7 @@
     width: 100%;
 
     margin: 0px auto 0;
-    max-width: 1200px;
+    max-width: 1250px;
     width: 90%;
     display: flex;
 
@@ -345,13 +345,13 @@
 }
 
 .LandlordType-type-block{
-    max-width: 300px;
+    max-width: 350px;
     width: 100%;
     display: flex;
     margin: 0 2.5% 5% 2.5%;
 }
 .LandlordType-item{
-    max-width: 300px;
+    max-width: 350px;
     width: 100%;
 
 }
@@ -359,13 +359,13 @@
 .LandlordType-type-title{
     color: #ffffff;
     text-align: center;
-    margin: 10px auto;
+    margin: 10px auto 20px;
     letter-spacing: 1px;
 }
 .LandlordType-type-BG{
     width: 100%;
-    max-width: 300px;
-    height: 300px;
+    max-width: 350px;
+    height: 350px;
     position: relative;
     transition: all .2s ease-in-out;
     border-radius: 10px;
@@ -392,7 +392,7 @@
     position: absolute;
     transition: all .2s ease-in-out;
     max-width: 250px;
-    bottom: 75px;
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
@@ -428,10 +428,9 @@
     }
 }
 
-#LandlordType-item-light-blue{
-    /* left: 55%; */
-    bottom: 48px;
-}
+/* #LandlordType-item-light-blue{
+    bottom: -5px;
+} */
 
 .LandlordType-item-icon{
     position: absolute;
@@ -443,13 +442,13 @@
 }
 @keyframes LandlordType-item-icon {
     0% {
-        transform: translateY(0px);
+        transform: translateY(0px)translateX(-50%);
     }
     50% {
-        transform: translateY(-10px);    
+        transform: translateY(-10px)translateX(-50%);    
     }
     100% {
-        transform: translateY(0px);    
+        transform: translateY(0px)translateX(-50%);    
     }
 }
 
@@ -477,13 +476,13 @@
 
 /* 01-Snake God Emerge 蛇皇降世 */
 #icon-snakegod{
-    /* max-width: 135px; */
+    max-width: 350px;
     top: 15px;
-    left: 0%;
+    left: 50%;
     transform-origin: left bottom;
 }
 .LandlordType-type-BG:hover #icon-snakegod{
-    animation: icon-snakegod 1s linear 0s infinite;
+    /* animation: icon-snakegod 1s linear 0s infinite; */
     filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
 }
 @keyframes icon-snakegod {
@@ -509,16 +508,17 @@
 
 /* 02-Level Editor 領地編輯 */
 #icon-land {
-    /* max-width: 105px; */
-    top: 28px;
-    left: 0%;
+    max-width: 320px;
+    top: 0px;
+    left: 50%;
     transform-origin: left bottom;
     transition: all .2s ease-in-out;
+
 }
 .LandlordType-type-BG:hover #icon-land{
-    animation: spaceship-animation 1s ease-in-out 0s forwards,
+    /* animation: spaceship-animation 1s ease-in-out 0s forwards,
     spaceship-animation-float 3s linear 1s infinite;
-    transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out; */
 
 }
 @keyframes spaceship-animation {
@@ -575,15 +575,15 @@
 
 /* 03-Customize Monster 怪物自訂 */
 #icon-frog{
-    /* max-width: 135px; */
-    top: 40px;
-    left: 0%;
+    max-width: 340px;
+    top: 60px;
+    left: 61%;
 }
 .LandlordType-type-BG:hover #icon-frog{
     filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
 
-    animation: props-animation 0.5s ease-in-out 0s forwards,
-    props-animation-float 3s linear .8s infinite;
+    /* animation: props-animation 0.5s ease-in-out 0s forwards,
+    props-animation-float 3s linear .8s infinite; */
 }
 
 @keyframes props-animation {

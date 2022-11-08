@@ -125,6 +125,20 @@
       "button":"碰碰蛇藍圖NFT"
     },
 
+    "Landlord": {
+      "title": "PPS LANDLORD",
+      "text-01": "The improvement of the Itza world relies on creative researchers. These researchers are far smarter than Itzans, such as Leonardo da Vinci and Tesla, they bring revolution to the world. The greatest researchers will be referred to as \"Doctorates\", and they will have the knowledge and capacity to transform the world.",
+      "privilege-A": "<span>Privilege A</span><br> The Landlord will control all of the land's income.",
+      "privilege-B": "<span>Privilege B</span><br> The Landlord will have an impact on the market price of land.",
+      "privilege-C": "<span>Privilege C</span><br> The Landlord will be able to hire level designers to develop their land.",
+      
+      "type-01":"Snake God Emerge",
+      "type-02":"Level Editor",
+      "type-03":"Customize Monster",
+  
+      "button":"PPS Landlord NFTs"
+    },
+
     "Navigation":{
       "sec-01": "碰碰蛇",
       "sec-02": "領主",

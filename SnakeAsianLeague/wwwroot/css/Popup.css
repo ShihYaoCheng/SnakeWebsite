@@ -58,7 +58,7 @@
     top: 0;
     left: 0;
     opacity: 1 !important;
-    z-index: 50 !important;
+    z-index: 250 !important;
 }
 .products-popup-close{
     width: 25px;
