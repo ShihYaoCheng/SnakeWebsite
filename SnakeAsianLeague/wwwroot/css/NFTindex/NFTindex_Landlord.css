@@ -5,12 +5,19 @@
 
     /* height: 500px; */
     /* border: 1px solid red; */
+
+    background-image: url(/images/NFTindex/NFTindex_Landlord/LandlordType_BG.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    /* background-color: #2e4457e2; */
+    background-blend-mode: multiply;
 }
 
 
 /* 領地介紹區塊 */
 .Landlord-Block {
-    padding: 50px 0 50px;
+    padding: 50px 0 20px;
     width: 100%;
     position: relative;
 }
@@ -295,7 +302,7 @@
     .Landlord-Info-Block{
         width: 100%;
         justify-content: center;
-        padding: 50px 0;
+        padding: 50px 0 30px;
     }
 }
 
@@ -324,19 +331,19 @@
 .LandlordType{
     width: 100%;
     padding: 80px 0 0;
-    background-image: url("/images/NFTindex/NFTindex_Landlord/LandlordType_BG.png");
+    /* background-image: url("/images/NFTindex/NFTindex_Landlord/LandlordType_BG.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right bottom;
     background-color: #2e4457e2;
-    background-blend-mode: multiply;
+    background-blend-mode: multiply; */
 }
 .LandlordType-block{
-    width: 100%;
+    /* width: 100%; */
 
     margin: 0px auto 0;
     max-width: 1250px;
-    width: 90%;
+    width: 85%;
     display: flex;
 
     justify-content: center;
@@ -359,7 +366,7 @@
 .LandlordType-type-title{
     color: #ffffff;
     text-align: center;
-    margin: 10px auto 20px;
+    margin: 10px auto 17px;
     letter-spacing: 1px;
 }
 .LandlordType-type-BG{
@@ -377,11 +384,13 @@
     /* transform: rotate(45deg); */
     background-image: url("/images/NFTindex/NFTindex_Landlord/backframe.png");
     background-size: contain;
-    background-repeat: round;
+    background-repeat: no-repeat;
+    background-position: bottom center;
 
 }
 .LandlordType-type-BG:hover{
     /* box-shadow: inset 0px 0px 15px 5px rgb(172 159 252 / 70%); */
+    filter: drop-shadow(0px 0px 15px rgba(191, 157, 125, 0.9));
 }
 
 
@@ -391,12 +400,12 @@
 
     position: absolute;
     transition: all .2s ease-in-out;
-    max-width: 250px;
-    bottom: 5px;
+    max-width: 230px;
+    bottom: -3px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 3;
-    width: 80%;
+    z-index: 2;
+    width: 70%;
     transition: all .2s ease-in-out;
     animation: 
     LandlordType-item-light  1s linear 0s forwards,
@@ -405,7 +414,7 @@
 
 @keyframes LandlordType-item-light {
     0% {
-        transform: translateX(-50%) rotate3d(0, 1, 0, -240deg) scale(0);
+        transform: translateX(-50%) rotate3d(0, 1, 0, -220deg) scale(0);
         transform-origin: bottom;
         opacity: 0;
     }
@@ -435,8 +444,9 @@
 .LandlordType-item-icon{
     position: absolute;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 3;
     width: 100%;
+    filter: drop-shadow(0px 0px 10px rgba(23, 23, 23, 0.8));
     transition: all .2s ease-in-out;
     animation: LandlordType-item-icon 5s linear infinite;
 }
@@ -451,7 +461,9 @@
         transform: translateY(0px)translateX(-50%);    
     }
 }
-
+.LandlordType-type-BG:hover .LandlordType-item-icon{
+    filter: drop-shadow(0px 0px 8px rgba(237, 228, 220, 0.9));
+}
 .LandlordType-item-light-hover{
     display: none;
 
@@ -477,13 +489,14 @@
 /* 01-Snake God Emerge 蛇皇降世 */
 #icon-snakegod{
     max-width: 350px;
-    top: 15px;
+    /* top: 15px; */
+    bottom: 13%;
     left: 50%;
     transform-origin: left bottom;
 }
 .LandlordType-type-BG:hover #icon-snakegod{
     /* animation: icon-snakegod 1s linear 0s infinite; */
-    filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
+
 }
 @keyframes icon-snakegod {
     0% {
@@ -509,7 +522,8 @@
 /* 02-Level Editor 領地編輯 */
 #icon-land {
     max-width: 320px;
-    top: 0px;
+    /* top: 0px; */
+    bottom: 5%;
     left: 50%;
     transform-origin: left bottom;
     transition: all .2s ease-in-out;
@@ -576,11 +590,11 @@
 /* 03-Customize Monster 怪物自訂 */
 #icon-frog{
     max-width: 340px;
-    top: 60px;
+    /* top: 60px; */
+    bottom: 14.5%;
     left: 61%;
 }
 .LandlordType-type-BG:hover #icon-frog{
-    filter: drop-shadow(0px 0px 15px rgba(172, 159, 252, 0.7));
 
     /* animation: props-animation 0.5s ease-in-out 0s forwards,
     props-animation-float 3s linear .8s infinite; */
@@ -635,13 +649,54 @@
 }
 
 @media all and (max-width: 600px){
+    .LandlordType {
+        padding: 50px 0 0;
+    }
     .LandlordType-type-block{
-        margin: 0 auto 30px ;
+        margin: 0 auto 45px ;
+        max-width: 300px;
     }
     .LandlordType-button{
         margin: 30px auto 80px;
     }
     .Landlord-Block{
         padding: 80px 0 0px;
+    }
+    .LandlordType-type-BG{
+        max-width: 300px;
+        height: 300px;
+    }
+    .LandlordType-type-title{
+        margin: 10px auto 10px;
+    }
+    .LandlordType-item-icon{
+        width: 95%;
+    }
+    #icon-snakegod {
+        max-width: 300px;
+    }
+    #icon-land{
+        max-width: 274px;
+    }
+    #icon-frog{
+        max-width: 291px;
+    }
+}
+@media all and (max-width: 350px){
+    .LandlordType-type-block{
+        max-width: 250px;
+    }
+    .LandlordType-type-BG{
+        max-width: 250px;
+        height: 250px;
+    }
+    .LandlordType-type-title {
+        margin: 10px auto 6.5px;
+    }
+    #icon-land{
+        max-width: 220px;
+    }
+    #icon-frog{
+        max-width: 225px;
     }
 }
