@@ -70,11 +70,22 @@
     height: 50px;
 }
 @media all and (max-width: 1000px) {
+    .connect-arrow {     
+        padding:0 0  10px 0;
+    }
+
+    .connect-arrow img {
+        width: 30px;
+    }
     .connect-send-container {
         height: 37px;
     }
 }
-
+@media all and (max-width: 600px) {
+    .connect-arrow img {
+        width: 25px;
+    }
+}
 
 
 .Cooperation-send {
@@ -95,10 +106,14 @@
     height: 90%;
     width: 20%;
     margin-right: 0.2%;
+    font-weight: 700;
+    font-size: 22px;
+    text-shadow: rgba(0,0,0,0.8) 0.1em 0.1em 0.2em
 }
 @media all and (max-width: 800px) {
     .Cooperation-send button {
         border-radius: 15px;
+        font-size: 16px;
     }
 }
 @media all and (max-width: 600px) {
@@ -108,6 +123,7 @@
     }
     .Cooperation-send button {
         border-radius: 20px;
+        font-size: 16px;
     }
 
 }
