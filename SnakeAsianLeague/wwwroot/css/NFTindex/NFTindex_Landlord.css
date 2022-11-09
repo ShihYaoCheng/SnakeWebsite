@@ -172,10 +172,6 @@
 
 .Landlord-Info-Block {
     width: 55%;
-    background-image: url("/images/NFTindex/NFTindex_Landlord/spaceship.png");
-    background-position: center right;
-    background-repeat: no-repeat;
-    background-size: contain;
     display: flex;
     align-items: center;
     justify-content: flex-start;
