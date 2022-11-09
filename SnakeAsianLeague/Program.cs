@@ -19,6 +19,8 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using OpenTelemetry.Metrics;
 using SnakeAsianLeague.Data.Services.BlockChain;
 using SnakeAsianLeague.Data.Services.Commodity;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Rewrite;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -142,7 +144,7 @@ else
 
 app.UseHttpsRedirection();
 
-if(!app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
     app.UseStaticFiles(new StaticFileOptions
     {
@@ -153,7 +155,25 @@ if(!app.Environment.IsDevelopment())
     });
 }
 
+
+
+//CDN
+bool CdnEnable = Convert.ToBoolean( builder.Configuration["CDN:Enabled"]);
+if (CdnEnable)
+{
+    string CdnUrl = builder.Configuration["CDN:Url"];
+    var options = new RewriteOptions().AddRedirect("images/(.*)", CdnUrl+"images/$1");
+    //var options = new RewriteOptions().AddRewrite("images/(.*)", CdnUrl + "images/$1", skipRemainingRules: false);
+
+    app.UseRewriter(options);
+
+}
+
+
+
 app.UseStaticFiles();
+
+
 
 app.UseOpenTelemetryPrometheusScrapingEndpoint();
 app.UseRouting();
