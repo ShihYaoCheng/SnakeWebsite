@@ -12,4 +12,23 @@
         padding-top: 40px;
     }
 
+    .Cooperation-container {
+        width: 750px;
+        margin: 0 auto;
+    }
+
+}
+
+@media all and (max-width: 800px) {
+    .Cooperation-container {
+        width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .Cooperation-container {
+        width: 370px;
+        margin: 0 auto;
+    }
 }

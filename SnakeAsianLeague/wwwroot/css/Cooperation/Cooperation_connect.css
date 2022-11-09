@@ -23,6 +23,35 @@
     text-align: center;
     font-size: 24px;
 }
+@media all and (max-width: 800px) {
+    .connect-BG {
+        padding: 0 60px;
+    }
+
+    .connect-BG h3 {
+        font-size: 24px;
+        padding: 20px 0 0px 0;
+    }
+
+    .connect-content p {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .connect-BG {
+        padding: 0 20px;
+    }
+    .connect-BG h3 {
+        font-size: 22px;
+        padding: 20px 0 0px 0;
+    }
+
+    .connect-content p {
+        font-size: 16px;
+    }
+
+}
 
 .connect-arrow {
     text-align:center;
@@ -40,6 +69,13 @@
 .connect-send-container {
     height: 50px;
 }
+@media all and (max-width: 1000px) {
+    .connect-send-container {
+        height: 37px;
+    }
+}
+
+
 
 .Cooperation-send {
     background: url("/images/Cooperation/Btn_send22.png");
@@ -60,6 +96,22 @@
     width: 20%;
     margin-right: 0.2%;
 }
+@media all and (max-width: 800px) {
+    .Cooperation-send button {
+        border-radius: 15px;
+    }
+}
+@media all and (max-width: 600px) {
+    .Cooperation-send {
+        background: url("/images/Cooperation/Btn_send11.png");
+        background-repeat: round;
+    }
+    .Cooperation-send button {
+        border-radius: 20px;
+    }
+
+}
+
 
 .Cooperation-send input {
     color: #fff;  
@@ -72,7 +124,6 @@
     font-size:20px
 }
 
-
 .connect-deco1 {
     margin:40px auto 10px auto;
     width: 80%;
@@ -81,14 +132,38 @@
     background-size: contain;
     background-position-y:center;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     color: #fff;
 }
-
 .connect-mail {
     margin-top: 10px;
     padding-bottom: 30px;
     color: #fff;
     text-align: center;
     font-size: 20px;
+}
+@media all and (max-width: 1000px) {
+    .Cooperation-send input {
+        font-size: 18px
+    }
+    .connect-deco1 {
+        font-size: 18px;
+    }
+    .connect-mail {
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .Cooperation-send input {
+        font-size: 16px
+    }
+
+    .connect-deco1 {
+        font-size: 16px;
+    }
+
+    .connect-mail {
+        font-size: 16px;
+    }
 }

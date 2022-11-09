@@ -1,11 +1,32 @@
 ﻿.Cooperation_case-container {
     width: 100%;
-    height: 1250px;
+    height: 1300px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+@media all and (max-width: 1000px) {
+    .Cooperation_case-container {
+        height: 1100px;
+    }
+}
+@media all and (max-width: 800px) {
+    .Cooperation_case-container {
+        height: 1200px;
+    }
+}
+@media all and (max-width: 600px) {
+    .Cooperation_case-container {
+        height: 1100px;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .Cooperation_case-container {
+        height: 1050px;
+    }
+}
 .case-title {
     width: 100%;
     height: 100px;
@@ -24,6 +45,33 @@
     font-size:40px;
 }
 
+@media all and (max-width: 1000px) {
+    .case-title p {        
+        font-size: 34px;
+    }
+
+    .case-title {
+        height: 80px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .case-title {    
+        padding:10px;
+    }
+
+    .case-title p {
+        font-size: 26px;
+    }
+}
+@media all and (max-width: 600px) {
+    .case-title p {
+        font-size: 24px;
+    }
+}
+
+
+
 .Cooperation_case-container img {
     width: 100%;
     max-width: 1200px;
@@ -36,10 +84,24 @@
     justify-content:space-between;
 
 }
+
 .concept-zone-left {
     padding-right: 20px;
     background: url("/images/Cooperation/Light0.png");
     background-repeat:round;
+}
+
+@media all and (max-width: 800px) {
+    .concept-zone {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .concept-zone-left {
+        padding-right: 0px;
+        padding-bottom:30px;
+
+    }
 }
 
 .concept-zone-left h3 {
@@ -53,6 +115,16 @@
     margin-bottom:20px;
 }
 
+@media all and (max-width: 600px) {
+    .concept-zone-left h3 {
+        font-size: 22px;
+    }
+
+    .concept-zone-left p {
+        font-size: 16px;
+    }
+}
+
 .concept-zone-right {
     display:flex;
     justify-content:center;
@@ -63,4 +135,22 @@
 .concept-zone-right img{
     width:400px;
    
+}
+
+@media all and (max-width: 1000px) {
+    .concept-zone-right img {
+        width: 333px;
+    }
+}
+
+@media all and (max-width: 800px) {
+    .concept-zone-right img {
+        width: 400px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .concept-zone-right img {
+        width: 333px;
+    }
 }
