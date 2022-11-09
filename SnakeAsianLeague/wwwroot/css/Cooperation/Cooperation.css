@@ -1,0 +1,15 @@
+﻿.Cooperation {
+    padding-top: 50px;
+ 
+}
+.Cooperation-container {  
+    width:1200px;
+    margin:0 auto;
+}
+
+@media all and (max-width: 1000px) {
+    .Cooperation {
+        padding-top: 40px;
+    }
+
+}
