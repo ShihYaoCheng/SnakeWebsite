@@ -3,7 +3,7 @@
 @using SnakeAsianLeague.Pages.Myprofile.Components
 @using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject AppState AppState
-
+@inject IJSRuntime JS
 
 <head>
     <link href="css/MyProfile/Myprofile.css" rel="stylesheet" /> 
@@ -92,6 +92,11 @@
         //AppState.langChanged += async (value)
         //=> await InvokeAsync(StateHasChanged);
     }
-
-       
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {         
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
 }
