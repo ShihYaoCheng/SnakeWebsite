@@ -55,6 +55,14 @@
     "nftcurrency1_3": "A large bag of SRC",
     "nftcurrency1_4": "A small box of SRC",
     "nftcurrency1_5": "A large box of SRC",
-    "nftcurrency1_6": "A Chest of SRC"
+    "nftcurrency1_6": "A Chest of SRC",
+
+    "tier3"  :"A pile of gems.",
+    "tier5"  :"A bag of gems.",
+    "tier10" :"A big bag of gems.",
+    "tier20" :"A small case of gems.",
+    "tier50" :"A large chest of gems.",
+    "tier60" :"A premium chest full of gems"
+
   }
 }

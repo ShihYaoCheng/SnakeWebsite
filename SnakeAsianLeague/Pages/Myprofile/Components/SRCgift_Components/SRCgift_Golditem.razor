@@ -1,5 +1,173 @@
-﻿<h3>SRCgift_Golditem</h3>
+﻿@using SnakeAsianLeague.Data.Entity.Commodity
+@using SnakeAsianLeague.Data.Entity.View
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.BlockChain
+@using SnakeAsianLeague.Data.Services.Commodity
+@using SnakeAsianLeague.Data.Services.Personal
+
+@inject IJSRuntime JS
+@inject InventoryService InventoryService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject BlockChainProcessorSever BlockChainSever
+@inject CommodityServices CommodityServices
+@inject AppState AppState
+@if (IAPItemList != null)
+{
+    @foreach (IAPItem item in IAPItemList)
+    {
+        var SRCValue = @item.addValue + @item.addPlus;
+        var productName = @item.productID.Substring(25);
+
+        <div class="NFTcard card-bg-DarkSeaGreen">  
+            <div class="NFTcardA" >
+                @*<a href="@item.LinkURL" target="opensea">  </a>*@
+                                
+                <div class="NFTcard-inner">
+                    <div class="NFT-cardImg">
+                        <img src= "@item.productUrl" alt="" >
+                    </div>
+                    <div class="NFT-cardText Not-Price-Ver">
+                        <div class="giftData-container"    >
+                            <div class="giftData-title" data-i18n=NFT_data:SRCgift.@productName > </div>
+                            <div class="srcZone-container">
+                                <div class="giftData-srcZone">
+                                    <div class="srcZone-coinType">
+                                        <img  class="srcZone-img" src="/images/Myprofile/SRC.webp"/>
+                                        <span class="srcZone-num">gSRC</span>
+                                    </div>
+                                    <span class="srcZone-count">
+                                        <span class="srcZone-icon">✕</span> 
+                                        @SRCValue 
+                                    </span>
+                                                    
+                                </div>
+                            </div>
+
+                            <div class="giftData-btn-container">
+
+                                <div class="usdValuation">  <span>≈USD</span> @item.priceUSD<span></span></div>
+                                <button class="giftData-btn"  @onclick="@(async ()=>{ await BuyPurchase( item.priceUSDT , item.productID ,item.addValue,productName );})" > 
+                                    <span>USDT</span> <span class="giftData-btn-nun">@item.priceUSDT</span></button>
+                            </div>
+                        </div>
+                    </div>               
+                </div>                     
+            </div>        
+        </div>
+    }
+}        
 
 @code {
+    [Parameter]
+    public EventCallback<bool> openCheckoutPop { get; set;}
 
+    private void CheckoutPop()
+    {
+        openCheckoutPop.InvokeAsync(true);   
+    }
+
+    [Parameter]
+    public EventCallback<int> toggleWhetherCheckoutPop { get; set;}
+
+    private void WhetherCheckoutPop(int value)
+    {
+        toggleWhetherCheckoutPop.InvokeAsync(value);   
+    }
+    [Parameter]
+    public EventCallback<PurchaseData> getPurchaseData { get; set;}
+
+    private void changePurchaseData(double gSRCBuy,decimal gSRCtotal,string productName )
+    {
+        PurchaseData Data = new PurchaseData();
+        Data.gSRCBuy = gSRCBuy;
+        Data.gSRCtotal = gSRCtotal;
+        Data.productName = productName;
+        getPurchaseData.InvokeAsync(Data);   
+    }
+
+
+
+    private List<IAPItem> IAPItemList;
+
+    protected override async Task OnInitializedAsync()
+    {       
+        IAPItemList = await CommodityServices.GetIAPItem();
+    }
+    private IJSObjectReference? PurchaseApproveJS;
+    private IJSObjectReference? coinEchangeJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {         
+
+            PurchaseApproveJS  = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/BuyPurchase/PurchaseApprove.js");       
+            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");  
+
+        }
+        await JS.InvokeVoidAsync("installI18n");
+
+    }
+    //USDT數量
+    double tokenUSDT;
+    double gSRCBuy;
+    decimal gSRCtotal;
+    //是否授權
+    bool transactionResult;
+    public async Task BuyPurchase( double USDT,  string productID ,int gSRC,string productName)
+    {
+        if (AppState.LoginStatus.IsLogin)
+        {
+            uint UserID = AppState.LoginStatus.userID;
+            var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
+            var USDT_token_addr = BlockChainSever.BlockChainInfoDTO.usdtAddress;
+            var PurchaseApprove_address = BlockChainSever.BlockChainInfoDTO.contractAddress_CQIPurchase;
+            gSRCBuy = gSRC;
+            tokenUSDT = await PurchaseApproveJS.InvokeAsync<double>("getUSDT" ,socketServerUri ,USDT_token_addr);
+            if (tokenUSDT > USDT)
+            {
+                await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
+                transactionResult = await PurchaseApproveJS.InvokeAsync<bool>("PurchaseApprove", USDT, USDT_token_addr, PurchaseApprove_address);
+
+                if (transactionResult)
+                {
+                    WhetherCheckoutPop(1);
+                    bool result = await CommodityServices.PurchaseByUSDT(UserID, USDT, productID);
+                    if (result)
+                    {
+                        tokenUSDT = await PurchaseApproveJS.InvokeAsync<double>("getUSDT" ,socketServerUri ,USDT_token_addr);
+                        await getGameCoin();
+                        changePurchaseData(gSRCBuy,gSRCtotal,productName );
+                        CheckoutPop();
+                    }
+                }
+                else
+                {
+                    WhetherCheckoutPop(2);
+                    changePurchaseData(gSRCBuy,gSRCtotal,productName );
+                    CheckoutPop();
+                }
+
+                await coinEchangeJS.InvokeVoidAsync("lockWindowsHide");
+            }
+            else
+            {
+                WhetherCheckoutPop(3);
+                CheckoutPop();
+            }
+
+        }
+        else
+        {
+            await JS.InvokeVoidAsync("loginButton", "loginButton");
+        }
+
+
+    }
+    public async Task getGameCoin()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var LoginUser = authState.User;
+        string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
+        gSRCtotal = await InventoryService.GetgSRCCurrency1(UserID);
+    }
 }

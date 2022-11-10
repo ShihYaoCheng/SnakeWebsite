@@ -1399,6 +1399,14 @@
     "nftcurrency1_3": "一大袋騎士幣",
     "nftcurrency1_4": "一小箱騎士幣",
     "nftcurrency1_5": "一大箱騎士幣",
-    "nftcurrency1_6": "特大箱騎士幣"
+    "nftcurrency1_6": "特大箱騎士幣",
+
+    "tier3"  :"一堆星鑽",
+    "tier5"  :"一小袋星鑽",
+    "tier10" :"一大袋星鑽",
+    "tier20" :"一小箱星鑽",
+    "tier50" :"一大箱星鑽",
+    "tier60" :"特大箱星鑽"
+
   }
 }

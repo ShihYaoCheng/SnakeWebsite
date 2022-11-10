@@ -42,8 +42,11 @@
                 @switch (NFTtype)
                 {
                     case 0:
-                    <SRCgift_SRCitem  openCheckoutPop="toggleCheckoutPop" toggleWhetherCheckoutPop="toggleWhetherCheckoutPop" getPurchaseData="getPurchaseData"></SRCgift_SRCitem>
-                    break;
+                        <SRCgift_SRCitem  openCheckoutPop="toggleCheckoutPop" toggleWhetherCheckoutPop="toggleWhetherCheckoutPop" getPurchaseData="getPurchaseData"></SRCgift_SRCitem>
+                        break;
+                    case 1:
+                        <SRCgift_Golditem  openCheckoutPop="toggleCheckoutPop" toggleWhetherCheckoutPop="toggleWhetherCheckoutPop" getPurchaseData="getPurchaseData"></SRCgift_Golditem>
+                        break;
                 }
              
             </div>
@@ -74,7 +77,7 @@
                 感謝您購買 &lt;<span data-i18n=NFT_data:SRCgift.@productName></span>&gt;!
             </p> 
             <p>
-                您持有的騎士幣(g)增加了<span> &lt; @gSRCBuy &gt;</span>枚，現在共有<span>&lt; @gSRCtotal &gt;</span>枚!
+                您持有的<span>騎士幣</span>(g)增加了<span> &lt; @gSRCBuy &gt;</span>枚，現在共有<span>&lt; @gSRCtotal &gt;</span>枚!
             </p>   
         </SRCgift_CheckoutPop>
             break;
