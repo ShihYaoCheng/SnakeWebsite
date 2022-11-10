@@ -35,7 +35,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
     margin:0 auto;
    
 }
@@ -70,9 +69,15 @@
     }
 }
 
+.case-img {
+    width:100%;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-
-.Cooperation_case-container img {
+.case-img img {
     width: 100%;
     max-width: 1200px;
 }
