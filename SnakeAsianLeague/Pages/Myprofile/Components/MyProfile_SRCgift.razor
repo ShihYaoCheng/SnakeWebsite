@@ -71,7 +71,7 @@
         case 1:
            <SRCgift_CheckoutPop closeCheckoutPop="toggleCheckoutPop">   
             <p>
-                感謝您購買<span> &lt; @productName &gt;</span>!
+                感謝您購買 &lt;<span data-i18n=NFT_data:SRCgift.@productName></span>&gt;!
             </p> 
             <p>
                 您持有的騎士幣(g)增加了<span> &lt; @gSRCBuy &gt;</span>枚，現在共有<span>&lt; @gSRCtotal &gt;</span>枚!
@@ -81,7 +81,7 @@
         case 2:
           <SRCgift_CheckoutPop closeCheckoutPop="toggleCheckoutPop">   
                 <p>
-                    已經取消購買 <span> &lt; @productName &gt;</span>
+                    已經取消購買 &lt;<span data-i18n=NFT_data:SRCgift.@productName></span>&gt;
                 </p> 
         </SRCgift_CheckoutPop>
             break;
@@ -148,8 +148,9 @@
     {
         if (firstRender)
         {         
-            await JS.InvokeVoidAsync("installI18n");   
+             
         }     
+         await JS.InvokeVoidAsync("installI18n"); 
     }
 
     void IDisposable.Dispose()
