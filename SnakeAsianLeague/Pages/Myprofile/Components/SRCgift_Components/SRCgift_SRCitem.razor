@@ -16,7 +16,7 @@
     @foreach (IAPItem item in IAPItemList)
     {
         var SRCValue = @item.addValue + @item.addPlus;
-        var productID = @item.productID.Substring(25);
+        var productName = @item.productID.Substring(25);
 
         <div class="NFTcard card-bg-DarkSeaGreen">  
             <div class="NFTcardA" >
@@ -28,7 +28,7 @@
                     </div>
                     <div class="NFT-cardText Not-Price-Ver">
                         <div class="giftData-container"    >
-                            <div class="giftData-title" data-i18n=NFT_data:SRCgift.@productID > </div>
+                            <div class="giftData-title" data-i18n=NFT_data:SRCgift.@productName > </div>
                             <div class="srcZone-container">
                                 <div class="giftData-srcZone">
                                     <div class="srcZone-coinType">
@@ -46,7 +46,7 @@
                             <div class="giftData-btn-container">
 
                                 <div class="usdValuation">  <span>≈USD</span> @item.priceUSD<span></span></div>
-                                <button class="giftData-btn"  @onclick="@(async ()=>{ await BuyPurchase( item.priceUSDT , item.productID ,item.addValue);})" > 
+                                <button class="giftData-btn"  @onclick="@(async ()=>{ await BuyPurchase( item.priceUSDT , item.productID ,item.addValue,productName );})" > 
                                     <span>USDT</span> <span class="giftData-btn-nun">@item.priceUSDT</span></button>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
     decimal gSRCtotal;
     //是否授權
     bool transactionResult;
-    public async Task BuyPurchase( double USDT,  string productID ,int gSRC)
+    public async Task BuyPurchase( double USDT,  string productID ,int gSRC,string productName)
     {
         if (AppState.LoginStatus.IsLogin)
         {
@@ -136,13 +136,14 @@
                     {
                         tokenUSDT = await PurchaseApproveJS.InvokeAsync<double>("getUSDT" ,socketServerUri ,USDT_token_addr);
                         await getGameCoin();
-                        changePurchaseData(gSRCBuy,gSRCtotal,"123" );
+                        changePurchaseData(gSRCBuy,gSRCtotal,productName );
                         CheckoutPop();
                     }
                 }
                 else
                 {
                     WhetherCheckoutPop(2);
+                    changePurchaseData(gSRCBuy,gSRCtotal,productName );
                     CheckoutPop();
                 }
 
