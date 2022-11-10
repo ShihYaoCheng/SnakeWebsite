@@ -17,7 +17,8 @@
 .WhyChoosePPS-title {   
     margin:0 auto 100px auto  ;
     height:50px;
-    padding-top:200px
+    padding-top:200px;
+    z-index: 1;
 }
 
 .WhyChoosePPS-title h3 {
@@ -44,7 +45,7 @@
     transform:translate(-50%,-50%);
     top: 0%;
     left: 50%;
-   
+    z-index: 0;
 }
 
 .WhyChoosePPS-cardData-container {
