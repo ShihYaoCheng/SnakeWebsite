@@ -33,7 +33,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
         /// <summary>
         /// 取得 商城商品IAP品項
         /// </summary>
-        /// mintCount 鍛造次數
+        /// gSRC
         /// <returns></returns>
         public async Task<List<IAPItem>> GetIAPItem()
         {
@@ -170,6 +170,33 @@ namespace SnakeAsianLeague.Data.Services.Commodity
            
 
 
+            }
+            return iAPItems;
+        }
+
+
+
+        /// <summary>
+        /// 取得 商城商品IAP品項
+        /// </summary>
+        /// Gold 星鑽
+        /// <returns></returns>
+        public async Task<List<IAPItem>> GetIAPItemsGold()
+        {
+            List<IAPItem> iAPItems = new List<IAPItem>();
+            string URL = $"Commodity/GetIAPItemsGold";
+            RestRequest RestRequest = new RestRequest(URL);
+            IRestResponse restResponse = await BackstageServerClient.ExecuteGetAsync(RestRequest);
+
+            //Console.WriteLine(restResponse.Content);
+            string host = _httpContextAccessor.HttpContext.Request.Host.Value;
+
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                mIAPItems = new List<IAPItem>();
+                iAPItems = JsonSerializer.Deserialize<List<IAPItem>>(restResponse.Content) ?? new List<IAPItem>();
+                //"https://dev.origingaia.com/backstage/UploadImages/512x512/com.cqigames.snakeknight.nftcurrency1_1.png";               
+                mIAPItems = iAPItems;
             }
             return iAPItems;
         }
