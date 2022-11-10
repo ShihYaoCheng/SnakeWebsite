@@ -130,7 +130,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<List<NFTData>> GetNFTDataPageList(int pageNumber, int pageSize ,string PPSRContractAddress)
+        public async Task<List<NFTData>> GetNFTDataPageList(int pageNumber, int pageSize ,string PPSRContractAddress , string UserID)
         {
 
             string ImgPath = _config.GetValue<string>("googleapis");
@@ -138,6 +138,10 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             string asset_contract_address = PPSRContractAddress;
 
             List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits(pageNumber , pageSize);
+            //我的最愛清單
+            List<RiderUnit> myLove = await Get_NFT_RiderByUserID(UserID);
+
+
             //Console.WriteLine("GetNFTRiderUnits: " + NFT_Riders.Count);
             datas = new List<NFTData>();
 
@@ -222,6 +226,12 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
                 data.isAvailableInGame = NFT_Riders[i].castings[0].isAvailableInGame;
 
+
+                if (myLove.Count > 0 && myLove.Where(m => m.ppsr == "#" + data.TokenID).Count() > 0)
+                {
+                    data.IsLove = true;
+                }
+                
                 datas.Add(data);
             }
 
@@ -230,6 +240,10 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
 
 
+
+           
+
+            
 
             Filter = datas;
 
@@ -256,6 +270,16 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         public async Task<List<NFTData>> GetNFTDataPageListbyPage()
         {
             return datas;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<NFTData>> GetNFTDataIsLove()
+        {
+            return Filter = datas.Where(m => m.IsLove == true).ToList();
         }
 
 
@@ -332,13 +356,13 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="Class"></param>
         /// <param name="Country"></param>
         /// <returns></returns>
-        public async Task<List<NFTData>> Get_NFT_by_Filter( List<string> Rarity, List<string> Elements, List<string> Class, List<string> Country)
+        public async Task<List<NFTData>> Get_NFT_by_Filter( List<string> Rarity, List<string> Elements, List<string> Class, List<string> Country ,bool IsLove)
         {
             Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
             Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
             Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
             Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
-            Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey)).ToList();
+            Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey) && m.IsLove == IsLove).ToList();
             return Filter;
         }
 
@@ -515,7 +539,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         //            var price = responseResult.Substring(str1 + value1.Length , str2 - str1 - value1.Length);
 
         //            decimal.TryParse(price, out result);
-                    
+
         //        }
         //        Console.WriteLine(string.Format("{0} : {1}", URL, responseMessage.StatusCode));
         //        return result;
@@ -545,7 +569,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
         //    string OpenSeaURL = _config.GetValue<string>("OpenSeaURL");
 
-            
+
         //    string URL = string.Format(OpenSeaURL);
 
         //    HttpClient httpClient = new HttpClient();
@@ -582,13 +606,19 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
+        public class UnitDto
+        {
+            public string UserID { get; set; }
+            public string ppsr { get; set; }
+        }
+
 
 
         /// <summary>
         /// 將NFT加入我的最愛
         /// </summary>
         /// <param name="UsersID"></param>
-        public async Task<bool> AddLove(int UserID, string ppsr)
+        public async Task<bool> AddLove(string UserID, string ppsr)
         {
             bool result = false;
             try
@@ -597,8 +627,13 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 RestRequest request = new RestRequest(URL, Method.POST);
                 request.AddHeader("Authorization", Authenticate());
                 request.AddHeader(RequestKey.Key, RequestKey.Value);
-                request.AddQueryParameter("userID", UserID.ToString());
-                request.AddQueryParameter("ppsr", ppsr);
+
+                UnitDto dto = new UnitDto();
+                dto.UserID = UserID;
+                dto.ppsr = "#"+ppsr;
+                JsonParameter JP = new JsonParameter("", dto);
+                request.AddParameter(JP);
+
                 var response = await ServerClient.ExecuteAsync(request);
                 result = response.StatusCode == HttpStatusCode.OK;
             }
@@ -615,7 +650,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// </summary>
         /// <param name="UserID"></param>
         /// <param name="ppsrID"></param>
-        public async Task<bool> RemoveLove(int UserID, string ppsr)
+        public async Task<bool> RemoveLove(string UserID, string ppsr)
         {
             bool result = false;
             try
@@ -624,8 +659,11 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 RestRequest request = new RestRequest(URL, Method.POST);
                 request.AddHeader("Authorization", Authenticate());
                 request.AddHeader(RequestKey.Key, RequestKey.Value);
-                request.AddQueryParameter("userID", UserID.ToString());
-                request.AddQueryParameter("ppsr", ppsr);
+                UnitDto dto = new UnitDto();
+                dto.UserID = UserID;
+                dto.ppsr = "#" + ppsr;
+                JsonParameter JP = new JsonParameter("", dto);
+                request.AddParameter(JP);
                 var response = await ServerClient.ExecuteAsync(request);
                 result = response.StatusCode == HttpStatusCode.OK;
             }
@@ -636,6 +674,39 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             return result;
         }
 
+
+
+        /// <summary>
+        /// 取得 Rider 有被鍛造的 NFT 
+        /// </summary>
+        /// mintCount 鍛造次數
+        /// <returns></returns>
+        private async Task<List<RiderUnit>> Get_NFT_RiderByUserID(string UserID)
+        {
+            string URL = "/Unit/CheckForBackEnd";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("UserID", UserID);
+            request.AddHeader("Authorization", Authenticate());
+
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                RiderList lists = JsonSerializer.Deserialize<RiderList>(restResponse.Content) ?? new RiderList();
+
+                List<RiderUnit> result = new List<RiderUnit>();
+
+                //自有
+                List<RiderUnit> result1 = lists.selfUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
+                //租任
+                List<RiderUnit> result2 = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
+
+                result.AddRange(result1);
+                result.AddRange(result2);
+                result = result.Where(m => m.isLove == true).ToList() ?? new List<RiderUnit>();
+                return result;
+            }
+            return new List<RiderUnit>();
+        }
 
         /// <summary>
         /// 改變租金
@@ -643,27 +714,27 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="UserID"></param>
         /// <param name="ppsrID"></param>
         /// <param name="Price"></param>
-        public async Task<bool> ChangeRent(int UserID, string ppsr, int Price)
-        {
-            bool result = false;
-            try
-            {
-                string URL = "/NFT/ChangeRent";
-                RestRequest request = new RestRequest(URL, Method.POST);
-                request.AddHeader("Authorization", Authenticate());
-                request.AddHeader(RequestKey.Key, RequestKey.Value);
-                request.AddQueryParameter("userID", UserID.ToString());
-                request.AddQueryParameter("ppsr", ppsr);
-                request.AddQueryParameter("price", Price.ToString());
-                var response = await ServerClient.ExecuteAsync(request);
-                result = response.StatusCode == HttpStatusCode.OK;
-            }
-            catch (Exception ex)
-            {
-                string errormsg = ex.Message;
-            }
-            return result;
-        }
+        //public async Task<bool> ChangeRent(int UserID, string ppsr, int Price)
+        //{
+        //    bool result = false;
+        //    try
+        //    {
+        //        string URL = "/NFT/ChangeRent";
+        //        RestRequest request = new RestRequest(URL, Method.POST);
+        //        request.AddHeader("Authorization", Authenticate());
+        //        request.AddHeader(RequestKey.Key, RequestKey.Value);
+        //        request.AddQueryParameter("userID", UserID.ToString());
+        //        request.AddQueryParameter("ppsr", ppsr);
+        //        request.AddQueryParameter("price", Price.ToString());
+        //        var response = await ServerClient.ExecuteAsync(request);
+        //        result = response.StatusCode == HttpStatusCode.OK;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string errormsg = ex.Message;
+        //    }
+        //    return result;
+        //}
 
         /// <summary>
         /// NFT PPS 
@@ -709,9 +780,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             List<MetadataList> DataList = new List<MetadataList>();
             try
             {
-
-                string LinkURL = _config.GetValue<string>("OpenSeaLink");
-                
+                string LinkURL = _config.GetValue<string>("OpenSeaLink");                
                 string URL = "/BC_PPSI/NFTMetadataList";
                 var request = new RestRequest(URL, Method.GET);
                 IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
@@ -732,8 +801,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                         rd.LinkURL = getLinkURL;
                         DataList.Add(rd);
                     }
-
-
                 }
             }
             catch (Exception ex)

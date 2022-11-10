@@ -26,7 +26,7 @@
             
         <div class="Filter-Header-Block">
             <button  hidden="@(false)" class="Filter-Button" id="Filter-Button-Reset">Reset</button>
-            <button  hidden="@(false)" class="Filter-heart btn p-0 tippy-pop" data-content="Favorite"  >
+            <button  hidden="@(false)" class="Filter-heart btn p-0 tippy-pop" data-content="Favorite" @onclick="eventArgs => { FilterLove(); }"  >
                 @*@onclick=FilterLove*@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
                     <path class="heart__path"
@@ -277,7 +277,7 @@
     //國家
     private List<OptionKeyValue> CountryList= new List<OptionKeyValue>();
 
- 
+
 
     //頁數
     private int PageNumber = 1 ;
@@ -291,12 +291,12 @@
         ElementsList = await OptionService.Get_Default_Elements();
         ClassList = await OptionService.Get_Default_Class();
         CountryList = await OptionService.Get_Default_Country();
- 
 
-        PageNumber = 1;
-        var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
-        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize ,contractAddress_PPSR);
-        getNFTDataList( pagelist);
+
+        //PageNumber = 1;
+        //var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
+        //List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize ,contractAddress_PPSR);
+        //getNFTDataList( pagelist);
         getPPSRsCount( await OptionService.GetNFTRiderUnitsCount());
         //await lazyloadingJS.InvokeVoidAsync("LazyLoading");
         StateHasChanged();
@@ -428,7 +428,7 @@
         //NFTDataList = pagelist;
         //MetaData = pagelist.MetaData;
         //PPSRsCount = MetaData.TotalCount;
-        List<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry);
+        List<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry ,iSFilterHeart);
         getNFTDataList(pagelist);
         getPPSRsCount( pagelist.Count);
         await ReFreshJS();
@@ -438,18 +438,23 @@
         FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count() + CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
     }
 
-     // 斷是否有點擊篩選我的最愛
+    // 斷是否有點擊篩選我的最愛
     private bool iSFilterHeart = false;
     // 點擊，篩選我的最愛
     private async Task FilterLove()
     {
         iSFilterHeart = !iSFilterHeart;
-        //PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( 1,10);
-        //NFTDataList = pagelist;
-        //MetaData = pagelist.MetaData;
-        //PPSRsCount = MetaData.TotalCount;
+        List<NFTData> pagelist;
+        if (iSFilterHeart)
+        {
+            pagelist = await OptionService.GetNFTDataIsLove();
+        }
+        else
+        {
+            pagelist = await OptionService.GetNFTDataPageListbyPage();
+        }
 
-        List<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( );
+        
         getNFTDataList( pagelist);
         getPPSRsCount( pagelist.Count);
 
