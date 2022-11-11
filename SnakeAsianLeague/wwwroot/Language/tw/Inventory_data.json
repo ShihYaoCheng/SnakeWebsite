@@ -115,7 +115,8 @@
     "SwitchYoMetWorkName": "切換至",
     "LoadingData": "資料載入中"
   },
-  "SRCPackage":{
-    "SRCPackage":"SRC禮包"
+  "SRCPackage": {
+    "SRCPackage": "SRC禮包",
+    "GoldPackage": "星鑽禮包"
   }
 }

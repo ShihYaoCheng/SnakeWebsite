@@ -32,8 +32,8 @@
                             <div class="srcZone-container">
                                 <div class="giftData-srcZone">
                                     <div class="srcZone-coinType">
-                                        <img  class="srcZone-img" src="/images/Myprofile/SRC.webp"/>
-                                        <span class="srcZone-num">gSRC</span>
+                                        <img  class="srcZone-img" src="/images/Myprofile/gold.png"/>
+                                        <span class="srcZone-num">Gold</span>
                                     </div>
                                     <span class="srcZone-count">
                                         <span class="srcZone-icon">✕</span> 
@@ -91,7 +91,7 @@
 
     protected override async Task OnInitializedAsync()
     {       
-        IAPItemList = await CommodityServices.GetIAPItem();
+        IAPItemList = await CommodityServices.GetIAPItemsGold();
     }
     private IJSObjectReference? PurchaseApproveJS;
     private IJSObjectReference? coinEchangeJS;

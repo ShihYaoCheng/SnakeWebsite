@@ -29,7 +29,15 @@
 <div class="SRCgift-block">
     <div class="Inventory">
         <div class="Secend-Block">
-            <div class="Secend-Title" data-i18n="Inventory_data:SRCPackage.SRCPackage">SRC Package</div>
+            @if (NFTtype ==0)
+            {
+                <div class="Secend-Title" data-i18n="Inventory_data:SRCPackage.SRCPackage">SRC Package</div>
+            }
+            else
+            {
+                 <div class="Secend-Title" data-i18n="Inventory_data:SRCPackage.GoldPackage">Gold Package</div>
+            }
+            
             <div class="Secend-Inner" id="">
                 <SRCgift_CurrencyTab toggleNFTtype="toggleNFTtype" />
             </div>
@@ -38,17 +46,7 @@
         <div class="Inventory-PPSR-Block" id="Inventory-PPSR-Block">  
         
             <div class="Inventory-CardBLock"> 
-
-                @switch (NFTtype)
-                {
-                    case 0:
-                        <SRCgift_SRCitem  openCheckoutPop="toggleCheckoutPop" toggleWhetherCheckoutPop="toggleWhetherCheckoutPop" getPurchaseData="getPurchaseData"></SRCgift_SRCitem>
-                        break;
-                    case 1:
-                        <SRCgift_Golditem  openCheckoutPop="toggleCheckoutPop" toggleWhetherCheckoutPop="toggleWhetherCheckoutPop" getPurchaseData="getPurchaseData"></SRCgift_Golditem>
-                        break;
-                }
-             
+                <SRCgift_SRCitem NFTtype=@NFTtype loading=@loading openCheckoutPop="toggleCheckoutPop" toggleWhetherCheckoutPop="toggleWhetherCheckoutPop" getPurchaseData="getPurchaseData" closeLoading="closeLoading"></SRCgift_SRCitem>
             </div>
         </div>
 
@@ -65,6 +63,11 @@
 {
     <ErrorNetwork AddPolygon ="AddPolygon" ></ErrorNetwork>
 }
+@if (loading&&islogin)
+{
+    <FectchDataLoading />    
+}
+
 
 @*購買彈窗*@
 @if(showCheckoutPop){
@@ -139,7 +142,7 @@
     }
     //是否登入
     [CascadingParameter] bool islogin { get; set; }
-    
+    public bool loading;
     protected override async Task OnInitializedAsync()
     {
         AppState.StateChanged += async (Source, Property)
@@ -151,9 +154,9 @@
     {
         if (firstRender)
         {         
-             
+
         }     
-         await JS.InvokeVoidAsync("installI18n"); 
+        await JS.InvokeVoidAsync("installI18n"); 
     }
 
     void IDisposable.Dispose()
@@ -179,7 +182,12 @@
     public void toggleNFTtype(int value)
     {
         NFTtype = value;
+        loading = true;
     } 
+    public void closeLoading()
+    {
+        loading = false;
+    }
     //是否網路正確
     bool netWorkRight = false;
     //新增AddPolygon鍊
