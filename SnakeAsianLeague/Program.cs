@@ -144,19 +144,6 @@ else
 
 app.UseHttpsRedirection();
 
-if (!app.Environment.IsDevelopment())
-{
-    app.UseStaticFiles(new StaticFileOptions
-    {
-        OnPrepareResponse = context => 
-        { 
-            context.Context.Response.Headers.Append("Cache-Control", "max-age=1800"); 
-        }
-    });
-}
-
-
-
 bool cdnEnabled = Convert.ToBoolean( builder.Configuration["CDN:Enabled"]);
 if(cdnEnabled)
 {
@@ -172,6 +159,17 @@ else
     Console.WriteLine("=== CDN Disabled ===");
 
 
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        OnPrepareResponse = context => 
+        { 
+            context.Context.Response.Headers.Append("Cache-Control", "max-age=1800"); 
+        }
+    });
+}
 app.UseStaticFiles();
 
 
