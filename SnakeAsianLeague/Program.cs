@@ -157,18 +157,19 @@ if (!app.Environment.IsDevelopment())
 
 
 
-//CDN
-bool CdnEnable = Convert.ToBoolean( builder.Configuration["CDN:Enabled"]);
-if (CdnEnable)
+bool cdnEnabled = Convert.ToBoolean( builder.Configuration["CDN:Enabled"]);
+if(cdnEnabled)
 {
-    string CdnUrl = builder.Configuration["CDN:Url"];
-    var options = new RewriteOptions().AddRedirect("images/(.*)", CdnUrl+"images/$1");
+    string cdnUrl = builder.Configuration["CDN:Url"];
+    var options = new RewriteOptions().AddRedirect("images/(.*)", cdnUrl+"images/$1");
     //var options = new RewriteOptions().AddRewrite("images/(.*)", CdnUrl + "images/$1", skipRemainingRules: false);
 
     app.UseRewriter(options);
-
+    
+    Console.WriteLine($"=== CDN Enabled with Url({cdnUrl}) ===");
 }
-
+else
+    Console.WriteLine("=== CDN Disabled ===");
 
 
 app.UseStaticFiles();
