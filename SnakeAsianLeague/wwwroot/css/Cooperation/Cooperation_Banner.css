@@ -1,5 +1,136 @@
-.Cooperation_Banner{
+.Cooperation_Banner {
     border: 1px solid red;
     width: 100%;
-    height: 1000px;
+    /* height: 1000px; */
+    position: relative;
+    background-color: #203240;
+}
+.CooperationBanner-Gradient{
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, #203240 0%, #20324080 32%, #20324000 40%, #20324000 100%);
+    z-index: 0;
+
+    /* display: none; */
+}
+.Cooperation_Banner img {
+    /* width: 100%; */
+}
+
+.CooperationBanner-BG {
+    width: 100%;
+}
+
+#yumi {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    /* display: none; */
+}
+
+.CooperationBanner-content {
+    border: 1px solid red;
+    position: absolute;
+    left: 10%;
+    top: 40%;
+    width: 50%;
+    z-index: 5;
+}
+
+.CooperationBanner-titleBlock{
+    position: relative;
+    z-index: -1;
+}
+#CooperationBanner-title{
+    max-width: 1100px;
+    width: 100%;
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+}
+#Title_base{
+    max-width: 1300px;
+    width: 110%;
+    position: absolute;
+    top: 15%;
+    left: -10%;
+    z-index: -1;
+}
+.CooperationBanner-text{
+    color: #fff;
+    text-shadow: 0px 1px 6.3px rgba(0, 0, 0, 0.9),0px 1px 8px rgba(0, 0, 0, 0.5);
+    font-size: 23px;
+    font-weight: 600;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    z-index: 2;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+
+.CooperationBanner-inputBlock{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 30px;
+    letter-spacing: 1px;
+}
+.CooperationBanner-inputText{
+    text-shadow: rgba(0, 0, 0, 0.8) 1px 1px 5px, rgb(139 247 255 / 96%) 0px 0px 40px, rgb(139 247 255 / 70%) 0px 0px 30px;    
+    line-height: 1.5;
+    /* text-shadow: 0px 0px 55px rgb(119 172 176); */
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.CooperationBanner-inputSend {
+    margin-left: 30px;
+    border-radius: 39px;
+    box-shadow: 0 0 0 0 #000, inset 0 0 0 0 #000, 0 0 0 1px #f5e8b4, inset 0 0 0 1.5px #f5e8b4;
+    /* background-color: #4b2929; */
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 430px;
+    height: 50px;
+    width: 100%;
+
+}
+
+.CooperationBanner-input {
+    border: 1px solid red;
+    color: #fff;
+    background: none;
+    border: none;
+
+    font-size: 20px;
+    outline: none;
+    width: 100%;
+    margin: 0 20px 0 20px;
+}
+
+.CooperationBanner-button {
+    color: #fff;
+    border: 2px solid #b06b24;
+    background: linear-gradient(to bottom, #ffd34b, #eda53a);
+    border-radius: 25px;
+    height: 91.5%;
+    width: 100%;
+    margin-right: 0.4%;
+    font-weight: 700;
+    font-size: 22px;
+    text-shadow: rgba(0, 0, 0, 0.8) 0 0 0.2em;
+    font-size: 18px;
+    max-width: 110px;
+
 }
