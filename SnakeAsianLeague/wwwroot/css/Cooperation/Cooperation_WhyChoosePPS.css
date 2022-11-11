@@ -1,8 +1,8 @@
 ﻿.WhyChoosePPS-container {
     width: 100%;
-    height:800px;
-    background: url("/images/Cooperation/choose_bg.png");
-    background-repeat:round;
+    height: 800px;
+    background: url("/images/Cooperation/choose_bg_repeat1.png");
+    background-repeat: repeat-x;
 }
 
 @media all and (max-width: 800px) {

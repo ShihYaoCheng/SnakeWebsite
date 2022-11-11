@@ -1,4 +1,5 @@
 ﻿@using SnakeAsianLeague.Data.Entity.Commodity
+@using SnakeAsianLeague.Data.Entity.View
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Data.Services.Commodity
@@ -6,10 +7,10 @@
 @using SnakeAsianLeague.Pages.Myprofile.Components.SRCgift_Components
 @using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 
-@inject InventoryService InventoryService
-@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
 @inject AppState AppState
-@inject CommodityServices CommodityServices
+
 @inject BlockChainProcessorSever BlockChainSever
 @inject IJSRuntime JS
 @inject IConfiguration Configuration
@@ -30,57 +31,24 @@
         <div class="Secend-Block">
             <div class="Secend-Title" data-i18n="Inventory_data:SRCPackage.SRCPackage">SRC Package</div>
             <div class="Secend-Inner" id="">
-                <SRCgift_CurrencyTab />
+                <SRCgift_CurrencyTab toggleNFTtype="toggleNFTtype" />
             </div>
         </div>
                     
         <div class="Inventory-PPSR-Block" id="Inventory-PPSR-Block">  
         
             <div class="Inventory-CardBLock"> 
-                @if (IAPItemList != null)
+
+                @switch (NFTtype)
                 {
-                    @foreach (IAPItem item in IAPItemList)
-                    {
-                        var SRCValue = @item.addValue + @item.addPlus;
-
-                        <div class="NFTcard card-bg-DarkSeaGreen">  
-                            <div class="NFTcardA" >
-                                @*<a href="@item.LinkURL" target="opensea">  </a>*@
-
-                                <div class="NFTcard-inner">
-                                    <div class="NFT-cardImg">
-                                        <img src= "@item.productUrl" alt="" >
-                                    </div>
-                                    <div class="NFT-cardText Not-Price-Ver">
-                                        <div class="giftData-container"    >
-                                            <div class="giftData-title">  </div>
-                                            <div class="srcZone-container">
-                                                <div class="giftData-srcZone">
-                                                    <div class="srcZone-coinType">
-                                                        <img  class="srcZone-img" src="/images/Myprofile/SRC.webp"/>
-                                                        <span class="srcZone-num">gSRC</span>
-                                                    </div>
-                                                    <span class="srcZone-count">
-                                                        <span class="srcZone-icon">✕</span> 
-                                                        @SRCValue 
-                                                    </span>
-                                                    
-                                                </div>
-                                            </div>
-
-                                            <div class="giftData-btn-container">
-
-                                                <div class="usdValuation">  <span>≈USD</span> @item.priceUSD<span></span></div>
-                                                <button class="giftData-btn"  @onclick="@(async ()=>{ await BuyPurchase( item.priceUSDT , item.productID ,item.addValue);})" > 
-                                                    <span>USDT</span> <span class="giftData-btn-nun">@item.priceUSDT</span></button>
-                                            </div>
-                                        </div>
-                                    </div>               
-                                </div>                     
-                            </div>        
-                        </div>
-                    }
-                }        
+                    case 0:
+                        <SRCgift_SRCitem  openCheckoutPop="toggleCheckoutPop" toggleWhetherCheckoutPop="toggleWhetherCheckoutPop" getPurchaseData="getPurchaseData"></SRCgift_SRCitem>
+                        break;
+                    case 1:
+                        <SRCgift_Golditem  openCheckoutPop="toggleCheckoutPop" toggleWhetherCheckoutPop="toggleWhetherCheckoutPop" getPurchaseData="getPurchaseData"></SRCgift_Golditem>
+                        break;
+                }
+             
             </div>
         </div>
 
@@ -101,24 +69,22 @@
 @*購買彈窗*@
 @if(showCheckoutPop){
 
-
-
     @switch( whetherCheckoutPop)
     {
         case 1:
            <SRCgift_CheckoutPop closeCheckoutPop="toggleCheckoutPop">   
             <p>
-                感謝您購買<span> &lt; 商品名稱 &gt;</span>!
+                感謝您購買 &lt;<span data-i18n=NFT_data:SRCgift.@productName></span>&gt;!
             </p> 
             <p>
-                您持有的騎士幣(g)增加了<span> &lt; @gSRCBuy &gt;</span>枚，現在共有<span>&lt; @gSRCtotal &gt;</span>枚!
+                您持有的<span>騎士幣</span>(g)增加了<span> &lt; @gSRCBuy &gt;</span>枚，現在共有<span>&lt; @gSRCtotal &gt;</span>枚!
             </p>   
         </SRCgift_CheckoutPop>
             break;
         case 2:
           <SRCgift_CheckoutPop closeCheckoutPop="toggleCheckoutPop">   
                 <p>
-                    已經取消購買 <span> &lt; 商品名稱 &gt;</span>
+                    已經取消購買 &lt;<span data-i18n=NFT_data:SRCgift.@productName></span>&gt;
                 </p> 
         </SRCgift_CheckoutPop>
             break;
@@ -159,32 +125,25 @@
 
 
 @code {
-
-    bool showCheckoutPop = false;
-        @*bool whetherCheckoutPop = false;*@
-        int whetherCheckoutPop = 1;
-        public void toggleCheckoutPop(bool value)
-        {
-            showCheckoutPop = value;    
-        } 
-
-        //是否登入
-        [CascadingParameter] bool islogin { get; set; }
-
-    private List<IAPItem> IAPItemList;
-    private IJSObjectReference? PurchaseApproveJS;
-    private IJSObjectReference? coinEchangeJS;
-    //private IJSObjectReference? CheckoutPopJS;
-
-    //是否網路正確
-    bool netWorkRight = false;
-
+    //是否顯示購買彈窗
+    bool showCheckoutPop = false;    
+    public void toggleCheckoutPop(bool value)
+    {
+        showCheckoutPop = value;    
+    } 
+    //是否顯示購買彈窗的狀態
+    int whetherCheckoutPop = 1;
+    public void toggleWhetherCheckoutPop(int value)
+    {
+        whetherCheckoutPop = value;
+    }
+    //是否登入
+    [CascadingParameter] bool islogin { get; set; }
+    
     protected override async Task OnInitializedAsync()
     {
         AppState.StateChanged += async (Source, Property)
-        => await InvokeAsync(StateHasChanged);
-
-        IAPItemList = await CommodityServices.GetIAPItem();
+        => await InvokeAsync(StateHasChanged);      
 
     }
 
@@ -192,13 +151,9 @@
     {
         if (firstRender)
         {         
-            PurchaseApproveJS  = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/BuyPurchase/PurchaseApprove.js");       
-            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");  
-            //CheckoutPopJS= await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/BuyPurchase/CheckoutPop.js");    
-            ////await JS.InvokeVoidAsync("NFTcardAClick"); 
-            //await CheckoutPopJS.InvokeVoidAsync("CheckoutPop");
-
-        }
+             
+        }     
+         await JS.InvokeVoidAsync("installI18n"); 
     }
 
     void IDisposable.Dispose()
@@ -206,64 +161,31 @@
         AppState.StateChanged -= async (Source, Property)
         => await InvokeAsync(StateHasChanged);
     }
-    //USDT數量
-    double tokenUSDT;
+    //USDT數量 
     double gSRCBuy;
     decimal gSRCtotal;
-    //是否授權
-    bool transactionResult;
-    public async Task BuyPurchase( double USDT,  string productID ,int gSRC)
+    string productName="";
+
+    //取得購買完畢的資料
+    public void getPurchaseData(PurchaseData value)
     {
-        if (islogin)
-        {
-            uint UserID = AppState.LoginStatus.userID;
-            var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
-            var USDT_token_addr = BlockChainSever.BlockChainInfoDTO.usdtAddress;
-            var PurchaseApprove_address = BlockChainSever.BlockChainInfoDTO.contractAddress_CQIPurchase;
-            gSRCBuy = gSRC;
-            tokenUSDT = await PurchaseApproveJS.InvokeAsync<double>("getUSDT" ,socketServerUri ,USDT_token_addr);
-            if (tokenUSDT > USDT)
-            {
-                await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
-                transactionResult = await PurchaseApproveJS.InvokeAsync<bool>("PurchaseApprove", USDT, USDT_token_addr, PurchaseApprove_address);
-
-                if (transactionResult)
-                {
-                    whetherCheckoutPop = 1;
-                    bool result = await CommodityServices.PurchaseByUSDT(UserID, USDT, productID);
-                    if (result)
-                    {
-                        tokenUSDT = await PurchaseApproveJS.InvokeAsync<double>("getUSDT" ,socketServerUri ,USDT_token_addr);
-                        await getGameCoin();
-                        toggleCheckoutPop(true);
-                    }
-                }
-                else
-                {
-                    whetherCheckoutPop = 2;
-                    toggleCheckoutPop(true);
-                }
-
-                await coinEchangeJS.InvokeVoidAsync("lockWindowsHide");
-            }
-            else
-            {
-                whetherCheckoutPop = 3;
-                toggleCheckoutPop(true);
-            }
-
-        }
-        else
-        {
-            await JS.InvokeVoidAsync("loginButton", "loginButton");
-        }
-
-
+        gSRCBuy = value.gSRCBuy;
+        gSRCtotal = value.gSRCtotal;
+        productName = value.productName;
     }
 
+    //切換SRC跟Gold的購買畫面
+    int NFTtype = 0;
+    public void toggleNFTtype(int value)
+    {
+        NFTtype = value;
+    } 
+    //是否網路正確
+    bool netWorkRight = false;
+    //新增AddPolygon鍊
     protected  async Task AddPolygon()
     {
-        @*linebot.SemdLineNotifyMsg("test123");*@
+    @*linebot.SemdLineNotifyMsg("test123");*@
         int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
         var chainName = BlockChainSever.BlockChainInfoDTO.blockChain;
         var recUrls = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
@@ -271,14 +193,5 @@
         int nativeCurrencyDecimals = BlockChainSever.BlockChainInfoDTO.nativeCurrencyDecimals;
 
         await JS.InvokeVoidAsync("AddPolygonID",chainId, chainName, recUrls , nativeCurrencyName,  nativeCurrencyDecimals);
-
-
-    }
-    public async Task getGameCoin()
-    {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        var LoginUser = authState.User;
-        string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
-        gSRCtotal = await InventoryService.GetgSRCCurrency1(UserID);
     }
 }

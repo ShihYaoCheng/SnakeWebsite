@@ -1,11 +1,13 @@
 @page "/marketplace"
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Paging
+@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Data.Services.MarketPlace
 @using SnakeAsianLeague.Pages.MarketPlace.Components
 @using SnakeAsianLeague.Pages.Myprofile.Components.Inventory_Components
 
+@inject AppState AppState
 @inject OptionService OptionService
 @inject BlockChainProcessorSever BlockChainSever
 
@@ -125,8 +127,9 @@
         PageNumber = 1;
 
         var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
+        string UserID = AppState.LoginStatus.userID.ToString();
         
-        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize , contractAddress_PPSR);
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize , contractAddress_PPSR , UserID);
         NFTDataList = pagelist;
         PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
         await lazyloadingJS.InvokeVoidAsync("LazyLoading");
@@ -236,18 +239,24 @@
         //PPSRsCount = MetaData.TotalCount;
         await JS.InvokeVoidAsync("Localize");
     }
-   
+
     /// 點擊我的最愛   
     /// <param name="TokenId">TokenId</param>
     /// <param name="isLove">isLove </param>
     /// <param name="checkedValue"></param>
-    private void HeartToggleButton( HeartParameter value)
+    public async Task HeartToggleButton( HeartParameter value)
     {
         NFTDataList.Where(m => m.TokenID == value.TokenId).First().IsLove = !(value.isLove);
 
-        if (value.isLove)
-        {
 
+        string UserID = AppState.LoginStatus.userID.ToString();
+        if (!value.isLove)
+        {
+            
+            await OptionService.AddLove( UserID,value.TokenId);
+        }else
+        {
+            await OptionService.RemoveLove( UserID,value.TokenId);
         }
     }
 

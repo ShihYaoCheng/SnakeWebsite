@@ -48,5 +48,21 @@
   "NFT_Unit9_2a_2": "Yomi Pop Correa",
   "NFT_Unit11_3c_4": "Yomi Pop Wu-Kong",
   "NFT_Unit8_4b_3": "Yomi Pop Puppet Felice",
-  "NFT_Unit0_1a_8": "Yomi Pop Monster"
+  "NFT_Unit0_1a_8": "Yomi Pop Monster",
+  "SRCgift": {
+    "nftcurrency1_1": "A pile of SRC",
+    "nftcurrency1_2": "A small bag of SRC",
+    "nftcurrency1_3": "A large bag of SRC",
+    "nftcurrency1_4": "A small box of SRC",
+    "nftcurrency1_5": "A large box of SRC",
+    "nftcurrency1_6": "A Chest of SRC",
+
+    "tier3"  :"A pile of gems.",
+    "tier5"  :"A bag of gems.",
+    "tier10" :"A big bag of gems.",
+    "tier20" :"A small case of gems.",
+    "tier50" :"A large chest of gems.",
+    "tier60" :"A premium chest full of gems"
+
+  }
 }
