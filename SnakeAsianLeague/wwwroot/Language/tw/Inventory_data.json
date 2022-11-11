@@ -44,7 +44,8 @@
     "SRC": "騎士幣",
     "CollectIncome": "領取",
     "CollectAllIncome": "一鍵領取",
-    "BuyPPSR": "購買 PPSR  >>"
+    "BuyPPSR": "購買 PPSR  >>",
+    "Gold": "星鑽"
   },
   "Filter": {
     "Rarity": "稀有度",
