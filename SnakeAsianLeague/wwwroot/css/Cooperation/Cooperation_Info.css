@@ -77,12 +77,6 @@
     .Cooperation_Info{
         padding-top: 20px;
     }
-}
-
-@media all and (max-width: 1000px){
-    .Cooperation_Info{
-        padding-top: 50px;
-    }
     .CooperationInfo-title{
         font-size: 23px;
         margin-bottom: 12px;
@@ -90,6 +84,13 @@
     .CooperationInfo-text{
         font-size: 16px;
     }
+}
+
+@media all and (max-width: 1000px){
+    .Cooperation_Info{
+        padding-top: 50px;
+    }
+
     #CooperationInfo-introduce-01{
         margin: 0px 15px 20px 0;
     }

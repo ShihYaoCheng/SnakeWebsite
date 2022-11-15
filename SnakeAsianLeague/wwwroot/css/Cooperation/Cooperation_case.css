@@ -49,12 +49,12 @@
 }
 @media all and (max-width: 1500px) {
     .case-title p {        
-        font-size: 34px;
+        font-size: 32px;
     }
 }
 @media all and (max-width: 1000px) {
     .case-title p {        
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .case-title {
@@ -134,7 +134,7 @@
     line-height: 29px;
     letter-spacing: 1px;
 }
-@media all and (max-width: 1000px){
+@media all and (max-width: 1200px){
     .concept-zone-left h3{
         font-size: 23px;
         margin-bottom: 12px;
