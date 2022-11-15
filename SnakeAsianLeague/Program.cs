@@ -144,12 +144,12 @@ else
 
 app.UseHttpsRedirection();
 
-bool cdnEnabled = Convert.ToBoolean( builder.Configuration["CDN:Enabled"]);
+var cdnEnabled = Convert.ToBoolean( builder.Configuration["CDN:Enabled"]);
 if(cdnEnabled)
 {
-    string cdnUrl = builder.Configuration["CDN:Url"];
-    var options = new RewriteOptions().AddRedirect("images/(.*)", cdnUrl+"images/$1");
-    //var options = new RewriteOptions().AddRewrite("images/(.*)", CdnUrl + "images/$1", skipRemainingRules: false);
+    var cdnUrl = builder.Configuration["CDN:Url"];
+    // https://stackoverflow.com/questions/49023794/redirecting-https-site-to-non-www-in-asp-net-core-application
+    var options = new RewriteOptions().Add(new RedirectHostRule(cdnUrl));
 
     app.UseRewriter(options);
     
