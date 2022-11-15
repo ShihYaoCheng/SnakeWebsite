@@ -142,6 +142,7 @@
 
     .WhyChoosePPS-cardData {
         width: 50%;
+        max-width: 280px;
     }
     .WhyChoosePPS-cardData:not(:last-child) {
         margin-right: 0px;
