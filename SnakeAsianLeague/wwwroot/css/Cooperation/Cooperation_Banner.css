@@ -44,7 +44,7 @@
     /* border: 1px solid red; */
     position: absolute;
     left: 10%;
-    top: 40%;
+    top: 42%;
     width: 45%;
     z-index: 5;
 }
@@ -54,7 +54,7 @@
     z-index: -1;
 }
 #CooperationBanner-title{
-    max-width: 1040px;
+    max-width: 1000px;
     width: 100%;
     /* position: absolute;
     top: 0;
@@ -72,9 +72,11 @@
     color: #fff;
     text-shadow: 0px 1px 6.3px rgba(0, 0, 0, 0.9),0px 1px 8px rgba(0, 0, 0, 0.5);
     font-size: 28px;
-    font-weight: 600;
+    /* font-weight: 500; */
     margin-left: 30px;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+
+    margin-bottom: 25px;
     z-index: 2;
     line-height: 1.4;
     letter-spacing: 1px;
@@ -95,9 +97,13 @@
     color: #fff;
     font-size: 22px;
     white-space: nowrap;
-    font-weight: 600;
+    /* font-weight: 500; */
     display: flex;
     flex-direction: column;
+}
+#mail-icon{
+    width: 22px;
+    margin-bottom: 4px;
 }
 
 .CooperationBanner-inputSend {
@@ -145,7 +151,7 @@
 
 @media all and (max-width: 1920px){
     .CooperationBanner-content {
-        top: 40%;
+        top: 42%;
     }
     .CooperationBanner-Gradient{
         background-image: linear-gradient(to top, rgb(32, 50, 64) 0%, rgba(32, 50, 64, 0.8) 30%, rgba(32, 50, 64, 0.6) 38%, rgba(32, 50, 64, 0) 48%, rgba(32, 50, 64, 0) 100%);
@@ -182,7 +188,7 @@
     }
     .CooperationBanner-text{
         font-size: 22px;
-        margin-bottom: 22px;
+        margin-bottom: 18px;
     }
     .CooperationBanner-inputText{
         font-size: 16px;
@@ -199,12 +205,14 @@
     .CooperationBanner-button {
         max-width: 95px;
     }
-    
+    #mail-icon{
+        width: 20px;
+    }
 }
 @media all and (max-width: 1200px){
     .CooperationBanner-content {
         width: 58%;
-        top: 38%;
+        top: 40%;
     }
     #CooperationBanner-title{
         max-width: 400px;
@@ -215,7 +223,7 @@
     .CooperationBanner-text{
         font-size: 18px;
         margin-left: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
     }
     .CooperationBanner-inputBlock{
         margin-left: 20px;
@@ -240,6 +248,10 @@
     .CooperationBanner-input {
         font-size: 14.5px;
     }
+    #mail-icon{
+        width: 19px;
+        margin-bottom: 2px;
+    }
 }
 @media all and (max-width: 800px){
     .CooperationBanner-content {
@@ -252,7 +264,7 @@
     }
     .CooperationBanner-text{
         font-size: 15px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         line-height: 1.5;
     }
     .CooperationBanner-inputText{
@@ -268,6 +280,9 @@
         font-size: 14px;
         border: 1px solid #b06b24;
     }
+    #mail-icon {
+        width: 18px;
+    }
 }
 @media all and (max-width: 650px){
     .Cooperation_Banner_Block{
@@ -278,7 +293,8 @@
     }
     .CooperationBanner-text {
         font-size: 14px;
-        margin-bottom: 30px;
+        /* margin-bottom: 30px; */
+        margin-bottom: 15px;
     }
     .CooperationBanner-inputText {
         font-size: 10px;
@@ -289,7 +305,7 @@
         width: 60%;
     }
     .CooperationBanner-content{
-        left: 0%;
+        left: 10%;
         width: 95%;
     }
     .CooperationBanner-inputBlock{
@@ -297,11 +313,12 @@
         /* flex-direction: column; */
         flex-direction: column-reverse;
         align-items: flex-start;
-        align-items: center
+        /* align-items: center； */
     }
     .CooperationBanner-inputText{
-        margin-left: 10px;
-        flex-direction: row;
+        /* margin-left: 10px;
+        flex-direction: row; */
+
         /* align-self:flex-end ; */
         /* align-self: center; */
     }
@@ -310,9 +327,15 @@
         width: 100%;
         margin-bottom: 10px;
     }
+
+    #mail-icon{
+        width: 17px;
+        margin-bottom: 2px;
+    }
 }
 @media all and (max-width: 450px){
     .CooperationBanner-content{
         top: 50%;
+        left: 0%;
     }
 }
