@@ -40,6 +40,14 @@
 #CooperationInfo-introduce-02{
     max-width: 450px;
 }
+#CooperationInfo-introduce-03{
+    max-width: 400px;
+}
+#CooperationInfo-introduce-03 .CooperationInfo-text p{
+    margin-bottom: 0;
+    text-indent: -1.5em;
+    line-height: 30px;
+}
 .CooperationInfo-title{
     font-size: 28px;
     margin-bottom: 18px;
@@ -60,8 +68,95 @@
     max-width: 520px;
 }
 #CooperationInfo-picture-03{
-    width: 65%;
+    width: 75%;
 }
 .Info-picture{
     width: 100%;
+}
+@media all and (max-width: 1200px){
+    .Cooperation_Info{
+        padding-top: 20px;
+    }
+}
+
+@media all and (max-width: 1000px){
+    .Cooperation_Info{
+        padding-top: 50px;
+    }
+    .CooperationInfo-title{
+        font-size: 23px;
+        margin-bottom: 12px;
+    }
+    .CooperationInfo-text{
+        font-size: 16px;
+    }
+    #CooperationInfo-introduce-01{
+        margin: 0px 15px 20px 0;
+    }
+    #CooperationInfo-picture-01{
+        margin: 0 0 0 15px;
+    }
+    #CooperationInfo-introduce-02{
+        margin: 0px 0 20px 15px;
+    }
+    #CooperationInfo-picture-02{
+        margin: 0 15px 0 0 ;
+    }
+    #CooperationInfo-introduce-03{
+        margin: 0px 15px 20px 0;
+    }
+    #CooperationInfo-picture-03{
+        margin: 0 0 0 15px;
+        width: 65%;
+    }
+}
+@media all and (max-width: 800px){
+    .Cooperation_Info{
+        padding-top: 50px;
+    }
+    #CooperationInfo-row-01{
+        flex-direction: column-reverse;
+        align-items: center
+    }
+    #CooperationInfo-row-02{
+        flex-direction: column;
+        align-items: center
+    }
+    #CooperationInfo-row-03{
+        flex-direction: column-reverse;
+        align-items: center
+    }
+    .CooperationInfo-picture{
+        width: 100% !important;
+        max-width: 520px !important;
+        margin: 0 auto 20px !important;
+    }
+    .CooperationInfo-introduce{
+        width: 100% !important;
+        margin: 0 auto 20px !important;
+        max-width: 520px !important;
+    }
+
+}
+@media all and (max-width: 600px){
+    .CooperationInfo-title{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .CooperationInfo-text{
+        font-size: 14px;
+        line-height: 26px;
+    }
+    .Cooperation_Info {
+        padding-top: 10px;
+    }
+    .CooperationInfo-introduce{
+        text-align: center;
+    }
+    #CooperationInfo-introduce-03 .CooperationInfo-text{
+        text-align: start;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
 }
