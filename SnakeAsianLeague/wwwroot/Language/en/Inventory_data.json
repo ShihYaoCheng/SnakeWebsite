@@ -10,7 +10,8 @@
     "HighestPrice": "Highest Price",
     "LowestPrice": "Lowest Price",
     "Newest": "Newest",
-    "Oldest": "Oldest"
+    "Oldest": "Oldest",
+    "BlanceOf": "Blance of :"
   },
   "NFTDetails": {
     "Income": "Income",
@@ -44,7 +45,9 @@
     "CollectIncome": "Collect Income",
     "CollectAllIncome": "Collect All Income",
     "BuyPPSR": "Buy PPSR >>",
-    "Gold": "Gold"
+    "Gold": "Gold",
+    "tSRC": "tSRC"
+
 
 
   },

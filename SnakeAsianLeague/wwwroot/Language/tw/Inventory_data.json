@@ -10,8 +10,8 @@
     "HighestPrice": "目前最高價",
     "LowestPrice": "目前最低價",
     "Newest": "最新",
-    "Oldest": "最舊"
-
+    "Oldest": "最舊",
+    "BlanceOf": "可領取租金 :"
   },
   "NFTDetails": {
     "Income": "收入",
@@ -45,7 +45,9 @@
     "CollectIncome": "領取",
     "CollectAllIncome": "一鍵領取",
     "BuyPPSR": "購買 PPSR  >>",
-    "Gold": "星鑽"
+    "Gold": "星鑽",
+    "tSRC": "活動tSRC"
+
   },
   "Filter": {
     "Rarity": "稀有度",

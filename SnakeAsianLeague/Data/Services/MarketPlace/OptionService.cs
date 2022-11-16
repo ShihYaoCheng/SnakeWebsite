@@ -10,6 +10,7 @@ using SnakeAsianLeague.Data.Paging;
 using System;
 using System.Globalization;
 using System.Net;
+using System.Numerics;
 using System.Text;
 using System.Text.Json;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
@@ -201,6 +202,18 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 }
 
 
+                if (NFT_Riders[i].castings.Count > 0)
+                {
+                    if (NFT_Riders[i].castings[0].totalRevenue.Count > 0)
+                    {
+                        data.Price = (Math.Floor(NFT_Riders[i].castings[0].totalRevenue.Where(m => m.currencyType == 22).First().price  * 100) / 100 ).ToString();
+
+                        data.IsOpen = NFT_Riders[i].castings[0].isAvailableInGame;
+                    }
+                }
+
+
+
                 List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
                 if (RarityElements[2] != null)
                 {
@@ -296,20 +309,20 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
           //  datas = await GetNFTDataPageList(PageNumber, PageSize,  PPSRContractAddress);
 
 
-            if (OrderByString == "Highest Earned" || OrderByString == "Sort")
+            if (OrderByString == "HighestEarned" || OrderByString == "Sort")
             {
                 Filter = Filter.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Number).ToList();
                 
             }
-            if (OrderByString == "Lowest Earned")
+            if (OrderByString == "LowestEarned")
             {
                 Filter = Filter.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
             }
-            if (OrderByString == "Highest Price")
+            if (OrderByString == "HighestPrice")
             {
                 Filter = Filter.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Price).ToList();
             }
-            if (OrderByString == "Lowest Price")
+            if (OrderByString == "LowestPrice")
             {
                 Filter = Filter.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Price).ToList();
             }
@@ -743,7 +756,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         public async Task<bool> GetPPSMetadataList()
         {
             bool result = false;
-            try
+            try 
             {
                 string URL = "/BC_CharacterContract/NFTMetadataList";
                 var request = new RestRequest(URL, Method.GET);
@@ -800,8 +813,9 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                         string getLinkURL = string.Format(LinkURL, contractAddress_PPSR, num);
                         rd.LinkURL = getLinkURL;
                         DataList.Add(rd);
+
                     }
-                }
+                } 
             }
             catch (Exception ex)
             {
@@ -809,5 +823,85 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             }
             return DataList;
         }
+
+
+
+
+
+        /// <summary>
+        /// AddItemToMarket
+        /// </summary>
+        /// <param name="nftContract">合約地址</param>
+        /// <param name="tokenId">NFT 編號</param>
+        /// <param name="price">價錢</param>
+        /// <returns></returns>
+        public async Task SetMarkmaskShopItem(string nftContract, BigInteger tokenId, BigInteger price )
+        {
+            string Url = "Add_ShopItem";
+
+            var request = new RestRequest(Url, Method.GET);
+            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+            request.AddQueryParameter("nftContract", nftContract);
+            request.AddQueryParameter("tokenId", tokenId.ToString());
+            request.AddQueryParameter("price", price.ToString());
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                NFTMetaData ResultData = JsonSerializer.Deserialize<NFTMetaData>(restResponse.Content);
+
+
+                
+            }
+
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nftContract">NFT 地址合約</param>
+        /// <param name="tokenId">NFT ID編號</param>
+        /// <param name="price">價錢</param>
+        /// <returns></returns>
+        public async Task GetMarkmaskShopList(string nftContract , decimal tokenId , decimal price)
+        {
+            string Url = "SellItemAndTransferOwnership";
+            var request = new RestRequest(Url, Method.GET);
+            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+            request.AddQueryParameter("nftContract", nftContract);
+            request.AddQueryParameter("tokenId", tokenId.ToString());
+            request.AddQueryParameter("price", price.ToString());
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                NFTMetaData ResultData = JsonSerializer.Deserialize<NFTMetaData>(restResponse.Content);
+            }
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nftContract"></param>
+        /// <param name="tokenId"></param>
+        /// <param name="price"></param>
+        public async void DeleteMarkmaskShopList(string nftContract, decimal tokenId, decimal price)
+        {
+            string Url = "";
+            var request = new RestRequest(Url, Method.GET);
+            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+
+        }
+
+
+
+        public void getLatestPrice(uint tokenId)
+        {
+            string Url = "";
+        }
+
     }
 }

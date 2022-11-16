@@ -69,5 +69,16 @@
         /// 遊戲端是否顯示
         /// </summary>
         public bool isAvailableInGame { get; set; }
+
+
+        public List<totalRevenue> totalRevenue { get; set; }
+    }
+
+
+    public class totalRevenue
+    { 
+        public int currencyType { get; set; }
+
+        public decimal price { get; set; }
     }
 }

@@ -400,7 +400,7 @@
     align-self: flex-start;
 }
 .NFT-Price{
-    font-size: 40px;
+    font-size: 20px;
     /* font-weight: bold; */
     margin: 0 0 0 10px;
 }
@@ -414,7 +414,7 @@
     height: 40px;
 }
 .NFT-PriceIcon{
-    width: 20px;
+    width: 35px;
 
 }
 
@@ -461,9 +461,9 @@
 .NFTcard .NFT-Price {
     color: var(--theme-font-3);
 }
-.NFTcard .NFT-PriceIcon-Border{
+/*.NFTcard .NFT-PriceIcon-Border{
     background-color: var(--theme-bg-3);
-}
+}*/
 .NFTcard .NFT-USD {
     color: var(--theme-font-1);
 }
@@ -552,10 +552,10 @@
         height: 24px;
     }
     .NFT-PriceIcon{
-        width: 12px;
+        width: 20px;
     }
     .NFT-Price{
-        font-size: 23px;
+        font-size: 14px;
         margin: 0 0 0 5px;
     }
     .NFT-USD{
