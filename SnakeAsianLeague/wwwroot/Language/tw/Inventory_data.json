@@ -10,8 +10,8 @@
     "HighestPrice": "目前最高價",
     "LowestPrice": "目前最低價",
     "Newest": "最新",
-    "Oldest": "最舊"
-
+    "Oldest": "最舊",
+    "BlanceOf": "可領取租金 :"
   },
   "NFTDetails": {
     "Income": "收入",

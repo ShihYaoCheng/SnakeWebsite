@@ -10,7 +10,8 @@
     "HighestPrice": "Highest Price",
     "LowestPrice": "Lowest Price",
     "Newest": "Newest",
-    "Oldest": "Oldest"
+    "Oldest": "Oldest",
+    "BlanceOf": "Blance of :"
   },
   "NFTDetails": {
     "Income": "Income",
