@@ -79,9 +79,19 @@
             <p>
                 感謝您購買 &lt;<span data-i18n=NFT_data:SRCgift.@productName></span>&gt;!
             </p> 
-            <p>
-                您持有的<span>騎士幣</span>(g)增加了<span> &lt; @gSRCBuy &gt;</span>枚，現在共有<span>&lt; @gSRCtotal &gt;</span>枚!
-            </p>   
+                @if (NFTtype == 0)
+                {
+                <p>
+                    您持有的<span>騎士幣</span>(g)增加了<span> &lt; @gSRCBuy &gt;</span>枚，現在共有<span>&lt; @gSRCtotal &gt;</span>枚!
+                    </p>
+                }
+                else
+                {
+                  <p>
+                    您持有的<span>星鑽</span>(g)增加了<span> &lt; @gSRCBuy &gt;</span>枚，現在共有<span>&lt; @gSRCtotal &gt;</span>枚!
+                  </p>   
+                }
+              
         </SRCgift_CheckoutPop>
             break;
         case 2:
