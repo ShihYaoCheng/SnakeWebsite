@@ -293,7 +293,7 @@
     .Landlord-mainIcon-Block{
         width: 100%;
         justify-content: center;
-        margin-bottom: 50px;
+        margin: 50px auto 50px;
     }
     .Landlord-mainIcon{
         width: 90%;
@@ -304,7 +304,14 @@
         padding: 50px 0 30px;
     }
 }
+@media all and (max-width: 600px){
 
+    .Landlord-mainIcon-Block{
+        width: 100%;
+        justify-content: center;
+        margin: 0px auto 30px;
+    }
+}
 /* 領地banner區塊 */
 .Landlord-banner-block{
     max-width: 1200px;
