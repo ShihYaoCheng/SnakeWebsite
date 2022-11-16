@@ -55,18 +55,28 @@ namespace SnakeAsianLeague.Data.Entity.View
     public class CoinData
     {
         //貨幣金額
-        public decimal gSRC{ get; set; }
+        public decimal gSRC { get; set; }  
         public decimal gERNC { get; set; }
         public decimal tokenSRC { get; set; }
         public decimal tokenERNC { get; set; }
 
+        /// <summary>
+        /// 星鑽
+        /// </summary>
+        public decimal Gold { get; set; }
 
-        public CoinData( decimal GSRC, decimal GERNC, decimal TokenSRC , decimal TokenERNC)
+
+        public CoinData()
+        { 
+        }
+
+        public CoinData( decimal GSRC, decimal GERNC, decimal TokenSRC , decimal TokenERNC , decimal Gold)
         {
             gSRC = GSRC;
             gERNC = GERNC;
             tokenSRC = TokenSRC;
             tokenERNC = TokenERNC;
+            Gold = Gold;
         }
         public void gSRCchange(decimal Value)
         {
@@ -83,6 +93,11 @@ namespace SnakeAsianLeague.Data.Entity.View
         public void tokenERNCchange(decimal Value)
         {
             tokenERNC = Value;
+        }
+
+        public void SetGoldChange(decimal Value)
+        {
+            Gold = Value;
         }
 
     }

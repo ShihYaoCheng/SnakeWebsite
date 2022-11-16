@@ -93,15 +93,15 @@
                 <div class="MyCerrency-Detail">
                     <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.Gold">Gold</p>
                              
-                    <p class="MyCerrency-Amount">0</p>
+                        <p class="MyCerrency-Amount">@Value.Gold</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="ExchangeBtn-container">
-            <button class="ExchangeBtnHide"  > @* @onclick ="()=>ExchangeBtnClick(true) "*@
-             
-            </button>
-        </div>
+            <div class="ExchangeBtn-container">
+                <button class="ExchangeBtn" @onclick ="()=>ExchangeBtnClick(true) " hidden="@(true)" data-i18n="Inventory_data:otherTitle.Exchange">
+                    Exchange
+                </button>
+            </div>
     </div>
     @*預熱活動用*@
      <div class="Inner" >
