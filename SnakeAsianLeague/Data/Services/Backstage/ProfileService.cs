@@ -155,20 +155,28 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             request.AddQueryParameter("UserID", UserID);
             request.AddHeader("Authorization", Authenticate());
 
-            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
-            if (restResponse.StatusCode == HttpStatusCode.OK)
+            try
             {
-                RiderList lists = JsonSerializer.Deserialize<RiderList>(restResponse.Content) ?? new RiderList();
+                IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    RiderList lists = JsonSerializer.Deserialize<RiderList>(restResponse.Content) ?? new RiderList();
 
-                //自有
-                //List<RiderUnit> result = lists.selfUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
+                    //自有
+                    //List<RiderUnit> result = lists.selfUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
 
-                //租任
-                //List<RiderUnit> result = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
+                    //租任
+                    //List<RiderUnit> result = lists.leaseUnits.Where(m => m.isNFT == true).ToList() ?? new List<RiderUnit>();
 
-                //自有
-                result = lists.selfUnits.Where(m => m.isNFT == true).ToList().Count;
-                return result;
+                    //自有
+                    result = lists.selfUnits.Where(m => m.isNFT == true).ToList().Count;
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
             return result;
 
