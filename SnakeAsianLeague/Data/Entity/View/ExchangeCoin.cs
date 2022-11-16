@@ -35,7 +35,19 @@ namespace SnakeAsianLeague.Data.Entity.View
             tokenNumber = tokenCoin;
             gNumberChange = gCoin;
             tokenNumberChange = tokenCoin;
-           
+
+        }
+        //預熱活動用
+        public void changeTSRCData(string Title, decimal gCoin, decimal tokenCoin)
+        {
+            imgUrl = "SRC";
+            gTitle = "g" + Title;
+            tokenTitle = "t"+Title ;
+            gNumber = gCoin;
+            tokenNumber = tokenCoin;
+            gNumberChange = gCoin;
+            tokenNumberChange = tokenCoin;
+
         }
     }
 

@@ -59,11 +59,11 @@
 <TransactWindow></TransactWindow>
 
 @*錯誤訊息*@
-@if (islogin )
+@if (AppState.LoginStatus.IsLogin )
 {
     <ErrorNetwork AddPolygon ="AddPolygon" ></ErrorNetwork>
 }
-@if (loading&&islogin)
+@if (loading&&AppState.LoginStatus.IsLogin)
 {
     <FectchDataLoading />    
 }
@@ -139,9 +139,7 @@
     public void toggleWhetherCheckoutPop(int value)
     {
         whetherCheckoutPop = value;
-    }
-    //是否登入
-    [CascadingParameter] bool islogin { get; set; }
+    }  
     public bool loading;
     protected override async Task OnInitializedAsync()
     {

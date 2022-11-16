@@ -34,7 +34,7 @@
         <div class="inventory-Background"></div>
         
          @*右上角顯示錢包地址*@
-        @if (islogin)
+        @if (AppState.LoginStatus.IsLogin)
         {
             <Walletaddress></Walletaddress>
         }
@@ -44,7 +44,7 @@
 
                 @*exchange區塊*@
                 <div class="Secend-Block">  
-                        <Inventory_Exchange Value="CoinData" refresh="refresh" />  
+                        <Inventory_Exchange CoinData=@CoinData refresh="refresh" />  
                 </div>
 
                 @*切換區塊*@
@@ -70,19 +70,17 @@
     <TransactWindow></TransactWindow>
 
     @*錯誤訊息*@
-    @if (islogin )
+    @if (AppState.LoginStatus.IsLogin )
     {
         <ErrorNetwork AddPolygon ="AddPolygon"  getCoinData="getCoinData"></ErrorNetwork>
     }
     @*載入畫面*@
-    @if (loading && islogin)
+    @if (loading && AppState.LoginStatus.IsLogin)
     {
         <FectchDataLoading />    
     }
 
-@code {
-    //是否登入
-    [CascadingParameter] bool islogin { get; set; }
+@code {   
     //loading
     bool loading = true;  
 
@@ -127,7 +125,7 @@
     {
         if (firstRender)
         {
-            if (islogin)
+            if (AppState.LoginStatus.IsLogin)
             {     
                 coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
                 await getGameCoin();

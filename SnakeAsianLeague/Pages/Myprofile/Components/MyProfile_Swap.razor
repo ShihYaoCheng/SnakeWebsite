@@ -1,6 +1,8 @@
-﻿@using SnakeAsianLeague.Data.Services.BlockChain
+﻿@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Pages.Myprofile.Components.Index_Components
 @using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
+@inject AppState AppState
 @inject IConfiguration Configuration
 @inject BlockChainProcessorSever BlockChainSever
 @inject BlockChainProcessorSever linebot;
@@ -174,7 +176,7 @@
     <div class="Btn-container">
         @*<button @onclick = "SwapToggleClick" > toggle exchange</button>*@
 
-        @if (Value)
+        @if (AppState.LoginStatus.IsLogin)
         {
           
             <button id="SwapBTN" class="SwapBTN" hidden = "@BalanceShort" data-i18n="Inventory_data:SWAP.Swap">Swap</button>          
@@ -199,7 +201,7 @@
 
 @*錯誤訊息*@
 
-@if (Value )
+@if (AppState.LoginStatus.IsLogin )
 {
     <ErrorNetwork AddPolygon ="AddPolygon" ></ErrorNetwork>
 }
@@ -222,7 +224,7 @@
 }*@
 
 
-@if (loading&&Value)
+@if (loading&&AppState.LoginStatus.IsLogin)
 {
     <FectchDataLoading />    
 }
@@ -236,9 +238,7 @@
 @code {
 
     decimal[] web3jsData ;
-
-    [Parameter]
-    public  bool  Value { get; set; }
+   
     private IJSObjectReference? coinEchangeJS;   
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -249,7 +249,7 @@
             await JS.InvokeVoidAsync("TippyInit");
 
 
-            if (Value)
+            if (AppState.LoginStatus.IsLogin)
             {
                 await getMetaMaskData();
                 coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
@@ -340,7 +340,7 @@
 
     public void maxBTN()
     {
-        if (Value)
+        if (AppState.LoginStatus.IsLogin)
         {
             SRCInput = SRCTotal;
             SRCInputChange(SRCInput.ToString());
@@ -384,7 +384,7 @@
     //新增USDT
     protected  async Task AddUSDT()
     {
-        if (Value)
+        if (AppState.LoginStatus.IsLogin)
         {
             
             var USDT_token_addr = BlockChainSever.BlockChainInfoDTO.usdtAddress;
@@ -400,7 +400,7 @@
     //新增SRC錢包
     protected  async Task AddSRC()
     {      
-        if (Value)
+        if (AppState.LoginStatus.IsLogin)
         {
             var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
             int SRC_Decimals = BlockChainSever.BlockChainInfoDTO.srcDecimals;

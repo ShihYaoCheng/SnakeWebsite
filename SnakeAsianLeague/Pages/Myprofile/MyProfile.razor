@@ -27,24 +27,20 @@
             case "myawardnotice":
                  <MyProfile_MyAwardNotice/>
                 break;      
-            case "inventory":
-                 <CascadingValue Value=true>
+            case "inventory":              
                      <GettingStartMetaMask>
                         <Inventory />
-                     </GettingStartMetaMask>                 
-                 </CascadingValue>
+                     </GettingStartMetaMask> 
                 break;      
             case "swapsrc":    
                     <GettingStartMetaMask>
-                         <MyProfile_Swap Value=true/> 
+                         <MyProfile_Swap /> 
                     </GettingStartMetaMask>  
                 break;     
-            case "srcgift":        
-                <CascadingValue Value=true>
+            case "srcgift":       
                     <GettingStartMetaMask>
                         <MyProfile_SRCgift /> 
-                    </GettingStartMetaMask>   
-                </CascadingValue>
+                    </GettingStartMetaMask>                
                 break;     
         }
 
@@ -65,19 +61,14 @@
             case "myawardnotice":
                  <MyProfile_MyAwardNotice/>
                 break;      
-            case "inventory":
-                <CascadingValue Value=false>
-                    <Inventory />
-                 </CascadingValue>
+            case "inventory":              
+                    <Inventory />         
                 break;  
            case "swapsrc":
-                 <MyProfile_Swap Value=false/>
+                 <MyProfile_Swap />
                  break;
-            case "srcgift":
-                <CascadingValue Value=false>
-                    <MyProfile_SRCgift /> 
-                </CascadingValue>
-              
+            case "srcgift":             
+                    <MyProfile_SRCgift />                   
                 break;    
         }
     </NotAuthorized>
