@@ -45,7 +45,9 @@
     "CollectIncome": "領取",
     "CollectAllIncome": "一鍵領取",
     "BuyPPSR": "購買 PPSR  >>",
-    "Gold": "星鑽"
+    "Gold": "星鑽",
+    "tSRC": "活動tSRC"
+
   },
   "Filter": {
     "Rarity": "稀有度",

@@ -414,7 +414,7 @@
     height: 40px;
 }
 .NFT-PriceIcon{
-    width: 20px;
+    width: 35px;
 
 }
 
@@ -461,9 +461,9 @@
 .NFTcard .NFT-Price {
     color: var(--theme-font-3);
 }
-.NFTcard .NFT-PriceIcon-Border{
+/*.NFTcard .NFT-PriceIcon-Border{
     background-color: var(--theme-bg-3);
-}
+}*/
 .NFTcard .NFT-USD {
     color: var(--theme-font-1);
 }
