@@ -87,7 +87,7 @@
     bool loading = true;  
 
     //四個貨幣 SRC ERNC(遊戲、鏈上)
-    public CoinData CoinData = new CoinData(0, 0, 0, 0);
+    public CoinData CoinData = new CoinData(0, 0, 0, 0 , 0);
     //取得JS獲得的錢包資訊
     decimal JSCoinData;
     //取得錢包資訊
@@ -171,7 +171,8 @@
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var LoginUser = authState.User;
         string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
-        CoinData.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID));
+        CoinData.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID ,22));
+        CoinData.SetGoldChange( await InventoryService.GetgSRCCurrency1(UserID ,1));
     }
 
     //強制渲染的方法

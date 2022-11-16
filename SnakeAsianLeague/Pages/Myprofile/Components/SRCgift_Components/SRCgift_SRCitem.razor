@@ -196,6 +196,6 @@
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var LoginUser = authState.User;
         string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
-        gSRCtotal = await InventoryService.GetgSRCCurrency1(UserID);
+        gSRCtotal = await InventoryService.GetgSRCCurrency1(UserID,22);
     }
 }

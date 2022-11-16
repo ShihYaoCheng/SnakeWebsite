@@ -76,6 +76,17 @@
 
         public decimal nftCurrency1 { get; set; }
     }
+
+    public class Currencies
+    { 
+        public int currencyType { get; set; }
+
+        public decimal price { get; set; }
+
+
+    }
+
+
 }
 
 

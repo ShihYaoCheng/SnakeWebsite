@@ -407,13 +407,42 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <summary>
         /// 透過 userId 取得遊戲gSRC數量
         /// </summary>
-        /// mintCount 鍛造次數
         /// <returns></returns>
-        public async Task<decimal> GetgSRCCurrency1(string UserID)
+        public async Task<decimal> GetgSRCCurrency1(string UserID , int currencyType)
         {
 
             decimal result = 0;
-            string URL = "/NFT/NFTCurrency1";
+
+            result = await GetAllCurrencies(UserID, currencyType);
+            //string URL = "/NFT/NFTCurrency1";
+            //var request = new RestRequest(URL, Method.GET);
+            //request.AddQueryParameter("userId", UserID);
+            //request.AddHeader("Authorization", Authenticate());
+
+            //IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            //if (restResponse.StatusCode == HttpStatusCode.OK)
+            //{
+            //    gSRCCurrency data = JsonSerializer.Deserialize<gSRCCurrency>(restResponse.Content) ?? new gSRCCurrency();
+            //    result = decimal.Round(data.nftCurrency1, 3);
+            //}
+            return result;
+
+        }
+
+
+
+        /// <summary>
+        /// 透過 userId 取得遊戲gSRC數量
+        /// 1 Gold
+        /// 22 SRC
+        /// 28 ERNC
+        /// </summary>
+        /// <returns></returns>
+        public async Task<decimal> GetAllCurrencies(string UserID ,int currencyType)
+        {
+
+            decimal result = 0;
+            string URL = "/NFT/AllCurrencies";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("userId", UserID);
             request.AddHeader("Authorization", Authenticate());
@@ -421,12 +450,36 @@ namespace SnakeAsianLeague.Data.Services.Personal
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
-                gSRCCurrency data = JsonSerializer.Deserialize<gSRCCurrency>(restResponse.Content) ?? new gSRCCurrency();
-                result = decimal.Round(data.nftCurrency1, 3);
+                List<Currencies> data = JsonSerializer.Deserialize<List<Currencies>>(restResponse.Content) ?? new List<Currencies>();
+
+
+                try
+                {
+                    result = decimal.Round(data.Where(m => m.currencyType == currencyType).First().price, 3);
+                }
+                catch (Exception)
+                {
+
+                    result = 0;
+                }
+                
+                //foreach (var item in data)
+                //{
+                //    item.price = decimal.Round(item.price, 3);
+                //}
+               
             }
             return result;
 
         }
+
+
+
+
+
+
+
+
 
 
 
