@@ -354,7 +354,9 @@
     {
         if (first)
         {
-            NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+            
+            @*預熱活動用*@
+            //NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
             gSRC = await InventoryService.GetgSRCCurrency1(AppState.LoginStatus.userID.ToString() , 22);
 
       
