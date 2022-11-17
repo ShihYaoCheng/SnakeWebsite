@@ -302,7 +302,6 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <summary>
         /// 取得 Rider 有被鍛造的 NFT 
         /// </summary>
-        /// mintCount 鍛造次數
         /// <returns></returns>
         private async Task<List<RiderUnit>> Get_NFT_RiderByUserID(string UserID)
         {

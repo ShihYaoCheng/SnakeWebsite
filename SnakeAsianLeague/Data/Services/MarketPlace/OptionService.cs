@@ -227,7 +227,11 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                 data.Elements = Elements;
                 data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.webp", ElementsList.Where(m => m.Key == Elements).First().Value);
                 data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
-                data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
+                if (data.ClassKey != null)
+                {
+
+                    data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
+                }
                 //data.Country = CountryList[CountryInt].ToString();
 
                 //int value = myObject.Next(1, 1000);
