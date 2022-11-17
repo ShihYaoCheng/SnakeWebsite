@@ -154,116 +154,115 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             string Elements = "";
 
             OpenseaAssetsData rd = new OpenseaAssetsData();
-
-            for (int i = 0; i < NFT_Riders.Count; i++)
+            try
             {
-
-
-                NFTData data = new NFTData();
-                data.TokenID = NFT_Riders[i].castings[0].tokenId;
-                data.Number = string.Format(" PPSR {0}", NFT_Riders[i].castings[0].tokenId);
-                data.Name = NFT_Riders[i].name;
-                data.serialNumber = NFT_Riders[i].serialNumber;
-                //可能沒有拍賣紀錄
-
-
-
-
-                if (i % 50 == 0)
+                for (int i = 0; i < NFT_Riders.Count; i++)
                 {
-                    rd = await GetOpenseaNFTRider(i + 1, 50);
-                }
-
-                assets assets = new assets();
-
-                if (rd.assets != null)
-                {
-                    //遊戲api有資料但是還 沒上opensea/沒上鏈
-                    assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets();
-                }
-
-                if (assets.last_sale != null)
-                {
-                    string total_price = assets.last_sale.total_price;
-                    Decimal decimals = Convert.ToDecimal(Math.Pow(10, assets.last_sale.payment_token.decimals));
-                    Decimal Price = Decimal.Parse(total_price.ToString()) / Decimal.Parse(decimals.ToString());
-                    Decimal usd_price = 0;
-                    Decimal.TryParse(assets.last_sale.payment_token.usd_price ?? "0", out usd_price);
-                    data.Price = Price.ToString();    //myObject.Next(value, value * 10);
-                    data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture);
-                    data.IsOpen = true;
-                    data.IsOfficial = true;
-
-                }
-                else
-                {
-                    data.IsOfficial = true;
-                    data.IsOpen = false;
-                }
 
 
-                if (NFT_Riders[i].castings.Count > 0)
-                {
-                    if (NFT_Riders[i].castings[0].totalRevenue.Count > 0)
+
+
+                    NFTData data = new NFTData();
+                    data.TokenID = NFT_Riders[i].castings[0].tokenId;
+                    data.Number = string.Format(" PPSR {0}", NFT_Riders[i].castings[0].tokenId);
+                    data.Name = NFT_Riders[i].name;
+                    data.serialNumber = NFT_Riders[i].serialNumber;
+                    //可能沒有拍賣紀錄
+
+
+
+
+                    if (i % 50 == 0)
                     {
-                        data.Price = (Math.Floor(NFT_Riders[i].castings[0].totalRevenue.Where(m => m.currencyType == 22).First().price  * 100) / 100 ).ToString();
-
-                        data.IsOpen = NFT_Riders[i].castings[0].isAvailableInGame;
+                        rd = await GetOpenseaNFTRider(i + 1, 50);
                     }
+
+                    assets assets = new assets();
+
+                    if (rd.assets != null)
+                    {
+                        //遊戲api有資料但是還 沒上opensea/沒上鏈
+                        assets = rd.assets.Where(m => m.token_id == NFT_Riders[i].castings[0].tokenId).FirstOrDefault() ?? new assets();
+                    }
+
+                    if (assets.last_sale != null)
+                    {
+                        string total_price = assets.last_sale.total_price;
+                        Decimal decimals = Convert.ToDecimal(Math.Pow(10, assets.last_sale.payment_token.decimals));
+                        Decimal Price = Decimal.Parse(total_price.ToString()) / Decimal.Parse(decimals.ToString());
+                        Decimal usd_price = 0;
+                        Decimal.TryParse(assets.last_sale.payment_token.usd_price ?? "0", out usd_price);
+                        data.Price = Price.ToString();    //myObject.Next(value, value * 10);
+                        data.USD = (Decimal.Parse(data.Price) * usd_price).ToString("#,##0.###,", CultureInfo.InvariantCulture);
+                        data.IsOpen = true;
+                        data.IsOfficial = true;
+
+                    }
+                    else
+                    {
+                        data.IsOfficial = true;
+                        data.IsOpen = false;
+                    }
+
+
+                    if (NFT_Riders[i].castings.Count > 0)
+                    {
+                        if (NFT_Riders[i].castings[0].totalRevenue.Count > 0)
+                        {
+                            data.Price = (Math.Floor(NFT_Riders[i].castings[0].totalRevenue.Where(m => m.currencyType == 22).First().price * 100) / 100).ToString();
+
+                            data.IsOpen = NFT_Riders[i].castings[0].isAvailableInGame;
+                        }
+                    }
+
+
+
+                    List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
+                    if (RarityElements[2] != null)
+                    {
+                        Rarity = RarityElements[2].Substring(0, 1);
+                        Elements = RarityElements[2].Substring(1, 1);
+                    }
+                    data.ImgPath = string.Format(ImgPath, "ppsr", NFT_Riders[i].serialNumber);
+                    data.LinkURL = string.Format(LinkURL, asset_contract_address, NFT_Riders[i].castings[0].tokenId);
+                    data.RarityKey = Rarity;
+                    data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
+                    data.Elements = Elements;
+                    data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.webp", ElementsList.Where(m => m.Key == Elements).First().Value);
+                    data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
+                    //if (data.ClassKey != null)
+                    //{
+
+                    //    data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
+                    //}
+                    //data.Country = CountryList[CountryInt].ToString();
+
+                    //int value = myObject.Next(1, 1000);
+                    int value = int.Parse(data.TokenID);
+
+                    data.EndTime = DateTime.Now.AddDays(value);
+                    data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
+                                   + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
+
+                    data.isAvailableInGame = NFT_Riders[i].castings[0].isAvailableInGame;
+
+
+                    if (myLove.Count > 0 && myLove.Where(m => m.ppsr == "#" + data.TokenID).Count() > 0)
+                    {
+                        data.IsLove = true;
+                    }
+
+                    datas.Add(data);
                 }
-
-
-
-                List<string> RarityElements = NFT_Riders[i].serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1
-                if (RarityElements[2] != null)
-                {
-                    Rarity = RarityElements[2].Substring(0, 1);
-                    Elements = RarityElements[2].Substring(1, 1);
-                }
-                data.ImgPath = string.Format(ImgPath, "ppsr", NFT_Riders[i].serialNumber);
-                data.LinkURL = string.Format(LinkURL, asset_contract_address, NFT_Riders[i].castings[0].tokenId);
-                data.RarityKey = Rarity;
-                data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
-                data.Elements = Elements;
-                data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.webp", ElementsList.Where(m => m.Key == Elements).First().Value);
-                data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
-                if (data.ClassKey != null)
-                {
-
-                    data.ClassValue = ClassList.Where(m => m.Key == data.ClassKey).First().Value;
-                }
-                //data.Country = CountryList[CountryInt].ToString();
-
-                //int value = myObject.Next(1, 1000);
-                int value = int.Parse(data.TokenID);
-
-                data.EndTime = DateTime.Now.AddDays(value);
-                data.CalDays = Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) + " d "
-                               + Math.Truncate(((DateTime.Now.AddDays(value) - DateTime.Now).TotalHours) - Math.Truncate((DateTime.Now.AddDays(value) - DateTime.Now).TotalDays) * 24) + " H ";
-
-                data.isAvailableInGame = NFT_Riders[i].castings[0].isAvailableInGame;
-
-
-                if (myLove.Count > 0 && myLove.Where(m => m.ppsr == "#" + data.TokenID).Count() > 0)
-                {
-                    data.IsLove = true;
-                }
-                
-                datas.Add(data);
             }
-
-
+            catch (Exception ex)
+            {
+                datas = new List<NFTData>();
+                Console.WriteLine(" 取得ppsr錯誤 " + ex.Message);
+            }
             datas = datas.DistinctBy(m => m.TokenID).ToList();
             datas = datas.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
-
-
-
-           
-
-            
-
             Filter = datas;
-
             return datas;
         }
 
