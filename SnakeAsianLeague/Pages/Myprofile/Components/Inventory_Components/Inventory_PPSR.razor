@@ -561,7 +561,7 @@
 
         AllBalance = await InventoryService.CalReceiveRent(UserID);
 
-        Value.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID));
+        Value.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID,22) );
         StateHasChanged();
     }
   }

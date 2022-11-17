@@ -34,7 +34,7 @@
         <div class="inventory-Background"></div>
         
          @*右上角顯示錢包地址*@
-        @if (islogin)
+        @if (AppState.LoginStatus.IsLogin)
         {
             <Walletaddress></Walletaddress>
         }
@@ -44,7 +44,7 @@
 
                 @*exchange區塊*@
                 <div class="Secend-Block">  
-                        <Inventory_Exchange Value="CoinData" refresh="refresh" />  
+                        <Inventory_Exchange CoinData=@CoinData refresh="refresh" />  
                 </div>
 
                 @*切換區塊*@
@@ -70,24 +70,22 @@
     <TransactWindow></TransactWindow>
 
     @*錯誤訊息*@
-    @if (islogin )
+    @if (AppState.LoginStatus.IsLogin )
     {
         <ErrorNetwork AddPolygon ="AddPolygon"  getCoinData="getCoinData"></ErrorNetwork>
     }
     @*載入畫面*@
-    @if (loading && islogin)
+    @if (loading && AppState.LoginStatus.IsLogin)
     {
         <FectchDataLoading />    
     }
 
-@code {
-    //是否登入
-    [CascadingParameter] bool islogin { get; set; }
+@code {   
     //loading
     bool loading = true;  
 
     //四個貨幣 SRC ERNC(遊戲、鏈上)
-    public CoinData CoinData = new CoinData(0, 0, 0, 0);
+    public CoinData CoinData = new CoinData(0, 0, 0, 0 , 0);
     //取得JS獲得的錢包資訊
     decimal JSCoinData;
     //取得錢包資訊
@@ -127,7 +125,7 @@
     {
         if (firstRender)
         {
-            if (islogin)
+            if (AppState.LoginStatus.IsLogin)
             {     
                 coinEchangeJS =  await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
                 await getGameCoin();
@@ -171,7 +169,8 @@
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var LoginUser = authState.User;
         string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
-        CoinData.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID));
+        CoinData.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID ,22));
+        CoinData.SetGoldChange( await InventoryService.GetgSRCCurrency1(UserID ,1));
     }
 
     //強制渲染的方法

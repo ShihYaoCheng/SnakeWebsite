@@ -1,6 +1,8 @@
-﻿@using SnakeAsianLeague.Data.Services.BlockChain
+﻿@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Pages.Myprofile.Components.Index_Components
 @using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
+@inject AppState AppState
 @inject IConfiguration Configuration
 @inject BlockChainProcessorSever BlockChainSever
 @inject BlockChainProcessorSever linebot;
@@ -41,7 +43,8 @@
                         </div>
                         
                         <p class="coin-type-name">SRC</p>
-                        
+                         @*預熱活動用*@
+                        @*<button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" src="/images/Myprofile/SRCExchange/addCoin.png"></button>*@
                         <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRC" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
 
                     </div>
@@ -88,7 +91,8 @@
                         </div>
 
                         <p class="coin-type-name">USDT</p>
-                        
+                         @*預熱活動用*@
+                        @* <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" src="/images/Myprofile/SRCExchange/addCoin.png"></button>*@
                         <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddUSDT" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
 
                     </div>
@@ -117,6 +121,8 @@
                         <div class="coin-Num-block">
                             <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e.Value.ToString());}"/>
                             <div class="maxBTN-Zone">
+                                 @*預熱活動用*@
+                               @* <button  class="maxBTN" data-i18n="Inventory_data:SWAP.MAX">MAX</button>  *@
                                 <button @onclick="maxBTN" class="maxBTN" data-i18n="Inventory_data:SWAP.MAX">MAX</button>  
                             </div>
                         </div>
@@ -174,9 +180,11 @@
     <div class="Btn-container">
         @*<button @onclick = "SwapToggleClick" > toggle exchange</button>*@
 
-        @if (Value)
+        @if (AppState.LoginStatus.IsLogin)
         {
-          
+             @*預熱活動用*@
+            @*<button class="SwapBTN" hidden = "@BalanceShort" style="background:grey;margin: 0;"  data-i18n="Inventory_data:SWAP.Swap">Swap</button>
+            <p style="color:#e74c3c;font-size:10px">活動期間：暫無功能</p>*@
             <button id="SwapBTN" class="SwapBTN" hidden = "@BalanceShort" data-i18n="Inventory_data:SWAP.Swap">Swap</button>          
             <div class="SwapBTN SwapBTN-black" hidden = "@(!(BalanceShort))" data-i18n="Inventory_data:SWAP.Swap">Swap</div>                   
 
@@ -199,7 +207,7 @@
 
 @*錯誤訊息*@
 
-@if (Value )
+@if (AppState.LoginStatus.IsLogin )
 {
     <ErrorNetwork AddPolygon ="AddPolygon" ></ErrorNetwork>
 }
@@ -222,7 +230,7 @@
 }*@
 
 
-@if (loading&&Value)
+@if (loading&&AppState.LoginStatus.IsLogin)
 {
     <FectchDataLoading />    
 }
@@ -236,9 +244,7 @@
 @code {
 
     decimal[] web3jsData ;
-
-    [Parameter]
-    public  bool  Value { get; set; }
+   
     private IJSObjectReference? coinEchangeJS;   
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -249,7 +255,7 @@
             await JS.InvokeVoidAsync("TippyInit");
 
 
-            if (Value)
+            if (AppState.LoginStatus.IsLogin)
             {
                 await getMetaMaskData();
                 coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
@@ -340,7 +346,7 @@
 
     public void maxBTN()
     {
-        if (Value)
+        if (AppState.LoginStatus.IsLogin)
         {
             SRCInput = SRCTotal;
             SRCInputChange(SRCInput.ToString());
@@ -360,7 +366,7 @@
     //切換並新增Polygon
     protected  async Task AddPolygon()
     {
-        @*linebot.SemdLineNotifyMsg("test123");*@
+    @*linebot.SemdLineNotifyMsg("test123");*@
         int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
         var chainName = BlockChainSever.BlockChainInfoDTO.blockChain;
         var recUrls = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
@@ -384,7 +390,7 @@
     //新增USDT
     protected  async Task AddUSDT()
     {
-        if (Value)
+        if (AppState.LoginStatus.IsLogin)
         {
             
             var USDT_token_addr = BlockChainSever.BlockChainInfoDTO.usdtAddress;
@@ -400,7 +406,7 @@
     //新增SRC錢包
     protected  async Task AddSRC()
     {      
-        if (Value)
+        if (AppState.LoginStatus.IsLogin)
         {
             var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
             int SRC_Decimals = BlockChainSever.BlockChainInfoDTO.srcDecimals;

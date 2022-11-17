@@ -343,7 +343,7 @@
     public EventCallback EnableEthereumAsync { get; set; }
 
     /// <summary> NFT數量 </summary>
-    private int NFT_Rider_Count;
+    private int NFT_Rider_Count=0;
 
     /// <summary> 藍圖數量 </summary>
     private int Bluemap_Count=0;
@@ -354,8 +354,10 @@
     {
         if (first)
         {
-            NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
-            gSRC = await InventoryService.GetgSRCCurrency1(AppState.LoginStatus.userID.ToString());
+            
+            @*預熱活動用*@
+            //NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+            gSRC = await InventoryService.GetgSRCCurrency1(AppState.LoginStatus.userID.ToString() , 22);
 
       
             //強制渲染
