@@ -79,6 +79,7 @@
     max-width: 900px;
     width: 90%;
     margin: 50px auto;
+    min-height: 60vh;
 }
 
 .SRCExchange-h2 {
