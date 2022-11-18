@@ -36,44 +36,57 @@
                 @*.................首拍拿掉的部分...................... *@
             @if (Value.IsOpen)
             {                
-            <div class="rent-container"  >
-                <div class="rent-left">
-                    <img src="/images/MarketPlace/SRC.webp"/>
-                </div>
-                <div class="rent-right">
-                    <p class="fee-Text" ><span data-i18n="Inventory_data:otherTitle.RentalFee"> Rental Fee: </span> <span>  @Value.nowRent </span> </p>
-                    <p class="balance-Text" ><span data-i18n="Inventory_data:otherTitle.Balance">Balance:</span> <span>  @Value.totalRevenue </span> </p>
-                </div>
-            </div>
-            @if (Value.totalRevenue != 0)
-            {
-                    <div class="CollectBtn-Container">
-                        <button  class="Collect-Btn" @onclick="  (eventArgs)  =>  { 
-                           clicksetValueByUnit( Value.TokenID , Value.totalRevenue, eventArgs ); 
-                           ReceiveRentByUnit();  
-                        }" 
-                        data-i18n="Inventory_data:otherTitle.CollectIncome"
-                        >Collect Income</button>
-                </div>
-            }
-            else
-            {
-                    <div class="CollectBtn-Container">
-                        <button  class="Collect-Btn-Finish" data-i18n="Inventory_data:otherTitle.NoBalance">No Balance</button>
-                </div>
-            }
-                                                     
-                @*....................................... *@
-            <div class="NFT-Income-Block">
-                    @*<div class="NFT-Income-Block-title">Total Income</div>
-                <div class="NFT-Income-Main">
-                    <div class="NFT-Income-Currency">
-                        <span>SRC</span>
-                        <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.webp" alt="">
+                <div class="rent-container"  >
+                    <div class="rent-left">
+                        
+
+                        @if(Value.rentType == 1)
+                        {
+                            <img src="/images/Myprofile/gold.png">
+                        }else if (Value.rentType == 22)
+                        {
+                            <img src="/images/MarketPlace/SRC.webp"/>
+                        }
+
                     </div>
-                    <span class="NFT-Currency-Price">123,456,789</span>
-                </div>*@
-            </div>
+                    <div class="rent-right">
+
+                       
+
+
+                        <p class="fee-Text" ><span data-i18n="Inventory_data:otherTitle.RentalFee"> Rental Fee: </span> <span>  @Value.nowRent </span> </p>
+                        <p class="balance-Text" ><span data-i18n="Inventory_data:otherTitle.Balance">Balance:</span> <span>  @Value.totalRevenue </span> </p>
+                    </div>
+                </div>
+                @if (Value.totalRevenue != 0)
+                {
+                        <div class="CollectBtn-Container">
+                            <button  class="Collect-Btn" @onclick="  (eventArgs)  =>  { 
+                               clicksetValueByUnit( Value.TokenID , Value.totalRevenue, eventArgs ); 
+                               ReceiveRentByUnit();  
+                            }" 
+                            data-i18n="Inventory_data:otherTitle.CollectIncome"
+                            >Collect Income</button>
+                    </div>
+                }
+                else
+                {
+                        <div class="CollectBtn-Container">
+                            <button  class="Collect-Btn-Finish" data-i18n="Inventory_data:otherTitle.NoBalance">No Balance</button>
+                    </div>
+                }
+                                                     
+                    @*....................................... *@
+                <div class="NFT-Income-Block">
+                        @*<div class="NFT-Income-Block-title">Total Income</div>
+                    <div class="NFT-Income-Main">
+                        <div class="NFT-Income-Currency">
+                            <span>SRC</span>
+                            <img class="NFT-Income-Currency-Icon" src="/images/MarketPlace/SRC.webp" alt="">
+                        </div>
+                        <span class="NFT-Currency-Price">123,456,789</span>
+                    </div>*@
+                </div>
             }
             @*灰色的*@
             @if (!(Value.IsOpen))
