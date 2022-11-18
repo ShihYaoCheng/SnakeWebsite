@@ -441,6 +441,7 @@
         MetaData =  pagelist.MetaData;
         NFTDataList = pagelist;
         PPSRsCount = MetaData.TotalCount;
+        StateHasChanged();
     }
     
     @*NFT卡片顯示*@
@@ -555,6 +556,7 @@
     private async Task SelectedPage(int page)
     {
         await GetRiderNFTDataPageList(page);
+        StateHasChanged();
     }
 
     private async Task GetRiderNFTDataPageList(int page)
