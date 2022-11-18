@@ -229,7 +229,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                     data.RarityValue = RarityList.Where(m => m.Key == Rarity).First().Value;
                     data.Elements = Elements;
                     data.ElementsIcon = string.Format("/images/MarketPlace/ElementsIcon-{0}.webp", ElementsList.Where(m => m.Key == Elements).First().Value);
-                    data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
+                    //data.ClassKey = NFT_Riders[i].occupationId == "" ? "1" : NFT_Riders[i].occupationId;
                     //if (data.ClassKey != null)
                     //{
 

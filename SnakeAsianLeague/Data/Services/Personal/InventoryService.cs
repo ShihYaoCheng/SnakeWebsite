@@ -420,8 +420,8 @@ namespace SnakeAsianLeague.Data.Services.Personal
         public async Task<decimal> CalReceiveRent(string userId)
         {
             List<RiderUnit> DataList = await Get_NFT_RiderByUserID(userId);
-            //decimal result = decimal.Parse(DataList.Select(m => m.totalRevenue).Sum().ToString());
-            decimal result = 0;
+            decimal result = decimal.Parse(DataList.Where(m => m.rentType == 22).Select(m => m.totalRevenue.Where(n =>n.currencyType ==22).First().price).Sum().ToString());
+            //decimal result = 0;
             return Math.Round(result, 3, MidpointRounding.AwayFromZero);
         }
 
