@@ -32,27 +32,27 @@ window.Popup = function () {
 window.CollectBtnPoP = function () {
    
     // 全部領取彈窗
-    $('.CollectBtn').click(function () {
-        $('.AllCollectPop').addClass('products-popup-open');
-    });
+    //$('.CollectBtn').click(function () {
+    //    $('.AllCollectPop').addClass('products-popup-open');
+    //});
 
     // 個別彈窗
-    $('.Collect-Btn').click(function (e) {
-        if (window.ShowMSGState) return
-        $('.NFT-Number-Pop')[0].innerText = e.target.parentNode.parentNode.children[0].children[1].innerText
-        $('.SingelAllCollectPop').addClass('products-popup-open');
-    });
+    //$('.Collect-Btn').click(function (e) {
+    //    if (window.ShowMSGState) return
+    //    $('.NFT-Number-Pop')[0].innerText = e.target.parentNode.parentNode.children[0].children[1].innerText
+    //    $('.SingelAllCollectPop').addClass('products-popup-open');
+    //});
 
     // 點擊 X 關閉
-    $('.products-popup-close').click(function () {
-        $('.products-popup-bg').removeClass('products-popup-open');
-    });
+    //$('.products-popup-close').click(function () {
+    //    $('.products-popup-bg').removeClass('products-popup-open');
+    //});
 
     //點擊 Confirm 關閉
-    $('.products-popup-submit').click(function () {
+    //$('.products-popup-submit').click(function () {
         
-        $('.products-popup-bg').removeClass('products-popup-open');
-    });
+    //    $('.products-popup-bg').removeClass('products-popup-open');
+    //});
   
 
     // 點擊 背景關閉
@@ -72,15 +72,16 @@ window.getShowMSGState = function () {
 
 //暫放 解決點擊卡片是否要彈窗問題
 window.ShowMSGcheckbox = function () {
+    console.log("??")
     window.ShowMSGState = false
-    $('#ShowMSGcheckbox').click(function () {
+    $('.ShowMSGcheckbox').click(function () {
      
-        
+        console.log('123')
         if (window.ShowMSGState) {
-            $('#ShowMSGcheckbox')[0].src = "/images/MarketPlace/checkbox.webp"
+            $('.ShowMSGcheckbox')[0].src = "/images/MarketPlace/checkbox.webp"
             window.ShowMSGState = false
         } else {
-            $('#ShowMSGcheckbox')[0].src = "/images/MarketPlace/checkbox_checked.webp"
+            $('.ShowMSGcheckbox')[0].src = "/images/MarketPlace/checkbox_checked.webp"
             window.ShowMSGState = true
         }
        
@@ -133,25 +134,26 @@ window.showTag = function () {
 
 
 window.ProductsPopup = function (showBtnId) {
-   
-    // 全部領取彈窗
+
+    console.log(showBtnId)
+     //全部領取彈窗
     $(showBtnId).click(function () {
-        $('.AllCollectPop').addClass('products-popup-open');
+        $('.products-popup-bg-swap').addClass('products-popup-open');
     });
 
-    // 個別彈窗
-    $('.Collect-Btn').click(function (e) { 
-        $('.SingelAllCollectPop').addClass('products-popup-open');
-    });
+    //// 個別彈窗
+    //$('.Collect-Btn').click(function (e) { 
+    //    $('.SingelAllCollectPop').addClass('products-popup-open');
+    //});
 
     // 點擊 X 關閉
     $('.products-popup-close').click(function () {
-        $('.products-popup-bg').removeClass('products-popup-open');
+        $('.products-popup-bg-swap').removeClass('products-popup-open');
     });
 
     //點擊 Confirm 關閉
     $('.products-popup-submit').click(function () {
-        $('.products-popup-bg').removeClass('products-popup-open');
+        $('.products-popup-bg-swap').removeClass('products-popup-open');
     });
 
 
@@ -159,7 +161,7 @@ window.ProductsPopup = function (showBtnId) {
     $(document).mouseup(function (e) {
         var container = $(".products-popupblock"); // 這邊放你想要排除的區塊
         if (!container.is(e.target) && container.has(e.target).length === 0) {
-            $('.products-popup-bg').removeClass('products-popup-open');
+            $('.products-popup-bg-swap').removeClass('products-popup-open');
         }
     });
 

@@ -2,23 +2,26 @@
 
 <section class="products-popup-bg AllCollectPop">    
     <div class="products-popupblock" >         
-        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
+        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="clickcloseAllPopShow">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
                 fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
         </svg>
 
     
         <div class="products-popup-content">
-            <div class="products-popup-text">Comfirm to Collect All <span >(@Value)</span> Income?</div>
-          
+            <div class="products-popup-text">Comfirm to Collect All SRC <span >(@SRCCollectBalance)</span> Income?</div>
+            <div class="products-popup-text">Comfirm to Collect All Gold<span >(@GoldCollectBalance)</span> Income?</div>
             <button class="products-popup-submit" type="submit" @onclick="clickReceiveRent" >Confirm </button>
         </div>
     </div>
 </section>
 @code {
     [Parameter]
-    public decimal Value { get; set; }
+    public decimal SRCCollectBalance { get; set; }
 
+    [Parameter]
+    public decimal GoldCollectBalance { get; set; }
+    
     [Parameter]
     public EventCallback ReceiveRent { get; set;}
 
@@ -27,4 +30,10 @@
         ReceiveRent.InvokeAsync();   
     }
 
+    [Parameter]
+    public EventCallback closeAllPopShow { get; set;}
+    private void clickcloseAllPopShow()
+    {
+        closeAllPopShow.InvokeAsync();   
+    }
 }
