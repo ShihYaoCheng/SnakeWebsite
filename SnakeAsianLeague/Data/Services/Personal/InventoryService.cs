@@ -414,6 +414,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
         /// <summary>
         /// 計算領取租金
+        /// 抓取SRC租金
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
@@ -425,6 +426,20 @@ namespace SnakeAsianLeague.Data.Services.Personal
             return Math.Round(result, 3, MidpointRounding.AwayFromZero);
         }
 
+
+        /// <summary>
+        /// 計算領取租金
+        /// 抓取星鑽租金
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public async Task<decimal> CalReceiveRentGold(string userId)
+        {
+            List<RiderUnit> DataList = await Get_NFT_RiderByUserID(userId);
+            decimal result = decimal.Parse(DataList.Where(m => m.rentType == 1).Select(m => m.totalRevenue.Where(n => n.currencyType == 1).First().price).Sum().ToString());
+            //decimal result = 0;
+            return Math.Round(result, 3, MidpointRounding.AwayFromZero);
+        }
 
 
 

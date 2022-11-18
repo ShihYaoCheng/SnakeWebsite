@@ -457,7 +457,7 @@
     private async void setValue( object onClickValue)
     {
         string UserID = AppState.LoginStatus.userID.ToString();
-        //CollectBalance = await InventoryService.CalReceiveRent(UserID);
+        CollectBalance = await InventoryService.CalReceiveRent(UserID);
         CollectBalance = AllBalance;
     }
 
