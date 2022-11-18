@@ -160,7 +160,8 @@
     @* void AlertShow() => displayAlert = true; *@
     void AlertCancel() => displayAlert = false;
 
-    uint userID = 0; 
+    uint userID = 0;
+    string phone = "";
 
     public PhoneMemberRegisterDTO RegisterDTO { get; set; } = new PhoneMemberRegisterDTO();
 
@@ -226,10 +227,13 @@
         }
         else
         {
+            //呼叫RegisterFail
+            userID = 0;
+            await OfficialWebsiteData.RegisterFail(userID ,CountryCode+PhoneNum);
             Console.WriteLine(resp.Content);
             AlertTitle = "Sending verification code failed";
             AlertDatai18n = "verifyFailed";
-           
+
 
             switch (resp.Content)
             {
@@ -243,7 +247,7 @@
                     AlertContentDatai18n = "conflict";
                     break;
 
-                
+
                 default:
                     AlertContent = resp.Content;
                     AlertContentDatai18n = "severError";
@@ -270,7 +274,7 @@
         ServerResponce resp = await AuthService.PhoneRegister(CountryCode, PhoneNum,RegisterDTO, UserName);
         if (resp.Success == true)
         {
-          
+
             //登出舊儲存帳號
             var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
             var LoginUser = authState.User;
@@ -298,7 +302,8 @@
 
             //呼叫總計註冊API
             userID=snakeAccount.userID;
-            await OfficialWebsiteData.Register(userID );
+            phone = snakeAccount.phone;
+            await OfficialWebsiteData.Register(userID ,phone);
 
             EditFormCancel();
 
