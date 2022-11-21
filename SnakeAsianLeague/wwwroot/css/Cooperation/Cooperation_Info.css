@@ -63,16 +63,175 @@
 .CooperationInfo-picture{
     width: 55%;
     margin: 0 20px;
+    position: relative;
 }
 #CooperationInfo-picture-01{
     max-width: 520px;
 }
+
+#Card-monkey-02{
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: Card-monkey-01 12s ease-in 2s infinite;
+    /* transform-origin: top left; */
+}
+@keyframes Card-monkey-01 {
+    0% {
+        left: -236px;
+        top: -50px;
+        transform: rotate(-14deg);
+        opacity: 1;
+    }
+
+    10% {
+        left: 0px;
+        top: 0px;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+
+    94% {
+        left: 0px;
+        top: 0px;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    95% {
+        left: 0px;
+        top: 0px;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    99.5% {
+        left: -236px;
+        top: -50px;
+        transform: rotate(-14deg);
+        opacity: 0;
+    }
+    100% {
+        left: -236px;
+        top: -50px;
+        transform: rotate(-14deg);
+        opacity: 1;
+    }
+}
+
+#Card-ghost-00{
+    opacity: 0;
+}
+#Card-ghost-01{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
+#Card-ghost-02{
+    position: absolute;
+    left: 215px;
+    top: 87px;
+    transform: rotate(15deg);
+    z-index: 0;
+    animation: Card-ghost-01 12s ease-in 5s infinite;
+    /* transform-origin: top left; */
+}
+@keyframes Card-ghost-01 {
+    0% {
+        left: 215px;
+        top: 87px;
+        transform: rotate(16deg);
+        opacity: 1;
+    }
+
+    10% {
+        left: 0px;
+        top: 0px;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+
+    94% {
+        left: 0px;
+        top: 0px;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    95% {
+        left: 0px;
+        top: 0px;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    99.5% {
+        left: 215px;
+        top: 87px;
+        transform: rotate(16deg);
+        opacity: 0;
+    }
+    100% {
+        left: 215px;
+        top: 87px;
+        transform: rotate(16deg);
+        opacity: 1;
+    }
+}
+
 #CooperationInfo-picture-03{
     width: 75%;
+    max-width: 855px;
+    filter: drop-shadow(5px 5px 10px rgba(16, 16, 16, 0.325));
 }
+
+.Info-picture-rider{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .Info-picture{
     width: 100%;
 }
+
+#rider-00{
+    opacity: 0;
+}
+#rider-01{
+    z-index: 5;
+    animation: rider 10s ease-in-out 7s infinite;
+}
+#rider-02{
+    z-index: 4;
+    animation: rider 10s ease-in-out 7.2s infinite;
+}
+#rider-03{
+    z-index: 3;
+    animation: rider 10s ease-in-out 7.4s infinite;
+}
+#rider-04{
+    z-index: 2;
+    animation: rider 10s ease-in-out 7.6s infinite;
+}
+#rider-05{
+    z-index: 1;
+    animation: rider 10s ease-in-out 7.8s infinite;
+}
+@keyframes rider {
+    0% {
+        top: 0px;
+    }
+    2% {
+        top: -20px;
+    }
+    4% {
+        top: 0px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+
 @media all and (max-width: 1200px){
     .Cooperation_Info{
         padding-top: 20px;

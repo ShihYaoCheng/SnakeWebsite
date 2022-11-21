@@ -1,0 +1,27 @@
+@page "/WarmUpActivities"
+
+@using SnakeAsianLeague.Pages.Event.WarmUpActivities.Components
+
+@inject IJSRuntime JS
+
+<head>
+    <title>PonPonSnake｜WarmUpActivities</title>
+    <link href="/css/Event/WarmUpActivities/WarmUpActivities.css" rel="stylesheet" />
+</head>
+
+<div class="WarmUpActivities">
+<WarmUpActivities_banner />
+
+</div>
+
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
+}

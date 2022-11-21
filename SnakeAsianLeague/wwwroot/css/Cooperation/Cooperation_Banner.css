@@ -32,12 +32,39 @@
     width: 100%;
 }
 
-#yumi {
+#yomi {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 5;
     /* display: none; */
+    animation: yomi-shock 10s linear 2s infinite;
+}
+
+
+@keyframes yomi-shock {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    96% {
+        transform: rotate(0deg);
+    }
+
+    97% {
+        transform: rotate(-1deg);
+    }
+
+    98% {
+        transform: rotate(0deg);
+    }
+
+    99% {
+        transform: rotate(1deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 .CooperationBanner-content {
