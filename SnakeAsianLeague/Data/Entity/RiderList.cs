@@ -22,10 +22,20 @@
 
 
         /// <summary>
-        /// 租金
+        /// 租金選擇
+        /// 1 : 星鑽
+        /// 22 : gSRC
+        /// </summary>
+        public int rentType { get; set; }
+        /// <summary>
+        /// 租金gSRC
         /// </summary>
         public decimal rent { get; set; }
 
+        /// <summary>
+        /// 租金星鑽
+        /// </summary>
+        public decimal goldRent { get; set; }
         /// <summary>
         /// 累計租金(累計收益)
         /// </summary>

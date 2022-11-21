@@ -2,7 +2,7 @@
 
 <section class="products-popup-bg SingelAllCollectPop">    
     <div class="products-popupblock" >         
-        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
+        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" @onclick="clickcloseSingelPopShow">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
                 fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
         </svg>
@@ -10,7 +10,7 @@
     
         <div class="products-popup-content">
             <div class="products-popup-text"> Comfirm to Collect <p class="NFT-Number-Pop"></p> <span>(@Value)</span>  Income?  </div>
-            <div  class="show-msg"><img id="ShowMSGcheckbox" typeof="button" src="/images/MarketPlace/checkbox.webp"/> Do not show this message again </div>
+            @*<div  class="show-msg"><img class="ShowMSGcheckbox" typeof="button" src="/images/MarketPlace/checkbox.webp"/> Do not show this message again </div>*@
             <button class="products-popup-submit" @onclick="clickReceiveRentByUnit" type="submit"  >Confirm  </button>
         </div>
     </div>
@@ -26,4 +26,13 @@
     {
         ReceiveRentByUnit.InvokeAsync();   
     }
+
+    [Parameter]
+    public EventCallback<bool> toggleSingelPopShow { get; set;}
+
+    private void clickcloseSingelPopShow()
+    {
+        toggleSingelPopShow.InvokeAsync(false);   
+    }
+    
 }

@@ -34,9 +34,9 @@
             }
             else
             {                         
-                <div  data-i18n="Inventory_data:otherTitle.CollectAllIncome" class=" CollectBtn CollectBtnSamll"   @onclick="eventArgs => { setValue(  eventArgs); }" >       
+                <button  data-i18n="Inventory_data:otherTitle.CollectAllIncome" class=" CollectBtn CollectBtnSamll"   @onclick="eventArgs => { setValue(  eventArgs); }" >       
                     Collect All Income
-                </div>
+                </button>
             }
     </div>
     <div class="Inventory-PPSR-Select">
@@ -48,9 +48,9 @@
         }
         else
         {
-            <div data-i18n="Inventory_data:otherTitle.CollectAllIncome" class="CollectBtn CollectBtnBig" @onclick="eventArgs => { setValue(  eventArgs); }" >             
+            <button data-i18n="Inventory_data:otherTitle.CollectAllIncome" class="CollectBtn CollectBtnBig" @onclick="eventArgs => { setValue(  eventArgs); }" >             
                 Collect All Income
-            </div>
+            </button>
         }
 
         @*Filter*@
@@ -294,10 +294,22 @@
 </div>
 
 @*全部領 彈窗*@
-<Inventory_AllCollectPop   Value=@CollectBalance ReceiveRent="ReceiveRent" ></Inventory_AllCollectPop>
+@if (AllPopShow)
+{
+    <Inventory_AllCollectPop  GoldCollectBalance=@GoldCollectBalance SRCCollectBalance=@SRCCollectBalance ReceiveRent="ReceiveRent" closeAllPopShow ="closeAllPopShow"></Inventory_AllCollectPop>
+}
+
 
 @*個別領 彈窗*@
-<Inventory_SingelAllCollectPop Value=@CollectBalance  ReceiveRentByUnit="ReceiveRentByUnit" ></Inventory_SingelAllCollectPop>
+@if (SingelPopShow)
+{
+    <Inventory_SingelAllCollectPop Value=@SRCCollectBalance  ReceiveRentByUnit="ReceiveRentByUnit" toggleSingelPopShow="toggleSingelPopShow"></Inventory_SingelAllCollectPop>
+}
+
+@if (loading)
+{
+    <FectchDataLoading />    
+}
  
 @code {
     @*四個貨幣 SRC ERNC(遊戲、鏈上)*@
@@ -429,6 +441,7 @@
         MetaData =  pagelist.MetaData;
         NFTDataList = pagelist;
         PPSRsCount = MetaData.TotalCount;
+        StateHasChanged();
     }
     
     @*NFT卡片顯示*@
@@ -436,8 +449,10 @@
     private List<NFTData> NFTDataList;
     //個別卡片的ID
     public string TokenID { get;set;}
-    //彈窗顯示領取的金額
-    private decimal CollectBalance  = 600; 
+    //彈窗顯示領取SRC租金的金額
+    private decimal SRCCollectBalance  = 600; 
+    //彈窗顯示領取Gold租金的金額
+    private decimal GoldCollectBalance  = 600; 
     //所有領取租金數量
     private decimal AllBalance = 0;
     //計算租金加總後的SRC數量
@@ -445,20 +460,47 @@
     //碰碰蛇騎士數量
     private int PPSRsCount;  
     //跳錢JS
-    private IJSObjectReference? RentJumpJS;   
+    private IJSObjectReference? RentJumpJS;
+
+    //等待彈窗
+    bool loading = false;
+    //顯示全部領取彈窗
+    bool AllPopShow =false;
+    public void closeAllPopShow()
+    {
+        AllPopShow = false;
+
+    }
+
+    //顯示單獨領取彈窗
+    bool SingelPopShow = false;
+    public void toggleSingelPopShow(bool value)
+    {
+        SingelPopShow = value;
+
+    }
 
     //個別領取按鈕變更資料
     private async void setValueByUnit( NFTCardData NFTCard)
-    {       
+    {
+        toggleSingelPopShow(true);
         TokenID = NFTCard.ppsr;
-        CollectBalance = NFTCard.totalRevenue;
+        SRCCollectBalance = NFTCard.totalRevenue;
     }
     //全部領取按鈕變更資料
     private async void setValue( object onClickValue)
     {
+        loading = true;
         string UserID = AppState.LoginStatus.userID.ToString();
-        //CollectBalance = await InventoryService.CalReceiveRent(UserID);
-        CollectBalance = AllBalance;
+        SRCCollectBalance = await InventoryService.CalReceiveRent(UserID);
+        GoldCollectBalance =  await InventoryService.CalReceiveRentGold(UserID);
+        AllPopShow = true;
+        if (AllPopShow)
+        {
+            loading = false;
+        }
+        //強制渲染
+        await InvokeAsync(StateHasChanged);
     }
 
     //個別租金彈窗
@@ -466,6 +508,7 @@
     private bool ShowMSGState = false; 
     public async Task ReceiveRentByUnit()
     {
+        toggleSingelPopShow(true);
         ShowMSGState = await JS.InvokeAsync<bool>("getShowMSGState"); 
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent = await InventoryService.ReceiveRentByUnit(UserID ,TokenID );
@@ -492,7 +535,8 @@
 
     //全部租金彈窗
     public async Task ReceiveRent( )
-    {       
+    {
+        closeAllPopShow();
         string UserID = AppState.LoginStatus.userID.ToString();
         var Rent =  await InventoryService.ReceiveRent(UserID  );
         if (RentJumpJS != null)
@@ -512,6 +556,7 @@
     private async Task SelectedPage(int page)
     {
         await GetRiderNFTDataPageList(page);
+        StateHasChanged();
     }
 
     private async Task GetRiderNFTDataPageList(int page)

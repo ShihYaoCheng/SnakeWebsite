@@ -92,5 +92,12 @@
         /// 累計租金(累計收益)
         /// </summary>
         public decimal totalRevenue { get; set; }
+
+        /// <summary>
+        /// 選用租金
+        /// 1 : 星鑽
+        /// 2 : gSRC
+        /// </summary>
+        public int rentType { get; set; }
     }
 }
