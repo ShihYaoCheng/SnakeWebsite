@@ -39,6 +39,8 @@ namespace SnakeAsianLeague.Data.Services
         /// <returns></returns>
         public async Task<SnakeAccount> AuthLogin(LoginRequest loginRequest , bool IsAutoLogin)
         {
+            loginRequest.phone = loginRequest.phone.Replace("+", "%2B");
+
             SnakeAccount response = await tryLogin(loginRequest);
             if (response.IsLogin)
             {
