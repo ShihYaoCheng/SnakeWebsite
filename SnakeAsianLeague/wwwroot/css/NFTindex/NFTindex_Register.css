@@ -308,12 +308,20 @@ button.products-popup-submit{
     letter-spacing: 1px;
     transition: all .1s ease-in-out;
 }
-
-
-@media all and (max-width: 1000px){
+@media all and (max-width: 1950px){
     .NFTindex_Register{
         margin: 10px auto;
     }
+}
+
+@media all and (max-width: 150px){
+    .NFTindex_Register{
+        margin: 7px auto;
+    }
+}
+
+@media all and (max-width: 1000px){
+
     .Register-input-row{
         max-width: 310px;
     }

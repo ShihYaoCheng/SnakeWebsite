@@ -612,51 +612,75 @@
 /* RWD */
 @media all and (max-width: 1950px){
     .CenterBlock{
-        max-width: 1600px;
+        /* max-width: 1600px; */
+        max-width: 1400px;
     }
     .NFTindexBanner_BG{
-        height: 1400px;
+        /* height: 1400px; */
+        height: 1250px;
     }
+
+    .NFTindexBanner_titleRegister{
+        top: 100px;
+    }
+    .NFTindexBanner_title{
+        font-size: 46px;
+    }
+
 
 }
 @media all and (max-width: 1800px){
     .NFTindexBanner_BG{
-        height: 1350px;
+        /* height: 1350px; */
+        height: 1200px;
     }
 }
 @media all and (max-width: 1700px){
     .NFTindexBanner_BG{
-        height: 1330px;
+        /* height: 1330px; */
+        height: 1180px;
     }
 }
 @media all and (max-width: 1600px){
     .NFTindexBanner_BG{
-        height: 1300px;
+        /* height: 1300px; */
+        height: 1160px;
     }
 }
 @media all and (max-width: 1500px){
     .NFTindexBanner_BG{
-        height: 1250px;
+        /* height: 1250px; */
+        height: 1140px;
+    }
+    .NFTindexBanner_titleRegister{
+        top: 97px;
+    }
+    .NFTindexBanner_title {
+        font-size: 42px;
     }
 }
 @media all and (max-width: 1450px){
     .NFTindexBanner_BG{
-        height: 1200px;
+        /* height: 1200px; */
+        height: 1120px;
     }
 }
 @media all and (max-width: 1400px){
     .NFTindexBanner_BG{
-        height: 1150px;
+        /* height: 1150px; */
+        height: 1100px;
     }
 }
 @media all and (max-width: 1350px){
     .NFTindexBanner_BG{
-        height: 1100px;
+        /* height: 1100px; */
+        height: 1080px;
     }
 }
 @media all and (max-width: 1300px){
     .NFTindexBanner_BG{
-        height: 1150px;
+        /* height: 1150px; */
+        /* height: 1070px; */
         background-image: linear-gradient(to bottom, #20324000 0%, #20324000 85%, #203240 100%), url(/images/NFTindex/NFTindex_Banner/background-01.webp);
     }
     .CenterBlock{
@@ -675,22 +699,26 @@
 }
 @media all and (max-width: 1250px){
     .NFTindexBanner_BG{
-        height: 1100px;
+        /* height: 1100px; */
+        height: 1050px;
     }
 }
 @media all and (max-width: 1200px){
     .NFTindexBanner_BG{
-        height: 1070px;
+        /* height: 1070px; */
+        height: 1030px;
     }
 }
 @media all and (max-width: 1150px){
     .NFTindexBanner_BG{
-        height: 1000px;
+        /* height: 1000px; */
+        height: 980px;
     }
 }
 @media all and (max-width: 1100px){
     .NFTindexBanner_BG{
         height: 1050px;
+        height: 1020px;
     }
     .CenterBlock{
         top: -20px;
