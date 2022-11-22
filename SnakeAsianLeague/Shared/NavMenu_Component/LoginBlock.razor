@@ -20,12 +20,18 @@
         </div>       
         <div class="input_block">
             <div class="login_form">
-                <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">手機</label>
-                <input type="text" class="login_input" id="address" name="address" placeholder="" @bind=loginRequest.phone  required>
+                <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">Phone Number</label>
+                @* 國碼 *@
+                <div class="login_input_block">
+                    <input type="text" class="login_input" id="phone-countryCode" name="" placeholder="+886" value="+886" required>
+                    <input type="text" class="login_input" id="phone-number" name="" placeholder="9xxxxxxxx"  @bind=loginRequest.phone  required>
+                </div>
             </div>
             <div class="login_form" style="margin-bottom: 20px;">
-                <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">密碼</label>
-                <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=loginRequest.password required>
+                <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">Password</label>
+                <div class="login_input_block">
+                    <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=loginRequest.password required>
+                </div>
             </div>
             <div  style="margin-bottom: 10px;">
                  <input type="checkbox" id="autoLogin" name="autoLogin" @onchange="(e)=>{toggleAutoLogin(e);}"   >

@@ -722,18 +722,23 @@ position: relative;
 
 .input_block .login_form .login_label {
     width: 20%;
-    font-size: 24px;
+    font-size: 16px;
+    line-height: 20px;
     text-align: center;
     color: #e0eeff;
     text-shadow: #ffffff8f 1px 1px 16px;
 }
+.input_block .login_form .login_input_block{
+    width: 70%;
+    display: flex;
+}
 
 .input_block .login_form .login_input {
-    width: 70%;
+    width: 100%;
     outline: none;
     /* height: 53px; */
     margin: 0 3px;
-    background-color: #002140;
+    background-color: #002140 !important;
     color: #ffffff;
     padding: 10px 15px;
     font-size: 20px;
@@ -742,7 +747,15 @@ position: relative;
     /* box-shadow: #ffffff57 1px 1px 11px; */
     border-radius: 5px;
 }
-
+.input_block .login_form .login_input::placeholder{
+    color: #515f72;
+}
+#phone-countryCode{
+    width: 28%;
+}
+#phone-number{
+    width: 72%;
+}
 .autoLoginLabel {
     font-size: 14px;
     text-align: center;
