@@ -30,7 +30,7 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
             
             var request = new RestRequest(ApiPostNFTWalletAddress.Resource, ApiPostNFTWalletAddress.Method);
             request.AddQueryParameter("UserID", userID.ToString());
-            request.AddQueryParameter("WalletAddress", address);
+            request.AddQueryParameter("WalletAddress", address.ToLower());
             request.AddHeader("Authorization", Authenticate());
             var response = await ServerClient.ExecuteAsync(request);
 
