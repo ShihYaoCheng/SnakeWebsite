@@ -1,0 +1,92 @@
+@using SnakeAsianLeague.Pages.NFTindex.Components
+@inject IJSRuntime JS
+
+<head>
+    <link href="/css/Event/WarmUpActivities/WarmUpActivities_Rules.css" rel="stylesheet" />
+    <link href="/css/NFTindex/NFTindex_Register.css" rel="stylesheet" />
+</head>
+
+
+<div class="WarmUpActivities_Rules">
+
+    <div class="WarmUpActivities_Title">
+        規則
+    </div>
+
+    <div class="WarmUpActivities_CenterBlock">
+        <div class="Rules-Title">如何參加？四個步驟簡單好上手</div>
+
+        <div class="step-Block">
+
+            <div class="step-ArrowAll">
+
+                <div class="step-Arrow">
+                    <img id="step-Arrow-01" src="/images/Event/WarmUpActivities/step.png" />
+                    <span class="text-shadow-big">步驟一</span>
+                </div>
+                <div class="step-Arrow">
+                    <img id="step-Arrow-02" src="/images/Event/WarmUpActivities/step.png" />
+                    <span class="text-shadow-big">步驟二</span>
+                </div>
+                <div class="step-Arrow">
+                    <img id="step-Arrow-03" src="/images/Event/WarmUpActivities/step.png" />
+                    <span class="text-shadow-big">步驟三</span>
+                </div>
+                <div class="step-Arrow">
+                    <img id="step-Arrow-04" src="/images/Event/WarmUpActivities/step.png" />
+                    <span class="text-shadow-big">步驟四</span>
+                </div>
+
+            </div>
+
+            <div class="step-window">
+                <div class="step-windowTitle text-shadow-small">
+                    步驟一：<br>
+                    註冊PonPon Snake遊戲帳號，並且完成手機以及信箱驗證。
+                </div>
+                <div class="step-Content" id="step-Content-01">
+
+                    <div class="register-Container">
+                        <div class="NFTindex_Register_block">
+                            @* 註冊按鈕 *@
+                            <div class="NFTindex_Register" hidden="@false">
+                                <div class="Register-input-row">
+                                    <input type="text" class="Register-input tippy-pop" id="CountryCode"
+                                        name="CountryCode" placeholder="+886" data-content="CountryCode"
+                                        @bind=@countryCodeStr>
+
+                                    <input type="text" class="Register-input tippy-pop" id="PhoneNum" name="PhoneNum"
+                                        data-i18n="[placeholder]Home_data:register.inputPhoneNumber;[data-content]Home_data:register.tippy"
+                                        placeholder="Phone Number" data-content="Enter Your Phone Number"
+                                        @bind=@phoneNumStr>
+                                </div>
+                                <NFTindex_Register CountryCode="@countryCodeStr" PhoneNum="@phoneNumStr" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <img id="step-Content-Img-01" src="/images/Event/WarmUpActivities/step-Content-Img-01.png" />
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@code {   
+    private string countryCodeStr = "";
+    private string phoneNumStr = "";
+
+   protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+
+    }
+}
