@@ -140,11 +140,18 @@
         /// <summary>
         /// 現在租金
         /// </summary>
-        public decimal nowRent { get; set; }
+        public List<RentCurrencyType> nowRent { get; set; }
         /// <summary>
         /// 累計收益
         /// </summary>
-        public decimal totalRevenue { get; set;   }
+        public List<RentCurrencyType> totalRevenue { get; set;   }
+    }
+
+    public class RentCurrencyType
+    { 
+        public int currencyType { get; set; }
+
+        public int price { get; set; }
     }
 }
 
