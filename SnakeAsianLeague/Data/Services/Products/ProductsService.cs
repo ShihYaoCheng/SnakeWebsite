@@ -186,9 +186,9 @@ namespace SnakeAsianLeague.Data.Services.Products
                         Rider.Stats.Attack = Cal_Attack(result);
                         Rider.Stats.Dexterity = Cal_Dexterity(result);
                         Rider.Stats.MovingSpeed = Cal_MovingSpeed(result);
-                        Rider.Stats.AttackingSpeed = Cal_AttackingSpeed(result, BattleData);
+                        //Rider.Stats.AttackingSpeed = Cal_AttackingSpeed(result, BattleData);
                         Rider.Stats.Stamina = Cal_Stamina(result);
-                        Rider.Stats.CriticalChance = Cal_CriticalChance(result, BattleData);
+                        //Rider.Stats.CriticalChance = Cal_CriticalChance(result, BattleData);
                         Rider.Stats.ElementEffect = Cal_ElementEffect(result);
                     }
                     
@@ -276,8 +276,8 @@ namespace SnakeAsianLeague.Data.Services.Products
                 {
                     result = JsonSerializer.Deserialize<NowRentAndTotalRevenue>(restResponse.Content) ?? new NowRentAndTotalRevenue();
 
-                    result.nowRent = Math.Floor(result.nowRent * 100) / 100;
-                    result.totalRevenue = Math.Floor(result.totalRevenue * 100) / 100;
+                    //result.nowRent = Math.Floor(result.nowRent * 100) / 100;
+                    //result.totalRevenue = Math.Floor(result.totalRevenue * 100) / 100;
                 }
             }
             catch (Exception)
@@ -319,10 +319,27 @@ namespace SnakeAsianLeague.Data.Services.Products
 
         public class NFTUnitPriceDTO
         {
-            public string Address { get; set; }
-            public string PPSR { get; set; }     // 首拍編號
-            public decimal Price { get; set; }       // 價錢 
+            /// <summary>
+            /// 擁有者錢包
+            /// </summary>
+            public string wallet { get; set; }
+            public string ppsr { get; set; }     // 首拍編號
+            public decimal price { get; set; }       // 價錢 
+
+            public int currencyType { get; set; }       // 價錢 
         }
+
+
+        public class NFTUnitCurrencyTypeDTO
+        {
+            /// <summary>
+            /// 擁有者錢包
+            /// </summary>
+            public string wallet { get; set; }
+            public string ppsr { get; set; }     // 首拍編號
+            public int currencyType { get; set; }       // 價錢 
+        }
+
 
         /// <summary>
         /// 改變租金
@@ -330,15 +347,16 @@ namespace SnakeAsianLeague.Data.Services.Products
         /// <param name="UserID"></param>
         /// <param name="ppsrID"></param>
         /// <param name="Price"></param>
-        public async Task<bool> ChangeRent(string Address, string ppsr, decimal Price)
+        public async Task<bool> ChangeRent(string Address, string ppsr, decimal Price ,int currencyType)
         {
             bool result = false;
             try
             {
                 NFTUnitPriceDTO dto = new NFTUnitPriceDTO();
-                dto.Address = Address;
-                dto.PPSR = "#"+ppsr;
-                dto.Price = Price;
+                dto.wallet = Address;
+                dto.ppsr = "#"+ppsr;
+                dto.price = Price;
+                dto.currencyType = currencyType;
 
                 string URL = "/NFT/ChangeRent";
                 RestRequest request = new RestRequest(URL, Method.POST);
@@ -348,7 +366,44 @@ namespace SnakeAsianLeague.Data.Services.Products
                 JsonParameter JP = new JsonParameter("", dto);
                 request.AddParameter(JP);
 
+                var response = await ServerClient.ExecuteAsync(request);
+                result = response.StatusCode == HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                string errormsg = ex.Message;
+            }
+            return result;
+        }
 
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Address"></param>
+        /// <param name="ppsr"></param>
+        /// <param name="Price"></param>
+        /// <returns></returns>
+        public async Task<bool> ChangeRentCurrencyType(string Address, string ppsr, int currencyType)
+        {
+            bool result = false;
+            try
+            {
+                NFTUnitCurrencyTypeDTO dto = new NFTUnitCurrencyTypeDTO();
+                dto.wallet = Address;
+                dto.ppsr = "#" + ppsr;
+                dto.currencyType = currencyType;
+
+                string URL = "NFT/ChangeRentCurrencyType";
+                RestRequest request = new RestRequest(URL, Method.POST);
+                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader(RequestKey.Key, RequestKey.Value);
+
+                JsonParameter JP = new JsonParameter("", dto);
+                request.AddParameter(JP);
 
                 var response = await ServerClient.ExecuteAsync(request);
                 result = response.StatusCode == HttpStatusCode.OK;
@@ -357,6 +412,7 @@ namespace SnakeAsianLeague.Data.Services.Products
             {
                 string errormsg = ex.Message;
             }
+            return result;
             return result;
         }
 

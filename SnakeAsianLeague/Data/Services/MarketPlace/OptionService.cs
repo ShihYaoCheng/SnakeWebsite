@@ -796,7 +796,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             List<MetadataList> DataList = new List<MetadataList>();
             try
             {
-                string LinkURL = _config.GetValue<string>("OpenSeaLink");                
+                string LinkURL = _config.GetValue<string>("OpenSeaLink");
                 string URL = "/BC_PPSI/NFTMetadataList";
                 var request = new RestRequest(URL, Method.GET);
                 IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
@@ -813,7 +813,8 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
                         //取得url
                         int num = item.Key;
-                        string getLinkURL = string.Format(LinkURL, contractAddress_PPSR, num);
+                        string getLinkURL = string.Format("https://testnets.opensea.io/assets/mumbai/" + contractAddress_PPSR + "/" + num); 
+                        //string.Format(LinkURL, contractAddress_PPSR, num);
                         rd.LinkURL = getLinkURL;
                         DataList.Add(rd);
 

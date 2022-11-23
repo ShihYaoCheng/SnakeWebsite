@@ -414,6 +414,11 @@
     font-size: 22px;
     transition: all .1s ease-in-out;
 }
+.ExchangeBtnTemporary-black {
+    color: rgb(128, 128, 128);
+    border:2px solid rgb(128, 128, 128);
+}
+
 .ExchangeBtnHide {
     border:none;    
     background: none;   

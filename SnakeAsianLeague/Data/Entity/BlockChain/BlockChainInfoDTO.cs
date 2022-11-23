@@ -15,6 +15,8 @@
         public int usdtDecimals { get; set; }
         public int srcDecimals { get; set; }
 
+        public int tsrcDecimals { get; set; }
+
         // PPSR合約
         public string? adminWalletAddress_PPSR { get; set; }
         public string? contractAddress_PPSR { get; set; }
@@ -31,7 +33,11 @@
         public string? adminWalletAddress_SRC { get; set; }
         public string? contractAddress_SRC { get; set; }
         public decimal balanceOf_SRC { get; set; } // 剩餘瓦斯費
-                                                   // CQIPurchase合約
+                                                   // SRC ERC20合約
+        public string? adminWalletAddress_tSRC { get; set; }
+        public string? contractAddress_tSRC { get; set; }
+        public decimal balanceOf_tSRC { get; set; } // 剩餘瓦斯費
+                                                    // CQIPurchase合約
         public string? adminWalletAddress_CQIPurchase { get; set; }
         public string? contractAddress_CQIPurchase { get; set; }
         public decimal balanceOf_CQIPurchase { get; set; } // 剩餘瓦斯費    
