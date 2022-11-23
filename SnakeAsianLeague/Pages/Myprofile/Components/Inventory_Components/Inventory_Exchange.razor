@@ -125,7 +125,7 @@
         </div>
             <div class=" MyCerrency-between">
                 <button  class="addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRCClick"></button>
-            <img class="MyCerrency-Icon" src="/images/Myprofile/tokenSRC.png" alt="">
+            <img class="MyCerrency-Icon" src="/images/Myprofile/tSRC.png" alt="">
             <div class="MyCerrency-Detail">
                 <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.tSRC">tSRC</p>
                              
@@ -230,8 +230,11 @@
     {
         if (AppState.LoginStatus.IsLogin)
         {
-            var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
-            var SRC_Decimals = BlockChainSever.BlockChainInfoDTO.srcDecimals;
+            @*預熱活動用 修改*@
+            var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.adminWalletAddress_tSRC;
+            var SRC_Decimals = BlockChainSever.BlockChainInfoDTO.tsrcDecimals;
+            //var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+            //var SRC_Decimals = BlockChainSever.BlockChainInfoDTO.srcDecimals;
             await JS.InvokeVoidAsync("AddPolygonSRC",SRC_token_addr ,SRC_Decimals);
         }
         else
