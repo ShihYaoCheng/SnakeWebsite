@@ -9,10 +9,12 @@
     <link href="css/Popup.css" rel="stylesheet" />
 </head>
 
-<section class="products-popup-bg" id="products-popupblock-Name">
+ @* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+
+@*<section class="products-popup-bg" id="products-popupblock-Name">
     
     <div class="products-popupblock" >
-        @* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+       
         <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
                 fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
@@ -27,11 +29,13 @@
             <button class="products-popup-submit" type="submit">SAVE</button>
         </div>
     </div>
-</section>
+</section>*@
 
-<section class="products-popup-bg" id="products-popupblock-AppearanceFee">
-    <div class="products-popupblock" id="">
-        @* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+
+@* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+
+@*<section class="products-popup-bg" id="products-popupblock-AppearanceFee">
+    <div class="products-popupblock" id="">        
         <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
             <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
                 fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
@@ -44,8 +48,25 @@
             <button class="products-popup-submit" type="submit" onclick=@SetChangeRent>SAVE</button>
         </div>
     </div>
-</section>
+</section>*@
 
+@* 點擊products-popup-close，移除products-popup-open，關閉彈窗 *@
+@*<section class="products-popup-bg" id="products-popupblock-AppearanceFee">
+    <div class="products-popupblock" id="">
+        
+        <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25">
+            <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z" transform="translate(2.5 2.5)"
+                fill="none" stroke="#67ada2" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+        </svg>
+
+        <div class="products-popup-title">Rider's Appearance Fee</div>
+        <div class="products-popup-content">
+            <div class="products-popup-text">Pleas enter number only for your RAF.</div>
+            <input  class="products-popup-inputText" type="number" min = "1"  step = "1"  @bind="@NowGoldRent" >        
+            <button class="products-popup-submit" type="submit" onclick=@SetChangeGoldRent>SAVE</button>
+        </div>
+    </div>
+</section>*@
 
 
 @code {
@@ -53,23 +74,55 @@
     [Parameter]
     public decimal NowRent { get; set; }
 
+
+    // [Parameter]
+    //public decimal NowGoldRent { get; set; }
+
     [Parameter]
     public string TokenID { get; set; }
 
-    
+
     public decimal ChangeRent { get; set; }
+    public decimal ChangeGoldRent { get; set; }
+    public int CurrencyType { get; set; }
 
 
     protected override async Task OnInitializedAsync()
     {
         ChangeRent = NowRent;
+        //ChangeGoldRent = NowGoldRent;
     }
 
 
+
+
+    /// <summary>
+    /// 修改租金  類別 1:星鑽 22:gSRC
+    /// </summary>
+    private async void ChangeRentCurrencyType()
+    {
+        string walletAddress = AppState.LoginStatus.walletAddress; 
+        ProductsService.ChangeRentCurrencyType(walletAddress , TokenID ,   CurrencyType);
+    }
+
+
+
+    /// <summary>
+    /// 修改gSRC租金
+    /// </summary>
     private async void SetChangeRent()
     {
-
         string walletAddress = AppState.LoginStatus.walletAddress; 
-        ProductsService.ChangeRent(walletAddress , TokenID ,  ChangeRent);
+        ProductsService.ChangeRent(walletAddress , TokenID ,  ChangeRent , 22);
+    }
+
+
+    /// <summary>
+    /// 修改星鑽租金
+    /// </summary>
+    private async void SetChangeGoldRent()
+    {
+        string walletAddress = AppState.LoginStatus.walletAddress; 
+        ProductsService.ChangeRent(walletAddress , TokenID ,  ChangeGoldRent , 1);
     }
 }
