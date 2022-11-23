@@ -15,14 +15,14 @@
 
 
 <div class="Battle_Gameplay">
- @*   <div class="NFTindex-Block-title">
+    <div class="NFTindex-Block-title">
         <span class="NFTindex-title" data-i18n="Battle_data:gameplay.title">
             Gameplay
         </span>
-    </div>*@
+    </div>
 
     <div class="Gameplay-info" id="Gameplay-info-solo">
-        @*<div class="NFTindex-subtitle" data-i18n="Battle_data:gameplay.subtitle-01">Classic Solo Treasure Hunt</div>
+        <div class="NFTindex-subtitle" data-i18n="Battle_data:gameplay.subtitle-01">Classic Solo Treasure Hunt</div>
         <div class="NFTindex-text" data-i18n="Battle_data:gameplay.text-01">
             The Itza people have passed down these basic combat
             rules from ancient times. If you battle till
@@ -38,10 +38,10 @@
                 <img id="BlackMarket-01-00" src="/images/Battle/Battle_Gameplay/BlackMarket-01-00.png" alt="">
                 <img id="BlackMarket-01-01" src="/images/Battle/Battle_Gameplay/BlackMarket-01-01.png" alt="">
             </div>
-            <img class="mainImg-01" src="/images/Battle/Battle_Gameplay/Diamond-02.png" alt=""> 
-        </div>*@
+            @*<img class="mainImg-01" src="/images/Battle/Battle_Gameplay/Diamond-02.png" alt=""> *@
+        </div>
 
-        <div class="Gameplay-1v7">
+   @*     <div class="Gameplay-1v7">
             <h3>¹CÀ¸ª±ªk</h3>
 
             <div class="V7-subTitle">
@@ -75,7 +75,7 @@
                </div>
             </div>
 
-        </div>
+        </div>*@
 
 
         <div class="Gameplay-mainImg-block-02">
@@ -97,7 +97,7 @@
 
     </div>
     
-     <div class="owl-carousel owl-theme BattleCarousel">
+    @* <div class="owl-carousel owl-theme BattleCarousel">
         <div class="item">
            <div class="V7-GameScreen">
                <img src="/images/Battle/1V7/image1.png"/>
@@ -121,8 +121,8 @@
         </div>
         
     </div>
-
-   @* <div class="Gameplay-info" id="Gameplay-info-team">
+*@
+    <div class="Gameplay-info" id="Gameplay-info-team">
         <div class="NFTindex-subtitle" data-i18n="Battle_data:gameplay.subtitle-02">quad Deathmatch</div>
         <div class="NFTindex-text" data-i18n="Battle_data:gameplay.text-02">
             This fight is well-known in Itza land, and the Nord Army upholds this competitive rule as well.
@@ -151,7 +151,7 @@
             </div>
 
         </div>
-    </div>*@
+    </div>
 
 </div>
 
@@ -161,7 +161,7 @@
     {
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("BattleCarousel");  
+            //await JS.InvokeVoidAsync("BattleCarousel");  
         }
     }
 }

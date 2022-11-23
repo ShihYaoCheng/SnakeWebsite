@@ -93,8 +93,8 @@
     {
         int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
         //預熱活動用 修改
-        var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.adminWalletAddress_tSRC;
-        //var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+        //var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.adminWalletAddress_tSRC;
+        var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
         string socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
 
         JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,chainId, SRC_token_addr , socketServerUri);
