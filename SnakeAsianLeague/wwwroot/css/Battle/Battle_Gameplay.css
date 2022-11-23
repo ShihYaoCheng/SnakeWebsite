@@ -15,6 +15,7 @@
     align-items: center;
     margin: 20px auto 15px;
 }
+
 .mainImg-01{
     max-width: 230px;
     width: 35%;
@@ -205,4 +206,129 @@
         font-size: 13px;
         line-height: 18px;
     }
+}
+
+
+/*1v7*/
+
+.Gameplay-1v7 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto 15px;
+}
+
+.Gameplay-1v7 h3 {
+    color: #fff;
+    font-size: 36px;
+    /* font-weight: 600; */
+    text-align: center;
+    letter-spacing: 3px;
+    line-height: 40px;
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 12px;
+}
+
+.V7-subTitle {
+    background: url("/images/Battle/1V7/1v7BG.png");
+    background-repeat: round;
+    width: 289px;
+    height:53px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto 60px;
+}
+
+.V7-subTitle img{
+    width: 80%;
+}
+
+.V7-rule {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:1000px;
+    margin:0 auto;
+    padding-bottom:100px;
+}
+
+.V7-rule-diamond {
+    width:45%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.V7-rule-diamond img {
+    width:60%;
+}
+
+.V7-rule-content {
+    background: url("/images/Battle/1V7/V7RuleContentBG.png");
+    background-repeat: round;
+    width: 55%;
+    height: 650px;
+    padding:5%;
+}
+
+.V7-rule-content-title {
+    background: url("/images/Battle/1V7/V7RuleContentTitle.png");
+    width:90%;
+    margin:0 auto;
+    height:63px;
+    background-repeat:round;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:50px;
+}
+
+.V7RuleContentText {
+    width:70%;
+}
+.V7RuleContentText7{
+    width: 20%;
+}
+
+
+.V7-rule-content p {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;   
+    font-size: 16px;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+}
+
+.BattleCarousel .item{
+    width: 900px;
+    height: 506px;
+    margin:0 auto;
+}
+
+.V7-GameScreen {
+    width: 900px;
+    height: 506px;
+    border: 5px solid #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.5);
+}
+
+.V7-GameScreen img {
+    width: 100%;
+    height: 100%; 
+}
+
+.owl-dot span {
+    background:none !important;
+    border:1px solid #fff;
+
+
+}
+
+.active span {
+    background: #fff !important;
 }

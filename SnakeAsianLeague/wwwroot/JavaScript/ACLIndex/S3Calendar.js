@@ -1,8 +1,7 @@
 ﻿window.S3Calendar =function (getlang, SchedulesData) {
     //整理資料
 
-    console.log("getlang", getlang)
-    console.log("SchedulesData", SchedulesData)
+ 
     var lang = getlang
     if (SchedulesData == null) return
     var eventsData = []

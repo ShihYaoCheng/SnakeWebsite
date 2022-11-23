@@ -164,9 +164,12 @@ window.AddPolygonUSDT = async function (USDT_token_addr, USDT_Decimals) {
 window.AddPolygonSRC = async function (SRC_token_addr, SRC_Decimals ) {
 
     tokenAddress = SRC_token_addr;
-    tokenSymbol = 'SRC';
+    //預熱活動用 修改
+    //tokenSymbol = 'SRC';
+    tokenSymbol = 'TSRC';
     tokenDecimals = SRC_Decimals;
-    tokenImage = "https://storage.googleapis.com/pps-nft/token/SRC.png";
+    tokenImage = "https://storage.googleapis.com/pps-nft/token/tSRC.png";
+    //tokenImage = "https://storage.googleapis.com/pps-nft/token/SRC.png";
     try {
         // wasAdded is a boolean. Like any RPC method, an error may be thrown.
         const wasAdded = await window.ethereum.request({
