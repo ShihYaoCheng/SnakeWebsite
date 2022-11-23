@@ -230,6 +230,21 @@
     text-decoration-thickness: 4px;
     text-underline-offset: 12px;
 }
+@media all and (max-width: 768px) {
+    .Gameplay-1v7 h3 {
+        font-size: 30px;
+        text-decoration-thickness: 2px;
+    }
+
+}
+
+
+@media all and (max-width: 576px) {
+
+    .Gameplay-1v7 h3 {
+        font-size: 26px;
+    }
+}
 
 .V7-subTitle {
     background: url("/images/Battle/1V7/1v7BG.png");
@@ -241,6 +256,32 @@
     align-items: center;
     margin: 40px auto 60px;
 }
+
+@media all and (max-width: 1000px) {
+    .V7-subTitle {
+        width: 239px;
+        height: 43px;      
+        margin: 40px auto 60px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .V7-subTitle {
+        width: 181px;
+        height: 32px;
+        margin: 30px auto 45px;
+    }
+}
+
+
+@media all and (max-width: 576px) {
+    .V7-subTitle {
+        width: 217px;
+        height: 38px;
+        margin: 30px auto 45px;
+    }
+}
+
 
 .V7-subTitle img{
     width: 80%;
@@ -255,6 +296,25 @@
     padding-bottom:100px;
 }
 
+@media all and (max-width: 1000px) {
+    .V7-rule {
+        width: 700px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .V7-rule {
+        width: 500px;
+    }
+}
+@media all and (max-width: 576px) {
+    .V7-rule {
+        width: 100%;
+        flex-direction: column;
+        justify-content: normal;
+    }
+}
+
 .V7-rule-diamond {
     width:45%;
     display:flex;
@@ -266,12 +326,41 @@
     width:60%;
 }
 
+
 .V7-rule-content {
     background: url("/images/Battle/1V7/V7RuleContentBG.png");
     background-repeat: round;
     width: 55%;
     height: 650px;
-    padding:5%;
+    padding:60px 5%;
+}
+@media all and (max-width: 1000px) {
+
+    .V7-rule-content {
+        padding: 40px 5%;
+        height: 600px;
+    }
+}
+
+
+@media all and (max-width: 768px) {
+
+    .V7-rule-content {
+        padding: 30px 5%;
+        height: 564px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .V7-rule-diamond {
+        width: 50%;
+    }
+
+    .V7-rule-content {
+        width: 70%;
+        padding: 40px 5%;
+        height:575px;
+    }
 }
 
 .V7-rule-content-title {
@@ -283,8 +372,24 @@
     display:flex;
     justify-content:center;
     align-items:center;
+    
     margin-bottom:50px;
 }
+
+@media all and (max-width: 1000px) {
+    .V7-rule-content-title {
+        height: 50px;
+        margin-bottom: 35px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .V7-rule-content-title {
+        height: 40px;
+        margin-bottom:25px;
+    }
+}
+
 
 .V7RuleContentText {
     width:70%;
@@ -302,15 +407,45 @@
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
 }
 
+@media all and (max-width: 768px) {
+    .V7-rule-content p {
+        font-size: 14px;
+
+    }
+
+}
+
+
 .BattleCarousel .item{
     width: 900px;
     height: 506px;
     margin:0 auto;
 }
 
+
+@media all and (max-width: 1000px) {
+    .BattleCarousel .item {
+        width: 684px;
+        height: 384px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .BattleCarousel .item {
+        width: 513px;
+        height: 288px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .BattleCarousel .item {
+        width: 333px;
+        height: 187px;
+    }
+}
 .V7-GameScreen {
-    width: 900px;
-    height: 506px;
+    width: 100%;
+    height: 100%;
     border: 5px solid #fff;
     border-radius: 25px;
     overflow: hidden;
