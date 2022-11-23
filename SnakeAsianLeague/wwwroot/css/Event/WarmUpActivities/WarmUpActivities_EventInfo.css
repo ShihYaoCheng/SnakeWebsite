@@ -59,7 +59,7 @@
     max-width: 340px;
     width: 40%;
     /* height: 500px; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* background-image: url(/images/Event/WarmUpActivities/EventInfoCard-BG.png);
     background-position: top center;
     background-repeat: no-repeat;
@@ -68,7 +68,7 @@
 }
 
 #EventInfo_card-BG{
-    border: 1px solid rgb(102, 0, 255);
+    /* border: 1px solid rgb(102, 0, 255); */
     /* max-width: 340px; */
     width: 100%;
 }
