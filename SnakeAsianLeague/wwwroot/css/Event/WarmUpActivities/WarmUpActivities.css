@@ -4,7 +4,7 @@
     font-family: 'Noto Sans TC', sans-serif;
 }
 
-.WarmUpActivities_CenterBlock{
+.WarmUpActivities-CenterBlock{
     /* border:  1px solid rgb(145, 93, 93); */
     max-width: 1200px;
     width: 100%;
@@ -12,7 +12,7 @@
 }
 
 
-.WarmUpActivities_Title{
+.WarmUpActivities-Title{
     max-width: 290px;
     border-radius: 20px;
     /* background-color: #742b25; */
@@ -27,4 +27,90 @@
     box-shadow: inset 0px 0px 10px 3px #4b1c1885, 0px 0px 7px 4px #ffe3e335;
     margin: 0px auto 50px;
     text-align: center;
+}
+.WarmUpActivities-Title-02{
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.47;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0 35px;
+}
+.text-shadow-big{
+    /* -webkit-text-stroke: 1px #1a0f0a; */
+    text-shadow: 
+    -1.5px -1.5px 0px #1a0f0a,
+    1.5px -1.5px 0px #1a0f0a,
+    -1.5px 1.5px 0px #1a0f0a,
+    1.5px 1.5px 0px #1a0f0a,
+    -1.5px -1.5px 1px #1a0f0a,
+    1.5px -1.5px 1px #1a0f0a,
+    -1.5px 1.5px 1px #1a0f0a,
+    1.5px 1.5px 1px #1a0f0a,
+    -1.5px -1.5px 1.5px #1a0f0a,
+    1.5px -1.5px 1.5px #1a0f0a,
+    -1.5px 1.5px 1.5px #1a0f0a,
+    1.5px 1.5px 1.5px #1a0f0a,
+    -2px -2px 2px #1a0f0a,
+    2px -2px 2px #1a0f0a,
+    -2px 2px 2px #1a0f0a,
+    2px 2px 2px #1a0f0a;
+}
+.text-shadow-small{
+    -webkit-text-stroke: 0.1px #1a0f0a;
+    text-shadow: 
+    -1.5px -1.5px 0px #1a0f0a,
+    1.5px -1.5px 0px #1a0f0a,
+    -1.5px 1.5px 0px #1a0f0a,
+    1.5px 1.5px 0px #1a0f0a,
+    -1.5px -1.5px 1px #1a0f0a,
+    1.5px -1.5px 1px #1a0f0a,
+    -1.5px 1.5px 1px #1a0f0a,
+    1.5px 1.5px 1px #1a0f0a,
+    -1.5px -1.5px 1.5px #1a0f0a,
+    1.5px -1.5px 1.5px #1a0f0a,
+    -1.5px 1.5px 1.5px #1a0f0a,
+    1.5px 1.5px 1.5px #1a0f0a,
+    -1.5px -1.5px 1.5px #1a0f0a,
+    1.5px -1.5px 1.5px #1a0f0a,
+    -1.5px 1.5px 1.5px #1a0f0a,
+    1.5px 1.5px 1.5px #1a0f0a;
+
+}
+
+/* 步驟按鈕 */
+.step-button-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.step-button {
+    width: 200px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 16px;
+    letter-spacing: 2.4px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px -1px 2px 0 rgb(0 0 0 / 50%), inset 0px 6px 0 0 rgb(255 255 255 / 54%);
+    background-image: linear-gradient(to top, #ff7400, #ffa443);
+    transition: all .2s ease-in;
+    margin: 25px auto 0px;
+}
+.step-button:hover {
+    transition: all .2s ease-in-out;
+    transform: translateY(-2px) scale(1.01);
+}
+
+.WarmUpActivities-Fire-BG{
+    width: 100%;
+    background-image: url(/images/Event/WarmUpActivities/Fire-BG.png),
+                    url(/images/Event/WarmUpActivities/Fire-BG-icon.png);
+    background-position: top center,
+                    bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
 }

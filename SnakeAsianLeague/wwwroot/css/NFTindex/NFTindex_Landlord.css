@@ -654,7 +654,10 @@
     transform: translateY(-2px) scale(1.01);
 }
 
-@media all and (max-width: 600px){
+@media all and (max-width: 1500px){
+    .LandlordType-block{
+        justify-content: space-evenly;
+    }
     .NFTindex_Landlord{
         background-size: 85%;
     }
@@ -662,7 +665,7 @@
         padding: 50px 0 0;
     }
     .LandlordType-type-block{
-        margin: 0 auto 45px ;
+        /* margin: 0 auto 45px ; */
         max-width: 300px;
     }
     .LandlordType-button{
@@ -692,6 +695,14 @@
     }
     .Landlord-Info-Block{
         padding: 20px 0 30px;
+    }
+}
+@media all and (max-width: 1000px){
+    .LandlordType-block{
+        justify-content: center;
+    }
+    .LandlordType-type-block{
+        margin: 0 auto 45px ;
     }
 }
 @media all and (max-width: 350px){
