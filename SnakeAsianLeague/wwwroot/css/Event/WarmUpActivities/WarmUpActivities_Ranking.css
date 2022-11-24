@@ -1,0 +1,88 @@
+.WarmUpActivities_Ranking{
+    width: 100%;
+    padding: 50px 0 150px;
+}
+
+.Ranking-Block{
+    width: 90%;
+    max-width: 650px;
+    background-color: #3c0f0cb8;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 2px solid rgba(253, 242, 216, 0.6);
+    padding: 3.5% 4%;
+    box-shadow: inset 0px 0px 10px 3px #4b1c1885, -5px -2px 10px 4px #331e1e5d;
+    position: relative;
+}
+.Ranking-Block::before{
+    content: "";
+    background-image: url(/images/Event/WarmUpActivities/Longbar.png);
+    background-repeat: round;
+    background-size: cover;
+    position: absolute;
+    top: -2.1%;
+    left: 50%;
+    width: 90%;
+    height: 30px;
+    transform: translateX(-50%) scaleY(-1) ;
+}
+.Ranking-Block::after{
+    content: "";
+    background-image: url(/images/Event/WarmUpActivities/Longbar.png);
+    background-repeat: round;
+    background-size: cover;
+    position: absolute;
+    bottom: -2%;
+    left: 50%;
+    width: 90%;
+    height: 30px;
+    transform: translateX(-50%) ;
+}
+.Ranking-Content{
+    width: 100%;
+    background-color: #fee8e42b;
+    padding: 3%;
+    background-blend-mode: multiply;
+    /* border: 1px solid #fff; */
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: inset 0px 0px 10px 3px #ca8c865b, 0px 0px 5px 4px #fbe9e948;
+}
+
+.Ranking-Content-Title{
+    color: #fff;
+    text-align: center;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin: 0px auto 20px;
+    
+}
+
+.text-shadow-brown{
+    -webkit-text-stroke: 0.2px #572610;
+    text-shadow: 
+    -1.5px -1.5px 0px #572610,
+    1.5px -1.5px 0px #572610,
+    -1.5px 1.5px 0px #572610,
+    1.5px 1.5px 0px #572610,
+    -1.5px -1.5px 1px #572610,
+    1.5px -1.5px 1px #572610,
+    -1.5px 1.5px 1px #572610,
+    1.5px 1.5px 1px #572610,
+    -1.5px -1.5px 1.5px #572610,
+    1.5px -1.5px 1.5px #572610,
+    -1.5px 1.5px 1.5px #572610,
+    1.5px 1.5px 1.5px #572610,
+    -2px -2px 2px #572610,
+    2px -2px 2px #572610,
+    -2px 2px 2px #572610,
+    2px 2px 2px #572610;
+}
+
+.Ranking-List{
+    border: 1px solid red;
+    width: 90%;
+    margin: 0 auto;
+}
