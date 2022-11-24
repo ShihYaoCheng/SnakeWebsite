@@ -3,6 +3,8 @@
 @using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Services.Backstage
+@using System.Text.RegularExpressions
+
 @inject OfficialWebsiteData OfficialWebsiteData
 @inject IAuthService AuthService
 @inject IJSRuntime JS
@@ -267,8 +269,21 @@
     {
         if (PasswordCheck != RegisterDTO.Password)
         {
+            AlertDatai18n = "registerFailed";
+            AlertContentDatai18n = "PasswordNotMatch";
+            AlertShow();
             return;
         }
+
+        bool pwIsMatch = Regex.IsMatch(PasswordCheck, @"^[A-Za-z0-9]{6,10}$");
+        if (!pwIsMatch)
+        {
+            AlertDatai18n = "registerFailed";
+            AlertContentDatai18n = "PasswordInvalid";
+            AlertShow();
+            return;
+        }
+        
 
 
         ServerResponce resp = await AuthService.PhoneRegister(CountryCode, PhoneNum,RegisterDTO, UserName);
@@ -309,7 +324,6 @@
         }
         else
         {
-            AlertTitle = "Register Failed";
             AlertDatai18n = "registerFailed";
             AlertContent = resp.Content;
             AlertShow();
