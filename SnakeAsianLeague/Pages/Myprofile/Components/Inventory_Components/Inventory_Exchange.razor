@@ -52,8 +52,8 @@
             <div class="MyCerrency-Detail">
                 <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.gSRC">gSRC</p>
                 @*預熱活動用*@
-                @*<p class="MyCerrency-Amount">0 </p>*@
-                <p class="MyCerrency-Amount">@CoinData.gSRC </p>
+                <p class="MyCerrency-Amount">0 </p>
+                @*<p class="MyCerrency-Amount">@CoinData.gSRC </p>*@
             </div>
         </div>
             <div class=" MyCerrency-mid">
@@ -62,14 +62,14 @@
         </div>
             <div class=" MyCerrency-between">
                 @*預熱活動用 修改*@                 
-               <button  class="addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRCClick"></button>
+               @*<button  class="addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRCClick"></button>*@
             <img class="MyCerrency-Icon" src="/images/Myprofile/tokenSRC.png" alt="">
             <div class="MyCerrency-Detail">
                 <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.SRCToken">SRC TOKEN</p>
                 
                 @*預熱活動用*@       
-                @*<p class="MyCerrency-Amount" id="tokenSRC">0</p>*@
-                <p class="MyCerrency-Amount" id="tokenSRC">@CoinData.tokenSRC</p>
+                <p class="MyCerrency-Amount" id="tokenSRC">0</p>
+               @* <p class="MyCerrency-Amount" id="tokenSRC">@CoinData.tokenSRC</p>*@
             </div>
         </div>
 
@@ -77,13 +77,13 @@
         </div>
         <div class="ExchangeBtn-container">
             @*預熱活動用 修改*@
-           @* <button class="ExchangeBtnTemporary ExchangeBtnTemporary-black" data-i18n="Inventory_data:otherTitle.Exchange"> 
-                Exchange
-            </button>*@
-            <button data-i18n="Inventory_data:otherTitle.Exchange" class="ExchangeBtn" @onclick ="()=>ExchangeBtnClick(false)" > 
+            <button class="ExchangeBtnTemporary ExchangeBtnTemporary-black" data-i18n="Inventory_data:otherTitle.Exchange"> 
                 Exchange
             </button>
-            @*<p style="color:#e74c3c;font-size:10px">活動期間：暫無功能</p>*@
+            @*<button data-i18n="Inventory_data:otherTitle.Exchange" class="ExchangeBtn" @onclick ="()=>ExchangeBtnClick(false)" > 
+                Exchange
+            </button>*@
+            <p style="color:#e74c3c;font-size:10px">活動期間：暫無功能</p>
         </div>
     </div>
 </div>  
@@ -108,7 +108,7 @@
             </div>
     </div>
     @*預熱活動用*@
-  @*  <div class="Inner" >
+    <div class="Inner" >
         <div class="MyCerrency-container">
         <div class=" MyCerrency-between">
             <a class="buyGameCoin" hidden="@(true)" >buy</a>
@@ -140,7 +140,7 @@
                 Exchange
             </button>
         </div>
-    </div>*@
+    </div>
 </div>  
 
 @*  <div class="Secend-Inner sssss" id="Secend-Block-MyCerrency">
@@ -231,10 +231,10 @@
         if (AppState.LoginStatus.IsLogin)
         {
             @*預熱活動用 修改*@
-            //var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.adminWalletAddress_tSRC;
-            //var SRC_Decimals = BlockChainSever.BlockChainInfoDTO.tsrcDecimals;
-            var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
-            var SRC_Decimals = BlockChainSever.BlockChainInfoDTO.srcDecimals;
+            var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.adminWalletAddress_tSRC;
+            var SRC_Decimals = BlockChainSever.BlockChainInfoDTO.tsrcDecimals;
+            //var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+            //var SRC_Decimals = BlockChainSever.BlockChainInfoDTO.srcDecimals;
             await JS.InvokeVoidAsync("AddPolygonSRC",SRC_token_addr ,SRC_Decimals);
         }
         else
