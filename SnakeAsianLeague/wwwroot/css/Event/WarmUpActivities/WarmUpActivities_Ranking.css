@@ -85,4 +85,30 @@
     border: 1px solid red;
     width: 90%;
     margin: 0 auto;
+    padding: 5%;
+}
+
+.Ranking-Row{
+    width: 100%;
+    box-shadow: 0px 0px 5px 4px #fbe9e948;
+    background-color: #88392E;
+    display: flex;
+    
+}
+.Ranking-Number{
+    background-color: #2C0604;
+    color: #fff;
+    align-self: center;
+    max-width: 15%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Ranking-Data{
+    padding: 10px;
+}
+.Ranking-ERNC{
+    display: flex;
 }
