@@ -13,3 +13,102 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+
+<div class="Battle_Gameplay">
+ @*   <div class="NFTindex-Block-title">
+        <span class="NFTindex-title" data-i18n="Battle_data:gameplay.title">
+            Gameplay
+        </span>
+    </div>*@
+
+    <div class="Gameplay-info" id="Gameplay-info-solo">
+        @*<div class="NFTindex-subtitle" data-i18n="Battle_data:gameplay.subtitle-01">Classic Solo Treasure Hunt</div>
+        <div class="NFTindex-text" data-i18n="Battle_data:gameplay.text-01">
+            The Itza people have passed down these basic combat
+            rules from ancient times. If you battle till
+            the end, you can win the gold from your opponents. The combat may be attended by wild
+            monsters, monsters, and wandering knights from the abyss, making it the most dangerous and
+            valuable conflict to engage in.
+        </div>
+
+        <div class="Gameplay-mainImg-block-01 Gameplay-solo">
+            <img class="mainImg-01" id="Diamond-01" src="/images/Battle/Battle_Gameplay/Diamond-01.png" alt="">
+
+            <div class="BlackMarket mainImg-01">
+                <img id="BlackMarket-01-00" src="/images/Battle/Battle_Gameplay/BlackMarket-01-00.png" alt="">
+                <img id="BlackMarket-01-01" src="/images/Battle/Battle_Gameplay/BlackMarket-01-01.png" alt="">
+            </div>
+            <img class="mainImg-01" src="/images/Battle/Battle_Gameplay/Diamond-02.png" alt=""> 
+        </div>*@
+
+      
+    </div>
+    
+     <div class="owl-carousel owl-theme BattleCarousel">
+        <div class="item">
+           <div class="V7-GameScreen">
+               <img src="/images/Battle/1V7/image1.png"/>
+           </div>
+
+        </div>
+        <div class="item">
+           <div class="V7-GameScreen">
+               <img src="/images/Battle/1V7/image2.png"/>
+           </div>
+        </div>
+        <div class="item">
+           <div class="V7-GameScreen">
+               <img src="/images/Battle/1V7/image3.png"/>
+           </div>
+        </div>
+        <div class="item">
+           <div class="V7-GameScreen">
+               <img src="/images/Battle/1V7/image4.png"/>
+           </div>
+        </div>
+        
+    </div>
+    @*
+    <div class="Gameplay-info" id="Gameplay-info-team">
+        <div class="NFTindex-subtitle" data-i18n="Battle_data:gameplay.subtitle-02">quad Deathmatch</div>
+        <div class="NFTindex-text" data-i18n="Battle_data:gameplay.text-02">
+            This fight is well-known in Itza land, and the Nord Army upholds this competitive rule as well.
+            The riders must create a four-person team, and the battle will be supported by an airship. It will be
+            critical to conquering the opponent of another team in order to win. The victorious team earns ranking
+            points and is eligible to compete in subsequent professional contests.
+        </div>
+        <div class="Gameplay-mainImg-block-01">
+            <img class="mainImg-01" id="Skeleton-01" src="/images/Battle/Battle_Gameplay/Skeleton-01.png" alt="">
+            <img class="mainImg-01" src="/images/Battle/Battle_Gameplay/Skeleton-02.png" alt="">
+        </div>
+
+        <div class="Gameplay-mainImg-block-02">
+
+            <div class="mainImg-02-block">
+                <img class="mainImg-02" src="/images/Battle/Battle_Gameplay/Team-01.png" alt="">
+                <div class="mainImg-02-text" data-i18n="Battle_data:gameplay.team-01">4V4 Battle</div>
+            </div>
+            <div class="mainImg-02-block">
+                <img class="mainImg-02" src="/images/Battle/Battle_Gameplay/Team-02.png" alt="">
+                <div class="mainImg-02-text" data-i18n="Battle_data:gameplay.team-02">E-sport Competition</div>
+            </div>
+            <div class="mainImg-02-block">
+                <img class="mainImg-02" src="/images/Battle/Battle_Gameplay/Team-03.png" alt="">
+                <div class="mainImg-02-text" data-i18n="Battle_data:gameplay.team-03">Airship Support</div>
+            </div>
+
+        </div>
+    </div>*@
+
+</div>
+
+@code{
+   
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("BattleCarousel");  
+        }
+    }
+}
