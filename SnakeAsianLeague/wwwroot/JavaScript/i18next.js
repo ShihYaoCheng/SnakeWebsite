@@ -13,7 +13,7 @@ window.installI18n = async function () {
     {
       lng: lang ? lang : defaultLang,
       fallbackLng: defaultLang,
-          ns: ["data", "Asian_data", "NFT_data", "Home_data", "ERNC_data", "Started_data", "Battle_data", "Inventory_data","Company_data" ],
+          ns: ["data", "Asian_data", "NFT_data", "Home_data", "ERNC_data", "Started_data", "Battle_data", "Inventory_data","Company_data","WarmUpActivities_data" ],
       defaultNS: "data",
       backend: {
         loadPath: "./Language/{{lng}}/{{ns}}.json",

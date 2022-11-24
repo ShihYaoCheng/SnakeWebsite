@@ -42,7 +42,12 @@
 .step-Arrow img{
     width: 100%;
 }
-
+.step-Arrow-Click{
+    filter: drop-shadow(0px 0px 8px #ffe0c3);
+}
+.step-Arrow-Click img{
+    filter: drop-shadow(0px 0px 8px #ffe0c3);
+}
 .step-window{
     border:  1px solid rgb(145, 93, 93);
 
@@ -79,14 +84,35 @@
     height: 480px;
     background-color: #fff;
     /* height: 100%; */
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.step-Content-Block{
+    /* border: 1px solid rgb(0, 42, 255); */
+    background-color: #fff;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     padding: 25px 20px 35px;
+    height: 100%;
+}
+/* 步驟1 */
+#step-Content-01{
+    display: block;
+}
+#step-Content-02{
+    display: none;
+}
+#step-Content-03{
+    display: none;
+}
+#step-Content-04{
+    display: none;
 }
 
-/* 步驟1 */
 #step-Content-Img-01{
     max-width: 500px;
     width: 90%;
@@ -94,7 +120,28 @@
 }
 
 
+#step-Content-Img-02{
+    max-width: 230px;
+    width: 95%;
+}
+.step-Content-02-text{
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 34px;
+    text-align: center;
+    margin: 15px auto 18px;
+}
 
+#step-Content-Img-03{
+    max-width: 380px;
+}
+
+#step-Content-Img-04{
+    max-width: 700px;
+    border-radius: 15px;
+    margin: 20px auto 25px;
+}
 
 .discount-Step{
     /* border: 1px solid white; */
