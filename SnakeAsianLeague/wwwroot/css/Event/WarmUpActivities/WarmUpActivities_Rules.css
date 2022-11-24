@@ -17,13 +17,14 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin: 0 auto 50px;
 }
 
 .step-Arrow{
     width: 25%;
     margin: 0 -10px;
     position: relative;
+    transition: all 0.1s ease-out;
 }
 .step-Arrow span{
     text-align: center;
@@ -37,8 +38,11 @@
     color: #fff;
     font-weight: 600;
     margin-left: 10px;
-}
 
+}
+.step-Arrow:hover{
+    filter: drop-shadow(0px 0px 8px #ffe0c3);
+}
 .step-Arrow img{
     width: 100%;
 }
@@ -50,7 +54,7 @@
 }
 .step-window{
     border:  1px solid rgb(145, 93, 93);
-
+    max-width: 960px;
     width: 80%;
     margin: 60px auto;
     /* border: 3px solid #fff; */
@@ -149,6 +153,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .Round-Step{
@@ -187,4 +193,75 @@
     font-weight: 500;
     line-height: 28px;
     font-size: 16px;
+}
+
+@media all and (max-width: 1200px){
+    .EventInfo_Date{
+        max-width: 800px;
+    }
+    .EventInfo_Date span{
+        font-size: 22px;
+    }
+    .step-Arrow span{
+        font-size: 28px;
+    }
+    .step-ArrowAll{
+        /* width: 85%; */
+    }
+    .step-Arrow{
+        margin: 0 -8px;
+    }
+    .step-windowTitle{
+        font-size: 18px;
+    }
+    .step-Content{
+        height: 455px;
+    }
+    .step-Content-Block{
+        /* padding: 25px 20px 35px; */
+    }
+
+    .Round-Step{
+        width: 380px;
+        height: 380px;
+        padding-top: 10.8%;
+    }
+    .Round-Step h1{
+        font-size: 28px;
+    }
+    .Round-Step p{
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+}
+
+@media all and (max-width: 1000px){
+    .step-Arrow span{
+        font-size: 24px;
+    }
+
+}
+@media all and (max-width: 800px){
+    .EventInfo_Date span {
+        font-size: 20px;
+    }
+    .step-window{
+        width: 90%;
+    }
+    .EventInfo_introduce{
+        flex-direction: column;
+    }
+    .EventInfo_card {
+        width: 70%;
+        margin: 40px auto 80px;
+    }
+    .EventInfo_text{
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+    }
+    .EventInfo_text p {
+        max-width: 400px;
+    }
 }

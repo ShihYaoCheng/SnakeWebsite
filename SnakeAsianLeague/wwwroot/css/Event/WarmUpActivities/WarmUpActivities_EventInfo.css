@@ -159,4 +159,41 @@
     /* font-weight: 500; */
     /* padding: 0 20px; */
 }
+@media all and (max-width: 1200px){
 
+
+    .EventInfo_text{
+        max-width: 480px;
+        width: 50%;
+    }
+    .EventInfo_text p{
+        max-width: 410px;
+    }
+    .EventInfo_card{
+        max-width: 300px;
+        width: 30%;
+    }
+}
+@media all and (max-width: 800px){
+    .EventInfo_introduce{
+        justify-content: space-around;
+    }
+    .EventInfo_text{
+        margin: 0 30px;
+    }
+    .EventInfo_text{
+        margin: 0 30px;
+        max-width: 300px;
+    }
+    .EventInfo_text h1{
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+    .EventInfo_text p{
+        font-size: 16.5px;
+        line-height: 28px;
+    }
+    .EventInfo_card {
+        max-width: 280px;
+    }
+}

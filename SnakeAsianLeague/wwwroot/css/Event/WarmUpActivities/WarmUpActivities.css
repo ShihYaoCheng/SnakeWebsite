@@ -135,3 +135,25 @@
     background-size: cover;
     background-blend-mode: multiply;
 }
+
+@media all and (max-width: 1200px){
+    .WarmUpActivities-Title{
+        max-width: 260px;
+        font-size: 30px;
+        padding: 7px 10px 13px;
+        margin: 0px auto 30px;
+    }
+    .WarmUpActivities-Title-02{
+        font-size: 30px;
+        padding: 15px 0 30px;
+    }
+}
+@media all and (max-width: 800px){
+
+}
+.WarmUpActivities-Title {
+    max-width: 240px;
+    font-size: 26px;
+    padding: 5px 10px 11px;
+    margin: 0px auto 30px;
+}

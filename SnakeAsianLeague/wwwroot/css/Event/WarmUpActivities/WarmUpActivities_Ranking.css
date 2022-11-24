@@ -9,7 +9,7 @@
     background-color: #3c0f0cb8;
     height: 720px;
 
-    margin: 0 auto;
+    margin: 80px auto 0;
     border-radius: 20px;
     border: 2px solid rgba(253, 242, 216, 0.6);
     padding: 3.5% 3.5%;
@@ -44,7 +44,7 @@
     /* border: 1px solid rgb(115, 255, 0); */
     width: 100%;
     background-color: #fee8e42b;
-    padding: 3%;
+    padding: 2.5% 3% 3%;
     background-blend-mode: multiply;
     /* border: 1px solid #fff; */
     height: 100%;
@@ -57,7 +57,7 @@
 .Ranking-Content-Title{
     color: #fff;
     text-align: center;
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 600;
     letter-spacing: 3px;
     margin: 0px auto 15px;
@@ -105,7 +105,7 @@
 
 }
 .Ranking-Data{
-    padding: 10px 15px;
+    padding: 10px 20px;
     color: #fff;
     font-weight: 500;
     letter-spacing: 2px;
@@ -143,4 +143,29 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px  !important;
     background: #2C0604 !important;
+}
+
+
+@media all and (max-width: 1200px){
+    .Ranking-Content-Title{
+        font-size: 28px;
+    }
+    .Ranking-Data{
+        padding: 7px 15px;
+    }
+    .Ranking-Number{
+        max-width: 17%;
+        font-size: 32px;
+    }
+    .Player-Name {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+    .Ranking-ERNC{
+        font-size: 18px;
+    }
+    .Ranking-ERNC-icon {
+        width: 25px;
+        margin: 0 6px;
+    }
 }

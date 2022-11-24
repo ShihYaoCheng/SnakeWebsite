@@ -6,10 +6,12 @@
 
 .Banner-BG{
     width: 100%;
+    overflow: hidden;
 }
 
 .Banner-BG img{
     width: 100%;
+    float: right;
 }
 
 .WarmUp-BannerTitle{
@@ -25,7 +27,7 @@
 
 .WarmUp-BannerNav{
     width: 100%;
-    background-color: #ffffffd9;
+    background-color: #ffffffe2;
     position: absolute;
     bottom: 0;
     box-shadow: inset 0px 1px 10px 0px #45454533, 0px -10px 15px #4646464b;
@@ -49,9 +51,28 @@
     /* border: 1px solid red; */
     color: #3e1916;
     display: block;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 26px; 
     text-decoration: none;
     font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.1s ease-out;
+}
+.WarmUp-BannerNav li a:hover{
+    color: #3e1916a4;
+}
+@media all and (max-width: 1920px){
+    .WarmUp-BannerNav li a{
+        font-size: 20px;
+    }
+}
+@media all and (max-width: 1000px){
+    .Banner-BG img{
+        width: 120%;
+    }
+}
+@media all and (max-width: 800px){
+    .WarmUp-BannerNav li a {
+        font-size: 18px;
+    }
 }

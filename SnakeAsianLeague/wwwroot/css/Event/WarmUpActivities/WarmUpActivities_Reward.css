@@ -132,3 +132,20 @@ td:first-child{
     border-bottom-right-radius: 10px;
     border-right: solid 2px #707070;
   }
+
+  @media all and (max-width: 1200px){
+    .Reward-GoldTitle img {
+        max-width: 430px;
+    }
+    .Reward-Title-01{
+        font-size: 30px;
+        margin: 30px auto 15px;
+    }
+    .top50-Title{
+        font-size: 24px;
+    }
+    .top50-Table{
+        font-size: 18px;
+        border-spacing: 0 11px;
+    }
+  }
