@@ -1,15 +1,26 @@
 {
-    "gameplay": {
-        "title": "Gameplay",
-        "subtitle-01": "Classic Solo Treasure Hunt",
-        "text-01": "The Itza people have passed down these basic combat rules from ancient times. If you battle till the end, you can win the gold from your opponents. The combat may be attended by wild monsters, monsters, and wandering knights from the abyss, making it the most dangerous and valuable conflict to engage in.",
-        "solo-01": "1V7 Battle",
-        "solo-02": "Bet-on the victory",
-        "solo-03": "Respawn Buff",
-        "subtitle-02": "Squad Deathmatch",
-        "text-02": "This fight is well-known in Itza land, and the Nord Army upholds this competitive rule as well. The riders must create a four-person team, and the battle will be supported by an airship. It will be critical to conquering the opponent of another team in order to win. The victorious team earns ranking points and is eligible to compete in subsequent professional contests.",
-        "team-01": "4V4 Battle",
-        "team-02": "E-sport Competition",
-        "team-03": "Airship Support"
-    }
+  "gameplay": {
+    "title": "Gameplay",
+    "subtitle-01": "Classic Solo Treasure Hunt",
+    "text-01": "The Itza people have passed down these basic combat rules from ancient times. If you battle till the end, you can win the gold from your opponents. The combat may be attended by wild monsters, monsters, and wandering knights from the abyss, making it the most dangerous and valuable conflict to engage in.",
+    "solo-01": "1V7 Battle",
+    "solo-02": "Bet-on the victory",
+    "solo-03": "Respawn Buff",
+    "subtitle-02": "Squad Deathmatch",
+    "text-02": "This fight is well-known in Itza land, and the Nord Army upholds this competitive rule as well. The riders must create a four-person team, and the battle will be supported by an airship. It will be critical to conquering the opponent of another team in order to win. The victorious team earns ranking points and is eligible to compete in subsequent professional contests.",
+    "team-01": "4V4 Battle",
+    "team-02": "E-sport Competition",
+    "team-03": "Airship Support"
+  },
+  "V7": {
+    "V7Text": "/images/Battle/1V7/1V7Text_en.png",
+    "V7RuleContentText": "/images/Battle/1V7/V7RuleContentText_en.png",
+    "V7RuleContentText7": "/images/Battle/1V7/V7RuleContentText7_en.png",
+    "Gameplay": "Gameplay",
+    "Text1": "Players must pay the entry fee for the 1v7 gameplay mode. Six more players will participate in the same game, and the players will compete to win coins, food, and treasure boxes that have been distributed randomly across the arena.",
+    "Text2": "Grabbing food on the battlefield will lengthen your snake's body, making it simpler to defeat other player's snakes and deal more damage! if a player's snake's HP hits zero, they will die and the objects(coins) they have acquired will be returned to the battlefield.",
+    "Text3": "The one who stands till the end can earn them all!",
+    "Text4": "",
+    "Text5": ""
+  }
 }
