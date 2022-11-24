@@ -18,31 +18,50 @@
         <div class="login_pictuer_block">
             <img id="login_pictuer" data-src="images\Other\login_picture.webp" src="images\Other\login_picture.webp"alt="">
         </div>       
-        <div class="input_block">
-            <div class="login_form">
-                <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">Phone Number</label>
-                @* 國碼 *@
-                <div class="login_input_block">
-                    <input type="text" class="login_input" id="phone-countryCode" name="" placeholder="+886" value="+886" required>
-                    <input type="text" class="login_input" id="phone-number" name="" placeholder="9xxxxxxxx"  @bind=loginRequest.phone  required>
+
+        <EditForm Model = "@loginRequest" OnValidSubmit="@LoginSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="input_block">
+                <div class="login_form">
+                    <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">Phone Number</label>
+                    @* 國碼 *@
+                    <div class="login_input_block">
+                        <InputText id="phone-countryCode" @bind-Value="loginRequest.countryCode" class="login_input" placeholder="+886"/>
+                        <InputText id="phone-number" @bind-Value="loginRequest.phone" class="login_input" placeholder="9xxxxxxxx"/>
+                        @*<input type="text" class="login_input" id="phone-countryCode" name="" placeholder="+886" @bind=loginRequest.countryCode required>*@
+                        @*<input type="text" class="login_input" id="phone-number" name="" placeholder="9xxxxxxxx"  @bind=loginRequest.phone  required>*@
+                    </div>
                 </div>
-            </div>
-            <div class="login_form" style="margin-bottom: 20px;">
-                <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">Password</label>
-                <div class="login_input_block">
-                    <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=loginRequest.password required>
+                <div class="login_form" style="margin-bottom: 20px;">
+                    <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">Password</label>
+                    <div class="login_input_block">
+                        <InputText id="password" @bind-Value="loginRequest.password" class="login_input" type="password" placeholder=""/>
+
+                        @* <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=loginRequest.password >*@
+                    </div>
                 </div>
+                <div  style="margin-bottom: 10px;">
+                     <input type="checkbox" id="autoLogin" name="autoLogin" @onchange="(e)=>{toggleAutoLogin(e);}"   >
+                     <label class="autoLoginLabel"  for="autoLogin" data-i18n="[html]signInWindows.WhetheLogged">是否維持登入狀態</label>
+                </div>
+                <div type="text" class="login_error" hidden="@(!loginErrorShow)"  data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>
+
+
+                <button id="login_submit" type="submit">
+                    <img data-src="/images/Index/signUpEvent_button.webp" src="/images/Index/signUpEvent_button.webp"alt="">
+                    <span data-i18n="[html]signInWindows.SignIn">登入</span>  
+                </button>
+
+                @*<div id="login_submit" >                
+                    <img data-src="/images/Index/signUpEvent_button.webp" src="/images/Index/signUpEvent_button.webp"alt="">
+                    <span data-i18n="[html]signInWindows.SignIn">登入</span>                
+                </div>*@
             </div>
-            <div  style="margin-bottom: 10px;">
-                 <input type="checkbox" id="autoLogin" name="autoLogin" @onchange="(e)=>{toggleAutoLogin(e);}"   >
-                 <label class="autoLoginLabel"  for="autoLogin" data-i18n="[html]signInWindows.WhetheLogged">是否維持登入狀態</label>
-            </div>
-            <div type="text" class="login_error" hidden="@(!loginErrorShow)"  data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>
-            <div id="login_submit" @onclick="@LoginSubmit">                
-                <img data-src="/images/Index/signUpEvent_button.webp" src="/images/Index/signUpEvent_button.webp"alt="">
-                <span data-i18n="[html]signInWindows.SignIn">登入</span>                
-            </div>
-        </div>
+
+        </EditForm>
+        
     </div>
 </div>
 
@@ -82,6 +101,7 @@
 
     private async Task LoginSubmit()
     {
+
         SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest , autoLogin);
         AppState.UpdateLoginStatus(this, snakeAccount);       
         if (AppState.LoginStatus.IsLogin == true)

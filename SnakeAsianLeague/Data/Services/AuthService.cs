@@ -39,7 +39,17 @@ namespace SnakeAsianLeague.Data.Services
         /// <returns></returns>
         public async Task<SnakeAccount> AuthLogin(LoginRequest loginRequest , bool IsAutoLogin)
         {
-            loginRequest.phone = loginRequest.phone.Replace("+", "%2B");
+            //國碼 手機 處理
+            if (loginRequest.countryCode == null)
+            {
+                loginRequest.countryCode = "%2B886";
+            }
+            else
+            {
+                loginRequest.countryCode = loginRequest.countryCode.Replace("+", "%2B");
+            }
+            loginRequest.phone = loginRequest.phone.TrimStart('0');
+
 
             SnakeAccount response = await tryLogin(loginRequest);
             if (response.IsLogin)
@@ -80,7 +90,7 @@ namespace SnakeAsianLeague.Data.Services
         /// <returns></returns>
         private async Task<SnakeAccount> tryLogin(LoginRequest loginRequest)
         {
-            var LoginRestRequest = new RestRequest($"User/PhoneID?PhoneID={loginRequest.phone}&PW={loginRequest.password}&&DeviceID=WEB&IP=NOIP");
+            var LoginRestRequest = new RestRequest($"User/PhoneID?PhoneID={loginRequest.countryCode+loginRequest.phone}&PW={loginRequest.password}&&DeviceID=WEB&IP=NOIP");
             LoginRestRequest.AddHeader("Authorization", Authenticate());
 
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
