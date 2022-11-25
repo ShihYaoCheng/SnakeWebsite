@@ -1,5 +1,7 @@
+@inject IJSRuntime JS
+
 <head>
-    <link href="/css/Event/WarmUpActivities/WarmUpActivities_Ranking.css" rel="stylesheet" />
+    <link href="/css/SpecialEvent/WarmUpActivities/WarmUpActivities_Ranking.css" rel="stylesheet" />
 </head>
 
 <div class="WarmUpActivities_Ranking" id="WarmUpActivities_Ranking">
@@ -22,7 +24,7 @@
 
                             <div class="Ranking-ERNC">
                                 <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/Event/WarmUpActivities/ERNC.png" />
+                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
                             </div>
 
                             
@@ -36,7 +38,7 @@
 
                             <div class="Ranking-ERNC">
                                 <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/Event/WarmUpActivities/ERNC.png" />
+                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
                             </div>
 
                         </div>
@@ -49,7 +51,7 @@
 
                             <div class="Ranking-ERNC">
                                 <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/Event/WarmUpActivities/ERNC.png" />
+                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
                             </div>
 
                         </div>
@@ -62,7 +64,7 @@
 
                             <div class="Ranking-ERNC">
                                 <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/Event/WarmUpActivities/ERNC.png" />
+                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
                             </div>
 
                         </div>
@@ -75,7 +77,7 @@
 
                             <div class="Ranking-ERNC">
                                 <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/Event/WarmUpActivities/ERNC.png" />
+                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
                             </div>
 
                         </div>
@@ -88,15 +90,11 @@
 
                             <div class="Ranking-ERNC">
                                 <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/Event/WarmUpActivities/ERNC.png" />
+                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
                             </div>
 
                         </div>
                     </div>
-
-
-                
-
 
                 </div>
             </div>
@@ -104,3 +102,22 @@
         </div>
     </div>
 </div>
+
+
+@code {
+
+    private IJSObjectReference? WarmUpActivitiesJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+
+        if (firstRender)
+        {
+
+            WarmUpActivitiesJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SpecialEvent/WarmUpActivities.js");
+            await WarmUpActivitiesJS.InvokeVoidAsync("WarmUpActivitiesStep");
+
+        }
+
+    }
+}

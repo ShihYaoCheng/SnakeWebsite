@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+.WarmUpActivities{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.WarmUpActivities-CenterBlock{
+    /* border:  1px solid rgb(145, 93, 93); */
+    max-width: 1200px;
+    width: 95%;
+    margin: 0px auto;
+}
+
+
+.WarmUpActivities-Title{
+    max-width: 290px;
+    border-radius: 20px;
+    /* background-color: #742b25; */
+    background-image: linear-gradient(to bottom, #742b25 0%, #4b1c18 50%, #742b25 100%);
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 10px 15px;
+    /* display: inline-block; */
+    letter-spacing: 5px;
+    box-shadow: inset 0px 0px 10px 3px #4b1c1885, 0px 0px 7px 4px #ffe3e335;
+    margin: 0px auto 50px;
+    text-align: center;
+}
+.WarmUpActivities-Title-02{
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.47;
+    letter-spacing: 4px;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0 35px;
+}
+.text-shadow-big{
+    /* -webkit-text-stroke: 1px #1a0f0a; */
+    text-shadow: 
+    -1.5px -1.5px 0px #1a0f0a,
+    1.5px -1.5px 0px #1a0f0a,
+    -1.5px 1.5px 0px #1a0f0a,
+    1.5px 1.5px 0px #1a0f0a,
+    -1.5px -1.5px 1px #1a0f0a,
+    1.5px -1.5px 1px #1a0f0a,
+    -1.5px 1.5px 1px #1a0f0a,
+    1.5px 1.5px 1px #1a0f0a,
+    -1.5px -1.5px 1.5px #1a0f0a,
+    1.5px -1.5px 1.5px #1a0f0a,
+    -1.5px 1.5px 1.5px #1a0f0a,
+    1.5px 1.5px 1.5px #1a0f0a,
+    -2px -2px 2px #1a0f0a,
+    2px -2px 2px #1a0f0a,
+    -2px 2px 2px #1a0f0a,
+    2px 2px 2px #1a0f0a;
+}
+.text-shadow-small{
+    -webkit-text-stroke: 0.1px #1a0f0a;
+    text-shadow: 
+    -1.5px -1.5px 0px #1a0f0a,
+    1.5px -1.5px 0px #1a0f0a,
+    -1.5px 1.5px 0px #1a0f0a,
+    1.5px 1.5px 0px #1a0f0a,
+    -1.5px -1.5px 1px #1a0f0a,
+    1.5px -1.5px 1px #1a0f0a,
+    -1.5px 1.5px 1px #1a0f0a,
+    1.5px 1.5px 1px #1a0f0a,
+    -1.5px -1.5px 1.5px #1a0f0a,
+    1.5px -1.5px 1.5px #1a0f0a,
+    -1.5px 1.5px 1.5px #1a0f0a,
+    1.5px 1.5px 1.5px #1a0f0a,
+    -1.5px -1.5px 1.5px #1a0f0a,
+    1.5px -1.5px 1.5px #1a0f0a,
+    -1.5px 1.5px 1.5px #1a0f0a,
+    1.5px 1.5px 1.5px #1a0f0a;
+}
+
+.text-shadow-brown{
+    -webkit-text-stroke: 0.2px #572610;
+    text-shadow: 
+    -1.5px -1.5px 0px #572610,
+    1.5px -1.5px 0px #572610,
+    -1.5px 1.5px 0px #572610,
+    1.5px 1.5px 0px #572610,
+    -1.5px -1.5px 1px #572610,
+    1.5px -1.5px 1px #572610,
+    -1.5px 1.5px 1px #572610,
+    1.5px 1.5px 1px #572610,
+    -1.5px -1.5px 1.5px #572610,
+    1.5px -1.5px 1.5px #572610,
+    -1.5px 1.5px 1.5px #572610,
+    1.5px 1.5px 1.5px #572610,
+    -2px -2px 2px #572610,
+    2px -2px 2px #572610,
+    -2px 2px 2px #572610,
+    2px 2px 2px #572610;
+}
+
+/* 步驟按鈕 */
+.step-button-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.step-button {
+    width: 200px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    letter-spacing: 2.4px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px -1px 2px 0 rgb(0 0 0 / 50%), inset 0px 6px 0 0 rgb(255 255 255 / 54%);
+    background-image: linear-gradient(to top, #ff7400, #ffa443);
+    transition: all .2s ease-in;
+    margin: 0px auto 0px;
+    font-weight: 600;
+}
+.step-button:hover {
+    transition: all .2s ease-in-out;
+    transform: translateY(-2px) scale(1.01);
+}
+
+.WarmUpActivities-Fire-BG{
+    width: 100%;
+    background-image: url(/images/SpecialEvent/WarmUpActivities/Fire-BG.png),
+                    url(/images/SpecialEvent/WarmUpActivities/Fire-BG-icon.png);
+    background-position: top center,
+                    bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+@media all and (max-width: 1200px){
+    .WarmUpActivities-Title{
+        max-width: 260px;
+        font-size: 30px;
+        padding: 7px 10px 13px;
+        margin: 0px auto 30px;
+    }
+    .WarmUpActivities-Title-02{
+        font-size: 30px;
+        padding: 15px 0 30px;
+    }
+}
+@media all and (max-width: 800px){
+    .WarmUpActivities-Title {
+        max-width: 250px;
+        font-size: 28px;
+        padding: 5px 10px 11px;
+        margin: 0px auto 30px;
+    }
+    .WarmUpActivities-Title-02 {
+        font-size: 24px;
+        padding: 15px 0 30px;
+    }
+    
+}
+
