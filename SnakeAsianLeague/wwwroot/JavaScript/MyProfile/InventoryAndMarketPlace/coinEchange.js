@@ -106,8 +106,8 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address) {
 	const ERC20_abi = window.ERC20_abi
 	const SRCExchange_addr = SRCExchange_address
 	//預熱活動用 修改
-	const SRCExchange_ABI = window.tSRCExchange_ABI
-	//const SRCExchange_ABI = window.SRCExchange_ABI
+	//const SRCExchange_ABI = window.tSRCExchange_ABI
+	const SRCExchange_ABI = window.SRCExchange_ABI
 	console.log("SRCInput", SRCInput, "SRC_address", SRC_address, "SRCExchange_address", SRCExchange_address)
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
