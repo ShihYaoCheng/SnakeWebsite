@@ -544,6 +544,32 @@ namespace SnakeAsianLeague.Data.Services.Personal
         {
 
             decimal result = 0;
+            string URL = "/BC_SRCExchange/Approve";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("userID", UserID);
+            request.AddQueryParameter("amount", amount.ToString());
+            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                AllowanceData data = JsonSerializer.Deserialize<AllowanceData>(restResponse.Content) ?? new AllowanceData();
+                result = data.allowance;
+            }
+            return result;
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public async Task<decimal> TSRCExchangeApprove(string UserID, decimal amount)
+        {
+
+            decimal result = 0;
             string URL = "/BC_TSRCExchange/Approve";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("userID", UserID);
@@ -560,10 +586,13 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
 
+    
 
 
 
-      
+
+
+
     }
 
 }
