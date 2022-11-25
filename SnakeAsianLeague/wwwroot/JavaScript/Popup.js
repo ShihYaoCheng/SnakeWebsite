@@ -15,14 +15,14 @@ window.Popup = function () {
 
     // 點擊 X 關閉
     $('.products-popup-close').click(function () {
-        $('.products-popup-bg').removeClass('products-popup-open');
+        $('.products-popup-bg-x').removeClass('products-popup-open');
     });
 
     // 點擊 背景關閉
     $(document).mouseup(function (e) {
         var container =$(".products-popupblock"); // 這邊放你想要排除的區塊
         if (!container.is(e.target) && container.has(e.target).length === 0) {
-            $('.products-popup-bg').removeClass('products-popup-open');
+            $('.products-popup-bg-x').removeClass('products-popup-open');
         }
     });
 
