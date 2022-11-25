@@ -82,7 +82,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
             bool result = false;
             try
             {
-                string URL = "/BC_SRCExchange/TransferToDB"; 
+                string URL = "/BC_TSRCExchange/TransferToDB"; 
                 var request = new RestRequest(URL, Method.GET);
                 request.AddQueryParameter("userID", UserID.ToString());
                 request.AddQueryParameter("amount", amount.ToString());

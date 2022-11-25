@@ -544,7 +544,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         {
 
             decimal result = 0;
-            string URL = "/BC_SRCExchange/Approve";
+            string URL = "/BC_TSRCExchange/Approve";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("userID", UserID);
             request.AddQueryParameter("amount", amount.ToString());
