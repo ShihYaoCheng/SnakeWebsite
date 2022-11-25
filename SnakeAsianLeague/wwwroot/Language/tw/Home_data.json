@@ -72,7 +72,7 @@
     "verifyCode": "驗證碼",
     "resend": "重傳",
     "userName": "用戶名",
-    "password": "密碼",
+    "password": "密碼(請輸入6~10位大小寫英文或數字)",
     "confirmPassword": "確認密碼",
     "close": "關閉"
   },
@@ -86,7 +86,10 @@
     "badRequest": "請輸入正確資料。",
     "conflict": "此號碼已經被註冊。",
     "registerSuccessed": "註冊成功",
-    "registerFailed": "註冊失敗"
+    "registerFailed": "註冊失敗",
+    "PasswordNotMatch": "您輸入的密碼不一致.",
+    "PasswordInvalid": "您輸入的密碼不合法."
+
   },
 
   "indexSRC": {

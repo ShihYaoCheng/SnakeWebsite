@@ -82,7 +82,38 @@ namespace SnakeAsianLeague.Data.Services.Metamask
             bool result = false;
             try
             {
-                string URL = "/BC_SRCExchange/TransferToDB"; 
+                string URL = "/BC_SRCExchange/TransferToDB";
+                var request = new RestRequest(URL, Method.GET);
+                request.AddQueryParameter("userID", UserID.ToString());
+                request.AddQueryParameter("amount", amount.ToString());
+                IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    ResultTransferData ResultData = JsonSerializer.Deserialize<ResultTransferData>(restResponse.Content);
+                    result = true;// ResultData.result;
+                }
+            }
+            catch (Exception ex)
+            {
+                string errormsg = ex.Message;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public async Task<bool> TSRCTransferToDB(uint UserID, decimal amount)
+        {
+            bool result = false;
+            try
+            {
+                string URL = "/BC_TSRCExchange/TransferToDB"; 
                 var request = new RestRequest(URL, Method.GET);
                 request.AddQueryParameter("userID", UserID.ToString());
                 request.AddQueryParameter("amount", amount.ToString());

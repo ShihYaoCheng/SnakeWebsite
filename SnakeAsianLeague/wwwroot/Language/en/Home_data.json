@@ -73,7 +73,7 @@
     "verifyCode": "VerifyCode",
     "resend": "Resend",
     "userName": "User Name",
-    "password": "Password",
+    "password": "Password(Please enter 6~10 uppercase and lowercase English or numbers )",
     "confirmPassword": "Confirm Password",
     "close": "Close"
   },
@@ -87,7 +87,9 @@
     "badRequest": "Please check the input is correct.",
     "conflict": "This phone Number has already been registered.",
     "registerSuccessed": "Register Successed",
-    "registerFailed": "Register Failed"
+    "registerFailed": "Register Failed",
+    "PasswordNotMatch": "Your two Passwords do not match.",
+    "PasswordInvalid": "The entered password is invalid."
   },
 
   "indexSRC": {
