@@ -46,12 +46,14 @@
 }
 .step-Arrow img{
     width: 100%;
+    opacity: 0.85;
 }
 .step-Arrow-Click{
     filter: drop-shadow(0px 0px 8px #ffe0c3);
 }
 .step-Arrow-Click img{
     filter: drop-shadow(0px 0px 8px #ffe0c3);
+    opacity: 1;
 }
 .step-window{
     border:  1px solid rgb(145, 93, 93);
@@ -335,10 +337,16 @@
         width: 27%;
         margin: 0 -3px;
     }
+    .step-ArrowAll{
+        margin: 0 auto 40px;
+    }
 }
 @media all and (max-width: 600px){
     .step-Arrow span {
-        font-size: 16px;
+        font-size: 14px;
+    }
+    .step-ArrowAll{
+        margin: 0 auto 30px;
     }
     .step-Content {
         /* height: 300px; */
