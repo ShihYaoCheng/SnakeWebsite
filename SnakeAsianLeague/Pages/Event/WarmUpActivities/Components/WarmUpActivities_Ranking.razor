@@ -1,5 +1,7 @@
+@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Services.WarmUpActivities
 @inject IJSRuntime JS
-
+@inject WarmUpActivitiesService WarmUpActivitiesService
 <head>
     <link href="/css/SpecialEvent/WarmUpActivities/WarmUpActivities_Ranking.css" rel="stylesheet" />
 </head>
@@ -18,85 +20,50 @@
                 <div class="Ranking-List">
 
                     @* 以下為示意，到時候可留只一個跑迴圈 *@
-                    <div class="Ranking-Row">
-                        <div class="Ranking-Number text-shadow-big">1</div>
-                        <div class="Ranking-Data">
-                            <div class="Player-Name">玩家名稱七個字</div>
 
-                            <div class="Ranking-ERNC">
-                                <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
+                    @if(LeaderboardList.OtherLeaderboardToERNC != null) 
+                    {
+                        var index = 0;
+                        @foreach (var item in LeaderboardList.OtherLeaderboardToERNC)
+                        {
+                            index++;
+                            <div class="Ranking-Row">
+                                <div class="Ranking-Number text-shadow-big"> @index </div>
+                                <div class="Ranking-Data">
+                                    <div class="Player-Name">@item.userSocial.Name</div>
+
+                                    <div class="Ranking-ERNC">
+                                        <div class="ERNC-Amount">ERNC: <span>@item.ERNC</span></div>
+                                        <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
+                                    </div>                            
+                                </div>
                             </div>
+                        }
+                    }
+                    else
+                    {
+                        @for(var i =0; i<10; i++)
+                        {
+                            <div class="Ranking-Row">
+                                <div class="Ranking-Number text-shadow-big">1</div>
+                                <div class="Ranking-Data">
+                                    <div class="Player-Name">讀取中</div>
 
+                                    <div class="Ranking-ERNC">
+                                        <div class="ERNC-Amount">ERNC: <span>讀取中</span></div>
+                                        <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
+                                    </div>                            
+                                </div>
+                            </div>
                             
-                        </div>
-                    </div>
+                        }
 
-                    <div class="Ranking-Row">
-                        <div class="Ranking-Number text-shadow-big">1</div>
-                        <div class="Ranking-Data">
-                            <div class="Player-Name">玩家名稱七個字</div>
 
-                            <div class="Ranking-ERNC">
-                                <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
-                            </div>
 
-                        </div>
-                    </div>
+                    }
+                   
 
-                    <div class="Ranking-Row">
-                        <div class="Ranking-Number text-shadow-big">1</div>
-                        <div class="Ranking-Data">
-                            <div class="Player-Name">玩家名稱七個字</div>
-
-                            <div class="Ranking-ERNC">
-                                <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="Ranking-Row">
-                        <div class="Ranking-Number text-shadow-big">1</div>
-                        <div class="Ranking-Data">
-                            <div class="Player-Name">玩家名稱七個字</div>
-
-                            <div class="Ranking-ERNC">
-                                <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="Ranking-Row">
-                        <div class="Ranking-Number text-shadow-big">1</div>
-                        <div class="Ranking-Data">
-                            <div class="Player-Name">玩家名稱七個字</div>
-
-                            <div class="Ranking-ERNC">
-                                <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="Ranking-Row">
-                        <div class="Ranking-Number text-shadow-big">1</div>
-                        <div class="Ranking-Data">
-                            <div class="Player-Name">玩家名稱七個字</div>
-
-                            <div class="Ranking-ERNC">
-                                <div class="ERNC-Amount">ERNC: <span>999999</span></div>
-                                <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
-                            </div>
-
-                        </div>
-                    </div>
-
+        
                 </div>
             </div>
 
@@ -108,8 +75,18 @@
 @code {
 
     private IJSObjectReference? WarmUpActivitiesJS;
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+   OwnedVirtualCurrrencyLeaderboardDTO LeaderboardList = new OwnedVirtualCurrrencyLeaderboardDTO();
+    protected override async Task OnInitializedAsync()
+    {
+        await Refresh();
+    }
 
+    public async Task Refresh()
+    {
+        LeaderboardList = await WarmUpActivitiesService.GetLeaderboard();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)  
     {
 
         if (firstRender)
