@@ -17,13 +17,16 @@
     padding: 10px 20px 12px;
     text-align: center;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .EventInfo_Date span{
 
     text-shadow: #420101 5px 5px 17px;
     font-size: 26px;
     color: #fff;
-    width: 100%;
+    /* width: 100%; */
     font-weight: 500;
 }
 .EventInfo_Date::before{
@@ -208,19 +211,32 @@
     }
     .EventInfo_text{
         margin: 0 30px;
-    }
-    .EventInfo_text{
-        margin: 0 30px;
         max-width: 300px;
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
     }
- 
-
+    .EventInfo_text p {
+        max-width: 400px;
+    }
     .EventInfo_card {
         max-width: 280px;
+        width: 70%;
+        margin: 30px auto 80px;
     }
+    .EventInfo_introduce{
+        flex-direction: column;
+    }
+
 }
 @media all and (max-width: 600px){
     .EventInfo_Date span {
         font-size: 16px;
+    }
+    .EventInfo_text{
+        width: 100%;
+    }
+    .EventInfo_text h1{
+        line-height: 34px;
     }
 }

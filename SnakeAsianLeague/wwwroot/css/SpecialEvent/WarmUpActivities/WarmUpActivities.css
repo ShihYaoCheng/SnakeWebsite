@@ -162,3 +162,8 @@
     
 }
 
+@media all and (max-width: 800px){
+    .WarmUpActivities-Title-02 {
+        font-size: 22px;
+    }
+}
