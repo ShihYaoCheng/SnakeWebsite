@@ -90,7 +90,7 @@
 </div>
 @code {
     //預熱活動開關
-    bool warmUpToggle=true;
+    bool warmUpToggle;
     //private readonly RestRequest test2 = new RestRequest("BackEnd/Accounts", Method.GET);
     [Parameter]
     public EventCallback refresh { get; set;}
@@ -114,6 +114,12 @@
     //private InventoryService blockChainInfoDTO  ;
 
     //private IJSObjectReference? TransferEventsJS;
+      protected override async Task OnInitializedAsync()
+    {
+        //預熱活動用
+        warmUpToggle = BlockChainSever.BlockChainInfoDTO.eventWarmUpStatus20221108;
+
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

@@ -266,11 +266,16 @@
 
 @code {
     //預熱活動開關
-    bool warmUpToggle=true;
+    bool warmUpToggle;
     decimal[] web3jsData ;
    
     private IJSObjectReference? coinEchangeJS;   
+      protected override async Task OnInitializedAsync()
+    {
+        //預熱活動用
+        warmUpToggle = BlockChainSever.BlockChainInfoDTO.eventWarmUpStatus20221108;
 
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

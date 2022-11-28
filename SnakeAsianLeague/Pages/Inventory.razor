@@ -83,7 +83,7 @@
 @code {
 
     //預熱活動開關
-    bool warmUpToggle=true;
+    bool warmUpToggle;
     //loading
     bool loading = true;  
 
@@ -96,12 +96,12 @@
     {
         int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
         //預熱活動用 修改
-         var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+        var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
         if (warmUpToggle)
         {
             SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRC;
         }     
-        
+
         string socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
 
         JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,chainId, SRC_token_addr , socketServerUri);
@@ -127,7 +127,8 @@
 
         AppState.StateChanged += async (Source, Property)
         => await InvokeAsync(StateHasChanged);
-
+        //預熱活動用
+        warmUpToggle = BlockChainSever.BlockChainInfoDTO.eventWarmUpStatus20221108;
     } 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

@@ -1,12 +1,13 @@
 ﻿@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Backstage
+@using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Data.Services.Personal
 
 @inject ProfileService ProfileService
 @inject AppState AppState
 @inject IJSRuntime JS
 @inject InventoryService InventoryService
-
+@inject BlockChainProcessorSever BlockChainSever
 <AuthorizeView>
     @* 已登入畫面 *@
     <Authorized>
@@ -337,7 +338,7 @@
 
 @code {
     //預熱活動開關
-    bool warmUpToggle=true;
+    bool warmUpToggle;
 
     [Parameter]
     public bool MetamaskAvailable { get; set; }
@@ -352,7 +353,12 @@
     private int Bluemap_Count=0;
     /// <summary> gSRC數量 </summary>
     private decimal gSRC;
+      protected override async Task OnInitializedAsync()
+    {
+     //預熱活動用
+            warmUpToggle = BlockChainSever.BlockChainInfoDTO.eventWarmUpStatus20221108;
 
+    }
     protected override async Task OnAfterRenderAsync(bool first)
     {
         if (first)
