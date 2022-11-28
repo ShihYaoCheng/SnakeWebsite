@@ -270,9 +270,7 @@
     }
 }
 @media all and (max-width: 800px){
-    .WarmUpActivities_EventInfo{
-        padding: 80px 0 50px;
-    }
+
     .step-window{
         width: 100%;
     }

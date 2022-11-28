@@ -203,12 +203,16 @@
     }
 }
 @media all and (max-width: 800px){
+    .WarmUpActivities_EventInfo{
+        padding: 80px 0 50px;
+    }
     .EventInfo_Date span {
         font-size: 20px;
     }
     .EventInfo_introduce{
         justify-content: space-around;
     }
+    
     .EventInfo_text{
         margin: 0 30px;
         max-width: 300px;
@@ -230,6 +234,9 @@
 
 }
 @media all and (max-width: 600px){
+    .WarmUpActivities_EventInfo{
+        padding: 60px 0 50px;
+    }
     .EventInfo_Date span {
         font-size: 16px;
     }
