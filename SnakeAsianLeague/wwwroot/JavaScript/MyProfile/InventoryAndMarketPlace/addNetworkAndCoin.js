@@ -167,11 +167,12 @@ window.AddPolygonSRC = async function (SRC_token_addr, SRC_Decimals, warmUpToggl
     //預熱活動用 修改
     tokenImage = "https://storage.googleapis.com/pps-nft/token/SRC.png";
     tokenDecimals = SRC_Decimals;
+    tokenSymbol = 'SRC';   
     if (warmUpToggle) {
         tokenSymbol = 'TSRC';
         tokenImage = "https://storage.googleapis.com/pps-nft/token/tSRC.png";
     }
-    tokenSymbol = 'SRC';   
+    
     try {
         // wasAdded is a boolean. Like any RPC method, an error may be thrown.
         const wasAdded = await window.ethereum.request({
