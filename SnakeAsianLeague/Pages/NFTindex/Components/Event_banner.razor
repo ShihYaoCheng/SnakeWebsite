@@ -5,7 +5,7 @@
 </head>
 
 @* SnakeBanner *@
-<div class="eventBannerS3" id="SnakeBanner">
+<div class="SnakeEventBanner" id="SnakeBanner">
 
     <div class="eventBannerS3-BG">
         <div id="event_banner_close" @onclick="eventBannerS3CloseClick">
@@ -56,11 +56,11 @@
     }
 
 
-    private async Task eventBannerS3CloseClick()
+    private async Task SnakeEventBannerCloseClick()
     {
         if (Banner != null)
         {
-            await Banner.InvokeVoidAsync("eventBannerS3Close");
+            await Banner.InvokeVoidAsync("SnakeEventBannerClose");
         }
     }
 }
