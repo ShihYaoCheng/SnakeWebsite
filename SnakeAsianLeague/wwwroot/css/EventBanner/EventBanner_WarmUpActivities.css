@@ -1,0 +1,136 @@
+.SnakeEventBanner{
+    width: 100%;
+
+    position: fixed;
+    bottom: 0%;
+    left: 0;
+    z-index: 49;
+    background-color: rgba(48, 49, 69, 0.5);
+    box-shadow: 0px -15px 30px 15px rgba(48, 49, 69, 0.5)
+}
+
+.SnakeEventBanner-BG {
+    /* max-width: 1200px; */
+    width: 95%;
+    /* height: 249px; */
+    /* margin: 60px auto 35px; */
+    /* border-radius: 58px; */
+    border: 4px solid #65111184;
+    background-color: #65111184;
+    /* background-image:
+        linear-gradient(to top right, rgba(59, 95, 125, 0.9) 0%, rgba(59, 95, 125, 0.9) 100%),
+        url(/images/AsiaChampionsLeague/S2/ACL_S2_BG_02.webp); */
+    background-image: url(/images/EventBanner/EventBanner_WarmUpActivities/WarmUpActivities-banner-BG.png);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    
+    box-shadow: 0px 0px 15px 7px rgba(255, 220, 92, 0.2), 0px 10px 50px 30px rgba(238, 206, 197, 0.319);
+    /* box-shadow: 0 -5px 100px 10px rgba(255, 237, 176, 0.3), 0 0 60px 20px rgba(123, 217, 248, 0.6); */
+
+    position: relative;
+
+    max-width: 800px;
+    height: 165.5px;
+    border-radius: 36px;
+    margin: 50px auto 25px;
+}
+
+#event_banner_close {
+    /* width: 33px; */
+    /* height: 33px; */
+    border-radius: 50%;
+    position: absolute;
+    /* right: -3.2%; */
+    top: -2%;
+    z-index: 52;
+    transition: all .05s ease-out;
+    opacity: 0.7;
+
+    width: 27px;
+    height: 27px;
+    right: -36px;
+}
+
+#event_banner_close:hover {
+    cursor: pointer;
+    /* opacity: 0.8; */
+    transform: scale(1.05);
+}
+
+#event_banner_close img {
+    width: 100%;
+}
+.eventBanner-link{
+    /* border: 1px solid red; */
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* border-radius: 58px; */
+
+    border-radius: 36px;
+}
+
+.WarmUpImg{
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+}
+
+#WarmUpRider-01{
+    /* max-width: 305px; */
+    max-width: 206px;
+
+    top: -50%;
+    left: 1.3%;
+}
+#WarmUpRider-02{
+    /* max-width: 362px; */
+    max-width: 244px;
+
+    top: -74%;
+    left: 29%;
+}
+#WarmUpRider-Title{
+    /* max-width: 528px; */
+    max-width: 357px;
+    top: -7%;
+    right: 1.1%;
+    filter: drop-shadow(0px 0px 10px rgba(28, 28, 28, 0.6));
+}
+
+@media all and (max-width: 900px){
+    .SnakeEventBanner-BG {
+        max-width: 370px;
+        height: 84px;
+        border-radius: 20px;
+        border: 2px solid #65111184;
+        margin: 50px auto 35px;
+        background-position: -18px;
+    }
+    #event_banner_close{
+        width: 23px;
+        height: 23px;
+        right: -5px;
+        top: -32px;
+    }
+    .eventBanner-link{
+        border-radius: 20px;
+    }
+    #WarmUpRider-01{
+        max-width: 100px;
+        top: -41%;
+        left: -4%;
+    }
+    #WarmUpRider-02{
+        max-width: 117px;
+        top: -63%;
+        left: 28%;
+    }
+    #WarmUpRider-Title{
+        max-width: 185px;
+        top: -11%;
+        right: -1.3%;
+    }
+
+}
