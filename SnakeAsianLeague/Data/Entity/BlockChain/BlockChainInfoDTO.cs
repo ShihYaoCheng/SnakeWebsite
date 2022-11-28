@@ -16,6 +16,8 @@
         public int srcDecimals { get; set; }
 
         public int tsrcDecimals { get; set; }
+        public bool eventWarmUpStatus20221108 { get; set; }
+
 
         // PPSR合約
         public string? adminWalletAddress_PPSR { get; set; }

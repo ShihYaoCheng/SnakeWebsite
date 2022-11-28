@@ -98,7 +98,7 @@
         @*NowGoldRent = Ridder.Income.nowRent.Where(m => m.currencyType == 1).First().price;
         TotalRevenue = Ridder.Income.totalRevenue.Where(m => m.currencyType == 22).First().price;
         TotalGoldRevenue = Ridder.Income.totalRevenue.Where(m => m.currencyType == 22).First().price;*@
-        isSamaWalletAddress = walletAddress == Ridder.walletAddress;
+        isSamaWalletAddress = walletAddress == Ridder.Owned;
 
       
         StateHasChanged();
