@@ -186,6 +186,7 @@
 }
 @media all and (max-width: 600px){
     .Ranking-Block{
+        height: 600px;
         width: 98%;
         padding: 3% 3%;
         margin: 60px auto 0;
