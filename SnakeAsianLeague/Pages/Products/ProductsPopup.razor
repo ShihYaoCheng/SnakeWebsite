@@ -44,7 +44,22 @@
         <div class="products-popup-title">Rider's Appearance Fee</div>
         <div class="products-popup-content">
             <div class="products-popup-text">Pleas enter number only for your RAF.</div>
-            <input  class="products-popup-inputText" type="number" min = "0.01"  step = "0.01"  @bind="@ChangeRent" >        
+     @*       <EditForm Model="model">
+                <InputSelect ValueExpression="@(()=>model.CoinType)"  Value="@model.CoinType" ValueChanged="@((int value) => SelectOptionChange(value ))" >
+                                    
+                         <option class="my_match_option" value="1">gSRC</option>
+                         <option class="my_match_option" value="22">Gold</option>
+                </InputSelect>
+
+            </EditForm>*@
+            <div class="input-zone">
+                <select @onchange="(value)=>{SelectOptionChange(  Int32.Parse(value.Value.ToString()));}">
+                    <option class="my_match_option" value="1">gSRC</option>
+                    <option class="my_match_option" value="22">Gold</option>
+                </select>
+                <input  class="products-popup-inputText" type="number" min = "0.01"  step = "0.01"  @bind="@ChangeRent" >        
+            </div>
+            
             <button class="products-popup-submit" type="submit" onclick=@SetChangeRent>SAVE</button>
         </div>
     </div>
@@ -70,6 +85,12 @@
 
 
 @code {
+    //選項
+    int CoinType;
+    public void SelectOptionChange(int value)
+    {
+        CoinType =value;
+    }   
 
     [Parameter]
     public decimal NowRent { get; set; }

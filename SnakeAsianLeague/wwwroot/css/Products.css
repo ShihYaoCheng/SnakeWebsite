@@ -279,8 +279,26 @@
 }
 /* 最高出價區塊 */
 
-/* Buy On Opensea 連結按鈕 */
-.BuyOnOpensea{
+/* Buy On Opensea 連結按鈕  改為領取租金區*/
+.getIncome-container {
+    display: flex;
+    justify-content: space-between;
+}
+.getIncome-zone {
+    display: flex;
+    justify-content: space-between;
+}
+
+.getIncome-zone-title {
+    color: #cfad67;
+    font-size:20px;
+}
+.getIncome-zone-subtitle {
+    color: #FFF;
+    font-size: 14px;
+}
+
+.BuyOnOpensea {
     width: 348px;
     height: 75px;
     border-radius: 16px;
@@ -292,6 +310,7 @@
     border: none;
     align-self: flex-end;
     margin-bottom: 20px;
+    color:#fff;
 }
 .BuyOnOpensea:hover{
     transition: all .1s ease-in-out;
@@ -335,6 +354,7 @@
     align-items: center;
     padding: 20px 30px;
     position: relative;
+    margin-bottom:20px;
 }
 #products-block-price-TopBid{
     
