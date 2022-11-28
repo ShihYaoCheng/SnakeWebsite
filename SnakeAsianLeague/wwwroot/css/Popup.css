@@ -140,7 +140,22 @@
 .show-msg {
     color:#fff
 }
+.input-zone {
+    width: 65%;
+}
 
+.input-zone select {
+    width:25%;
+    background-color: var(--bg-1);
+    border: 2px solid var(--green-2);
+    border-radius: 13px;
+    padding: 6px 10px 4px;
+    white-space: nowrap;
+    font-size: 20px;
+    outline: none;
+    color: var(--white);
+    height:54px;
+}
 input.products-popup-inputText {
     background-color: var(--bg-1);
     border: 2px solid var(--green-2);
@@ -150,7 +165,8 @@ input.products-popup-inputText {
     font-size: 26px;
     outline: none;
     color: var(--white);
-    width: 65%;
+    width: 69%;
+    height: 54px;
 }
 input.products-popup-inputText:focus{
     border: 3px solid var(--white);

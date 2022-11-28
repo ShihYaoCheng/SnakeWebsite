@@ -16,6 +16,8 @@
         public int srcDecimals { get; set; }
 
         public int tsrcDecimals { get; set; }
+        public bool eventWarmUpStatus20221108 { get; set; }
+
 
         // PPSR合約
         public string? adminWalletAddress_PPSR { get; set; }
@@ -57,4 +59,7 @@
         public string? contractAddress_tSRCExchange { get; set; }
         public decimal balanceOf_tSRCExchange { get; set; } // 剩餘瓦斯費
     }
+
+
+
 }

@@ -15,11 +15,21 @@
                 <div class="products-block-price" id="">
 
                     <div class="products-block-price-currency">
-                        <p class="products-currency-title">SRC</p>
+                        <p class="products-currency-title">gSRC</p>
                         <img class="products-currency-icon products-currency-SRC" id="" src="/images/Products/SRC.webp"
                             alt="">
                     </div>
                     <div class="products-TopBid-price">@NowRent</div>
+                </div>
+
+                <div class="products-block-price" id="">
+
+                    <div class="products-block-price-currency">
+                        <p class="products-currency-title">Gold</p>
+                        <img class="products-currency-icon products-currency-SRC" id="" src="/images/Myprofile/gold.png"
+                            alt="">
+                    </div>
+                    <div class="products-TopBid-price">這裡放Gold</div>
                 </div>
                 @*<div class="products-TopBid-price-higher">Higher than 70%(後端串) PPSR</div>*@
                 @* 該NFT出租累積所有金額，首拍時 直接顯示 on debut (未有收入)
@@ -29,7 +39,7 @@
                 <div class="products-block-price" id="products-AppearanceFee">
 
                     <div class="products-block-price-currency">
-                        <p class="products-currency-title">SRC</p>
+                        <p class="products-currency-title">gSRC</p>
                         <img class="products-currency-icon products-currency-SRC" id="" src="/images/Products/SRC.webp"
                             alt="">
                     </div>
@@ -98,9 +108,9 @@
         @*NowGoldRent = Ridder.Income.nowRent.Where(m => m.currencyType == 1).First().price;
         TotalRevenue = Ridder.Income.totalRevenue.Where(m => m.currencyType == 22).First().price;
         TotalGoldRevenue = Ridder.Income.totalRevenue.Where(m => m.currencyType == 22).First().price;*@
-        isSamaWalletAddress = walletAddress == Ridder.walletAddress;
+        isSamaWalletAddress = walletAddress == Ridder.Owned;
+        isSamaWalletAddress = true;
 
-      
         StateHasChanged();
     }
 }

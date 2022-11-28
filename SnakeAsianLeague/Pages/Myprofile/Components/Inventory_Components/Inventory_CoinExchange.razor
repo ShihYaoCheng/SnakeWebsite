@@ -89,6 +89,8 @@
 
 </div>
 @code {
+    //預熱活動開關
+    bool warmUpToggle;
     //private readonly RestRequest test2 = new RestRequest("BackEnd/Accounts", Method.GET);
     [Parameter]
     public EventCallback refresh { get; set;}
@@ -112,6 +114,12 @@
     //private InventoryService blockChainInfoDTO  ;
 
     //private IJSObjectReference? TransferEventsJS;
+      protected override async Task OnInitializedAsync()
+    {
+        //預熱活動用
+        warmUpToggle = BlockChainSever.BlockChainInfoDTO.eventWarmUpStatus20221108;
+
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -224,21 +232,31 @@
         await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
         if (difference < 0)
         {
-            @*預熱活動用 修改*@
-            //var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRC;
-            //var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRCExchange;
             var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
-            var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;            
+            var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;      
+            @*預熱活動用 修改*@
+            if (warmUpToggle)
+            {
+                SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRC;
+                SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRCExchange;
+            }             
+                
             var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
             @*鍊換game*@
             //await TransferEventsJS.InvokeVoidAsync("TransferEvents" ,socketServerUri , SRC_token_addr,"tokenSRC");
             transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1,SRC_token_addr,SRCExchange_addr);      
-           
+
             if (transactionResult)
             {
                 @*預熱活動用 修改*@
-                TransferToDB = await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
-                //TransferToDB = await metamaskTransfer.TSRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
+                if (warmUpToggle)
+                {
+                    TransferToDB = await metamaskTransfer.TSRCTransferToDB(AppState.LoginStatus.userID, difference * -1);
+                }
+                else
+                {
+                    TransferToDB = await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
+                }        
             
             }
             if (TransferToDB)
@@ -252,16 +270,27 @@
         {
             @*game換鍊*@
             @*預熱活動用 修改*@
-            getAuthorizeNum = await InventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
-            //getAuthorizeNum = await InventoryService.TSRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
+           
+            if (warmUpToggle)
+            {
+                getAuthorizeNum = await InventoryService.TSRCExchangeApprove(AppState.LoginStatus.userID.ToString(), difference);
+            }
+            else
+            {
+                getAuthorizeNum = await InventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
+            }
+
             if (getAuthorizeNum!=0)
             {
                 //預熱活動用 修改
                 var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
                 var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;
-
-                //var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRC;
-                //var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRCExchange;
+                if (warmUpToggle)
+                {
+                    SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRC;
+                    SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRCExchange;
+                }
+               
                 transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum,SRC_token_addr,SRCExchange_addr );
             }
             else
