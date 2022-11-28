@@ -6,12 +6,13 @@
 
 
 <section  class="products-section" id="products-topBid">
-    <button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea" data-i18n="Inventory_data:sortOptions.BuyonOpensea">Buy on Opensea</a ></button>
+    @*<button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea" data-i18n="Inventory_data:sortOptions.BuyonOpensea">Buy on Opensea</a ></button>
     <div class="products-block"  hidden="@(true)">
         <div class="products-block-title">Top Bid</div>
         <div class="products-block-price" id="products-block-price-TopBid">
             <div class="products-block-price-currency">
-                @* 後端控制部份情況為ETH+紫色icon，詳細請洽企劃 *@
+                <!--後端控制部份情況為ETH+紫色icon，詳細請洽企劃-->
+                  
                 <p class="products-currency-title">WETH</p>
                 <img class="products-currency-icon" src="/images/Products/Polygon-eth-02.webp" alt="">
             </div>
@@ -25,6 +26,19 @@
 
             <p>23Days 12:00:00</p>
         </div>
+    </div>*@
+    <div class="getIncome-container">
+        <div class="getIncome-zone">
+             <p class="getIncome-zone-title">Total Income </p>
+             <div> 
+                  <p class="getIncome-zone-title"><span> 這裡放SRC數量</span><span>SRC</span></p>
+                  <p class="getIncome-zone-subtitle">=<span>這裡放估算SRC比值</span><span>USD</span></p>
+                  <p class="getIncome-zone-title"><span>這裡放Gold數量</span><span>Gold</span></p>
+                  <p class="getIncome-zone-subtitle">=<span>這裡放Gold比值</span><span>USD</span></p>
+             </div>
+        </div>
+   
+        <button class="BuyOnOpensea">Collect</button>
     </div>
 </section>
 
