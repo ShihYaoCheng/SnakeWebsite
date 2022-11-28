@@ -34,7 +34,7 @@
 }
 .WarmUp-BannerNav ul{
     max-width: 1200px;
-
+    padding: 0;
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -70,9 +70,49 @@
     .Banner-BG img{
         width: 120%;
     }
+    .WarmUp-BannerTitle{
+        top: 38%;
+        left: 2.7%;
+        width: 50%;
+    }
 }
 @media all and (max-width: 800px){
+    .Banner-BG img{
+        width: 140%;
+        transform: translateX(7%);
+
+    }
     .WarmUp-BannerNav li a {
         font-size: 18px;
+    }
+    .WarmUp-BannerTitle{
+        top: 42%;
+        left: 4%;
+        width: 50%;
+    }
+}
+@media all and (max-width: 600px){
+    .Banner-BG img{
+        width: 160%;
+        transform: translateX(9%);
+    }
+    .WarmUp-BannerTitle{
+        top: 45%;
+        left: 3.8%;
+        width: 55%;
+    }
+    .WarmUp-BannerNav li{
+        padding: 6px;
+    }
+    .WarmUp-BannerNav li a {
+        font-size: 15px;
+    }
+}
+@media all and (max-width: 500px){
+    .WarmUp-BannerNav li{
+        padding: 5px;
+    }
+    .WarmUp-BannerNav li a {
+        font-size: 13px;
     }
 }

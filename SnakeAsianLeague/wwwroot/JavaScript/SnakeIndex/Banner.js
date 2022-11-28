@@ -2,8 +2,8 @@
     $('.event_banner').hide();
 }
 
-export function eventBannerS3Close() {
-    $('.eventBannerS3').hide();
+export function SnakeEventBannerClose() {
+    $('.SnakeEventBanner').hide();
    
 }
 

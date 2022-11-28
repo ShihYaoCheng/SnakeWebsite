@@ -44,9 +44,13 @@
                         
                         <p class="coin-type-name">SRC</p>
                          @*預熱活動用*@
-                        <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
-                        @*<button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRC" src="/images/Myprofile/SRCExchange/addCoin.png"></button>*@
-
+                        @if (warmUpToggle)
+                        {
+                            <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
+                        }else{
+                            <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddSRC" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
+                        }                       
+                      
                     </div>
                     <p id="SRCTotalBalance" class="avaliable"><span data-i18n="Inventory_data:SWAP.Balance">Balance:</span>   @SRCTotal</p>
 
@@ -92,9 +96,14 @@
 
                         <p class="coin-type-name">USDT</p>
                          @*預熱活動用*@
-                         <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
-                        @*<button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddUSDT" src="/images/Myprofile/SRCExchange/addCoin.png"></button>*@
-
+                        @if (warmUpToggle)
+                        {
+                            <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
+                        }else{
+                            <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" @onclick="AddUSDT" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
+                        }
+                       
+                        
                     </div>
                     <p id="USDTTotalBalance" class="avaliable"><span data-i18n="Inventory_data:SWAP.Balance">Balance:</span>  @USDTTotal</p>
 
@@ -122,8 +131,14 @@
                             <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e.Value.ToString());}"/>
                             <div class="maxBTN-Zone">
                                  @*預熱活動用*@
-                                <button  class="maxBTN" data-i18n="Inventory_data:SWAP.MAX">MAX</button>  
-                                @*<button @onclick="maxBTN" class="maxBTN" data-i18n="Inventory_data:SWAP.MAX">MAX</button>  *@
+                                 @if (warmUpToggle)
+                                {
+                                    <button  class="maxBTN" data-i18n="Inventory_data:SWAP.MAX">MAX</button>
+                                }else{
+                                    <button @onclick="maxBTN" class="maxBTN" data-i18n="Inventory_data:SWAP.MAX">MAX</button> 
+                                }
+                            
+                                 
                             </div>
                         </div>
                         @if (BalanceShort)
@@ -182,12 +197,20 @@
 
         @if (AppState.LoginStatus.IsLogin)
         {
-             @*預熱活動用*@
-            <button class="SwapBTN SwapBTN-black" hidden = "@BalanceShort"   data-i18n="Inventory_data:SWAP.Swap">Swap</button>
-           
-            @*<button id="SwapBTN" class="SwapBTN" hidden = "@BalanceShort" data-i18n="Inventory_data:SWAP.Swap">Swap</button>          *@
+            @*預熱活動用*@
+            @**@
+            @if (warmUpToggle)
+            {
+                <p style="color:#e74c3c;font-size:10px">活動期間：暫無功能</p>
+                <button class="SwapBTN SwapBTN-black" hidden = "@BalanceShort"   data-i18n="Inventory_data:SWAP.Swap">Swap</button>               
+            }
+            else
+            {
+                <button id="SwapBTN" class="SwapBTN" hidden = "@BalanceShort" data-i18n="Inventory_data:SWAP.Swap">Swap</button>
+            }
+               
             <div class="SwapBTN SwapBTN-black" hidden = "@(!(BalanceShort))" data-i18n="Inventory_data:SWAP.Swap">Swap</div>                   
-             <p style="color:#e74c3c;font-size:10px">活動期間：暫無功能</p>
+             
             @*@if(!(netWorkRight)){<button class="greenBTN" @onclick="AddPolygon" > <span data-i18n="Inventory_data:SWAP.SwitchYoMetWorkName">Switch to </span>@netWorkName </button>} *@
         }
         else
@@ -242,7 +265,8 @@
 
 
 @code {
-
+    //預熱活動開關
+    bool warmUpToggle=true;
     decimal[] web3jsData ;
    
     private IJSObjectReference? coinEchangeJS;   

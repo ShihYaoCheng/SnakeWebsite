@@ -1,6 +1,6 @@
 .WarmUpActivities_Rules{
     width: 100%;
-    background-image: url(/images/Event/WarmUpActivities/Rules-BG.png);
+    background-image: url(/images/SpecialEvent/WarmUpActivities/Rules-BG.png);
     background-position: top center;
     background-repeat: repeat;
     background-size: cover;
@@ -25,6 +25,7 @@
     margin: 0 -10px;
     position: relative;
     transition: all 0.1s ease-out;
+    cursor: pointer;
 }
 .step-Arrow span{
     text-align: center;
@@ -45,12 +46,14 @@
 }
 .step-Arrow img{
     width: 100%;
+    opacity: 0.9;
 }
 .step-Arrow-Click{
     filter: drop-shadow(0px 0px 8px #ffe0c3);
 }
 .step-Arrow-Click img{
     filter: drop-shadow(0px 0px 8px #ffe0c3);
+    opacity: 1;
 }
 .step-window{
     border:  1px solid rgb(145, 93, 93);
@@ -59,7 +62,7 @@
     margin: 60px auto;
     /* border: 3px solid #fff; */
     border-radius: 20px;
-    background-image: url(/images/Event/WarmUpActivities/style_opacity.png);
+    background-image: url(/images/SpecialEvent/WarmUpActivities/style_opacity.png);
     background-repeat: round;
     background-size: cover;
     margin-top: 15px;
@@ -70,7 +73,7 @@
 .step-windowTitle{
     border: 3px solid #fff;
     font-size: 20px;
-    height: 100px;
+    /* height: 100px; */
     color: #fff;
     letter-spacing: 2px;
     text-align: center;
@@ -82,10 +85,22 @@
     border-radius: 20px 20px 0 0;
     /* background-color: #F2AD70; */
     box-shadow: inset 0px -6px 20px 5px #b6805173, 0px -10px 15px #4646464b;
+    padding: 3% 4%;
 }
-
+#step-windowTitle-01{
+    display: block;
+}
+#step-windowTitle-02{
+    display: none;
+}
+#step-windowTitle-03{
+    display: none;
+}
+#step-windowTitle-04{
+    display: none;
+}
 .step-Content{
-    height: 480px;
+    /* height: 480px; */
     background-color: #fff;
     /* height: 100%; */
     width: 100%;
@@ -121,12 +136,13 @@
     max-width: 500px;
     width: 90%;
     margin-top: 20px;
+    border-radius: 15px;
 }
 
 
 #step-Content-Img-02{
     max-width: 230px;
-    width: 95%;
+    width: 40%;
 }
 .step-Content-02-text{
     font-size: 24px;
@@ -139,12 +155,14 @@
 
 #step-Content-Img-03{
     max-width: 380px;
+    width: 55%;
 }
 
 #step-Content-Img-04{
     max-width: 700px;
     border-radius: 15px;
-    margin: 20px auto 25px;
+    margin: 10px auto 25px;
+    width: 90%;
 }
 
 .discount-Step{
@@ -153,7 +171,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -173,10 +191,10 @@
 }
 
 #Round-Step-01{
-    background-image: url(/images/Event/WarmUpActivities/round-01.png);
+    background-image: url(/images/SpecialEvent/WarmUpActivities/round-01.png);
 }
 #Round-Step-02{
-    background-image: url(/images/Event/WarmUpActivities/round-02.png);
+    background-image: url(/images/SpecialEvent/WarmUpActivities/round-02.png);
 }
 .Round-Step-text{
     text-align: center;
@@ -196,26 +214,19 @@
 }
 
 @media all and (max-width: 1200px){
-    .EventInfo_Date{
-        max-width: 800px;
-    }
-    .EventInfo_Date span{
-        font-size: 22px;
-    }
+
     .step-Arrow span{
         font-size: 28px;
-    }
-    .step-ArrowAll{
-        /* width: 85%; */
     }
     .step-Arrow{
         margin: 0 -8px;
     }
     .step-windowTitle{
         font-size: 18px;
+        padding: 2% 4%;
     }
     .step-Content{
-        height: 455px;
+        /* height: 455px; */
     }
     .step-Content-Block{
         /* padding: 25px 20px 35px; */
@@ -224,44 +235,134 @@
     .Round-Step{
         width: 380px;
         height: 380px;
-        padding-top: 10.8%;
+        padding-top: 9.5%;
     }
     .Round-Step h1{
         font-size: 28px;
     }
     .Round-Step p{
         font-size: 14px;
-        line-height: 24px;
+        line-height: 22px;
     }
-
+    .step-Content-02-text{
+        font-size: 20px;
+        line-height: 30px;
+    }
 }
 
 @media all and (max-width: 1000px){
     .step-Arrow span{
         font-size: 24px;
+        left: 48%;
     }
-
+    .Round-Step{
+        width: 360px;
+        height: 360px;
+        padding-top: 10.5%;
+    }
+    .Round-Step h1{
+        font-size: 27px;
+        margin-bottom: 6.5%;
+    }
+    .Round-Step p{
+        font-size: 13px;
+        line-height: 22px;
+    }
 }
 @media all and (max-width: 800px){
-    .EventInfo_Date span {
-        font-size: 20px;
-    }
+
     .step-window{
-        width: 90%;
+        width: 100%;
     }
-    .EventInfo_introduce{
+
+    .step-ArrowAll{
+        /* width: 85%; */
+    }
+    .step-Arrow span {
+        font-size: 20px;
+        left: 46%;
+    }
+    .step-Arrow {
+        margin: 0 -6px;
+    }
+    .step-windowTitle {
+        font-size: 15px;
+        line-height: 26px;
+    }
+    .discount-Step{
         flex-direction: column;
     }
-    .EventInfo_card {
-        width: 70%;
-        margin: 40px auto 80px;
+    .Round-Step{
+        padding-top: 12.3%;
+        padding-top: unset;
+        justify-content: center;
+        padding-bottom: 2%;
     }
-    .EventInfo_text{
-        width: 90%;
-        max-width: 500px;
-        text-align: center;
+    .step-Content-02-text{
+        font-size: 16px;
+        line-height: 24px;
     }
-    .EventInfo_text p {
-        max-width: 400px;
+    .step-button{
+        font-size: 16px;
+    }
+    .step-Content {
+        /* height: 340px; */
+    }
+    .step-Arrow-Click {
+        filter: drop-shadow(0px 0px 5px #ffe0c3);
+    }
+    .step-Arrow-Click img {
+        filter: drop-shadow(0px 0px 5px #ffe0c3);
+    }
+    #step-Content-Img-01{
+        margin-top: 15px;
+    }
+    .step-Arrow{
+        width: 27%;
+        margin: 0 -3px;
+    }
+    .step-ArrowAll{
+        margin: 0 auto 40px;
+    }
+}
+@media all and (max-width: 600px){
+    .step-Arrow span {
+        font-size: 14px;
+    }
+    .step-ArrowAll{
+        margin: 0 auto 30px;
+    }
+    .step-Content {
+        /* height: 300px; */
+    }
+    .step-windowTitle {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .step-Content-Block {
+        padding: 15px 10px 25px;
+    }
+}
+
+@media all and (max-width: 400px){
+    .Round-Step {
+        width: 340px;
+        height: 340px;
+    }
+    .step-Arrow span {
+        font-size: 12px;
+        left: 44%;
+    }
+    .step-windowTitle {
+        font-size: 13px;
+        line-height: 23px;
+    }
+
+    .Register-input {
+        padding: 3px 15px 2px !important;
+    }
+    .Register-submit {
+        font-size: 13px !important;
+        padding: 10px 12px !important;
     }
 }

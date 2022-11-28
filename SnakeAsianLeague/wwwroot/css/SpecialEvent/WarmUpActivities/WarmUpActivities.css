@@ -7,7 +7,7 @@
 .WarmUpActivities-CenterBlock{
     /* border:  1px solid rgb(145, 93, 93); */
     max-width: 1200px;
-    width: 100%;
+    width: 95%;
     margin: 0px auto;
 }
 
@@ -127,8 +127,8 @@
 
 .WarmUpActivities-Fire-BG{
     width: 100%;
-    background-image: url(/images/Event/WarmUpActivities/Fire-BG.png),
-                    url(/images/Event/WarmUpActivities/Fire-BG-icon.png);
+    background-image: url(/images/SpecialEvent/WarmUpActivities/Fire-BG.png),
+                    url(/images/SpecialEvent/WarmUpActivities/Fire-BG-icon.png);
     background-position: top center,
                     bottom center;
     background-repeat: no-repeat;
@@ -149,11 +149,21 @@
     }
 }
 @media all and (max-width: 800px){
-
+    .WarmUpActivities-Title {
+        max-width: 250px;
+        font-size: 28px;
+        padding: 5px 10px 11px;
+        margin: 0px auto 30px;
+    }
+    .WarmUpActivities-Title-02 {
+        font-size: 24px;
+        padding: 15px 0 20px;
+    }
+    
 }
-.WarmUpActivities-Title {
-    max-width: 240px;
-    font-size: 26px;
-    padding: 5px 10px 11px;
-    margin: 0px auto 30px;
+
+@media all and (max-width: 800px){
+    .WarmUpActivities-Title-02 {
+        font-size: 22px;
+    }
 }

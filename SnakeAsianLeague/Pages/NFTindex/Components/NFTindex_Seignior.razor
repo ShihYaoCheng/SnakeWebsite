@@ -191,40 +191,18 @@
 
 @code {
 
-
-
     private IJSObjectReference? NFTindexSeigniorJS;
-
-
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
-
-
 
     {
 
-
-
         if (firstRender)
-
-
-
         {
 
-
-
             NFTindexSeigniorJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NFTindex/NFTindexSeignior.js");
-
-
-
             await NFTindexSeigniorJS.InvokeVoidAsync("NFTindexSeigniorReel");
-
-
 
         }
 
-
-
     }
-
 }

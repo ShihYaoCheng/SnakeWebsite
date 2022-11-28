@@ -5,6 +5,9 @@
 }
 
 .Reward-GoldTitle{
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
     background-color: #340b089d;
     padding: 10px 0;
     text-align: center;
@@ -23,6 +26,7 @@
     -webkit-text-fill-color: transparent;
 } */
 .Reward-GoldTitle img{
+    width: 80%;
     max-width: 480px;
     filter: drop-shadow(0px 0px 5px rgba(254, 244, 169, 0.5));
 }
@@ -66,7 +70,7 @@
     font-weight: 500;
     margin: -3px 0 5px -3px;
 
-    background-image: url(/images/Event/WarmUpActivities/top50-Title-BG.png);
+    background-image: url(/images/SpecialEvent/WarmUpActivities/top50-Title-BG.png);
     background-repeat: round;
     background-size: cover;
 }
@@ -90,13 +94,15 @@
 }
 .top50-Table tr th{
     /* text-align: center; */
+    letter-spacing: 0.5px;
+    transform: translateY(4px);
 }
 .top50-Table-Place{
     width: 30%;
     padding-left: 5%;
 }
 #Table-Place{
-    padding-left: 7.5%;
+    padding-left: 7.2%;
 }
 .top50-Table-Reward{
     width: 28%;
@@ -138,7 +144,7 @@ td:first-child{
         max-width: 430px;
     }
     .Reward-Title-01{
-        font-size: 30px;
+        font-size: 24px;
         margin: 30px auto 15px;
     }
     .top50-Title{
@@ -148,4 +154,77 @@ td:first-child{
         font-size: 18px;
         border-spacing: 0 11px;
     }
-  }
+    .Reward-Title-02{
+        font-size: 16px;
+    }
+    #Table-Place {
+        padding-left: 6%;
+    }
+}
+@media all and (max-width: 1000px){
+    .Reward-GoldTitle img {
+        max-width: 410px;
+    }
+    .top50-Title {
+        font-size: 22px;
+    }
+    .WarmUpActivities_Reward{
+        padding: 80px 0 50px;
+    }
+}
+@media all and (max-width: 800px){
+    .Reward-GoldTitle{
+        width: 100%;
+    }
+    .Reward-GoldTitle img {
+        max-width: 370px;
+    }
+    .top50-Title{
+        margin: -3px 0 0px -3px;
+    }
+    .top50-Table {
+        font-size: 15px;
+        border-spacing: 0 10px;
+        margin: 0 auto 15px;
+    }
+    .top50-Table td{
+        line-height: 34px;
+    }
+    .top50-Table tr th{
+        transform: translateY(6px);
+    }
+    .WarmUpActivities_Reward{
+        padding: 80px 0 40px;
+    }
+    .Reward-Title-01 {
+        font-size: 22px;
+        margin: 25px auto 10px;
+    }
+    .Reward-Title-02 {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+@media all and (max-width: 600px){
+    .top50{
+        width: 100%;
+    }
+    .top50-Table{
+        width: 95%;
+        font-size: 14px;
+        margin: -5px auto 10px;
+    }
+    .top50-Table-Place {
+        width: 29%;
+        padding-left: 3%;
+    }
+    .top50-Table-Reward {
+        width: 33%;
+    }
+    .top50-Table-Value {
+        width: 23%;
+    }
+    .WarmUpActivities_Reward{
+        padding: 80px 0 40px;
+    }
+}

@@ -21,6 +21,7 @@ using SnakeAsianLeague.Data.Services.BlockChain;
 using SnakeAsianLeague.Data.Services.Commodity;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Rewrite;
+using SnakeAsianLeague.Data.Services.WarmUpActivities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -71,6 +72,7 @@ builder.Services.AddSingleton<MetamaskTransfer>();
 builder.Services.AddSingleton<CommodityServices>();
 builder.Services.AddSingleton<ProductsService>();
 builder.Services.AddSingleton<SnakeTableService>();
+builder.Services.AddSingleton<WarmUpActivitiesService>();
 
 builder.Services.AddSingleton<BlockChainProcessorSever>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

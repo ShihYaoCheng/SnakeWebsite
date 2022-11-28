@@ -18,7 +18,7 @@
 }
 .Ranking-Block::before{
     content: "";
-    background-image: url(/images/Event/WarmUpActivities/Longbar.png);
+    background-image: url(/images/SpecialEvent/WarmUpActivities/Longbar.png);
     background-repeat: round;
     background-size: cover;
     position: absolute;
@@ -30,7 +30,7 @@
 }
 .Ranking-Block::after{
     content: "";
-    background-image: url(/images/Event/WarmUpActivities/Longbar.png);
+    background-image: url(/images/SpecialEvent/WarmUpActivities/Longbar.png);
     background-repeat: round;
     background-size: cover;
     position: absolute;
@@ -76,7 +76,21 @@
 
     /* overflow: hidden; */
 }
-
+.Ranking-ComingSoon{
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dbd8d822;
+    border-radius: 15px;
+}
+.Ranking-ComingSoon span{
+    color: rgba(69, 27, 27, 0.823);
+    letter-spacing: 5px;
+    font-size: 24px;
+}
 .Ranking-Row{
     width: 100%;
     box-shadow: 0px 0px 3px 2px #ffabab75;
@@ -85,6 +99,7 @@
     border-radius: 10px;
     overflow: hidden;
 
+    /* display: none; */
 }
 .Ranking-Row:not(:last-child){
     margin-bottom: 20px;
@@ -102,7 +117,7 @@
     font-size: 40px;
     font-weight: 600;
     letter-spacing: 2px;
-
+    padding: 5px;
 }
 .Ranking-Data{
     padding: 10px 20px;
@@ -167,5 +182,68 @@
     .Ranking-ERNC-icon {
         width: 25px;
         margin: 0 6px;
+    }
+}
+@media all and (max-width: 800px){
+    .WarmUpActivities_Ranking {
+        padding: 30px 0 150px;
+    }
+    .Ranking-Block{
+        height: 690px;
+    }
+    .Player-Name {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .Ranking-ERNC {
+        font-size: 16px;
+    }
+}
+@media all and (max-width: 600px){
+    .Ranking-Block{
+        height: 600px;
+        width: 98%;
+        padding: 3% 3%;
+        margin: 60px auto 0;
+    }
+    .Ranking-Content-Title {
+        font-size: 26px;
+    }
+    .Ranking-Number {
+        max-width: 18%;
+        font-size: 25px;
+        letter-spacing: 1px;
+    }
+    .Player-Name {
+        margin-bottom: 2px;
+    }
+    .Ranking-ERNC-icon {
+        width: 20px;
+        margin: 0 5px;
+    }
+    .Ranking-List{
+        padding: 1% 4.5% 1% 3%;
+    }
+    .Ranking-Data {
+        padding: 5px 15px;
+    }
+    .Ranking-Row:not(:last-child) {
+        margin-bottom: 18px;
+    }
+}
+@media all and (max-width: 400px){
+    .Player-Name {
+        font-size: 18px;
+        margin-bottom: 2px;
+    }
+    .Ranking-ERNC {
+        font-size: 14px;
+    }
+    .Ranking-ERNC-icon {
+        width: 16px;
+        margin: 0 3px;
+    }
+    .Ranking-Number{
+        max-width: 19%;
     }
 }

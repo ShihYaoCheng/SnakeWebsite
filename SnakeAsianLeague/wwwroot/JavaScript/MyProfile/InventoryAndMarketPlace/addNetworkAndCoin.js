@@ -161,15 +161,17 @@ window.AddPolygonUSDT = async function (USDT_token_addr, USDT_Decimals) {
 }
 
 //SRC
-window.AddPolygonSRC = async function (SRC_token_addr, SRC_Decimals ) {
+window.AddPolygonSRC = async function (SRC_token_addr, SRC_Decimals, warmUpToggle = false) {
 
     tokenAddress = SRC_token_addr;
     //預熱活動用 修改
-    //tokenSymbol = 'SRC';
-    tokenSymbol = 'TSRC';
+    tokenImage = "https://storage.googleapis.com/pps-nft/token/SRC.png";
     tokenDecimals = SRC_Decimals;
-    tokenImage = "https://storage.googleapis.com/pps-nft/token/tSRC.png";
-    //tokenImage = "https://storage.googleapis.com/pps-nft/token/SRC.png";
+    if (warmUpToggle) {
+        tokenSymbol = 'TSRC';
+        tokenImage = "https://storage.googleapis.com/pps-nft/token/tSRC.png";
+    }
+    tokenSymbol = 'SRC';   
     try {
         // wasAdded is a boolean. Like any RPC method, an error may be thrown.
         const wasAdded = await window.ethereum.request({

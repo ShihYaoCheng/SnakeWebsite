@@ -59,4 +59,7 @@
         public string? contractAddress_tSRCExchange { get; set; }
         public decimal balanceOf_tSRCExchange { get; set; } // 剩餘瓦斯費
     }
+
+
+
 }
