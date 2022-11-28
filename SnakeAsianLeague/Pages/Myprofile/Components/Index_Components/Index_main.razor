@@ -336,6 +336,9 @@
 
 
 @code {
+    //預熱活動開關
+    bool warmUpToggle=true;
+
     [Parameter]
     public bool MetamaskAvailable { get; set; }
 
@@ -354,9 +357,13 @@
     {
         if (first)
         {
-            
+
             @*預熱活動用*@
-            //NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+            if (!warmUpToggle)
+            {
+                NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+            }
+            
             gSRC = await InventoryService.GetgSRCCurrency1(AppState.LoginStatus.userID.ToString() , 22);
 
       
