@@ -86,18 +86,14 @@
 
 @code {
     //選項
-    int CoinType;
+    public int CurrencyType { get; set; }
     public void SelectOptionChange(int value)
     {
-        CoinType =value;
+        CurrencyType =value;
     }   
 
     [Parameter]
     public decimal NowRent { get; set; }
-
-
-    // [Parameter]
-    //public decimal NowGoldRent { get; set; }
 
     [Parameter]
     public string TokenID { get; set; }
@@ -105,7 +101,7 @@
 
     public decimal ChangeRent { get; set; }
     public decimal ChangeGoldRent { get; set; }
-    public int CurrencyType { get; set; }
+    
 
 
     protected override async Task OnInitializedAsync()
@@ -126,24 +122,12 @@
         ProductsService.ChangeRentCurrencyType(walletAddress , TokenID ,   CurrencyType);
     }
 
-
-
     /// <summary>
     /// 修改gSRC租金
     /// </summary>
     private async void SetChangeRent()
     {
         string walletAddress = AppState.LoginStatus.walletAddress; 
-        ProductsService.ChangeRent(walletAddress , TokenID ,  ChangeRent , 22);
-    }
-
-
-    /// <summary>
-    /// 修改星鑽租金
-    /// </summary>
-    private async void SetChangeGoldRent()
-    {
-        string walletAddress = AppState.LoginStatus.walletAddress; 
-        ProductsService.ChangeRent(walletAddress , TokenID ,  ChangeGoldRent , 1);
+        ProductsService.ChangeRent(walletAddress , TokenID ,  ChangeRent , CurrencyType);
     }
 }

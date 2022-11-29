@@ -21,11 +21,11 @@
 <div class="products-wrapper" hidden="@(false)">
     <div class="products-summary">
         <ProductsImage Ridder =@Ridder   TokenID =@TokenID />
-        <ProductsIncome Ridder =@Ridder TokenID =@TokenID />
+        <ProductsIncome TokenID =@TokenID  SerialNumber =@SerialNumber />
     </div>
     <div class="products-main">
         <ProductsTopBid TokenID =@TokenID />
-        <ProductsLog />
+        <ProductsLog TokenID =@TokenID/>
         <ProductsAttributes Ridder =@Ridder />
         <ProductsStats Ridder =@Ridder/>
         <ProductsAvatars Ridder =@Ridder/>
@@ -56,20 +56,26 @@
 
     [Parameter]
     public string TokenID { get; set; }
-    
+
 
     [Parameter]
     public RiderIntroduce Ridder { get; set; }
 
 
+    [Parameter]
+    public string OwnedWalletAddress { get; set; }
+
+
+
     protected override async Task OnInitializedAsync()
     {
-       
+      
     }
 
     private async Task Refresh()
     {
-       Ridder =await ProductsService.GetNFT_Unit_SerialNumber(SerialNumber ,TokenID );
+        Ridder =await ProductsService.GetNFT_Unit_SerialNumber(SerialNumber ,TokenID );
+       
         StateHasChanged();
     }
 

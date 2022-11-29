@@ -103,9 +103,28 @@ namespace SnakeAsianLeague.Data.Services.Products
 
 
 
-
-
-
+        /// <summary>
+        /// 取得擁有者錢包
+        /// </summary>
+        /// <param name="SerialNumber"></param>
+        /// <returns></returns>
+        public async Task<string> GetNFT_Unit_Owned(string SerialNumber)
+        {
+            string walletAddress = "";
+            NFTRiderUnit result = new NFTRiderUnit();
+            RestRequest request = new RestRequest($"NFT/Unit?SerialNumber={SerialNumber}");
+            request.AddHeader("Authorization", Authenticate());
+            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                result = JsonSerializer.Deserialize<NFTRiderUnit>(restResponse.Content) ?? new NFTRiderUnit();
+                if (result.castings != null)
+                {
+                    walletAddress = result.castings[0].owner;
+                }
+            }
+            return walletAddress;
+        }
 
         /// <summary>
         /// 取得騎士角色詳細By編號
@@ -134,6 +153,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                     if (result.castings != null)
                     {
                         /*Owned*/
+                        Rider.TokenID = TokenID;
                         Rider.Owned = result.castings[0].owner;
                         Rider.walletAddress = asset_contract_address;
                         if (Rider.Owned.Length > 20)
@@ -275,12 +295,9 @@ namespace SnakeAsianLeague.Data.Services.Products
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
                     result = JsonSerializer.Deserialize<NowRentAndTotalRevenue>(restResponse.Content) ?? new NowRentAndTotalRevenue();
-
-                    //result.nowRent = Math.Floor(result.nowRent * 100) / 100;
-                    //result.totalRevenue = Math.Floor(result.totalRevenue * 100) / 100;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 result = new NowRentAndTotalRevenue();
             }
@@ -317,28 +334,6 @@ namespace SnakeAsianLeague.Data.Services.Products
 
 
 
-        public class NFTUnitPriceDTO
-        {
-            /// <summary>
-            /// 擁有者錢包
-            /// </summary>
-            public string wallet { get; set; }
-            public string ppsr { get; set; }     // 首拍編號
-            public decimal price { get; set; }       // 價錢 
-
-            public int currencyType { get; set; }       // 價錢 
-        }
-
-
-        public class NFTUnitCurrencyTypeDTO
-        {
-            /// <summary>
-            /// 擁有者錢包
-            /// </summary>
-            public string wallet { get; set; }
-            public string ppsr { get; set; }     // 首拍編號
-            public int currencyType { get; set; }       // 價錢 
-        }
 
 
         /// <summary>
@@ -381,7 +376,7 @@ namespace SnakeAsianLeague.Data.Services.Products
 
 
         /// <summary>
-        /// 
+        /// 修改租金  類別 1:星鑽 22:gSRC
         /// </summary>
         /// <param name="Address"></param>
         /// <param name="ppsr"></param>
@@ -413,9 +408,57 @@ namespace SnakeAsianLeague.Data.Services.Products
                 string errormsg = ex.Message;
             }
             return result;
-            return result;
         }
 
+
+
+        /// <summary>
+        /// 取得租金紀錄
+        /// </summary>
+        /// <param name="TokenID"></param>
+        /// <returns></returns>
+        public async Task<UnitRecordLog> GetNFTUnitRecord(string TokenID)
+        {
+            UnitRecordLog result = new UnitRecordLog();
+            try
+            {
+                string ppsr = "#" + TokenID;
+                ppsr = ppsr.Replace("#", "%23");
+                RestRequest request = new RestRequest($"NFT/UnitRecord?ppsr={ppsr}");
+                request.AddHeader("Authorization", Authenticate());
+
+                IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
+
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    result = JsonSerializer.Deserialize<UnitRecordLog>(restResponse.Content) ?? new UnitRecordLog();
+                    foreach (var item in result.records)
+                    {
+                        if (item.currencyType == 1)
+                        {
+                            item.currencyTypeName = "Gold";
+                        } 
+                        else if (item.currencyType == 22)
+                        {
+                            item.currencyTypeName = "gSRC";
+                        }
+
+                        item.rent = Math.Round(item.rent, 3, MidpointRounding.AwayFromZero);
+                        item.dateFormat = item.date.ToString("yyyy-MM-dd");
+
+                        if (item.receivedDate != null)
+                        {
+                            item.receivedDateFormat = item.receivedDate?.ToString("yyyy-MM-dd");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result = new UnitRecordLog();
+            }
+            return result;
+        }
 
 
 
