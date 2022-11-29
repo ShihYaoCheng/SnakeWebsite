@@ -57,12 +57,35 @@
     "nftcurrency1_5": "A large box of SRC",
     "nftcurrency1_6": "A Chest of SRC",
 
-    "tier3"  :"A pile of gems.",
-    "tier5"  :"A bag of gems.",
-    "tier10" :"A big bag of gems.",
-    "tier20" :"A small case of gems.",
-    "tier50" :"A large chest of gems.",
-    "tier60" :"A premium chest full of gems"
+    "tier3": "A pile of gems.",
+    "tier5": "A bag of gems.",
+    "tier10": "A big bag of gems.",
+    "tier20": "A small case of gems.",
+    "tier50": "A large chest of gems.",
+    "tier60": "A premium chest full of gems"
 
-  }
+  },
+  "NFT_Unit11_4d_1": "Plum Blossom Wendini",
+  "NFT_Unit0_1a_4": "Classic Snake",
+  "NFT_Unit0_1c_10": "Naughty Elf",
+  "NFT_Unit0_1c_3": "Chicken Family",
+  "NFT_Unit4_2a_1": "Lucifer",
+  "NFT_Unit12_2a_1": "Yang Jian",
+  "NFT_Unit5_3a_3": "Nurse Wendini",
+  "NFT_Unit3_3c_1": "Princess Venus",
+  "NFT_Unit9_4c_1": "Dark Chain Correa",
+  "NFT_Unit0_1c_9": "Bone Dragon",
+  "NFT_Unit0_1a_10": "Naughty Elf",
+  "NFT_Unit0_1b_3": "Chicken Family",
+  "NFT_Unit5_3c_2": "Plum Blossom Wendini",
+  "NFT_Unit12_3b_1": "Erlang Yang Jian",
+  "NFT_Unit4_3a_2": "Super Bear Lucifer",
+  "NFT_Unit9_4b_1": "Dark Chain Correa",
+  "NFT_Unit0_1a_2": "Snow White",
+  "NFT_Unit8_3a_2": "Pirate Felice",
+  "NFT_Unit10_3b_1": "Cavalry Celica",
+  "NFT_Unit8_2b_1": "Felice",
+  "NFT_Unit0_1b_5": "RG01-Angela"
+
+
 }
