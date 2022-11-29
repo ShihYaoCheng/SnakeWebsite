@@ -804,14 +804,33 @@
 }
 
 .products-Log-Text-Zone {
-    overflow-y: scroll;
     padding-left: 20px;
     height: 150px;
     color: var(--green-2);
     background: #134f5c;
-    border-radius:15px;
-    
+    border-radius: 15px;
+    overflow-y: scroll;
+    table-layout: fixed;
+    position : sticky
 }
+
+.products-Log-Text-Zone thead tr th {
+    position: sticky;
+    top: 0;
+    background-color: #134f5c;
+}
+
+
+
+.products-Log-Text-Zone td {
+    width: calc((100%-10px)/4.6);
+    text-align: center;
+}
+.products-Log-Text-Zone th {
+    width: calc((100%-10px)/4.6);
+    text-align: center;
+}
+
 @media all and (max-width: 600px) {
     .products-Log-ButtonToggle-Zone button {
         width: 95px; 

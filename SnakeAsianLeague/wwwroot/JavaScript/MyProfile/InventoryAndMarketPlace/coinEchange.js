@@ -39,6 +39,7 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 	const SRC_addr = SRC_address
 	const ERC20_abi = window.ERC20_abi
 	const SRCExchange_addr = SRCExchange_address
+
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
 	const SwapNumValue = SRCInput
@@ -97,7 +98,7 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 }
 
 //轉換(存入) gSRC > SRC
-export async function deposit(SRCInput, SRC_address, SRCExchange_address) {
+export async function deposit(SRCInput, SRC_address, SRCExchange_address, warmUpToggle = false) {
 	
 	
 	const web3 = await new Web3(Web3.givenProvider)
@@ -105,9 +106,9 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address) {
 	const SRC_addr = SRC_address
 	const ERC20_abi = window.ERC20_abi
 	const SRCExchange_addr = SRCExchange_address
-	//預熱活動用 修改
-	//const SRCExchange_ABI = window.tSRCExchange_ABI
 	const SRCExchange_ABI = window.SRCExchange_ABI
+	//預熱活動用 修改
+	if (warmUpToggle) SRCExchange_ABI = window.tSRCExchange_ABI
 	console.log("SRCInput", SRCInput, "SRC_address", SRC_address, "SRCExchange_address", SRCExchange_address)
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
