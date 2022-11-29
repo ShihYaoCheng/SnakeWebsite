@@ -290,9 +290,19 @@
     margin-right:10px;
 }
 
-@media all and (max-width:735px) {
+@media all and (max-width:1200px) {
     .getIncome-zone {
         display:block;
+    }
+}
+@media all and (max-width:1000px) {
+    .getIncome-zone {
+        display: flex;
+    }
+}
+@media all and (max-width:768px) {
+    .getIncome-zone {
+        display: block;
     }
 }
 
@@ -321,7 +331,7 @@
 
 
 .BuyOnOpensea {
-    width: 348px;
+    width: 250px;
     height: 75px;
     border-radius: 16px;
     background-color: #ffa71d;
@@ -644,7 +654,7 @@
         font-size: 18px;
     }
     .BuyOnOpensea{
-        width: 320px;
+        width: 250px;
         height: 70px;
         font-size: 26px;
     }
@@ -697,7 +707,7 @@
         font-size: 18px;
     }
     .BuyOnOpensea{
-        width: -webkit-fill-available;
+        width: 200px;
     }
     .products-block-price-currency{
         font-size: 24px;
@@ -801,4 +811,10 @@
     background: #134f5c;
     border-radius:15px;
     
+}
+@media all and (max-width: 600px) {
+    .products-Log-ButtonToggle-Zone button {
+        width: 95px; 
+        font-size: 20px;
+    }
 }
