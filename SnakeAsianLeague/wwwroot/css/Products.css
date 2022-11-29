@@ -287,16 +287,38 @@
 .getIncome-zone {
     display: flex;
     justify-content: space-between;
+    margin-right:10px;
+}
+
+@media all and (max-width:735px) {
+    .getIncome-zone {
+        display:block;
+    }
 }
 
 .getIncome-zone-title {
     color: #cfad67;
-    font-size:20px;
+    font-size:18px;
+    margin-top:20px;
+    text-align:end;
 }
 .getIncome-zone-subtitle {
     color: #FFF;
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 5px;
+    text-align: end;
 }
+@media all and (max-width:735px) {
+
+    .getIncome-zone-title {     
+        font-size: 20px;     
+    }
+
+    .getIncome-zone-subtitle {
+        font-size: 12px;    
+    }
+}
+
 
 .BuyOnOpensea {
     width: 348px;
@@ -749,4 +771,34 @@
     .Avatars-value {
         font-size: 18px;
     }
+}
+
+
+/*log區*/
+.products-Log-ButtonToggle-Zone {
+    margin-bottom:20px;
+     
+}
+
+.products-Log-ButtonToggle-Zone button {
+    width: 120px;
+    background: #65a3b3;
+    height: 50px;
+    border-radius: 15px;
+    margin: 0 0 5px 0;
+    border: 0;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.products-Log-Text-Zone {
+    overflow-y: scroll;
+    padding-left: 20px;
+    height: 150px;
+    color: var(--green-2);
+    background: #134f5c;
+    border-radius:15px;
+    
 }
