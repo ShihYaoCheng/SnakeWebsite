@@ -16,14 +16,35 @@
                </div>
 
                <div class="products-Log-Text-Zone">
+                   <table>
+                    <thead>
+                        <tr>
+                            <th>承租人</th>
+                            <th>出戰時間</th>
+                            <th>幣種</th>
+                            <th>金幣</th>
+                            <th>領取紀錄</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (DataList != null)
+                        {
+                            @foreach (RecordsLog item in DataList.records)
+                            {
+                                <tr>
+                                    <td>@item.tenantName</td>
+                                    <td>@item.dateFormat</td>
+                                    <td>@item.currencyTypeName</td>
+                                    <td>@item.rent</td>
+                                    <td>@item.receivedDateFormat</td>
+                                </tr>
+                            }
+                        }
+                        
+                    </tbody>
+                </table>
 
-                @if (DataList != null)
-                {
-                    @foreach (RecordsLog item in DataList.records)
-                    {
-                        <p>@item.tenantName  @item.dateFormat  @item.currencyTypeName  @item.rent  @item.receivedDateFormat </p>
-                    }
-                }
+               
 
                    
                </div>
