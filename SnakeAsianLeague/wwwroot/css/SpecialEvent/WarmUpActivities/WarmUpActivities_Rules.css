@@ -187,7 +187,7 @@
     /* justify-content: center; */
     align-items: center;
     flex-direction: column;
-    padding-top: 10.2%;
+    padding-top: 9%;
 }
 
 #Round-Step-01{
@@ -198,21 +198,26 @@
 }
 .Round-Step-text{
     text-align: center;
-    width: 55%;
+    width: 60%;
 }
 .Round-Step h1{
-    letter-spacing: 6px;
+    letter-spacing: 3px;
     font-weight: 600;
-    margin-bottom: 9%;
+    margin-bottom: 6%;
     font-size: 36px;
 }
 .Round-Step p{
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     font-weight: 500;
-    line-height: 28px;
+    line-height: 25px;
     font-size: 16px;
 }
+#Round-Step-01{
+    padding-top: 11.5%;
+}
+#Round-Step-red{
 
+}
 @media all and (max-width: 1200px){
 
     .step-Arrow span{
@@ -238,11 +243,12 @@
         padding-top: 9.5%;
     }
     .Round-Step h1{
-        font-size: 28px;
+        font-size: 25px;
+        margin-bottom: 5%;
     }
     .Round-Step p{
         font-size: 14px;
-        line-height: 22px;
+        line-height: 21px;
     }
     .step-Content-02-text{
         font-size: 20px;
@@ -258,15 +264,20 @@
     .Round-Step{
         width: 360px;
         height: 360px;
-        padding-top: 10.5%;
+        padding-top: 9.5%;
+        /* justify-content: center;
+        padding-top: 0%; */
+    }
+    #Round-Step-01{
+        padding-top: 13.5%;
     }
     .Round-Step h1{
-        font-size: 27px;
-        margin-bottom: 6.5%;
+        font-size: 25px;
+        margin-bottom: 5%;
     }
     .Round-Step p{
         font-size: 13px;
-        line-height: 22px;
+        line-height: 20px;
     }
 }
 @media all and (max-width: 800px){
@@ -274,13 +285,16 @@
     .step-window{
         width: 100%;
     }
-
+    #Round-Step-01{
+        padding-top: unset;
+    }
     .step-ArrowAll{
         /* width: 85%; */
     }
     .step-Arrow span {
         font-size: 20px;
         left: 46%;
+        letter-spacing: 4px;
     }
     .step-Arrow {
         margin: 0 -6px;
@@ -352,6 +366,7 @@
     .step-Arrow span {
         font-size: 12px;
         left: 44%;
+        letter-spacing: 2px;
     }
     .step-windowTitle {
         font-size: 13px;

@@ -1,0 +1,63 @@
+{
+    "eventBanner": {
+        "title":"/images/SpecialEvent/WarmUpActivities/WarmUp-BannerTitle-EN.png",
+        "nav-01":"EVENT INFO",
+        "nav-02":"RULES",
+        "nav-03":"REWARD",
+        "nav-04":"RANKING"
+    },    
+    
+    "eventInfo": {
+        "title":"Event Info",
+        "date-01":"Event Time:",
+        "date-02":"Coming Soon",
+        "date-03":"(2 weeks)",
+        "text-01":"Ready to Warm up With PonPonSnake?",
+        "text-02":"Are you interested in GameFi but don't know where to begin? Do you believe it's impossible for playing games to make money? PonPonSnake is the ideal game for beginners. Join our event, play for free, and make money! The top 50 on the ranking list will all receive SRC, and there will also be free riders for you to enjoy!"
+    },
+    
+    "rules": {
+        "title":"Rules",
+        "step-title":"Four Easy Steps to Start",
+        "step-01":"Step 1",
+        "step-02":"Step 2",
+        "step-03":"Step 3",
+        "step-04":"Step 4",
+        "windowStep-01":"Step 1：<br>Sign up for PonPonSnake game account, and verify your phone and email.",
+        "windowStep-02":"Step 2：<br>Join PonPonSnake's official Telegram group.",
+        "windowStep-03":"Step 3：<br>Follow, like and tag 3 friends.",
+        "windowStep-04":"Step 4：<br>Participate in the 1v7 Ranking for 65,000 SRC. (about 2000 USDT)",
+        "windowStep-joinNow":"Join Now",
+        "windowStep-download":"Download",
+
+        "discount-title":"Join Us Earn Rewards Free",
+        "discountStep-01":"Benefit 1",
+        "discountText-01":"Steps 1 and 2 must be completed in order to play all riders for free during the event.",
+        "discountStep-02":"Benefit 2",
+        "discountText-02":"Steps 1~3 must be completed in order to acquire our \"PonPonSnake Beta Pack\" (includes SRC V1 x 999, Item name X 999)",
+        "discountText-03":"SRC V1 will be discarded at the end of the event."
+    },
+
+    
+    "reward": {
+        "title":"Reward",
+        "goldTitle":"/images/SpecialEvent/WarmUpActivities/Reward_GoldTitle-EN.png",
+        "text-01":"Play Rank, Top 50 Gets the Bonus.",
+        "text-02":"The ranking option will be available during the Beta Event. The player who earns the most ERNC (total accumulation) will be mentioned on the ranking list, and the top 50 players will get an extra SRC award.",
+        "top50-table":"TOP 50",
+        "tableTitle-01":"Place",
+        "tableTitle-02":"Reward (PER)",
+        "tableTitle-03":"Value (PER)",
+        "tableTitle-04":"total Value"
+    },
+    
+    "ranking": {
+        "title":"Ranking",
+        "title-02":"Current Top 50"
+    },
+
+    "WarmUpRiderBanner":{
+        "title":"/images/EventBanner/EventBanner_WarmUpActivities/WarmUpActivities-banner-Title-EN.png"
+    }
+
+}

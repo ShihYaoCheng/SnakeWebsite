@@ -1,0 +1,57 @@
+{
+    "eventBanner": {
+        "title":"/images/SpecialEvent/WarmUpActivities/WarmUp-BannerTitle-CN.png",
+        "nav-01":"活動詳細",
+        "nav-02":"規則",
+        "nav-03":"獎勵",
+        "nav-04":"獎勵"
+    },
+
+    "eventInfo": {
+        "title":"活動詳細",
+        "date-01":"活動時間:",
+        "date-02":"敬請期待",
+        "date-03":"(為期2周)",
+        "text-01":"準備好跟碰碰蛇一起暖暖身了嗎？",
+        "text-02":"你想體驗GameFi卻不知道從何下手嗎？覺得遊戲能賺錢聽起來很虛無縹緲嗎？碰碰蛇是一款適合新手的GameFi，現在加入我們的活動，一起免費遊玩開心收益！只要打進前50名，滿滿SRC等你來收益，免費騎士等待你來暢玩！！"
+    },
+
+    "rules": {
+        "title":"規則",
+        "step-title":"如何參加？四個步驟簡單好上手",
+        "step-01":"步驟一",
+        "step-02":"步驟二",
+        "step-03":"步驟三",
+        "step-04":"步驟四",
+        "windowStep-01":"步驟一：<br>註冊PonPonSnake遊戲帳號，並且完成手機以及信箱驗證。",
+        "windowStep-02":"步驟二：<br>加入碰碰蛇官方Telegram社區。",
+        "windowStep-03":"步驟三：<br>關注+喜歡並且標記三個好友。",
+        "windowStep-04":"步驟四：<br>參與碰碰蛇1V7積分排名，總獎勵價值高達2000 USDT，前50都有獎。",
+        "windowStep-joinNow":"立即加入",
+        "windowStep-download":"下載遊戲",
+
+        "discount-title":"參與活動好處多多送給你",
+        "discountStep-01":"優惠一",
+        "discountText-01":"完成Step1+Step2的玩家即可在公測期間免費試玩所有NFT角色。",
+        "discountStep-02":"優惠二",
+        "discountText-02":"完成Step1+Step2+Step3的玩家可獲得官方的【創世公測大禮包】 (內含SRC V1 X 999 、道具名稱 X 999)。",
+        "discountText-03":"SRC V1將在活動結束回收"
+    },
+
+    "reward": {
+        "title":"獎勵",
+        "goldTitle":"/images/SpecialEvent/WarmUpActivities/Reward_GoldTitle-CN.png",
+        "text-01":"打上排行榜，前50都有賞！",
+        "text-02":"活動期間將累積每局遊戲所得到的ERNC數量並且進行排名，最終的前50名將獲得額外SRC獎勵。",
+        "top50-table":"前50獎勵表",
+        "tableTitle-01":"名次",
+        "tableTitle-02":"獎勵 (人)",
+        "tableTitle-03":"價值 (人)",
+        "tableTitle-04":"總價值"
+    },
+
+    "WarmUpRiderBanner":{
+        "title":"/images/EventBanner/EventBanner_WarmUpActivities/WarmUpActivities-banner-Title-CN.png"
+    }
+
+}

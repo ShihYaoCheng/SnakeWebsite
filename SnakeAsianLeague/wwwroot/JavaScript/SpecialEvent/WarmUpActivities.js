@@ -1,5 +1,5 @@
 export function WarmUpActivitiesStep(){
-    console.log('WarmUpActivitiesStep')
+    // console.log('WarmUpActivitiesStep')
 
     $('.step-Arrow').click(function(evt){
         evt.preventDefault();
