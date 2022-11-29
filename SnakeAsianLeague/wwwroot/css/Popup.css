@@ -156,6 +156,8 @@
     color: var(--white);
     height:54px;
 }
+
+
 input.products-popup-inputText {
     background-color: var(--bg-1);
     border: 2px solid var(--green-2);
@@ -167,6 +169,25 @@ input.products-popup-inputText {
     color: var(--white);
     width: 69%;
     height: 54px;
+}
+
+@media all and (max-width: 1000px) {
+    .input-zone select {
+        width: 39%;
+    }
+
+    input.products-popup-inputText {
+        width: 59%;      
+    }
+}
+@media all and (max-width: 500px) {
+    .input-zone select {
+        width: 100%;
+    }
+
+    input.products-popup-inputText {
+        width: 100%;
+    }
 }
 input.products-popup-inputText:focus{
     border: 3px solid var(--white);
@@ -208,13 +229,9 @@ button.products-popup-submit:hover{
         font-size: 30px;
     }
     .products-popup-text{
-        font-size: 22px;
-        text-align: left;
+        font-size: 22px;       
     }
-    input.products-popup-inputText{
-        font-size: 22px;
-        width: 85%;
-    }
+
     button.products-popup-submit{
         font-size: 24px;
 
@@ -232,10 +249,6 @@ button.products-popup-submit:hover{
     .products-popup-text{
         font-size: 20px;
         margin: 10px auto 15px
-    }
-    input.products-popup-inputText{
-        font-size: 20px;
-        width: 80%;
     }
     button.products-popup-submit{
         font-size: 22px;
