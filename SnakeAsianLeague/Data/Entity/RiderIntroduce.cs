@@ -151,7 +151,78 @@
     { 
         public int currencyType { get; set; }
 
-        public int price { get; set; }
+        public decimal price { get; set; }
+    }
+
+
+    public class UnitRecordLog
+    { 
+        public List<RecordsLog> records { get; set; }
+
+        public List<RentCurrencyType> amountNotYetClaimed { get; set; }
+    }
+
+
+    public class RecordsLog
+    {
+        /// <summary>
+        /// 租戶id
+        /// </summary>
+        public uint tenant { get; set; }
+        /// <summary>
+        /// 租戶名稱
+        /// </summary>
+        public string tenantName { get; set; }
+        /// <summary>
+        /// 租用時間
+        /// </summary>
+        public DateTime date { get; set; }
+
+
+        public string dateFormat { get; set; }
+        /// <summary>
+        /// 貨幣類別
+        /// </summary>
+        public int currencyType { get; set; }
+
+        public string currencyTypeName { get; set; }
+        /// <summary>
+        /// 租金
+        /// </summary>
+        public decimal rent { get; set; }
+        /// <summary>
+        /// 領取時間
+        /// </summary>
+        public DateTime? receivedDate { get; set; }
+
+        public string receivedDateFormat { get; set; }
+    }
+
+
+
+    public class NFTUnitPriceDTO
+    {
+        /// <summary>
+        /// 擁有者錢包
+        /// </summary>
+        public string wallet { get; set; }
+        public string ppsr { get; set; }     // 首拍編號
+        public decimal price { get; set; }       // 價錢 
+
+        public int currencyType { get; set; }       // 價錢 
+    }
+
+
+    public class NFTUnitCurrencyTypeDTO
+    {
+        /// <summary>
+        /// 擁有者錢包
+        /// </summary>
+        public string wallet { get; set; }
+        public string ppsr { get; set; }     // 首拍編號
+        public int currencyType { get; set; }       // 價錢 
     }
 }
+
+
 
