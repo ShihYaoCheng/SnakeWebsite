@@ -49,6 +49,12 @@
         "tableTitle-03":"價值 (人)",
         "tableTitle-04":"總價值"
     },
+    
+    "ranking": {
+        "title":"排名",
+        "title-02":"當前50名",
+        "ComingSoon":"尚未開打"
+    },
 
     "WarmUpRiderBanner":{
         "title":"/images/EventBanner/EventBanner_WarmUpActivities/WarmUpActivities-banner-Title-CN.png"

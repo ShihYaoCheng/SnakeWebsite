@@ -53,7 +53,8 @@
     
     "ranking": {
         "title":"Ranking",
-        "title-02":"Current Top 50"
+        "title-02":"Current Top 50",
+        "ComingSoon":"Coming Soon"
     },
 
     "WarmUpRiderBanner":{

@@ -88,8 +88,9 @@
 }
 .Ranking-ComingSoon span{
     color: rgba(69, 27, 27, 0.85);
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     font-size: 24px;
+    font-weight: 500;
 }
 .Ranking-Row{
     width: 100%;
