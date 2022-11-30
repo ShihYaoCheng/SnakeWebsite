@@ -50,7 +50,7 @@
 }
 .WarmUp-BannerNav li a{
     /* border: 1px solid red; */
-    color: #3e1916;
+    color: #3e1916ac;
     display: block;
     letter-spacing: 0.5px;
     font-weight: bold;
@@ -58,13 +58,62 @@
     text-decoration: none;
     font-family: 'Noto Sans TC', sans-serif;
     transition: all 0.1s ease-out;
+    position: relative;
+}
+.WarmUp-BannerNav li a::before{
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: #3e1916;
+    position: absolute;
+    transform: translateY(-50%) rotate(45deg);
+    top: 50%;
+    left: -16px;
+    transition: all 0.1s ease-out;
+
+    opacity: 0;
+}
+.WarmUp-BannerNav li a::after{
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: #3e1916;
+    position: absolute;
+    transform: translateY(-50%) rotate(45deg);
+    top: 50%;
+    right: -16px;
+    transition: all 0.1s ease-out;
+
+    opacity: 0;
 }
 .WarmUp-BannerNav li a:hover{
-    color: #3e1916a4;
+    color: #3e1916;
 }
+.WarmUp-BannerNav li a:hover::before{
+    opacity: 1;
+}
+.WarmUp-BannerNav li a:hover::after{
+    opacity: 1;
+}
+
 @media all and (max-width: 1920px){
     .WarmUp-BannerNav li a{
         font-size: 20px;
+    }
+}
+@media all and (max-width: 1200px){
+    .WarmUp-BannerNav li a{
+        font-size: 18px;
+    }
+    .WarmUp-BannerNav li a::before{
+        width: 5px;
+        height: 5px;
+        left: -12px;
+    }
+    .WarmUp-BannerNav li a::after{
+        width: 5px;
+        height: 5px;
+        right: -12px;
     }
 }
 @media all and (max-width: 1000px){
@@ -76,6 +125,10 @@
         left: 2.7%;
         width: 50%;
     }
+    .WarmUp-BannerNav li a{
+        font-size: 16px;
+    }
+
 }
 @media all and (max-width: 800px){
     .Banner-BG img{
