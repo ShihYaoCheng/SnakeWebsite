@@ -17,7 +17,7 @@
 @inject IEthereumHostProvider _metamaskHostProvider
 @inject NFTService NFTService
 @inject AuthenticationStateProvider AuthenticationStateProvider
-
+@inject OfficialWebsiteData OfficialWebsiteData
 
 
 @implements IDisposable
@@ -122,7 +122,7 @@
         SelectedAccount = await _metamaskHostProvider.EnableProviderAsync();
 
         ServerResponce responce = await NFTService.PostNFTWalletAddress(AppState.LoginStatus.userID, SelectedAccount);
-        
+
 
         //提示訊息
         if (responce.Success && responce.Content == "綁定成功")
@@ -132,6 +132,9 @@
             PopupWindowContent = "";
 
             displayPopupWindow = true;
+            var phone = AppState.LoginStatus.phone;
+            var userID = AppState.LoginStatus.userID;
+            await OfficialWebsiteData.BindWallet(userID,phone);
             await JS.InvokeVoidAsync("installI18n");
         }else if (responce.Success && responce.Content == "已綁定")
         {
