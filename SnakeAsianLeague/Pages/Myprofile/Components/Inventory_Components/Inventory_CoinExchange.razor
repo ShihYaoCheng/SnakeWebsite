@@ -244,7 +244,7 @@
             var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
             @*鍊換game*@
             //await TransferEventsJS.InvokeVoidAsync("TransferEvents" ,socketServerUri , SRC_token_addr,"tokenSRC");
-            transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1,SRC_token_addr,SRCExchange_addr ,warmUpToggle);      
+            transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1,SRC_token_addr,SRCExchange_addr );      
 
             if (transactionResult)
             {
