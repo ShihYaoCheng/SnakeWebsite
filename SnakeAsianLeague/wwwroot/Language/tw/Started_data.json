@@ -10,9 +10,9 @@
     "title": {
       "createmetamask": "1. 創建你的小狐狸錢包並且將其連接到polygon",
       "connectopensea": "2. 將小狐狸錢包與Opensea做連接",
-      "createponponsnakegame": "3. 創建你的碰碰蛇遊戲帳號",
-      "connectgameaccount": "4. 將遊戲帳號與小狐狸連接",
-      "downloadandplay": "5. 下載並且開始冒險吧！！"
+      "createponponsnakegame": "2. 創建你的碰碰蛇遊戲帳號",
+      "connectgameaccount": "3. 將遊戲帳號與小狐狸連接",
+      "downloadandplay": "4. 下載並且開始冒險吧！！"
 
     },
     "subtitle": {
@@ -44,6 +44,10 @@
       "btn2": "蘋果下載",
       "btn3": "APK下載"
 
+    },
+    "setpButton": {
+      "next": "下一步",
+      "previous": "上一步"
     }
 
 

@@ -1,0 +1,36 @@
+﻿<div class="stepButton">
+     @if (previouShow)
+    {
+        <button class="stepButton-Previous" @onclick="Previous" data-i18n="Started_data:gettingStarted.setpButton.previous" >上一步</button>
+    }
+    @if (nextShow)
+    {
+        <button class="stepButton-Next" @onclick="Next" data-i18n="Started_data:gettingStarted.setpButton.next">下一步</button>
+    }
+</div>
+@code {
+
+    [Parameter]
+    public string router { get; set; }
+
+    [Parameter]
+    public bool nextShow { get; set; } = true;
+    [Parameter]
+    public bool previouShow { get; set; } = true;
+
+    [Parameter]
+    public EventCallback<string> PreviousClick { get; set;}
+
+    private void Previous()
+    {
+        PreviousClick.InvokeAsync(router);   
+    }
+
+    [Parameter]
+    public EventCallback<string> NextClick { get; set;}
+
+        private void Next()
+    {
+        NextClick.InvokeAsync(router);   
+    }
+}
