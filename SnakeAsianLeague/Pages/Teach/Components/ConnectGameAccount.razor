@@ -1,4 +1,5 @@
-﻿@using SnakeAsianLeague.Pages.Teach.Components.All_components
+﻿@using SnakeAsianLeague.Data.Services.Backstage
+@using SnakeAsianLeague.Pages.Teach.Components.All_components
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Interface
 @using SnakeAsianLeague.Data.Services.SnakeServerService
@@ -9,7 +10,7 @@
 @inject AppState AppState
 @inject IEthereumHostProvider _metamaskHostProvider
 @inject NFTService NFTService
-
+@inject OfficialWebsiteData OfficialWebsiteData
 
 <head>
     <link href="/css/Teach/ConnectGameAccount.css" rel="stylesheet" />
@@ -80,6 +81,10 @@
                 PopupWindowTitle = responce.Content;
                 PopupWindowContent = "";
 
+                var phone = AppState.LoginStatus.phone;  
+                var userID = AppState.LoginStatus.userID;
+                await OfficialWebsiteData.BindWallet(userID,phone);
+        
                 displayPopupWindow = true;
                 await JS.InvokeVoidAsync("installI18n");
             }else if (responce.Success && responce.Content == "已綁定")

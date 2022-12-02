@@ -31,13 +31,14 @@ namespace SnakeAsianLeague.Data.Services.Backstage
         public async Task DownloadHits(uint UserID)
         {
             restRequest = new RestRequest($"OfficialWebsiteLog/DownloadHits?UserID={UserID}");
+            IRestResponse restResponse = await ServerClient.ExecuteGetAsync(restRequest);     
+
+        }
+
+        public async Task BindWallet(uint UserID, string phone)
+        {
+            restRequest = new RestRequest($"OfficialWebsiteLog/BindWallet?UserID={UserID}&_PhoneNumber={phone}");
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(restRequest);
-            //以下是測試
-            //string returnText = "沒接到";
-            //if (restResponse.StatusCode == HttpStatusCode.OK)
-            //{
-            //    returnText = restResponse.Content;
-            //}
 
         }
 

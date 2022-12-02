@@ -8,44 +8,20 @@
 </head>
 
 <div class="test-container">
-    <p>點下載的API: @DownloadHitsText</p>
-    <button @onclick="DownloadHits"> 點下載的API</button>
-    <p>點註冊的API: @RegisterText</p>
-    <button @onclick="Register"> 點註冊的API</button>
-   @* <p id="testNum"> @test</p>*@
+        <button @onclick="BindWallet">送出API</button>
 </div>
 
 
 @code {
-    string DownloadHitsText="還沒變";
-    uint userID = 0;  
-    public async Task DownloadHits()
+
+    uint userID = 7788;
+    string phoneNum = "0955666777";
+    public async Task BindWallet()
     {
-        userID=AppState.LoginStatus.userID;
-        //DownloadHitsText = await OfficialWebsiteData.DownloadHits(userID);
+        //userID=AppState.LoginStatus.userID;
+        await OfficialWebsiteData.BindWallet(userID, phoneNum);
     }
 
-    string RegisterText = "還沒變";
-    public async Task Register()
-    {
-        //RegisterText = await OfficialWebsiteData.Register();
-    }
-
-    //private IJSObjectReference? TransferEventsJS;
-    //string test="123";
-    //protected override async Task OnAfterRenderAsync(bool firstRender)
-    //{
-    //    if (firstRender)
-    //    {
-    //        TransferEventsJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/TransferEvents.js");
-    //        var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
-    //        var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;
-    //        var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
-    //        test = await TransferEventsJS.InvokeAsync<string>("TransferEvents",socketServerUri , SRC_token_addr,"tokenSRC");
-    //        Console.Write(test);
-
-    //    }
-
-    //}
- 
+    
+  
 }
