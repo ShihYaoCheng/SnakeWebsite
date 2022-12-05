@@ -633,8 +633,8 @@ background-color: #aad4cdd4;
     /* border: 1px red solid; */
     background-image: url(/images/Other/login_bg.webp);
     background-repeat: no-repeat;
-    max-width: 600px;
-    width: 90%;
+    max-width: 550px;
+    width: 95%;
     max-height: 710px;
     /* height: 100%; */
     background-size: 100% 100%;
@@ -670,15 +670,16 @@ background-color: #aad4cdd4;
 }
 
 .login_block .login .login_pictuer_block {
-    width: 100%;
+    width: 25%;
     /* border: 1px red solid; */
     text-align: center;
-    margin: 40px auto;
+    margin: 35px auto 30px;
+    max-width: 100px;
 }
 
 
 #login_pictuer {
-    width: 25%;
+    width: 100%;
     border: 2px solid white;
     border-radius: 8px;
     /* box-shadow: 0px 0px 12px rgb(255 255 255);
@@ -711,8 +712,8 @@ background-color: #aad4cdd4;
 background-color: #202E39; */
 /* max-width: 472px; */
 width: 100%;
-height: 59px;
-margin: 0px auto 15px;
+height: 50px;
+margin: 0px auto 10px;
 display: flex;
 align-items: center;
 letter-spacing: 1px;
@@ -724,7 +725,7 @@ position: relative;
 .input_block .login_form .login_label {
     width: 20%;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 18px;
     text-align: center;
     color: #e0eeff;
     text-shadow: #ffffff8f 1px 1px 16px;
@@ -741,8 +742,8 @@ position: relative;
     margin: 0 3px;
     background-color: #002140 !important;
     color: #ffffff;
-    padding: 10px 15px;
-    font-size: 20px;
+    padding: 6px 15px;
+    font-size: 18px;
     box-sizing: border-box;
     border: none;
     /* box-shadow: #ffffff57 1px 1px 11px; */
@@ -858,10 +859,6 @@ position: relative;
         /* max-height: 650px; */
     }
 
-    .login_block .login .login_pictuer_block {
-        width: 85%;
-    }
-
     .window_p {
         font-size: 24px;
 
@@ -874,8 +871,7 @@ position: relative;
     }
 
     .login_block .login .login_pictuer_block {
-        width: 85%;
-        margin: 45px auto;
+        margin: 35px auto 25px;
     }
 
     .window_p {
@@ -908,14 +904,6 @@ position: relative;
         /* max-height: 580px; */
     }
 
-    .input_block .login_form {
-        margin: 0 auto 25px;
-    }
-
-    .login_block .login .login_pictuer_block {
-        width: 85%;
-    }
-
     .window_p {
         font-size: 19px;
     }
@@ -943,12 +931,11 @@ position: relative;
     }
 
     .input_block .login_form {
-        height: 48px;
+        height: 40px;
         margin: 0 auto 15px;
     }
 
     .login_block .login .login_pictuer_block {
-        width: 90%;
         margin: 25px auto;
     }
 
@@ -961,6 +948,7 @@ position: relative;
     .input_block .login_form .login_label {
         font-size: 16px;
         width: 26%;
+        line-height: 16px;
     }
 
     .input_block .login_form .login_input {
@@ -984,34 +972,24 @@ position: relative;
         width: 95%;
     }
 
-    #login_pictuer {
-        width: 40%;
-    }
 
     .input_block .login_form {
         /* margin: 0 auto 15px; */
-        height: 40px;
+        height: 35px;
     }
 
     .login_block .login .login_pictuer_block {
-        width: 85%;
-        margin: 30px auto;
+        margin: 20px auto;
     }
 
     .window_p {
-        font-size: 16px;
-    }
-    /* .input_block input[type="button"]{
-        height: 55px;
-    } */
-    .input_block .login_form .login_label {
         font-size: 16px;
     }
 
     .input_block .login_form .login_input {
         font-size: 13px;
         margin: 0;
-        padding: 10px 10px;
+        padding: 6px 10px;
     }
 
     .input_block input[type="button"] {
@@ -1040,10 +1018,10 @@ position: relative;
 
 #login_submit{
     border-radius: 50px;
-    max-width: 200px;
-    width: 70%;
+    max-width: 180px;
+    width: 55%;
     color: #ffffff;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     white-space: nowrap;
     display: flex;
@@ -1059,7 +1037,7 @@ position: relative;
 }
 
 #login_submit img{
-    max-width: 356px;
+    /* max-width: 356px; */
     width: 100%;
     /* height: 90px; */
 }
@@ -1086,17 +1064,13 @@ position: relative;
 
 @media all and (max-width: 1000px){
     #login_submit{
-        font-size: 24px;
+        font-size: 17px;
     }
 }
-@media all and (max-width: 800px){
-    #login_submit{
-        font-size: 24px;
-    }
-}
+
 @media all and (max-width: 600px){
     #login_submit{
-        font-size: 20px;
+        font-size: 15px;
     }
     .signInWindows{
         font-size: 12px;
@@ -1104,7 +1078,7 @@ position: relative;
 }
 @media all and (max-width: 400px){
     #login_submit{
-        font-size: 17px;
+        /* font-size: 17px; */
     }
 
 }
