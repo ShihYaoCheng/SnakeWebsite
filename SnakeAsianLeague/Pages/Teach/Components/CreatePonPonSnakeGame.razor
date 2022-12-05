@@ -30,10 +30,12 @@
 
 
 </div>
-
+<Teach_AutoChangePage router="create-PonPonSnake-game"  SquareClick="SquareClick"></Teach_AutoChangePage>
 @code {   
     private string countryCodeStr = "";
     private string phoneNumStr = "";
+   [Parameter]
+   public EventCallback<string> SquareClick { get; set;}
 
    protected override async Task OnAfterRenderAsync(bool firstRender)
 

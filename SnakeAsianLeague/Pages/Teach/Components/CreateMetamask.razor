@@ -48,7 +48,10 @@
       
     </div>
 </div>
-@code {
+<Teach_AutoChangePage router="create-metamask" SquareClick="SquareClick"></Teach_AutoChangePage>
+@code { 
+    [Parameter]
+    public EventCallback<string> SquareClick { get; set;}
     protected  async Task AddPolygon()    {   
 
         int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
@@ -58,5 +61,6 @@
         int nativeCurrencyDecimals = BlockChainSever.BlockChainInfoDTO.nativeCurrencyDecimals;
 
         await JS.InvokeVoidAsync("AddPolygonID",chainId, chainName, recUrls,  nativeCurrencyName, nativeCurrencyDecimals);       
+   
     }
 }

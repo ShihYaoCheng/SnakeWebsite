@@ -31,10 +31,12 @@
 <!-- 彈窗提示-->
 <Index_Pop displayPopupWindow=@displayPopupWindow  PopupWindowTitle=@PopupWindowTitle PopupWindowContent=@PopupWindowContent successWindowClose="successWindowClose" />
 
-
+<Teach_AutoChangePage router="connect-game-account"  SquareClick="SquareClick"></Teach_AutoChangePage>
 @code {
     bool MetamaskAvailable { get; set; }
     string SelectedAccount { get; set; }
+    [Parameter]
+    public EventCallback<string> SquareClick { get; set;}
 
     //彈窗
     bool displayPopupWindow = false;

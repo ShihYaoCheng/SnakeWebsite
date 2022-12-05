@@ -8,9 +8,9 @@
 
     },
     "title": {
-      "createmetamask": "1. 創建你的小狐狸錢包並且將其連接到polygon",
+      "createmetamask": "2. 創建你的小狐狸錢包並且將其連接到polygon",
       "connectopensea": "2. 將小狐狸錢包與Opensea做連接",
-      "createponponsnakegame": "2. 創建你的碰碰蛇遊戲帳號",
+      "createponponsnakegame": "1. 創建你的碰碰蛇遊戲帳號",
       "connectgameaccount": "3. 將遊戲帳號與小狐狸連接",
       "downloadandplay": "4. 下載並且開始冒險吧！！"
 
