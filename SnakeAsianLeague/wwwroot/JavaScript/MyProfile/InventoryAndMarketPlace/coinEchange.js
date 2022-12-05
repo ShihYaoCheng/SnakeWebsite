@@ -156,7 +156,14 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address, warmUp
 export async function CoinexchangeData(chainId ,SRC_address,wssURL) {
 
 	/*引用web3 、獲取地址跟鍊*/
-	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL))
+	console.log("wssURL",wssURL)
+	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL, {
+		clientConfig: {
+			maxReceivedFrameSize: 100000000,
+			maxReceivedMessageSize: 100000000,
+		}
+	}))
+	console.log("web3",web3)
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts()
 	const networkID = await w3.eth.net.getId()
@@ -168,11 +175,13 @@ export async function CoinexchangeData(chainId ,SRC_address,wssURL) {
 	/* SRC */
 	const SRC_token_addr = SRC_address
 	const SRC_abi = window.ERC20_abi
+	console.log("SRC_abi", SRC_abi)
 	const SRC_dai_contract = new web3.eth.Contract(SRC_abi, SRC_token_addr)
-
+	console.log("SRC_dai_contract", SRC_dai_contract)
 	let SRC_decimals = await SRC_dai_contract.methods.decimals().call()
+	console.log("SRC_decimals", SRC_decimals)
 	let addr_SRC_balance = await SRC_dai_contract.methods.balanceOf(address[0]).call() / 10 ** SRC_decimals
-
+	console.log("addr_SRC_balance", addr_SRC_balance)
 	/*ERNC*/
 
 

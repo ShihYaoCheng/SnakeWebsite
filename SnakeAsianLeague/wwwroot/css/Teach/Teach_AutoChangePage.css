@@ -1,0 +1,35 @@
+﻿.WhetherGoToNextPage-container {
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0%;
+    left:0%;
+    background:rgba(0,0,0,0.5);
+    z-index:999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.WhetherGoToNextPage-pop {
+    width: 300px;
+    padding: 20px 15px;
+    background: #8fbcb5;
+    text-align: center;
+    border-radius: 15px;
+    color: #1c5968;
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.WhetherGoToNextPage-pop button {
+    margin-top: 20px;
+    color: #fff;
+    background: #90bcb6;
+    border: 0;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-weight: bold;
+}

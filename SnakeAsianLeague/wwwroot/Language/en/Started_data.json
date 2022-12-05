@@ -8,9 +8,9 @@
     },
 
     "title": {
-      "createmetamask": "1. Create Metamask Account and Connect with Polygon",
+      "createmetamask": "2. Create Metamask Account and Connect with Polygon",
       "connectopensea": "2. Connect Metamask to your Opensea",
-      "createponponsnakegame": "2. Create your PonPonSnake Game Account",
+      "createponponsnakegame": "1. Create your PonPonSnake Game Account",
       "connectgameaccount": "3. Connect Metamask to your Game Account",
       "downloadandplay": "4. Download and PLAY!"
 

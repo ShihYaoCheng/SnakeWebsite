@@ -1,0 +1,120 @@
+﻿@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.BlockChain
+@inject AppState AppState
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+@inject BlockChainProcessorSever BlockChainSever
+<head>
+    
+    <link href="/css/Teach/Teach_AutoChangePage.css" rel="stylesheet" />
+</head>
+
+@if(WhetherGoToNextPage){
+    <div class="WhetherGoToNextPage-container">
+        <div class="WhetherGoToNextPage-pop">
+            <p>您已完成此步驟</p>
+            <button @onclick="clickGoToNext">  下一步 </button>
+        </div>
+    </div>
+}
+@*else{
+    @ChildContent
+}*@
+
+
+@code {
+    [Parameter]
+    public string? router { get; set; }
+
+    //[Parameter]
+    //public RenderFragment? ChildContent   { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SquareClick { get; set;}
+    //改表頭列選取
+    private void squareFunctionChange()
+    {
+        SquareClick.InvokeAsync(AutoChangeRouter);   
+    }
+
+
+    bool WhetherGoToNextPage = false;
+
+    string AutoChangeRouter = "";
+    protected override void OnInitialized()
+    {
+        switch (router)
+        {
+            case "create-PonPonSnake-game":    
+                checkCreatePonPonSnakeGame();
+                AutoChangeRouter = "create-metamask"; 
+                break;
+            case "create-metamask" :
+               
+                AutoChangeRouter = "connect-game-account";
+                break;
+            case "connect-game-account"  :
+                checkConnectGameAccount();
+                AutoChangeRouter = "download-and-play";   
+                break;
+
+        }
+    }
+    private IJSObjectReference? gettingStartMetaMaskJS;
+    private IJSObjectReference? ErrorNetworkJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            gettingStartMetaMaskJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/gettingStartMetaMask.js");
+            ErrorNetworkJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/ErrorNetwork.js");
+            await reflash();
+        }        
+    }
+
+    public async Task reflash()
+    {
+        if (router == "create-metamask")
+        {
+             string address = await gettingStartMetaMaskJS.InvokeAsync<string>("gettingStartMetaMask");
+             int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
+             bool netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", chainId);
+                if (address !="" && netWorkRight)
+                {
+                    WhetherGoToNextPage = true;             
+                }      
+            InvokeAsync(StateHasChanged);
+        }
+       
+    }
+    public void clickGoToNext(){
+        squareFunctionChange();
+        Navigation.NavigateTo("/GettingStarted/"+AutoChangeRouter);
+    }
+
+    public void checkCreateMetamask()
+    {
+
+    }
+
+    public void checkCreatePonPonSnakeGame()
+    {
+        var IsLogin = AppState.LoginStatus.IsLogin;
+        if (IsLogin)
+        {
+            WhetherGoToNextPage = true;
+        }
+    }
+
+    public void checkConnectGameAccount()
+    {
+        var walletAddress = AppState.LoginStatus.walletAddress;
+        if ( walletAddress != null && walletAddress!="")
+        {            
+            WhetherGoToNextPage = true;
+        }
+    }
+}
+
+
+  
