@@ -45,11 +45,12 @@
     {
         switch (router)
         {
-            case "create-PonPonSnake-game":                
+            case "create-PonPonSnake-game":    
+                checkCreatePonPonSnakeGame();
                 AutoChangeRouter = "create-metamask"; 
                 break;
             case "create-metamask" :
-                checkCreatePonPonSnakeGame();
+               
                 AutoChangeRouter = "connect-game-account";
                 break;
             case "connect-game-account"  :
