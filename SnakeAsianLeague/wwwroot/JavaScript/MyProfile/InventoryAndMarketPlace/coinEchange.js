@@ -161,7 +161,16 @@ export async function CoinexchangeData(chainId ,SRC_address,wssURL) {
 		clientConfig: {
 			maxReceivedFrameSize: 100000000,
 			maxReceivedMessageSize: 100000000,
-		}}))
+			keepalive: true,
+			keepaliveInterval: 60000 // ms
+		},
+		reconnect: {
+			auto: true,
+			delay: 1000, // ms
+			maxAttempts: 5,
+			onTimeout: false
+		}
+	}))
 	console.log("web3",web3)
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts()
