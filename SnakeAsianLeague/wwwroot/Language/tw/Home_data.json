@@ -72,7 +72,7 @@
     "verifyCode": "驗證碼",
     "sendVerifyCode": "傳送驗證碼",
     "resendVerifyCode": "重傳驗證碼",
-    "if-No-VerifyCode": "若無法收到驗證碼請聯繫",
+    "if-No-VerifyCode": "- 若無法收到驗證碼請聯繫",
     "facebook": "官方粉絲團",
     "userName": "用戶名",
     "password": "密碼",
