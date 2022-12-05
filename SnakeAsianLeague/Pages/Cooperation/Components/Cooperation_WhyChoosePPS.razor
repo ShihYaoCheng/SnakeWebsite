@@ -11,7 +11,7 @@
             @foreach(var item in cardData)
             {            
                 <div class="WhyChoosePPS-cardData" style="background:url('@item.BgImg'); background-repeat:round;">
-                    <h4>
+                    <h4 data-i18n="Cooperation_data:@item.title">
                         @* <span data-i18n="Cooperation_data:choose.title-01"></span> *@
                         @item.title
                     </h4>
@@ -42,9 +42,9 @@
     {
         cardData = new List<CardData>
         {
-            new CardData("穩定性","碰碰蛇是一間具有穩定性的公司，我們經營多年並且在業界有豐富的遊戲經驗，也是台灣少數鑽研NFT遊戲的公司。","/images/Cooperation/Card1.png"),
-            new CardData("專業性","碰碰蛇擁有最專業的團隊，這其中不乏專業的設計，美術、企劃以及程式，能用最專業的態度和技術包裝您的品牌NFT。","/images/Cooperation/Card2.png"),
-            new CardData("多變性","為了應對市場，我們也有多樣性的NFT。從角色到領地都能夠提供品牌多次曝光機會，隨著越來越多樣的NFT宇宙發展，我們也將跟緊腳步，不落人後。","/images/Cooperation/Card3.png"),
+            new CardData("choose.title-01","碰碰蛇是一間具有穩定性的公司，我們經營多年並且在業界有豐富的遊戲經驗，也是台灣少數鑽研NFT遊戲的公司。","/images/Cooperation/Card1.png"),
+            new CardData("choose.title-02","碰碰蛇擁有最專業的團隊，這其中不乏專業的設計，美術、企劃以及程式，能用最專業的態度和技術包裝您的品牌NFT。","/images/Cooperation/Card2.png"),
+            new CardData("choose.title-03","為了應對市場，我們也有多樣性的NFT。從角色到領地都能夠提供品牌多次曝光機會，隨著越來越多樣的NFT宇宙發展，我們也將跟緊腳步，不落人後。","/images/Cooperation/Card3.png"),
         };
     }
 
