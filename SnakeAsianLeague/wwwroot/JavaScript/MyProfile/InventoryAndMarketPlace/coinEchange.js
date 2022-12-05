@@ -157,7 +157,12 @@ export async function CoinexchangeData(chainId ,SRC_address,wssURL) {
 
 	/*引用web3 、獲取地址跟鍊*/
 	console.log("wssURL",wssURL)
-	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL))
+	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL, {
+		clientConfig: {
+			maxReceivedFrameSize: 100000000,
+			maxReceivedMessageSize: 100000000,
+		}
+	}))
 	console.log("web3",web3)
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts()
