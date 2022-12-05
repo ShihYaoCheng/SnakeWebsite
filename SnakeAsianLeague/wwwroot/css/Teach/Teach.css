@@ -45,6 +45,37 @@
     /* height: 790px; */
 
     margin: 0 auto 40px;
+    position:relative;
+}
+
+.stepButton {
+    width: 100%;
+    position: absolute;   
+    top: 100%;
+}
+
+.stepButton button {
+    color: #fff;
+    background: #90bcb6;
+    border: 0;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.stepButton button:hover {
+    background: #27616F;
+    box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.3);
+}
+
+
+
+.stepButton-Previous {
+    float: left;
+}
+
+.stepButton-Next {
+    float: right;
 }
 
 
@@ -65,3 +96,12 @@
         /* height: 890px; */
     }
 }
+
+
+@media all and (max-width: 576px) {
+
+    .stepButton {     
+        top: 120%;
+    }
+}
+

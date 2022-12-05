@@ -10,9 +10,9 @@
     "title": {
       "createmetamask": "1. Create Metamask Account and Connect with Polygon",
       "connectopensea": "2. Connect Metamask to your Opensea",
-      "createponponsnakegame": "3. Create your PonPonSnake Game Account",
-      "connectgameaccount": "4. Connect Metamask to your Game Account",
-      "downloadandplay": "5. Download and PLAY!"
+      "createponponsnakegame": "2. Create your PonPonSnake Game Account",
+      "connectgameaccount": "3. Connect Metamask to your Game Account",
+      "downloadandplay": "4. Download and PLAY!"
 
     },
     "subtitle": {
@@ -44,6 +44,10 @@
       "btn2": "IOS",
       "btn3": "APK File"
 
+    },
+    "setpButton": {
+      "next": "Next",
+      "previous": "Previous"
     }
 
 
