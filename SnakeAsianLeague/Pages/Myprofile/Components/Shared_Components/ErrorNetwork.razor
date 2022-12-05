@@ -23,7 +23,7 @@
 
     private IJSObjectReference? ErrorNetworkJS;
 
-    string netWorkName;
+    string netWorkName = "ploygon";
     bool netWorkRight =false;
     private async Task AddPolygonClick()
     {
@@ -52,7 +52,7 @@
         netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", chainId);
         if (netWorkRight)
         {
-            getCoinData.InvokeAsync();
+            await getCoinData.InvokeAsync();
             //強制渲染
             await InvokeAsync(StateHasChanged);
         }
