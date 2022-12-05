@@ -170,9 +170,11 @@ export async function CoinexchangeData(chainId ,SRC_address,wssURL) {
 	/* SRC */
 	const SRC_token_addr = SRC_address
 	const SRC_abi = window.ERC20_abi
+	console.log("SRC_abi", SRC_abi)
 	const SRC_dai_contract = new web3.eth.Contract(SRC_abi, SRC_token_addr)
 	console.log("SRC_dai_contract", SRC_dai_contract)
 	let SRC_decimals = await SRC_dai_contract.methods.decimals().call()
+	console.log("SRC_decimals", SRC_decimals)
 	let addr_SRC_balance = await SRC_dai_contract.methods.balanceOf(address[0]).call() / 10 ** SRC_decimals
 	console.log("addr_SRC_balance", addr_SRC_balance)
 	/*ERNC*/
