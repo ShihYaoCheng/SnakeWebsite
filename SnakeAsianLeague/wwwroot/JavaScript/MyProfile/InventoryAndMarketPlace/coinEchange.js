@@ -157,7 +157,7 @@ export async function CoinexchangeData(chainId ,SRC_address,wssURL) {
 
 	/*引用web3 、獲取地址跟鍊*/
 	console.log("wssURL",wssURL)
-	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL, {
+	const web3 = new Web3(new Web3.providers.HttpProvider("https://rpc-Mumbai.maticvigil.com", {
 		clientConfig: {
 			maxReceivedFrameSize: 100000000,
 			maxReceivedMessageSize: 100000000,
