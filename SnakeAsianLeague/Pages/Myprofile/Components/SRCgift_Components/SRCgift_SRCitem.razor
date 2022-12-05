@@ -146,11 +146,11 @@
         if (AppState.LoginStatus.IsLogin)
         {
             uint UserID = AppState.LoginStatus.userID;
-            var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
+            var chainRPCUrl = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
             var USDT_token_addr = BlockChainSever.BlockChainInfoDTO.usdtAddress;
             var PurchaseApprove_address = BlockChainSever.BlockChainInfoDTO.contractAddress_CQIPurchase;
             gSRCBuy = gSRC;
-            tokenUSDT = await PurchaseApproveJS.InvokeAsync<double>("getUSDT" ,socketServerUri ,USDT_token_addr);
+            tokenUSDT = await PurchaseApproveJS.InvokeAsync<double>("getUSDT" ,chainRPCUrl ,USDT_token_addr);
             if (tokenUSDT > USDT)
             {
                 await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
@@ -162,7 +162,7 @@
                     bool result = await CommodityServices.PurchaseByUSDT(UserID, USDT, productID);
                     if (result)
                     {
-                        tokenUSDT = await PurchaseApproveJS.InvokeAsync<double>("getUSDT" ,socketServerUri ,USDT_token_addr);
+                        tokenUSDT = await PurchaseApproveJS.InvokeAsync<double>("getUSDT" ,chainRPCUrl ,USDT_token_addr);
                         await getGameCoin();
                         changePurchaseData(gSRCBuy,gSRCtotal,productName );
                         CheckoutPop();

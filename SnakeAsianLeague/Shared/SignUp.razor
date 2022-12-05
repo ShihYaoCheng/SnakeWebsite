@@ -47,12 +47,12 @@
                     <div class="SignUp-input-row">
                         @* <input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode"> *@
                         
-                        <select class="SignUp-inputText">
+                        <select @bind="CountryCode" class="SignUp-inputText">
                             <option value="+886">Taiwan +886</option>
                             <option value="+">+</option>
                         </select>
 
-                        <input type="text" class="SignUp-inputText" id="PhoneNum" name="PhoneNum" data-i18n="[placeholder]Home_data:register.inputPhoneNumber;[data-content]Home_data:register.tippy" placeholder="Phone Number">
+                        <input @bind="PhoneNum" type="text" class="SignUp-inputText" id="PhoneNum" name="PhoneNum" data-i18n="[placeholder]Home_data:register.inputPhoneNumber;[data-content]Home_data:register.tippy" placeholder="Phone Number">
                         
                     </div>
                 </div>
@@ -70,9 +70,9 @@
                             <input class="SignUp-inputText" id="" type="text"
                                 @bind-value="RegisterDTO.VerifyCode" placeholder="4-digit verify code"  data-i18n="[placeholder]Home_data:register.verifyCodeText">
                             <div class="TimeLeft">
-                                    <button class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
+                                    <button  hidden="@(sendVerifyCodehidden)" class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
                                     data-i18n="Home_data:register.sendVerifyCode">Send</button>
-                                    <div class="TimeLeft-Resend">
+                                    <div hidden="@(!sendVerifyCodehidden)"  class="TimeLeft-Resend">
                                         <button class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
                                         data-i18n="Home_data:register.resendVerifyCode">Resend</button>
                                         <span class="TimeLeft-countdown">@TimeLeft</span>
@@ -121,8 +121,8 @@
                 </div>
             </div>
 
-            @* </EditForm> *@
-
+            @* </EditForm> *@    
+            
         </div>
     </section>
 
@@ -163,7 +163,7 @@
         </div>
     </section>
 
-
+   
 </div>
 
 
@@ -175,12 +175,11 @@
 @code {
     private IJSObjectReference? NFTindexBannerJS;
 
-    [Parameter]
-    public string? CountryCode { get; set; }
-    [Parameter]
+    public string? CountryCode { get; set; } 
     public string? PhoneNum { get; set; }
 
-
+    //
+    bool sendVerifyCodehidden = false;
     //註冊彈窗
     bool displayForm = false;
     void EditFormShow() => displayForm = true;
@@ -228,13 +227,14 @@
     void AlertShow()
     {
         displayAlert = true;
-        @* NFTindexBannerJS.InvokeVoidAsync("NFTindexRegister"); *@
+    @* NFTindexBannerJS.InvokeVoidAsync("NFTindexRegister"); *@
         @* await JS.InvokeVoidAsync("installI18n"); *@
     }
 
 
     private async Task SendVerifyCode()
     {
+        sendVerifyCodehidden = true;
         if (String.IsNullOrEmpty(CountryCode))
         {
             AlertDatai18n = "countryCode";

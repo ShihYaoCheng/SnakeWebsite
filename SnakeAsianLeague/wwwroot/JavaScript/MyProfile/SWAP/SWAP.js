@@ -26,7 +26,7 @@ window.web3JS = async function () {
 window.web3JS = async function (chainId, USDT_address, SRC_address, SRCSwap_address, wssURL) {
 
 	/*引用web3 、獲取地址跟鍊*/
-	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL))
+	const web3 = new Web3(new Web3.providers.HttpProvider(wssURL))
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts()
 	const networkID = await w3.eth.net.getId()

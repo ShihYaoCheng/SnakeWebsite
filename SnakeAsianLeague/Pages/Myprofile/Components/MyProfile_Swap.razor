@@ -364,8 +364,8 @@
         var USDT_token_addr = BlockChainSever.BlockChainInfoDTO.usdtAddress;
         var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
         var SRCSwap_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCSwap;
-        var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
-        web3jsData = await JS.InvokeAsync<decimal[]>("web3JS" ,chainId ,USDT_token_addr,SRC_token_addr,SRCSwap_addr ,socketServerUri  );
+        var chainRPCUrl = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
+        web3jsData = await JS.InvokeAsync<decimal[]>("web3JS" ,chainId ,USDT_token_addr,SRC_token_addr,SRCSwap_addr ,chainRPCUrl  );
         SwapRate = web3jsData[2] ;
         SRCTotal = web3jsData[0] ;
         USDTTotal = web3jsData[1] ;

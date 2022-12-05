@@ -52,7 +52,7 @@
 
 
 export async function getUSDT(wssURL, USDT_address) {
-	const web3 = new Web3(new Web3.providers.WebsocketProvider(wssURL))
+	const web3 = new Web3(new Web3.providers.HttpProvider(wssURL))
 	const w3 = new Web3(Web3.givenProvider)
 	const address = await w3.eth.requestAccounts()
 	const networkID = await w3.eth.net.getId()

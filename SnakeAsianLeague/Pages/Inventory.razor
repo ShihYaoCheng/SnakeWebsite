@@ -102,9 +102,9 @@
             SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRC;
         }     
 
-        string socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
+        string chainRPCUrl = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
 
-        JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,chainId, SRC_token_addr , socketServerUri);
+        JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,chainId, SRC_token_addr , chainRPCUrl);
         CoinData.tokenSRCchange(JSCoinData);         
     }
     //切換並新增Polygon

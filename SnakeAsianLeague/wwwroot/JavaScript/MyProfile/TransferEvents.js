@@ -1,5 +1,5 @@
 ﻿export function TransferEvents(wssURL, USDC_Token_addr, getId) {    
-    const w3 = new Web3(new Web3.providers.WebsocketProvider(wssURL)) 
+    const w3 = new Web3(new Web3.providers.HttpProvider(wssURL)) 
     const contract = new w3.eth.Contract(window.ERC20_abi, USDC_Token_addr)
     let retrunTest ="";
     const changeNum = document.getElementById(getId);
