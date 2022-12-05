@@ -72,7 +72,8 @@
     position: absolute;
     left: 10%;
     top: 42%;
-    width: 45%;
+    /* width: 45%; */
+    width: 70%;
     z-index: 5;
 }
 
@@ -80,12 +81,16 @@
     position: relative;
     z-index: -1;
 }
-#CooperationBanner-title{
+#CooperationBanner-title-TW{
     max-width: 1000px;
     width: 100%;
     /* position: absolute;
     top: 0;
     left: 0; */
+}
+#CooperationBanner-title-EN{
+    max-width: 1400px;
+    width: 100%;
 }
 #Title_base{
     max-width: 1140px;
@@ -183,7 +188,7 @@
     .CooperationBanner-Gradient{
         background-image: linear-gradient(to top, rgb(32, 50, 64) 0%, rgba(32, 50, 64, 0.8) 30%, rgba(32, 50, 64, 0.6) 38%, rgba(32, 50, 64, 0) 48%, rgba(32, 50, 64, 0) 100%);
     }
-    #CooperationBanner-title {
+    #CooperationBanner-title-TW {
         max-width: 600px;
         width: 100%;
     }
@@ -210,7 +215,7 @@
     .CooperationBanner-content{
         width: 50%;
     }
-    #CooperationBanner-title{
+    #CooperationBanner-title-TW{
         margin-bottom: 6px;
     }
     .CooperationBanner-text{
@@ -241,7 +246,7 @@
         width: 58%;
         top: 40%;
     }
-    #CooperationBanner-title{
+    #CooperationBanner-title-TW{
         max-width: 400px;
     }
     #Title_base {
@@ -315,7 +320,7 @@
     .Cooperation_Banner_Block{
         height: 400px;
     }
-    #CooperationBanner-title {
+    #CooperationBanner-title-TW {
         margin-bottom: 10px;
     }
     .CooperationBanner-text {
