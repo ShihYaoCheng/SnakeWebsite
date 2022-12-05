@@ -1,0 +1,503 @@
+/* 彈窗 */
+/* 彈窗 products-Popup */
+:root {
+    --green-1: #276170;
+    --green-2: #69ADA2;
+    --green-font-1: #8Fcdc3;
+    --green-font-2: #9fd5cd;
+    --green-font-3: #4b8b8b;
+
+    --orange-1: #feac22;
+    --font-1: #073538;
+
+    --popup-bg-1: #2c3236b6;
+
+    --error: #D06F6F;
+    --white: #FFFFFF;
+
+
+}
+
+
+.SignUp-Page{
+    background-color: #203240;
+}
+.SignUp-Block-BG{
+    background-color: #203240;
+    width: 100%;
+    padding: 200px 0px 150px;
+}
+.SignUp-Block{
+    box-shadow: inset 0px 13px 10px 0 rgba(164, 171, 167, 0.5),5px 5px 10px #0606063f; ;
+    background-color: #4b8b8b;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+
+    max-width: 630px;
+    width: 90%;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
+
+    margin: 0 auto;
+}
+.SignUp-Block-scroll{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-right: 10px;
+    width: 95%;
+}
+
+.NFTindex_Register{
+
+
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    position: relative;
+
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+}
+
+.SignUp-input-row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#CountryCode{
+    width: 30%;
+    margin-right: 10px;
+}
+
+#PhoneNum{
+    width: 70%;
+}
+
+.Register-submit{
+    background-color: var(--orange-1);
+    color: var(--white);
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    /* right: -80px; */
+    transition: all .1s ease-in-out;
+    margin-left: -30px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 5px 0px 10px 6px rgba(106, 107, 107, 0.4);
+}
+
+
+/* 彈窗 */
+.popup-RegisterPhone{
+    color: var(--green-font-2);
+    line-height: 40px;
+    font-size: 22px;
+    width: 90%;
+}
+.popup-low{
+    /* border: 1px solid red; */
+    color: var(--white);
+    font-size: 18px;
+    width: 90%;
+    margin: 12px 0;
+}
+.popup-label-02{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.popup-label{
+    /* width: 20%; */
+    margin-bottom: 3px;
+    white-space: nowrap;
+}
+.verifyCodeText{
+    font-size: 14px;
+}
+.products-popup-bg{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--popup-bg-1);
+
+    top: 0;
+    left: 0;
+    transition: all .3s ease-in-out; 
+
+    position: fixed;
+    opacity: 0;
+    z-index: -50;
+
+
+}
+
+.products-popupblock{
+
+    box-shadow: inset 0px 13px 10px 0 rgba(164, 171, 167, 0.5),5px 5px 10px #0606063f; ;
+    background-color: #4b8b8b;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+
+    max-width: 630px;
+    position: relative;
+    width: 90%;
+    max-height: 80vh;
+    border-radius: 20px;
+    letter-spacing: 1.5px;
+
+    /* display: none; */
+    
+    /* z-index: 50; */
+
+
+    transform: translate(-50% ,-50%);
+    top: 50%;
+    left: 50%;
+
+}
+
+.products-popup-open{
+    opacity: 1 !important;
+    z-index: 250 !important;
+}
+.products-popup-close{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    transition: all .1s ease-in-out; 
+}
+.products-popup-close:hover{
+    /* transform: scale(1.02); */
+    opacity: 0.8;
+}
+
+.SignUp-popup-title{
+    color: var(--white);
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    padding: 30px 0 20px;
+    width: 85%;
+    margin: 0 auto;
+    line-height: 36px;
+}
+.SignUp-avatar{
+    width: 25%;
+    border: 3px solid var(--green-2);
+    border-radius: 16px;
+    max-width: 100px;
+    margin: 0 auto 10px;
+    overflow: hidden;
+}
+.SignUp-avatar img{
+    width: 100%;
+}
+
+.SignUp-popup-content {
+    border-top: 1.5px solid var(--green-2);
+    padding: 20px 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
+    width: 90%;
+    margin: 0 auto;
+}
+.SignUp-popup-scroll{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* max-height: calc(80vh - 150px); */
+    /* padding-right: 10px; */
+    width: 100%;
+}
+.SignUp-popup-text{
+    color: var(--white);
+    font-size: 20px;
+    line-height: 30px;
+    margin: 10px 0 20px;
+    width: 90%;
+    /* text-align: center; */
+    line-height: 24px;
+}
+
+input.SignUp-inputText{
+    background-color: var(--white);
+    border: 3px solid var(--white);
+    border-radius: 10px;
+    padding: 3px 15px 4px;
+    white-space: nowrap;
+    font-size: 18px;
+    line-height: 20px;
+    outline: none;
+    color: var(--green-font-3);
+    width: 100%;
+    height: 38px;
+    box-sizing: border-box;
+    letter-spacing: 0.5px;
+}
+input.SignUp-inputText:focus{
+    border: 3px solid var(--green-font-2);
+    color: var(--green-font-3);
+}
+input.SignUp-inputText::placeholder{
+    font-size: 15.5px;
+    color: #7f9390b6;
+    letter-spacing: 0.5px;
+}
+select.SignUp-inputText{
+    background-color: var(--white);
+    border: 3px solid var(--white);
+    border-radius: 10px;
+    padding: 0px 15px 0px;
+    white-space: nowrap;
+    font-size: 17px;
+    line-height: 20px;
+    outline: none;
+    color: var(--green-font-3);
+    width: 40%;
+    height: 38px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    letter-spacing: 0.5px;
+}
+select.SignUp-inputText:focus{
+    border: 3px solid var(--green-font-2);
+    color: var(--green-font-3);
+}
+select.SignUp-inputText::placeholder{
+    font-size: 14px;
+    color: #7f9390b6;
+}
+option{
+    /* font-size: 14px; */
+}
+
+.TimeLeft{
+    /* border: 1px solid red; */
+    text-align: right;
+    color: var(--white);
+    font-size: 16px;
+    /* width: 100%; */
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    /* margin: 0 0 5px 0; */
+}
+.TimeLeft-Resend{
+    display: flex;
+    align-items: center;
+}
+.TimeLeft-countdown{
+    margin-left: 5px;
+    font-size: 13px;
+}
+.TimeLeft-button{
+    background-color: var(--orange-1);
+    color: var(--white);
+    letter-spacing: 1px;
+    border: none;
+    padding: 4.5px 10px;
+    border-radius: 10px;
+    margin-left: 5px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    /* max-height: 100%; */
+    font-size: 14px;
+}
+.TimeLeft-button:hover{
+    transform: scale(1.02);
+}
+.if-No-VerifyCode{
+    margin-top: 3.5px;
+    font-size: 13.5px;
+    color: var(--white);
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* flex-wrap: wrap; */
+}
+.if-No-VerifyCode a{
+    color: var(--orange-1);
+    display: contents;
+}
+.products-popup-error{
+    color: var(--error);
+    font-size: 20px;
+    margin: 15px 0 0px;
+    width: 85%;
+
+    /* display: none; */
+}
+
+button.products-popup-submit{
+    color: var(--white);
+    font-size: 22px;
+    border: none;
+    background: var(--orange-1);
+    border-radius: 13px;
+    padding: 4px 28px 6px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    transition: all .1s ease-in-out;
+}
+
+button.products-popup-submit:hover{
+    transform: scale(1.02);
+}
+@media all and (max-width: 1950px){
+    .NFTindex_Register{
+        margin: 10px auto;
+    }
+    .SignUp-Block-BG{
+        padding: 150px 0px 150px;
+    }
+}
+
+@media all and (max-width: 150px){
+    .NFTindex_Register{
+        margin: 7px auto;
+    }
+}
+
+@media all and (max-width: 1000px){
+    .Register-input{
+        font-size: 16px;
+    }
+    .Register-submit{
+        font-size: 16px;
+    }
+}
+
+
+@media all and (max-width: 600px){
+    .SignUp-popup-content{
+        padding: 20px 0 25px;
+        /* width: 95%; */
+    }
+    .SignUp-popup-title{
+        font-size: 24px;
+        padding: 22px 0 15px;
+    }
+    .SignUp-popup-text{
+        font-size: 16px;
+        width:100%;
+        margin: 0px 0 10px;
+    }
+    input.SignUp-inputText{
+        font-size: 15px;
+        padding: 3px 10px 4px;
+    }
+    input.SignUp-inputText::placeholder{
+        font-size: 14px;
+        color: #7f9390b6;
+    }
+    select.SignUp-inputText{
+        font-size: 14px;
+        padding: 0px 6px 0px;
+    }
+    select.SignUp-inputText::placeholder{
+        font-size: 12px;
+        color: #7f9390b6;
+    }
+    .TimeLeft-button{
+        font-size: 13px;
+    }
+    .popup-RegisterPhone{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .popup-low{
+        font-size: 18px;
+        width: 100%;
+    }
+    .popup-label{
+        font-size: 16px;
+
+    }
+    button.products-popup-submit {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    .products-popup-close{
+        top: 12px;
+        right: 12px;
+        width: 22px;
+        height: 22px;
+    }
+
+    .SignUp-Block-BG {
+        padding: 100px 0px 100px;
+        background-color: #4b8b8b;
+    }
+    .SignUp-Block{
+        width: 100%;
+        box-shadow: unset;
+    }
+    .popup-label-02{
+        /* flex-wrap: wrap; */
+    }
+    .SignUp-avatar{
+        margin: 0 auto 0px;
+    }
+}
+@media all and (max-width: 480px){
+
+    .NFTindex_Register {
+        margin: 8px auto;
+    }
+    .Register-input{
+        padding: 4px 15px 3px;
+    }
+    .Register-submit{
+        padding: 9px 19px;
+    }
+    .TimeLeft-Resend{
+        flex-direction: column;
+        align-items: center;
+    }
+    .TimeLeft-button{
+        padding: 3px 10px;
+        margin-bottom: 2px;
+    }
+}
+
+/* 改scrollbar樣式 */
+/* body:not(.rz-default-scrollbars) ::-webkit-scrollbar {
+    width: 8px;
+    -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+    border-radius: 10px;
+    background: #d7edee;
+} */
+.SignUp-popup-scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px ;
+    background-color: #4b8b8b ;
+    border: none ;
+}
+
+.SignUp-popup-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px !important;
+    background: #96cdc6 !important;
+    border: none !important;
+}
+
+.SignUp-popup-scroll::-webkit-scrollbar {
+    width: 8px !important;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px ;
+    background: #d7edee ;
+}

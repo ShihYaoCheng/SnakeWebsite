@@ -80,8 +80,8 @@
     "Password": "密碼",
     "SignIn": "登入",
     "Failed": "登入失敗，請重新登入",
-    "Rigister": "註冊"
-
+    "Register": "註冊",
+    "notYetRegistered": "還沒有帳號嗎？"
   },
 
   "SnakeIndexlogo": "/images/OfficialWeb/LOGO.webp",

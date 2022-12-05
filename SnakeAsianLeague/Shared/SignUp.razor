@@ -1,0 +1,389 @@
+@page "/SignUp"
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services.Backstage
+@using System.Text.RegularExpressions
+
+@inject OfficialWebsiteData OfficialWebsiteData
+@inject IAuthService AuthService
+@inject IJSRuntime JS
+@inject AppState AppState
+@implements IDisposable
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<head>
+    <title>PonPonSnake｜Sign Up</title>
+    <link href="/css/Shared/SignUp.css" rel="stylesheet" />
+</head>
+
+
+
+<div class="SignUp-Page" id="register_wrap">
+
+    @* <section class="@(displayForm? "" : "d-none") products-popup-bg products-popup-open "
+        id="products-popupblock-Name"> *@
+    <section class="SignUp-Block-BG ">
+        <div class="SignUp-Block">
+
+
+            <div class="SignUp-popup-title" data-i18n="Home_data:register.title">Register Account</div>
+
+            @* <EditForm Model="@RegisterDTO" class="window_input_block"> *@
+            @* <DataAnnotationsValidator />
+                <ValidationSummary /> *@
+
+            <div class="SignUp-popup-content">
+
+                <div class="SignUp-avatar">
+                    <img src="/images/Shared/SignUp/avatar.png" alt="">
+                </div>
+
+                <div class="SignUp-popup-scroll">
+
+                <div class="popup-low">
+                    <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.phoneNumber">Phone Number</label>
+
+                    <div class="SignUp-input-row">
+                        @* <input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode"> *@
+                        
+                        <select class="SignUp-inputText">
+                            <option value="+886">Taiwan +886</option>
+                            <option value="+">+</option>
+                        </select>
+
+                        <input type="text" class="SignUp-inputText" id="PhoneNum" name="PhoneNum" data-i18n="[placeholder]Home_data:register.inputPhoneNumber;[data-content]Home_data:register.tippy" placeholder="Phone Number">
+                        
+                    </div>
+                </div>
+
+
+                    <div class="popup-low">
+                        
+
+                        <label class="popup-label" for="name"
+                            data-i18n="Home_data:register.verifyCode">VerifyCode 
+                            @* <span class="verifyCodeText" data-i18n="Home_data:register.verifyCodeText">(Enter the 4-digit verify code)</span> *@
+                        </label>
+
+                        <div class="SignUp-input-row">
+                            <input class="SignUp-inputText" id="" type="text"
+                                @bind-value="RegisterDTO.VerifyCode" placeholder="4-digit verify code"  data-i18n="[placeholder]Home_data:register.verifyCodeText">
+                            <div class="TimeLeft">
+                                    <button class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
+                                    data-i18n="Home_data:register.sendVerifyCode">Send</button>
+                                    <div class="TimeLeft-Resend">
+                                        <button class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
+                                        data-i18n="Home_data:register.resendVerifyCode">Resend</button>
+                                        <span class="TimeLeft-countdown">@TimeLeft</span>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="if-No-VerifyCode">
+                            <span data-i18n="Home_data:register.if-No-VerifyCode">If not receive the digital code, please contact us on</span>
+                            <a href="https://www.facebook.com/PonponSnake" target="_blank" data-i18n="Home_data:register.facebook"> Facebook</a>
+                        </div>
+                    </div>
+
+                    @* <div class="popup-low">
+                        <label class="popup-label" for="name" data-i18n="Home_data:register.userName">User Name</label>
+                        <input class="SignUp-inputText" id="username" type="text" @bind-value="UserName"
+                            placeholder="">
+                    </div> *@
+
+                    <div class="popup-low">
+                        <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.password">Password</label>
+                        <input class="SignUp-inputText" id="RegisterPassword" type="text"
+                            @bind-value="RegisterDTO.Password" placeholder="Minimum of 6 characters, maximum of 10" data-i18n="[placeholder]Home_data:register.passwordText">
+                    </div>
+
+                    <div class="popup-low">
+                        <label class="popup-label" for="passwordcheck" data-i18n="Home_data:register.confirmPassword">Confirm
+                            Password</label>
+                        <input class="SignUp-inputText" id="passwordcheck" type="text"
+                            @bind-value="PasswordCheck" placeholder="">
+                    </div>
+
+                    <div class="popup-low">
+                        <label class="popup-label" for="InvitationCode" data-i18n="Home_data:register.InvitationCode">
+                            Invitation Code</label>
+                        <input class="SignUp-inputText" id="InvitationCode" type="text"
+                             placeholder="No invitation code, leave the field blank."  data-i18n="[placeholder]Home_data:register.InvitationCodeText">
+                    </div>
+
+
+
+                    <div class="products-popup-error">@ErrorString</div>
+
+                    <button class="products-popup-submit button-hover" type="submit" @onclick="RegisterSubmit"
+                        data-i18n="Home_data:register.registerButton">Sign Up</button>
+
+                </div>
+            </div>
+
+            @* </EditForm> *@
+
+        </div>
+    </section>
+
+
+
+    @* 送出成功/失敗 彈窗 *@
+
+    <section class="@(displayAlert? "" : "d-none") products-popup-bg  products-popup-open "
+        id="products-popupblock-result">
+        <div class="products-popupblock">
+
+            <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25"
+                @onclick="AlertCancel">
+                <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z"
+                    transform="translate(2.5 2.5)" fill="none" stroke="#fff" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="5" />
+            </svg>
+
+            <div class="SignUp-popup-title" data-i18n="Home_data:registerAlert.@AlertDatai18n">
+                @* <div class="SignUp-popup-title"> *@
+                @AlertTitle
+            </div>
+
+            <EditForm Model="@RegisterDTO" class="window_input_block">
+
+
+                <div class="SignUp-popup-content">
+
+                    @* 這裡待處理 *@
+                    <div class="SignUp-popup-text" data-i18n="Home_data:registerAlert.@AlertContentDatai18n">
+                        @AlertContent</div>
+                    <button class="products-popup-submit button-hover" type="submit" @onclick="AlertCancel"
+                        data-i18n="Home_data:register.close">Close</button>
+                </div>
+
+            </EditForm>
+
+        </div>
+    </section>
+
+
+</div>
+
+
+
+
+
+
+
+@code {
+    private IJSObjectReference? NFTindexBannerJS;
+
+    [Parameter]
+    public string? CountryCode { get; set; }
+    [Parameter]
+    public string? PhoneNum { get; set; }
+
+
+    //註冊彈窗
+    bool displayForm = false;
+    void EditFormShow() => displayForm = true;
+    void EditFormCancel() => displayForm = false;
+
+    //提醒彈窗
+    bool displayAlert = false;
+    public string? AlertTitle { get; set; }
+    public string? AlertDatai18n { get; set; }
+    public string? AlertContentDatai18n { get; set; }
+    public string? AlertContent { get; set; }
+    @* void AlertShow() => displayAlert = true; *@
+    void AlertCancel() => displayAlert = false;
+
+    uint userID = 0;
+    string phone = "";
+
+    public PhoneMemberRegisterDTO RegisterDTO { get; set; } = new PhoneMemberRegisterDTO();
+
+
+
+    public string PasswordCheck { get; set; }
+    public string UserName { get; set; }
+    public string ErrorString { get; set; }
+
+
+
+    //倒數計時
+    bool TimerIsRunning = false;
+    TimeSpan TimeLeft = new TimeSpan();
+
+    async Task Timer()
+    {
+        while (TimeLeft > new TimeSpan())
+        {
+            await Task.Delay(1000);
+            TimeLeft = TimeLeft.Subtract(new TimeSpan(0, 0, 1));
+            StateHasChanged();
+        }
+        TimerIsRunning = false;
+        StateHasChanged();
+    }
+
+
+    void AlertShow()
+    {
+        displayAlert = true;
+        @* NFTindexBannerJS.InvokeVoidAsync("NFTindexRegister"); *@
+        @* await JS.InvokeVoidAsync("installI18n"); *@
+    }
+
+
+    private async Task SendVerifyCode()
+    {
+        if (String.IsNullOrEmpty(CountryCode))
+        {
+            AlertDatai18n = "countryCode";
+            AlertTitle = "Please enter your Country Code";
+            AlertShow();
+            return;
+        }
+        if (String.IsNullOrEmpty(PhoneNum))
+        {
+            AlertDatai18n = "phoneNum";
+            AlertTitle = "Please enter your Phone Number";
+            AlertShow();
+            return;
+
+        }
+
+        ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
+        if (resp.Success == true)
+        {
+            TimerIsRunning = true;
+            TimeLeft = new TimeSpan(0, 0, 20);
+            Timer();
+            EditFormShow();
+
+        }
+        else
+        {
+            //呼叫RegisterFail
+            userID = 0;
+            await OfficialWebsiteData.RegisterFail(userID, CountryCode + PhoneNum);
+            Console.WriteLine(resp.Content);
+            AlertTitle = "Sending verification code failed";
+            AlertDatai18n = "verifyFailed";
+
+
+            switch (resp.Content)
+            {
+                case "BadRequest":
+                    AlertContent = resp.Content + ". Please check the input is correct. ";
+                    AlertContentDatai18n = "badRequest";
+                    break;
+
+                case "Conflict":
+                    AlertContent = resp.Content + ". This phone Number has already been registered. ";
+                    AlertContentDatai18n = "conflict";
+                    break;
+
+
+                default:
+                    AlertContent = resp.Content;
+                    AlertContentDatai18n = "severError";
+                    break;
+            }
+
+
+            AlertShow();
+        }
+
+
+    }
+
+
+
+    private async Task RegisterSubmit()
+    {
+        if (PasswordCheck != RegisterDTO.Password)
+        {
+            AlertDatai18n = "registerFailed";
+            AlertContentDatai18n = "PasswordNotMatch";
+            AlertShow();
+            return;
+        }
+
+        bool pwIsMatch = Regex.IsMatch(PasswordCheck, @"^[A-Za-z0-9]{6,10}$");
+        if (!pwIsMatch)
+        {
+            AlertDatai18n = "registerFailed";
+            AlertContentDatai18n = "PasswordInvalid";
+            AlertShow();
+            return;
+        }
+
+
+
+        ServerResponce resp = await AuthService.PhoneRegister(CountryCode, PhoneNum, RegisterDTO, UserName);
+        if (resp.Success == true)
+        {
+
+            //登出舊儲存帳號
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var LoginUser = authState.User;
+            if (LoginUser != null && LoginUser.Identities.Count() != 0)
+            {
+                await AuthService.AuthLogout();
+            }
+
+
+            //登入
+            LoginRequest loginRequest = new LoginRequest();
+            loginRequest.countryCode = CountryCode;
+            loginRequest.phone = PhoneNum;
+            loginRequest.password = PasswordCheck;
+            SnakeAccount snakeAccount = await AuthService.AuthLogin(loginRequest, true);
+            AppState.UpdateLoginStatus(this, snakeAccount);
+
+            AlertTitle = "Register Successed";
+            AlertDatai18n = "registerSuccessed";
+            AlertContent = "";
+            AlertShow();
+
+            //呼叫總計註冊API
+            userID = snakeAccount.userID;
+            phone = snakeAccount.phone;
+            await OfficialWebsiteData.Register(userID, phone);
+
+            EditFormCancel();
+
+
+
+        }
+        else
+        {
+            AlertDatai18n = "registerFailed";
+            AlertContent = resp.Content;
+            AlertShow();
+        }
+
+    }
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        NFTindexBannerJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NFTindex/NFTindexBanner.js");
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("installI18n");
+            AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+        }
+        else
+        {
+            await NFTindexBannerJS.InvokeVoidAsync("I18nAfterRender");
+        }
+    }
+    void IDisposable.Dispose()
+    {
+        //AppState.OnChange -= StateHasChanged;
+        AppState.StateChanged -= async (Source, Property)
+        => await InvokeAsync(StateHasChanged);
+    }
+}
