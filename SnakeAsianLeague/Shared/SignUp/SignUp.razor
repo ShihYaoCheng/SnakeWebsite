@@ -45,7 +45,7 @@
                     <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.phoneNumber">Phone Number</label>
 
                     <div class="SignUp-input-row">
-                        <input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode">
+                        <input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode" @bind="CountryCode">
                         
                         @* <select @bind="CountryCode" class="SignUp-inputText">
                             <option value="+886">Taiwan +886</option>
@@ -178,12 +178,8 @@
     public string? CountryCode { get; set; } 
     public string? PhoneNum { get; set; }
 
-    //
+    
     bool sendVerifyCodehidden = false;
-    //註冊彈窗
-    bool displayForm = false;
-    void EditFormShow() => displayForm = true;
-    void EditFormCancel() => displayForm = false;
 
     //提醒彈窗
     bool displayAlert = false;
@@ -258,7 +254,6 @@
             TimerIsRunning = true;
             TimeLeft = new TimeSpan(0, 0, 20);
             Timer();
-            EditFormShow();
 
         }
         else
@@ -320,7 +315,7 @@
 
 
 
-        ServerResponce resp = await AuthService.PhoneRegister(CountryCode, PhoneNum, RegisterDTO, UserName);
+        ServerResponce resp = await AuthService.PhoneRegister(CountryCode, PhoneNum, RegisterDTO);
         if (resp.Success == true)
         {
 
@@ -349,9 +344,7 @@
             //呼叫總計註冊API
             userID = snakeAccount.userID;
             phone = snakeAccount.phone;
-            await OfficialWebsiteData.Register(userID, phone);
-
-            EditFormCancel();
+            OfficialWebsiteData.Register(userID, phone);
 
 
 
