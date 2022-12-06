@@ -339,8 +339,9 @@ option{
 }
 .if-No-VerifyCode a{
     color: var(--orange-1);
-    display: contents;
+    display: initial;
 }
+
 .products-popup-error{
     color: var(--error);
     font-size: 20px;
