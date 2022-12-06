@@ -45,12 +45,12 @@
                     <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.phoneNumber">Phone Number</label>
 
                     <div class="SignUp-input-row">
-                        @* <input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode"> *@
+                        <input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode">
                         
-                        <select @bind="CountryCode" class="SignUp-inputText">
+                        @* <select @bind="CountryCode" class="SignUp-inputText">
                             <option value="+886">Taiwan +886</option>
                             <option value="+">+</option>
-                        </select>
+                        </select> *@
 
                         <input @bind="PhoneNum" type="text" class="SignUp-inputText" id="PhoneNum" name="PhoneNum" data-i18n="[placeholder]Home_data:register.inputPhoneNumber;[data-content]Home_data:register.tippy" placeholder="Phone Number">
                         
