@@ -2,43 +2,43 @@
     "banner":{
         "title":"/images/Cooperation/Cooperation_Banner/CooperationBanner-EN.png",
         "id":"CooperationBanner-title-EN",
-        "text":"玩的到、買的到、製造更多的互動！<br>將你的NFT作品或是品牌融入碰碰蛇元宇宙",
-        "mail":"歡迎來信諮詢"
+        "text":"Play it, Buy it, Create more FUN!<br>Promote your NFT creations or brands in the PonPonSnake  Universe.",
+        "mail":"For more info, please email:"
     },
 
     "info":{
-        "title-01":"開發你的NFT賦能",
-        "text-01":"受夠了你的NFT只是一張圖嗎？想要開發更多的元宇宙可能性嗎？你的NFT與我們的蛇和騎士們可以迸出新滋味。你的NFT有機會成為我們遊戲內的角色、頭像、領地‥‥等。它將有各種可能性，也將成為更值得擁有的珍藏！",
-        "title-02":"我們歡迎任何形式的NFT合作",
-        "text-02-01":"擔心你的NFT不夠酷炫、太簡單、只有黑白線條、一堆疑難雜症嗎？",
-        "text-02-02":"不用擔心！碰碰蛇可以讓你的NFT搖身一變，讓它能以最華麗的姿態在遊戲發光發熱。我們歡迎任何樣子的NFT來合作，並以最專業的團對提供營運分針以及企劃設計。",
-        "title-03":"NFT角色3D模組化",
-        "text-03-01":"• 由首席設計師設計的精美2D、3D角色",
-        "text-03-02":"• 在遊戲中可運用及可互動的生動角色",
-        "text-03-03":"• 可以收藏與割愛給喜歡這系列的收藏者",
-        "text-03-04":"• 讓精美又可愛的角色們為您推廣及代言"
+        "title-01":"Discover the capabilities of your NFTs",
+        "text-01":"Are you tired of people telling you that NFT is just an image? Do you want to discover more about the Metaverse's possibilities? Your NFT and PonPonSnake can turn the impossible become a reality! We can use your NFTs to create a character, avatar, or even a special land for you!",
+        "title-02":"We invite any type of NFTs to collaborate",
+        "text-02-01":"Don't be concerned if your NFT isn't cool or well-known. PonPonSnake has the ability to transform your NFT.",
+        "text-02-02":"We can make it shine in the game with the most beautiful stance. We encourage any type of NFT to collaborate with us, and we will supply designers to advertise your NFT with the most professional team possible.",
+        "title-03":"NFT Characters with 3D Art Style",
+        "text-03-01":"• 2D/3D characters designed by our lead designer.",
+        "text-03-02":"• Your character will be used/playable in the game",
+        "text-03-03":"• Players can collect or sell these tradable NFTs",
+        "text-03-04":"• Allow these gorgeous and adorable figures to market you."
     },
 
     "choose":{
-        "mainTitle":"為什麼選擇碰碰蛇？",
-        "title-01":"穩定性",
-        "content-01":"碰碰蛇是一間具有穩定性的公司，我們經營多年並且在業界有豐富的遊戲經驗，也是台灣少數鑽研NFT遊戲的公司。",
-        "title-02":"專業性",
-        "content-02":"碰碰蛇擁有最專業的團隊，這其中不乏專業的設計，美術、企劃以及程式，能用最專業的態度和技術包裝您的品牌NFT。",
-        "title-03":"多變性",
-        "content-03":"為了應對市場，我們也有多樣性的NFT。從角色到領地都能夠提供品牌多次曝光機會，隨著越來越多樣的NFT宇宙發展，我們也將跟緊腳步，不落人後。"
+        "mainTitle":"Why PonPonSnake?",
+        "title-01":"Stabilize",
+        "content-01":"PonPonSnake is a stable company, we have been in the game industry for many years and have rich experience. We are also one of the few Taiwan companies developing into GameFi.",
+        "title-02":"Professional",
+        "content-02":"PonPonSnake has the most professional team, including design, art, planning, and programming, which can transform your brand NFT with the most professional attitude and expertise.",
+        "title-03":"Variability",
+        "content-03":"We may offer a range of choices, from characters to lands. As more and more unique NFT universes appear, we will maintain the pace and avoid falling behind."
     },
 
     "case":{
-        "mainTitle":"NFT合作案例 - Joker Charlie Club",
-        "text-01":"Joker Charlie Club 是目前 Opensea 上價值超過300萬美金的NFT，也是我們首個合作對象，碰碰蛇能提供強大的概念設計，貫徹所有東西都能變成蛇的信念！你想不到的創意就讓我們來替你補上。",
-        "text-02":"我們有專門的概念設計師優先設計Joker Charlie Club 的合作插圖，並能同時能將 Joker Charlie Club 以及我們的碰碰蛇推上元宇宙的舞台。在這樣的合作模式下，我們將是雙贏的局面。"
+        "mainTitle":"NFT Cooperate - Joker Charlie Club",
+        "title":"Design Concept",
+        "text-01":"Joker Charlie Club is currently an NFT worth more than $3 million USD on Opensea and is also our first partner. We created a strong conceptual design that represents the idea that everything can turn into a snake! Let us make up for you the creativity that you can't think of. ",
+        "text-02":"We have experienced concept designers that focus on creating cooperative illustrations for the Joker Charlie Club. Which will bring the Joker Charlie Club and the PonPonSnake to the metaverse stage. We will be in a win-win situation in such a cooperative style."
     },
 
     "connect":{
-        "title":"聯繫方式",
-        "text-01":"我們歡迎任何有意願合作的NFT品牌及企業與我們聯繫，",
-        "text-02":"讓專業的碰碰蛇將您的作品或品牌推廣出去吧！",
-        "mail":"來信諮詢"
+        "title":"Contact Us",
+        "text":"<p>We welcome any NFT, brand, or company that desires to collaborate with us,</p><p>and we shall promote your NFT to people all over the world.</p>",
+        "mail":"Email"
     }
 }

@@ -34,8 +34,8 @@
 }
 .Cooperation-container {  
     max-width:1000px;
-    margin:0 auto;
-    width:90%;
+    margin: 0 auto;
+    width: 90%;
 }
 
 @media all and (max-width: 1000px) {
@@ -44,7 +44,7 @@
     }
 
     .Cooperation-container {
-        max-width: 750px;
+        max-width: 850px;
         margin: 0 auto;
     }
 
