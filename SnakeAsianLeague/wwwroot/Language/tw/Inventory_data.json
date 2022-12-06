@@ -116,7 +116,8 @@
     "ConnectToGame": "連接遊戲",
     "WrongNetwork": "網路錯誤",
     "SwitchYoMetWorkName": "切換至",
-    "LoadingData": "資料載入中"
+    "LoadingData": "資料載入中",
+    "Cancel": "取消"
   },
   "SRCPackage": {
     "SRCPackage": "SRC禮包",
