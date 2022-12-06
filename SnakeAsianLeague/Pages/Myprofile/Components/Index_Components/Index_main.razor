@@ -369,13 +369,13 @@
             {
                 NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
             }
-            
+
             gSRC = await InventoryService.GetgSRCCurrency1(AppState.LoginStatus.userID.ToString() , 22);
 
-      
+
             //強制渲染
             await InvokeAsync(StateHasChanged);
-         
+
             //await JS.InvokeVoidAsync("setMateMaskLink");
         }
     }
@@ -396,7 +396,8 @@
         await JS.InvokeVoidAsync("loginButton", "loginButton");
     }
 
-	//private async Task web3Button()
+
+    //private async Task web3Button()
  //   {
  //       await JS.InvokeVoidAsync("web3button");
  //   }

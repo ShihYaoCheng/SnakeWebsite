@@ -1,9 +1,14 @@
-﻿@using SnakeAsianLeague.Data.Services.Backstage
+﻿@using IdentityModel.OidcClient
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services.Backstage
 @using SnakeAsianLeague.Data.Entity.Backstage
 @using SnakeAsianLeague.Data.Services
-
+@inject IAuthService AuthService
 @inject AppState AppState
 @inject ProfileService ProfileService
+
+@implements IDisposable
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
  @* 編輯個人資料按鈕*@
 <button id="editButton" @onclick="EditProfileButtonOnClick">
@@ -29,9 +34,12 @@
     <EditForm Model="@profile" class="window_input_block">
         <DataAnnotationsValidator />
         <ValidationSummary />
-        <div class="form_row only_show_row">
-            <div class="window_row_title only_show_title">遊戲暱稱</div>
-            <div class="window_row_show only_show_input" id="edit_name">@AppState.LoginStatus.name</div>
+        <div class="form_row only_show_row">           
+            <label class="window_row_title" for="edit_name">遊戲暱稱</label>     
+            <div class="window_row_show">
+                <input type="text" class="window_input" id="edit_name" name="edit_realname" placeholder=""required @bind="GameName">
+            </div>
+          
         </div>
 
         <div class="form_row only_show_row">
@@ -181,6 +189,7 @@
 
     public char selectedGender { get; set; } = 'a';
 
+    public string GameName { get; set; }
 
 
     private async Task EditProfileButtonOnClick()
@@ -203,6 +212,7 @@
 
             selectedOpenAwardInfo = p.OpenAwardInfo;
 
+            GameName = AppState.LoginStatus.name;
         }
         else
         {
@@ -219,7 +229,7 @@
     private async Task EditProfileSubmit()
     {
 
-        profile.UserName = AppState.LoginStatus.name;
+
 
         profile.UserId = (uint)AppState.LoginStatus.userID;
 
@@ -231,9 +241,7 @@
 
         profile.BeInterviewed = selectedBeInterviewed;
 
-        profile.OpenAwardInfo = selectedOpenAwardInfo;
-
-
+        profile.OpenAwardInfo = selectedOpenAwardInfo;        
 
         Profile p = await ProfileService.GetOneProfileByUserId((uint)AppState.LoginStatus.userID);
 
@@ -249,9 +257,37 @@
             await ProfileService.UpdateProfile(profile);
 
         }
+      
+
+        //修改遊戲暱稱
+        await AuthService.UserNameModify(AppState.LoginStatus.userID, GameName);
+
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var LoginUser = authState.User;
+ 
+        if(LoginUser != null  && LoginUser.Identities.Count() !=0 )
+        {
+
+            SnakeAccount snakeAccount = await AuthService.AuthLoginByUserId(LoginUser.FindFirst("UserID")?.Value);
+            AppState.UpdateLoginStatus(this, snakeAccount);
+        } 
+        //關閉視窗
         displayEditProfileWindow = false;
-
-
     }
 
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+        }
+    }
+    
+    void IDisposable.Dispose()
+    {
+        //AppState.OnChange -= StateHasChanged;
+        AppState.StateChanged -= async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+    }
 }
