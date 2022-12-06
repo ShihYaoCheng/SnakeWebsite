@@ -71,10 +71,10 @@
                                 @bind-value="RegisterDTO.VerifyCode" placeholder="4-digit verify code"  data-i18n="[placeholder]Home_data:register.verifyCodeText">
                             <div class="TimeLeft">
                                     <button  hidden="@(sendVerifyCodehidden)" class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
-                                    data-i18n="Home_data:register.sendVerifyCode">Send</button>
+                                    data-i18n="Home_data:register.sendVerifyCode">Send VerifyCode</button>
                                     <div hidden="@(!sendVerifyCodehidden)"  class="TimeLeft-Resend">
                                         <button class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
-                                        data-i18n="Home_data:register.resendVerifyCode">Resend</button>
+                                        data-i18n="Home_data:register.resendVerifyCode">Resend VerifyCode</button>
                                         <span class="TimeLeft-countdown">@TimeLeft</span>
                                     </div>
                                 </div>
