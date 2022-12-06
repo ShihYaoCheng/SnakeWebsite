@@ -239,6 +239,10 @@ namespace SnakeAsianLeague.Data.Services
                 {
                     serverResponce.Success = true;
                     SnakeAccount account = JsonSerializer.Deserialize<SnakeAccount>(restResponse.Content);
+
+                    //更改暱稱
+                    //ServerResponce rsp = await UserNameModify(account.userID, UserName);
+
                     
                 }
                 else

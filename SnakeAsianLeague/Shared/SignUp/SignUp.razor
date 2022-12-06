@@ -178,12 +178,8 @@
     public string? CountryCode { get; set; } 
     public string? PhoneNum { get; set; }
 
-    //
+    
     bool sendVerifyCodehidden = false;
-    //註冊彈窗
-    bool displayForm = false;
-    void EditFormShow() => displayForm = true;
-    void EditFormCancel() => displayForm = false;
 
     //提醒彈窗
     bool displayAlert = false;
@@ -258,7 +254,6 @@
             TimerIsRunning = true;
             TimeLeft = new TimeSpan(0, 0, 20);
             Timer();
-            EditFormShow();
 
         }
         else
@@ -349,9 +344,7 @@
             //呼叫總計註冊API
             userID = snakeAccount.userID;
             phone = snakeAccount.phone;
-            await OfficialWebsiteData.Register(userID, phone);
-
-            EditFormCancel();
+            OfficialWebsiteData.Register(userID, phone);
 
 
 
