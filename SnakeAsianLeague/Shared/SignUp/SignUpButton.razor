@@ -1,0 +1,21 @@
+@inject IJSRuntime JS
+
+<head>
+    <link href="/css/Shared/SignUp.css" rel="stylesheet" />
+</head>
+
+<div class="SignUpButton">
+    <a href="SignUp" class="SignUpButton-a" data-i18n="Home_data:register.registerHere">
+        REGISTER HERE
+    </a>
+</div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
+}

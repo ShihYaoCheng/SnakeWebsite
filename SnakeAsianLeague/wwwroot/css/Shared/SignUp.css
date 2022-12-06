@@ -501,3 +501,43 @@ button.products-popup-submit:hover{
     border-radius: 10px ;
     background: #d7edee ;
 }
+
+
+/* Sign Up Button */
+.SignUpButton{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+}
+.SignUpButton-a{
+    text-align: center;
+    /* background-color: #feac22; */
+    border: 3.8px solid #eac492db;
+    background-image: linear-gradient(to top, #ffa300, #fed322);
+    color: #fff;
+    margin: 0 auto;
+    letter-spacing: 1px;
+    padding: 10px 20px 9px;
+    border-radius: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px 5px rgba(154, 144, 139, 0.3);
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    font-family: sans-serif;
+    transition: all .01s ease-in;
+    text-shadow: 1px 2px 2px rgba(77, 36, 9, 0.25);
+}
+.SignUpButton-a:hover {
+    transform: scale(1.02);
+    text-decoration:none
+}
+@media all and (max-width: 600px){
+    .SignUpButton-a{
+        font-size: 16px;
+    }
+}
