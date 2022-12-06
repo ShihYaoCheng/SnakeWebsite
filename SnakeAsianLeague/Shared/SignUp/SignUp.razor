@@ -45,7 +45,7 @@
                     <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.phoneNumber">Phone Number</label>
 
                     <div class="SignUp-input-row">
-                        <input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode">
+                        <input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode" @bind="CountryCode">
                         
                         @* <select @bind="CountryCode" class="SignUp-inputText">
                             <option value="+886">Taiwan +886</option>
@@ -320,7 +320,7 @@
 
 
 
-        ServerResponce resp = await AuthService.PhoneRegister(CountryCode, PhoneNum, RegisterDTO, UserName);
+        ServerResponce resp = await AuthService.PhoneRegister(CountryCode, PhoneNum, RegisterDTO);
         if (resp.Success == true)
         {
 

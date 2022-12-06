@@ -215,7 +215,7 @@ namespace SnakeAsianLeague.Data.Services
 
         }
 
-        public async Task<ServerResponce> PhoneRegister(string CountryCode, string PhoneNumber,PhoneMemberRegisterDTO phoneMemberRegisterDTO, string UserName)
+        public async Task<ServerResponce> PhoneRegister(string CountryCode, string PhoneNumber,PhoneMemberRegisterDTO phoneMemberRegisterDTO)
         {
             ServerResponce serverResponce = new ServerResponce();
 
@@ -239,10 +239,6 @@ namespace SnakeAsianLeague.Data.Services
                 {
                     serverResponce.Success = true;
                     SnakeAccount account = JsonSerializer.Deserialize<SnakeAccount>(restResponse.Content);
-
-                    //更改暱稱
-                    ServerResponce rsp = await UserNameModify(account.userID, UserName);
-
                     
                 }
                 else
