@@ -736,9 +736,10 @@ position: relative;
 }
 input.login_input:-webkit-autofill,
 input.login_input:-webkit-autofill:hover,
+input.SignUp-inputText:-webkit-autofill:focus,
 input.login_input:-webkit-autofill:active  {
     -webkit-text-fill-color: #ffffff;
-    -webkit-box-shadow: 0 0 0 1000px #002140 inset;
+    -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0) inset;
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -783,8 +784,9 @@ input.login_input:-webkit-autofill:active  {
     margin-left: 5px;
 }
 
-.login_input:focus {
+.input_block .login_form .login_input:focus {
     outline: none;
+    /* border: 3px solid #ffffffcf; */
     box-shadow: #ffffffcf 0px 0px 8px 0px;
 }
 
