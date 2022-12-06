@@ -2,24 +2,36 @@
 @inject IJSRuntime JS
 @inject IConfiguration Configuration
 @inject BlockChainProcessorSever BlockChainSever
+
+
 <head>
     <link href="css/MyProfile/shared/ErrorNetwork.css" rel="stylesheet" />     
   
 </head>
+@if (netWorkRight)
+{
 
-
-<div class="errorContainer" hidden="@netWorkRight">
-    <div class="errorNav"> 
-        <p data-i18n="Inventory_data:SWAP.WrongNetwork">Wrong Network</p>
-        <button  @onclick="AddPolygonClick"><span data-i18n="Inventory_data:SWAP.SwitchYoMetWorkName">Switch to</span> @netWorkName </button>
+}
+else
+{
+    <div class="errorContainer" >
+        <div class="errorNav"> 
+            <p data-i18n="Inventory_data:SWAP.WrongNetwork">Wrong Network</p>
+            <button  @onclick="AddPolygonClick"><span data-i18n="Inventory_data:SWAP.SwitchYoMetWorkName">Switch to</span> @netWorkName </button>
+        </div>
     </div>
-</div>
+}
+
+
 @code {
     [Parameter]
     public EventCallback<int> AddPolygon { get; set;}   
 
     [Parameter]
     public EventCallback getCoinData { get; set;}   
+
+    [Parameter]
+    public EventCallback refresh { get; set;}   
 
     private IJSObjectReference? ErrorNetworkJS;
 
@@ -31,8 +43,8 @@
         await checkNetwork();
     }
 
-    protected override async Task OnInitializedAsync()
-    {
+    protected override  async Task OnInitializedAsync()
+    {        
         netWorkName = BlockChainSever.BlockChainInfoDTO.blockChain;
     }
 
@@ -42,6 +54,7 @@
         {
            
             ErrorNetworkJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/ErrorNetwork.js");
+            
             await checkNetwork();
         }
     }
@@ -50,10 +63,11 @@
     {
         int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
         netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", chainId);
+     
         if (netWorkRight)
         {
             await getCoinData.InvokeAsync();
-            //強制渲染
+            //重新渲染
             await InvokeAsync(StateHasChanged);
         }
     }

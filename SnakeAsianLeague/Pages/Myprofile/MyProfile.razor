@@ -4,7 +4,7 @@
 @using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject AppState AppState
 @inject IJSRuntime JS
-
+@using System.Threading;
 <head>
     <link href="css/MyProfile/Myprofile.css" rel="stylesheet" /> 
     <link href="css/NFTFilter.css" rel="stylesheet" />
@@ -82,6 +82,7 @@
     {
         //AppState.langChanged += async (value)
         //=> await InvokeAsync(StateHasChanged);
+        Thread.Sleep(1000);
     }
         protected override async Task OnAfterRenderAsync(bool firstRender)
     {
