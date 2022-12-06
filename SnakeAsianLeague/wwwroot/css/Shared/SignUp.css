@@ -231,7 +231,14 @@
     /* text-align: center; */
     line-height: 24px;
 }
-
+input.SignUp-inputText:-webkit-autofill,
+input.SignUp-inputText:-webkit-autofill:hover,
+input.SignUp-inputText:-webkit-autofill:focus,
+input.SignUp-inputText:-webkit-autofill:active  {
+    -webkit-text-fill-color: var(--green-font-3);
+    -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
 input.SignUp-inputText{
     background-color: var(--white);
     border: 3px solid var(--white);
