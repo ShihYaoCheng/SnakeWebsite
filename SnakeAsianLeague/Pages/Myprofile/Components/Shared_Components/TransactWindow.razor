@@ -1,4 +1,6 @@
-﻿<head>
+﻿@inject IJSRuntime JS
+
+<head>
     <link href="css/MyProfile/shared/walletaddress.css" rel="stylesheet" />     
     <link href="css/Shared/fetchDataLoading.css" rel="stylesheet" />   
 </head>
@@ -12,7 +14,55 @@
          <Chase Center ="true" Color="#FFF"  Size="70px" />
     </div>
     <p class="LoadingText" data-i18n="Inventory_data:SWAP.transacting"> transacting</p>
+    @if (IsMobile && IsInMetaMask)
+    {
+           <button @onclick="checkCancelClick" data-i18n="Inventory_data:SWAP.Cancel"> Cancel </button>
+    }
+ 
+</div>
+<div class="refreshClick-container"  hidden=@checkCancel>
+     <p> 請確認小狐狸錢包授權確認取消，以免造成損失 </p>
+     <div class="refreshClickButton-container">
+         <button @onclick="continueTrade"> 繼續此次交易</button>
+         <button @onclick="refreshClick"> 結束此次交易</button>
+     </div>
 </div>
 @code {
 
-}
+    [Parameter]
+    public EventCallback refresh { get; set; }
+
+    bool checkCancel =true;
+
+    bool IsMobile = false;
+    bool IsInMetaMask= false;
+
+    public void continueTrade()
+    {
+        checkCancel = true;
+    }
+
+    public async Task refreshClick(){
+
+        refresh.InvokeAsync();
+        await coinEchangeJS.InvokeVoidAsync("lockWindowsHide");
+        checkCancel = true;
+    }
+    public void checkCancelClick()
+    {
+        checkCancel = false;
+    }
+
+    private IJSObjectReference? coinEchangeJS;
+    private IJSObjectReference? IsMobileJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {            
+            coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
+            IsMobileJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/IsMobile.js");
+            IsMobile =await IsMobileJS.InvokeAsync<bool>("IsMobile");
+            IsInMetaMask  = await IsMobileJS.InvokeAsync<bool>("IsInMetaMask");
+        }
+    }
+    }

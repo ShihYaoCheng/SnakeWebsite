@@ -9,6 +9,17 @@
     letter-spacing: 2.5px;
     
 }
+
+.fetchDataLoading button {
+    margin-top: 250px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: #fff;
+    border: 0;
+    background: #ffa81d;
+    font-size:25px;
+    font-weight: 700;
+}
 .LoadingText {
     font-size: 40px;
     color: #fff;
@@ -62,4 +73,37 @@
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
+}
+
+
+.refreshClick-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    padding: 30px 20px;
+    background: #4B8B8B;
+    z-index:999;
+    width:300px;
+}
+.refreshClick-container p{
+    color:#fff;
+    margin-bottom:20px;
+    text-align:center;
+    font-size:20px;
+}
+
+.refreshClickButton-container {
+    display:flex;
+    justify-content:space-between;
+}
+
+.refreshClickButton-container button {
+    padding: 10px 5px;
+    border-radius: 15px;
+    color: #fff;
+    border:0;
+    background: #ffa81d;
+    font-weight:700;
 }

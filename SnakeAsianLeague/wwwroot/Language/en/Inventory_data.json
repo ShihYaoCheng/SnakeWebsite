@@ -118,7 +118,8 @@
     "ConnectToGame": "Connect to Game",
     "WrongNetwork": "Wrong Network",
     "SwitchYoMetWorkName": "Switch to",
-    "LoadingData": "Loading Data"
+    "LoadingData": "Loading Data",
+    "Cancel": "Cancel"
   },
   "SRCPackage": {
     "SRCPackage": "SRC Package",
