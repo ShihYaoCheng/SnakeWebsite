@@ -249,7 +249,7 @@
 .V7-subTitle {
     background: url("/images/Battle/1V7/1v7BG.png");
     background-repeat: round;
-    width: 289px;
+    width: 320px;
     height:53px;
     display: flex;
     justify-content: center;
@@ -259,16 +259,16 @@
 
 @media all and (max-width: 1000px) {
     .V7-subTitle {
-        width: 239px;
-        height: 43px;      
+        /* width: 239px; */
+        /* height: 43px;       */
         margin: 40px auto 60px;
     }
 }
 
 @media all and (max-width: 768px) {
     .V7-subTitle {
-        width: 181px;
-        height: 32px;
+        /* width: 181px; */
+        /* height: 32px; */
         margin: 30px auto 45px;
     }
 }
@@ -276,15 +276,15 @@
 
 @media all and (max-width: 576px) {
     .V7-subTitle {
-        width: 217px;
-        height: 38px;
+        /* width: 217px; */
+        /* height: 38px; */
         margin: 30px auto 45px;
     }
 }
 
 
 .V7-subTitle img{
-    width: 80%;
+    width: 83%;
 }
 
 .V7-rule {
@@ -304,7 +304,7 @@
 
 @media all and (max-width: 768px) {
     .V7-rule {
-        width: 500px;
+        width: 550px;
     }
 }
 @media all and (max-width: 576px) {
@@ -354,10 +354,11 @@
 @media all and (max-width: 576px) {
     .V7-rule-diamond {
         width: 50%;
+        margin-bottom: 20px;
     }
 
     .V7-rule-content {
-        width: 70%;
+        width: 85%;
         padding: 40px 5%;
         height:575px;
     }
@@ -405,13 +406,15 @@
     text-align: center;
     margin-bottom: 20px;   
     font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 26px;
     font-family: adobe-fan-heiti-std, 'Source Sans Pro', sans-serif;
 }
 
 @media all and (max-width: 768px) {
     .V7-rule-content p {
         font-size: 14px;
-
+        line-height: 20px;
     }
 
 }

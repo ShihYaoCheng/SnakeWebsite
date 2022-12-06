@@ -63,8 +63,9 @@
   },
 
   "register": {
+    "registerHere": "REGISTER HERE",
     "countryCode": "CountryCode",
-    "tippy": "Enter Your Phone Number",
+    "tippy": "Enter Your Phone Number ",
     "inputPhoneNumber": "Phone Number",
     "registerButton": "Sign Up",
     "phoneNumber": "Phone Number",

@@ -1,4 +1,5 @@
 @using SnakeAsianLeague.Pages.NFTindex.Components
+@using SnakeAsianLeague.Shared.SignUp
 @inject IJSRuntime JS
 
 <head>
@@ -68,8 +69,10 @@
                 <div class="step-Content" id="step-Content-01">
 
                     <div class="step-Content-Block">
+                        <SignUpButton />
+
                         @* 註冊按鈕 *@
-                        <div class="register-Container">
+                        @* <div class="register-Container">
                             <div class="NFTindex_Register_block">
                                 <div class="NFTindex_Register" hidden="@false">
                                     <div class="Register-input-row">
@@ -86,7 +89,8 @@
                                     <NFTindex_Register CountryCode="@countryCodeStr" PhoneNum="@phoneNumStr" />
                                 </div>
                             </div>
-                        </div>
+                        </div> *@
+
                         <img id="step-Content-Img-01"
                             src="/images/SpecialEvent/WarmUpActivities/step-Content-Img-01.png" />
                     </div>

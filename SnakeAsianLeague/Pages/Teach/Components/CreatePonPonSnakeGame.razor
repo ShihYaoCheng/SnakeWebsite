@@ -1,5 +1,6 @@
 ﻿@using SnakeAsianLeague.Pages.NFTindex.Components
 @using SnakeAsianLeague.Pages.Teach.Components.All_components
+@using SnakeAsianLeague.Shared.SignUp
 @inject IJSRuntime JS
 
 <head>
@@ -10,9 +11,12 @@
 
 <Main_Title  />
 <div class="CreatePonPonSnakeGame-Container">
-        <div class="register-Container">
+    <SignUpButton />
+
+    @* 註冊按鈕 *@
+    @* <div class="register-Container">
         <div class="NFTindex_Register_block">                
-            @* 註冊按鈕 *@
+            
             <div class="NFTindex_Register" hidden="@false">
                 <div class="Register-input-row">
                     <input type="text" class="Register-input tippy-pop" id="CountryCode" name="CountryCode" placeholder="+886" data-content="CountryCode" @bind=@countryCodeStr>
@@ -22,7 +26,8 @@
                 <NFTindex_Register CountryCode = "@countryCodeStr" PhoneNum = "@phoneNumStr" /> 
             </div>                 
         </div>
-    </div>
+    </div> *@
+
     <img class="CreatePonPonSnakeGame-Container-img" width="510" src="/images/Teach/PAGE3_PHOTO.png"/>
     @*<button class="CreatePonPonSnakeGame-Container-button"> Register Game Account </button>*@
 
