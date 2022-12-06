@@ -234,7 +234,7 @@
 
     private async Task SendVerifyCode()
     {
-        sendVerifyCodehidden = true;
+        
         if (String.IsNullOrEmpty(CountryCode))
         {
             AlertDatai18n = "countryCode";
@@ -254,6 +254,7 @@
         ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
         if (resp.Success == true)
         {
+            sendVerifyCodehidden = true;
             TimerIsRunning = true;
             TimeLeft = new TimeSpan(0, 0, 20);
             Timer();
