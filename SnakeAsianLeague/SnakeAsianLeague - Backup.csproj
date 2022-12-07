@@ -46,7 +46,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Shared\SignUp\Components\" />
     <Folder Include="wwwroot\images\AsiaChampionsLeague\S3\" />
   </ItemGroup>
 

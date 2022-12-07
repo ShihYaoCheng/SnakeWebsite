@@ -1,4 +1,5 @@
-﻿@page "/myprofile/{router}"
+﻿@page "/myprofile/{router}/{Code}/{Name}"
+@page "/myprofile/{router}"
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Pages.Myprofile.Components
 @using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
@@ -43,7 +44,7 @@
                     </GettingStartMetaMask>
                 break;     
             case "referralCode":
-                    <MyProfile_referralCode/>
+                    <MyProfile_referralCode  Code=@Code Name=@Name />
                 break;
         }
 
@@ -80,6 +81,11 @@
 @code {
     [Parameter]
     public string router { get; set; } = "index";
+    [Parameter]
+    public string Code { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
