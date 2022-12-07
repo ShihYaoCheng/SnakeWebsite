@@ -62,6 +62,7 @@
   },
 
   "register": {
+    "loginAccount":"登入帳號",
     "registerHere": "註冊帳號",
     "countryCode": "國碼",
     "tippy": "請輸入手機號碼",

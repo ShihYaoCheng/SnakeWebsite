@@ -4,6 +4,11 @@
     text-align:center;
     margin-top: 10px;
 }
+.CreatePonPonSnakeGame-Button{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
 .CreatePonPonSnakeGame-Container .NFTindex_Register_block{
     width: 100%;
 }
@@ -11,8 +16,8 @@
 .CreatePonPonSnakeGame-Container-img {
     max-width: 510px;
     width: 100%;
-    height: 315px;
-    margin-top: 10px;
+    /* height: 315px; */
+    margin-top: 15px;
 }
 
 .CreatePonPonSnakeGame-Container-button {
@@ -34,14 +39,14 @@
 
 @media all and (max-width: 1024px) {
     .CreatePonPonSnakeGame-Container {
-        width: 331px;
+        max-width: 331px;
         /* height: 325px;     */
     }
 
 
     .CreatePonPonSnakeGame-Container-img {
-        width: 331px;
-        height: 204px;
+        max-width: 331px;
+        /* height: 204px; */
     }
 
     .CreatePonPonSnakeGame-Container-button {
@@ -49,5 +54,16 @@
         height: 34px;
         margin-bottom: 10px;
         font-size: 10px
+    }
+}
+@media all and (max-width: 1000px){
+    .SignUpButton-a{
+        font-size: 16px !important;
+        line-height: 20px;
+    }
+}
+@media all and (max-width: 350px) {
+    .CreatePonPonSnakeGame-Button{
+        flex-wrap: wrap;
     }
 }

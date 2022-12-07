@@ -63,6 +63,7 @@
   },
 
   "register": {
+    "loginAccount":"LOGIN ACCOUNT",
     "registerHere": "REGISTER HERE",
     "countryCode": "CountryCode",
     "tippy": "Enter Your Phone Number ",

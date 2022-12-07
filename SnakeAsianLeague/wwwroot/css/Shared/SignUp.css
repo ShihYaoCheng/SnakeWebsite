@@ -520,11 +520,11 @@ button.products-popup-submit:hover{
 
 /* Sign Up Button */
 .SignUpButton{
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10px auto;
+    /* margin: 0 auto; */
 }
 .SignUpButton-a{
     text-align: center;
@@ -532,7 +532,7 @@ button.products-popup-submit:hover{
     border: 3.8px solid #eac492db;
     background-image: linear-gradient(to top, #ffa300, #fed322);
     color: #fff;
-    margin: 0 auto;
+    margin: 10px;
     letter-spacing: 1px;
     padding: 10px 20px 9px;
     border-radius: 17px;
@@ -554,5 +554,6 @@ button.products-popup-submit:hover{
 @media all and (max-width: 600px){
     .SignUpButton-a{
         font-size: 16px;
+        line-height: 20px;
     }
 }
