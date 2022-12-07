@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using QRCoder;
 using RestSharp;
 using SnakeAsianLeague.Data.Entity;
 using SnakeAsianLeague.Data.Entity.Config;
@@ -501,12 +502,6 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
                     result = 0;
                 }
-                
-                //foreach (var item in data)
-                //{
-                //    item.price = decimal.Round(item.price, 3);
-                //}
-               
             }
             return result;
 
@@ -586,9 +581,51 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
 
-    
+
+        #region
+        
+
+        /// <summary>
+        /// 取得邀請碼
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <returns></returns>
+        public async Task<InvitationCodeDto> GetInvitationCode(string UserID)
+        {
+            InvitationCodeDto result = new InvitationCodeDto();
+            string URL = $"InvitationCode";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("userId", "10020");
+            request.AddHeader("Authorization", Authenticate());
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                result = JsonSerializer.Deserialize<InvitationCodeDto>(restResponse.Content) ?? new  InvitationCodeDto();
+            }
+            return result;        
+        }
 
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public async Task<string> CreateQrCode(string Code, string Name)
+        {
+            string Base64String = "";
+            QRCodeGenerator generator = new QRCodeGenerator();
+            string URL = $"https://localhost:7279/myprofile/referralCode/{Code}/{Name}";
+            QRCodeData codeData = generator.CreateQrCode(URL, QRCodeGenerator.ECCLevel.M, true);
+            QRCoder.BitmapByteQRCode qrcode = new BitmapByteQRCode(codeData);
+            byte[] bitmap = qrcode.GetGraphic(10);
+            Base64String = Convert.ToBase64String(bitmap);
+            return Base64String;
+        }
+
+        #endregion
 
 
 
