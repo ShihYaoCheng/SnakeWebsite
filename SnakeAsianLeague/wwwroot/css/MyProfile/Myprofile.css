@@ -166,6 +166,27 @@ html{
     border-radius: 50%;
     box-shadow: inset 0px 0px 13px 2px #19648036;
 }
+.editButton {
+    white-space: nowrap;
+    background-color: #1c3d53bf;
+    font-size: 22px;
+    border-radius: 50px;
+    color: #69ada2;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px #2761709c;
+    margin: 10px 0;
+    transition: all .15s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 3px 15px 3px 5px;
+}
+
+.editButton img {
+    height: 30px;
+    margin: 0 5px 0 0;
+}
 
 #editButton{
     white-space: nowrap;
@@ -244,7 +265,18 @@ html{
     white-space: nowrap;
 }
 
-.playerInfoRowShow{
+.playerInfo-container {
+    display:flex;
+    justify-content:space-between;
+
+}
+
+.playerInfo-container input {
+    background: none;
+    font-size: 36px;
+}
+
+.playerInfoRowShow {
     padding-left: 20px;
 }
 
