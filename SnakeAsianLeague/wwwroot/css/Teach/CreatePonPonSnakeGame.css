@@ -62,7 +62,7 @@
         line-height: 20px;
     }
 }
-@media all and (max-width: 350px) {
+@media all and (max-width: 600px) {
     .CreatePonPonSnakeGame-Button{
         flex-wrap: wrap;
     }
