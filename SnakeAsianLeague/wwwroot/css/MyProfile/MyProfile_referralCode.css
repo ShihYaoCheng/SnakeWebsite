@@ -179,12 +179,12 @@
     display: flex;
     align-items: center;
     border: none;
-    padding: 15px 15px 15px 10px;
+    padding: 15px 15px 15px 15px;
   
 }
 
 .editButton img {
-    height: 40px;
+    height: 30px;
     margin: 0 5px 0 0;
 }
 
@@ -195,7 +195,7 @@
         margin: 15px 15px;
     }
     .editButton img {
-        height: 30px;
+        height: 20px;
         margin: 0 5px 0 0;
     }
 }
@@ -204,6 +204,6 @@
     .editButton {
         font-size: 16px;
         margin: 5px 5px;
-        padding: 5px 7px 5px 5px;
+        padding: 5px 8px 5px 8px;
     }
 }
