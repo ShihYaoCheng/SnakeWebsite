@@ -39,15 +39,23 @@
 
             LoginRequest loginRequest = new LoginRequest();
             loginRequest = authService.DecodeLoginRequest(encrypt);
-
             if (loginRequest != null)
             {
-                SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest,true);
-                AppState.UpdateLoginStatus(this, snakeAccount);
-
-                NavigationManager.NavigateTo("/myprofile/index",true);
+                try
+                {
+                    SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest, true);
+                    AppState.UpdateLoginStatus(this, snakeAccount);
+                    NavigationManager.NavigateTo("/GettingStarted/create-metamask", true);
+                }
+                catch (Exception ex)
+                {
+                    NavigationManager.NavigateTo("/GettingStarted/create-PonPonSnake-game", true);
+                }
             }
-
+            else
+            {
+                NavigationManager.NavigateTo("/GettingStarted/create-PonPonSnake-game", true);
+            }
             
         }
         
