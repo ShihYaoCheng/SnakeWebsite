@@ -1,4 +1,5 @@
-﻿@using SnakeAsianLeague.Data.Services
+﻿@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Backstage
 @using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Data.Services.Personal
@@ -8,6 +9,10 @@
 @inject IJSRuntime JS
 @inject InventoryService InventoryService
 @inject BlockChainProcessorSever BlockChainSever
+
+@inject IAuthService AuthService
+@implements IDisposable
+@inject AuthenticationStateProvider AuthenticationStateProvider 
 <AuthorizeView>
     @* 已登入畫面 *@
     <Authorized>
@@ -32,10 +37,25 @@
                             </div>
 
                             <div class="personalInformation">
-                                <div class="playerNickname">@AppState.LoginStatus.name</div>
+                                <div class="playerInfo-container" hidden=@(editNametoggle) >
+                                    <div class="playerNickname">@AppState.LoginStatus.name</div>
+                                    <button class="editButton" @onclick="()=>{editName(true);}" >
+                                        <img src="/images/Myprofile/edit_icon.webp" alt="">
+                                        <p>編輯姓名</p>
+                                    </button>
+                                </div>
+                                <div class="playerInfo-container"  hidden=@(!editNametoggle)>
+                                    <input class="playerInfoRowShow" @bind=@GameName />
+                                     <button class="editButton" @onclick="()=>{editName(false);}">
+                                        <img src="/images/Myprofile/edit_icon.webp" alt="">
+                                        <p>確定</p>
+                                    </button>
+                                
+                                </div>
                                 <div class="playerInfoRow">
-                                    <div class="playerInfoRowTitle" data-i18n="myprofile.gameID">Game ID</div>
-                                    <div class="playerInfoRowShow">@AppState.LoginStatus.userID</div>
+                                    <div class="playerInfoRowTitle" data-i18n="myprofile.gameID">Game ID</div>                                    
+                                    <div class="playerInfoRowShow">@AppState.LoginStatus.userID</div>     
+                                     
                                 </div>
                                 <div class="playerInfoRow">
                                     <div class="playerInfoRowTitle" data-i18n="myprofile.phone">Phone</div>
@@ -338,7 +358,7 @@
 
 @code {
     //預熱活動開關
-    bool warmUpToggle;
+    bool warmUpToggle;   
 
     [Parameter]
     public bool MetamaskAvailable { get; set; }
@@ -355,14 +375,18 @@
     private decimal gSRC;
       protected override async Task OnInitializedAsync()
     {
-     //預熱活動用
-            warmUpToggle = BlockChainSever.BlockChainInfoDTO.eventWarmUpStatus20221108;
+        //預熱活動用
+        warmUpToggle = BlockChainSever.BlockChainInfoDTO.eventWarmUpStatus20221108;
 
+        GameName = AppState.LoginStatus.name;
     }
     protected override async Task OnAfterRenderAsync(bool first)
     {
         if (first)
         {
+
+            AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
 
             @*預熱活動用*@
             if (!warmUpToggle)
@@ -396,9 +420,35 @@
         await JS.InvokeVoidAsync("loginButton", "loginButton");
     }
 
+    //編輯姓名
+    bool editNametoggle=false;    
+    public string GameName { get; set; }
+    public async Task editName(bool value)
+    {
+        editNametoggle = value;
+        if (!value)
+        {
+             //修改遊戲暱稱
+            await AuthService.UserNameModify(AppState.LoginStatus.userID, GameName);
 
-    //private async Task web3Button()
- //   {
- //       await JS.InvokeVoidAsync("web3button");
- //   }
+            
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var LoginUser = authState.User;
+ 
+            if(LoginUser != null  && LoginUser.Identities.Count() !=0 )
+            {
+
+                SnakeAccount snakeAccount = await AuthService.AuthLoginByUserId(LoginUser.FindFirst("UserID")?.Value);
+                AppState.UpdateLoginStatus(this, snakeAccount);
+            } 
+
+        }
+    }
+
+    void IDisposable.Dispose()
+    {
+        //AppState.OnChange -= StateHasChanged;
+        AppState.StateChanged -= async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+    }
 }
