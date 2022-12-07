@@ -1,55 +1,107 @@
-﻿<head>
+﻿@page "/referralCode/{Code}/{Name}"
 
-    <link href="css/MyProfile/MyProfile_referralCode.css" rel="stylesheet" />  
-  
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.Personal
+
+
+@inject AppState AppState
+@inject InventoryService InventoryService
+
+
+
+<head>
+    <link href="css/MyProfile/MyProfile_referralCode.css" rel="stylesheet" />    
 </head>
 
 
-<main class="myprofileMain" >
 
-    <div class="myprofileBlock" >
-        <div class="referralCode-container">
-            <h3> 玩家名稱七個字的邀請碼</h3>
-            <div class="referralCode-content">
-                @*中間圖+字*@
-                <div class="referralCode-imgAndText">
-                    <div class="referralCode-img">
-                        <img src="/images/Myprofile/QRcode.png"/>
-                    </div>                 
-                    <div class="referralCode-text">
-                        <div class="playerInfoRow">
-                            <div class="playerInfoRowTitle" >邀請碼</div>                                    
-                            <div class="playerInfoRowShow">123456</div> 
+@if ( InvitationCode != null)
+{
+    <main class="myprofileMain" >
+        <div class="myprofileBlock" >
+            <div class="referralCode-container">
+                <h3> @InvitationCode.name</h3>
+                <div class="referralCode-content">
+                    @*中間圖+字*@
+                    <div class="referralCode-imgAndText">
+                        <div class="referralCode-img">
+                            <img src= "data:image/png;base64,@QRCodeByte"/>
                             
-                            <button class="copyButton">複製</button>
-                                                   
-                        </div>
-                        <div class="playerInfoRow">
-                            <div class="playerInfoRowTitle" >邀請人數</div>                                    
-                            <div class="playerInfoRowShow">10</div>  
-                        </div>
-                        <div class="playerInfoRow">
-                            <div class="playerInfoRowTitle" >邀請人</div>                                    
-                            <div class="playerInfoRowShow"><span>9527</span> / <span>邀請人名</span></div>  
-                        </div>
-                    </div>   
-                </div>
-                @*按鈕區*@
-                <div class="referralCode-button">
-                    <button class="editButton" >
-                        <img src="/images/Myprofile/edit_icon.webp" alt="">
-                        <p>複製連結</p>
-                    </button>
-                    <button class="editButton" >
-                        <img src="/images/Myprofile/edit_icon.webp" alt="">
-                        <p>下載名片</p>
-                    </button>
-                </div>            
-            </div>    
-             
+                        </div>                 
+                        <div class="referralCode-text">
+                            <div class="playerInfoRow">
+                                <div class="playerInfoRowTitle" >邀請碼</div>                                    
+                                <div class="playerInfoRowShow">@InvitationCode.code</div> 
+                                <button class="copyButton">複製</button>             
+                            </div>
+                            <div class="playerInfoRow">
+                                <div class="playerInfoRowTitle" >邀請人數</div>                                    
+                                <div class="playerInfoRowShow">@InvitationCode.invitedPeopleCount</div>  
+                            </div>
+                            <div class="playerInfoRow">
+                                <div class="playerInfoRowTitle" >邀請人</div>                                    
+                                <div class="playerInfoRowShow"><span>@InvitationCode.whoInvited</span> / <span>邀請人名</span></div>  
+
+                                <div class="playerInfoRowShow"><span>@Code  +  @Name</span> / <span>邀請人名</span></div>  
+                            </div>
+                        </div>   
+                    </div>
+                    @*按鈕區*@
+                    <div class="referralCode-button">
+                        <button class="editButton" >
+                            <img src="/images/Myprofile/edit_icon.webp" alt="">
+                            <p>複製連結</p>
+                        </button>
+                        <button class="editButton" >
+                            <img src="/images/Myprofile/edit_icon.webp" alt="">
+                            <p>下載名片</p>
+                        </button>
+                    </div>            
+                </div>    
+            </div>
         </div>
-    </div>
-</main>
+    </main>
+}
 @code {
 
+    [Parameter]
+    public string Code { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
+
+
+    InvitationCodeDto InvitationCode { get; set; }
+
+    string QRCodeByte;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            GetInvitationCode();
+
+        }
+    }
+
+
+    /// <summary>
+    /// 取得驗證碼 ，如果沒有畫面請確認 UserID 是否有值
+    /// </summary>
+    /// <returns></returns>
+    private async Task GetInvitationCode()
+    {
+        string UserID = AppState.LoginStatus.userID.ToString();
+        InvitationCode = await InventoryService.GetInvitationCode(UserID);
+        if (InvitationCode.code != null)
+        {            
+            QRCodeByte = await InventoryService.CreateQrCode(InvitationCode.code ,InvitationCode.name);
+        }
+        StateHasChanged();
+    }
 }

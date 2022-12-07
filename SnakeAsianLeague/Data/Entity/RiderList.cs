@@ -74,27 +74,44 @@
 
 
     public class TotalRevenue
-    { 
+    {
         public int currencyType { get; set; }
 
         public decimal price { get; set; }
     }
 
 
-    public class gSRCCurrency { 
+    public class gSRCCurrency
+    {
         public uint userId { get; set; }
 
         public decimal nftCurrency1 { get; set; }
     }
 
     public class Currencies
-    { 
+    {
         public int currencyType { get; set; }
 
         public decimal price { get; set; }
 
 
     }
+
+
+    public class InvitationCodeDto
+    { 
+        public uint userID { get; set; }
+
+        public string name { get; set; }
+
+        public string code { get; set; }
+
+        public string whoInvited { get; set; }
+
+        public int invitedPeopleCount { get; set; }
+    }
+
+
 
 
 }
