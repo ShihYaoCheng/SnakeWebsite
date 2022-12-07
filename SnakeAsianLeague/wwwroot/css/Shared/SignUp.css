@@ -25,7 +25,12 @@
 .SignUp-Block-BG{
     background-color: #203240;
     width: 100%;
-    padding: 200px 0px 150px;
+    padding: 150px 0px 150px;
+    background-image: url(/images/Shared/SignUp/Pic_left.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 42%;
+    /* background-blend-mode: multiply; */
 }
 .SignUp-Block{
     box-shadow: inset 0px 13px 10px 0 rgba(164, 171, 167, 0.5),5px 5px 10px #0606063f; ;
@@ -194,7 +199,7 @@
     border: 3px solid var(--green-2);
     border-radius: 16px;
     max-width: 100px;
-    margin: 0 auto 10px;
+    margin: 0 auto 5px;
     overflow: hidden;
 }
 .SignUp-avatar img{
@@ -371,7 +376,7 @@ button.products-popup-submit:hover{
         margin: 10px auto;
     }
     .SignUp-Block-BG{
-        padding: 150px 0px 150px;
+        padding: 140px 0px 150px;
     }
 }
 
@@ -448,8 +453,9 @@ button.products-popup-submit:hover{
     }
 
     .SignUp-Block-BG {
-        padding: 100px 0px 100px;
+        padding: 70px 0px 100px;
         background-color: #4b8b8b;
+        background-image: none;
     }
     .SignUp-Block{
         width: 100%;
