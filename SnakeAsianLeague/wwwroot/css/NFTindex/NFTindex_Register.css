@@ -306,6 +306,7 @@ button.products-popup-submit{
     padding: 4px 28px 6px;
     margin-top: 10px;
     letter-spacing: 1px;
+    font-weight: 600;
     transition: all .1s ease-in-out;
 }
 @media all and (max-width: 1950px){

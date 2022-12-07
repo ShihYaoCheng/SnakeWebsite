@@ -92,7 +92,7 @@ html{
     object-fit: cover;
 }
 .myprofileMain{
-    max-width: 1920px;
+    /* max-width: 1920px; */
     width: 100%;
     padding-top: 80px;
     /* margin-left: 200px; */

@@ -62,7 +62,7 @@
   },
 
   "register": {
-    "registerHere": "註冊會員",
+    "registerHere": "註冊帳號",
     "countryCode": "國碼",
     "tippy": "請輸入手機號碼",
     "inputPhoneNumber": "手機號碼",
