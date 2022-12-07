@@ -27,13 +27,12 @@
                     <div class="referralCode-imgAndText">
                         <div class="referralCode-img">
                             <img src= "data:image/png;base64,@QRCodeByte"/>
-                            
                         </div>                 
                         <div class="referralCode-text">
                             <div class="playerInfoRow">
                                 <div class="playerInfoRowTitle" >邀請碼</div>                                    
                                 <div class="playerInfoRowShow">@InvitationCode.code</div> 
-                                <button class="copyButton">複製</button>             
+                                <button class="copyButton" @onclick=CopyCode>複製</button>             
                             </div>
                             <div class="playerInfoRow">
                                 <div class="playerInfoRowTitle" >邀請人數</div>                                    
@@ -103,5 +102,13 @@
             QRCodeByte = await InventoryService.CreateQrCode(InvitationCode.code ,InvitationCode.name);
         }
         StateHasChanged();
+    }
+
+
+
+
+    private async Task CopyCode()
+    {
+        string code =  InvitationCode.code;
     }
 }
