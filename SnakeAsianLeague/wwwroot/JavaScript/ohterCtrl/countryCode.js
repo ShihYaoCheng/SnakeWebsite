@@ -22,7 +22,7 @@
  
     countryCodeNumber.map((e, index) => {
         document.getElementById("LoginSelectText").innerHTML = document.getElementById("LoginSelectText").innerHTML + `
-        <option value="${e}" data-i18n="countryCode_data:country_code_Number.${countryCodeID[index]}"></option>     
+        <option value="${e}" data-i18n="countryCode_data:country_code.${countryCodeID[index]}"></option>     
     `
     })
     
