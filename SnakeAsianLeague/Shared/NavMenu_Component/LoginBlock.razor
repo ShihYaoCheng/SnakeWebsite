@@ -29,7 +29,12 @@
                     <label class="login_label" for="account" data-i18n="[html]signInWindows.PhoneNumber">Phone Number</label>
                     @* 國碼 *@
                     <div class="login_input_block">
-                        <InputText id="phone-countryCode" @bind-Value="loginRequest.countryCode" class="login_input" placeholder="+886"/>
+                        @*<InputText id="phone-countryCode" @bind-Value="loginRequest.countryCode" class="login_input" placeholder="+886"/>*@
+                        <select @bind="loginRequest.countryCode" class="login_Select" id="LoginSelectText" >
+                            @*<option value="+886"  data-i18n="countryCode_data:country_code.AE"></option>*@
+                            
+                        </select> 
+                    
                         <InputText id="phone-number" @bind-Value="loginRequest.phone" class="login_input" placeholder="9xxxxxxxx"/>
                         @*<input type="text" class="login_input" id="phone-countryCode" name="" placeholder="+886" @bind=loginRequest.countryCode required>*@
                         @*<input type="text" class="login_input" id="phone-number" name="" placeholder="9xxxxxxxx"  @bind=loginRequest.phone  required>*@
@@ -78,6 +83,21 @@
 
     bool loginErrorShow;
 
+    protected override async Task OnInitializedAsync()
+    {
+        loginRequest.countryCode="+886";    
+    }
+
+     private IJSObjectReference? countryCodeJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            countryCodeJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ohterCtrl/countryCode.js");
+            await countryCodeJS.InvokeVoidAsync("countryCode", "Login");
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
     //[Parameter]
     //public  LoginRequest loginRequest { get; set;}
 

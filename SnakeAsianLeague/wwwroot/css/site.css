@@ -742,6 +742,13 @@ input.login_input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0) inset;
     transition: background-color 5000s ease-in-out 0s;
 }
+select.login_Select:-webkit-autofill,
+select.login_Select:-webkit-autofill:hover,
+select.login_Select:-webkit-autofill:active {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
 
 .input_block .login_form .login_input {
     width: 100%;
@@ -758,6 +765,25 @@ input.login_input:-webkit-autofill:active  {
     border-radius: 5px;
 }
 .input_block .login_form .login_input::placeholder{
+    color: #515f72;
+}
+
+.input_block .login_form .login_Select {
+    width: 48%;
+    outline: none;
+    /* height: 53px; */
+    margin: 0 3px;
+    background-color: #002140 !important;
+    color: #ffffff;
+    padding: 6px 15px;
+    font-size: 18px;
+    box-sizing: border-box;
+    border: none;
+    /* box-shadow: #ffffff57 1px 1px 11px; */
+    border-radius: 5px;
+}
+
+.input_block .login_form .login_Select::placeholder {
     color: #515f72;
 }
 #phone-countryCode{
@@ -789,7 +815,11 @@ input.login_input:-webkit-autofill:active  {
     /* border: 3px solid #ffffffcf; */
     box-shadow: #ffffffcf 0px 0px 8px 0px;
 }
-
+.input_block .login_form .login_Select:focus {
+    outline: none;
+    /* border: 3px solid #ffffffcf; */
+    box-shadow: #ffffffcf 0px 0px 8px 0px;
+}
 .input_block input::placeholder { /* CSS 3 標準 */
     color: rgb(255, 255, 255);
 }
@@ -897,6 +927,9 @@ input.login_input:-webkit-autofill:active  {
     .login_form .login_input {
         font-size: 18px;
     }
+    .login_form .login_Select {
+        font-size: 18px;
+    }
 
     .input_block input[type="button"] {
         font-size: 22px;
@@ -928,7 +961,10 @@ input.login_input:-webkit-autofill:active  {
     .input_block .login_form .login_input {
         font-size: 16px;
     }
-
+    .input_block .login_form .login_Select {
+        font-size: 16px;
+    }
+    
     .input_block input[type="button"] {
         font-size: 20px;
     }
@@ -963,7 +999,10 @@ input.login_input:-webkit-autofill:active  {
     .input_block .login_form .login_input {
         font-size: 16px;
     }
-
+    .input_block .login_form .login_Select {
+        font-size: 16px;
+    }
+    
     .input_block input[type="button"] {
         font-size: 20px;
     }
@@ -994,8 +1033,13 @@ input.login_input:-webkit-autofill:active  {
     .window_p {
         font-size: 16px;
     }
-
+    
     .input_block .login_form .login_input {
+        font-size: 13px;
+        margin: 0;
+        padding: 6px 10px;
+    }
+    .input_block .login_form .login_Select {
         font-size: 13px;
         margin: 0;
         padding: 6px 10px;

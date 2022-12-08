@@ -45,12 +45,12 @@
                     <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.phoneNumber">Phone Number</label>
 
                     <div class="SignUp-input-row">
-                        <input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode" @bind="CountryCode">
+                        @*<input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode" @bind="CountryCode">*@
                         
-                        @* <select @bind="CountryCode" class="SignUp-inputText">
-                            <option value="+886">Taiwan +886</option>
-                            <option value="+">+</option>
-                        </select> *@
+                        <select @bind="CountryCode" class="SignUp-inputText " id="SignUpSelectText" >
+                            @*<option value="+886"  data-i18n="countryCode_data:country_code.AE"></option>*@
+                            
+                        </select> 
 
                         <input @bind="PhoneNum" type="text" class="SignUp-inputText" id="PhoneNum" name="PhoneNum" data-i18n="[placeholder]Home_data:register.inputPhoneNumber;[data-content]Home_data:register.tippy" placeholder="Phone Number">
                         
@@ -173,9 +173,7 @@
 
 
 @code {
-    private IJSObjectReference? NFTindexBannerJS;
-
-    public string? CountryCode { get; set; } 
+    public string? CountryCode { get; set; } = "+886";
     public string? PhoneNum { get; set; }
 
     
@@ -230,7 +228,7 @@
 
     private async Task SendVerifyCode()
     {
-        
+
         if (String.IsNullOrEmpty(CountryCode))
         {
             AlertDatai18n = "countryCode";
@@ -358,14 +356,19 @@
 
     }
 
-
+    private IJSObjectReference? NFTindexBannerJS;
+    private IJSObjectReference? countryCodeJS;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        NFTindexBannerJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NFTindex/NFTindexBanner.js");
+    {        
         if (firstRender)
         {
+            NFTindexBannerJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NFTindex/NFTindexBanner.js");
+            countryCodeJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ohterCtrl/countryCode.js");
+            await countryCodeJS.InvokeVoidAsync("countryCode","SignUp");            
             await JS.InvokeVoidAsync("installI18n");
+
+            
             AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
         }
