@@ -103,7 +103,9 @@
     "UY": "Uruguay (+598)",
     "UZ": "Uzbekistan (+998)",
     "VE": "Venezuela (+58)",
-    "YE": "Yemen (+967)"
+    "YE": "Yemen (+967)",
+    "VN": "Vietnam (+84)",
+    "MM": "Myanmar (+95)"
   },
   "country_code_Number": {   
     "US": "+1",
@@ -199,6 +201,8 @@
     "UY": "+598",
     "UZ": "+998",
     "VE": "+58",
-    "YE": "+967"
+    "YE": "+967",
+    "VN": "+84",
+    "MM": "+95"
   }
 }

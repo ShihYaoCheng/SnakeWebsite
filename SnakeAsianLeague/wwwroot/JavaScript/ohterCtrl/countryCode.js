@@ -96,7 +96,9 @@ window.country_code_List = {
             "TR": "+90",
             "TL": "+66",
             "UZ": "+998",
-            "YE": "+967"
+            "YE": "+967",
+            "VN": "+84",
+            "MM": "+95"
         },
         "North America":{
             "US": "+1",
