@@ -6,14 +6,15 @@
     let countryCodeID =[]
     let countryCodeNumber = []
 
+    //取得各州的內容
     Object.values(countryCode).map((e) => {
         countryCodeValueList.push(e)
     })
-
+    //取得分 "州別" 的名子
     Object.keys(countryCode).map((e) => {
         countryCodeKeyList.push(e)
     })
-
+    //取得各國家的代號及電話區號
     countryCodeValueList.map((countryCodeArea ,index) => {
         countryCodeID = []
         countryCodeNumber = []
@@ -26,10 +27,13 @@
             countryCodeNumber.push(Area)
 
         })
-
+        //建立分州的optgroup
         let optgroupElement = document.createElement("optgroup");
-        optgroupElement.label = countryCodeKeyList[index]
+       
+        //optgroupElement.label = countryCodeKeyList[index]
+        optgroupElement.dataset.i18n = `[label]countryCode_data:country_code.${countryCodeKeyList[index]}`;
 
+        console.log(optgroupElement)
         countryCodeNumber.map((e, i) => {
             optgroupElement.innerHTML = optgroupElement.innerHTML + `
             <option value="${e}" data-i18n="countryCode_data:country_code.${countryCodeID[i]}"></option>
@@ -38,6 +42,8 @@
 
         document.getElementById("LoginSelectText").appendChild(optgroupElement)
         if (state == "SignUp") document.getElementById("SignUpSelectText").appendChild(optgroupElement)
+
+        document.getElementById("LoginSelectText").dataset.dog="123"
     })
 
     //if (state == "SignUp") {
