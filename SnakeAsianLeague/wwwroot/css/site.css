@@ -639,7 +639,7 @@ background-color: #aad4cdd4;
     /* height: 100%; */
     background-size: 100% 100%;
     /* padding-top: 1.02124645892%; */
-    padding: 15px 20px 20px;
+    padding: 10px 20px 20px;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -673,7 +673,7 @@ background-color: #aad4cdd4;
     width: 25%;
     /* border: 1px red solid; */
     text-align: center;
-    margin: 35px auto 30px;
+    margin: 32px auto 26px;
     max-width: 100px;
 }
 
@@ -955,8 +955,8 @@ input.login_input:-webkit-autofill:active  {
         height: 55px;
     } */
     .input_block .login_form .login_label {
-        font-size: 16px;
-        width: 26%;
+        font-size: 14px;
+        width: 22%;
         line-height: 16px;
     }
 

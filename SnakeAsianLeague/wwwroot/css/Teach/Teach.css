@@ -52,6 +52,7 @@
     width: 100%;
     position: absolute;   
     top: 100%;
+    max-width: 1000px;
 }
 
 .stepButton button {
@@ -59,13 +60,17 @@
     background: #90bcb6;
     border: 0;
     border-radius: 20px;
-    padding: 10px 15px;
+    padding: 6px 12px;
     font-weight: bold;
+    min-width: 96px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: all .05s ease-out;
 }
 
 .stepButton button:hover {
     background: #27616F;
-    box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.3);
+    /* box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.3); */
 }
 
 
@@ -94,6 +99,11 @@
  
     .teach-container {
         /* height: 890px; */
+    }
+    .stepButton button{
+        padding: 6px 12px;
+        min-width: 82px;
+        font-size: 13px;
     }
 }
 
