@@ -70,7 +70,8 @@
     "Reward": "領獎通知",
     "Inventory": "資產明細",
     "Swap": "資產兌換",
-    "SRCPackage": "SRC禮包"
+    "SRCPackage": "SRC禮包",
+    "referralCode": "我的邀請碼"
   },
 
   "signInWindows": {

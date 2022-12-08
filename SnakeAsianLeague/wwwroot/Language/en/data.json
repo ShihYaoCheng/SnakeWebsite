@@ -69,7 +69,8 @@
     "Reward": "Reward",
     "Inventory": "Inventory",
     "Swap": "Swap",
-    "SRCPackage": "SRC Package"
+    "SRCPackage": "SRC Package",
+    "referralCode": "Invitation Code"
   },
 
   "signInWindows": {
