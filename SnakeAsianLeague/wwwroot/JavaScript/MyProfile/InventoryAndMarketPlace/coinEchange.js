@@ -33,12 +33,12 @@ export function coinEchange(showId) {
 //轉換(提款) SRC > gSRC
 export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 
-
+	
 	const web3 = await new Web3(Web3.givenProvider)
 	//web3.TransactionManager.UseLegacyAsDefault = true;
 	const SRC_addr = SRC_address
 	const ERC20_abi = window.ERC20_abi
-	const SRCExchange_addr = SRCExchange_address
+	const SRCExchange_addr = SRCExchange_address.trim()
 
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
