@@ -1,4 +1,5 @@
 @page "/SignUp/{code}"
+@page "/SignUp/"
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Entity
@@ -177,7 +178,7 @@
     public string? PhoneNum { get; set; }
 
     [Parameter]
-    public string Code { get; set; }
+    public string Code { get; set; } = "";
 
     
     bool sendVerifyCodehidden = false;
