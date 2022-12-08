@@ -375,7 +375,9 @@
         else
         {
             await NFTindexBannerJS.InvokeVoidAsync("I18nAfterRender");
+            await JS.InvokeVoidAsync("installI18n");
         }
+        await JS.InvokeVoidAsync("installI18n");
     }
     void IDisposable.Dispose()
     {
