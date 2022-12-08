@@ -758,7 +758,7 @@ select.login_Select:-webkit-autofill:active {
     margin: 0 3px;
     background-color: #002140 !important;
     color: #ffffff;
-    padding: 10px 15px;
+    padding: 10px 10px;
     font-size: 16.5px;
     box-sizing: border-box;
     border: none;
@@ -778,15 +778,15 @@ select.login_Select:-webkit-autofill:active {
     margin: 0 3px;
     background-color: #002140 !important;
     color: #ffffff;
-    padding: 6px 15px;
-    font-size: 16.5px;
+    padding: 6px 10px;
+    font-size: 14px;
     box-sizing: border-box;
     border: none;
     /* box-shadow: #ffffff57 1px 1px 11px; */
     border-radius: 5px;
 }
 select.login_Select option{
-    font-size: 15px;
+    font-size: 12px;
     letter-spacing: 1px;
 }
 .input_block .login_form .login_Select::placeholder {
