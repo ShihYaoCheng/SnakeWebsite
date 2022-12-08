@@ -75,7 +75,7 @@
                                     <div hidden="@(!sendVerifyCodehidden)"  class="TimeLeft-Resend">
                                         <button class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
                                         data-i18n="Home_data:register.resendVerifyCode">Resend VerifyCode</button>
-                                        <span class="TimeLeft-countdown">@TimeLeft</span>
+                                        <span class="TimeLeft-countdown"> @TimeLeft.ToString("mm"):@TimeLeft.ToString("ss")</span>
                                     </div>
                                 </div>
                         </div>
