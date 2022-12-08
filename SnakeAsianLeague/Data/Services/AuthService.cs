@@ -215,7 +215,7 @@ namespace SnakeAsianLeague.Data.Services
 
         }
 
-        public async Task<ServerResponce> PhoneRegister(string CountryCode, string PhoneNumber,PhoneMemberRegisterDTO phoneMemberRegisterDTO)
+        public async Task<ServerResponce> PhoneRegister(string CountryCode, string PhoneNumber,PhoneMemberRegisterDTO phoneMemberRegisterDTO , string _Code)
         {
             ServerResponce serverResponce = new ServerResponce();
 
@@ -224,6 +224,9 @@ namespace SnakeAsianLeague.Data.Services
                 phoneMemberRegisterDTO.PhoneNumber = PhoneNumberCombination(CountryCode, PhoneNumber);
                 phoneMemberRegisterDTO.SmsType = SmsType.CreateByPhone;
                 phoneMemberRegisterDTO.DeviceID = phoneMemberRegisterDTO.PhoneNumber;
+                phoneMemberRegisterDTO.inviter = _Code;
+
+
                 string jsonData = JsonSerializer.Serialize(phoneMemberRegisterDTO);
 
 

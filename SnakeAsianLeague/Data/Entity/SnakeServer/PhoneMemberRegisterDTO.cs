@@ -15,5 +15,7 @@ namespace SnakeAsianLeague.Data.Entity.SnakeServer
 
         public SmsType SmsType { get; set; }        // 類型 
 
+        public string? inviter { get; set; }        // 邀請人的邀請碼(可為空)
+
     }
 }

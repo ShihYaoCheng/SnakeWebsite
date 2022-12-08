@@ -317,7 +317,7 @@
 
 
 
-        ServerResponce resp = await AuthService.PhoneRegister(CountryCode, PhoneNum, RegisterDTO);
+        ServerResponce resp = await AuthService.PhoneRegister(CountryCode, PhoneNum, RegisterDTO , Code);
         if (resp.Success == true)
         {
 
