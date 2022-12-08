@@ -292,8 +292,8 @@ select.SignUp-inputText::placeholder{
     font-size: 14px;
     color: #7f9390b6;
 }
-option{
-    /* font-size: 14px; */
+select.SignUp-inputText option{
+    font-size: 14px;
 }
 
 .TimeLeft{
