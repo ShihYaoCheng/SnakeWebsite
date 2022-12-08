@@ -31,9 +31,9 @@ namespace SnakeAsianLeague.Data.Services.Personal
         public List<OptionKeyValue> ClassList = new List<OptionKeyValue>() { };
         public List<OptionKeyValue> CountryList = new List<OptionKeyValue>() { };
 
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-
-        public InventoryService(IConfiguration config, IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
+        public InventoryService(IConfiguration config, IOptions<ExternalServers> myConfiguration, HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         {
             _config = config;
             externalServersConfig = myConfiguration.Value;
@@ -46,6 +46,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             ElementsList = option.Get_Default_Elements();
             ClassList = option.Get_Default_Class();
             CountryList = option.Get_Default_Country();
+            _httpContextAccessor = httpContextAccessor;
         }
         /// <summary>
         /// 取得稀有度
@@ -91,7 +92,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<PagedList<NFTData>> GetRiderNFTDataPageList(string UserID, int PageNumber, int PageSize ,string PPSRContractAddress)
+        public async Task<PagedList<NFTData>> GetRiderNFTDataPageList(string UserID, int PageNumber, int PageSize, string PPSRContractAddress)
         {
             string ImgPath = _config.GetValue<string>("googleapis");
             string LinkURL = _config.GetValue<string>("OpenSeaLink");
@@ -218,9 +219,9 @@ namespace SnakeAsianLeague.Data.Services.Personal
             catch (Exception ex)
             {
                 Console.WriteLine(" 個人 inventory 錯誤 :" + ex.Message);
-                
+
             }
-           
+
 
             /*加入一隻 Coming Soon*/
             //NFTData data1 = new NFTData();
@@ -385,7 +386,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             {
                 result = JsonSerializer.Deserialize<decimal>(restResponse.Content);
             }
-            
+
             return result;
         }
 
@@ -398,7 +399,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         {
 
             decimal result = 0;
-            
+
             string URL = "/NFT/ReceiveRent";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("userID", userId);
@@ -407,7 +408,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
-                result = JsonSerializer.Deserialize<decimal>(restResponse.Content) ;
+                result = JsonSerializer.Deserialize<decimal>(restResponse.Content);
             }
             return result;
 
@@ -422,7 +423,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         public async Task<decimal> CalReceiveRent(string userId)
         {
             List<RiderUnit> DataList = await Get_NFT_RiderByUserID(userId);
-            decimal result = decimal.Parse(DataList.Where(m => m.rentType == 22).Select(m => m.totalRevenue.Where(n =>n.currencyType ==22).First().price).Sum().ToString());
+            decimal result = decimal.Parse(DataList.Where(m => m.rentType == 22).Select(m => m.totalRevenue.Where(n => n.currencyType == 22).First().price).Sum().ToString());
             //decimal result = 0;
             return Math.Round(result, 3, MidpointRounding.AwayFromZero);
         }
@@ -448,7 +449,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// 透過 userId 取得遊戲gSRC數量
         /// </summary>
         /// <returns></returns>
-        public async Task<decimal> GetgSRCCurrency1(string UserID , int currencyType)
+        public async Task<decimal> GetgSRCCurrency1(string UserID, int currencyType)
         {
 
             decimal result = 0;
@@ -478,7 +479,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// 28 ERNC
         /// </summary>
         /// <returns></returns>
-        public async Task<decimal> GetAllCurrencies(string UserID ,int currencyType)
+        public async Task<decimal> GetAllCurrencies(string UserID, int currencyType)
         {
 
             decimal result = 0;
@@ -519,7 +520,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
         public class AllowanceData
         {
-            public decimal allowance {get; set;}
+            public decimal allowance { get; set; }
         }
 
 
@@ -583,7 +584,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
 
         #region
-        
+
 
         /// <summary>
         /// 取得邀請碼
@@ -595,15 +596,14 @@ namespace SnakeAsianLeague.Data.Services.Personal
             InvitationCodeDto result = new InvitationCodeDto();
             string URL = $"InvitationCode";
             var request = new RestRequest(URL, Method.GET);
-            request.AddQueryParameter("userId", "10020");
+            request.AddQueryParameter("userId", UserID);
             request.AddHeader("Authorization", Authenticate());
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
-
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
-                result = JsonSerializer.Deserialize<InvitationCodeDto>(restResponse.Content) ?? new  InvitationCodeDto();
+                result = JsonSerializer.Deserialize<InvitationCodeDto>(restResponse.Content) ?? new InvitationCodeDto();
             }
-            return result;        
+            return result;
         }
 
 
@@ -617,7 +617,8 @@ namespace SnakeAsianLeague.Data.Services.Personal
         {
             string Base64String = "";
             QRCodeGenerator generator = new QRCodeGenerator();
-            string URL = $"https://localhost:7279/myprofile/referralCode/{Code}/{Name}";
+            string host = _httpContextAccessor.HttpContext.Request.Host.Value;
+            string URL = $"https://{host}/myprofile/referralCode/{Code}/{Name}";
             QRCodeData codeData = generator.CreateQrCode(URL, QRCodeGenerator.ECCLevel.M, true);
             QRCoder.BitmapByteQRCode qrcode = new BitmapByteQRCode(codeData);
             byte[] bitmap = qrcode.GetGraphic(10);
