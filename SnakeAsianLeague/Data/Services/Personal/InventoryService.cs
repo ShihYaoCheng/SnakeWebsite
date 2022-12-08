@@ -613,12 +613,12 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public async Task<string> CreateQrCode(string Code, string Name)
+        public async Task<string> CreateQrCode(string Code)
         {
             string Base64String = "";
             QRCodeGenerator generator = new QRCodeGenerator();
             string host = _httpContextAccessor.HttpContext.Request.Host.Value;
-            string URL = $"https://{host}/myprofile/referralCode/{Code}/{Name}";
+            string URL = $"https://{host}/SignUp/{Code}";
             QRCodeData codeData = generator.CreateQrCode(URL, QRCodeGenerator.ECCLevel.M, true);
             QRCoder.BitmapByteQRCode qrcode = new BitmapByteQRCode(codeData);
             byte[] bitmap = qrcode.GetGraphic(10);

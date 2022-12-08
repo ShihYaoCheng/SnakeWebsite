@@ -1,4 +1,4 @@
-@page "/SignUp"
+@page "/SignUp/{code}"
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Entity
@@ -107,7 +107,7 @@
                     <div class="popup-low">
                         <label class="popup-label" for="InvitationCode" data-i18n="Home_data:register.InvitationCode">
                             Invitation Code</label>
-                        <input class="SignUp-inputText" id="InvitationCode" type="text"
+                        <input class="SignUp-inputText" id="InvitationCode" type="text" value=@Code
                              placeholder="No invitation code, leave the field blank."  data-i18n="[placeholder]Home_data:register.InvitationCodeText">
                     </div>
 
@@ -175,6 +175,9 @@
 @code {
     public string? CountryCode { get; set; } = "+886";
     public string? PhoneNum { get; set; }
+
+    [Parameter]
+    public string Code { get; set; }
 
     
     bool sendVerifyCodehidden = false;

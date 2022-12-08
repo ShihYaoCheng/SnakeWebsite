@@ -41,8 +41,6 @@
                             <div class="playerInfoRow">
                                 <div class="playerInfoRowTitle" >邀請人</div>                                    
                                 <div class="playerInfoRowShow"><span>@InvitationCode.whoInvited</span> / <span>邀請人名</span></div>  
-
-                                <div class="playerInfoRowShow"><span>@Code  +  @Name</span> / <span>邀請人名</span></div>  
                             </div>
                         </div>   
                     </div>
@@ -63,12 +61,6 @@
     </main>
 }
 @code {
-
-    [Parameter]
-    public string Code { get; set; }
-
-    [Parameter]
-    public string Name { get; set; }
 
 
     InvitationCodeDto InvitationCode { get; set; }
@@ -99,7 +91,7 @@
         InvitationCode = await InventoryService.GetInvitationCode(UserID);
         if (InvitationCode.code != null)
         {            
-            QRCodeByte = await InventoryService.CreateQrCode(InvitationCode.code ,InvitationCode.name);
+            QRCodeByte = await InventoryService.CreateQrCode(InvitationCode.code);
         }
         StateHasChanged();
     }
