@@ -109,10 +109,10 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address, warmUp
 	let SRCExchange_ABI = window.SRCExchange_ABI
 	//預熱活動用 修改
 	if (warmUpToggle) SRCExchange_ABI = window.tSRCExchange_ABI
-	console.log("SRCInput", SRCInput, "SRC_address", SRC_address, "SRCExchange_address", SRCExchange_address)
+	
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
-	console.log("x",x)
+
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
