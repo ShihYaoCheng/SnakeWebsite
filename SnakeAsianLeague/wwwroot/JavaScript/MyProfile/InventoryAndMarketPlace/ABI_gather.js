@@ -731,6 +731,26 @@ window.SRCSwap_abi = [
         "type": "function"
     },
     {
+        "inputs": [],
+        "name": "pause",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "paused",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [
             {
                 "internalType": "address",
@@ -867,6 +887,13 @@ window.SRCSwap_abi = [
     },
     {
         "inputs": [],
+        "name": "unpause",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "usdPerSRC",
         "outputs": [
             {
@@ -935,7 +962,6 @@ window.SRCSwap_abi = [
         "type": "receive"
     }
 ]
-
 
 window.SRCExchange_ABI = [
     {
