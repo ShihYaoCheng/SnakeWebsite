@@ -265,7 +265,7 @@ input.SignUp-inputText:focus{
 }
 input.SignUp-inputText::placeholder{
     font-size: 15.5px;
-    color: #7f9390b6;
+    color: #7f939093;
     letter-spacing: 0.5px;
 }
 select.SignUp-inputText{
@@ -290,7 +290,7 @@ select.SignUp-inputText:focus{
 }
 select.SignUp-inputText::placeholder{
     font-size: 14px;
-    color: #7f9390b6;
+    color: #7f939093;
 }
 select.SignUp-inputText option{
     font-size: 14px;
