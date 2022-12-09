@@ -326,8 +326,8 @@
     justify-content:center;
     align-items:center;
     max-width: 270px;
-    width: 30%;
-    margin: 0 auto;
+    width: 45%;
+    margin: 30px;
 }
 
 .V7-rule-diamond img {
@@ -340,14 +340,14 @@
     background-repeat: round;
     width: 90%;
     max-width: 550px;
-    height: 550px;
+    /* height: 550px; */
     padding: 60px 5%;
 }
 @media all and (max-width: 1000px) {
 
     .V7-rule-content {
         padding: 60px 5% 30px;
-        height: 600px;
+        /* height: 600px; */
     }
 }
 
@@ -356,7 +356,7 @@
 
     .V7-rule-content {
         padding: 45px 7% 30px;
-        height: 500px;
+        /* height: 550px; */
     }
 }
 
@@ -367,9 +367,9 @@
     }
 
     .V7-rule-content {
-        width: 90%;
+        width: 95%;
         padding: 45px 7% 30px;
-        height:575px;
+        /* height: 575px; */
     }
 }
 
@@ -424,8 +424,8 @@
 
 @media all and (max-width: 768px) {
     .V7-rule-content p {
-        font-size: 14.5px;
-        line-height: 20px;
+        font-size: 14.8px;
+        line-height: 22px;
     }
 
 }
