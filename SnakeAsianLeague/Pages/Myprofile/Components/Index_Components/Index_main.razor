@@ -90,7 +90,7 @@
                         {
                             <div class="metamaskAvailable" title="點擊複製 Address" @onclick="textCopyClick">
                                 <p data-i18n="myprofile.Address">Address：</p> <span>@AppState.LoginStatus.walletAddress</span>
-                                <div id="copyTip">複製成功</div>
+                                <div class="copyTip">複製成功</div>
                             </div>
                         }
 						
@@ -422,7 +422,7 @@
     private async Task textCopyClick()
     {
         await JS.InvokeVoidAsync("textCopy");
-        await JS.InvokeVoidAsync("copyTip");
+        await JS.InvokeVoidAsync("copyTip" , ".copyTip");
     }
     private async Task loginButtonClick()
     {

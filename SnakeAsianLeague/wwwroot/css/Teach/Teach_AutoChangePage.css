@@ -23,13 +23,18 @@
     font-size: 14px;
     font-weight: bold;
 }
+.WhetherGoToNextPage-pop p{
+    font-size: 20px;
+}
 
-.WhetherGoToNextPage-pop button {
-    margin-top: 20px;
+.WhetherGoToNextPage-pop button { 
     color: #fff;
-    background: #90bcb6;
+    border: 3.8px solid #eac492db;
+    background-image: linear-gradient(to top, #ffa300, #fed322);
     border: 0;
     border-radius: 20px;
     padding: 10px 15px;
     font-weight: bold;
+    width: 80%;
+    margin: 20px auto 0px auto;
 }

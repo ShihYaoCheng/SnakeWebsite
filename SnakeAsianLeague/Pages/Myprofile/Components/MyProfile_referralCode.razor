@@ -1,5 +1,6 @@
 ﻿
 
+@using RestSharp
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Personal
@@ -7,7 +8,7 @@
 
 @inject AppState AppState
 @inject InventoryService InventoryService
-
+@inject IJSRuntime JS
 
 
 <head>
@@ -21,7 +22,7 @@
     <main class="myprofileMain" >
         <div class="myprofileBlock" >
             <div class="referralCode-container">
-                <h3> @InvitationCode.name</h3>
+                <h3> @InvitationCode.name <span>的邀請碼</span></h3>
                 <div class="referralCode-content">
                     @*中間圖+字*@
                     <div class="referralCode-imgAndText">
@@ -31,8 +32,9 @@
                         <div class="referralCode-text">
                             <div class="playerInfoRow">
                                 <div class="playerInfoRowTitle" >邀請碼</div>                                    
-                                <div class="playerInfoRowShow">@InvitationCode.code</div> 
-                                <button class="copyButton" @onclick=CopyCode>複製</button>             
+                                <div class="playerInfoRowShow InvitationCode"> @InvitationCode.code </div> 
+                                <button class="copyButton" @onclick=@(async ()=>{await CopyCode("inviteCode");})>複製</button> 
+                                <div class="copyTip inviteCode">複製成功</div>
                             </div>
                             <div class="playerInfoRow">
                                 <div class="playerInfoRowTitle" >邀請人數</div>                                    
@@ -46,13 +48,15 @@
                     </div>
                     @*按鈕區*@
                     <div class="referralCode-button">
-                        <button class="editButton" >
+                        <button class="editButton"  @onclick=@(async ()=>{await CopyCode("inviteLink");})>
                             <img src="/images/Myprofile/edit_icon.webp" alt="">
                             <p>複製連結</p>
+                            <div class="copyTip inviteLink">複製成功</div>
                         </button>
                         <button class="editButton" >
                             <img src="/images/Myprofile/edit_icon.webp" alt="">
                             <p>下載名片</p>
+                            <div class="copyTip">複製成功</div>
                         </button>
                     </div>            
                 </div>    
@@ -60,11 +64,20 @@
         </div>
     </main>
 }
+@if(restResponse)
+{
+    <div class="referralCode-pop-container">
+        <div class="referralCode-pop">
+            <p>請完成錢包綁定</p>
+            <a href="/GettingStarted/connect-game-account">  前往綁定 </a>
+        </div>
+    </div>
+}
 @code {
 
 
     InvitationCodeDto InvitationCode { get; set; }
-
+    bool restResponse { get; set; }
     string QRCodeByte;
 
     protected override async Task OnInitializedAsync()
@@ -89,6 +102,7 @@
     {
         string UserID = AppState.LoginStatus.userID.ToString();
         InvitationCode = await InventoryService.GetInvitationCode(UserID);
+        restResponse= await InventoryService.GetInvitationResponse(UserID);     
         if (InvitationCode.code != null)
         {            
             QRCodeByte = await InventoryService.CreateQrCode(InvitationCode.code);
@@ -99,8 +113,12 @@
 
 
 
-    private async Task CopyCode()
+    private async Task CopyCode(string value)
     {
         string code =  InvitationCode.code;
+        await JS.InvokeVoidAsync("textCopy" , value);
+        await JS.InvokeVoidAsync("copyTip","."+value);
     }
+
+
 }

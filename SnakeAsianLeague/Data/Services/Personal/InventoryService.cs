@@ -606,6 +606,27 @@ namespace SnakeAsianLeague.Data.Services.Personal
             return result;
         }
 
+        /// <summary>
+        /// 取得回傳訊息
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <returns></returns>
+        public async Task<bool> GetInvitationResponse(string UserID)
+        {
+            bool result = false;
+            string URL = $"InvitationCode";
+            var request = new RestRequest(URL, Method.GET);
+            request.AddQueryParameter("userId", UserID);
+            request.AddHeader("Authorization", Authenticate());
+            IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
+            if (restResponse.StatusCode == HttpStatusCode.NotFound)
+            {
+                result=true;
+            }
+
+            return result;
+        }
+
 
 
         /// <summary>
