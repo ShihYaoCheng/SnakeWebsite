@@ -333,7 +333,7 @@ a, .btn-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 72px;
+    /* width: 72px; */
     /* border: 3px solid #aad4cd; */
     box-shadow: 2px 2px 4px 0px #1c4c581e;
     transition: all .1s ease-in;
@@ -341,7 +341,7 @@ a, .btn-link {
     height: 38px;
 }
 #nav-ConnectWallet a{
-    padding: 6px 10px;
+    padding: 6px 6px;
     font-size: 12px;
     color: #ffffff;
     line-height: 14px ;
@@ -358,7 +358,7 @@ a, .btn-link {
 
     }
     #nav-ConnectWallet{
-        width: 45%;
+        /* width: 45%; */
         margin-bottom: 10px;
     }
 }
