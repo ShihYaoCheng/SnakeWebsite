@@ -250,12 +250,14 @@
 .V7-subTitle {
     background: url("/images/Battle/1V7/1v7BG.png");
     background-repeat: round;
-    width: 320px;
-    height:53px;
+    max-width: 380px;
+    width: 90%;
+    /* height:53px; */
+    padding: 20px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px auto 60px;
+    margin: 40px auto 70px;
 }
 
 @media all and (max-width: 1000px) {
@@ -285,27 +287,29 @@
 
 
 .V7-subTitle img{
-    width: 83%;
+    width: 90%;
 }
 
 .V7-rule {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    justify-content: space-around;
     align-items: center;
-    width:1000px;
+    max-width: 1000px;
+    width: 90%;
     margin:0 auto;
     padding-bottom:100px;
 }
 
 @media all and (max-width: 1000px) {
     .V7-rule {
-        width: 700px;
+        /* width: 700px; */
     }
 }
 
 @media all and (max-width: 768px) {
     .V7-rule {
-        width: 550px;
+        /* width: 550px; */
     }
 }
 @media all and (max-width: 576px) {
@@ -317,28 +321,32 @@
 }
 
 .V7-rule-diamond {
-    width:45%;
+    /* width:45%; */
     display:flex;
     justify-content:center;
     align-items:center;
+    max-width: 270px;
+    width: 30%;
+    margin: 0 auto;
 }
 
 .V7-rule-diamond img {
-    width:60%;
+    width: 100%;
 }
 
 
 .V7-rule-content {
     background: url("/images/Battle/1V7/V7RuleContentBG.png");
     background-repeat: round;
-    width: 55%;
-    height: 650px;
+    width: 90%;
+    max-width: 550px;
+    height: 550px;
     padding: 60px 5%;
 }
 @media all and (max-width: 1000px) {
 
     .V7-rule-content {
-        padding: 40px 5%;
+        padding: 60px 5% 30px;
         height: 600px;
     }
 }
@@ -347,20 +355,20 @@
 @media all and (max-width: 768px) {
 
     .V7-rule-content {
-        padding: 40px 5% 30px;
-        height: 564px;
+        padding: 45px 7% 30px;
+        height: 500px;
     }
 }
 
 @media all and (max-width: 576px) {
     .V7-rule-diamond {
-        width: 50%;
+        width: 40%;
         margin-bottom: 20px;
     }
 
     .V7-rule-content {
-        width: 85%;
-        padding: 40px 7%;
+        width: 90%;
+        padding: 45px 7% 30px;
         height:575px;
     }
 }
@@ -369,36 +377,37 @@
     background: url("/images/Battle/1V7/V7RuleContentTitle.png");
     width:90%;
     margin:0 auto;
-    height:63px;
+    /* height:63px; */
     background-repeat:round;
     display:flex;
     justify-content:center;
     align-items:center;
-    
-    margin-bottom:50px;
+    padding: 5px 10px;
+    margin-bottom: 35px;
 }
 
 @media all and (max-width: 1000px) {
     .V7-rule-content-title {
-        height: 50px;
+        /* height: 50px; */
         margin-bottom: 35px;
     }
 }
 
 @media all and (max-width: 768px) {
     .V7-rule-content-title {
-        height: 40px;
+        /* height: 40px; */
         margin-bottom:25px;
     }
 }
 
 
 .V7RuleContentText {
-    margin-right:5px;
-    width:70%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 70%;
 }
 .V7RuleContentText7{
-    width: 20%;
+    width: 15%;
 }
 
 
