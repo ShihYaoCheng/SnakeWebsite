@@ -17,10 +17,12 @@ window.myprofileSidebar = function () {
     });
 }
 
-window.textCopy = function () {
+window.textCopy = function (value) {
     console.log('textCopy')
     let text = $('.metamaskAvailable span').text()
-    
+    if (value == "inviteCode") text = $('.InvitationCode').text()
+    if (value == "inviteLink") text = "https://www.ponponsnake.com/SignUp/" + $('.InvitationCode').text()
+
     console.log("copyTip")
     
     if (!navigator.clipboard || !navigator.clipboard.writeText) {
@@ -53,12 +55,12 @@ window.textCopy = function () {
     // }, 700);
     
 }
-window.copyTip = function () {
+window.copyTip = function ( value) {
     // 複製提示語
     // let copyTip = `<div id="copyTip" style="position: absolute; top: 50%;left: 50%;transform: translate(-50%, -50%);padding: 12px 25px;background: rgba(0, 0, 0, 0.6); color: #fff;font-size: 14px;">複製成功</div>`; //提示語div
-    $("#copyTip").css({"opacity": "1","z-index":"1"}); //放入document
+    $(value).css({"opacity": "1","z-index":"1"}); //放入document
     setTimeout(() => {
-        $("#copyTip").css({"opacity": "0","z-index":"-1"}); //提示完即消失
+        $(value).css({"opacity": "0","z-index":"-1"}); //提示完即消失
     }, 700);
 }
 

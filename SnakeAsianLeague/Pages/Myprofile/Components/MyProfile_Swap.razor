@@ -268,9 +268,9 @@
     //預熱活動開關
     bool warmUpToggle;
     decimal[] web3jsData ;
-   
+
     private IJSObjectReference? coinEchangeJS;   
-      protected override async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         //預熱活動用
         warmUpToggle = BlockChainSever.BlockChainInfoDTO.eventWarmUpStatus20221108;
@@ -329,7 +329,7 @@
     decimal USDTInput = 0;
     decimal SwapRate = 0;
     bool loading = true;
-   
+
     string netWorkName = "Rinkeby";
     bool BalanceShort =false;
     public void SRCInputChange(string value)
@@ -365,10 +365,17 @@
         var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
         var SRCSwap_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCSwap;
         var chainRPCUrl = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
-        web3jsData = await JS.InvokeAsync<decimal[]>("web3JS" ,chainId ,USDT_token_addr,SRC_token_addr,SRCSwap_addr ,chainRPCUrl  );
-        SwapRate = web3jsData[2] ;
-        SRCTotal = web3jsData[0] ;
-        USDTTotal = web3jsData[1] ;
+        //預熱活動用
+        if (!warmUpToggle)
+        {
+            web3jsData = await JS.InvokeAsync<decimal[]>("web3JS" ,chainId ,USDT_token_addr,SRC_token_addr,SRCSwap_addr ,chainRPCUrl  );
+            SwapRate = web3jsData[2] ;
+            SRCTotal = web3jsData[0] ;
+            USDTTotal = web3jsData[1] ;
+        }
+
+        
+     
 
 
     }
