@@ -44,15 +44,17 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
-
-	var test123 = true
-
+	const getGasPrice = await web3.eth.getGasPrice()
+	console.log("getGasPrice", getGasPrice)
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
 		const tokenContract = await new web3.eth.Contract(
 			ERC20_abi,
-			SRC_addr
+			SRC_addr,
+			{
+				gasPrice: getGasPrice.toString()
+			}
 		);
 
 		let SRC_decimals = parseInt(await tokenContract.methods.decimals().call())	
@@ -113,12 +115,16 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address, warmUp
 	const SwapNumValue = SRCInput
 	let x = new BigNumber(SwapNumValue);
 
+	const getGasPrice = await web3.eth.getGasPrice()
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
 		const tokenContract = await new web3.eth.Contract(
 			ERC20_abi,
-			SRC_addr
+			SRC_addr,
+			{
+				gasPrice: getGasPrice.toString()
+			}
 		);
 		//精度
 		let SRC_decimals = parseInt(await tokenContract.methods.decimals().call())

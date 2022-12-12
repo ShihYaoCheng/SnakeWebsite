@@ -33,7 +33,7 @@
         //optgroupElement.label = countryCodeKeyList[index]
         optgroupElement.dataset.i18n = `[label]countryCode_data:country_code.${countryCodeKeyList[index]}`;
 
-        console.log(optgroupElement)
+  
         countryCodeNumber.map((e, i) => {
             optgroupElement.innerHTML = optgroupElement.innerHTML + `
             <option value="${e}" data-i18n="countryCode_data:country_code.${countryCodeID[i]}"></option>
