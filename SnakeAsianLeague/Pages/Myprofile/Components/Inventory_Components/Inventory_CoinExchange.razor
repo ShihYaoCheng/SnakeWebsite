@@ -95,9 +95,32 @@
     </div>
 
 </div>
+
+
+@*警告彈窗*@@*區塊鍊忙碌彈窗*@
+@if (coinEchangePop)
+{
+    <div class="coinEchange-pop-container">
+        <div class="coinEchange-pop">
+            <p> @coinEchangePopText </p>
+            <button @onclick="toggleCoinEchangePop"> 確定 </button>
+        </div>
+    </div>    
+
+}
+
+
 @code {
     //預熱活動開關
     bool warmUpToggle;
+
+    bool coinEchangePop =false;
+    string coinEchangePopText = "";
+    public async void toggleCoinEchangePop()
+    {
+        coinEchangePop = false;
+        await clickRefresh();
+    }
     //private readonly RestRequest test2 = new RestRequest("BackEnd/Accounts", Method.GET);
     [Parameter]
     public EventCallback refresh { get; set;}
@@ -111,6 +134,7 @@
     public ExchangeCoin? Value { get; set; }
 
     private IJSObjectReference? coinEchangeJS;
+    private IJSObjectReference? gasFeeCoinEchangePopJS;
     decimal difference=0;
     decimal rangeValue = 0;
     decimal GSRCincrease = 0;
@@ -131,10 +155,13 @@
     {
         if (firstRender)
         {
-            @*
+    @*
             var request = new RestRequest(test2.Resource, test2.Method);
             Console.Write(request);*@
             coinEchangeJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/coinEchange.js");
+            gasFeeCoinEchangePopJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/gasFeeCoinEchangePop.js");
+
+
             await coinEchangeJS.InvokeVoidAsync("coinEchange" ,".ExchangeBtn");
 
             //TransferEventsJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/TransferEvents.js");          
@@ -218,101 +245,117 @@
         Value.gNumberChange = Value.gNumber - difference;
         Value.tokenNumberChange = Value.tokenNumber + difference;
         rangeValue = difference;
-          
+
         GSRCincrease = -difference;
         SRCincrease = difference;
 
         if (difference == 0)
         {
-
             InvokeAsync(StateHasChanged);
         }
-        
-       
+
+
     }
+    protected async Task transactionAlert()
+    {
+        coinEchangePopText = "交易執行後，請勿關閉視窗,以防交易中斷";
+        coinEchangePop = true;
+        await InvokeAsync(StateHasChanged);
+    }
+
     @* TaskCompletionSource<bool>taskCompletionSource = new TaskCompletionSource<bool>();*@
     bool transactionResult = false;
     decimal getAuthorizeNum ;
     bool TransferToDB = false;
     protected  async Task coinEchangeBtn()
     {
-        await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
-        if (difference < 0)
-        {
-            var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
-            var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;      
-            @*預熱活動用 修改*@
-            if (warmUpToggle)
-            {
-                SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRC;
-                SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRCExchange;
-            }             
-                
-            var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
-            @*鍊換game*@
-            //await TransferEventsJS.InvokeVoidAsync("TransferEvents" ,socketServerUri , SRC_token_addr,"tokenSRC");
-            transactionResult =await coinEchangeJS.InvokeAsync<bool>("withdraw", difference *-1,SRC_token_addr,SRCExchange_addr );      
+        coinEchangePop =await gasFeeCoinEchangePopJS.InvokeAsync<bool>("gasFeeCoinEchangePop" ,"150");
 
-            if (transactionResult)
-            {
-                @*預熱活動用 修改*@
-                if (warmUpToggle)
-                {
-                    TransferToDB = await metamaskTransfer.TSRCTransferToDB(AppState.LoginStatus.userID, difference * -1);
-                }
-                else
-                {
-                    TransferToDB = await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference *-1);
-                }        
-            
-            }
-            if (TransferToDB)
-            {
-            //System.Threading.Thread.Sleep(5000);
-                await clickRefresh();
-            }
-            
-        }
-        else
+        if (!coinEchangePop)
         {
-            @*game換鍊*@
-            @*預熱活動用 修改*@
-           
-            if (warmUpToggle)
+            await transactionAlert();
+            await coinEchangeJS.InvokeVoidAsync("lockWindowsShow");
+            if (difference < 0)
             {
-                getAuthorizeNum = await InventoryService.TSRCExchangeApprove(AppState.LoginStatus.userID.ToString(), difference);
-            }
-            else
-            {
-                getAuthorizeNum = await InventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString() ,difference);
-            }
-
-            if (getAuthorizeNum!=0)
-            {
-                //預熱活動用 修改
                 var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
                 var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;
+                @*預熱活動用 修改*@
                 if (warmUpToggle)
                 {
                     SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRC;
                     SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRCExchange;
                 }
-               
-                transactionResult =await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum,SRC_token_addr,SRCExchange_addr ,warmUpToggle );
+
+                var socketServerUri = BlockChainSever.BlockChainInfoDTO.socketServerUri;
+                @*鍊換game*@
+                //await TransferEventsJS.InvokeVoidAsync("TransferEvents" ,socketServerUri , SRC_token_addr,"tokenSRC");
+                transactionResult = await coinEchangeJS.InvokeAsync<bool>("withdraw", difference * -1, SRC_token_addr, SRCExchange_addr);
+
+                if (transactionResult)
+                {
+                    @*預熱活動用 修改*@
+                    if (warmUpToggle)
+                    {
+                        TransferToDB = await metamaskTransfer.TSRCTransferToDB(AppState.LoginStatus.userID, difference * -1);
+                    }
+                    else
+                    {
+                        TransferToDB = await metamaskTransfer.SRCTransferToDB(AppState.LoginStatus.userID, difference * -1);
+                    }
+
+                }
+                if (TransferToDB)
+                {
+                    //System.Threading.Thread.Sleep(5000);
+                    await clickRefresh();
+                }
+
             }
             else
             {
-                transactionResult = false;
-            }          
-            if (transactionResult)
-            {
-                await clickRefresh();
+                @*game換鍊*@
+                @*預熱活動用 修改*@
+                if (warmUpToggle)
+                {
+                    getAuthorizeNum = await InventoryService.TSRCExchangeApprove(AppState.LoginStatus.userID.ToString(), difference);
+                }
+                else
+                {
+                    getAuthorizeNum = await InventoryService.SRCExchangeApprove(AppState.LoginStatus.userID.ToString(), difference);
+                }
+
+                if (getAuthorizeNum != 0)
+                {
+                    //預熱活動用 修改
+                    var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+                    var SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCExchange;
+                    if (warmUpToggle)
+                    {
+                        SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRC;
+                        SRCExchange_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_tSRCExchange;
+                    }
+
+                    transactionResult = await coinEchangeJS.InvokeAsync<bool>("deposit", getAuthorizeNum, SRC_token_addr, SRCExchange_addr, warmUpToggle);
+                }
+                else
+                {
+                    transactionResult = false;
+                }
+                if (transactionResult)
+                {
+                    await clickRefresh();
+                }
+
+
             }
-
-
+            //強制渲染
+            await reSet();
         }
-        //強制渲染
-        await reSet();
+        else
+        {
+             coinEchangePopText = "區塊鍊壅塞中，請稍後交易";
+        }
+
     }
     public async Task reSet()
     {
