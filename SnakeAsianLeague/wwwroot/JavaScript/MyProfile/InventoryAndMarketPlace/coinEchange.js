@@ -46,6 +46,9 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 	let x = new BigNumber(SwapNumValue);
 	const getGasPrice = await web3.eth.getGasPrice()
 	console.log("getGasPrice", getGasPrice)
+	console.log(web3.utils.isBN(getGasPrice))
+	
+	
 	try {
 		//驗證貨幣
 		const accounts = await web3.eth.getAccounts();
@@ -132,7 +135,10 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address, warmUp
 		// 交易貨幣
 		const vendor = await new web3.eth.Contract(
 			SRCExchange_ABI,
-			SRCExchange_addr
+			SRCExchange_addr,
+			{
+				gasPrice: getGasPrice.toString()
+			}
 		);
 		console.log("x", x.shiftedBy(SRC_decimals).toString())
 		let request = await vendor.methods
