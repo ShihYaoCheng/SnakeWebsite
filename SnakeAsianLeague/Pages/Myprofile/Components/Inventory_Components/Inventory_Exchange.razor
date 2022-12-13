@@ -52,12 +52,9 @@
             <div class="MyCerrency-Detail">
                 <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.gSRC">gSRC</p>
                 @*預熱活動用*@
-                @if (warmUpToggle)
-                {
-                    <p class="MyCerrency-Amount">0 </p>
-                }else{
-                    <p class="MyCerrency-Amount">@CoinData.gSRC </p>
-                }               
+             
+                <p class="MyCerrency-Amount">@CoinData.gSRC </p>
+                              
                 
             </div>
         </div>
@@ -117,7 +114,7 @@
                 <div class="MyCerrency-Detail">
                     <p class="MyCerrency-Name" data-i18n="Inventory_data:otherTitle.Gem">Gold</p>
                              
-                        <p class="MyCerrency-Amount">@CoinData.Gold</p>
+                        <p class="MyCerrency-Amount">@CoinData.Gold.ToString("0")</p>
                     </div>
                 </div>
             </div>
