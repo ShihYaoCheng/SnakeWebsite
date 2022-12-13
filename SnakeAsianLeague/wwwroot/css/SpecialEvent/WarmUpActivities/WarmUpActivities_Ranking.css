@@ -217,10 +217,13 @@
     }
 }
 @media all and (max-width: 600px){
+    .top50{
+        margin: 30px auto 5px;
+    }
     .Ranking-Block{
         height: 600px;
         width: 100%;
-        padding: 30px 3%;
+        padding: 20px 3%;
         margin: 40px auto 0;
     }
     .Ranking-Block::before{
