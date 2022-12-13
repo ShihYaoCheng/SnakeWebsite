@@ -13,7 +13,7 @@
         "date-02":"Coming Soon",
         "date-03":"(2 weeks)",
         "text-01":"Ready to Warm up With PonPonSnake?",
-        "text-02":"Are you interested in GameFi but don't know where to begin? Do you believe it's impossible for playing games to make money? PonPonSnake is the ideal game for beginners. Join our event, play for free, and make money! The top 50 on the ranking list will all receive SRC, and there will also be free riders for you to enjoy!"
+        "text-02":"Want to get started with GameFi but don't know where to begin? Do you still believe that making money via playing is a pipe dream? PonPonSnake could be your best option to begin with! Now, join us for the warm-up event and get a head start on GameFi."
     },
     
     "rules": {
@@ -36,8 +36,25 @@
         "discountStep-02":"Benefit 2",
         "discountText-02":"Steps 1~3 must be completed in order to acquire our \"PonPonSnake Beta Pack\" (includes SRC V1 x 999, Item name X 999)",
         "discountText-03":"SRC V1 will be discarded at the end of the event."
-    },
+    },    
+    
+    "activity": {
+        "title-02":"- Event Ⅰ -",
+        "text-02-1":"Five-star review,",
+        "text-02-2":"Rewards for you",
+        "info-02-1":"Please leave a five-star and 50-word review on the App Store after joining PonPonSnake Telegram. Then, send our Telegram GM your screenshot, and we will send the reward 100 SRC to your account within 7 working days.",
+        "info-02-2":"※Each Metamask ID may only claim once.",
+        "date-02":"Event Time: Coming Soon",
 
+        "title-03":"- Event Ⅱ -",
+        "text-03-1":"Play Rank, It’s Your Chance",
+        "text-03-2":"(GET SRC+NFT)",
+        "info-03-1":"The ERNCs you acquired on the 1V7 battlefield will be used to calculate your points. The top 50 on the ERNC ranking leader board members will be able to win SRC and NFT snake knights with the greatest value of 50 ETH.        ",
+        "info-03-2":"Total Reward：65,000 SRC(2000USDT)",
+        "info-03-3":"Reward List:",
+        "date-03":"Event Time: Coming Soon"
+
+    },
     
     "reward": {
         "title":"Reward",
@@ -54,7 +71,17 @@
     "reward-new": {
         "top50-table":"TOP 50",
         "tableTitle-01":"Place",
-        "tableTitle-02":"Reward (PER)"
+        "tableTitle-02":"Reward (PER)",
+        "reward-01":"10000 SRC + Venus(Wind) NFT×1+ PPS VIPSx1",
+        "reward-02":"5000 SRC + #2 Snow White(Earth) NFT×1 + PPS VIPS×1",
+        "reward-03":"5000 SRC + #2 Snow White(Water) NFT×1 + PPS VIPS×1",
+        "reward-04":"5000 SRC + #33 Snow White(Fire) NFT×1 + PPS VIPS×1",
+        "reward-05":"5000 SRC + #83 Doggy Sled (Fire) NFT×1 + PPS VIPS×1",
+        "reward-06":"5000 SRC + #22 Doggy Sled (Wind) NFT×1 + PPS VIPS×1",
+        "reward-07":"2000 SRC + #64 Chicken Family(Water) NFT×1 + PPS VIPS×1",
+        "reward-08":"2000 SRC + #54 Chicken Family(Fire) NFT×1 + PPS VIPS×1",
+        "reward-09":"2000 SRC + #51 Classic Snake(Earth) NFT×1 + PPS VIPS×1",
+        "reward-10":"2000 SRC + #41 Classic Snake(Water) NFT×1 + PPS VIPS×1"
     },
     
     "ranking": {
@@ -65,6 +92,27 @@
 
     "WarmUpRiderBanner":{
         "title":"/images/EventBanner/EventBanner_WarmUpActivities/WarmUpActivities-banner-Title-EN.png"
+    },
+    
+    "notice":{
+        "title":"FAQ",
+        "question-01":"Q1: What requirements must be met before receiving the reward?",
+        "answer-01":"To get the award, players must connect their gaming account to Metamask.",
+        "question-02":"Q2: How to claim the reward of the ranking competition and when will the rewards be distributed?",
+        "answer-02":"Please stay tuned on PonPonSnake's official website and social media for the competition's final rankings results. A valid wallet address must be entered by the winning player in order to get their rewards. After verification, the rewards will be given out in 7 working days.",
+        "question-03":"Q3: What is the gSRC used for in the beta version?",
+        "answer-03":"gSRC is used for renting the NFTs and paying the entrance fee for each game during the open beta. The higher the entrance fee increases, the more bonuses will be offered. Your chances of winning each game may grow as you rent stronger NFT in battle, and you may also receive more rewards.",
+        "question-04":"Q4: I need more tSRC or gSRC, where can I get them?",
+        "answer-04":"By participating in the warmup event's various social media platform tasks, players may earn free tSRC or gSRC. During the public beta, the gSRC has the same function as tSRC. When the event ends, players will receive their recharged gSRC back and it will be converted to SRC. Players can withdraw SRC to their wallets by using our website's SRC/USDT exchange page. SRC is an investment asset on the chain that won't be cleared but will be worthless after the event.",
+        "question-05":"Q5: How to deposit and recharge gSRC?",
+        "answer-05":"During the beta period, players can purchase gSRC packages through USDT on the Polygon chain, or through IAP (In-App-Purchase).",
+        "question-06":"Q6: Will the beta-earned items I received remain?",
+        "answer-06":"All item rewards obtained during the beta will be cleared after the beta ends.",
+        "question-07":"Q7: How many rewards can one account/wallet address receive?",
+        "answer-07":"The rewards may only be claimed once per account or wallet. The claim will be rejected if the same ID is registered with several accounts.",
+        "question-08":"Q8: How do I exchange SRC/USDT?",
+        "answer-08":"7 days after the beta period has ended, the function for players to swap SRC/USDT will be available in the marketing area on PonPon Snake's official website.",
+        "statement":"The event's organizer reserves the right to explain and make decisions on any event-related matters, as well as the right to change the event's terms and rewards at any time without prior notice. The organizer retains the right to cancel, modify, or suspend this activity if it is unable to proceed due to particular circumstances of force majeure."
     }
 
 }

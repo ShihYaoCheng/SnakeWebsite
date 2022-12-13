@@ -13,7 +13,7 @@
         "date-02":"敬請期待",
         "date-03":"(為期2周)",
         "text-01":"準備好跟碰碰蛇一起暖暖身了嗎？",
-        "text-02":"你想體驗GameFi卻不知道從何下手嗎？覺得遊戲能賺錢聽起來很虛無縹緲嗎？碰碰蛇是一款適合新手的GameFi，現在加入我們的活動，一起免費遊玩開心收益！只要打進前50名，滿滿SRC等你來收益，免費騎士等待你來暢玩！！"
+        "text-02":"你想體驗GameFi卻不知道從何下手嗎？覺得遊戲能賺錢聽起來很虛無縹緲嗎？碰碰蛇是一款適合新手的GameFi，現在加入我們的活動，一起免費遊玩開心收益！體驗碰碰蛇的預熱，贏在起跑線吧！"
     },
 
     "rules": {
@@ -38,6 +38,23 @@
         "discountText-03":"SRC V1將在活動結束回收"
     },
 
+    "activity": {
+        "title-02":"《活動一》",
+        "text-02-1":"五星好評",
+        "text-02-2":"送豪禮",
+        "info-02-1":"加入碰碰蛇官方Telegram後，在APP Store搜索碰碰蛇的頁面，並且給予我們五分好評附上50字評價。截圖之後，即可聯繫我們的Telegram客服回報領取100SRC，我們將在七天的工作日發放獎勵到你的帳號。",
+        "info-02-2":"※同一ID只能參與一次，若發現同一ID註冊不同賬號，視為領取無效。",
+        "date-02":"活動時間 : 近日公告",
+
+        "title-03":"《活動二》",
+        "text-03-1":"積分對決",
+        "text-03-2":"SRC + NFT大放送",
+        "info-03-1":"參與PonPonSnake 1v7 積分排名賽(個人)，只要在活動期間內在戰場上拾取ERNC就會列入積分計算，最後ERNC拾取數量在排行榜前50名就能獲得SRC以及最高價值50ETH的NFT蛇騎士。",
+        "info-03-2":"積分排名賽總獎勵：65,000 SRC(價值約2000USDT)",
+        "info-03-3":"※獎勵分配表如下：",
+        "date-03":"活動時間 : 近日公告"
+    },
+
     "reward": {
         "title":"獎勵",
         "goldTitle":"/images/SpecialEvent/WarmUpActivities/Reward_GoldTitle-CN.png",
@@ -53,9 +70,19 @@
     "reward-new": {
         "top50-table":"前50獎勵表",
         "tableTitle-01":"名次",
-        "tableTitle-02":"獎勵 (人)"
+        "tableTitle-02":"獎勵 (人)",
+        "reward-01":"10000 SRC + 維納斯(風)NFT×1 + PPS VIPSx1",
+        "reward-02":"5000 SRC + #73白雪公主(地)NFT×1 + PPS VIPS×1",
+        "reward-03":"5000 SRC + #2白雪公主(水)NFT×1 + PPS VIPS×1",
+        "reward-04":"5000 SRC + #33白雪公主(火)NFT×1 + PPS VIPS×1",
+        "reward-05":"5000 SRC + #83狗勾雪橇(火)NFT×1 + PPS VIPS×1",
+        "reward-06":"2000 SRC + #22狗勾雪橇(風)NFT×1 + PPS VIPS×1",
+        "reward-07":"2000 SRC + #64小雞大家族(水)NFT×1 + PPS VIPS×1",
+        "reward-08":"2000 SRC + #54小雞大家族(火)NFT×1 + PPS VIPS×1",
+        "reward-09":"2000 SRC + #51經典蛇(地)NFT×1 + PPS VIPS×1",
+        "reward-10":"2000 SRC + #41經典蛇(水)NFT×1 + PPS VIPS×1"
     },
-    
+
     "ranking": {
         "title":"排名",
         "title-02":"當前50名",
@@ -64,6 +91,27 @@
 
     "WarmUpRiderBanner":{
         "title":"/images/EventBanner/EventBanner_WarmUpActivities/WarmUpActivities-banner-Title-CN.png"
+    },
+
+    "notice":{
+        "title":"活動須知",
+        "question-01":"Q1：領取獎勵的必要條件是什麼？",
+        "answer-01":"參與積分排名賽的玩家必須綁定錢包地址，否則最終獎勵將無法發放。",
+        "question-02":"Q2：如何獲取排名賽的最終結果，獎勵何時發放？",
+        "answer-02":"積分排名賽最終結果請關注PonPonSnake的官網和社媒平台信息。屆時，獲勝玩家需填寫有效錢包地址，以便獎勵發放，獎勵將在核實後，7個工作日內進行發放，請玩家及時查看。",
+        "question-03":" Q3：gSRC在公測中有何作用？",
+        "answer-03":"gSRC用於支付公測期間PonPonSnake每局遊戲的入場費和租賃蛇騎士的NFT，每局遊戲的入場費不等，入場門檻越高的，可獲得的獎勵越多。蛇騎士的NFT為遊戲通關加成：等級越高，稀有度越高的NFT能在每局遊戲中提升獲勝的機率，同時也能拾取更多獎勵。",
+        "question-04":"Q4：我需要更多的遊戲測試幣，從哪裡能獲取？",
+        "answer-04":"玩家可以通過warm up活動，參與PonPonSnake的各項社媒平台任務，即可免費獲得tSRC或gSRC。若玩家需要更多測試幣，可在遊戲內的商城界面入金充值gSRC，gSRC在公測期間與tSRC作用相同，公測期充值的gSRC將會在公測結束後以等額的SRC（正式代幣）返還給玩家，官網會開放SRC/USDT的兌換通道，玩家可以隨時提領至自己的錢包；tSRC作為鏈上空投資產，不清零，但後續使用無效。",
+        "question-05":"Q5：入金充值gSRC的方式？",
+        "answer-05":"在公測期間，玩家可以通過Polygon鏈的USDT購買gSRC產品包，或者通過APP內的IAP購買gSRC。",
+        "question-06":"Q6：我在公測期間得到的道具獎勵能否繼續使用？",
+        "answer-06":"所有在公測期間獲得的道具獎勵將在公測結束後清零。",
+        "question-07":"Q7：一個賬號/錢包地址能領取幾次獎勵？",
+        "answer-07":"同一賬戶/錢包地址只能參與＆領取一次獎勵，若發現同一ID註冊不同賬號，視為領取無效。",
+        "question-08":"Q8：如何兌換SRC/USDT？",
+        "answer-08":"官方將在活動結束後，7個工作日內，在Marketplace將提供兌換功能，能將SRC兌換成USDT，玩家可以隨時提領至自己的錢包。",
+        "statement":"主辦單位保留修改活動與獎項細節的權利，無需事前告知，並有權對本活動所有事宜作出解釋與裁決。如本活動因為不可抗力之特殊原因無法執行時，主辦單位有權取消、終止、修改或暫停本活動。"
     }
 
 }

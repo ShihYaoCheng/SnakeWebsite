@@ -2,12 +2,13 @@
 
 .WarmUpActivities{
     font-family: 'Noto Sans TC', sans-serif;
+    background-color: #631605;
 }
 
 .WarmUpActivities-CenterBlock{
     /* border:  1px solid rgb(145, 93, 93); */
     max-width: 1200px;
-    width: 95%;
+    width: 90%;
     margin: 0px auto;
 }
 
@@ -17,15 +18,15 @@
     border-radius: 20px;
     /* background-color: #742b25; */
     background-image: linear-gradient(to bottom, #742b25 0%, #4b1c18 50%, #742b25 100%);
-    font-size: 36px;
+    font-size: 32px;
     line-height: 40px;
     font-weight: bold;
     color: #fff;
-    padding: 10px 10px 15px;
+    padding: 10px 10px 14px;
     /* display: inline-block; */
     letter-spacing: 5px;
     box-shadow: inset 0px 0px 10px 3px #4b1c1885, 0px 0px 7px 4px #ffe3e335;
-    margin: 0px auto 50px;
+    margin: 15px auto 0px;
     text-align: center;
 }
 .WarmUpActivities-Title-02{
@@ -140,8 +141,8 @@
     .WarmUpActivities-Title{
         max-width: 260px;
         font-size: 30px;
-        padding: 7px 10px 13px;
-        margin: 0px auto 30px;
+        padding: 8px 10px 14px;
+        /* margin: 0px auto 30px; */
     }
     .WarmUpActivities-Title-02{
         font-size: 30px;
@@ -153,21 +154,34 @@
         max-width: 250px;
         font-size: 28px;
         padding: 5px 10px 11px;
-        margin: 0px auto 30px;
+        /* margin: 0px auto 30px; */
     }
     .WarmUpActivities-Title-02 {
         font-size: 24px;
         padding: 15px 0 20px;
     }
-    
-}
-
-@media all and (max-width: 800px){
     .WarmUpActivities-Title-02 {
         font-size: 22px;
     }
 }
+
+@media all and (max-width: 600px){
+    .WarmUpActivities-Title{
+        font-size: 24px;
+        max-width: 210px;
+        padding: 4px 10px 8px;
+    }
+    .WarmUpActivities-Title-02 {
+        font-size: 20px;
+    }
+
+}
+@media all and (max-width: 400px){
+    .WarmUpActivities-CenterBlock{
+        width: 94%;
+    }
+}
 .WarmUpActivities_Activity{
     background-color: #631605;
-    padding: 100px 0;
+    padding: 100px 0 50px;
 }

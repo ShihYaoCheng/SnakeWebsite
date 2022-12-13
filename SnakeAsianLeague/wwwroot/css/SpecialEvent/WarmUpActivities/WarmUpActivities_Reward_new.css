@@ -38,6 +38,7 @@
     line-height: 30px;
     border-spacing: 0 12px;  
     border-collapse: separate;
+    letter-spacing: 0.5px;
 }
 .top50-Table tr:not(:first-child){
     /* border-radius: 20px;
@@ -51,7 +52,7 @@
     transform: translateY(4px) translateX(-10px);
 }
 .top50-Table-Place{
-    width: 25%;
+    width: 23%;
     padding-left: 5%;
 }
 #Table-Place{
@@ -85,7 +86,7 @@ td:first-child{
     border-right: solid 2px #707070;
   }
 
-  @media all and (max-width: 1200px){
+@media all and (max-width: 1200px){
     .Reward-GoldTitle img {
         max-width: 430px;
     }
@@ -98,17 +99,16 @@ td:first-child{
         min-width: 200px;
     }
     .top50-Table{
-        font-size: 18px;
-        border-spacing: 0 11px;
+        font-size: 17.5px;
+        border-spacing: 0 10px;
     }
-    .Reward-Title-02{
-        font-size: 16px;
-    }
+
     #Table-Place {
         /* padding-left: 6%; */
     }
+
 }
-@media all and (max-width: 1000px){
+/* @media all and (max-width: 1000px){
     .Reward-GoldTitle img {
         max-width: 410px;
     }
@@ -122,8 +122,8 @@ td:first-child{
     .top50{
         margin: 35px auto;
     }
-}
-@media all and (max-width: 800px){
+} */
+@media all and (max-width: 1000px){
     .Reward-GoldTitle{
         width: 100%;
     }
@@ -131,6 +131,8 @@ td:first-child{
         max-width: 370px;
     }
     .top50-Title{
+        font-size: 22px;
+        min-width: 190px;
         margin: -3px 0 0px -3px;
     }
     .top50-Table {
@@ -139,11 +141,12 @@ td:first-child{
         margin: 0 auto 15px;
     }
     .top50-Table td{
-        line-height: 32px;
+        line-height: 34px;
     }
     .top50-Table tr th{
-        transform: translateY(6px);
+        transform: translateY(4px);
         line-height: 18px;
+        font-size: 14px;
     }
     .WarmUpActivities_Reward{
         padding: 80px 0 40px;
@@ -152,12 +155,13 @@ td:first-child{
         font-size: 22px;
         margin: 25px auto 10px;
     }
-    .Reward-Title-02 {
-        font-size: 14px;
-        line-height: 24px;
+
+    .top50-Table-Place {
+        width: 22%;
+        padding-left: 4%;
     }
 }
-@media all and (max-width: 600px){
+@media all and (max-width: 800px){
     .top50{
         width: 100%;
         margin: 30px auto;
@@ -165,6 +169,7 @@ td:first-child{
     .top50-Title {
         font-size: 18px;
         min-width: 170px;
+        margin: -3px 0 15px -3px;
     }
     .top50-Table{
         width: 95%;
@@ -172,8 +177,8 @@ td:first-child{
         margin: -5px auto 10px;
     }
     .top50-Table-Place {
-        width: 22%;
-        padding-left: 3%;
+        width: 7%;
+        padding-left: 2.5%;
     }
     .top50-Table-Reward {
         width: 30%;
@@ -184,5 +189,8 @@ td:first-child{
     .WarmUpActivities_Reward{
         padding: 80px 0 40px;
     }
-
+    .top50-Table td {
+        line-height: 28px;
+        padding-right: 2.5%;
+    }
 }

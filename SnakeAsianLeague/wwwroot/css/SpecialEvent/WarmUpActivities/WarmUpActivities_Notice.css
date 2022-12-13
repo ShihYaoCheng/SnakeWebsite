@@ -1,0 +1,128 @@
+.WarmUpActivities-Notice-BG{
+    /* border: 1px solid red; */
+    background-image: 
+        url(/images/SpecialEvent/WarmUpActivities/Notice-BG.png);
+    background-position: bottom right;
+    background-position: 100% 30%;
+    background-repeat: no-repeat;
+    background-size: 65%;
+    width: 100%;
+    padding: 0px 0 200px;
+    /* background-blend-mode: multiply; */
+}
+.WarmUpActivities-NoticeBlock{
+    margin: 0 auto;
+    border-radius: 35px;
+    border: solid 4px #fff;
+    background-image: linear-gradient(to top, #22030380, #773e3edf);
+    padding: 5%;
+}
+.Notice-QA{
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 0, 0, 0);
+}
+.Notice-QA-Row{
+    margin: 60px auto;
+    color: #fff;
+    letter-spacing: 1.5px;
+}
+.Notice-Question{
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 34px;
+    text-indent: -2.7em;
+    padding-left: 2.7em;
+}
+.Notice-Answer{
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 30px;
+    /* text-indent: -5em; */
+    padding-left: 3.6em;
+}
+.Notice-QA-statement{
+    color: #ff9a8a;
+    letter-spacing: 1px;
+    font-size: 18px;
+    margin-bottom: 30px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media all and (max-width: 1200px){
+    .WarmUpActivities-Notice-BG{
+        padding: 0px 0 170px;
+    }
+    .Notice-QA-Row{
+        margin: 50px auto;
+    }
+    .Notice-Question{
+        font-size: 21px;
+        margin-bottom: 7px;
+    }
+    .Notice-Answer{
+        font-size: 15.5px;
+        line-height: 27.5px;
+        padding-left: 3.3em;
+    }
+    .Notice-QA-statement{
+        font-size: 15.5px;
+        line-height: 27.5px;
+    }    
+}
+@media all and (max-width: 800px){
+    .WarmUpActivities-Notice-BG{
+        padding: 0px 0 150px;
+    }
+    .Notice-QA-Row{
+        margin: 45px auto;
+    }
+    .Notice-Question{
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+    .Notice-Answer{
+        font-size: 14.5px;
+        line-height: 27px;
+        padding-left: 3.2em;
+    }
+    .Notice-QA-statement{
+        font-size: 14.5px;
+        line-height: 27px;
+        width: 100%;
+    }    
+    .Notice-QA{
+        width: 100%;
+    }
+    .WarmUpActivities-NoticeBlock{
+        border: solid 3px #fff;
+    }
+}
+@media all and (max-width: 600px){
+    .WarmUpActivities-Notice-BG{
+        padding: 0px 0 130px;
+    }
+    .Notice-QA-Row {
+        margin: 40px auto;
+    }
+    .Notice-Question {
+        font-size: 15.5px;
+        margin-bottom: 8px;
+        line-height: 26px;
+        font-weight: 500;
+        text-indent: -2.6em;
+        padding-left: 2.7em;
+    }
+    .Notice-Answer {
+        font-size: 13px;
+        line-height: 26px;
+        padding-left: 3.2em;
+    }
+    .Notice-QA-statement {
+        font-size: 13px;
+        line-height: 26px;
+        
+    }
+}

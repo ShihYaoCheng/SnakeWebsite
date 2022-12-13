@@ -309,6 +309,8 @@
     }
     .EventInfo_text p {
         max-width: 400px;
+        font-size: 15.5px;
+        line-height: 27px;
     }
     .EventInfo_card {
         max-width: 280px;
@@ -331,6 +333,7 @@
         width: 100%;
     }
     .EventInfo_text h1{
+        font-size: 22px;
         line-height: 34px;
     }
 }

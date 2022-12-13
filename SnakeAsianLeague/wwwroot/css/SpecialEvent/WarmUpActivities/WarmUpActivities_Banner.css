@@ -8,7 +8,15 @@
     width: 100%;
     overflow: hidden;
 }
-
+.WarmUpActivities-Banner-Gradient{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient( 2deg, #231716c7 0%, #231716ab 10%,#23171658 20%, #23171600 30%, #23171600 100%);
+    z-index: 1;
+}
 .Banner-BG img{
     width: 100%;
     float: right;
@@ -20,6 +28,7 @@
     top: 34%;
     left: 6%;
     width: 45%;
+    z-index: 2;
 }
 .WarmUp-BannerTitle img{
     width: 100%;

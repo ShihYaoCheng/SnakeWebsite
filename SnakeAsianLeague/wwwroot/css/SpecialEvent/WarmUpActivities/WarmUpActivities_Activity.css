@@ -1,64 +1,67 @@
-.WarmUpActivities_Rules_Revision{
-    width: 100%;
-    background-image: url(/images/SpecialEvent/WarmUpActivities/Rules-BG.png);
-    background-position: top center;
-    background-repeat: repeat;
-    background-size: cover;
-    /* height: 1000px; */
-    padding: 80px 0;
-}
 .activity{
     /* border: 1px solid red; */
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: 30px auto 100px;
     width: 100%;
     /* height: 500px; */
-    margin-bottom: 80px;
     background-image: linear-gradient(to top, #fff, #ededed, #f3f3f3, #fff);
-    border-radius: 15px;
+    border-radius: 16px;
 }
 .activity-titleBlock{
     border-radius: 15px;
     background-image: linear-gradient(to top, #6e342b, #6e342b, #aa4534);
-    padding: 20px 30px;
+    padding: 15px 30px;
 }
 .activity-title{
     color: #fff;
     display: flex;
     justify-content: space-between;
-    
+    /* flex-wrap: wrap; */
 }
 .activity-text{
     color: #fff;
     display: flex;
-    align-items: baseline;
-    font-weight: 600;
-    letter-spacing: 2px;
+    /* align-items: baseline; */
+    align-items: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+    flex-wrap: wrap;
+}
+.activity-text-p{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap
+    /* justify-content: center; */
 }
 .activity-title h1{
-    font-size: 38px;
+    font-size: 36px;
     margin-right: 20px;
+    margin-bottom: 6px;
 }
 .activity-title p{
-    font-size: 30px;
+    font-size: 26px;
     margin-right: 15px;
+    font-weight: 500;
+    line-height: 32px;
 }
 .five-stars{
-    max-width: 150px;
+    max-width: 140px;
+    width: 23%;
+    margin: 5px 0;
 }
 .activity-date{
     color: #fff;
-    letter-spacing: 1px;
     /* opacity: 0.75; */
     background-color: #410f03cd;
     border-radius: 5px;
     font-size: 17px;
-    letter-spacing: 2px;
-    padding: 7px 20px;
+    letter-spacing: 1px;
+    padding: 7px 20px 10px;
     /* display: inline-block; */
-    /* margin-top: 7px; */
+    margin: 13px 0;
     font-weight: 500;
     align-self: center;
+    white-space: nowrap;
 }
 
 .activity-content{
@@ -84,6 +87,7 @@
 #activity-Img-01{
     width: 100%;
     margin-top: 5%;
+    margin-bottom: 4%;
 }
 #activity-Img-02{
     position: absolute;
@@ -91,6 +95,39 @@
     bottom: -9%;
     max-width: 250px;
     width: 40%;
+}
+.activity-button {
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin: 0 auto; */
+}
+.activity-button button {
+    text-align: center;
+    /* background-color: #feac22; */
+    border: 3.8px solid #eac492db;
+    background-image: linear-gradient(to top, #ffa300, #fed322);
+    color: #fff;
+    /* margin: 10px; */
+    letter-spacing: 2px;
+    padding: 10px 40px 9px;
+    border-radius: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px 5px rgb(154 144 139 / 30%);
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    font-family: sans-serif;
+    transition: all .01s ease-in;
+    text-shadow: 1px 2px 2px rgb(77 36 9 / 25%);
+}
+
+.activity-button:hover {
+    transform: scale(1.02);
+    text-decoration: none;
 }
 
 #activity-03{
@@ -101,4 +138,130 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: multiply;
+}
+
+@media all and (max-width: 1200px){
+    .activity{
+        margin: 30px auto 80px;
+    }
+    .activity-titleBlock{
+        padding: 15px 40px;
+    }
+    .activity-title{
+        flex-wrap: wrap;
+    }
+    .activity-title h1{
+        font-size: 32px;
+        margin-right: 15px;
+        white-space: nowrap;
+        margin-bottom: 6px;
+    }
+    .activity-title p{
+        font-size: 22px;
+        margin-right: 12px;
+        white-space: nowrap;
+    }
+    .activity-date{
+        font-size: 15px;
+        margin: 10px 0;
+    }
+    .activity-content{
+        padding: 4.5%;
+    }
+    .activity-info{
+        font-size: 16.5px;
+        line-height: 28px;
+    }
+    .five-stars{
+        max-width: 120px;
+    }
+    .activity-button button{
+        font-size: 16px;
+        padding: 8px 40px 7px;
+    }
+}
+@media all and (max-width: 800px){
+    .activity{
+        margin: 30px auto 50px;
+        border-radius: 19px;
+    }
+    .activity-titleBlock {
+        padding: 15px 30px;
+        border-radius: 20px;
+    }
+    .activity-title h1{
+        font-size: 26px;
+        margin-bottom: 4px;
+    }
+    .activity-title p {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .activity-info{
+        font-size: 15px;
+        line-height: 26px;
+    }
+    .activity-date{
+        font-size: 14px;
+        margin: 10px 0 7px;
+        padding: 5px 20px 8px;
+    }
+    .five-stars{
+        max-width: 90px;
+    }
+.activity-titleBlock
+}
+@media all and (max-width: 550px){
+    .activity{
+        margin: 30px auto 20px;
+    }
+    .activity-title{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .activity-text{
+        flex-direction: column;
+    }
+    .activity-titleBlock {
+        padding: 10px 25px;
+    }
+    .activity-title h1{
+        font-size: 24px;
+        margin-bottom: 6px;
+    }
+    .activity-title p {
+        /* font-size: 17px; */
+        /* line-height: 30px; */
+    }
+    .five-stars {
+        width: unset;
+        max-width:85px;
+    }
+    .activity-content{
+        padding: 20px;
+    }
+    /* .activity-info {
+        font-size: 14.5px;
+        line-height: 23px;
+    } */
+    /* .activity-date {
+        font-size: 13px;
+        margin: 10px auto 5px;
+        padding: 4px 20px 7px;
+    } */
+    .activity-Img{
+        width: 90%;
+    }
+    #activity-Img-01{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #activity-Img-02{
+        width: 35%;
+    }
+    .activity-text-p{
+        justify-content: center;
+    }
 }

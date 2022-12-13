@@ -1841,7 +1841,5 @@ body:not(.rz-default-scrollbars) ::-webkit-scrollbar {
     .user {
         font-size: 14px;
     }
-    #Language_Select{
-        font-size: 15px;
-    }
+
 }
