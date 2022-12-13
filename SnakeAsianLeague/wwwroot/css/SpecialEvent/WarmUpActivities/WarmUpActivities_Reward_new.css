@@ -1,0 +1,188 @@
+.top50{
+    width: 100%;
+    margin: 45px auto;
+    box-shadow: -4.7px -1.8px 9px 0 rgba(0, 0, 0, 0.53), inset 0px -1px 2px 0 rgba(0, 0, 0, 0.17);
+    border: solid 3px #e1e2e1;
+    background-image: linear-gradient(to top, #cfcfcf, #fff);
+    border-radius: 15px;
+    /* overflow: hidden; */
+    max-width: 850px;
+}
+.top50-Title{
+    box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.27),inset 2px 0px 5px 0 rgba(0, 0, 0, 0.27);
+    background-color: #953625;
+    color: #fff;
+    padding: 10px 30px;
+    /* width: 30%; */
+    display: inline-block;
+    border-radius: 0px 0px 15px 0px;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    margin: -3px 0 5px -3px;
+    min-width: 230px;
+    text-align: center;
+
+    background-image: url(/images/SpecialEvent/WarmUpActivities/top50-Title-BG.png);
+    background-repeat: round;
+    background-size: cover;
+}
+
+.top50-Table{
+    /* border: 1px solid red; */
+    color: #531c1c;
+    width: 90%;
+    margin: 0 auto 25px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+    border-spacing: 0 12px;  
+    border-collapse: separate;
+}
+.top50-Table tr:not(:first-child){
+    /* border-radius: 20px;
+    border: solid 2px #707070; */
+    margin-bottom: 10px;
+    /* text-align: center; */
+}
+.top50-Table tr th{
+    /* text-align: center; */
+    letter-spacing: 0.5px;
+    transform: translateY(4px) translateX(-10px);
+}
+.top50-Table-Place{
+    width: 25%;
+    padding-left: 5%;
+}
+#Table-Place{
+    /* padding-left: 7.2%; */
+    
+}
+.top50-Table-Reward{
+    /* width: 50%; */
+}
+#Table-Reward{
+    text-align: center;
+}
+
+.top50-Table td{
+    /* border: solid 2px #707070; */
+    border-top: solid 2px #707070;
+    border-bottom: solid 2px #707070;
+    line-height: 40px;
+    /* margin-bottom: 10px; */
+}
+
+td:first-child{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left: solid 2px #707070;
+  }
+  
+  td:last-child{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: solid 2px #707070;
+  }
+
+  @media all and (max-width: 1200px){
+    .Reward-GoldTitle img {
+        max-width: 430px;
+    }
+    .Reward-Title-01{
+        font-size: 24px;
+        margin: 30px auto 15px;
+    }
+    .top50-Title{
+        font-size: 24px;
+        min-width: 200px;
+    }
+    .top50-Table{
+        font-size: 18px;
+        border-spacing: 0 11px;
+    }
+    .Reward-Title-02{
+        font-size: 16px;
+    }
+    #Table-Place {
+        /* padding-left: 6%; */
+    }
+}
+@media all and (max-width: 1000px){
+    .Reward-GoldTitle img {
+        max-width: 410px;
+    }
+    .top50-Title {
+        font-size: 22px;
+        min-width: 190px;
+    }
+    .WarmUpActivities_Reward{
+        padding: 80px 0 50px;
+    }
+    .top50{
+        margin: 35px auto;
+    }
+}
+@media all and (max-width: 800px){
+    .Reward-GoldTitle{
+        width: 100%;
+    }
+    .Reward-GoldTitle img {
+        max-width: 370px;
+    }
+    .top50-Title{
+        margin: -3px 0 0px -3px;
+    }
+    .top50-Table {
+        font-size: 15px;
+        border-spacing: 0 10px;
+        margin: 0 auto 15px;
+    }
+    .top50-Table td{
+        line-height: 32px;
+    }
+    .top50-Table tr th{
+        transform: translateY(6px);
+        line-height: 18px;
+    }
+    .WarmUpActivities_Reward{
+        padding: 80px 0 40px;
+    }
+    .Reward-Title-01 {
+        font-size: 22px;
+        margin: 25px auto 10px;
+    }
+    .Reward-Title-02 {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+@media all and (max-width: 600px){
+    .top50{
+        width: 100%;
+        margin: 30px auto;
+    }
+    .top50-Title {
+        font-size: 18px;
+        min-width: 170px;
+    }
+    .top50-Table{
+        width: 95%;
+        font-size: 13px;
+        margin: -5px auto 10px;
+    }
+    .top50-Table-Place {
+        width: 22%;
+        padding-left: 3%;
+    }
+    .top50-Table-Reward {
+        width: 30%;
+    }
+    .top50-Table-Value {
+        width: 25%;
+    }
+    .WarmUpActivities_Reward{
+        padding: 80px 0 40px;
+    }
+
+}

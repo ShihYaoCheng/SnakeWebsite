@@ -49,6 +49,12 @@
         "tableTitle-03":"價值 (人)",
         "tableTitle-04":"總價值"
     },
+
+    "reward-new": {
+        "top50-table":"前50獎勵表",
+        "tableTitle-01":"名次",
+        "tableTitle-02":"獎勵 (人)"
+    },
     
     "ranking": {
         "title":"排名",

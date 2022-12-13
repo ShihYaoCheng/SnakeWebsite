@@ -50,6 +50,12 @@
         "tableTitle-03":"Value (PER)",
         "tableTitle-04":"total Value"
     },
+
+    "reward-new": {
+        "top50-table":"TOP 50",
+        "tableTitle-01":"Place",
+        "tableTitle-02":"Reward (PER)"
+    },
     
     "ranking": {
         "title":"Ranking",
