@@ -157,8 +157,9 @@ td:first-child{
     }
 
     .top50-Table-Place {
-        width: 22%;
-        padding-left: 4%;
+        text-align: center;
+        width: 23%;
+        padding-left: 0%;
     }
 }
 @media all and (max-width: 800px){
@@ -172,13 +173,14 @@ td:first-child{
         margin: -3px 0 15px -3px;
     }
     .top50-Table{
-        width: 95%;
+        width:padding-left: 0%; 95%;
         font-size: 13px;
         margin: -5px auto 10px;
     }
     .top50-Table-Place {
-        width: 7%;
-        padding-left: 2.5%;
+        width: 10%;
+        
+        text-align: center;
     }
     .top50-Table-Reward {
         width: 30%;

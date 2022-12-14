@@ -99,6 +99,7 @@
     }
     .WarmUpActivities-NoticeBlock{
         border: solid 3px #fff;
+        padding: 7% 5%;
     }
 }
 @media all and (max-width: 600px){
@@ -111,19 +112,19 @@
     .Notice-Question {
         font-size: 15.5px;
         margin-bottom: 8px;
-        line-height: 26px;
+        line-height: 24px;
         font-weight: 500;
-        text-indent: -2.6em;
+        text-indent: -2.2em;
         padding-left: 2.7em;
     }
     .Notice-Answer {
         font-size: 13px;
-        line-height: 26px;
+        line-height: 24px;
         padding-left: 3.2em;
     }
     .Notice-QA-statement {
         font-size: 13px;
-        line-height: 26px;
+        line-height: 24px;
         
     }
 }
