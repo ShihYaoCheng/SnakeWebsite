@@ -136,7 +136,10 @@
     background-size: cover;
     background-blend-mode: multiply;
 }
-
+.WarmUpActivities_Activity{
+    background-color: #631605;
+    padding: 90px 0 50px;
+}
 @media all and (max-width: 1200px){
     .WarmUpActivities-Title{
         max-width: 260px;
@@ -147,6 +150,9 @@
     .WarmUpActivities-Title-02{
         font-size: 30px;
         padding: 15px 0 30px;
+    }
+    .WarmUpActivities_Activity{
+        padding: 50px 0 50px;
     }
 }
 @media all and (max-width: 800px){
@@ -163,6 +169,9 @@
     .WarmUpActivities-Title-02 {
         font-size: 22px;
     }
+        .WarmUpActivities_Activity{
+        padding: 40px 0 50px;
+    }
 }
 
 @media all and (max-width: 600px){
@@ -174,14 +183,16 @@
     .WarmUpActivities-Title-02 {
         font-size: 20px;
     }
-
+    .WarmUpActivities_Activity{
+        padding: 30px 0 50px;
+    }
 }
 @media all and (max-width: 400px){
     .WarmUpActivities-CenterBlock{
         width: 94%;
     }
+    .WarmUpActivities_Activity{
+        padding: 20px 0 50px;
+    }
 }
-.WarmUpActivities_Activity{
-    background-color: #631605;
-    padding: 100px 0 50px;
-}
+

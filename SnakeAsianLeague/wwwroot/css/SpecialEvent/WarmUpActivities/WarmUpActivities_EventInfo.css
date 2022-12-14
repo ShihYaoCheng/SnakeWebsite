@@ -336,4 +336,7 @@
         font-size: 22px;
         line-height: 34px;
     }
+    .EventInfo_introduce{
+        margin: 30px auto;
+    }
 }

@@ -183,7 +183,7 @@
 @media all and (max-width: 800px){
     .activity{
         margin: 30px auto 50px;
-        border-radius: 19px;
+        border-radius: 22px;
     }
     .activity-titleBlock {
         padding: 15px 30px;
@@ -209,7 +209,7 @@
     .five-stars{
         max-width: 90px;
     }
-.activity-titleBlock
+
 }
 @media all and (max-width: 550px){
     .activity{
