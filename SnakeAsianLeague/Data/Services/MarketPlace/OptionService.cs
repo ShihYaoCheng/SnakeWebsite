@@ -813,7 +813,8 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
                         //取得url
                         int num = item.Key;
-                        string getLinkURL = string.Format("https://testnets.opensea.io/assets/mumbai/" + contractAddress_PPSR + "/" + num); 
+                        //string getLinkURL = string.Format("https://testnets.opensea.io/assets/mumbai/" + contractAddress_PPSR + "/" + num); 
+                        string getLinkURL = string.Format("https://opensea.io/assets/matic/" + contractAddress_PPSR + "/" + num);
                         //string.Format(LinkURL, contractAddress_PPSR, num);
                         rd.LinkURL = getLinkURL;
                         DataList.Add(rd);
