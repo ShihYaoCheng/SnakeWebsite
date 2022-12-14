@@ -92,7 +92,7 @@
     .Notice-QA-statement{
         font-size: 14.5px;
         line-height: 27px;
-        width: 100%;
+        width: 90%;
     }    
     .Notice-QA{
         width: 100%;
@@ -103,7 +103,7 @@
 }
 @media all and (max-width: 600px){
     .WarmUpActivities-Notice-BG{
-        padding: 0px 0 130px;
+        padding: 0px 0 110px;
     }
     .Notice-QA-Row {
         margin: 40px auto;
@@ -125,5 +125,10 @@
         font-size: 13px;
         line-height: 26px;
         
+    }
+}
+@media all and (max-width: 600px){
+    .WarmUpActivities-Notice-BG{
+        padding: 0px 0 90px;
     }
 }
