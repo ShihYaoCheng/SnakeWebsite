@@ -133,7 +133,7 @@ a, .btn-link {
     width: 100px;
     top: 5px;
 }
-@media all and (max-width: 500px){
+@media all and (max-width: 1200px){
     #PonPonSnake-Logo{
         /* border: 1px solid red; */
         margin: 2px;
