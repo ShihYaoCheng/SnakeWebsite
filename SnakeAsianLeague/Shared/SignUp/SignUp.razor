@@ -332,8 +332,7 @@
 
             //登入
             LoginRequest loginRequest = new LoginRequest();
-            loginRequest.countryCode = CountryCode;
-            loginRequest.phone = PhoneNum;
+            loginRequest.phone = CountryCode + PhoneNum.TrimStart('0');
             loginRequest.password = PasswordCheck;
             SnakeAccount snakeAccount = await AuthService.AuthLogin(loginRequest, true);
             AppState.UpdateLoginStatus(this, snakeAccount);

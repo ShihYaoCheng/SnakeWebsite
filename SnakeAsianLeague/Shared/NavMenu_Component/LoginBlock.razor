@@ -30,12 +30,12 @@
                     @* 國碼 *@
                     <div class="login_input_block">
                         @*<InputText id="phone-countryCode" @bind-Value="loginRequest.countryCode" class="login_input" placeholder="+886"/>*@
-                        <select @bind="loginRequest.countryCode" class="login_Select" id="LoginSelectText" >
+                        <select @bind="CountryCode" class="login_Select" id="LoginSelectText" >
                             @*<option value="+886"  data-i18n="countryCode_data:country_code.AE"></option>*@
                             
                         </select> 
                     
-                        <InputText id="phone-number" @bind-Value="loginRequest.phone" class="login_input" placeholder="9xxxxxxxx"/>
+                        <InputText id="phone-number" @bind-Value="PhoneNum" class="login_input" placeholder="9xxxxxxxx"/>
                         @*<input type="text" class="login_input" id="phone-countryCode" name="" placeholder="+886" @bind=loginRequest.countryCode required>*@
                         @*<input type="text" class="login_input" id="phone-number" name="" placeholder="9xxxxxxxx"  @bind=loginRequest.phone  required>*@
                     </div>
@@ -80,12 +80,17 @@
     // [Parameter]
     //public Boolean loginErrorShow { get; set;}
     public LoginRequest loginRequest = new LoginRequest();
-
+    
     bool loginErrorShow;
+
+    [Parameter]
+    public string? CountryCode { get; set; }
+    [Parameter]
+    public string? PhoneNum { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        loginRequest.countryCode="+886";    
+        CountryCode="+886";    
     }
 
      private IJSObjectReference? countryCodeJS;
@@ -99,8 +104,7 @@
         }
         await JS.InvokeVoidAsync("installI18n");
     }
-    //[Parameter]
-    //public  LoginRequest loginRequest { get; set;}
+  
 
 
     private async Task loginCloseClick()
@@ -128,7 +132,7 @@
 
     private async Task LoginSubmit()
     {
-
+        loginRequest.phone = CountryCode + PhoneNum.TrimStart('0');
         SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest , autoLogin);
         AppState.UpdateLoginStatus(this, snakeAccount);       
         if (AppState.LoginStatus.IsLogin == true)
