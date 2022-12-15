@@ -123,14 +123,25 @@
     private int FilterCount = 0;
 
     private async Task Refresh()
-    {  
-        OpenSeaURL = await OptionService.Get_OpenSeaURL(NFTtype);
+    {
+
+        switch (NFTtype)
+            {
+                case 0:
+                    OpenSeaURL = BlockChainSever.BlockChainInfoDTO.openSeaURL_PPSR;
+                    break;
+                case 1:
+                    OpenSeaURL = BlockChainSever.BlockChainInfoDTO.openSeaURL_PPSBP;
+                    break;
+            }
+       
         PageNumber = 1;
 
-        var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
+        string contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
+        string OpenSeaLink =  BlockChainSever.BlockChainInfoDTO.openSeaLink;
         string UserID = AppState.LoginStatus.userID.ToString();
         
-        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize , contractAddress_PPSR , UserID);
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize , contractAddress_PPSR , UserID,OpenSeaLink);
         NFTDataList = pagelist;
         PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
         await lazyloadingJS.InvokeVoidAsync("LazyLoading");

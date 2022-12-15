@@ -62,8 +62,9 @@
 
     private async Task Refresh()
     {       
-        var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
-        OpenSeaURL =await ProductsService.Get_OpenSeaURL(TokenID , contractAddress_PPSR);
+        string contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
+        string OpenSeaLink =  BlockChainSever.BlockChainInfoDTO.openSeaLink;
+        OpenSeaURL =await ProductsService.Get_OpenSeaURL(TokenID , contractAddress_PPSR ,OpenSeaLink);
         StateHasChanged();
     }
 }

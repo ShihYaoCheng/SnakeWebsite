@@ -70,22 +70,22 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// 取得OpenSeaURL NFT資產 官方網址
         /// </summary>
         /// <returns></returns>
-        public async Task<string> Get_OpenSeaURL( int NFTtype)
-        {
-            string url = "";
-            switch (NFTtype)
-            {
-                case 0:
-                    url = "OpenSeaURL_PPSR";
-                    break;
-                case 1:
-                    url = "OpenSeaURL_PPSBP";
-                    break;
-            }
+        //public async Task<string> Get_OpenSeaURL( int NFTtype)
+        //{
+        //    string url = "";
+        //    switch (NFTtype)
+        //    {
+        //        case 0:
+        //            url = "OpenSeaURL_PPSR";
+        //            break;
+        //        case 1:
+        //            url = "OpenSeaURL_PPSBP";
+        //            break;
+        //    }
 
-            string OpenSeaURL = _config.GetValue<string>(url);            
-            return OpenSeaURL;
-        }
+        //    string OpenSeaURL = _config.GetValue<string>(url);            
+        //    return OpenSeaURL;
+        //}
 
 
         /// <summary>
@@ -131,11 +131,11 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<List<NFTData>> GetNFTDataPageList(int pageNumber, int pageSize ,string PPSRContractAddress , string UserID)
+        public async Task<List<NFTData>> GetNFTDataPageList(int pageNumber, int pageSize ,string PPSRContractAddress , string UserID ,string OpenSeaLink)
         {
 
             string ImgPath = _config.GetValue<string>("googleapis");
-            string LinkURL = _config.GetValue<string>("OpenSeaLink");
+            string LinkURL = OpenSeaLink;
             string asset_contract_address = PPSRContractAddress;
 
             List<NFTRiderUnits> NFT_Riders = await GetNFTRiderUnits(pageNumber , pageSize);
@@ -791,12 +791,12 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// NFT PPSI 
         /// </summary>
         /// <returns></returns>
-        public async Task<List<MetadataList>> GetPPSIMetadataList(string contractAddress_PPSR)
+        public async Task<List<MetadataList>> GetPPSIMetadataList(string contractAddress_PPSR ,string OpenSeaLink)
         {
             List<MetadataList> DataList = new List<MetadataList>();
             try
             {
-                string LinkURL = _config.GetValue<string>("OpenSeaLink");
+                string LinkURL = OpenSeaLink ;
                 string URL = "/BC_PPSI/NFTMetadataList";
                 var request = new RestRequest(URL, Method.GET);
                 IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
@@ -813,8 +813,9 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
                         //取得url
                         int num = item.Key;
-                        string getLinkURL = string.Format("https://testnets.opensea.io/assets/mumbai/" + contractAddress_PPSR + "/" + num); 
-                        //string.Format(LinkURL, contractAddress_PPSR, num);
+                        //string getLinkURL = string.Format("https://testnets.opensea.io/assets/mumbai/" + contractAddress_PPSR + "/" + num); 
+                        //string getLinkURL = string.Format("https://opensea.io/assets/matic/" + contractAddress_PPSR + "/" + num);
+                        string getLinkURL = string.Format(LinkURL, contractAddress_PPSR, num);
                         rd.LinkURL = getLinkURL;
                         DataList.Add(rd);
 

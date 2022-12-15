@@ -105,8 +105,7 @@
     
 
 
-    <script>
-        console.log("TEXT NEW Meata????")
+    <script>   
         function BlazorScrollToId(id) {
             const element = document.getElementById(id);
             if (element instanceof HTMLElement) {
@@ -117,11 +116,19 @@
                 });
             }
         }
-
     </script>
+
+    <link href="/css/Shared/loadingBazor.css" rel="stylesheet"/> 
 </head>
 
 <body>
+
+
+
+     <div id="startLoading" class="col-12 loadingBazor"  style=" position:fixed ;top:0;left:auto; z-index:999">
+            <br/><br/>
+                <img width="310" src="/images/loading/loading.gif" alt="">
+     </div>
     <app>
         @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
     </app>
@@ -164,8 +171,12 @@
         //    tracesSampleRate: 1.0,
         //});
       
-  
-
+        var startLoading = document.getElementById("startLoading");
+        setTimeout(() => {
+           startLoading.style.display = 'none';
+        }, 3000)
+       
+        
         async function connectionDown(options) {
             console.log("Connection Down ");
             for (let i = 0; i < options.maxRetries; i++) {
@@ -196,7 +207,9 @@
             }
             // all attempts failed - let's try a full reload
             // This could be a UI change instead or something more complicated
+          
             location.reload();
+           
         }
 
         function delay(durationMilliseconds) {
