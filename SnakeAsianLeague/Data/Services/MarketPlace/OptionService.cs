@@ -174,7 +174,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
                     if (i % 50 == 0)
                     {
-                        rd = await GetOpenseaNFTRider(i + 1, 50);
+                        //rd = await GetOpenseaNFTRider(i + 1, 50);
                     }
 
                     assets assets = new assets();
