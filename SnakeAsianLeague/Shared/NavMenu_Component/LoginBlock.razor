@@ -43,7 +43,7 @@
                 <div class="login_form" style="margin-bottom: 10px;">
                     <label class="login_label" for="password" data-i18n="[html]signInWindows.Password">Password</label>
                     <div class="login_input_block">
-                        <InputText id="password" @bind-Value="loginRequest.password" class="login_input" type="password" placeholder=""/>
+                        <InputText id="password" @bind-Value="loginRequest.Password" class="login_input" type="password" placeholder=""/>
 
                         @* <input type="password" class="login_input" id="password" name="password" placeholder="" 　@bind=loginRequest.password >*@
                     </div>
@@ -132,7 +132,7 @@
 
     private async Task LoginSubmit()
     {
-        loginRequest.phone = CountryCode + PhoneNum.TrimStart('0');
+        loginRequest.Phone = CountryCode + PhoneNum.TrimStart('0');
         SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest , autoLogin);
         AppState.UpdateLoginStatus(this, snakeAccount);       
         if (AppState.LoginStatus.IsLogin == true)
