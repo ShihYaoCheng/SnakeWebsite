@@ -564,8 +564,9 @@
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var LoginUser = authState.User;
         string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
-        var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID , page,10 ,contractAddress_PPSR);
+        string contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
+        string OpenSeaLink =  BlockChainSever.BlockChainInfoDTO.openSeaLink;
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID , page,10 ,contractAddress_PPSR ,OpenSeaLink);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;
@@ -595,8 +596,9 @@
         ElementsList = await InventoryService.Get_Default_Elements();
         ClassList = await InventoryService.Get_Default_Class();
         CountryList = await InventoryService.Get_Default_Country();
-        var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID, 1,10 ,contractAddress_PPSR);
+        string contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
+        string OpenSeaLink =  BlockChainSever.BlockChainInfoDTO.openSeaLink;
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID, 1,10 ,contractAddress_PPSR, OpenSeaLink);
         NFTDataList = pagelist;
 
         MetaData =  pagelist.MetaData;

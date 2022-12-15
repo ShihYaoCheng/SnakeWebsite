@@ -11,12 +11,18 @@
         // 公用參數
         public string? nativeCurrencyName { get; set; }
         public int nativeCurrencyDecimals { get; set; }
+        public int gasfeelimit { get; set; }
         public string? usdtAddress { get; set; }
         public int usdtDecimals { get; set; }
         public int srcDecimals { get; set; }
 
         public int tsrcDecimals { get; set; }
         public bool eventWarmUpStatus20221108 { get; set; }
+
+        // Opensea
+        public string openSeaURL_PPSR { get; set; }
+        public string openSeaURL_PPSBP { get; set; }
+        public string openSeaLink { get; set; }
 
 
         // PPSR合約
@@ -58,6 +64,9 @@
         public string? adminWalletAddress_tSRCExchange { get; set; }
         public string? contractAddress_tSRCExchange { get; set; }
         public decimal balanceOf_tSRCExchange { get; set; } // 剩餘瓦斯費
+
+        /// 功能開放狀態
+        public bool swapStatus { get; set; }
     }
 
 

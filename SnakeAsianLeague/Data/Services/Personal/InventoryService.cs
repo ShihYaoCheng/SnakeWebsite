@@ -92,10 +92,10 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<PagedList<NFTData>> GetRiderNFTDataPageList(string UserID, int PageNumber, int PageSize, string PPSRContractAddress)
+        public async Task<PagedList<NFTData>> GetRiderNFTDataPageList(string UserID, int PageNumber, int PageSize, string PPSRContractAddress ,string OpenSeaLink)
         {
             string ImgPath = _config.GetValue<string>("googleapis");
-            string LinkURL = _config.GetValue<string>("OpenSeaLink");
+            string LinkURL = OpenSeaLink;
             string asset_contract_address = PPSRContractAddress;
 
             List<RiderUnit> NFT_Riders = await Get_NFT_RiderByUserID(UserID);

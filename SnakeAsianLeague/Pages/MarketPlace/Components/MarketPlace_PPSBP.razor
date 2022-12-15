@@ -63,8 +63,9 @@
     private async Task Refresh()
     {  
         var contractAddress_PPSBP = BlockChainSever.BlockChainInfoDTO.contractAddress_PPSI;
+        var OpenSeaLink = BlockChainSever.BlockChainInfoDTO.openSeaLink;
 
-        DataList = await OptionService.GetPPSIMetadataList(contractAddress_PPSBP);
+        DataList = await OptionService.GetPPSIMetadataList(contractAddress_PPSBP,OpenSeaLink);
         getPPSBPsCount.InvokeAsync(DataList.Count);      
         StateHasChanged();
     }
