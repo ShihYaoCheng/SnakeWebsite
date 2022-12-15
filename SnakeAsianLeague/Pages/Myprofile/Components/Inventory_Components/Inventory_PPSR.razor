@@ -455,8 +455,12 @@
     private decimal GoldCollectBalance  = 600; 
     //所有領取租金數量
     private decimal AllBalance = 0;
+    //所有領取租金數量
+    private decimal AllGoldBalance = 0;
     //計算租金加總後的SRC數量
     private decimal TotalSRCCount = 0;
+    //計算租金加總後的星鑽數量
+    private decimal TotalGoldCount = 0;
     //碰碰蛇騎士數量
     private int PPSRsCount;  
     //跳錢JS
@@ -511,16 +515,22 @@
         toggleSingelPopShow(true);
         ShowMSGState = await JS.InvokeAsync<bool>("getShowMSGState"); 
         string UserID = AppState.LoginStatus.userID.ToString();
-        var Rent = await InventoryService.ReceiveRentByUnit(UserID ,TokenID );
+        List<totalRevenue> Rent = await InventoryService.ReceiveRentByUnit(UserID ,TokenID );
         //if (RentJumpJS != null)
         //{
         //    await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
         //}
-        TotalSRCCount = TotalSRCCount + Rent;
-        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero);
-        Value.gSRCchange( TotalSRCCount);     
+        if (Rent.Count > 0)
+        {
+            TotalSRCCount = TotalSRCCount + Rent.Where(m => m.currencyType == 22).First().price;
+            TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero);
+            TotalGoldCount = TotalGoldCount +  Rent.Where(m => m.currencyType == 1).First().price;
+            TotalGoldCount = Math.Round(TotalGoldCount, 3, MidpointRounding.AwayFromZero);
+        }
+        Value.gSRCchange( TotalSRCCount);
+        Value.SetGoldChange(TotalGoldCount);
         AllBalance = await InventoryService.CalReceiveRent(UserID);
-
+        AllGoldBalance = await InventoryService.CalReceiveRentGold(UserID);
         StateHasChanged();
         Refresh();
 
@@ -538,14 +548,22 @@
     {
         closeAllPopShow();
         string UserID = AppState.LoginStatus.userID.ToString();
-        var Rent =  await InventoryService.ReceiveRent(UserID  );
-        if (RentJumpJS != null)
+        List<totalRevenue> Rent =  await InventoryService.ReceiveRent(UserID  );
+      @*  if (RentJumpJS != null)
         {
             await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
+        }*@
+        
+        if (Rent.Count > 0)
+        {
+            TotalSRCCount = TotalSRCCount + Rent.Where(m => m.currencyType == 22).First().price;
+            TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero);
+            TotalGoldCount = TotalGoldCount +  Rent.Where(m => m.currencyType == 1).First().price;
+            TotalGoldCount = Math.Round(TotalGoldCount, 3, MidpointRounding.AwayFromZero);
         }
-        TotalSRCCount = TotalSRCCount + Rent;
-        TotalSRCCount = Math.Round(TotalSRCCount, 3, MidpointRounding.AwayFromZero); 
+
         AllBalance = await InventoryService.CalReceiveRent(UserID);
+        AllGoldBalance = await InventoryService.CalReceiveRentGold(UserID);
 
         Refresh();
     }
@@ -607,6 +625,7 @@
         PPSRsCount = MetaData.TotalCount;
 
         AllBalance = await InventoryService.CalReceiveRent(UserID);
+        AllGoldBalance = await InventoryService.CalReceiveRentGold(UserID);
 
         Value.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID,22) );
         StateHasChanged();
