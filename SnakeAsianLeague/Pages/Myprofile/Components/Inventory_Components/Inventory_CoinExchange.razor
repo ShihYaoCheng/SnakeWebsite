@@ -269,7 +269,8 @@
     bool TransferToDB = false;
     protected  async Task coinEchangeBtn()
     {
-        coinEchangePop =await gasFeeCoinEchangePopJS.InvokeAsync<bool>("gasFeeCoinEchangePop" ,"150");
+        var gasfeelimit = BlockChainSever.BlockChainInfoDTO.gasfeelimit;
+        coinEchangePop =await gasFeeCoinEchangePopJS.InvokeAsync<bool>("gasFeeCoinEchangePop" ,gasfeelimit);
 
         if (!coinEchangePop)
         {
