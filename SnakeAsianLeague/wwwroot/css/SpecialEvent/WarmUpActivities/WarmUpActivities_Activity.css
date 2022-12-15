@@ -46,7 +46,7 @@
 }
 .five-stars{
     max-width: 140px;
-    width: 23%;
+    /* width: 23%; */
     margin: 5px 0;
 }
 .activity-date{
