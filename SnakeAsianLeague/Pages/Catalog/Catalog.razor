@@ -1,0 +1,302 @@
+@page "/Catalog"
+@using SnakeAsianLeague.Data.Entity
+@using SnakeAsianLeague.Data.Paging
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.BlockChain
+@using SnakeAsianLeague.Data.Services.MarketPlace
+@using SnakeAsianLeague.Pages.Catalog.Components
+
+
+@inject AppState AppState
+@inject OptionService OptionService
+@inject BlockChainProcessorSever BlockChainSever
+
+@inject IJSRuntime JS
+
+<head>
+    <title>PonPonSnake 碰碰蛇｜MarketPlace</title>
+    <link href="css/MarketPlace.css" rel="stylesheet" />
+    <link href="css/MarketPlace2.css" rel="stylesheet" />
+    <link href="css/Pagination.css" rel="stylesheet" />
+    <link href="css/NFTFilter.css" rel="stylesheet" />
+</head>
+
+
+<div class="marketPlaceBackground" ></div>
+
+@* open版暫時示意圖 *@
+@*<div class="marketPlace_Open" hidden="@(true)">
+    <img src="/images/MarketPlace/ComingSoon.webp" alt="">
+</div>
+
+<div class="marketPlace" hidden="@(false)">*@
+<div>
+    
+    <section class="Sidebar-Filter-Block" id="Filter-mobile">
+        <div class="">
+            @* <span data-i18n="Inventory_data:otherTitle.Filter">Filter</span> *@
+            <svg  class="Filter-Icon" xmlns="http://www.w3.org/2000/svg" width="28.06" height="25.65" viewBox="0 0 28.06 25.65">
+            <g id="" data-name="グループ 128" transform="translate(1508 -1239.175)">
+                <path id="" data-name="" d="M26.916,2.993H7.6A1.851,1.851,0,0,0,7.6.707H26.916a1.143,1.143,0,1,1,0,2.287Zm-22.224,0H1.144a1.143,1.143,0,1,1,0-2.287H4.692a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1241.443)" fill="#69ada2"/>
+                <path id="" data-name="" d="M26.916,2.993h-3.1a1.851,1.851,0,0,0,0-2.287h3.1a1.143,1.143,0,1,1,0,2.287Zm-6.011,0H1.144a1.143,1.143,0,1,1,0-2.287H20.905a1.85,1.85,0,0,0,0,2.285Z" transform="translate(-1508 1250.135)" fill="#69ada2"/>
+                <path id="" data-name="" d="M26.916,2.993H11.748a1.851,1.851,0,0,0,0-2.287H26.916a1.143,1.143,0,1,1,0,2.287Zm-18.077,0h-7.7a1.143,1.143,0,1,1,0-2.287h7.7a1.851,1.851,0,0,0,0,2.285Z" transform="translate(-1508 1258.828)" fill="#69ada2"/>
+                <path id="" data-name="" d="M-3.383-7.5A4.122,4.122,0,0,1,.735-3.383,4.122,4.122,0,0,1-3.383.735,4.122,4.122,0,0,1-7.5-3.383,4.122,4.122,0,0,1-3.383-7.5Zm0,5.947a1.832,1.832,0,0,0,1.83-1.83,1.832,1.832,0,0,0-1.83-1.83,1.832,1.832,0,0,0-1.83,1.83A1.832,1.832,0,0,0-3.383-1.553Z" transform="translate(-1498.471 1246.675)" fill="#69ada2"/>
+                <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1482.288 1255.337)" fill="#69ada2"/>
+                <path id="" data-name="" d="M-3.353-7.5A4.152,4.152,0,0,1,.795-3.352,4.152,4.152,0,0,1-3.353.8,4.152,4.152,0,0,1-7.5-3.352,4.152,4.152,0,0,1-3.353-7.5Zm0,6.008a1.862,1.862,0,0,0,1.86-1.86,1.862,1.862,0,0,0-1.86-1.86,1.862,1.862,0,0,0-1.86,1.86A1.862,1.862,0,0,0-3.353-1.492Z" transform="translate(-1494.354 1264.03)" fill="#69ada2"/>
+            </g>
+            </svg>
+
+
+            <img class="Filter-mobile-arrow" style="margin: 5px; " data-src="/images/MarketPlace/MP-arrow-sm.webp" alt="">
+        </div>
+    </section>
+    
+    @*側邊欄*@
+    @if (NFTtype == 0)
+    {
+        <Catalog_Aside changeNFTDataList="changeNFTDataList"  changePPSRsCount="changePPSRsCount" reFreshJS="reFreshJS"/>
+    }
+    
+    @*主要內容區塊*@
+    <main class="marketPlaceMain">
+        <section class="marketPlaceHeader">
+            
+            <div class="marketPlaceTitle-Block ">
+                <div class="marketPlaceTitle-container "> 
+                    <div class="marketPlaceTitle" data-i18n="Inventory_data:sortOptions.NFTs">PonPonSnake's NFTs</div>         
+                    @switch (NFTtype)
+                    {
+                        case 0 :
+                              <div class="marketPlaceTitle"> @PPSRsCount PPSRs</div>                   
+                            break;
+                        case 1 :
+                            <div class="marketPlaceTitle"> @PPSBPsCount PPSBP</div>
+                            break;
+                    }  
+                 
+                </div>
+                
+                <button class="BuyOnOpensea"><a href=@OpenSeaURL target="opensea" data-i18n="Inventory_data:sortOptions.BuyonOpensea">Buy on Opensea</a ></button>
+            </div>
+            @*騎士、藍圖切換*@
+            <NFT_Type toggleType="toggleType"/>
+            @*排序*@
+            @if (NFTtype == 0)
+            {
+                <Catalog_NFTselect DoStuff="DoStuff"/>
+            }
+            
+        </section>
+
+        @*NFT內容*@
+        <section class="marketPlaceCardBLock">  
+            @switch (NFTtype)
+            {
+                case 0 :
+                    <Catalog_PPSR Value="NFTDataList" HeartToggleButton="HeartToggleButton" AfterRenderLocalize ="AfterRenderLocalize"/>                   
+                    break;
+                case 1 :                   
+                    <Catalog_PPSBP getPPSBPsCount="getPPSBPsCount"></Catalog_PPSBP>
+                    break;
+            
+            }  
+        </section> 
+    </main>
+</div>
+
+
+@code {
+    private IJSObjectReference? lazyloadingJS;   
+
+    //NFT列表
+    private List<NFTData> NFTDataList;
+    //騎士數量
+    private int PPSRsCount;   
+    //飛船藍圖數量
+    private int PPSBPsCount;  
+    //OpenSeaURL NFT資產 官方網址   
+    private string OpenSeaURL;
+    //頁數
+    private int PageNumber = 1 ;
+    private int PageSize = 10;
+    //篩選數量
+    private int FilterCount = 0;
+
+    private async Task Refresh()
+    {
+
+        switch (NFTtype)
+            {
+                case 0:
+                    OpenSeaURL = BlockChainSever.BlockChainInfoDTO.openSeaURL_PPSR;
+                    break;
+                case 1:
+                    OpenSeaURL = BlockChainSever.BlockChainInfoDTO.openSeaURL_PPSBP;
+                    break;
+            }
+       
+        PageNumber = 1;
+
+        string contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
+        string OpenSeaLink =  BlockChainSever.BlockChainInfoDTO.openSeaLink;
+        string UserID = AppState.LoginStatus.userID.ToString();
+        
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize , contractAddress_PPSR , UserID,OpenSeaLink);
+        NFTDataList = pagelist;
+        PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
+        await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+        StateHasChanged();
+    }
+    public void getPPSBPsCount( int count)
+    {
+        PPSBPsCount = count;
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");   
+            await Refresh();
+            await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("heartClick");
+            await JS.InvokeVoidAsync("FilterButtonClick");
+            await JS.InvokeVoidAsync("FilterArrowSlideClick");
+            await JS.InvokeVoidAsync("TippyInit");
+
+            await JS.InvokeVoidAsync("NFTcardAClick");    
+            await JS.InvokeVoidAsync("CollectBtnPoP");              
+
+            await JS.InvokeVoidAsync("showTag");   
+
+            await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+        }
+    }
+
+    @*...排序...*@
+    private string OrderByString { get; set; }
+    private async Task DoStuff(ChangeEventArgs e)
+    {
+
+        OrderByString = e.Value.ToString();
+
+        if (OrderByString == "HighestEarned" || OrderByString == "Sort")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Number).ToList();
+        }
+        if (OrderByString == "LowestEarned")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Number).ToList();
+        }
+        if (OrderByString == "HighestPrice")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.Price).ToList();
+        }
+        if (OrderByString == "LowestPrice")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenBy(m => m.Price).ToList();
+        }
+        if (OrderByString == "Newest")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenByDescending(m => m.EndTime).ToList();
+        }
+        if (OrderByString == "Oldest")
+        {
+            NFTDataList = NFTDataList.OrderBy(m => m.IsOpen == false).ThenBy(m => m.EndTime).ToList();
+        }
+
+
+
+
+
+        //OrderByString = e.Value.ToString();
+        //var contractAddress_PPSR = BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
+        //PagedList<NFTData> pagelist = await OptionService.NFTDataListOrderby(e.Value.ToString(), 1, 10, contractAddress_PPSR);
+        //MetaData = pagelist.MetaData;
+        //NFTDataList = pagelist;
+        //PPSRsCount = MetaData.TotalCount;
+        //PageNumber = 0;
+        await JS.InvokeVoidAsync("installI18n");
+        await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+        StateHasChanged();
+    }
+
+    public MetaData MetaData { get; set; } = new MetaData();
+    //private async Task SelectedPage(int page)
+    //{
+    //    await GetNFTDataPageListbyPage(page);
+    //}
+
+    //private async Task GetNFTDataPageListbyPage(int page)
+    //{
+    //    PagedList<NFTData> pagelist = await OptionService.GetNFTDataPageListbyPage( page,10);
+    //    NFTDataList = pagelist;
+    //    MetaData = pagelist.MetaData;
+    //    PPSRsCount = MetaData.TotalCount;
+    //    await JS.InvokeVoidAsync("installI18n");
+    //}
+
+    private async Task AfterRenderLocalize()
+    {
+        PageNumber++;
+        var contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
+        PagedList<NFTData> pagelist=await OptionService.NFTDataListOrderby( OrderByString ,PageNumber ,10 ,contractAddress_PPSR);
+        MetaData =  pagelist.MetaData;
+        NFTDataList.AddRange(pagelist);
+        PPSRsCount = MetaData.TotalCount;
+
+        //List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber, PageSize);
+        //NFTDataList = pagelist;
+        //PPSRsCount = MetaData.TotalCount;
+        await JS.InvokeVoidAsync("Localize");
+    }
+
+    /// 點擊我的最愛   
+    /// <param name="TokenId">TokenId</param>
+    /// <param name="isLove">isLove </param>
+    /// <param name="checkedValue"></param>
+    public async Task HeartToggleButton( HeartParameter value)
+    {
+        NFTDataList.Where(m => m.TokenID == value.TokenId).First().IsLove = !(value.isLove);
+
+
+        string UserID = AppState.LoginStatus.userID.ToString();
+        if (!value.isLove)
+        {
+            
+            await OptionService.AddLove( UserID,value.TokenId);
+        }else
+        {
+            await OptionService.RemoveLove( UserID,value.TokenId);
+        }
+    }
+
+    @*...切換騎士跟藍圖...*@
+    int NFTtype=0;
+    public async Task toggleType(int value)
+    {
+        NFTtype = value;
+        await Refresh();
+    }
+
+    @*...MarketPlace_Aside的方法...*@
+    //修改NFT數量 (組件參數)
+    public void changeNFTDataList( List<NFTData> List)
+    {
+        NFTDataList = List;
+        
+    }
+    //修改騎士數量 (組件參數)
+    public void changePPSRsCount( int Count)
+    {
+        PPSRsCount = Count;
+    }
+    public async Task reFreshJS( )
+    {
+        await JS.InvokeVoidAsync("installI18n");
+        await lazyloadingJS.InvokeVoidAsync("LazyLoading");    
+    }
+
+
+}
