@@ -40,15 +40,12 @@ namespace SnakeAsianLeague.Data.Services
         public async Task<SnakeAccount> AuthLogin(LoginRequest loginRequest , bool IsAutoLogin)
         {
             //國碼 手機 處理
-            if (loginRequest.countryCode == null)
+            if (loginRequest == null)
             {
-                loginRequest.countryCode = "%2B886";
+                return new SnakeAccount();
             }
-            else
-            {
-                loginRequest.countryCode = loginRequest.countryCode.Replace("+", "%2B");
-            }
-            loginRequest.phone = loginRequest.phone.TrimStart('0');
+            loginRequest.phone = loginRequest.phone.Replace("+", "%2B");
+            
 
 
             SnakeAccount response = await tryLogin(loginRequest);
@@ -90,7 +87,7 @@ namespace SnakeAsianLeague.Data.Services
         /// <returns></returns>
         private async Task<SnakeAccount> tryLogin(LoginRequest loginRequest)
         {
-            var LoginRestRequest = new RestRequest($"User/PhoneID?PhoneID={loginRequest.countryCode+loginRequest.phone}&PW={loginRequest.password}&&DeviceID=WEB&IP=NOIP");
+            var LoginRestRequest = new RestRequest($"User/PhoneID?PhoneID={loginRequest.phone}&PW={loginRequest.password}&&DeviceID=WEB&IP=NOIP");
             LoginRestRequest.AddHeader("Authorization", Authenticate());
 
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
@@ -156,20 +153,20 @@ namespace SnakeAsianLeague.Data.Services
 
         public LoginRequest DecodeLoginRequest(string EncodedString)
         {
-            
+            LoginRequest loginReq= new LoginRequest();
             try {
                 var base64EncodedBytes = System.Convert.FromBase64String(EncodedString);
                 string decodeString = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
-                LoginRequest loginReq = JsonSerializer.Deserialize<LoginRequest>(decodeString);
+                loginReq = JsonSerializer.Deserialize<LoginRequest>(decodeString);
 
-                return loginReq;
             }
             catch(Exception e)
             {
                 Console.WriteLine(e.Message);
-                return null;
+                return loginReq;
             }
-            
+
+            return loginReq;
         }
 
         public async Task<ServerResponce> PhoneSendVerifyCode(string CountryCode, string PhoneNumber)
