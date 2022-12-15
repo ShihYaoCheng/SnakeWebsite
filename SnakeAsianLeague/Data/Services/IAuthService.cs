@@ -5,7 +5,7 @@ namespace SnakeAsianLeague.Data.Services
 {
     public interface IAuthService
     {
-        Task<SnakeAccount> AuthLogin(LoginRequest loginRequest , bool IsAutoLogin);
+        Task<SnakeAccount> AuthLogin(LoginRequest loginRequest , bool AutoLoginCheck);
         Task AuthLogout();
         Task<SnakeAccount> AuthLoginByUserId(string userId);
 
