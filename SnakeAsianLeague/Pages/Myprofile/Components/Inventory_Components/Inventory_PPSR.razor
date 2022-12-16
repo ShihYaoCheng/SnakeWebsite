@@ -554,6 +554,7 @@
             await RentJumpJS.InvokeVoidAsync("RentJump", TotalSRCCount, TotalSRCCount + Rent);
         }*@
         
+
         if (Rent.Count > 0)
         {
             TotalSRCCount = TotalSRCCount + Rent.Where(m => m.currencyType == 22).First().price;
@@ -561,6 +562,7 @@
             TotalGoldCount = TotalGoldCount +  Rent.Where(m => m.currencyType == 1).First().price;
             TotalGoldCount = Math.Round(TotalGoldCount, 3, MidpointRounding.AwayFromZero);
         }
+
 
         AllBalance = await InventoryService.CalReceiveRent(UserID);
         AllGoldBalance = await InventoryService.CalReceiveRentGold(UserID);
