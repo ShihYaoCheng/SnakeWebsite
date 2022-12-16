@@ -128,7 +128,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
                     //可能沒有拍賣紀錄
                     if (i % 50 == 0)
                     {
-                        rd = await GetOpenseaNFTRider(i + 1, 50);
+                        //rd = await GetOpenseaNFTRider(i + 1, 50);
                     }
                     assets assets = new assets();
 

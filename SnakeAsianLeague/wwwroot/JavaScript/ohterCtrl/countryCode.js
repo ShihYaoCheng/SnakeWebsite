@@ -69,6 +69,7 @@ window.country_code_List = {
         "Asia": {
             "TW": "+886",
             "CN": "+86",
+            "PH": "+63",
             "AE": "+971",
             "AF": "+93",
             "BD": "+880",
