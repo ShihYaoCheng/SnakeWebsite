@@ -86,18 +86,22 @@
   },
 
   "registerAlert": {
-    "countryCode": "請輸入國家地區代碼",
-    "phoneNum": "請輸入您的手機",
-
+    "NoString": "",
     "verifyFailed": "驗證碼傳送失敗",
-    "severError": "請輸入正確資料。",
-    "badRequest": "請輸入正確資料。",
-    "conflict": "此號碼已經被註冊。",
     "registerSuccessed": "註冊成功",
     "registerFailed": "註冊失敗",
-    "PasswordNotMatch": "您輸入的密碼不一致.",
-    "PasswordInvalid": "您輸入的密碼不合法."
 
+    "phoneNum": "請輸入您的手機",
+    "countryCode": "請輸入國家地區代碼",
+    "VerifyCodeInput": "請輸入您的驗證碼",
+    "PasswordInput": "請輸入您的密碼",
+    "PasswordNotMatch": "您輸入的密碼不一致.",
+    "PasswordInvalid": "您輸入的密碼不合法.",
+    "severError": "伺服器內部錯誤。",
+    "badRequest": "請輸入正確資料。",
+    "conflict": "此電話號碼已經被註冊。",
+    "WrongVerifyCode": "驗證碼錯誤",
+    "NoThisInvitor": "找不到此邀請人."
   },
 
   "indexSRC": {

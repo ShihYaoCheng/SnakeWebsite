@@ -12,6 +12,7 @@
 @inject AppState AppState
 @implements IDisposable
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
 
 <head>
     <title>PonPonSnake｜Sign Up</title>
@@ -86,11 +87,7 @@
                         </div>
                     </div>
 
-                    @* <div class="popup-low">
-                        <label class="popup-label" for="name" data-i18n="Home_data:register.userName">User Name</label>
-                        <input class="SignUp-inputText" id="username" type="text" @bind-value="UserName"
-                            placeholder="">
-                    </div> *@
+                    
 
                     <div class="popup-low">
                         <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.password">Password</label>
@@ -108,7 +105,7 @@
                     <div class="popup-low">
                         <label class="popup-label" for="InvitationCode" data-i18n="Home_data:register.InvitationCode">
                             Invitation Code</label>
-                        <input class="SignUp-inputText" id="InvitationCode" type="text" value=@Code
+                        <input class="SignUp-inputText" id="InvitationCode" type="text" @bind-value=@Code
                              placeholder="No invitation code, leave the field blank."  data-i18n="[placeholder]Home_data:register.InvitationCodeText">
                     </div>
 
@@ -142,9 +139,8 @@
                     stroke-linejoin="round" stroke-width="5" />
             </svg>
 
-            <div class="SignUp-popup-title" data-i18n="Home_data:registerAlert.@AlertDatai18n">
-                @* <div class="SignUp-popup-title"> *@
-                @AlertTitle
+            <div class="SignUp-popup-title" data-i18n="Home_data:registerAlert.@AlertTitleDatai18n">
+                
             </div>
 
             <EditForm Model="@RegisterDTO" class="window_input_block">
@@ -153,8 +149,7 @@
                 <div class="SignUp-popup-content">
 
                     @* 這裡待處理 *@
-                    <div class="SignUp-popup-text" data-i18n="Home_data:registerAlert.@AlertContentDatai18n">
-                        @AlertContent</div>
+                    <div class="SignUp-popup-text" data-i18n="Home_data:registerAlert.@AlertContentDatai18n"></div>
                     <button class="products-popup-submit button-hover" type="submit" @onclick="AlertCancel"
                         data-i18n="Home_data:register.close">Close</button>
                 </div>
@@ -180,16 +175,14 @@
     [Parameter]
     public string Code { get; set; } = "";
 
-    
+
     bool sendVerifyCodehidden = false;
 
     //提醒彈窗
     bool displayAlert = false;
-    public string? AlertTitle { get; set; }
-    public string? AlertDatai18n { get; set; }
+    public string? AlertTitleDatai18n { get; set; }
     public string? AlertContentDatai18n { get; set; }
-    public string? AlertContent { get; set; }
-    @* void AlertShow() => displayAlert = true; *@
+    void AlertShow() => displayAlert = true; 
     void AlertCancel() => displayAlert = false;
 
     uint userID = 0;
@@ -200,7 +193,6 @@
 
 
     public string PasswordCheck { get; set; }
-    public string UserName { get; set; }
     public string ErrorString { get; set; }
 
 
@@ -222,12 +214,6 @@
     }
 
 
-    void AlertShow()
-    {
-        displayAlert = true;
-    @* NFTindexBannerJS.InvokeVoidAsync("NFTindexRegister"); *@
-        @* await JS.InvokeVoidAsync("installI18n"); *@
-    }
 
 
     private async Task SendVerifyCode()
@@ -235,15 +221,13 @@
 
         if (String.IsNullOrEmpty(CountryCode))
         {
-            AlertDatai18n = "countryCode";
-            AlertTitle = "Please enter your Country Code";
+            AlertTitleDatai18n = "countryCode";
             AlertShow();
             return;
         }
         if (String.IsNullOrEmpty(PhoneNum))
         {
-            AlertDatai18n = "phoneNum";
-            AlertTitle = "Please enter your Phone Number";
+            AlertTitleDatai18n = "phoneNum";
             AlertShow();
             return;
 
@@ -255,34 +239,27 @@
             sendVerifyCodehidden = true;
             TimerIsRunning = true;
             TimeLeft = new TimeSpan(0, 0, 20);
+            StateHasChanged();
             Timer();
+
 
         }
         else
         {
-            //呼叫RegisterFail
-            userID = 0;
-            await OfficialWebsiteData.RegisterFail(userID, CountryCode + PhoneNum);
-            Console.WriteLine(resp.Content);
-            AlertTitle = "Sending verification code failed";
-            AlertDatai18n = "verifyFailed";
+            AlertTitleDatai18n = "verifyFailed";
 
 
             switch (resp.Content)
             {
                 case "BadRequest":
-                    AlertContent = resp.Content + ". Please check the input is correct. ";
-                    AlertContentDatai18n = "badRequest";
+                    AlertContentDatai18n = "BadRequest";
                     break;
 
                 case "Conflict":
-                    AlertContent = resp.Content + ". This phone Number has already been registered. ";
                     AlertContentDatai18n = "conflict";
                     break;
 
-
                 default:
-                    AlertContent = resp.Content;
                     AlertContentDatai18n = "severError";
                     break;
             }
@@ -298,9 +275,32 @@
 
     private async Task RegisterSubmit()
     {
+        if (String.IsNullOrEmpty(PhoneNum))
+        {
+            AlertTitleDatai18n = "registerFailed";
+            AlertContentDatai18n = "phoneNum";
+            AlertShow();
+            return;
+
+        }
+        if (String.IsNullOrEmpty(RegisterDTO.VerifyCode))
+        {
+            AlertTitleDatai18n = "registerFailed";
+            AlertContentDatai18n = "VerifyCodeInput";
+            AlertShow();
+            return;
+
+        }
+        if (String.IsNullOrEmpty(RegisterDTO.Password))
+        {
+            AlertTitleDatai18n = "registerFailed";
+            AlertContentDatai18n = "PasswordInput";
+            AlertShow();
+            return;
+        }
         if (PasswordCheck != RegisterDTO.Password)
         {
-            AlertDatai18n = "registerFailed";
+            AlertTitleDatai18n = "registerFailed";
             AlertContentDatai18n = "PasswordNotMatch";
             AlertShow();
             return;
@@ -309,7 +309,7 @@
         bool pwIsMatch = Regex.IsMatch(PasswordCheck, @"^[A-Za-z0-9]{6,10}$");
         if (!pwIsMatch)
         {
-            AlertDatai18n = "registerFailed";
+            AlertTitleDatai18n = "registerFailed";
             AlertContentDatai18n = "PasswordInvalid";
             AlertShow();
             return;
@@ -337,9 +337,8 @@
             SnakeAccount snakeAccount = await AuthService.AuthLogin(loginRequest, true);
             AppState.UpdateLoginStatus(this, snakeAccount);
 
-            AlertTitle = "Register Successed";
-            AlertDatai18n = "registerSuccessed";
-            AlertContent = "";
+            AlertTitleDatai18n = "registerSuccessed";
+            AlertContentDatai18n = "NoString";
             AlertShow();
 
             //呼叫總計註冊API
@@ -347,13 +346,41 @@
             phone = snakeAccount.phone;
             OfficialWebsiteData.Register(userID, phone);
 
-
+            NavigationManager.NavigateTo("/", true);
 
         }
         else
         {
-            AlertDatai18n = "registerFailed";
-            AlertContent = resp.Content;
+            //呼叫RegisterFail
+            userID = 0;
+            await OfficialWebsiteData.RegisterFail(userID, CountryCode + PhoneNum);
+            AlertTitleDatai18n = "registerFailed";
+
+
+            switch (resp.Content)
+            {
+                case "\"Feedback_8\"":
+                    AlertContentDatai18n = "WrongVerifyCode";
+                    break;
+
+                case "\"Feedback_2\"":
+                    AlertContentDatai18n = "badRequest";
+                    break;
+                case "\"Feedback_82\"":
+                    AlertContentDatai18n = "NoThisInvitor";
+                    break;
+                case "\"Feedback_7\"":
+                    AlertContentDatai18n = "badRequest";
+                    break;
+                case "\"Feedback_9\"":
+                    AlertContentDatai18n = "conflict";
+                    break;
+
+                default:
+                    AlertContentDatai18n = "severError";
+                    break;
+            }
+
             AlertShow();
         }
 
@@ -371,7 +398,7 @@
             await countryCodeJS.InvokeVoidAsync("countryCode","SignUp");            
             await JS.InvokeVoidAsync("installI18n");
 
-            
+            NavigationManager.LocationChanged += HandleLocationChanged;
             AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
         }
@@ -382,9 +409,15 @@
         }
         await JS.InvokeVoidAsync("installI18n");
     }
+
+    private void HandleLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        Console.WriteLine("URL of new location: {Location}", e.Location);
+    }
+
     void IDisposable.Dispose()
     {
-        //AppState.OnChange -= StateHasChanged;
+        NavigationManager.LocationChanged -= HandleLocationChanged;
         AppState.StateChanged -= async (Source, Property)
         => await InvokeAsync(StateHasChanged);
     }
