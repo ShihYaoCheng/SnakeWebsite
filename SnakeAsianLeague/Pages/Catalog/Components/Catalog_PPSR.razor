@@ -1,0 +1,69 @@
+﻿@using SnakeAsianLeague.Data.Entity
+
+@if (Value != null) 
+{
+    @foreach (NFTData item in Value)
+    {       
+        string cardBgColor = "";
+        if (@item.IsOfficial)
+        {
+            if (@item.IsOpen)
+            {
+                 @* 1.沒有顯示價格的版本 - 官方首拍 紅色*@
+                cardBgColor = "card-bg-red";
+            }
+            else
+            {
+                 @* 3. 沒有顯示價格的版本 - 尚未開始拍賣 灰色 *@
+                cardBgColor = "card-bg-grey";
+            }
+        }
+        else
+        {
+            @* 2. 沒有顯示價格的版本 - 其他玩家擁有 綠色*@
+            cardBgColor = "card-bg-green";
+        }
+
+        <div class="NFTcard @cardBgColor">
+            <Catalog_NFTcard Value="item" HeartToggleButton="HeartToggleButton"></Catalog_NFTcard>    
+        </div>
+    
+    }
+    @*這個不能運作?*@
+    @*RenderLocalize();*@
+}
+else
+{
+    @for (var i = 0; i < 6; i++)
+    {
+        @*空樣式...*@
+        <div class="NFTcard card-bg-red">
+            <div >  
+                <div class="NFTcard-inner">
+                    <div class="NFT-cardImg"> </div>
+                    <div class="NFT-cardText Not-Price-Ver"></div>
+                </div>
+            </div>
+        </div>
+    }         
+}
+
+@*不知道幹嘛的*@
+    <DontKnowThePurpose></DontKnowThePurpose>
+@code {
+    [Parameter]
+    public List<NFTData> Value { get; set; }
+
+    [Parameter]
+    public EventCallback<HeartParameter> HeartToggleButton { get; set;}
+    
+    [Parameter]
+    public EventCallback<Task> AfterRenderLocalize { get; set;}
+
+    private void RenderLocalize()
+    {
+        AfterRenderLocalize.InvokeAsync();   
+    }
+
+
+}

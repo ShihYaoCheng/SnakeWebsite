@@ -36,10 +36,11 @@
             //解碼
             Console.WriteLine(encrypt);
             //encrypt = "eyJwaG9uZSI6ICIwOTcyNzk1MzYzIiwicGFzc3dvcmQiOiAiMTIzNDU2In0=";
+            //encrypt = "eyJQaG9uZSI6Ijg4Njk4OTI0MjcyMyIsIlBhc3N3b3JkIjoiYWFhMTIzNDU2In0=";
 
             LoginRequest loginRequest = new LoginRequest();
             loginRequest = authService.DecodeLoginRequest(encrypt);
-            if (loginRequest != null)
+            if (loginRequest != null && loginRequest.Phone != null)
             {
                 try
                 {

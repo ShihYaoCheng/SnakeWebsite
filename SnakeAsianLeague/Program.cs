@@ -51,7 +51,6 @@ builder.Services.AddServerSideBlazor().AddCircuitOptions(options => { options.De
 builder.Services.AddOpenTelemetryMetrics(b => b.AddAspNetCoreInstrumentation().AddPrometheusExporter());
 
 builder.Services.AddSingleton<IDataAccess, DataAccess>();
-builder.Services.AddSingleton<LoginService>();
 builder.Services.AddSingleton<AsiaLeagueScheduleService>();
 builder.Services.AddSingleton<AsiaLeagueS1PrizeService>();
 builder.Services.AddSingleton<QualifyingCompetitionRecordService>();

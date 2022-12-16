@@ -8,11 +8,13 @@ namespace SnakeAsianLeague.Data.Entity
 {
     public class LoginRequest
     {
+        //[Required]
+        //public string countryCode { get; set; }
+        //[Required]
+        public string Phone { get; set; }
         [Required]
-        public string countryCode { get; set; }
-        [Required]
-        public string phone { get; set; }
-        [Required]
-        public string password { get; set; }
+        public string Password { get; set; }
     }
+
+    
 }

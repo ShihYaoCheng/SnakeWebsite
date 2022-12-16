@@ -37,24 +37,21 @@ namespace SnakeAsianLeague.Data.Services
         /// </summary>
         /// <param name="SnakeAccount"></param>
         /// <returns></returns>
-        public async Task<SnakeAccount> AuthLogin(LoginRequest loginRequest , bool IsAutoLogin)
+        public async Task<SnakeAccount> AuthLogin(LoginRequest loginRequest , bool AutoLoginCheck)
         {
             //國碼 手機 處理
-            if (loginRequest.countryCode == null)
+            if (loginRequest == null)
             {
-                loginRequest.countryCode = "%2B886";
+                return new SnakeAccount();
             }
-            else
-            {
-                loginRequest.countryCode = loginRequest.countryCode.Replace("+", "%2B");
-            }
-            loginRequest.phone = loginRequest.phone.TrimStart('0');
+            loginRequest.Phone = loginRequest.Phone.Replace("+", "%2B");
+            
 
 
             SnakeAccount response = await tryLogin(loginRequest);
             if (response.IsLogin)
             {
-                if (IsAutoLogin)
+                if (AutoLoginCheck)
                 {
                     string token = await GetAuthenticationToken(loginRequest);
                     //string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiIxMTQwNyIsIk5hbWUiOiLmv5Xmv5XnjYXlrZDkuLgiLCJQaG9uZSI6Iis4ODY5NzU1MTE3MzMiLCJXYWxsZXRBZGRyZXNzIjoiIiwiZXhwIjoxNjQ4MDI0NjE5LCJpc3MiOiJjcWlBdXRoRGVtbyJ9.fijum60o3s-G1CEt4fztdlXfpviVVG9h7DqEyG9L9B4";
@@ -90,7 +87,7 @@ namespace SnakeAsianLeague.Data.Services
         /// <returns></returns>
         private async Task<SnakeAccount> tryLogin(LoginRequest loginRequest)
         {
-            var LoginRestRequest = new RestRequest($"User/PhoneID?PhoneID={loginRequest.countryCode+loginRequest.phone}&PW={loginRequest.password}&&DeviceID=WEB&IP=NOIP");
+            var LoginRestRequest = new RestRequest($"User/PhoneID?PhoneID={loginRequest.Phone}&PW={loginRequest.Password}&&DeviceID=WEB&IP=NOIP");
             LoginRestRequest.AddHeader("Authorization", Authenticate());
 
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
@@ -99,7 +96,7 @@ namespace SnakeAsianLeague.Data.Services
                 //Console.WriteLine($" {restResponse.StatusCode},{restResponse.Content}");
                 SnakeLoginResponce loginResp = JsonSerializer.Deserialize<SnakeLoginResponce>(restResponse.Content);
 
-                return new SnakeAccount() { userID = loginResp.userID, name = loginResp.name, phone = loginRequest.phone, walletAddress = loginResp.walletAddress , nftCurrency1 = loginResp.nftCurrency1};
+                return new SnakeAccount() { userID = loginResp.userID, name = loginResp.name, phone = loginRequest.Phone, walletAddress = loginResp.walletAddress , nftCurrency1 = loginResp.nftCurrency1};
             }
             return new SnakeAccount();
         }
@@ -112,7 +109,7 @@ namespace SnakeAsianLeague.Data.Services
         /// <returns></returns>
         private async Task<string> GetAuthenticationToken(LoginRequest loginRequest)
         {
-            var LoginRestRequest = new RestRequest($"BackEnd/Login?PhoneID={loginRequest.phone}&PW={loginRequest.password}");
+            var LoginRestRequest = new RestRequest($"BackEnd/Login?PhoneID={loginRequest.Phone}&PW={loginRequest.Password}");
             LoginRestRequest.AddHeader("Authorization", Authenticate());
 
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
@@ -156,20 +153,20 @@ namespace SnakeAsianLeague.Data.Services
 
         public LoginRequest DecodeLoginRequest(string EncodedString)
         {
-            
+            LoginRequest loginReq= new LoginRequest();
             try {
                 var base64EncodedBytes = System.Convert.FromBase64String(EncodedString);
                 string decodeString = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
-                LoginRequest loginReq = JsonSerializer.Deserialize<LoginRequest>(decodeString);
-
-                return loginReq;
+                loginReq = JsonSerializer.Deserialize<LoginRequest>(decodeString);
+                loginReq.Phone = "%2B" + loginReq.Phone;
             }
             catch(Exception e)
             {
                 Console.WriteLine(e.Message);
-                return null;
+                return loginReq;
             }
-            
+
+            return loginReq;
         }
 
         public async Task<ServerResponce> PhoneSendVerifyCode(string CountryCode, string PhoneNumber)

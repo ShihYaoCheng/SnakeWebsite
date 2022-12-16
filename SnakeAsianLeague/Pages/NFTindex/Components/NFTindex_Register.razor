@@ -1,4 +1,4 @@
-﻿@page "/Register"
+﻿@page "/RegisterNoUseNow"
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity.SnakeServer
 @using SnakeAsianLeague.Data.Entity
@@ -301,9 +301,8 @@
 
             //登入
             LoginRequest loginRequest = new LoginRequest();
-            loginRequest.countryCode = CountryCode;
-            loginRequest.phone = PhoneNum;
-            loginRequest.password = PasswordCheck;
+            loginRequest.Phone = CountryCode + PhoneNum.TrimStart('0');
+            loginRequest.Password = PasswordCheck;
             SnakeAccount snakeAccount = await AuthService.AuthLogin(loginRequest,true);
             AppState.UpdateLoginStatus(this, snakeAccount);
 

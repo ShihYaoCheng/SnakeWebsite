@@ -370,9 +370,9 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <param name="userId"></param>
         /// <param name="ppsr"></param>
         /// <returns></returns>
-        public async Task<decimal> ReceiveRentByUnit(string userId, string ppsr)
+        public async Task<List<totalRevenue>> ReceiveRentByUnit(string userId, string ppsr)
         {
-            decimal result = 0;
+            List<totalRevenue> result = new List<totalRevenue>();
             ppsr = string.Format("#{0}", ppsr);
             //ppsr = ppsr.Replace("#", "%23");
             string URL = "NFT/ReceiveRentByUnit";
@@ -384,7 +384,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
-                result = JsonSerializer.Deserialize<decimal>(restResponse.Content);
+                result = JsonSerializer.Deserialize<List<totalRevenue>>(restResponse.Content);
             }
 
             return result;
@@ -395,10 +395,10 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<decimal> ReceiveRent(string userId)
+        public async Task<List<totalRevenue>> ReceiveRent(string userId)
         {
 
-            decimal result = 0;
+            List<totalRevenue> result = new List<totalRevenue>();
 
             string URL = "/NFT/ReceiveRent";
             var request = new RestRequest(URL, Method.GET);
@@ -408,7 +408,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
-                result = JsonSerializer.Deserialize<decimal>(restResponse.Content);
+                result = JsonSerializer.Deserialize<List<totalRevenue>>(restResponse.Content);
             }
             return result;
 
