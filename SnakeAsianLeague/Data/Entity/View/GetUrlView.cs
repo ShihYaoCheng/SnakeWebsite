@@ -16,7 +16,8 @@ namespace SnakeAsianLeague.Data.Entity.View
 
         }
 
-        public async Task<string> GetUrl(){            
+        public async Task<string> GetUrl(){
+            if (host == "localhost:7279") host = "dev.origingaia.com";
             return host;
         }
     }
