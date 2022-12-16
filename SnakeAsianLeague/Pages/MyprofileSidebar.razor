@@ -17,9 +17,28 @@
             <a href="myprofile/index" id="accountManagementUl-Account" class=""><li data-i18n="Sidebar.Account">Account</li></a>
             <a href="myprofile/mymatch" id="accountManagementUl-eSport"><li data-i18n="Sidebar.Esports">eSport</li></a>
             <a href="myprofile/myawardnotice" id="accountManagementUl-Reward"><li data-i18n="Sidebar.Reward">Reward</li></a>
-            <a href="myprofile/inventory" id="accountManagementUl-Inventory" hidden="@(false)"><li data-i18n="Sidebar.Inventory">Inventory</li></a>          
-            <a href="myprofile/swapsrc" id="accountManagementUl-SwapSRC" ><li data-i18n="Sidebar.Swap">Swap</li></a>
-            <a href="myprofile/srcgift" id="accountManagementUl-SRCPackage" ><li data-i18n="Sidebar.SRCPackage">SRC Package</li></a>
+
+            @if (IsMobile)
+            {
+                    @if (!IsInMetaMask)
+                    {
+                        <a href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/inventory" id="accountManagementUl-Inventory" hidden="@(false)"><li data-i18n="Sidebar.Inventory">Inventory</li></a>          
+                        <a href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/swapsrc" id="accountManagementUl-SwapSRC" ><li data-i18n="Sidebar.Swap">Swap</li></a>
+                        <a href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/srcgift" id="accountManagementUl-SRCPackage" ><li data-i18n="Sidebar.SRCPackage">SRC Package</li></a>
+                    }
+                    else
+                    {
+                        <a href="myprofile/inventory" id="accountManagementUl-Inventory" hidden="@(false)"><li data-i18n="Sidebar.Inventory">Inventory</li></a>          
+                        <a href="myprofile/swapsrc" id="accountManagementUl-SwapSRC" ><li data-i18n="Sidebar.Swap">Swap</li></a>
+                        <a href="myprofile/srcgift" id="accountManagementUl-SRCPackage" ><li data-i18n="Sidebar.SRCPackage">SRC Package</li></a>
+                    }
+                                    
+            }else{
+                <a href="myprofile/inventory" id="accountManagementUl-Inventory" hidden="@(false)"><li data-i18n="Sidebar.Inventory">Inventory</li></a>          
+                <a href="myprofile/swapsrc" id="accountManagementUl-SwapSRC" ><li data-i18n="Sidebar.Swap">Swap</li></a>
+                <a href="myprofile/srcgift" id="accountManagementUl-SRCPackage" ><li data-i18n="Sidebar.SRCPackage">SRC Package</li></a>
+            }
+
             <a href="myprofile/referralCode" id="accountManagementUl-referralCode" ><li data-i18n="Sidebar.referralCode">referralCode</li></a>
         </ul>
     </div>
@@ -27,13 +46,20 @@
 
 
 @code {
+
+    bool IsMobile = false;
+    bool IsInMetaMask= false;
+    private IJSObjectReference? IsMobileJS;
       protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await JS.InvokeVoidAsync("myprofileSidebar");
             await JS.InvokeVoidAsync("installI18n");
+            IsMobileJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/IsMobile.js");
         }
+        IsMobile =await IsMobileJS.InvokeAsync<bool>("IsMobile");
+        IsInMetaMask  = await IsMobileJS.InvokeAsync<bool>("IsInMetaMask");
     }
 
 }
