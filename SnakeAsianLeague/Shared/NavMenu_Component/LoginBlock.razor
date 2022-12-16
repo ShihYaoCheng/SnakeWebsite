@@ -113,16 +113,9 @@
     }
 
 
-    // [Parameter]
-    //public EventCallback<int> LoginSubmit { get; set;}
-
-    // private void LoginSubmitBtn()
-    //{
-    //    LoginSubmit.InvokeAsync();   
-    //}
 
     bool autoLogin =false;
-    private  async Task toggleAutoLogin(ChangeEventArgs value )
+    private void toggleAutoLogin(ChangeEventArgs value )
     {
         if (value.Value != null)
         {
