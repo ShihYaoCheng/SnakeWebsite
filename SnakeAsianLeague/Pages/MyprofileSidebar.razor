@@ -1,5 +1,6 @@
 @page "/MyprofileSidebar"
-
+@using SnakeAsianLeague.Data.Entity.View
+@inject GetUrlView GetUrlView
 
 @inject IJSRuntime JS
 
@@ -22,9 +23,9 @@
             {
                     @if (!IsInMetaMask)
                     {
-                        <a href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/inventory" id="accountManagementUl-Inventory" hidden="@(false)"><li data-i18n="Sidebar.Inventory">Inventory</li></a>          
-                        <a href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/swapsrc" id="accountManagementUl-SwapSRC" ><li data-i18n="Sidebar.Swap">Swap</li></a>
-                        <a href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/srcgift" id="accountManagementUl-SRCPackage" ><li data-i18n="Sidebar.SRCPackage">SRC Package</li></a>
+                        <a href=@inventoryUrl id="accountManagementUl-Inventory" hidden="@(false)"><li data-i18n="Sidebar.Inventory">Inventory</li></a>          
+                        <a href=@swapsrcUrl id="accountManagementUl-SwapSRC" ><li data-i18n="Sidebar.Swap">Swap</li></a>
+                        <a href=@srcgiftUrl id="accountManagementUl-SRCPackage" ><li data-i18n="Sidebar.SRCPackage">SRC Package</li></a>
                     }
                     else
                     {
@@ -50,6 +51,19 @@
     bool IsMobile = false;
     bool IsInMetaMask= false;
     private IJSObjectReference? IsMobileJS;
+
+
+    string url;
+    string inventoryUrl;
+    string swapsrcUrl;
+    string srcgiftUrl;
+    protected override async Task OnInitializedAsync()
+    {
+        url =await GetUrlView.GetUrl();
+        inventoryUrl = "https://metamask.app.link/dapp/" + url +"/myprofile/inventory";
+        swapsrcUrl ="https://metamask.app.link/dapp/" + url +"/myprofile/inventory";
+        srcgiftUrl = "https://metamask.app.link/dapp/" + url + "/myprofile/srcgift";
+    }
       protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

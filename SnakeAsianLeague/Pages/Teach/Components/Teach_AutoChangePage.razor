@@ -4,6 +4,10 @@
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
 @inject BlockChainProcessorSever BlockChainSever
+
+@using SnakeAsianLeague.Data.Entity.View
+@inject GetUrlView GetUrlView
+
 <head>
     
     <link href="/css/Teach/Teach_AutoChangePage.css" rel="stylesheet" />
@@ -50,7 +54,7 @@
                 AutoChangeRouter = "create-metamask"; 
                 break;
             case "create-metamask" :
-               
+
                 AutoChangeRouter = "connect-game-account";
                 break;
             case "connect-game-account"  :
@@ -76,14 +80,15 @@
     {
         if (router == "create-metamask")
         {
-             string address = await gettingStartMetaMaskJS.InvokeAsync<string>("gettingStartMetaMask");
+            var url = await GetUrlView.GetUrl();
+            string address = await gettingStartMetaMaskJS.InvokeAsync<string>("gettingStartMetaMask" , url);
              int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
-            // bool netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", chainId);
-            //    if (address !="" && netWorkRight)
-            //    {
-            //        WhetherGoToNextPage = true;             
-            //    }      
-            //InvokeAsync(StateHasChanged);
+             bool netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", chainId);
+                if (address !="" && netWorkRight)
+                {
+                    WhetherGoToNextPage = true;             
+                }      
+            InvokeAsync(StateHasChanged);
         }
        
     }

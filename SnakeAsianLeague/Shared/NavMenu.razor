@@ -3,7 +3,7 @@
 @using SnakeAsianLeague.Data.Entity
 @using System.Security.Claims
 @using SnakeAsianLeague.Data.Entity.Config
-
+@using SnakeAsianLeague.Data.Entity.View
 @inject IJSRuntime JS
 @*@inject LoginService loginService*@
 @inject NavigationManager navigationManager
@@ -11,6 +11,7 @@
 @inject IAuthService authService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @implements IDisposable
+@inject GetUrlView GetUrlView
 
 
 <nav id="nav" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top" >
@@ -130,7 +131,7 @@
                                 {
                                     @if (!IsInMetaMask)
                                     {
-                                        <a class="nav-link text-light" href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/inventory" data-i18n="[html]Sidebar.Inventory">Inventory</a>
+                                        <a class="nav-link text-light" href=@inventoryUrl; data-i18n="[html]Sidebar.Inventory">Inventory</a>
 
                                     }
                                     else
@@ -150,7 +151,7 @@
                                 {
                                     @if (!IsInMetaMask)
                                     {
-                                        <a class="nav-link text-light" href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/swapsrc" data-i18n="[html]Sidebar.Swap">Swap</a>
+                                        <a class="nav-link text-light" href=@swapsrcUrl; data-i18n="[html]Sidebar.Swap">Swap</a>
                                     }
                                     else
                                     {
@@ -169,7 +170,7 @@
                                 {
                                     @if (!IsInMetaMask)
                                     {
-                                        <a class="nav-link text-light" href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/srcgift" data-i18n="[html]Sidebar.SRCPackage">SRC Package</a>
+                                        <a class="nav-link text-light" href=@srcgiftUrl data-i18n="[html]Sidebar.SRCPackage">SRC Package</a>
                                     }
                                     else
                                     {
@@ -341,7 +342,7 @@
                                 {
                                         @if (!IsInMetaMask)
                                         {
-                                            <a href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/inventory"  id="inventory" data-i18n="[html]nav.Inventory">Inventory</a>
+                                            <a href=@inventoryUrl id="inventory" data-i18n="[html]nav.Inventory">Inventory</a>
                                         }
                                         else
                                         {
@@ -361,7 +362,7 @@
                                 {
                                         @if (!IsInMetaMask)
                                         {
-                                            <a href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/swapsrc" id="swapsrc" data-i18n="[html]nav.Swap">Swap</a>
+                                            <a href=@swapsrcUrl id="swapsrc" data-i18n="[html]nav.Swap">Swap</a>
                                         }
                                         else
                                         {
@@ -382,7 +383,7 @@
                                 {
                                         @if (!IsInMetaMask)
                                         {
-                                            <a href="https://metamask.app.link/dapp/www.ponponsnake.com/myprofile/srcgift" id="SRCPackage"  data-i18n="[html]nav.SRCPackage">SRC Package</a>
+                                            <a href=@srcgiftUrl id="SRCPackage"  data-i18n="[html]nav.SRCPackage">SRC Package</a>
                                         }
                                         else
                                         {
@@ -466,8 +467,19 @@
     private IJSObjectReference? AnimateJS;
     private IJSObjectReference? lazyloadingJS;
     private IJSObjectReference? IsMobileJS;
+
+    string url;
+    string inventoryUrl;
+    string swapsrcUrl;
+    string srcgiftUrl;
     protected async override Task OnInitializedAsync()
     {      
+        url =await GetUrlView.GetUrl();
+        inventoryUrl = "https://metamask.app.link/dapp/" + url +"/myprofile/inventory";
+        swapsrcUrl ="https://metamask.app.link/dapp/" + url +"/myprofile/inventory";
+        srcgiftUrl = "https://metamask.app.link/dapp/" + url + "/myprofile/srcgift";
+ 
+
         AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
 
