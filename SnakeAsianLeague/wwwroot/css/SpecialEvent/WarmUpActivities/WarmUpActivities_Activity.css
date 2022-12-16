@@ -84,6 +84,10 @@
     margin: 0 auto;
     position: relative;
 }
+#activity-02{
+    /* border: 3px solid rgb(17, 255, 0); */
+    position: relative;
+}
 #activity-Img-01{
     width: 100%;
     margin-top: 5%;
@@ -95,7 +99,52 @@
     bottom: -9%;
     max-width: 250px;
     width: 40%;
+    transform-origin: center bottom;
+    animation: activity-Img-02 3s ease-in-out 0s infinite;
 }
+
+@keyframes activity-Img-02 {
+    0% {
+        transform: rotate(3deg);
+    }
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(3deg);
+    }
+}
+.starShine-block{
+
+}
+.starShine{
+    border-radius: 50%;
+    
+    pointer-events: none;
+    position: absolute;
+
+    transition: all .2s ease-in;
+    opacity: 0;
+    display: none;
+}
+#starShine-01{
+    max-width: 350px;
+    right: -15%;
+    top: -5%;
+    width: 40%;
+}
+#starShine-02{
+    max-width: 300px;
+    left: -20%;
+    bottom: -10%;
+    width: 30%;
+}
+#activity-02:hover .starShine{
+    opacity: 0.7;
+    display: block;
+}
+
 .activity-button {
     /* width: 100%; */
     display: flex;

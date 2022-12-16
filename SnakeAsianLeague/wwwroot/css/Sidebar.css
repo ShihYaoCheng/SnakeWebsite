@@ -134,6 +134,18 @@ ul.accountManagementUl a:hover ::before{
         right: -30px;
     }
 }
+@media all and (max-width: 1200px){
+    #accountManagementUl-Account{
+        padding: 10px 30px;
+    }
+    ul.accountManagementUl a{
+        font-size: 18px;
+    }
+    ul.accountManagementUl a ::before{
+        width: 30px;
+    height: 30px;
+    }
+}
 @media all and (max-width: 800px){
     .myprofileSidebarButton{
         width: 45px;
@@ -150,6 +162,19 @@ ul.accountManagementUl a:hover ::before{
         border-top-right-radius: 30px 150px;
         border-bottom-right-radius: 30px 150px;
     }
+}
+@media all and (max-width: 600px){
+    #accountManagementUl-Account{
+        padding: 8px 30px;
+    }
+    ul.accountManagementUl a{
+        font-size: 16px;
+    }
+    ul.accountManagementUl a ::before{
+        width: 28px;
+    height: 28px;
+    }
+    
 }
 .SidebarOpen{
     transform: translateX(0%);
