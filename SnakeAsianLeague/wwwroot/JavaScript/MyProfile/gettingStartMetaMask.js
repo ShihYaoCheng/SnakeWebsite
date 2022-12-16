@@ -1,4 +1,9 @@
 ﻿export async function gettingStartMetaMask() {
+
+    if (navigator.vendor.indexOf('Apple') != -1) location.href = "https://metamask.app.link/dapp/www.ponponsnake.com/GettingStarted/create-metamask";
+    if (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile/i.test(navigator.userAgent)) location.href = "https://metamask.app.link/dapp/www.ponponsnake.com/GettingStarted/create-metamask"
+
+
    
     if (typeof window.ethereum == 'undefined') {
         console.log("undefined")

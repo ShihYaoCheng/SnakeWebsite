@@ -78,12 +78,12 @@
         {
              string address = await gettingStartMetaMaskJS.InvokeAsync<string>("gettingStartMetaMask");
              int chainId = BlockChainSever.BlockChainInfoDTO.chainId;
-             bool netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", chainId);
-                if (address !="" && netWorkRight)
-                {
-                    WhetherGoToNextPage = true;             
-                }      
-            InvokeAsync(StateHasChanged);
+            // bool netWorkRight = await ErrorNetworkJS.InvokeAsync<bool>("ErrorNetwork", chainId);
+            //    if (address !="" && netWorkRight)
+            //    {
+            //        WhetherGoToNextPage = true;             
+            //    }      
+            //InvokeAsync(StateHasChanged);
         }
        
     }
