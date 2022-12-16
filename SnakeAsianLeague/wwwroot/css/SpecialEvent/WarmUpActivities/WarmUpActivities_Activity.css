@@ -144,13 +144,18 @@
     opacity: 0.7;
     display: block;
 }
-
+.activity-buttonBlock{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .activity-button {
     /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin: 0 auto; */
+    margin: 5px 10px;
+    flex-wrap: wrap;
 }
 .activity-button button {
     text-align: center;
@@ -258,7 +263,11 @@
     .five-stars{
         max-width: 90px;
     }
-
+    .activity-button button {
+        font-size: 15px;
+        padding: 8px 30px 7px;
+        line-height: 20px;
+    }
 }
 @media all and (max-width: 550px){
     .activity{
