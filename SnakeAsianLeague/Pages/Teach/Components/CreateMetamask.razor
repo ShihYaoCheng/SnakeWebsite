@@ -49,7 +49,19 @@
     </div>
 </div>
 <Teach_AutoChangePage router="create-metamask" SquareClick="SquareClick"></Teach_AutoChangePage>
-@code { 
+@code {
+    string MetaMask = "";
+    private IJSObjectReference? getMetaMaskUrlJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            getMetaMaskUrlJS =  await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/Teach/getMetaMaskUrl.js");
+        }
+        MetaMask = await getMetaMaskUrlJS.InvokeAsync<string>("getMetaMaskUrl");
+    }
+
+
     [Parameter]
     public EventCallback<string> SquareClick { get; set;}
     protected  async Task AddPolygon()    {   
