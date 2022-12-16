@@ -1,26 +1,25 @@
 ﻿@page "/test"
-@using SnakeAsianLeague.Data.Services
-@using SnakeAsianLeague.Data.Services.Backstage
-@inject OfficialWebsiteData OfficialWebsiteData
-@inject AppState AppState
+@using SnakeAsianLeague.Data.Entity.View
+@inject GetUrlView GetUrlView
+
 <head>
     <link href="css/test.css" rel="stylesheet" />
 </head>
 
 <div class="test-container">
-        <button @onclick="BindWallet">送出API</button>
+ 
 </div>
 
 
 @code {
-
-    uint userID = 7788;
-    string phoneNum = "0955666777";
-    public async Task BindWallet()
+    string url;
+    protected override async Task OnInitializedAsync()
     {
-        //userID=AppState.LoginStatus.userID;
-        await OfficialWebsiteData.BindWallet(userID, phoneNum);
+        url =await GetUrlView.GetUrl();
+
     }
+   
+   
 
     
   

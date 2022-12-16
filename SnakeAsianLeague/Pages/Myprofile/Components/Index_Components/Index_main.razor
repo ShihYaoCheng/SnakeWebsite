@@ -14,6 +14,9 @@
 @inject IAuthService AuthService
 @implements IDisposable
 
+
+@using SnakeAsianLeague.Data.Entity.View
+@inject GetUrlView GetUrlView
 <AuthorizeView>
     @* 已登入畫面 *@
     <Authorized>
@@ -68,7 +71,7 @@
 
                                     <button class="btnMetamask" disabled>
                                        
-                                        <a id="myAnchor" href="https://metamask.app.link/dapp/ponponsnake.com/myprofile/index" target="_blank">
+                                        <a id="myAnchor" href=@indexUrl target="_blank">
                                             <span style="margin: 5px 20px;" data-i18n="myprofile.installMetamask">Please
                                                 Install Metamask</span>
                                         </a>
@@ -383,11 +386,14 @@
     private int Bluemap_Count=0;
     /// <summary> gSRC數量 </summary>
     private decimal gSRC;
-      protected override async Task OnInitializedAsync()
+    string url;
+    string indexUrl;
+    protected override async Task OnInitializedAsync()
     {
         //預熱活動用
         warmUpToggle = BlockChainSever.BlockChainInfoDTO.eventWarmUpStatus20221108;
-        
+        url =await GetUrlView.GetUrl();
+        indexUrl = "https://metamask.app.link/dapp/" + url + "/myprofile/index";
     }
     protected override async Task OnAfterRenderAsync(bool first)
     {
