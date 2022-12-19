@@ -335,14 +335,15 @@
     height: 75px;
     border-radius: 16px;
     background-color: #ffa71d;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
     padding: 0;
     white-space: nowrap;
     border: none;
     align-self: flex-end;
     margin-bottom: 20px;
-    color:#fff;
+    color: var(--white);
+    letter-spacing: 1px;
 }
 .BuyOnOpensea:hover{
     transition: all .1s ease-in-out;
@@ -656,7 +657,7 @@
     .BuyOnOpensea{
         width: 250px;
         height: 70px;
-        font-size: 26px;
+        font-size: 22px;
     }
     .BuyOnOpensea a{
         padding: 15px 50px;
@@ -708,7 +709,7 @@
     }
     .BuyOnOpensea{
         width: 200px;
-        font-size: 22px;
+        font-size: 20px;
     }
     .products-block-price-currency{
         font-size: 24px;
