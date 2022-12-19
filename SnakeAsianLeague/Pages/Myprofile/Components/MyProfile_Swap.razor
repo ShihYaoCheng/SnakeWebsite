@@ -368,14 +368,13 @@
         var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
         var SRCSwap_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCSwap;
         var chainRPCUrl = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
-        //預熱活動用
-        if (!warmUpToggle)
-        {
-            web3jsData = await JS.InvokeAsync<decimal[]>("web3JS" ,chainId ,USDT_token_addr,SRC_token_addr,SRCSwap_addr ,chainRPCUrl  );
-            SwapRate = web3jsData[2] ;
-            SRCTotal = web3jsData[0] ;
-            USDTTotal = web3jsData[1] ;
-        }
+     
+     
+        web3jsData = await JS.InvokeAsync<decimal[]>("web3JS" ,chainId ,USDT_token_addr,SRC_token_addr,SRCSwap_addr ,chainRPCUrl  );
+        SwapRate = web3jsData[2] ;
+        SRCTotal = web3jsData[0] ;
+        USDTTotal = web3jsData[1] ;
+        
 
         
      
