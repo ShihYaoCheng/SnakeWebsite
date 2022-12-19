@@ -1,5 +1,6 @@
 ﻿@page "/autologin/{encrypt?}"
 
+@using SnakeAsianLeague.Data.Entity.View
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity
 
@@ -8,14 +9,21 @@
 @inject AppState AppState
 @inject IAuthService authService
 @inject AuthenticationStateProvider AuthenticationStateProvider
-
+@inject GetUrlView GetUrlView
 <h3>AutoLogin</h3>
 
 @code {
 
     [Parameter]
     public string? encrypt { get; set; }
+    string url;
+    protected override async Task OnInitializedAsync()
+    {
+        url =await GetUrlView.GetUrl();
+        if(url.Substring (0,23)!="metamask.app.link/dapp/")
+        NavigationManager.NavigateTo("https://metamask.app.link/dapp/" + url +"/autologin/"+encrypt);
 
+    }
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

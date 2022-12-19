@@ -20,5 +20,7 @@ namespace SnakeAsianLeague.Data.Entity.View
             if (host == "localhost:7279") host = "dev.origingaia.com";
             return host;
         }
+
+
     }
 }
