@@ -43,7 +43,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
             IRestResponse restResponse = await BackstageServerClient.ExecuteGetAsync(RestRequest);
 
             //Console.WriteLine(restResponse.Content);
-            string host = _httpContextAccessor.HttpContext.Request.Host.Value;
+            //string host = _httpContextAccessor.HttpContext.Request.Host.Value;
 
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
@@ -189,7 +189,7 @@ namespace SnakeAsianLeague.Data.Services.Commodity
             IRestResponse restResponse = await BackstageServerClient.ExecuteGetAsync(RestRequest);
 
             //Console.WriteLine(restResponse.Content);
-            string host = _httpContextAccessor.HttpContext.Request.Host.Value;
+            //string host = _httpContextAccessor.HttpContext.Request.Host.Value;
 
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {

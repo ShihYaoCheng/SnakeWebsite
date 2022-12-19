@@ -69,6 +69,10 @@
         /// </summary>
         public bool isAvailableInGame { get; set; }
 
+
+
+        public int receiveCurrency { get; set; }
+
     }
 
 

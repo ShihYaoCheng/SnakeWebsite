@@ -162,12 +162,14 @@ namespace SnakeAsianLeague.Data.Services.Products
                         if (Rider.Owned.Length > 20)
                         {
                             Rider.Owned = string.Format("{0}...{1}", Rider.Owned.Substring(0, 5), Rider.Owned.Substring(Rider.Owned.Length - 4, 4));
+                            
                         }
 
                         /*Income*/
                         Rider.Income = new NowRentAndTotalRevenue();
                         Rider.Income = await Get_NowRentAndTotalRevenue("#" +TokenID);
                         Rider.isAvailableInGame = result.castings[0].isAvailableInGame;
+                        Rider.receiveCurrency = result.castings[0].receiveCurrency;
                     }
                     else
                     {

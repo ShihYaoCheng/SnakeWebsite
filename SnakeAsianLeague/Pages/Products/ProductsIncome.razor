@@ -28,7 +28,7 @@
                     <div class="products-block-price" id="">
 
                         <div class="products-block-price-currency">
-                            <p class="products-currency-title">Gold</p>
+                            <p class="products-currency-title">Gem</p>
                             <img class="products-currency-icon products-currency-SRC" id="" src="/images/Myprofile/gold.png"
                             alt="">
                         </div>
@@ -52,8 +52,56 @@
                             <img class="edit-icon" src="/images/Products/edit_icon.png" alt="">
                         </div>
                     </div>*@
+                @if (isSamaWalletAddress)
+                {
+                    
+                    <div class="products-block-title-02" style="margin-top: 20px;" data-i18n="Inventory_data:NFTDetails.RiderFee">Rider’s Appearance Fee</div>
+                    <div class="products-block-price" id="products-AppearanceFee">
+
+                        <div class="products-block-price-currency">
+                     
+                            
+                        
+
+                           
+                    @if (ReceiveCurrency == 1)
+                    {
+                         @*顯示星鑽*@
+                        <p class="products-currency-title">Gem</p>
+                        <img class="products-currency-icon products-currency-Gem" id="" src="/images/Myprofile/gold.png" alt=""> 
+                    }
+                    else if (ReceiveCurrency == 22)
+                    {
+                         @*顯示gSRC*@
+                        <p class="products-currency-title">gSRC</p>
+                        <img class="products-currency-icon products-currency-SRC" id="" src="/images/Products/SRC.webp"alt=""> 
+
+                    }
+                    </div>
+                        <div class="products-TopBid-price @(isSamaWalletAddress ? "Owned-edit" : null)"    id="AppearanceFee-edit">
+                    
 
 
+                                    
+                            @if (ReceiveCurrency == 1)
+                            {
+                                 @*顯示星鑽*@
+                                <div class="products-TopBid-price-value"> @NowGoldRent </div>
+                            }
+                            else if (ReceiveCurrency == 22)
+                            {
+                                 @*顯示gSRC*@
+                                <div class="products-TopBid-price-value"> @NowRent </div>
+                            }
+
+
+                            <img class="edit-icon" src="/images/Products/edit_icon.png" alt="">
+                        </div>
+                    </div>
+                    
+                }
+
+                
 
                 </div>
 
@@ -65,7 +113,7 @@
 
         </section>    
         
-        <ProductsPopup  NowRent =@NowRent  TokenID =@TokenID />
+        <ProductsPopup  NowRent =@NowRent     TokenID =@TokenID    NowGoldRent =@NowGoldRent  ReceiveCurrency =@ReceiveCurrency   />
     }
 
 
@@ -78,12 +126,19 @@
     public string SerialNumber { get; set; }
 
     [Parameter]
+    public int ReceiveCurrency { get; set; }
+
+    [Parameter]
     public decimal NowRent { get; set; }
 
     [Parameter]
     public decimal NowGoldRent { get; set; }
 
     public NowRentAndTotalRevenue Income{ get; set; }
+
+
+
+    //public int currencyType{ get; set; }
 
     public decimal TotalRevenue { get; set; }
     public decimal TotalGoldRevenue { get; set; }
@@ -100,6 +155,7 @@
         NowRent = Income.nowRent.Where(m => m.currencyType == 22).First().price;
         NowRent = Math.Round(NowRent, 3, MidpointRounding.AwayFromZero);
         NowGoldRent = Income.nowRent.Where(m => m.currencyType == 1).First().price;        
+        NowGoldRent = Math.Round(NowGoldRent, 3, MidpointRounding.AwayFromZero);
         TotalRevenue = Income.totalRevenue.Where(m => m.currencyType == 22).First().price;
         TotalRevenue = Math.Round(TotalRevenue, 3, MidpointRounding.AwayFromZero);
         TotalGoldRevenue = Income.totalRevenue.Where(m => m.currencyType == 1).First().price;
@@ -107,6 +163,9 @@
         string OwnedWalletAddress = await ProductsService.GetNFT_Unit_Owned(SerialNumber);
         string  walletAddress = AppState.LoginStatus.walletAddress; 
         isSamaWalletAddress = walletAddress == OwnedWalletAddress;
+
+
+        
         StateHasChanged();
     }
 

@@ -54,10 +54,24 @@
             </EditForm>*@
             <div class="input-zone">
                 <select @onchange="(value)=>{SelectOptionChange(  Int32.Parse(value.Value.ToString()));}">
-                    <option class="my_match_option" value="1">gSRC</option>
-                    <option class="my_match_option" value="22">Gold</option>
+                    <option class="my_match_option" value="1">Gmd</option>
+                    <option class="my_match_option" value="22">gSRC</option>
                 </select>
-                <input  class="products-popup-inputText" type="number" min = "0.01"  step = "0.01"  @bind="@ChangeRent" >        
+
+                @if ( ReceiveCurrency == 1 || CurrencyType == 1)
+                {
+                    <input  class="products-popup-inputText" type="number" min = "0.01"  step = "0.01"  @bind="@ChangeGoldRent" >     
+                }
+                else if ( ReceiveCurrency == 22 || CurrencyType == 22)
+                {
+                    <input  class="products-popup-inputText" type="number" min = "0.01"  step = "0.01"  @bind="@ChangeRent" >     
+                }
+                else
+                {
+                   <input  class="products-popup-inputText" type="number" min = "0.01"  step = "0.01"   >     
+                }
+
+                   
             </div>
             
             <button class="products-popup-submit" type="submit" onclick=@SetChangeRent>SAVE</button>
@@ -95,21 +109,37 @@
     [Parameter]
     public decimal NowRent { get; set; }
 
+
+
     [Parameter]
     public string TokenID { get; set; }
+
+    [Parameter]
+    public decimal NowGoldRent { get; set; }
+    [Parameter]
+    public int ReceiveCurrency { get; set; }
+
 
 
     public decimal ChangeRent { get; set; }
     public decimal ChangeGoldRent { get; set; }
-    
+
 
 
     protected override async Task OnInitializedAsync()
     {
-        ChangeRent = NowRent;
-        //ChangeGoldRent = NowGoldRent;
+        await Refresh();
     }
 
+
+
+    private async Task Refresh()
+    {     
+        SelectOptionChange(ReceiveCurrency);
+        ChangeRent = NowRent;
+        ChangeGoldRent = NowGoldRent;
+        StateHasChanged();
+    }
 
 
 
