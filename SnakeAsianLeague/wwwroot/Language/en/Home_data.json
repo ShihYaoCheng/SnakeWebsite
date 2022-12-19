@@ -87,17 +87,22 @@
   },
 
   "registerAlert": {
-    "countryCode": "Please enter your Country Code",
-    "phoneNum": "Please enter your Phone Number",
-
+    "NoString": "",
     "verifyFailed": "Sending verification code failed",
+    "registerSuccessed": "Register Successed",
+    "registerFailed": "Register Failed",
+
+    "phoneNum": "Please enter your Phone Number",
+    "countryCode": "Please enter your Country Code",
+    "VerifyCodeInput": "Please enter your Verify Code",
+    "PasswordInput": "Please enter your Password",
+    "PasswordNotMatch": "Your two Passwords do not match.",
+    "PasswordInvalid": "The entered password is invalid.",
     "severError": "Internal server error.",
     "badRequest": "Please check the input is correct.",
     "conflict": "This phone Number has already been registered.",
-    "registerSuccessed": "Register Successed",
-    "registerFailed": "Register Failed",
-    "PasswordNotMatch": "Your two Passwords do not match.",
-    "PasswordInvalid": "The entered password is invalid."
+    "WrongVerifyCode": "Wrong Verify Code.",
+    "NoThisInvitor": "This Invitor does not found."
   },
 
   "indexSRC": {

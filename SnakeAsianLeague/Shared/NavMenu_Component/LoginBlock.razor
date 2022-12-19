@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="autoLogin-row" style="">
-                     <input type="checkbox" id="autoLogin" name="autoLogin" @onchange="(e)=>{toggleAutoLogin(e);}"   >
+                     <input type="checkbox" id="autoLogin" name="autoLogin" @onchange="(e)=>{toggleAutoLogin(e);}" checked  >
                      <label class="autoLoginLabel"  for="autoLogin" data-i18n="[html]signInWindows.WhetheLogged">是否維持登入狀態</label>
                 </div>
                 <div type="text" class="login_error" hidden="@(!loginErrorShow)"  data-i18n="[html]signInWindows.Failed">登入失敗，請重新登入</div>
@@ -114,7 +114,7 @@
 
 
 
-    bool autoLogin =false;
+    bool autoLogin =true;
     private void toggleAutoLogin(ChangeEventArgs value )
     {
         if (value.Value != null)
