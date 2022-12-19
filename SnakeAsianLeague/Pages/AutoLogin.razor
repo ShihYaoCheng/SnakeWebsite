@@ -20,8 +20,11 @@
     protected override async Task OnInitializedAsync()
     {
         url =await GetUrlView.GetUrl();
-        if(url.Substring (0,23)!="metamask.app.link/dapp/")
-        NavigationManager.NavigateTo("https://metamask.app.link/dapp/" + url +"/autologin/"+encrypt);
+        if (url.Substring(0, 23) != "metamask.app.link/dapp/")
+        {
+            NavigationManager.NavigateTo("https://metamask.app.link/dapp/" + url +"/autologin/"+encrypt);
+        }
+      
 
     }
     protected async override Task OnAfterRenderAsync(bool firstRender)
