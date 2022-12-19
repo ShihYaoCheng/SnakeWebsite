@@ -1,5 +1,5 @@
 ﻿.SRCgift-block{
-    padding: 100px 0;
+    /* padding: 100px 0; */
 }
 
 .giftData-container {
@@ -22,7 +22,7 @@
     align-items: flex-start;
     font-weight: 700;
     font-size:25px;
-    line-height: 30px;
+    line-height: 27px;
     /* padding-top: 15px; */
 }
 .srcZone-container {
