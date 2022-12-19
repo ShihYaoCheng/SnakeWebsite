@@ -44,7 +44,7 @@
                         
                         <p class="coin-type-name">SRC</p>
                          @*預熱活動用*@
-                        @if (SwapStatus)
+                        @if (!SwapStatus)
                         {
                             <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
                         }else{
@@ -96,7 +96,7 @@
 
                         <p class="coin-type-name">USDT</p>
                          @*預熱活動用*@
-                        @if (SwapStatus)
+                        @if (!SwapStatus)
                         {
                             <button class="coin-type-addWallet tippy-pop" data-content="Add Tokens To MetaMask Wallet" src="/images/Myprofile/SRCExchange/addCoin.png"></button>
                         }else{
@@ -131,7 +131,7 @@
                             <input class="coin-Num" value=@SRCInput @onchange="(e)=>{SRCInputChange(e.Value.ToString());}"/>
                             <div class="maxBTN-Zone">
                                  @*預熱活動用*@
-                                 @if (SwapStatus)
+                                 @if (!SwapStatus)
                                 {
                                     <button  class="maxBTN" data-i18n="Inventory_data:SWAP.MAX">MAX</button>
                                 }else{
@@ -199,7 +199,7 @@
         {
             @*預熱活動用*@
             @**@
-            @if (SwapStatus)
+            @if (!SwapStatus)
             {
                 <p style="color:#ff8477;font-size:10px;margin-top:5px">活動期間：暫無功能</p>
                 <button class="SwapBTN SwapBTN-black" hidden = "@BalanceShort"   data-i18n="Inventory_data:SWAP.Swap">Swap</button>               
@@ -368,14 +368,13 @@
         var SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
         var SRCSwap_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRCSwap;
         var chainRPCUrl = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
-        //預熱活動用
-        if (!warmUpToggle)
-        {
-            web3jsData = await JS.InvokeAsync<decimal[]>("web3JS" ,chainId ,USDT_token_addr,SRC_token_addr,SRCSwap_addr ,chainRPCUrl  );
-            SwapRate = web3jsData[2] ;
-            SRCTotal = web3jsData[0] ;
-            USDTTotal = web3jsData[1] ;
-        }
+     
+     
+        web3jsData = await JS.InvokeAsync<decimal[]>("web3JS" ,chainId ,USDT_token_addr,SRC_token_addr,SRCSwap_addr ,chainRPCUrl  );
+        SwapRate = web3jsData[2] ;
+        SRCTotal = web3jsData[0] ;
+        USDTTotal = web3jsData[1] ;
+        
 
         
      

@@ -5,6 +5,7 @@
 @using SnakeAsianLeague.Pages.NFTindex.EventBanner
 
 @using SnakeAsianLeague.Data.Services.BlockChain
+@inject Blazor.Analytics.IAnalytics Analytics
 @inject BlockChainProcessorSever BlockChainSever
 @inject IJSRuntime JS
 
@@ -80,7 +81,7 @@
 
             await BannerJS.InvokeVoidAsync("indexScrollEvent");
             await BlockChainSever.GetBlockChainInfoDTO();
-
+            await Analytics.TrackEvent("generate_lead", new {currency = "USD", value = 99.99});
         }
 
     }
