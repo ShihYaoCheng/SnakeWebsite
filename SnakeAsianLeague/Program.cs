@@ -89,7 +89,7 @@ builder.Services.AddScoped<AppState>();
 
 
 
-builder.Services.AddGoogleAnalytics("G-7004ZEJL2X");
+builder.Services.AddGoogleAnalytics("G-6N3NJPS61B");
 
 
 builder.Services.AddScoped<IMetamaskInterop, MetamaskBlazorInterop>();
