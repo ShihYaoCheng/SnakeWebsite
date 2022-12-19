@@ -333,6 +333,10 @@ select.SignUp-inputText option{
 .TimeLeft-button:hover{
     transform: scale(1.02);
 }
+.TimeLeft-button:disabled,button[disabled]{
+    background-color: #bfbfbf;
+    cursor: not-allowed;
+}
 .if-No-VerifyCode{
     margin-top: 3.5px;
     font-size: 13.5px;
