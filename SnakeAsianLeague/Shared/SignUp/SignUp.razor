@@ -173,7 +173,7 @@
     public string? PhoneNum { get; set; }
 
     [Parameter]
-    public string Code { get; set; } = "";
+    public string? Code { get; set; } = "";
 
 
     bool sendVerifyCodehidden = false;
@@ -203,16 +203,16 @@
 
     async Task Timer()
     {
+        TimerIsRunning = true;
         while (TimeLeft > new TimeSpan())
         {
-            await Task.Delay(1000);
             TimeLeft = TimeLeft.Subtract(new TimeSpan(0, 0, 1));
+            await Task.Delay(1000);
             StateHasChanged();
         }
         TimerIsRunning = false;
         StateHasChanged();
     }
-
 
 
 
@@ -234,12 +234,11 @@
         }
 
         ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
+        
         if (resp.Success == true)
         {
             sendVerifyCodehidden = true;
-            TimerIsRunning = true;
             TimeLeft = new TimeSpan(0, 0, 20);
-            StateHasChanged();
             Timer();
 
 
