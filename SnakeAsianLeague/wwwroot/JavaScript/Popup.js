@@ -18,6 +18,10 @@ window.Popup = function () {
         $('.products-popup-bg-x').removeClass('products-popup-open');
     });
 
+    $(".products-popup-submit").click(function () {
+        $('.products-popup-bg-x').removeClass('products-popup-open');
+    });
+
     // 點擊 背景關閉
     $(document).mouseup(function (e) {
         var container =$(".products-popupblock"); // 這邊放你想要排除的區塊

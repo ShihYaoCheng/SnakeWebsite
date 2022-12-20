@@ -113,7 +113,7 @@
 
         </section>    
         
-        <ProductsPopup  NowRent =@NowRent     TokenID =@TokenID    NowGoldRent =@NowGoldRent  ReceiveCurrency =@ReceiveCurrency   />
+        <ProductsPopup  NowRent =@NowRent     TokenID =@TokenID    NowGoldRent =@NowGoldRent     />
     }
 
 
@@ -125,8 +125,9 @@
     [Parameter]
     public string SerialNumber { get; set; }
 
-    [Parameter]
-    public int ReceiveCurrency { get; set; }
+   
+    [CascadingParameter] 
+    int ReceiveCurrency { get; set; }
 
     [Parameter]
     public decimal NowRent { get; set; }
@@ -176,10 +177,14 @@
 
 
 
-        //isSamaWalletAddress = true;
+        isSamaWalletAddress = true;
         StateHasChanged();
     }
 
+    //public void changeisSamaWalletAddress()
+    //{
+    //    isSamaWalletAddress =false
+    //}
 
 
 

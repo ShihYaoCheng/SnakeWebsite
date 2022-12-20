@@ -58,11 +58,11 @@
                     <option class="my_match_option" value="22">gSRC</option>
                 </select>
 
-                @if (  CurrencyType == 1)
+                @if (  ReceiveCurrency == 1)
                 {
                     <input  class="products-popup-inputText" type="number" min = "0.01"  step = "0.01"  @bind="@ChangeGoldRent" >     
                 }
-                else if (  CurrencyType == 22)
+                else if (  ReceiveCurrency == 22)
                 {
                     <input  class="products-popup-inputText" type="number" min = "0.01"  step = "0.01"  @bind="@ChangeRent" >     
                 }
@@ -99,12 +99,6 @@
 
 
 @code {
-    //選項
-    public int CurrencyType { get; set; }
-    public void SelectOptionChange(int value)
-    {
-        CurrencyType =value;
-    }   
 
     [Parameter]
     public decimal NowRent { get; set; }
@@ -115,10 +109,8 @@
     [Parameter]
     public decimal NowGoldRent { get; set; }
 
-    [Parameter]
-    public int ReceiveCurrency { get; set; }
-
-
+    [CascadingParameter] 
+    int ReceiveCurrency { get; set; }
 
     public decimal ChangeRent { get; set; }
     public decimal ChangeGoldRent { get; set; }
@@ -142,8 +134,8 @@
 
     private async Task Refresh()
     {
-
-        CurrencyType = ReceiveCurrency;
+        
+      
         //SelectOptionChange(ReceiveCurrency);
         ChangeRent = NowRent;
         ChangeGoldRent = NowGoldRent;
@@ -158,7 +150,7 @@
     private async void ChangeRentCurrencyType()
     {
         string walletAddress = AppState.LoginStatus.walletAddress; 
-        ProductsService.ChangeRentCurrencyType(walletAddress , TokenID ,   CurrencyType);
+        ProductsService.ChangeRentCurrencyType(walletAddress , TokenID ,   ReceiveCurrency);
     }
 
     /// <summary>
@@ -167,6 +159,6 @@
     private async void SetChangeRent()
     {
         string walletAddress = AppState.LoginStatus.walletAddress; 
-        ProductsService.ChangeRent(walletAddress , TokenID ,  ChangeRent , CurrencyType);
+        ProductsService.ChangeRent(walletAddress , TokenID ,  ChangeRent , ReceiveCurrency);
     }
 }
