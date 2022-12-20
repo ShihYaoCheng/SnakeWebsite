@@ -53,7 +53,7 @@
 
             </EditForm>*@
             <div class="input-zone">
-                <select @onchange="(value)=>{ReceiveCurrency =  Int32.Parse(value.Value.ToString());}">
+                <select @bind=@ReceiveCurrency> @* @onchange="(value)=>{ReceiveCurrency =  Int32.Parse(value.Value.ToString());}"*@
                     <option class="my_match_option" value="1">Gmd</option>
                     <option class="my_match_option" value="22">gSRC</option>
                 </select>
