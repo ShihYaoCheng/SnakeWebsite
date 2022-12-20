@@ -17,5 +17,7 @@ export function autoLoginToMetaMask(url, encrypt) {
     if (typeof window.ethereum == 'undefined') {
         console.log("https://metamask.app.link/dapp/" + url + "/autologin/" + encrypt)
         window.location.href = "https://metamask.app.link/dapp/" + url + "/autologin/" + encrypt;
-    } 
+    } else {
+        return true
+    }
 }
