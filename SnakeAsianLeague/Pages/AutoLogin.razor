@@ -25,7 +25,7 @@
 
         //if (url.Length < 23)
         //{          
-        //    NavigationManager.NavigateTo("https://metamask.app.link/dapp/" + url +"/autologin/"+encrypt);
+        //    
         //}
     }
     protected async override Task OnAfterRenderAsync(bool firstRender)
@@ -33,7 +33,7 @@
         if (firstRender)
         {
             IsMobileJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/IsMobile.js");
-            isInMetaMask = await IsMobileJS.InvokeAsync<bool>("autoLoginToMetaMask",url, encrypt);
+            isInMetaMask = await IsMobileJS.InvokeAsync<bool>("IsInMetaMask");
 
             if (isInMetaMask)
             {
@@ -41,7 +41,7 @@
                 AppState.StateChanged += async (Source, Property)
                     => await InvokeAsync(StateHasChanged);
 
-                    
+
                 //登出舊儲存帳號
                 var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
                 var LoginUser = authState.User;
@@ -75,7 +75,11 @@
                     NavigationManager.NavigateTo("/GettingStarted/create-PonPonSnake-game", true);
                 }
             }
-            
+            else
+            {                
+                NavigationManager.NavigateTo("https://metamask.app.link/dapp/" + url +"/autologin/"+encrypt);
+            }
+
             
         }
         
