@@ -2,7 +2,7 @@
 
 .WarmUpActivities{
     font-family: 'Noto Sans TC', sans-serif;
-    background-color: #631605;
+    background-color: #4C1312;
 }
 
 .WarmUpActivities-CenterBlock{
@@ -17,7 +17,8 @@
     max-width: 290px;
     border-radius: 20px;
     /* background-color: #742b25; */
-    background-image: linear-gradient(to bottom, #742b25 0%, #4b1c18 50%, #742b25 100%);
+    /* background-image: linear-gradient(to bottom, #742b25 0%, #4b1c18 50%, #742b25 100%); */
+    background-image: linear-gradient(to bottom, #4e1c18 0%, #772720 50%, #4e1c18 100%);
     font-size: 32px;
     line-height: 40px;
     font-weight: bold;
@@ -25,7 +26,7 @@
     padding: 10px 10px 14px;
     /* display: inline-block; */
     letter-spacing: 5px;
-    box-shadow: inset 0px 0px 10px 3px #4b1c1885, 0px 0px 7px 4px #ffe3e335;
+    box-shadow: inset 0px 0px 10px 8px #4b1c1885, 0px 0px 10px 4px #ffe3e335;
     margin: 15px auto 0px;
     text-align: center;
 }
@@ -137,8 +138,15 @@
     background-blend-mode: multiply;
 }
 .WarmUpActivities_Activity{
-    background-color: #631605;
+    /* background-color: #631605; */
+    background-color: #4C1312;
     padding: 90px 0 50px;
+    margin-top: -120px;
+}
+@media all and (max-width: 1950px){
+    /* .WarmUpActivities_Activity{
+        margin-top: -120px;
+    } */
 }
 @media all and (max-width: 1200px){
     .WarmUpActivities-Title{
@@ -153,6 +161,7 @@
     }
     .WarmUpActivities_Activity{
         padding: 50px 0 50px;
+        margin-top: -20px;
     }
 }
 @media all and (max-width: 800px){
@@ -171,6 +180,7 @@
     }
         .WarmUpActivities_Activity{
         padding: 40px 0 50px;
+        margin-top: 0px;
     }
 }
 

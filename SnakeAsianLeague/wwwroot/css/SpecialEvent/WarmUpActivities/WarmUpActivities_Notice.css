@@ -14,7 +14,8 @@
     margin: 0 auto;
     border-radius: 35px;
     border: solid 4px #fff;
-    background-image: linear-gradient(to top, #22030380, #773e3edf);
+    /* background-image: linear-gradient(to top, #22030380, #773e3edf); */
+    background-image: linear-gradient(to top, #2203033d, #631605c8);
     padding: 5%;
 }
 .Notice-QA{
