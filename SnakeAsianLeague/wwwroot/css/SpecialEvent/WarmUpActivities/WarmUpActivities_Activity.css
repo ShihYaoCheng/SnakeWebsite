@@ -82,8 +82,9 @@
     width: 100%;
     /* margin: 30px; */
     max-width: 500px;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
     margin-right: -30px;
+    margin-top: -70px;
 }
 .event-box{
     width: 100%;
@@ -169,7 +170,7 @@
 
 }
 .activity-list{
-    padding: 30px 30px 30px 50px;
+    padding: 0px 30px 20px 50px;
 }
 .activity-list li{
     text-indent: -1.5em;
