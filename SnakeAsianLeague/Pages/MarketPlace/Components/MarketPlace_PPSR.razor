@@ -25,7 +25,7 @@
         }
 
         <div class="NFTcard @cardBgColor">
-            <MarketPlace_NFTcard Value="item" HeartToggleButton="HeartToggleButton"></MarketPlace_NFTcard>    
+            <MarketPlace_NFTcard Value="item" HeartToggleButton="HeartToggleButton"   isLogin =@isLogin></MarketPlace_NFTcard>    
         </div>
     
     }
@@ -51,6 +51,13 @@ else
 @*不知道幹嘛的*@
     <DontKnowThePurpose></DontKnowThePurpose>
 @code {
+
+        /// <summary>
+    /// 判斷是否有使用者登入
+    /// </summary>
+    [Parameter]
+    public bool isLogin { get; set; }
+
     [Parameter]
     public List<NFTData> Value { get; set; }
 

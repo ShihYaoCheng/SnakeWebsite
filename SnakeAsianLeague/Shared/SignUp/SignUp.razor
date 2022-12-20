@@ -245,6 +245,9 @@
         }
         else
         {
+            //呼叫RegisterFail
+            userID = 0;
+            await OfficialWebsiteData.RegisterFail(userID, CountryCode + PhoneNum);
             AlertTitleDatai18n = "verifyFailed";
 
 

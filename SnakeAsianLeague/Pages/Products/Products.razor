@@ -21,7 +21,9 @@
 <div class="products-wrapper" hidden="@(false)">
     <div class="products-summary">
         <ProductsImage Ridder =@Ridder   TokenID =@TokenID />
-        <ProductsIncome TokenID =@TokenID  SerialNumber =@SerialNumber />
+        <CascadingValue Value="@ReceiveCurrency">
+            <ProductsIncome TokenID =@TokenID  SerialNumber =@SerialNumber   />
+        </CascadingValue>
     </div>
     <div class="products-main">
         <ProductsTopBid TokenID =@TokenID />
@@ -57,6 +59,10 @@
     [Parameter]
     public string TokenID { get; set; }
 
+   
+     [Parameter]
+    public int ReceiveCurrency { get; set; }
+
 
     [Parameter]
     public RiderIntroduce Ridder { get; set; }
@@ -66,16 +72,19 @@
     public string OwnedWalletAddress { get; set; }
 
 
+    
+
+
 
     protected override async Task OnInitializedAsync()
     {
-      
+
     }
 
     private async Task Refresh()
     {
         Ridder =await ProductsService.GetNFT_Unit_SerialNumber(SerialNumber ,TokenID );
-       
+        ReceiveCurrency = Ridder.receiveCurrency;
         StateHasChanged();
     }
 

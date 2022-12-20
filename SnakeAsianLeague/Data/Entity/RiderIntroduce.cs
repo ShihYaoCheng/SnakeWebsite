@@ -33,6 +33,9 @@
         public List<Skill> Skills { get; set; }
 
 
+        public int receiveCurrency { get; set; }
+
+
     }
 
 
