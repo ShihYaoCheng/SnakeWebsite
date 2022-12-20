@@ -6,7 +6,7 @@
     background-image: linear-gradient(to top, #cfcfcf, #fff);
     border-radius: 15px;
     /* overflow: hidden; */
-    max-width: 850px;
+    max-width: 1000px;
 }
 .top50-Title{
     box-shadow: 2px 5px 5px 0 rgba(0, 0, 0, 0.27),inset 2px 0px 5px 0 rgba(0, 0, 0, 0.27);
@@ -52,8 +52,8 @@
     transform: translateY(4px) translateX(-10px);
 }
 .top50-Table-Place{
-    width: 23%;
-    padding-left: 5%;
+    width: 18%;
+    padding-left: 4%;
 }
 #Table-Place{
     /* padding-left: 7.2%; */
@@ -99,7 +99,7 @@ td:first-child{
         min-width: 200px;
     }
     .top50-Table{
-        font-size: 17.5px;
+        font-size: 16px;
         border-spacing: 0 10px;
     }
 
@@ -158,8 +158,11 @@ td:first-child{
 
     .top50-Table-Place {
         text-align: center;
-        width: 23%;
+        width: 15%;
         padding-left: 0%;
+    }
+    .top50-Table-Reward{
+        width: 70%;
     }
 }
 @media all and (max-width: 800px){
@@ -173,17 +176,20 @@ td:first-child{
         margin: -3px 0 15px -3px;
     }
     .top50-Table{
-        width:padding-left: 0%; 95%;
+        width: 95%;
+        padding-left: 0%;
         font-size: 13px;
         margin: -5px auto 10px;
     }
     .top50-Table-Place {
-        width: 10%;
-        
+        width: 20%;
+        padding-left: 0.5%;
         text-align: center;
+        padding-right: 2%;
     }
     .top50-Table-Reward {
-        width: 30%;
+        width: 55%;
+        padding-right: 3.5%;
     }
     .top50-Table-Value {
         width: 25%;
@@ -192,7 +198,7 @@ td:first-child{
         padding: 80px 0 40px;
     }
     .top50-Table td {
-        line-height: 28px;
-        padding-right: 2.5%;
+        line-height: 25px;
+        
     }
 }
