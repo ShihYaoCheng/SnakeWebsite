@@ -1,5 +1,6 @@
 ﻿@page "/autologin/{encrypt?}"
-
+@inject IJSRuntime JS
+@using SnakeAsianLeague.Data.Entity.View
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity
 
@@ -8,55 +9,77 @@
 @inject AppState AppState
 @inject IAuthService authService
 @inject AuthenticationStateProvider AuthenticationStateProvider
-
+@inject GetUrlView GetUrlView
 <h3>AutoLogin</h3>
 
 @code {
 
     [Parameter]
     public string? encrypt { get; set; }
+    string url="";
+    private IJSObjectReference? IsMobileJS;
+    bool isInMetaMask = false;
+    protected override async Task OnInitializedAsync()
+    {
+        url =await GetUrlView.GetUrl();
 
+        //if (url.Length < 23)
+        //{          
+        //    
+        //}
+    }
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            NavigationManager.LocationChanged += HandleLocationChanged;
-            AppState.StateChanged += async (Source, Property)
-                => await InvokeAsync(StateHasChanged);
+            IsMobileJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/IsMobile.js");
+            isInMetaMask = await IsMobileJS.InvokeAsync<bool>("IsInMetaMask");
 
-
-            //登出舊儲存帳號
-            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-            var LoginUser = authState.User;
-            if (LoginUser != null && LoginUser.Identities.Count() != 0)
+            if (isInMetaMask)
             {
-                await authService.AuthLogout();
-            }
+                NavigationManager.LocationChanged += HandleLocationChanged;
+                AppState.StateChanged += async (Source, Property)
+                    => await InvokeAsync(StateHasChanged);
 
-            //解碼
-            Console.WriteLine(encrypt);
-            //encrypt = "eyJwaG9uZSI6ICIwOTcyNzk1MzYzIiwicGFzc3dvcmQiOiAiMTIzNDU2In0=";
-            //encrypt = "eyJQaG9uZSI6Ijg4Njk4OTI0MjcyMyIsIlBhc3N3b3JkIjoiYWFhMTIzNDU2In0=";
 
-            LoginRequest loginRequest = new LoginRequest();
-            loginRequest = authService.DecodeLoginRequest(encrypt);
-            if (loginRequest != null && loginRequest.Phone != null)
-            {
-                try
+                //登出舊儲存帳號
+                var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+                var LoginUser = authState.User;
+                if (LoginUser != null && LoginUser.Identities.Count() != 0)
                 {
-                    SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest, true);
-                    AppState.UpdateLoginStatus(this, snakeAccount);
-                    NavigationManager.NavigateTo("/GettingStarted/create-metamask", true);
+                    await authService.AuthLogout();
                 }
-                catch (Exception ex)
+
+                //解碼
+                Console.WriteLine(encrypt);
+                //encrypt = "eyJwaG9uZSI6ICIwOTcyNzk1MzYzIiwicGFzc3dvcmQiOiAiMTIzNDU2In0=";
+                //encrypt = "eyJQaG9uZSI6Ijg4Njk4OTI0MjcyMyIsIlBhc3N3b3JkIjoiYWFhMTIzNDU2In0=";
+
+                LoginRequest loginRequest = new LoginRequest();
+                loginRequest = authService.DecodeLoginRequest(encrypt);
+                if (loginRequest != null && loginRequest.Phone != null)
+                {
+                    try
+                    {
+                        SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest, true);
+                        AppState.UpdateLoginStatus(this, snakeAccount);
+                        NavigationManager.NavigateTo("/GettingStarted/create-metamask", true);
+                    }
+                    catch (Exception ex)
+                    {
+                        NavigationManager.NavigateTo("/GettingStarted/create-PonPonSnake-game", true);
+                    }
+                }
+                else
                 {
                     NavigationManager.NavigateTo("/GettingStarted/create-PonPonSnake-game", true);
                 }
             }
             else
-            {
-                NavigationManager.NavigateTo("/GettingStarted/create-PonPonSnake-game", true);
+            {                
+                NavigationManager.NavigateTo("https://metamask.app.link/dapp/" + url +"/autologin/"+encrypt);
             }
+
             
         }
         

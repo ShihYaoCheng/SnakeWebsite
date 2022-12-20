@@ -29,6 +29,7 @@
         "windowStep-04":"步驟四：<br>參與碰碰蛇1V7積分排名，總獎勵價值高達2000 USDT，前50都有獎。",
         "windowStep-Telegram":"加入Telegram",
         "windowStep-download":"下載遊戲",
+        "windowStep-downloadGame":"下載遊戲",
 
         "discount-title":"參與活動好處多多送給你",
         "discountStep-01":"優惠一",
@@ -39,6 +40,10 @@
     },
 
     "activity": {
+        "title-01":"",
+        "text-01-1":"",
+        "text-01-2":"",
+        
         "title-02":"《活動二》",
         "text-02-1":"五星好評",
         "text-02-2":"送豪禮",

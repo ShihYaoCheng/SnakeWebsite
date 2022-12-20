@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap');
+
+/* nav 當頁顯示 */
+#nav-Arena>.nav-link {
+    background-color: #b1d7d9;
+    box-shadow: inset 0px 0px 8px 0px #7da9ac8c;
+}
+
+#Arena_hover_bottom {
+    position: absolute;
+    max-width: 300px;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -7px;
+    opacity: 1;
+    z-index: 0;
+    transition: all .3s ease-out;
+    pointer-events: none;
+}
+
+/* RWD NAV */
+@media all and (max-width: 1000px) {
+    #nav-Arena {
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.Arena{
+    width: 100%;
+    background-color: #fff;
+    background-image: linear-gradient(165deg, #506da8 0%,#5270ac 41%,#9CD0DB 48% ,#a3d2da 53% ,#5b91bc 64%,#6598c3 100%);
+    /* height: 100vh; */
+    /* height: calc(100vh - 0px); */
+    /* height: 100vh; */
+    
+}
+.Arena-SKY{
+    border: 2px solid yellow;
+    width: 100%;
+    height: 90vh;
+    overflow-X: hidden;
+    position: relative;
+    z-index: 0;
+}
+.Arena-BG{
+    border: 1px solid red;
+    width: 110%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+
+
+    /* background-image: linear-gradient(165deg, #506da8 0%,#5270ac 41%,#9CD0DB 48% ,#a3d2da 53% ,#5b91bc 64%,#6598c3 100%) */
+    
+    background-image: url(/images/Arena/sky-BG.png);
+    /* background-position: center 30%; */
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    animation: Arena-BG 35s ease-in-out  infinite;
+    /* transform: translateX(-8%); */
+}
+/* .Arena-BG img{
+    width: 110%;
+    animation: Arena-BG 30s ease-in-out  infinite;
+} */
+
+@keyframes Arena-BG {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-8%);
+    }
+
+    100% {
+        transform: translateX(00px);
+    }
+}
+.Arena-title{
+    color: #fff;
+    font-size: 130px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    margin: 28vh auto 0;
+    font-family: 'Teko', sans-serif;
+    z-index: 1;
+    display: block;
+    text-align: center;
+    line-height: 100px;
+    text-shadow: 3px 3px 10px rgba(27, 27, 27, 0.678);
+}
+
+.Arena-stage{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    display: none;
+}
+
+.Activity-type-block{
+    border: 1px solid red;
+    max-width: 1200px;
+    width: 90%;
+    margin: 5vh auto;
+}
+
+.Activity-type-block{
+    
+}
+@media all and (max-width: 2200px){
+    .Arena-title{
+        font-size: 100px;
+    }
+}

@@ -29,6 +29,7 @@
         "windowStep-04":"Step 4：<br>Participate in the 1v7 Ranking for 65,000 SRC. (about 2000 USDT)",
         "windowStep-Telegram":"Join Telegram",
         "windowStep-download":"Download",
+        "windowStep-downloadGame":"Download Game",
 
         "discount-title":"Join Us Earn Rewards Free",
         "discountStep-01":"Benefit 1",
@@ -39,6 +40,10 @@
     },    
     
     "activity": {
+        "title-01":"- Event Ⅰ -",
+        "text-01-1":"Event 1 Five Easy Steps,",
+        "text-01-2":"All Reward just for you!",
+        
         "title-02":"- Event Ⅱ -",
         "text-02-1":"Five-star review,",
         "text-02-2":"Rewards for you",
