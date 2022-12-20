@@ -58,11 +58,11 @@
                     <option class="my_match_option" value="22">gSRC</option>
                 </select>
 
-                @if ( ReceiveCurrency == 1 || CurrencyType == 1)
+                @if (  CurrencyType == 1)
                 {
                     <input  class="products-popup-inputText" type="number" min = "0.01"  step = "0.01"  @bind="@ChangeGoldRent" >     
                 }
-                else if ( ReceiveCurrency == 22 || CurrencyType == 22)
+                else if (  CurrencyType == 22)
                 {
                     <input  class="products-popup-inputText" type="number" min = "0.01"  step = "0.01"  @bind="@ChangeRent" >     
                 }
@@ -109,13 +109,12 @@
     [Parameter]
     public decimal NowRent { get; set; }
 
-
-
     [Parameter]
     public string TokenID { get; set; }
 
     [Parameter]
     public decimal NowGoldRent { get; set; }
+
     [Parameter]
     public int ReceiveCurrency { get; set; }
 
@@ -128,14 +127,24 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Refresh();
+
     }
 
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Refresh();          
+        }
+    }
+
 
     private async Task Refresh()
-    {     
-        SelectOptionChange(ReceiveCurrency);
+    {
+
+        CurrencyType = ReceiveCurrency;
+        //SelectOptionChange(ReceiveCurrency);
         ChangeRent = NowRent;
         ChangeGoldRent = NowGoldRent;
         StateHasChanged();

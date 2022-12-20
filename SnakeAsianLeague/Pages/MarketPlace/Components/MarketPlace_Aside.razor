@@ -26,15 +26,19 @@
             
         <div class="Filter-Header-Block">
             <button  hidden="@(false)" class="Filter-Button" id="Filter-Button-Reset">Reset</button>
-            <button  hidden="@(false)" class="Filter-heart btn p-0 tippy-pop" data-content="Favorite" @onclick="eventArgs => { FilterLove(); }"  >
-                @*@onclick=FilterLove*@
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
-                    <path class="heart__path"
-                        d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
-                        transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="1.5" />
-                </svg>
-            </button>
+
+            @if(isLogin)
+            {
+                <button  hidden="@(false)" class="Filter-heart btn p-0 tippy-pop" data-content="Favorite" @onclick="eventArgs => { FilterLove(); }"  >
+                    @*@onclick=FilterLove*@
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.001 20.005">
+                        <path class="heart__path"
+                            d="M11.445,20.761,3.576,12.566a5.762,5.762,0,0,1,.3-8.217,5.243,5.243,0,0,1,7.807.892L12,5.677l.314-.436a5.243,5.243,0,0,1,7.807-.892,5.762,5.762,0,0,1,.3,8.217l-7.869,8.194A.763.763,0,0,1,11.445,20.761Z"
+                            transform="translate(-0.999 -1.995)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="1.5" />
+                    </svg>
+                </button>    
+            }
         </div>
     </section>
         
@@ -243,6 +247,14 @@
 </aside>
     
 @code {
+
+    /// <summary>
+    /// 判斷是否有使用者登入
+    /// </summary>
+    [Parameter]
+    public bool isLogin { get; set; }
+
+
     //改變NFT數量
     [Parameter]
     public EventCallback<List<NFTData>> changeNFTDataList { get; set;}

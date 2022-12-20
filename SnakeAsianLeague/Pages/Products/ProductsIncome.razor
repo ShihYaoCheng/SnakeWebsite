@@ -146,7 +146,16 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Refresh();
+        //await Refresh();
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Refresh();          
+        }
     }
 
     private async Task Refresh()
@@ -165,7 +174,7 @@
         isSamaWalletAddress = walletAddress == OwnedWalletAddress;
 
 
-        
+        //isSamaWalletAddress = true;
         StateHasChanged();
     }
 

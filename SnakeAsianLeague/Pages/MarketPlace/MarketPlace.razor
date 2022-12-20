@@ -54,7 +54,7 @@
     @*側邊欄*@
     @if (NFTtype == 0)
     {
-        <MarketPlace_Aside changeNFTDataList="changeNFTDataList"  changePPSRsCount="changePPSRsCount" reFreshJS="reFreshJS"/>
+        <MarketPlace_Aside changeNFTDataList="changeNFTDataList"  changePPSRsCount="changePPSRsCount" reFreshJS="reFreshJS" isLogin =@isLogin />
     }
     
     @*主要內容區塊*@
@@ -93,7 +93,7 @@
             @switch (NFTtype)
             {
                 case 0 :
-                    <MarketPlace_PPSR Value="NFTDataList" HeartToggleButton="HeartToggleButton" AfterRenderLocalize ="AfterRenderLocalize"/>                   
+                    <MarketPlace_PPSR Value="NFTDataList" HeartToggleButton="HeartToggleButton" AfterRenderLocalize ="AfterRenderLocalize" isLogin =@isLogin/>                   
                     break;
                 case 1 :                   
                     <MarketPlace_PPSBP getPPSBPsCount="getPPSBPsCount"></MarketPlace_PPSBP>
@@ -107,6 +107,15 @@
 
 @code {
     private IJSObjectReference? lazyloadingJS;   
+
+
+    /// <summary>
+    /// 判斷是否有使用者登入
+    /// </summary>
+    [Parameter]
+    public bool isLogin { get; set; }
+
+
 
     //NFT列表
     private List<NFTData> NFTDataList;
@@ -126,21 +135,30 @@
     {
 
         switch (NFTtype)
-            {
-                case 0:
-                    OpenSeaURL = BlockChainSever.BlockChainInfoDTO.openSeaURL_PPSR;
-                    break;
-                case 1:
-                    OpenSeaURL = BlockChainSever.BlockChainInfoDTO.openSeaURL_PPSBP;
-                    break;
-            }
-       
+        {
+            case 0:
+                OpenSeaURL = BlockChainSever.BlockChainInfoDTO.openSeaURL_PPSR;
+                break;
+            case 1:
+                OpenSeaURL = BlockChainSever.BlockChainInfoDTO.openSeaURL_PPSBP;
+                break;
+        }
+
         PageNumber = 1;
 
         string contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
         string OpenSeaLink =  BlockChainSever.BlockChainInfoDTO.openSeaLink;
         string UserID = AppState.LoginStatus.userID.ToString();
-        
+
+        if (UserID == "0")
+        {
+            isLogin = false;
+        }
+        else
+        {
+            isLogin = true;
+        }
+
         List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize , contractAddress_PPSR , UserID,OpenSeaLink);
         NFTDataList = pagelist;
         PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
@@ -264,7 +282,6 @@
         string UserID = AppState.LoginStatus.userID.ToString();
         if (!value.isLove)
         {
-            
             await OptionService.AddLove( UserID,value.TokenId);
         }else
         {
