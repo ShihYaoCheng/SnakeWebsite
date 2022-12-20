@@ -1,5 +1,5 @@
 ﻿@page "/autologin/{encrypt?}"
-
+@inject IJSRuntime JS
 @using SnakeAsianLeague.Data.Entity.View
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Entity
@@ -17,23 +17,24 @@
     [Parameter]
     public string? encrypt { get; set; }
     string url="";
-
+    private IJSObjectReference? IsMobileJS;
     protected override async Task OnInitializedAsync()
     {
         url =await GetUrlView.GetUrl();
 
-        if (url.Length < 23)
-        {          
-            NavigationManager.NavigateTo("https://metamask.app.link/dapp/" + url +"/autologin/"+encrypt);
-        }
-  
-      
-
+        //if (url.Length < 23)
+        //{          
+        //    NavigationManager.NavigateTo("https://metamask.app.link/dapp/" + url +"/autologin/"+encrypt);
+        //}
    }
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
+            IsMobileJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/IsMobile.js");
+            await IsMobileJS.InvokeVoidAsync("autoLoginToMetaMask",url, encrypt);
+
+
             NavigationManager.LocationChanged += HandleLocationChanged;
             AppState.StateChanged += async (Source, Property)
                 => await InvokeAsync(StateHasChanged);
