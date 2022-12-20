@@ -16,7 +16,10 @@ export function IsInMetaMask() {
 export function autoLoginToMetaMask(url, encrypt) {
     if (typeof window.ethereum == 'undefined') {
         console.log("https://metamask.app.link/dapp/" + url + "/autologin/" + encrypt)
-        window.location.href = "https://metamask.app.link/dapp/" + url + "/autologin/" + encrypt;
+        setTimeout(() => {
+            window.location.href = "https://metamask.app.link/dapp/" + url + "/autologin/" + encrypt
+        }, 1000)
+        
     } else {
         return true
     }
