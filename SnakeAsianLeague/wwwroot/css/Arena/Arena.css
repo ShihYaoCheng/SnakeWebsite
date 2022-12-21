@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500;600&family=Noto+Sans:wght@500;600;700&family=Teko:wght@500;600;700&display=swap');
 
 /* nav 當頁顯示 */
 #nav-Arena>.nav-link {
@@ -106,11 +106,152 @@
     max-width: 1200px;
     width: 90%;
     margin: 5vh auto;
+    display: flex;
+    justify-content: space-between;
+}
+.Activity-type-block a{
+    text-decoration: none;
+
+}
+.Activity-type{
+    border: 5px solid #DFDFDF;
+    background-color: #DFDFDF;
+    width: 320px;
+    height: 355px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    object-fit: cover;
+    box-sizing: border-box;
+    z-index: 0;
+    transition: all .2s ease-in;
 }
 
-.Activity-type-block{
-    
+.type-BG{
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    opacity: 0.9;
+    transition: all .2s ease-in;
 }
+.Activity-type:hover .type-BG{
+    opacity: 1;
+    transition: all .2s ease-in;
+}
+.type-BG img{
+    object-fit: cover;
+}
+#type-BG-01{
+    top: -21%;
+    left: -45%;
+    /* transition: all 1s linear; */
+}
+.Activity-type:hover #type-BG-01{
+    top: 0%;
+    left: -110%;
+    transition: all 2s linear;
+}
+#type-BG-01 img{
+    width: 310%;
+}
+
+
+#type-BG-02{
+    top: -1%;
+    /* left: -85%; */
+    /* transform: translateX(-50%); */
+    left: -86%;
+    transform-origin: top right;
+}
+.Activity-type:hover #type-BG-02{
+    /* top: -5%; */
+    /* left: -35%; */
+    /* transform-origin: center -5%; */
+    /* transform-origin: -35% 50%; */
+    transform: scale(0.95);
+    /* left: -87%; */
+    /* top: 3%; */
+    transition: all 1.5s linear;
+}
+#type-BG-02 img{
+    width: 278%;
+}
+
+
+#type-BG-03{
+    top: -5%;
+    left: -105%;
+}
+.Activity-type:hover #type-BG-03{
+    top: -5%;
+    left: -10%;
+    transition: all 2s linear;
+}
+#type-BG-03 img{
+    width: 210%;
+}
+.type-name{
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.947);
+    font-size: 33px;
+    /* white-space: nowrap; */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    font-family: 'Cabin','Noto Sans', sans-serif;
+
+    text-shadow: 3px 3px 5px rgba(30, 30, 30, 0.8);
+    /* transform: scale(0.8, 1); */
+    /* transform-origin: center center; */
+    line-height: 43px;
+    text-align: center;
+}
+#Activity-03 .type-name{
+    width: 80%;
+}
+.type-icon{
+    z-index: 3;
+    position: absolute;
+    right: 4.5%;
+    bottom: 4.5%;
+}
+.Activity-type:hover .type-icon{
+    animation: type-icon 0.7s ease-in-out 0s forwards;
+}
+
+@keyframes type-icon {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform:translateY(0);
+    }
+    75% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform:translateY(0);
+    }
+}
+
+#Activity-01 .type-icon{
+    width: 98px;
+}
+#Activity-02 .type-icon{
+    width: 88px;
+}
+#Activity-03 .type-icon{
+    width: 98px;
+}
+
+
 @media all and (max-width: 2200px){
     .Arena-title{
         font-size: 100px;
