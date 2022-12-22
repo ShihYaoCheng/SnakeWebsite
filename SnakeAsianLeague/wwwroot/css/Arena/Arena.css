@@ -365,7 +365,7 @@
         line-height: 60px;
     }
     .Activity-type-block {
-        margin: 5px auto 50px;
+        margin: 20px auto 50px;
     }
     .Arena-stage{
         width: 180%;
@@ -385,6 +385,6 @@
         line-height: 46px;
     }
     .Activity-type-block {
-        margin: 5px auto 50px;
+        margin: 15px auto 50px;
     }
 }
