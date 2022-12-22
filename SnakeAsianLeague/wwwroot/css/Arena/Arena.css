@@ -81,7 +81,7 @@
 }
 .Arena-title{
     color: rgba(255, 255, 255);
-    font-size: 130px;
+    font-size: 110px;
     font-weight: 700;
     letter-spacing: 2.5px;
     margin: 28vh auto 0;
@@ -266,19 +266,33 @@
 
 
 @media all and (max-width: 2000px){
+    .Arena-SKY{
+        max-height: 1050px;
+    }
     .Arena-BG{
         background-image: url(/images/Arena/sky-BG-1920.webp);
     }
     .Arena-title{
         font-size: 100px;
-        margin: 22.5vh auto 0;
+        /* margin: 22.5vh auto 0; */
+        /* margin: 188px auto 0; */
+        margin: 20vh auto 0;
     }
     .Activity-type-block{
-        margin: 7.5vh auto;
+        /* margin: 7.5vh auto; */
+        /* margin: 62px auto; */
+        margin: 8vh auto;
     }
 }
-
+@media all and (max-width: 1800px){
+    .Arena-SKY {
+        max-height: 1000px;
+    }
+}
 @media all and (max-width: 1200px){
+    .Arena-SKY{
+        max-height: 880px;
+    }
     .Activity-type{
         border: 4px solid #DFDFDF;
         width: 270px;
@@ -287,6 +301,12 @@
     .Arena-title{
         font-size: 90px;
         line-height: 85px;
+        margin: 18.5vh auto 0;
+        margin: 215px auto 0;
+    }
+    .Activity-type-block{
+        margin: 7vh auto;
+        margin: 81px auto;
     }
     .type-icon{
         right: 4%;
@@ -312,6 +332,7 @@
 @media all and (max-width: 1000px){
     .Arena-SKY{
         height: unset;
+        max-height: unset;
     }
     .Arena-title{
         font-size: 80px;
