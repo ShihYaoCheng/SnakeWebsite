@@ -3,10 +3,10 @@
 @using SnakeAsianLeague.Data.Services.Products
 @inject ProductsService ProductsService;
 
- <section class="products-section" id="products-Attributes">
-        <div class="products-block">
-            <div class="products-block-title" >Log</div>
-            <div class="products-block-02" id="products-Log-block">
+<section class="products-section" id="products-Log">
+        @* <div class="products-block"> *@
+            @* <div class="products-block-title" >Log</div> *@
+            <div class="products-block" id="products-Log-block">
         
 
                <div class="products-Log-Text-Zone">
@@ -43,7 +43,9 @@
                    
                </div>
             </div>
-        </div>
+        @* </div> *@
+
+        
     </section>
 @code {
     [Parameter]
