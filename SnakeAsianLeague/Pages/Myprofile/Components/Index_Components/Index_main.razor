@@ -406,8 +406,9 @@
             @*預熱活動用*@
             if (!warmUpToggle)
             {
-                NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
+                
             }
+            NFT_Rider_Count = await ProfileService.Get_NFT_Rider_Count(AppState.LoginStatus.userID.ToString());
 
             gSRC = await InventoryService.GetgSRCCurrency1(AppState.LoginStatus.userID.ToString() , 22);
 
