@@ -441,7 +441,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                     {
                         if (item.currencyType == 1)
                         {
-                            item.currencyTypeName = "Gmd";
+                            item.currencyTypeName = "Gem";
                         } 
                         else if (item.currencyType == 22)
                         {
