@@ -21,13 +21,14 @@
 <div class="products-wrapper" hidden="@(false)">
     <div class="products-summary">
         <ProductsImage Ridder =@Ridder   TokenID =@TokenID />
-        <CascadingValue Value="@ReceiveCurrency">
-            <ProductsIncome TokenID =@TokenID  SerialNumber =@SerialNumber   />
-        </CascadingValue>
     </div>
     <div class="products-main">
         <ProductsTopBid TokenID =@TokenID />
-        <ProductsLog TokenID =@TokenID/>
+
+        <CascadingValue Value="@ReceiveCurrency">
+            <ProductsIncome TokenID =@TokenID  SerialNumber =@SerialNumber   />
+        </CascadingValue>
+        
         <ProductsAttributes Ridder =@Ridder />
         <ProductsStats Ridder =@Ridder/>
         <ProductsAvatars Ridder =@Ridder/>
