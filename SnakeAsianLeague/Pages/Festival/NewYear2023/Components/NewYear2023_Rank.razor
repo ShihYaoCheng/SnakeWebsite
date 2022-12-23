@@ -5,13 +5,32 @@
 <div class="NewYear2023_Rank_container">
     <div class="NewYear2023-container">
         <div class="NewYear2023_Rank_BG"> 
-            @*選擇排名*@
+            @*排名顯示底板*@
             <div class="Bottom_Plate">
+                <div class="toggleRankTypeButton-container">
+                    <button class="rank_type_button_solo"> 個人 </button>
+                    <button class="rank_type_button_squad"> 隊伍 </button>
+                </div>            
+            </div>
 
+            @*下拉選擇排名日期*@
+            <div class="select_bg">
+                <div class="select-container"></div>
             </div>
             @*顯示排名*@
-            <div>
-
+            <div class="rank-content">
+                <div class="rank-date">
+                    <p >Qualification Date：5/29~5/28</p>
+                    <div class="top3-container">
+                        @*rank1*@
+                        <div class="rank1"></div>
+                        @*rank2*@
+                        <div class="rank2"></div>
+                        @*rank3*@
+                        <div class="rank3"></div>
+                    </div>
+                </div>
+                
             </div>
 
         </div>

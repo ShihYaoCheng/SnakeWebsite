@@ -1,5 +1,5 @@
 ﻿.NewYear2023_Notice {
-    padding-top: 500px;
+    padding-top: 200px;
     height: 1900px;
 }
 .NewYear2023_Notice_TopTitle {
@@ -31,7 +31,7 @@
 @media (max-width: 768px) {
     .NewYear2023_Notice {
         height: 1200px;
-        padding-top: 400px;
+        padding-top: 150px;
     }
     .Notice_TopTitle {
         font-size: 26px;
