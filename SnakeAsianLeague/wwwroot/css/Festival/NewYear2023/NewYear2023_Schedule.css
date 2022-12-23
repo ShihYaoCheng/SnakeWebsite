@@ -1,0 +1,242 @@
+﻿.NewYear2023-Schedule-container {
+    padding: 50px;
+}
+
+.Schedule-title {
+    width: 100%;
+    padding: 87px 0;
+}
+
+.Schedule-title h3 {
+    text-shadow: 0 0 5px #333;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    font-size: 25px;
+    color: #fff;
+    background: #e0a15e;
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 1);
+}
+
+.Schedule-BG {
+    background: #fff;
+    width: 773px;
+    height: 840px;
+    margin:0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*....行事曆套件..........*/
+/*總高度  外層，內層*/
+.fc fc-media-screen {
+    height: 756px !important;
+}
+
+.fc-scrollgrid-sync-table {
+    height: 653px !important;
+}
+.fc-col-header {
+    width: 100% !important;
+}
+.fc-scrollgrid-sync-table {
+    width: 100% !important;
+}
+.fc-daygrid-body {
+    width: 100% !important;
+}
+
+@media (max-width: 768px) {
+    .fc fc-media-screen {
+        height: 650px !important;
+    }
+
+    .fc-scrollgrid-sync-table {
+        height: 460px !important;
+    }
+}
+/*標題 點選按鈕*/
+.fc-toolbar-chunk div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #203240;
+}
+
+
+.fc-button-primary {
+    width: 16px !important;
+    height: 19px !important;
+    background: url('../../../images/AsiaChampionsLeague/S3/Calender/Calender_ Month button icon.webp');
+    background-repeat: round;
+    margin: 0 30px !important;
+}
+
+@media (max-width: 576px) {
+    .fc-button-primary {
+        width: 12px !important;
+        height: 15px !important;
+    }
+
+    .fc-toolbar-title {
+        font-size: 1.2em !important;
+    }
+}
+
+.fc-prev-button {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 576px) {
+    .fc-toolbar.fc-header-toolbar {
+        margin-bottom: 0 !important;
+    }
+}
+/*星期*/
+
+.fc-col-header-cell-cushion {
+    color: #898989 !important;
+    font-size: 20.16px !important;
+    font-family: Microsoft JhengHei !important;
+    text-align: center;
+    font-weight: 300;
+}
+
+@media (max-width: 576px) {
+    .fc-col-header-cell-cushion {
+        font-size: 16.16px !important;
+    }
+}
+
+.fc-day-sun .fc-col-header-cell-cushion {
+    color: red !important;
+}
+
+/*今天*/
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: #fff !important;
+}
+/**/
+.fc .fc-button-primary, .fc .fc-button-primary:hover {
+    color: #fff !important;
+    background-color: #fff !important;
+    border: 0 !important;
+}
+
+    .fc .fc-button-primary span {
+        display: none !important;
+    }
+
+.fc-theme-standard .fc-scrollgrid {
+    border: 0 !important;
+    width:100% !important;
+}
+
+.fc-theme-standard th {
+    border: 0 !important;
+}
+
+/* 每一格的間距 */
+.fc-theme-standard td {
+    border: 0 !important;
+    padding: 0 10px 10px 0 !important;
+}
+
+    .fc-theme-standard td:first-child {
+        padding-left: 10px !important;
+    }
+
+@media (max-width: 576px) {
+    .fc-theme-standard td:first-child {
+        padding-left: 2px !important;
+    }
+
+    .fc-theme-standard td:last-child {
+        padding-left: 0px !important;
+    }
+}
+
+.fc .fc-daygrid-day-frame {
+    background: #eee5e6;
+    color: #898989;
+}
+
+/*時間*/
+.fc-event-time {
+    display: none;
+}
+/* 日期 */
+.fc-daygrid-day-top {
+    flex-direction: row !important;
+    padding: 2px 10px 0px 10px;
+
+    font-size: 16px;
+}
+
+/*事件背景透明拿掉*/
+.fc-bg-event {
+    opacity: 1 !important;
+    background-image: url("../../../images/AsiaChampionsLeague/S3/Calender/Calender_ Final Icon.webp") !important;
+    background-repeat: round !important;
+    background-size: cover !important;
+}
+    /*決賽格子*/
+    .fc-bg-event .fc-event-title {
+        color: #000 !important;
+        font-size: 18px !important;
+        text-align: center !important;
+        line-height: normal !important;
+        font-style: normal !important;
+        height: 100% !important;
+    }
+
+@media (max-width: 768px) {
+    .fc-bg-event .fc-event-title {
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .fc-bg-event .fc-event-title {
+        font-size: 10px !important;
+        line-height: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        box-sizing: border-box;
+        height: auto !important;
+    }
+
+    .fc-scroller-liquid-absolute {
+        left: 3% !important;
+    }
+}
+
+/*hover提升*/
+.fc-daygrid-bg-harness {
+    z-index: 100
+}
+/*.fc-daygrid-day {
+    position:relative;
+}*/
+.FinalTime:hover .finals-Data-Pop {
+    display: block
+}
+/*....行事曆套件End..........*/

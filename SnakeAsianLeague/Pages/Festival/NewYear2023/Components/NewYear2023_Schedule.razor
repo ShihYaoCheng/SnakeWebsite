@@ -1,0 +1,35 @@
+﻿@inject IJSRuntime JS
+
+<head>
+    <link href="/css/Festival/NewYear2023/NewYear2023_Schedule.css" rel="stylesheet" />
+</head>
+<div class="NewYear2023-Schedule-container">
+    <div class="NewYear2023-container">
+        <div class="Schedule-title">
+            <h3> - 時程 - </h3>
+        </div>
+        <div class="Schedule-BG">
+            <div id="NewYear2023Schedule">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+             await JS.InvokeVoidAsync("NewYear2023Schedule");  
+        }
+        await reloadCalendar(); 
+    }
+    public async Task reloadCalendar()
+    {       
+       
+    }
+}

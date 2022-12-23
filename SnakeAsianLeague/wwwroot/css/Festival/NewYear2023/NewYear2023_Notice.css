@@ -1,0 +1,46 @@
+﻿.NewYear2023_Notice {
+    padding-top: 500px;
+    height: 1900px;
+}
+.NewYear2023_Notice_TopTitle {
+    margin: 36px 0 15px 0;
+    font-family: Microsoft JhengHei;
+    font-size: 34px;
+    color: #3a3048;
+    text-align: center;  
+}
+
+.Notice_Title_underline {
+    width:50%;
+    margin:0 auto;
+}
+.Notice_Title_underline img {
+    width:100%;
+}
+
+@media (max-width: 1024px) {
+    .NewYear2023_Notice {
+        height: 1400px;
+    }
+    .Notice_TopTitle {
+        font-size: 30px;
+        margin: 30px 0 30px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .NewYear2023_Notice {
+        height: 1200px;
+        padding-top: 400px;
+    }
+    .Notice_TopTitle {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Notice_TopTitle {
+        font-size: 22px;
+        margin: 15px 0 15px 0;
+    }
+}
