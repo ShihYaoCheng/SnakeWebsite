@@ -19,7 +19,6 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using OpenTelemetry.Metrics;
 using SnakeAsianLeague.Data.Services.BlockChain;
 using SnakeAsianLeague.Data.Services.Commodity;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Rewrite;
 using SnakeAsianLeague.Data.Services.WarmUpActivities;
 using SnakeAsianLeague.Data.Entity.View;
