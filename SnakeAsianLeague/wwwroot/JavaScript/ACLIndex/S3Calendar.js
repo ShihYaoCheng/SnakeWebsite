@@ -88,7 +88,7 @@
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         timeZone: 'local',
-        initialDate: '2022-10-01', // will be parsed as local
+        initialDate: '2022-12-01', // will be parsed as local
         //navLinks: true,
         height: 1000,
 

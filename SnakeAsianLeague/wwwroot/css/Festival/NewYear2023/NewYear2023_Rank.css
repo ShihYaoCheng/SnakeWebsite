@@ -1,0 +1,14 @@
+﻿.NewYear2023_Rank_container {
+    padding: 50px;
+}
+
+.NewYear2023_Rank_BG {
+    background: linear-gradient(180deg, #290505 0%, #290505 75%, #380807 100%);
+}
+
+.Bottom_Plate {
+    height:500px;
+    width:100%;
+    background:url("/images/Festival/NewYear2023/rank/Bottom_Plate_solo.png");
+    background-size:cover;
+}
