@@ -1,0 +1,35 @@
+.NewYear2023_Reward{
+    width: 100%;
+    /* height: 500px; */
+    padding: 80px 0;
+}
+
+.Reward-block{
+    max-width: 800px;
+    width: 95%;
+    margin: 80px auto 0px;
+}
+
+.Reward-table{
+    width: 100%;
+    margin-bottom: 100px;
+    filter: drop-shadow(-5px 15px 15px rgba(56, 29, 29, 0.6));
+}
+.Reward-table-title{
+    font-size: 28px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 1px;
+    padding: 17px 40px;
+}
+
+#Reward-table-title-solo{
+    background-color: #7d3f13c0;
+}
+#Reward-table-title-team{
+    background-color: #380808c0;
+}
+
+.Reward-table-list img{
+    width: 100%;
+}

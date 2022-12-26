@@ -1,10 +1,64 @@
 @page "/NewYear2023_Banner"
 
+@using SnakeAsianLeague.Pages.Festival.NewYear2023.Components
+
+
 <head>
-    <title>PonPonSnake｜NewYear2023</title>
     <link href="/css/Festival/NewYear2023/NewYear2023_Banner.css" rel="stylesheet" />
 </head>
 
-<div class="NewYear2023_Banner">
-    
+
+
+
+
+    <div class="NewYear2023_Banner">
+        <div class="NewYear2023_Banner-BG">
+            <img src="/images/Festival/NewYear2023/banner/NewYear-BG.webp" alt="">
+        </div>
+
+        <div class="NewYear2023-Logo">
+            <img src="/images/Festival/NewYear2023/banner/LunarNewYear_banner_logo.webp" alt="">
+        </div>
+
+        <div class="NewYear2023-BannerNav" hidden="@false">
+            <div class="BannerNav">
+                <Festival_Nav_Select />
+                <ul class="">
+                    <li>
+                        <a href="NewYear2023#WarmUpActivities_EventInfo"
+                            data-i18n="NewYear2023_data:eventBanner.nav-01">About</a>
+                    </li>
+                    <li>
+                        <a href="NewYear2023#WarmUpActivities_Rules"
+                            data-i18n="NewYear2023_data:eventBanner.nav-02">Rules</a>
+                    </li>
+                    <li>
+                        <a href="NewYear2023#WarmUpActivities_Reward"
+                            data-i18n="NewYear2023_data:eventBanner.nav-03">Reward</a>
+                    </li>
+                    <li>
+                        <a href="NewYear2023#WarmUpActivities_Ranking"
+                            data-i18n="NewYear2023_data:eventBanner.nav-04">Ranking</a>
+                    </li>
+                    <li>
+                        <a href="NewYear2023#WarmUpActivities_Ranking"
+                            data-i18n="NewYear2023_data:eventBanner.nav-04">Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="NewYear2023#WarmUpActivities_Ranking"
+                            data-i18n="NewYear2023_data:eventBanner.nav-04">Notice</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<div class="test-BG">
+    <NewYear2023_About />
+    <NewYear2023_Rules />
+    <NewYear2023_Reward />
+
+
 </div>

@@ -11,6 +11,24 @@
     width: 90%;
 }
 
+.NewYear2023-title{
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+.NewYear2023-title span{
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    padding: 5px 40px;
+    background-color: #d39f5b;
+    display: inline-block;
+    text-shadow: -2.6px 1.5px 7px rgba(0, 0, 0, 0.35);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
 @media all and (max-width: 1000px) {
     .NewYear2023{
         padding-top: 40px;

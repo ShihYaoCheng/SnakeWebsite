@@ -1,4 +1,248 @@
+.test-BG{
+    background:url("/images/Festival/NewYear2023/NewYear2023_bg.png");
+}
+
+
 .NewYear2023_Banner{
     width: 100%;
-    height: 500px;
+    /* height: 500px; */
+    position: relative;
+    
+}
+.NewYear2023_Banner-BG{
+    /* border: 2px solid red; */
+    width: 100%;
+    max-height: 950px;
+    overflow: hidden;
+    /* height: 800px; */
+    /* position: relative; */
+}
+.NewYear2023_Banner-BG img{
+    /* position: absolute; */
+    /* width: 115%; */
+    width: 100%;
+    height: 100%;
+    /* transform: translateX(-5%); */
+    /* left: 50%; */
+}
+.NewYear2023-Logo{
+    max-width: 300px;
+    width: 20%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    animation: banner_logoMove 7s 0s infinite;
+    transform-origin: 50% 0%;
+}
+
+@keyframes banner_logoMove{
+
+    0%{
+        transform: translate(-50%, -50%) rotate(-8deg);
+    }
+
+    50%{
+        transform: translate(-50%, -50%) rotate(8deg);
+    }
+
+    100%{
+        transform: translate(-50%, -50%) rotate(-8deg);
+    }
+}
+.NewYear2023-Logo img{
+    width: 100%;
+
+}
+
+
+.NewYear2023-BannerNav{
+    
+    width: 100%;
+    background-color: #ffffffe2;
+    position: absolute;
+    bottom: 0;
+    box-shadow: inset 0px 1px 10px 0px #45454533, 0px -10px 15px #4646464b;
+
+}
+.BannerNav{
+    /* border: 2px solid red; */
+    max-width: 1500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.NewYear2023-BannerNav ul{
+
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 20px;
+    /* flex-wrap: wrap; */
+    width: 80%;
+}
+.NewYear2023-BannerNav li{
+    /* border: 1px solid red; */
+    padding: 10px;
+    list-style-type: none;
+    margin: 0 2%;
+}
+.NewYear2023-BannerNav li a{
+    /* border: 1px solid red; */
+    color: #3e1916ac;
+    display: block;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    font-size: 24px; 
+    text-decoration: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.1s ease-out;
+    position: relative;
+}
+.NewYear2023-BannerNav li a::before{
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: #3e1916;
+    position: absolute;
+    transform: translateY(-50%) rotate(45deg);
+    top: 50%;
+    left: -16px;
+    transition: all 0.1s ease-out;
+
+    opacity: 0;
+}
+.NewYear2023-BannerNav li a::after{
+    content: "";
+    width: 7px;
+    height: 7px;
+    background-color: #3e1916;
+    position: absolute;
+    transform: translateY(-50%) rotate(45deg);
+    top: 50%;
+    right: -16px;
+    transition: all 0.1s ease-out;
+
+    opacity: 0;
+}
+.NewYear2023-BannerNav li a:hover{
+    color: #3e1916;
+}
+.NewYear2023-BannerNav li a:hover::before{
+    opacity: 1;
+}
+.NewYear2023-BannerNav li a:hover::after{
+    opacity: 1;
+}
+
+@media all and (max-width: 1920px){
+    .NewYear2023-BannerNav li a{
+        font-size: 20px;
+    }
+}
+@media all and (max-width: 1200px){
+    .NewYear2023-BannerNav li a{
+        font-size: 18px;
+    }
+    .NewYear2023-BannerNav li a::before{
+        width: 5px;
+        height: 5px;
+        left: -12px;
+    }
+    .NewYear2023-BannerNav li a::after{
+        width: 5px;
+        height: 5px;
+        right: -12px;
+    }
+}
+@media all and (max-width: 1000px){
+    .NewYear2023-BannerNav li a{
+        font-size: 16px;
+    }
+    .BannerNav{
+        /* flex-direction: column; */
+    }
+    .BannerNav{
+        padding: 0 10px;
+    }
+}
+@media all and (max-width: 800px){
+    .NewYear2023_Banner{
+        /* position: absolute; */
+        width: 100%;
+        /* height: 500px; */
+    }
+    .NewYear2023_Banner-BG{
+        max-height: 400px;
+    }
+    .NewYear2023_Banner-BG img{
+        /* width: 130%;
+        transform: translate(-10% ,0%); */
+        width: 150%;
+        transform: translate(-19% ,10%);
+    }
+    .NewYear2023-BannerNav{
+        position: unset;
+        background-color: #ecb865;
+        padding: 5px 0;
+        /* box-shadow: 0px 1px 10px 0px #45454533, 0px 10px 15px #4646464b; */
+    }
+    .NewYear2023-BannerNav li a {
+        font-size: 14px;
+    }
+    .NewYear2023-BannerNav ul{
+        flex-wrap: wrap;
+        width: 80%;
+        /* justify-content: center; */
+        margin: 0 auto 0px;
+        padding-left: 3%;
+    }
+    .NewYear2023-BannerNav li{
+        padding: 5px;
+        width: 25%;
+        display: inline-block;
+    }
+    .NewYear2023-BannerNav li a {
+        font-size: 14px;
+        /* width: 30%; */
+    }
+    .NewYear2023-BannerNav li a::before{
+        display: none;
+    }
+    .NewYear2023-BannerNav li a::after{
+        display: none;
+    }
+    .NewYear2023-Logo{
+        width: 30%;
+        top: 50%;
+    }
+}
+@media all and (max-width: 600px){
+    .BannerNav{
+        flex-direction: column;
+        padding: 5px 7px 0px;
+    }
+    .NewYear2023-BannerNav ul{
+        width: 100%;
+    }
+    .NewYear2023-BannerNav li{
+        padding: 4px;
+        /* width: 40%; */
+    }
+    .NewYear2023-BannerNav li a {
+        font-size: 14px;
+    }
+
+}
+@media all and (max-width: 500px){
+
+
+
+
 }
