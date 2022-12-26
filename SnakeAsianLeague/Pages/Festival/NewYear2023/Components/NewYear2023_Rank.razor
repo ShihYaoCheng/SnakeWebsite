@@ -1,17 +1,36 @@
 ﻿<head>
-       <link href="css/Festival/NewYear2023/NewYear2023_Rank.css" rel="stylesheet" />  
+    <link href="css/Festival/NewYear2023/NewYear2023_Rank.css" rel="stylesheet" />  
 </head>
 
 <div class="NewYear2023_Rank_container">
     <div class="NewYear2023-container">
-        <div class="NewYear2023_Rank_BG"> 
-            @*選擇排名*@
-            <div class="Bottom_Plate">
+        <div class="NewYear2023_Rank_BG" > 
+            @*排名顯示底板*@
+            <div class="Bottom_Plate" style="background:round url(@("/images/Festival/NewYear2023/rank/Bottom_Plate"+RankType+".png"));">
+                <div class="toggleRankTypeButton-container" style="background:round url(@("/images/Festival/NewYear2023/rank/toggleRankTypeButton"+RankType+".png"));">
+                    <button class="rank_type_button_solo"  @onclick=@(()=>toggleRankType(1)) style="width:@(RankType==1?"58%":"42%")"> 個人 </button>
+                    <button class="rank_type_button_squad" @onclick=@(()=>toggleRankType(2)) style="width:@(RankType==1?"42%":"58%")"> 隊伍 </button>
+                </div>            
+            </div>
 
+            @*下拉選擇排名日期*@
+            <div class="select_bg">
+                <div class="select-container"></div>
             </div>
             @*顯示排名*@
-            <div>
-
+            <div class="rank-content">
+                <div class="rank-date">
+                    <p >Qualification Date：5/29~5/28</p>
+                    <div class="top3-container">
+                        @*rank1*@
+                        <div class="rank1"></div>
+                        @*rank2*@
+                        <div class="rank2"></div>
+                        @*rank3*@
+                        <div class="rank3"></div>
+                    </div>
+                </div>
+                
             </div>
 
         </div>
@@ -21,5 +40,14 @@
 </div>
 
 @code {
-
+    enum RankTypeEnum
+    {
+        Solo=1,
+        Squad=2
+    }
+    int RankType =1;
+    private void toggleRankType( int value)
+    {
+        RankType = value;
+    }
 }
