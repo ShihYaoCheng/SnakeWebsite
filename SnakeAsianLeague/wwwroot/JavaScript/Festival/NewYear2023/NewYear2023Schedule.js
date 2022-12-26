@@ -1,7 +1,5 @@
-﻿window.NewYear2023Schedule = function () {
-    console.log('t123132')
+﻿window.NewYear2023Schedule = function () {  
     var calendarEl = document.getElementById('NewYear2023Schedule');
-    console.log(calendarEl)
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         timeZone: 'local',

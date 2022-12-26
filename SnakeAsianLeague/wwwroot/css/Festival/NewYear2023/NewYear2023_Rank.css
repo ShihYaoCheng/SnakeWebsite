@@ -1,5 +1,5 @@
 ﻿.NewYear2023_Rank_container {
-    padding: 50px;
+    padding: 50px 0;
 }
 
 .NewYear2023_Rank_BG {
@@ -10,8 +10,8 @@
 .Bottom_Plate {
     height: 285px;
     width: 100%;
-    background: url("/images/Festival/NewYear2023/rank/Bottom_Plate_solo.png");
-    background-repeat: round;
+    /*background: url("/images/Festival/NewYear2023/rank/Bottom_Plate_solo.png");
+    background-repeat: round;*/
     display: flex;
     justify-content: start;
     align-items: end;
@@ -20,8 +20,8 @@
 .toggleRankTypeButton-container {
     width:421px;
     height:71px;
-    background:url("/images/Festival/NewYear2023/rank/toggleRankTypeButton1.png");
-    background-repeat:round;
+ /* background:url("/images/Festival/NewYear2023/rank/toggleRankTypeButton1.png");
+    background-repeat:round;*/
     display:flex;
 }
 .rank_type_button_solo {
@@ -30,7 +30,9 @@
     color: #fff;
     border: none;
     background: none;
-    padding-top:10px;
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: 100;
     /*border:1px solid red;*/
 }
 .rank_type_button_squad {
@@ -45,15 +47,90 @@
     font-weight:100;
 }
 
+@media all and (max-width: 1000px) {
+    .Bottom_Plate {
+        height: 182px;
+    }
+
+    .toggleRankTypeButton-container {
+        width: 273px;
+        height: 46px;
+    }
+    .rank_type_button_solo {
+        font-size: 18px;
+    }
+    .rank_type_button_squad {
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .Bottom_Plate {
+        height: 136px;
+    }
+    .toggleRankTypeButton-container {
+        width: 204px;
+        height: 34.5px;
+    }
+    .rank_type_button_solo {
+        font-size: 16px;
+    }
+    .rank_type_button_squad {
+        font-size: 16px;
+    }
+}
+
+@media all and (max-width: 576px) {
+    .Bottom_Plate {
+        height:102px;
+    }
+
+    .toggleRankTypeButton-container {
+        width: 153px;
+        height: 25.89px;
+    }
+
+    .rank_type_button_solo {
+        font-size: 12px;
+        padding-top: 4px;
+    }
+
+    .rank_type_button_squad {
+        font-size: 12px;
+        padding-top: 4px;
+    }
+}
+
+
+@media all and (max-width: 365px) {
+    .Bottom_Plate {
+        height: 85px;
+    }
+
+    .toggleRankTypeButton-container {
+        width: 128px;
+        height: 21.73px;
+    }
+
+    .rank_type_button_solo {
+        font-size: 10px;
+     
+    }
+
+    .rank_type_button_squad {
+        font-size: 10px;
+     
+    }
+}
+
 /*下拉選擇排名日期*/
 .select_bg {
     width: 100%;
     height: 119px;
     background: url("/images/Festival/NewYear2023/rank/select-bg.png");
-   /* background-repeat: round;*/
-    background-size:cover;
-    padding:20px 15px;
-    
+    /* background-repeat: round;*/
+    background-size: cover;
+    padding: 20px 15px;
 }
 
 .select-container {
@@ -61,6 +138,24 @@
     height: 39px;
     background: url("/images/Festival/NewYear2023/rank/select_container.png");
     background-repeat: round;
+}
+
+@media all and (max-width: 1000px) {
+    .select-container {
+        width: 206px;
+        height: 25.35px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .select_bg {
+        height: 90px;
+
+    }
+    .select-container {
+        width: 154px;
+        height: 19px;
+    }
 }
 
 /*顯示排名*/
@@ -109,4 +204,84 @@
     background: url("/images/Festival/NewYear2023/rank/rank3.png");
     background-repeat: round;
     margin-bottom: 20px;
+}
+
+
+@media all and (max-width:1000px) {
+    .rank-date p {
+        width: 520px;
+        height: 39px;
+        font-size: 14px;
+        padding-right: 35px;
+    }
+    .rank1 {
+        width: 512px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+    .rank2 {
+        width: 496px;
+        height: 93.6px;
+        margin-bottom: 20px;
+    }
+    .rank3 {
+        width: 481px;
+        height: 72px;
+        margin-bottom: 20px;
+    }
+}
+
+@media all and (max-width:768px) {
+    .rank-date p {
+        width: 353.6px;
+        height: 26px;     
+        padding-right: 28px;
+    }
+
+    .rank1 {
+        width: 348.16px;
+        height:81.6px;
+        margin-bottom: 14px;
+    }
+
+    .rank2 {
+        width: 337px;
+        height: 63px;
+        margin-bottom: 14px;
+    }
+
+    .rank3 {
+        width: 327px;
+        height: 48px;
+        margin-bottom: 14px;
+    }
+}
+
+
+
+@media all and (max-width:376px) {
+    .rank-date p {
+        width: 300.56px;
+        height: 26px;
+        padding-right: 20px;
+        font-size: 12px;
+    }
+
+    .rank1 {
+        width: 295px;
+        height: 70px;
+        margin-bottom: 12px;
+    }
+
+    .rank2 {
+        width: 286.45px;
+        height: 53.55px;
+        margin-bottom: 12px;
+    }
+
+    .rank3 {
+        width: 277px;
+        height: 40px;
+        margin-bottom: 12px;
+    }
 }
