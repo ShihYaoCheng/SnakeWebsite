@@ -125,7 +125,7 @@
 
 
 
-     <div id="startLoading" class="col-12 loadingBazor"  style="display:none; position:fixed ;top:0;left:auto; z-index:999">
+     <div id="startLoading" class="col-12 loadingBazor"  style=" position:fixed ;top:0;left:auto; z-index:999">
             <br/><br/>
                 <img width="310" src="/images/loading/loading.gif" alt="">
      </div>
@@ -174,16 +174,15 @@
         //});
 
         //載入首頁loading
-        if (window.location.pathname == "/") 
-        {
-              var startLoading = document.getElementById("startLoading");
-              startLoading.style.display = 'flex';
-              setTimeout(() => {
-                   startLoading.style.display = 'none';
-              }, 3000)
-       
+        var startLoadTime = 3000
+        if (window.location.pathname != "/") 
+        {            
+            startLoadTime = 0 
         }
-      
+        var startLoading = document.getElementById("startLoading");           
+        setTimeout(() => {
+            startLoading.style.display = 'none';
+        }, startLoadTime)
       
         
         async function connectionDown(options) {
