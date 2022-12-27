@@ -9,7 +9,7 @@
 .Notice-BG {
     background: url("/images/AsiaChampionsLeague/S3/Notice/contract_base2.png");
     background-repeat: round;
-    width: 979px;
+    max-width: 979px;
     height: 1131px;
     margin: 0 auto;
     padding-top: 30px;
