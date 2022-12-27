@@ -55,7 +55,6 @@
 
                 //解碼
                 Console.WriteLine(encrypt);
-                //encrypt = "eyJwaG9uZSI6ICIwOTcyNzk1MzYzIiwicGFzc3dvcmQiOiAiMTIzNDU2In0=";
                 //encrypt = "eyJQaG9uZSI6Ijg4Njk4OTI0MjcyMyIsIlBhc3N3b3JkIjoiYWFhMTIzNDU2In0=";
 
                 LoginRequest loginRequest = new LoginRequest();
@@ -66,7 +65,7 @@
                     {
                         SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest, true);
                         AppState.UpdateLoginStatus(this, snakeAccount);
-                        NavigationManager.NavigateTo("/GettingStarted/create-metamask", true);
+                        NavigationManager.NavigateTo("/GettingStarted/connect-game-account", true);
                     }
                     catch (Exception ex)
                     {
