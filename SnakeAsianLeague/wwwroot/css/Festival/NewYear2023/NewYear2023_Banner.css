@@ -179,13 +179,13 @@
         /* height: 500px; */
     }
     .NewYear2023_Banner-BG{
-        max-height: 400px;
+        max-height: 350px;
     }
     .NewYear2023_Banner-BG img{
         /* width: 130%;
         transform: translate(-10% ,0%); */
         width: 150%;
-        transform: translate(-19% ,10%);
+        transform: translate(-19% ,0%);
     }
     .NewYear2023-BannerNav{
         position: unset;
