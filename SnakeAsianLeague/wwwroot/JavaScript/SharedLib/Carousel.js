@@ -193,3 +193,33 @@ window.NFTindexCarouselJS = function () {
     });
     
 }
+
+
+window.NewYear2023_CarouselJS = function () {
+    // export function NFTindexCarousel() {
+    console.log('NewYear2023_CarouselJS init22', Swiper);
+    new Swiper('.NewYear2023-Carousel-Block', {
+        spaceBetween: 100,
+
+        // 不自動輪播
+        // autoplay: {
+        //     delay: 3500,
+        // },
+        // slidesPerView: 1,
+
+        // 不循環
+        // loop: true,
+        breakpoints: {
+            slidesPerView: 1,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+    
+}

@@ -11,6 +11,7 @@
     text-align: center;
     margin: 30px auto 50px;
     font-size: 24px;
+    letter-spacing: 0.5px;
 }
 
 .ticket-block{
@@ -45,23 +46,24 @@
 
 .ticket-type{
     position: absolute;
-    color: #fff;
+    color: #f3e9d2;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     letter-spacing: 1px;
     text-shadow: -2.6px 1.5px 7px rgb(0 0 0 / 70%);
-    top: 56.5%;
-    left: 12%;
+    top: 57%;
+    left: 16%;
+    transform: translateX(-50%);
     
 }
 .ticket-type-01{
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 600;
 }
 .ticket-type-02{
     font-size: 14px;
-    line-height: 16px;
+    line-height: 14px;
 }
 .ticket-date{
     color: #191815;
@@ -70,8 +72,9 @@
     flex-direction: column;
     letter-spacing: 1px;
     position: absolute;
-    top: 8%;
+    top: 7%;
     left: 30%;
+    /* text-shadow: 0px 0px 7px rgb(255 255 255 / 85%), 0px 0px 7px rgb(255 255 255 / 85%); */
 }
 .ticket-type-03{
     font-size: 15px;
@@ -86,11 +89,170 @@
     display: inline-flex;
     letter-spacing: 1px;
     position: absolute;
-    top: 3%;
+    top: 3.5%;
     right: 9.5%;
 
 }
 .ticket-type-05{
     font-size: 18px;
     line-height: 23px;
+}
+@media all and (max-width: 1000px) {
+    .ticket-type{
+        top: 57%;
+    }
+    .ticket-type-01{
+        font-size: 18px;
+    }
+    .ticket-type-02{
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .ticket-date{
+        top: 7%;
+        left: 29.5%;
+    }
+    .ticket-type-03 {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+    .ticket-type-04{
+        margin-bottom: 15px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .ticket-award{
+        top: 4.3%;
+        right: 9.3%;
+    }
+    .ticket-type-05 {
+        font-size: 15px;
+        line-height: 19px;
+    }
+}
+@media all and (max-width: 800px) {
+    .NewYear2023_About{
+        padding: 60px 0 70px;
+    }
+    .About-title-02{
+        font-size: 20px;
+    }
+
+    .ticket-type{
+        top: 55.5%;
+    }
+    .ticket-type-01{
+        font-size: 14px;
+    }
+    .ticket-type-02{
+        font-size: 10px;
+        line-height: 12px;
+    }
+    .ticket-date{
+        top: 6%;
+        left: 29%;
+    }
+    .ticket-type-03 {
+        font-size: 13px;
+        margin-bottom: 0px;
+    }
+    .ticket-type-04{
+        margin-bottom: 6px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .ticket-award{
+        top: 3.5%;
+        right: 9.3%;
+    }
+    .ticket-type-05 {
+        font-size: 13px;
+        line-height: 16px;
+    }
+}
+#ticket-block-mobile{
+    display: none;
+}
+.ticket-mobile{
+    position: relative;
+    max-width: 250px;
+    width: 95%;
+    margin: 0 auto 70px;
+}
+.ticket-info-mobile{
+    /* border: 1px solid rgb(214, 226, 72); */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.ticket-type-mobile{
+    position: absolute;
+    color: #f3e9d2;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    letter-spacing: 1px;
+    text-shadow: -2.6px 1.5px 7px rgb(0 0 0 / 70%);
+    top: 27.3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.ticket-type-01-mobile {
+    font-size: 23px;
+    font-weight: 600;
+}
+.ticket-type-02-mobile {
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.ticket-date-mobile {
+    color: #191815;
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 42.5%;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    /* text-shadow: 0px 0px 7px rgb(255 255 255 / 85%), 0px 0px 7px rgb(255 255 255 / 85%); */
+}
+.ticket-type-03-mobile {
+    font-size: 15px;
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+.ticket-type-04-mobile {
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+.ticket-award-mobile {
+    color: #191815;
+    display: inline-flex;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 73.5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.ticket-type-05-mobile {
+    font-size: 16px;
+    line-height: 20px;
+}
+@media all and (max-width: 600px){
+    #ticket-block-web{
+        display: none;
+    }
+    #ticket-block-mobile{
+        display: block;
+        padding: 60px 0 40px;
+    }
+    .About-title-02 {
+        font-size: 18px;
+    }
+    
 }

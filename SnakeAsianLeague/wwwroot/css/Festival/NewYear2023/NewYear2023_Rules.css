@@ -1,4 +1,150 @@
 .NewYear2023_Rules{
-    width: 100;
-    height: 500px;
+    width: 100%;
+    /* height: 500px; */
+    padding: 50px 0;
+}
+
+.NewYear2023-Carousel{
+    /* border: 1px solid rgb(90, 45, 238); */
+    width: 100%;
+    /* background-image: url("/images/NFTindex/NFTindex_Carousel/NFTindex_Carousel_BG.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    /* max-width: 1000px; */
+    /* margin-top: -250px; */
+    /* height: 1000px; */
+    padding: 70px 0 70px;
+}
+
+.NewYear2023-Carousel-All{
+    /* border: 1px solid pink; */
+    padding: 60px 0 80px;
+    max-width: 1000px;
+    position: relative;
+
+    margin: 0 auto;
+    
+    background:url("/images/Festival/NewYear2023/rules/window.png");
+    background-color: #330b0b96;
+    width: 95%;
+    background-size: cover;
+    background-repeat: round;
+}
+
+.NewYear2023-Carousel-Block {
+    /* border: 1px solid yellow; */
+
+    width: 60%;
+
+    margin: 0 auto;
+
+
+}
+
+.rules-content{
+    color: #fff;
+    width: 100%;
+}
+.Rules-content p{
+    color: #fff;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    line-height: 28px;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-bottom: 15px;
+}
+
+.Rules-content-title{
+    margin-bottom: 20px;
+}
+
+/* 輪播調整 */
+.swiper-button{
+    position: relative;
+    position: absolute;
+    top: 45%;
+    width: 110%;
+    transform: translateX(-50%);
+    left: 50%;
+}
+.swiper-button-prev, .swiper-button-next{
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 40% !important;
+    width: 40px !important;
+    height: 65px !important;
+    transition: all .1s ease-in-out;
+}
+.swiper-button-prev:hover, .swiper-button-next:hover{
+    opacity: 0.8;
+}
+.swiper-button-prev{
+    background-image: url(/images/NFTindex/NFTindex_Carousel/button-prev.png);
+    left: 0px !important;
+}
+.swiper-button-prev:after{
+    content: ''!important;
+}
+.swiper-button-next{
+    background-image: url(/images/NFTindex/NFTindex_Carousel/button-next.png);
+    right: 0px !important;
+}
+.swiper-button-next:after{
+    content: ''!important;
+}
+.swiper-pagination{
+    bottom: 3% !important;
+}
+
+.swiper-pagination-bullet{
+    width: 15px !important;
+    height: 15px !important;
+    background: #eac1b0 !important;
+    opacity: 1 !important;
+    margin: 0 7px !important;
+    transition: all .1s ease-in-out;
+}
+.swiper-pagination-bullet:hover{
+    opacity: 0.7 !important;
+}
+.swiper-pagination-bullet-active{
+    background: #ec9a77 !important;
+    opacity: 1 !important;
+}
+
+@media all and (max-width: 800px){
+    .swiper-button-prev, .swiper-button-next{
+        width: 30px !important;
+        height: 50px !important;
+    }
+
+    .swiper-pagination-bullet{
+        width: 15px !important;
+        height: 15px !important;
+        margin: 0 6px !important;
+    }
+    .Rules-content p{
+        font-size: 14px;
+        line-height: 26px;
+        margin-bottom: 10px;
+    }
+    .NewYear2023-Carousel-All{
+        background: url(/images/Festival/NewYear2023/rules/window-mobile.png);
+        background-color: #330b0ba2;
+        width: 95%;
+        /* background: none; */
+        background-size: cover;
+        background-repeat: round;
+        /* border: 3px solid #eac1b0; */
+        border-radius: 15px;
+        padding: 50px 0 70px;
+        border-radius: 15px;
+    }
+    .NewYear2023-Carousel-Block{
+        width: 80%;
+    }
+    .NewYear2023-Carousel{
+        padding: 50px 0 70px;
+    }
 }
