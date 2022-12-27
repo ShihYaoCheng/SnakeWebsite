@@ -197,7 +197,7 @@ window.NFTindexCarouselJS = function () {
 
 window.NewYear2023_CarouselJS = function () {
     // export function NFTindexCarousel() {
-    console.log('NewYear2023_CarouselJS init22', Swiper);
+    // console.log('NewYear2023_CarouselJS init22', Swiper);
     new Swiper('.NewYear2023-Carousel-Block', {
         spaceBetween: 100,
 
