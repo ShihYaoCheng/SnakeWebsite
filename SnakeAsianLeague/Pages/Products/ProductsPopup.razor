@@ -165,7 +165,7 @@
             Price = ChangeRent;
         }
 
-        await ProductsService.ChangeRent(walletAddress, TokenID, ChangeGoldRent, ReceiveCurrency);
+        await ProductsService.ChangeRent(walletAddress, TokenID, Price, ReceiveCurrency);
         Income = await ProductsService.Get_NowRentAndTotalRevenue("#" + TokenID);
         NowRent = Income.nowRent.Where(m => m.currencyType == 22).First().price;
         ChangeRent = Math.Round(NowRent, 3, MidpointRounding.AwayFromZero);
