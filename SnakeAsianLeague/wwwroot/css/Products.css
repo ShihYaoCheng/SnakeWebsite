@@ -416,6 +416,9 @@
 .products-currency-SRC{
     width: 36px;
 }
+.products-currency-Gem {
+    width: 36px;
+}
 .products-TopBid-price{
     color: var(--white);
     font-size: 24px;
@@ -655,6 +658,9 @@
     .products-currency-SRC {
         width: 32px;
     }
+    .products-currency-Gem {
+        width: 32px;
+    }
     .products-countdownTime{
         font-size: 18px;
     }
@@ -735,6 +741,9 @@
         margin-left: 20px;
     }
     .products-currency-SRC {
+        width: 28px;
+    }
+    .products-currency-Gem {
         width: 28px;
     }
     .products-block-02{
