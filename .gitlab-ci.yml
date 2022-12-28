@@ -15,62 +15,62 @@ variables:
 #=====================#
 # Build               #
 #=====================#
-#Compile:
-#  stage: Build
-#  # https://hub.docker.com/_/microsoft-dotnet-sdk
-#  image: mcr.microsoft.com/dotnet/sdk:6.0.302-alpine3.16-amd64
-#  variables:
-#    SOLUTION_NAME: "SnakeAsianLeague.sln"
-#  script:
-#    - dotnet build $SOLUTION_NAME
+Compile:
+  stage: Build
+  # https://hub.docker.com/_/microsoft-dotnet-sdk
+  image: mcr.microsoft.com/dotnet/sdk:6.0.302-alpine3.16-amd64
+  variables:
+    SOLUTION_NAME: "SnakeAsianLeague.sln"
+  script:
+    - dotnet build $SOLUTION_NAME
 
 #=====================#
 # Security            #
 #=====================#
-#DependencyScan:
-#  stage: Security
-#  # https://hub.docker.com/_/microsoft-dotnet-sdk
-#  image: mcr.microsoft.com/dotnet/sdk:6.0.302-alpine3.16-amd64
-#  script:
-#    - dotnet restore
-#    - dotnet list package --vulnerable
-#
-#TrivyScan:
-#  stage: Security
-#  image:
-#    # https://hub.docker.com/r/aquasec/trivy/tags
-#    name: aquasec/trivy:0.30.4
-#    entrypoint: [""]
-#  variables:
-#    # --no-progress          suppress progress bar (default: false) [$TRIVY_NO_PROGRESS]
-#    # --ignore-unfixed       display only fixed vulnerabilities (default: false) [$TRIVY_IGNORE_UNFIXED]
-#    # --skip-dirs value      specify the directories where the traversal is skipped                          (accepts multiple inputs) [$TRIVY_SKIP_DIRS]
-#    TRIVY_NO_PROGRESS: "true"
-#    TRIVY_SKIP_DIRS: GKE
-#    TRIVY_IGNORE_UNFIXED: "true"
-#  #  before_script:
-#  #    - wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
-#  #    - chmod +x ./jq
-#  #    - cp jq /usr/bin
-#  script:
-#    - trivy --version
-#
-#    # Prints full report.
-#    # --security-checks value     comma-separated list of what security issues to detect (vuln,config,secret) (default: "vuln,secret")
-#    # --exit-code value           Exit code when vulnerabilities were found (default: 0) [$TRIVY_EXIT_CODE]
-#    - trivy fs --security-checks "vuln,config,secret" ./
-#
-#    # Builds report and puts it in the default workdir $CI_PROJECT_DIR, so `artifacts:` can take it from there 
-#    - trivy fs --security-checks "vuln,config,secret" -o "$CI_PROJECT_DIR/report.txt" ./
-#
-#    # Fail on high and critical vulnerabilities. 
-#    - trivy fs --exit-code 1 --security-checks "vuln,config,secret" -s HIGH,CRITICAL ./
-#  #    - results=$(eval "trivy fs --security-checks 'vuln,config,secret' -s HIGH,CRITICAL -f json ./ | sed '1,2d' | jq '.Results | length'")
-#  #    - echo $results
-#  #    - if [ "$results" -gt 0 ]; then exit 1; fi
-#  artifacts:
-#    paths:
-#      - report.txt
+DependencyScan:
+  stage: Security
+  # https://hub.docker.com/_/microsoft-dotnet-sdk
+  image: mcr.microsoft.com/dotnet/sdk:6.0.302-alpine3.16-amd64
+  script:
+    - dotnet restore
+    - dotnet list package --vulnerable
+
+TrivyScan:
+  stage: Security
+  image:
+    # https://hub.docker.com/r/aquasec/trivy/tags
+    name: aquasec/trivy:0.30.4
+    entrypoint: [""]
+  variables:
+    # --no-progress          suppress progress bar (default: false) [$TRIVY_NO_PROGRESS]
+    # --ignore-unfixed       display only fixed vulnerabilities (default: false) [$TRIVY_IGNORE_UNFIXED]
+    # --skip-dirs value      specify the directories where the traversal is skipped                          (accepts multiple inputs) [$TRIVY_SKIP_DIRS]
+    TRIVY_NO_PROGRESS: "true"
+    TRIVY_SKIP_DIRS: GKE
+    TRIVY_IGNORE_UNFIXED: "true"
+  #  before_script:
+  #    - wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+  #    - chmod +x ./jq
+  #    - cp jq /usr/bin
+  script:
+    - trivy --version
+
+    # Prints full report.
+    # --security-checks value     comma-separated list of what security issues to detect (vuln,config,secret) (default: "vuln,secret")
+    # --exit-code value           Exit code when vulnerabilities were found (default: 0) [$TRIVY_EXIT_CODE]
+    - trivy fs --security-checks "vuln,config,secret" ./
+
+    # Builds report and puts it in the default workdir $CI_PROJECT_DIR, so `artifacts:` can take it from there 
+    - trivy fs --security-checks "vuln,config,secret" -o "$CI_PROJECT_DIR/report.txt" ./
+
+    # Fail on high and critical vulnerabilities. 
+    - trivy fs --exit-code 1 --security-checks "vuln,config,secret" -s HIGH,CRITICAL ./
+  #    - results=$(eval "trivy fs --security-checks 'vuln,config,secret' -s HIGH,CRITICAL -f json ./ | sed '1,2d' | jq '.Results | length'")
+  #    - echo $results
+  #    - if [ "$results" -gt 0 ]; then exit 1; fi
+  artifacts:
+    paths:
+      - report.txt
 
 #============================#
 # Release                    #
@@ -93,16 +93,16 @@ DevGCR:
   rules:
     - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "beta" || $CI_COMMIT_BRANCH == "sre"
 
-#ProdGCR:
-#  extends: .TemplateProdGCR
-#  variables:
-#    REGISTRY: asia.gcr.io
-#    PROJECT_ID: cqi-operation
-#    IMAGE_NAME: sk-official-web
-#    IMAGE_TAG: $REGISTRY/$PROJECT_ID/$IMAGE_NAME:$CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
-#    GCP_REGISTRY: https://$REGISTRY
-#  rules:
-#    - if: $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION
+ProdGCR:
+  extends: .TemplateProdGCR
+  variables:
+    REGISTRY: asia.gcr.io
+    PROJECT_ID: cqi-operation
+    IMAGE_NAME: sk-official-web
+    IMAGE_TAG: $REGISTRY/$PROJECT_ID/$IMAGE_NAME:$CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
+    GCP_REGISTRY: https://$REGISTRY
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION
 
 #ProdGCR:
 #  extends: .TemplateProdGCR
