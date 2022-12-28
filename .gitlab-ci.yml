@@ -93,16 +93,16 @@ DevGCR:
   rules:
     - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "beta" || $CI_COMMIT_BRANCH == "sre"
 
-ProdGCR:
-  extends: .TemplateProdGCR
-  variables:
-    REGISTRY: asia.gcr.io
-    PROJECT_ID: cqi-operation
-    IMAGE_NAME: sk-official-web
-    IMAGE_TAG: $REGISTRY/$PROJECT_ID/$IMAGE_NAME:$CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
-    GCP_REGISTRY: https://$REGISTRY
-  rules:
-    - if: $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION
+#ProdGCR:
+#  extends: .TemplateProdGCR
+#  variables:
+#    REGISTRY: asia.gcr.io
+#    PROJECT_ID: cqi-operation
+#    IMAGE_NAME: sk-official-web
+#    IMAGE_TAG: $REGISTRY/$PROJECT_ID/$IMAGE_NAME:$CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
+#    GCP_REGISTRY: https://$REGISTRY
+#  rules:
+#    - if: $CI_COMMIT_BRANCH =~ $VERSION_REGULAR_EXPRESSION
 
 #ProdGCR:
 #  extends: .TemplateProdGCR
