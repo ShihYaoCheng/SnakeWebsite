@@ -367,7 +367,11 @@ namespace SnakeAsianLeague.Data.Services.Products
                 request.AddParameter(JP);
 
                 var response = await ServerClient.ExecuteAsync(request);
-                result = response.StatusCode == HttpStatusCode.OK;
+                if (await ChangeRentCurrencyType(Address, ppsr, currencyType))
+                {
+                    result = response.StatusCode == HttpStatusCode.OK;
+                }
+
             }
             catch (Exception ex)
             {

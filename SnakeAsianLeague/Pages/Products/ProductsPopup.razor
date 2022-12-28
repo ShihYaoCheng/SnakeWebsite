@@ -1,3 +1,4 @@
+@using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.Products
 
@@ -112,6 +113,8 @@
     [CascadingParameter] 
     int ReceiveCurrency { get; set; }
 
+    public NowRentAndTotalRevenue Income{ get; set; }
+
     public decimal ChangeRent { get; set; }
     public decimal ChangeGoldRent { get; set; }
 
@@ -134,8 +137,8 @@
 
     private async Task Refresh()
     {
-        
-      
+
+
         //SelectOptionChange(ReceiveCurrency);
         ChangeRent = NowRent;
         ChangeGoldRent = NowGoldRent;
@@ -143,22 +146,31 @@
     }
 
 
-
-    /// <summary>
-    /// 修改租金  類別 1:星鑽 22:gSRC
-    /// </summary>
-    private async void ChangeRentCurrencyType()
-    {
-        string walletAddress = AppState.LoginStatus.walletAddress; 
-        ProductsService.ChangeRentCurrencyType(walletAddress , TokenID ,   ReceiveCurrency);
-    }
-
     /// <summary>
     /// 修改gSRC租金
     /// </summary>
     private async void SetChangeRent()
     {
-        string walletAddress = AppState.LoginStatus.walletAddress; 
-        ProductsService.ChangeRent(walletAddress , TokenID ,  ChangeRent , ReceiveCurrency);
+        string walletAddress = AppState.LoginStatus.walletAddress;
+
+
+        decimal Price = 0;
+
+        if (ReceiveCurrency == 1)
+        {
+            Price = ChangeGoldRent;
+        }
+        else if (ReceiveCurrency == 1)
+        {
+            Price = ChangeRent;
+        }
+
+        await ProductsService.ChangeRent(walletAddress, TokenID, ChangeGoldRent, ReceiveCurrency);
+        Income = await ProductsService.Get_NowRentAndTotalRevenue("#" + TokenID);
+        NowRent = Income.nowRent.Where(m => m.currencyType == 22).First().price;
+        ChangeRent = Math.Round(NowRent, 3, MidpointRounding.AwayFromZero);
+        NowGoldRent = Income.nowRent.Where(m => m.currencyType == 1).First().price;
+        ChangeGoldRent = Math.Round(NowGoldRent, 3, MidpointRounding.AwayFromZero);
+        StateHasChanged();
     }
 }
