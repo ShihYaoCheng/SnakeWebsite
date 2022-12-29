@@ -134,11 +134,11 @@ namespace SnakeAsianLeague.Data.Services.Products
         /// </summary>
         /// <param name="SerialNumber"></param>
         /// <returns></returns>
-        public async Task<RiderIntroduce> GetNFT_Unit_SerialNumber(string SerialNumber ,string TokenID)
+        public async Task<RiderIntroduce> GetNFT_Unit_SerialNumber(string SerialNumber ,string TokenID , string googleapis)
         {
 
             string asset_contract_address = _config.GetValue<string>("asset_contract_address");
-            string ImgPath = _config.GetValue<string>("googleapis");
+            string ImgPath = googleapis;
             try
             {
                 NFTRiderUnit result = new NFTRiderUnit();

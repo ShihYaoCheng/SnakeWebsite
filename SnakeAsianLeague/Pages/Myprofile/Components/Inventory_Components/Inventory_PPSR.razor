@@ -590,7 +590,8 @@
         string UserID = LoginUser.FindFirst("UserID")?.Value; //AppState.LoginStatus.userID.ToString();
         string contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
         string OpenSeaLink =  BlockChainSever.BlockChainInfoDTO.openSeaLink;
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID , page,10 ,contractAddress_PPSR ,OpenSeaLink);
+        string googleapis =  BlockChainSever.BlockChainInfoDTO.googleapis;
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID , page,10 ,contractAddress_PPSR ,OpenSeaLink ,googleapis);
         NFTDataList = pagelist;
         MetaData = pagelist.MetaData;
         PPSRsCount = MetaData.TotalCount;
@@ -622,7 +623,8 @@
         CountryList = await InventoryService.Get_Default_Country();
         string contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.contractAddress_PPSR;
         string OpenSeaLink =  BlockChainSever.BlockChainInfoDTO.openSeaLink;
-        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID, 1,10 ,contractAddress_PPSR, OpenSeaLink);
+        string googleapis =  BlockChainSever.BlockChainInfoDTO.googleapis;
+        PagedList<NFTData> pagelist = await InventoryService.GetRiderNFTDataPageList(UserID, 1,10 ,contractAddress_PPSR, OpenSeaLink ,googleapis);
         NFTDataList = pagelist;
 
         MetaData =  pagelist.MetaData;

@@ -131,10 +131,10 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<List<NFTData>> GetNFTDataPageList(int pageNumber, int pageSize ,string PPSRContractAddress , string UserID ,string OpenSeaLink)
+        public async Task<List<NFTData>> GetNFTDataPageList(int pageNumber, int pageSize ,string PPSRContractAddress , string UserID ,string OpenSeaLink ,string googleapis)
         {
 
-            string ImgPath = _config.GetValue<string>("googleapis");
+            string ImgPath = googleapis;
             string LinkURL = OpenSeaLink;
             string asset_contract_address = PPSRContractAddress;
 
