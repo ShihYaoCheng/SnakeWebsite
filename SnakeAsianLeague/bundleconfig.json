@@ -37,11 +37,28 @@
       "adjustRelativePaths": false
     }
   },
-
   {
-    "outputFileName": "wwwroot/js/indexJS.min.js",
+    "outputFileName": "wwwroot/JavaScript/Host.min.js",
     "inputFiles": [
-
+      "wwwroot/JavaScript/SharedLib/jquery3.6.0.js",
+      "wwwroot/lib/i18nextHttpBackend.min.js",
+      "wwwroot/JavaScript/ACLIndex/fullCalendar.js",
+      "wwwroot/JavaScript/MarketPlace.js",
+      "wwwroot/JavaScript/MyProfile/InventoryAndMarketPlace/addNetworkAndCoin.js",
+      "wwwroot/JavaScript/MyProfile/InventoryAndMarketPlace/ABI_gather.js",
+      "wwwroot/JavaScript/MyProfile/SWAP/SWAP.js",
+      "wwwroot/JavaScript/Rank.js",
+      "wwwroot/JavaScript/NavMenu.js",
+      "wwwroot/JavaScript/Myaccount.js",
+      "wwwroot/JavaScript/MyProfile.js",
+      "wwwroot/JavaScript/SharedLib/Carousel.js",
+      "wwwroot/JavaScript/SharedLib/Lightbox.js",
+      "wwwroot/JavaScript/Tippy.js",
+      "wwwroot/JavaScript/Popup.js",
+      "wwwroot/JavaScript/NethereumMetamask.js",
+      "wwwroot/JavaScript/ACLIndex/S3Calendar.js",
+      "wwwroot/JavaScript/Festival/NewYear2023/NewYear2023Schedule.js",
+      "wwwroot/JavaScript/Battle/BattleCarousel.js"
     ],
     "minify": {
       "enabled": false
