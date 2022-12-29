@@ -1,0 +1,51 @@
+[
+  {
+    "outputFileName": "wwwroot/css/NFTindex/NFTindex.min.css",
+    "inputFiles": [
+      "wwwroot/css/NFTindex/Event_banner.css",
+      "wwwroot/css/NFTindex/NFTindex.css",
+      "wwwroot/css/NFTindex/NFTindex_Banner.css",
+      "wwwroot/css/NFTindex/NFTindex_Carousel.css",
+      "wwwroot/css/NFTindex/NFTindex_Collect.css",
+      "wwwroot/css/NFTindex/NFTindex_Flag.css",
+      "wwwroot/css/NFTindex/NFTindex_Gameplay.css",
+      "wwwroot/css/NFTindex/NFTindex_Join.css",
+      "wwwroot/css/NFTindex/NFTindex_Landlord.css",
+      "wwwroot/css/NFTindex/NFTindex_Navigation.css",
+      "wwwroot/css/NFTindex/NFTindex_Partner.css",
+      "wwwroot/css/NFTindex/NFTindex_Register.css",
+      "wwwroot/css/NFTindex/NFTindex_Scholar.css",
+      "wwwroot/css/NFTindex/NFTindex_Seignior.css",
+      "wwwroot/css/NFTindex/NFTindex_SRC.css",
+      "wwwroot/css/NFTindex/NFTindex_Video.css",
+      "wwwroot/css/EventBanner/EventBanner_WarmUpActivities.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "adjustRelativePaths": false
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    "inputFiles": [
+      "wwwroot/css/bootstrap/bootstrap.min.css",
+      "wwwroot/css/site.css",
+      "wwwroot/css/Animate.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "adjustRelativePaths": false
+    }
+  },
+
+  {
+    "outputFileName": "wwwroot/js/indexJS.min.js",
+    "inputFiles": [
+
+    ],
+    "minify": {
+      "enabled": false
+    },
+    "sourceMap": false
+  }
+]
