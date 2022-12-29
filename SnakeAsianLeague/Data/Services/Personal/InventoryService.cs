@@ -92,9 +92,9 @@ namespace SnakeAsianLeague.Data.Services.Personal
         /// <param name="PageNumber"></param>
         /// <param name="PageSize"></param>
         /// <returns></returns>
-        public async Task<PagedList<NFTData>> GetRiderNFTDataPageList(string UserID, int PageNumber, int PageSize, string PPSRContractAddress ,string OpenSeaLink)
+        public async Task<PagedList<NFTData>> GetRiderNFTDataPageList(string UserID, int PageNumber, int PageSize, string PPSRContractAddress ,string OpenSeaLink , string googleapis)
         {
-            string ImgPath = _config.GetValue<string>("googleapis");
+            string ImgPath = googleapis;
             string LinkURL = OpenSeaLink;
             string asset_contract_address = PPSRContractAddress;
 
@@ -199,7 +199,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
                     if (data.rentType == 1)
                     {
                         //租金
-                        data.nowRent = Decimal.Round(NFT_Riders[i].rent, 3);
+                        data.nowRent = Decimal.Round(NFT_Riders[i].goldRent, 3);
                         //累計租金(累計收益)
                         data.totalRevenue = Decimal.Round(NFT_Riders[i].totalRevenue.Where(m => m.currencyType == 1).First().price, 3);
                     }

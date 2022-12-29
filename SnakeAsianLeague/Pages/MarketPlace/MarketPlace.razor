@@ -149,7 +149,7 @@
         string contractAddress_PPSR =  BlockChainSever.BlockChainInfoDTO.adminWalletAddress_PPSR;
         string OpenSeaLink =  BlockChainSever.BlockChainInfoDTO.openSeaLink;
         string UserID = AppState.LoginStatus.userID.ToString();
-
+        string googleapis =  BlockChainSever.BlockChainInfoDTO.googleapis;
         if (UserID == "0")
         {
             isLogin = false;
@@ -159,7 +159,7 @@
             isLogin = true;
         }
 
-        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize , contractAddress_PPSR , UserID,OpenSeaLink);
+        List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize , contractAddress_PPSR , UserID,OpenSeaLink , googleapis);
         NFTDataList = pagelist;
         PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
         await lazyloadingJS.InvokeVoidAsync("LazyLoading");

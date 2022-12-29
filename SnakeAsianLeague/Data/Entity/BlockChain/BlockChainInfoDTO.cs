@@ -16,6 +16,11 @@
         public int usdtDecimals { get; set; }
         public int srcDecimals { get; set; }
 
+        /// <summary>
+        /// google雲端照片儲存url
+        /// </summary>
+        public string googleapis { get; set; }
+
         public int tsrcDecimals { get; set; }
         public bool eventWarmUpStatus20221108 { get; set; }
 
@@ -64,6 +69,10 @@
         public string? adminWalletAddress_tSRCExchange { get; set; }
         public string? contractAddress_tSRCExchange { get; set; }
         public decimal balanceOf_tSRCExchange { get; set; } // 剩餘瓦斯費
+
+        // UserServer 呼叫贈送tSRC 專用錢包
+        public string? eventWalletWallet_tSRC { get; set; }
+
 
         /// 功能開放狀態
         public bool swapStatus { get; set; }
