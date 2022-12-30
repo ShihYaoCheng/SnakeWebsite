@@ -236,9 +236,9 @@
         //PPSRsCount = MetaData.TotalCount;
         //PageNumber = 0;
 
-
+        await InvokeAsync(StateHasChanged);
         await reFreshJS();
-        StateHasChanged();
+       
         
 
     }
