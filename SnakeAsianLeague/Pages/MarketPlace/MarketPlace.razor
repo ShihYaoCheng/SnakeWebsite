@@ -235,9 +235,12 @@
         //NFTDataList = pagelist;
         //PPSRsCount = MetaData.TotalCount;
         //PageNumber = 0;
-        await JS.InvokeVoidAsync("installI18n");
-        await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+
+
+        await reFreshJS();
         StateHasChanged();
+        
+
     }
 
     public MetaData MetaData { get; set; } = new MetaData();
