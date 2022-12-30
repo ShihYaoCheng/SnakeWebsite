@@ -177,7 +177,7 @@
         {
             lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");   
             await Refresh();
-            await JS.InvokeVoidAsync("installI18n");
+           
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterButtonClick");
             await JS.InvokeVoidAsync("FilterArrowSlideClick");
@@ -190,6 +190,7 @@
 
             await lazyloadingJS.InvokeVoidAsync("LazyLoading");
         }
+         await JS.InvokeVoidAsync("installI18n");
     }
 
     @*...排序...*@
