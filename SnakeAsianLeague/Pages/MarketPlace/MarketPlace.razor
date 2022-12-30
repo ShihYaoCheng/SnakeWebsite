@@ -178,7 +178,7 @@
             lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js"); 
             await BlockChainSever.GetBlockChainInfoDTO();
             await Refresh();
-            await JS.InvokeVoidAsync("installI18n");
+           
             await JS.InvokeVoidAsync("heartClick");
             await JS.InvokeVoidAsync("FilterButtonClick");
             await JS.InvokeVoidAsync("FilterArrowSlideClick");
@@ -191,6 +191,7 @@
 
             await lazyloadingJS.InvokeVoidAsync("LazyLoading");
         }
+         await JS.InvokeVoidAsync("installI18n");
     }
 
     @*...排序...*@
@@ -236,9 +237,12 @@
         //NFTDataList = pagelist;
         //PPSRsCount = MetaData.TotalCount;
         //PageNumber = 0;
-        await JS.InvokeVoidAsync("installI18n");
-        await lazyloadingJS.InvokeVoidAsync("LazyLoading");
-        StateHasChanged();
+
+        await InvokeAsync(StateHasChanged);
+        await reFreshJS();
+       
+        
+
     }
 
     public MetaData MetaData { get; set; } = new MetaData();

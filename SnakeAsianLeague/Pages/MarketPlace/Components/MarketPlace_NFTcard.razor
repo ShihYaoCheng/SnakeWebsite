@@ -34,14 +34,17 @@
             @if ( @Value.IsOfficial ==true && @Value.IsOpen ==true )
             {
                 @*紅*@
-                <div class="NFT-Number">  @Value.Number</div>
+                <div class="NFT-card-header">
+                    <img class="NFT-ElementsIcon" data-src="@Value.ElementsIcon"/>
+                    <div class="NFT-Number">  @Value.Number.Substring(0, 5) # @Value.Number.Substring(6)</div>
+                </div>
             }
             else
             {
                 @*非紅*@
                 <div class="NFT-card-header">
                     <img  class="NFT-ElementsIcon" data-src="@Value.ElementsIcon" alt="">
-                    <div class="NFT-Number"> @Value.Number</div>
+                    <div class="NFT-Number">  @Value.Number.Substring(0, 5) # @Value.Number.Substring(6)</div>
                 </div>
             }          
 

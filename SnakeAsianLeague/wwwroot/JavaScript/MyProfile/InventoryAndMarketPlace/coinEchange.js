@@ -186,7 +186,7 @@ export async function CoinexchangeData(chainId ,SRC_address,wssURL) {
 	let SRC_decimals = await SRC_dai_contract.methods.decimals().call()
 	
 	let addr_SRC_balance = await SRC_dai_contract.methods.balanceOf(address[0]).call() / 10 ** SRC_decimals
-
+	console.log("addr_SRC_balance", addr_SRC_balance)
 	/*ERNC*/
 
 

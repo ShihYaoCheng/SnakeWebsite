@@ -26,7 +26,7 @@
 
             <div class="NFT-card-header">
                 <img  class="NFT-ElementsIcon" src="@Value.ElementsIcon" alt="">
-                <div class="NFT-Number"  >@Value.Number</div>
+                <div class="NFT-Number"  > @Value.Number.Substring(0, 5) # @Value.Number.Substring(6)</div>
             </div>
             <div class="NFT-Name"  data-i18n=NFT_data:@Value.serialNumber>
                 @Value.serialNumber

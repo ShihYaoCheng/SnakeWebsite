@@ -53,16 +53,16 @@
 </head>
 
 <body>
-
-     <div id="startLoading" class="col-12 loadingBazor"  style=" position:fixed ;top:0;left:auto; z-index:999">
+    @*loading畫面*@
+    <div id="startLoading" class="col-12 loadingBazor"  style=" position:fixed ;top:0;left:auto; z-index:999">
             <br/><br/>
                 <img width="310" src="/images/loading/loading.gif" alt="">
-     </div>
+    </div>
     <app>
         @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
     </app>
 
-    
+    @*包在Host.min的檔案*@
     @*<script src="~/JavaScript/SharedLib/jquery3.6.0.js"></script>*@
     @*<script src="~/lib/i18nextHttpBackend.min.js"></script>*@
     @*<script src="~/JavaScript/ACLIndex/fullCalendar.js"></script>*@
@@ -140,17 +140,8 @@
 
 	<script src="~/JavaScript/i18next.js"></script>
     <script src="~/JavaScript/test.js"></script>
-
-    @*自動重連*@
-    <script>
-        //Sentry.init({
-        //    dsn:"https://6ade3f118206413fb6f2c62213810897@o1382280.ingest.sentry.io/6707625",           
-        //    integrations: [new Sentry.BrowserTracing()],
-
-        //    tracesSampleRate: 1.0,
-        //});
-
-        //載入首頁loading
+    @*載入首頁loading*@
+    <script>        
         var startLoadTime = 3000
         if (window.location.pathname != "/") 
         {            
@@ -160,8 +151,16 @@
         setTimeout(() => {
             startLoading.style.display = 'none';
         }, startLoadTime)
-      
-        
+    </script>
+
+    @*自動重連*@
+    <script>
+        //Sentry.init({
+        //    dsn:"https://6ade3f118206413fb6f2c62213810897@o1382280.ingest.sentry.io/6707625",           
+        //    integrations: [new Sentry.BrowserTracing()],
+
+        //    tracesSampleRate: 1.0,
+        //});
         async function connectionDown(options) {
             console.log("Connection Down ");
             for (let i = 0; i < options.maxRetries; i++) {
