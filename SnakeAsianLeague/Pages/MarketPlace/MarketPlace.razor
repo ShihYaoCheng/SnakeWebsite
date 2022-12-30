@@ -175,7 +175,8 @@
     {
         if (firstRender)
         {
-            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");   
+            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js"); 
+            await BlockChainSever.GetBlockChainInfoDTO();
             await Refresh();
             await JS.InvokeVoidAsync("installI18n");
             await JS.InvokeVoidAsync("heartClick");

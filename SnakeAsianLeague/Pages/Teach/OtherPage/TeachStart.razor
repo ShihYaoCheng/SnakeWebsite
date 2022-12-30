@@ -1,4 +1,7 @@
 ﻿@page "/GettingStarted"
+@using SnakeAsianLeague.Data.Services.BlockChain
+
+@inject BlockChainProcessorSever BlockChainSever
 @inject IJSRuntime JS
 <head>
     <title>PonPonSnake｜Getting Started</title>
@@ -65,8 +68,8 @@
     {
 
         if (firstRender)
-
         {
+            await BlockChainSever.GetBlockChainInfoDTO();
             await JS.InvokeVoidAsync("installI18n");
         }
 

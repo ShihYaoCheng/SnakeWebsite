@@ -5,9 +5,11 @@
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Services.Backstage
 @using System.Text.RegularExpressions
+@using SnakeAsianLeague.Data.Services.BlockChain
 
 @inject OfficialWebsiteData OfficialWebsiteData
 @inject IAuthService AuthService
+@inject BlockChainProcessorSever BlockChainSever
 @inject IJSRuntime JS
 @inject AppState AppState
 @implements IDisposable
@@ -395,6 +397,7 @@
     {        
         if (firstRender)
         {
+            await BlockChainSever.GetBlockChainInfoDTO();
             NFTindexBannerJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NFTindex/NFTindexBanner.js");
             countryCodeJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ohterCtrl/countryCode.js");
             await countryCodeJS.InvokeVoidAsync("countryCode","SignUp");            
