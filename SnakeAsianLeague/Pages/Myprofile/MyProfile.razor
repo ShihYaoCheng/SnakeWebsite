@@ -1,4 +1,5 @@
 ﻿@page "/myprofile/{router}"
+@page "/myprofile/{router}/{UserID}"
 @using SnakeAsianLeague.Data.Services
 @using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Pages.Myprofile.Components
@@ -45,7 +46,7 @@
                     </GettingStartMetaMask>
                 break;     
             case "referralCode":
-                    <MyProfile_referralCode/>
+                    <MyProfile_referralCode UserID=@UserID/>
                 break;
         }
 
@@ -82,8 +83,9 @@
 @code {
     [Parameter]
     public string router { get; set; } = "index";
-
-
+    [Parameter]
+    public string UserID { get; set; } = "0";
+    
     protected override async Task OnInitializedAsync()
     {
         //AppState.langChanged += async (value)

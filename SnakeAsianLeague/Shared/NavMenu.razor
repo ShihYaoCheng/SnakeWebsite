@@ -184,7 +184,7 @@
                                 <img class="nav_hover_bottom" id="SRCPackage_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
                             </li>
                             <li class="nav-item nav-personal" id="nav-MyAwardNotice">
-                                <a class="nav-link text-light" href="myprofile/referralCode" data-i18n="[html]Sidebar.referralCode">Invitation Code</a>
+                                <a class="nav-link text-light" href="myprofile/referralCode/@(AppState.LoginStatus.userID.ToString())" data-i18n="[html]Sidebar.referralCode">Invitation Code</a>
                                 <img class="nav_hover_bottom" id="MyAwardNotice_hover_bottom" data-src="/images/Other/nav_hover_bottom.webp" src="/images/Other/nav_hover_bottom.webp" alt="">
                             </li>
                             
@@ -402,7 +402,7 @@
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
                             <li class="user-ul-web" id="nav_ul-MyAwardNotice">
-                                <a href="myprofile/referralCode" id="referralCode" data-i18n="[html]Sidebar.referralCode">Invitation Code</a>
+                                <a href="myprofile/referralCode/@(AppState.LoginStatus.userID.ToString())" id="referralCode" data-i18n="[html]Sidebar.referralCode">Invitation Code</a>
                                 <img class="li_bottom" data-src="/images/Other/li_bottom.webp" src="/images/Other/li_bottom.webp" alt="">
                             </li>
                             <li>
@@ -499,7 +499,7 @@
         }
 
         ///only for test
-        @*SnakeAccount test = await authService.AuthLoginByUserId("10027");
+    @*SnakeAccount test = await authService.AuthLoginByUserId("10027");
         AppState.UpdateLoginStatus(this, test);*@
     }
 

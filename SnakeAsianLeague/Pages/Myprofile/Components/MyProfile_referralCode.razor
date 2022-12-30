@@ -74,8 +74,8 @@
     </div>
 }
 @code {
-
-
+    [Parameter]
+    public string UserID { get; set; }
     InvitationCodeDto InvitationCode { get; set; }
     bool restResponse { get; set; }
     string QRCodeByte;
@@ -100,7 +100,7 @@
     /// <returns></returns>
     private async Task GetInvitationCode()
     {
-        string UserID = AppState.LoginStatus.userID.ToString();
+        //string UserID = AppState.LoginStatus.userID.ToString();
         InvitationCode = await InventoryService.GetInvitationCode(UserID);
         restResponse= await InventoryService.GetInvitationResponse(UserID);     
         if (InvitationCode.code != null)

@@ -1,7 +1,8 @@
 @page "/MyprofileSidebar"
 @using SnakeAsianLeague.Data.Entity.View
+@using SnakeAsianLeague.Data.Services
 @inject GetUrlView GetUrlView
-
+@inject AppState AppState
 @inject IJSRuntime JS
 
 <head>
@@ -40,7 +41,7 @@
                 <a href="myprofile/srcgift" id="accountManagementUl-SRCPackage" ><li data-i18n="Sidebar.SRCPackage">SRC Package</li></a>
             }
 
-            <a href="myprofile/referralCode" id="accountManagementUl-referralCode" ><li data-i18n="Sidebar.referralCode">referralCode</li></a>
+            <a href="myprofile/referralCode/@(AppState.LoginStatus.userID.ToString())" id="accountManagementUl-referralCode" ><li data-i18n="Sidebar.referralCode">referralCode</li></a>
         </ul>
     </div>
 </aside>
