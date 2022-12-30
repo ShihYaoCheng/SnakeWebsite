@@ -1,8 +1,10 @@
 ﻿@page "/myprofile/{router}"
 @using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Pages.Myprofile.Components
 @using SnakeAsianLeague.Pages.Myprofile.Components.Shared_Components
 @inject AppState AppState
+@inject BlockChainProcessorSever BlockChainSever
 @inject IJSRuntime JS
 @using System.Threading;
 <head>
@@ -91,7 +93,8 @@
         protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
-        {         
+        {       
+            await BlockChainSever.GetBlockChainInfoDTO();
             await JS.InvokeVoidAsync("installI18n");
         }
     }
