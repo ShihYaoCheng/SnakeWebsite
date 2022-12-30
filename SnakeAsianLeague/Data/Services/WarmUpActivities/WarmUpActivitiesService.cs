@@ -20,18 +20,18 @@ namespace SnakeAsianLeague.Data.Services.WarmUpActivities
             ServerClient = new RestClient(externalServersConfig.UserServer);
         }
 
-        public async Task<OwnedVirtualCurrrencyLeaderboardDTO> GetLeaderboard()
+        public async Task<List<LeaderboardDTO>> GetLeaderboard()
         {
-            restRequest = new RestRequest($"Leaderboard/ForWeb", Method.GET);
-            restRequest.AddParameter("count", 50);
+            restRequest = new RestRequest($"Leaderboard/Activity", Method.GET);
+            restRequest.AddParameter("userId", 0);
 
             restRequest.AddHeader("Authorization", Authenticate());
-            OwnedVirtualCurrrencyLeaderboardDTO LeaderboardList = new OwnedVirtualCurrrencyLeaderboardDTO();
+            List<LeaderboardDTO> LeaderboardList = new List<LeaderboardDTO>();
 
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(restRequest);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
-                LeaderboardList = JsonConvert.DeserializeObject<OwnedVirtualCurrrencyLeaderboardDTO>(restResponse.Content);
+                LeaderboardList = JsonConvert.DeserializeObject<List<LeaderboardDTO>>(restResponse.Content);
             }
 
             return LeaderboardList;

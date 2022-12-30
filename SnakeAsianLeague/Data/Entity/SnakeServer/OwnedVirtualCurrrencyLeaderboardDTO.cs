@@ -1,5 +1,6 @@
 ﻿namespace SnakeAsianLeague.Data.Entity.SnakeServer
 {
+    //舊的
     public class OwnedVirtualCurrrencyLeaderboardDTO
     {
         public OwnedLeaderboardSingleData SelfLeaderboard { get; set; }

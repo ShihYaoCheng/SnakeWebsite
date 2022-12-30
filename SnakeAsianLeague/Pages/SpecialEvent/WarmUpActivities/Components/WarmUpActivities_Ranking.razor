@@ -21,47 +21,34 @@
 
                     @* 以下為示意，到時候可留只一個跑迴圈 *@
 
-                    @if(LeaderboardList.OtherLeaderboardToERNC != null) 
+                    @if(Leaderboard.TotalLeaderboard != null) 
                     {
-                        var index = 0;
-                        @foreach (var item in LeaderboardList.OtherLeaderboardToERNC)
+                        @*var index = 0;*@
+                        @foreach (var item in Leaderboard.TotalLeaderboard)
                         {
-                            index++;
-                            <div class="Ranking-Row" hidden="@(true)">
-                                <div class="Ranking-Number text-shadow-big"> @index </div>
+                            @*index++;*@
+                            <div class="Ranking-Row" hidden="@(false)">
+                                <div class="Ranking-Number text-shadow-big"> @item.Ranking </div>
                                 <div class="Ranking-Data">
-                                    <div class="Player-Name">@item.userSocial.Name</div>
+                                    <div class="Player-Name">@item.UserSocial.Name</div>
 
                                     <div class="Ranking-ERNC">
-                                        <div class="ERNC-Amount">ERNC: <span>@item.ERNC.ToString("0.00000")</span></div>
+                                        <div class="ERNC-Amount">ERNC: <span>@item.Count.ToString("0.00000")</span></div>
                                         <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
                                     </div>                            
                                 </div>
                             </div>
                         }
 
-                        @* 暫時顯示，活動開始後刪掉此段，並把上方hidden="@(true)"改成false *@
-                        <div class="Ranking-ComingSoon">
+                      
+                    @*    <div class="Ranking-ComingSoon">
                             <span data-i18n="WarmUpActivities_data:ranking.ComingSoon">Coming Soon</span>
-                        </div>
+                        </div>*@
 
                     }
                     else
                     {
-                        @* @for(var i =0; i<10; i++)
-                        {
-                            <div class="Ranking-Row">
-                                <div class="Ranking-Number text-shadow-big">1</div>
-                                <div class="Ranking-Data">
-                                    <div class="Player-Name">讀取中</div>
-
-                                    <div class="Ranking-ERNC">
-                                        <div class="ERNC-Amount">ERNC: <span>讀取中</span></div>
-                                        <img class="Ranking-ERNC-icon" src="/images/SpecialEvent/WarmUpActivities/ERNC.png" />
-                                    </div>                            
-                                </div>
-                            </div>
-                        } *@
+                       
 
                         <div class="Ranking-ComingSoon">
                             <span data-i18n="WarmUpActivities_data:ranking.ComingSoon">Coming Soon</span>
@@ -82,7 +69,8 @@
 @code {
 
     private IJSObjectReference? WarmUpActivitiesJS;
-   OwnedVirtualCurrrencyLeaderboardDTO LeaderboardList = new OwnedVirtualCurrrencyLeaderboardDTO();
+    List<LeaderboardDTO> LeaderboardList = new List<LeaderboardDTO>();
+    LeaderboardDTO  Leaderboard= new LeaderboardDTO();
     protected override async Task OnInitializedAsync()
     {
         await Refresh();
@@ -91,6 +79,7 @@
     public async Task Refresh()
     {
         LeaderboardList = await WarmUpActivitiesService.GetLeaderboard();
+        Leaderboard = LeaderboardList[0];
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)  
