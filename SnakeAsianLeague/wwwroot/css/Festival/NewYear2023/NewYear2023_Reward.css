@@ -20,12 +20,13 @@
     left: 0;
     width: 430%;
     z-index: 2;
-    animation: BG-cloud 200s forwards infinite;
+    animation: BG-cloud 100s forwards infinite;
 }
 @keyframes BG-cloud{
 
     0%{
-        left: -3773px;
+        /* left: -3773px; */
+        left: -80%;
     }
 
     50%{
@@ -33,7 +34,8 @@
     }
 
     100%{
-        left: -3773px;
+        /* left: -3773px; */
+        left: -80%;
     }
 }
 .reward-title-BG-02{

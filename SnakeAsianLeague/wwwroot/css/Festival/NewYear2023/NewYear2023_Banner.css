@@ -35,6 +35,7 @@
     left: 50%;
     animation: banner_logoMove 7s 0s infinite;
     transform-origin: 50% 0%;
+    filter: drop-shadow(0px 0px 25px rgba(255, 243, 162, 0.672));
 }
 
 @keyframes banner_logoMove{

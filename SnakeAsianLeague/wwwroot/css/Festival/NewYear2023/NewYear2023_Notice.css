@@ -4,21 +4,25 @@
     padding: 200px 0;
 }
 .NewYear2023_Notice_TopTitle {
-    margin: 36px 0 15px 0;
+    margin: 36px 0 20px 0;
     font-family: Microsoft JhengHei;
     font-size: 34px;
     color: #3a3048;
     text-align: center;  
+    font-weight: 600;
 }
 
 .Notice_Title_underline {
-    width:50%;
-    margin:0 auto;
+    width: 60%;
+    margin: 0 auto 10px;
 }
 .Notice_Title_underline img {
     width:100%;
 }
-
+.Notice-Container{
+    width: 80%;
+    padding: 0px 20px 10px 20px;
+}
 @media (max-width: 1024px) {
     .NewYear2023_Notice {
         /* height: 1400px; */
