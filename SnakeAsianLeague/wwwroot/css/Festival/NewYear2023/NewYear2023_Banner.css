@@ -23,6 +23,7 @@
     width: 100%;
     height: 100%;
     /* transform: translateX(-5%); */
+    transform: translateY(-6%);
     /* left: 50%; */
 }
 .NewYear2023-Logo{
@@ -89,7 +90,7 @@
 }
 .NewYear2023-BannerNav li{
     /* border: 1px solid red; */
-    padding: 10px;
+    /* padding: 10px; */
     list-style-type: none;
     margin: 0 2%;
 }
@@ -104,6 +105,7 @@
     font-family: 'Noto Sans TC', sans-serif;
     transition: all 0.1s ease-out;
     position: relative;
+    padding: 10px;
 }
 .NewYear2023-BannerNav li a::before{
     content: "";
@@ -145,6 +147,9 @@
     .NewYear2023-BannerNav li a{
         font-size: 20px;
     }
+    .NewYear2023_Banner-BG img{
+        transform: unset;
+    }
 }
 @media all and (max-width: 1200px){
     .NewYear2023-BannerNav li a{
@@ -179,13 +184,16 @@
         /* height: 500px; */
     }
     .NewYear2023_Banner-BG{
-        max-height: 350px;
+        max-height: 400px;
     }
     .NewYear2023_Banner-BG img{
         /* width: 130%;
         transform: translate(-10% ,0%); */
-        width: 150%;
-        transform: translate(-19% ,0%);
+        /* width: 150%;
+        transform: translate(-19% ,0%); */
+        width: 140%;
+        transform: translate(-14% ,-8%);
+        
     }
     .NewYear2023-BannerNav{
         position: unset;
@@ -204,13 +212,14 @@
         padding-left: 3%;
     }
     .NewYear2023-BannerNav li{
-        padding: 5px;
+        /* padding: 5px; */
         width: 25%;
         display: inline-block;
     }
     .NewYear2023-BannerNav li a {
         font-size: 14px;
         /* width: 30%; */
+        padding: 5px;
     }
     .NewYear2023-BannerNav li a::before{
         display: none;
@@ -232,13 +241,17 @@
         width: 100%;
     }
     .NewYear2023-BannerNav li{
-        padding: 4px;
+        /* padding: 4px; */
         /* width: 40%; */
     }
     .NewYear2023-BannerNav li a {
         font-size: 14px;
+        padding: 4px;
     }
-
+    .NewYear2023_Banner-BG img{
+        width: 155%;
+        transform: translate(-18% ,0%);
+    }
 }
 @media all and (max-width: 500px){
 
