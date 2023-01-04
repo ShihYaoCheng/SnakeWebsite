@@ -80,6 +80,7 @@
     font-weight: 500;
     /* padding: 17px 32px; */
     padding: 2% 4%;
+    text-align: center;
 }
 
 #Reward-table-title-solo{
@@ -117,6 +118,9 @@
         transform: translateY(-50%);
         top: 50%;
         right: 4%;
+    }
+    .Reward-table{
+        margin-bottom: 50px;
     }
     .Reward-table-title{
         font-size: 18px;
