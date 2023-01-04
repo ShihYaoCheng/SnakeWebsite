@@ -1,0 +1,24 @@
+{
+    "eventBanner": {
+        "nav-01":"About",
+        "nav-02":"Rules",
+        "nav-03":"Reward",
+        "nav-04":"Ranking",
+        "nav-05":"Schedule",
+        "nav-06":"Notice"
+    },
+
+    "about": {
+        "title":"- About -",
+        "title-02":"Sign up now and get 10% SRC of the sign up fee!",
+        "solo-name":"Lucky Star",
+        "solo":"(solo)",
+        "registration-time":"Registration Time :",
+        "event-date":"Event Date :",
+        "registration-fee":"Registration Fee :",
+        "squad-name":"Lucky Slam",
+        "squad":"(squad)",
+        "ticket-award":"ticket-award",
+        "registration-rewards":"Registration<br>Rewards"
+    }
+}
