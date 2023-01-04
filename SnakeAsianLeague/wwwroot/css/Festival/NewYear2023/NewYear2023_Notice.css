@@ -7,7 +7,7 @@
     margin: 36px 0 20px 0;
     font-family: Microsoft JhengHei;
     font-size: 34px;
-    color: #3a3048;
+    color: #4b0505;
     text-align: center;  
     font-weight: 600;
 }
@@ -22,6 +22,9 @@
 .Notice-Container{
     width: 80%;
     padding: 0px 20px 10px 20px;
+}
+.notice_title{
+    line-height: 26px;
 }
 @media (max-width: 1024px) {
     .NewYear2023_Notice {
@@ -48,5 +51,33 @@
     .Notice_TopTitle {
         font-size: 22px;
         margin: 15px 0 15px 0;
+    }
+}
+
+
+
+
+.Notice-content::-webkit-scrollbar {
+    width: 10px !important;
+    
+    -webkit-box-shadow: none !important;
+    border: 0 !important;
+    background: #721313!important;
+}
+
+.Notice-content::-webkit-scrollbar-thumb {
+    background: #ffffff !important;
+    background-repeat: round !important;
+    width: 10px !important;
+}
+
+@media (max-width: 768px) {
+    .Notice-content::-webkit-scrollbar {
+        width: 10px !important;
+
+    }
+
+    .Notice-content::-webkit-scrollbar-thumb {
+        width: 10px !important;
     }
 }
