@@ -80,6 +80,9 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
                 case AsiaLeagueSeasons.AsiaLeagueS3:
                     sheetName = "AsiaLeagueS7Schedule";
                     break;
+                case AsiaLeagueSeasons.NewYear2023:
+                    sheetName = "AsiaLeagueS8Schedule";
+                    break;
                 default:
                     return null;
             }

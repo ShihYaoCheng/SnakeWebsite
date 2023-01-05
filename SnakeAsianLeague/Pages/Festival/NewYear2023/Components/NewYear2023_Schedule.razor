@@ -1,7 +1,17 @@
-﻿@inject IJSRuntime JS
+﻿@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.SnakeServerService
+@using System.Text.Json;
+@using Newtonsoft.Json;
 
+
+@inject IJSRuntime JS
+@inject AppState AppState
+@inject AsiaLeagueScheduleService AsiaLeagueScheduleService
 <head>
     <link href="/css/Festival/NewYear2023/NewYear2023_Schedule.css" rel="stylesheet" />
+  
+    
 </head>
 
 <div class="NewYear2023-Schedule-container" id="NewYear2023_Schedule">
@@ -21,16 +31,87 @@
 
 
 @code {
+    List<AsiaLeagueSchedule> Schedules;
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
+
+        Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.NewYear2023);
+        await arrangeSchedules();
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-             await JS.InvokeVoidAsync("NewYear2023Schedule");  
+
+
         }
-        await reloadCalendar(); 
+        var json = JsonConvert.SerializeObject(_NewYear2023Schedule);
+        await JS.InvokeVoidAsync("NewYear2023Schedule" ,json);
+        //await reloadCalendar(); 
     }
-    public async Task reloadCalendar()
-    {       
+    private async Task arrangeSchedules()
+    {
+        List<AsiaLeagueSchedule> soloStartDay = Schedules.Where(w => w.IndATIssue == 0).ToList();
+        List<AsiaLeagueSchedule> soloEndDay = Schedules.Where(w => w.IndFinalType == 0).ToList();
+        List<AsiaLeagueSchedule> squadStartDay = Schedules.Where(w => w.GuildATIssue == 4).ToList();
+        List<AsiaLeagueSchedule> squadEndDay = Schedules.Where(w => w.GuildFinalType == 1).ToList();
+        
+        //個人
+        var index = 0;                
+        foreach (var item in soloStartDay)
+        {
+            //選賽
+            ToJsListType ToJsListType = new ToJsListType();        
+            ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:00";
+            ToJsListType.end = soloEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";  
+            ToJsListType.classNames[0]= "qualifying";
+            _NewYear2023Schedule.Add(ToJsListType);
+
+            //決賽
+            ToJsListType ToJsListTypeFinal = new ToJsListType();
+            ToJsListTypeFinal.title ="福星組單人#"+item.IndStation+"決賽";
+            ToJsListTypeFinal.start = soloEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
+            ToJsListTypeFinal.end = "";
+            ToJsListTypeFinal.classNames[0]= "Final";
+            _NewYear2023Schedule.Add(ToJsListTypeFinal);
+
+            index += 1;
+        }
+        //團體
+        index = 0;
+        foreach (var item in squadStartDay)
+        {       
+            //選賽
+            ToJsListType ToJsListType = new ToJsListType();       
+            ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:00";
+            ToJsListType.end = squadEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";          
+            ToJsListType.classNames[0]= "squadQualifying";
+            _NewYear2023Schedule.Add(ToJsListType);           
+
+            //決賽
+            ToJsListType ToJsListTypeFinal = new ToJsListType();
+            ToJsListTypeFinal.title ="福星滿貫組隊伍#"+item.GuildStation+"決賽";
+            ToJsListTypeFinal.start = squadEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
+            ToJsListTypeFinal.end = "";
+            ToJsListTypeFinal.classNames[0]= "Final";
+            _NewYear2023Schedule.Add(ToJsListTypeFinal);
+
+            index += 1;
+        }
+    }
+    List<ToJsListType> _NewYear2023Schedule =new List<ToJsListType>();
+    public class ToJsListType{
+        public string title="";
+        public string start;
+        public string end;
+        public string groupId="";
+        public List<string> classNames = new List<string>() { "" };
+    }
+    //public async Task reloadCalendar()
+    //{       
        
-    }
+    //}
 }

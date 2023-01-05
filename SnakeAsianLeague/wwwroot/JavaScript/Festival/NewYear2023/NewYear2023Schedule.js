@@ -1,5 +1,8 @@
-﻿window.NewYear2023Schedule = function () {  
+﻿window.NewYear2023Schedule = function (value) {  
+    value = JSON.parse(value)
+    console.log(value)
     var calendarEl = document.getElementById('NewYear2023Schedule');
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         timeZone: 'local',
@@ -12,7 +15,7 @@
             center: 'prev,title,next',
             right: ''
         },
-    
+        events: value,
      
       
     });
