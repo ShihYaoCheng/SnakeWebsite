@@ -1,5 +1,5 @@
 ﻿.NewYear2023_Rank_container {
-    padding: 50px 0;
+    padding: 50px 0 70px;
 }
 
 .NewYear2023_Rank_BG {
@@ -8,7 +8,7 @@
 
 /*排名顯示底板*/
 .Bottom_Plate {
-    height: 285px;
+    height: 275px;
     width: 100%;
     /*background: url("/images/Festival/NewYear2023/rank/Bottom_Plate_solo.png");
     background-repeat: round;*/
@@ -65,7 +65,7 @@
 
 @media all and (max-width: 1000px) {
     .Bottom_Plate {
-        height: 182px;
+        height: 220px;
     }
 
     .toggleRankTypeButton-container {
@@ -84,7 +84,7 @@
 
 @media all and (max-width: 768px) {
     .Bottom_Plate {
-        height: 136px;
+        height: 160px;
     }
     .toggleRankTypeButton-container {
         width: 204px;
@@ -105,7 +105,7 @@
         padding: 30px 0 50px;
     }
     .Bottom_Plate {
-        height:102px;
+        height: 110px;
     }
 
     .toggleRankTypeButton-container {
@@ -125,7 +125,7 @@
 }
 
 
-@media all and (max-width: 365px) {
+@media all and (max-width: 400px) {
     .Bottom_Plate {
         height: 85px;
     }
@@ -154,6 +154,10 @@
     /* background-repeat: round;*/
     background-size: cover;
     padding: 20px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .select-container {
@@ -164,7 +168,9 @@
     display:flex;
     justify-content:start;
     align-items:center;
-    padding-left:25px;
+    padding-left: 25px;
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 .select-container select {
@@ -173,14 +179,18 @@
     -moz-appearance:none;
     -webkit-appearance:none;
     background: url("/images/Festival/NewYear2023/select-arrow.png") no-repeat right center transparent;
-
+    padding-left: 12px;
     border: 0;
     color: #330d0f;
     font-weight:500;
     width:180px;
+    outline: none;
 }
 
 @media all and (max-width: 1000px) {
+    .select_bg{
+        padding: 23px 30px;
+    }
     .select-container {
         width: 250px;
         height: 30px;
@@ -195,12 +205,20 @@
 
 @media all and (max-width: 768px) {
     .select_bg {
-        height: 90px;
-        padding: 12px 8px;
+        height: 100px;
+        padding: 19px 25px 0px;
+    }
+    .select-container{
+        margin-bottom: 40px;
+        margin-right: 0px;
     }
 }
 
+
 @media all and (max-width: 576px) {
+    .select_bg{
+        padding: 5px 15px 0px;
+    }
     .select-container {
         width: 230px;
         height: 26px;  
@@ -223,7 +241,9 @@
     width:100%;
     padding-top:20px;
     color: #370807;
-    font-size: 24px;
+    font-size: 32px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
 .rank-date p {
@@ -238,12 +258,17 @@
 }
 
 .top3-container {
-    padding:40px 0;
+    padding:40px 0 60px;
+    min-height: 500px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    position: relative;
 }
 
 .rank1 {
     width: 788px;
-    height: 184px;
+    height: 165px;
     background: url("/images/Festival/NewYear2023/rank/rank1.png");
     background-repeat: round;
     margin-bottom:20px;
@@ -295,9 +320,20 @@
         height: 72px;
         margin-bottom: 20px;
     }
+    .rank1 span, .rank2 span, .rank3 span {
+        left: 63%;
+        font-size: 28px;
+    }
 }
 
 @media all and (max-width:768px) {
+    .rank-date{
+        padding-top: 0px;
+    }
+    .top3-container {
+        padding: 20px 0 30px;
+        min-height: 350px;
+    }
     .rank-date p {
         width: 353.6px;
         height: 26px;     
@@ -321,11 +357,21 @@
         height: 48px;
         margin-bottom: 14px;
     }
+    .rank1 span, .rank2 span, .rank3 span {
+        left: 63%;
+        font-size: 22px;
+    }
 }
 
 
 
 @media all and (max-width:376px) {
+    .rank-date{
+        padding-top: 0px;
+    }
+    .top3-container {
+        padding: 10px 0 20px;
+    }
     .rank-date p {
         width: 300.56px;
         height: 26px;
@@ -350,26 +396,44 @@
         height: 40px;
         margin-bottom: 12px;
     }
+    .rank1 span, .rank2 span, .rank3 span {
+        left: 63%;
+        font-size: 18px;
+    }
 }
 .Ranking-ComingSoon {
     /* border: 1px solid red; */
-    width: 100%;
-    height: 100%;
+    max-width: 400px;
+    width: 70%;
+    /* height: 100%; */
+    margin: 0 auto;
+    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #dbd8d830;
     border-radius: 15px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 45%;
+    left: 50%;
 }
 
 .Ranking-ComingSoon span {
-    color: rgba(69, 27, 27, 0.85);
+    color: rgba(227, 227, 227, 0.85);
     letter-spacing: 2px;
     font-size: 24px;
     font-weight: 500;
 }
-
+@media all and (max-width: 800px){
+    .Ranking-ComingSoon span {
+        font-size: 20px;
+    }
+}
 @media all and (max-width: 600px) {
+    .Ranking-ComingSoon{
+        padding: 12px;
+    }
     .Ranking-ComingSoon span {
         font-size: 18px;
     }

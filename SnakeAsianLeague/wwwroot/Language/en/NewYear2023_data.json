@@ -64,7 +64,10 @@
     },
 
     "schedule": {
-        "title":"- Schedule -"
+        "title":"- Schedule -",
+        "schedule-type-01":"Solo Match",
+        "schedule-type-02":"Squad Match",
+        "schedule-type-03":"Finals"
     },
 
     "notice": {
