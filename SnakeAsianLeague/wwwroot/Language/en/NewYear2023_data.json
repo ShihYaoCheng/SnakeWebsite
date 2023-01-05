@@ -52,6 +52,22 @@
         "title":"- Reward -",
         "title-02":"Total Grand 55,500 gERNC!",
         "reward-solo":"Lucky Star - Solo",
-        "reward-squad":"Lucky Slam - Squad"
+        "reward-solo-img":"/images/Festival/NewYear2023/reward/reward-solo-EN.png",
+        "reward-squad":"Lucky Slam - Squad",
+        "reward-squad-img":"/images/Festival/NewYear2023/reward/reward-squad-EN.png"
+    },
+
+    "ranking": {
+        "title":"- Ranking -",
+        "solo":"Solo",
+        "squad":"Squad"
+    },
+
+    "schedule": {
+        "title":"- Schedule -"
+    },
+
+    "notice": {
+        "title":"- Notice -"
     }
 }

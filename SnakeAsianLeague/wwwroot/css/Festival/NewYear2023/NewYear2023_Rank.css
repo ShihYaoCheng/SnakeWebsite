@@ -15,6 +15,7 @@
     display: flex;
     justify-content: start;
     align-items: end;
+    position: relative;
 }
 
 .toggleRankTypeButton-container {
@@ -30,7 +31,7 @@
     color: #fff;
     border: none;
     background: none;
-    padding-top: 10px;
+    padding-top: 13px;
     font-size: 24px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -43,13 +44,24 @@
     color: #fff;
     border: none;
     background: none;
-    padding-top: 10px;
+    padding-top: 13px;
     /*border: 1px solid red;*/
     font-size: 24px;
     font-weight: 600;
     letter-spacing: 2px;
     text-shadow: -1.5px 1.5px 7px rgb(0 0 0 / 50%);
 }
+#NewYear2023-title-Ranking{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+
+}
+#NewYear2023-title-Ranking span{
+    background-color: unset !important;
+}
+
 
 @media all and (max-width: 1000px) {
     .Bottom_Plate {
@@ -62,9 +74,11 @@
     }
     .rank_type_button_solo {
         font-size: 18px;
+        padding-top: 11px;
     }
     .rank_type_button_squad {
-        font-size: 18px;
+        font-size: 16px;
+        padding-top: 11px;
     }
 }
 
@@ -77,10 +91,12 @@
         height: 34.5px;
     }
     .rank_type_button_solo {
-        font-size: 16px;
+        font-size: 14px;
+        padding-top: 8px;
     }
     .rank_type_button_squad {
-        font-size: 16px;
+        font-size: 14px;
+        padding-top: 8px;
     }
 }
 
