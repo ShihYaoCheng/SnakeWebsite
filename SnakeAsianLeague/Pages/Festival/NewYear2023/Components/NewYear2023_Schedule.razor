@@ -66,9 +66,7 @@
             //選賽
             ToJsListType ToJsListType = new ToJsListType();        
             ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:00";
-            ToJsListType.end = soloEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
-            ToJsListType.backgroundColor = "#df6a27";
-            ToJsListType.borderColor = "#df6a27";
+            ToJsListType.end = soloEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";  
             ToJsListType.classNames[0]= "qualifying";
             _NewYear2023Schedule.Add(ToJsListType);
 
@@ -89,10 +87,8 @@
             //選賽
             ToJsListType ToJsListType = new ToJsListType();       
             ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:00";
-            ToJsListType.end = squadEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
-            ToJsListType.backgroundColor = "#781521";
-            ToJsListType.borderColor = "#781521";
-            ToJsListType.classNames[0]= "qualifying";
+            ToJsListType.end = squadEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";          
+            ToJsListType.classNames[0]= "squadQualifying";
             _NewYear2023Schedule.Add(ToJsListType);           
 
             //決賽
@@ -111,8 +107,6 @@
         public string title="";
         public string start;
         public string end;
-        public string backgroundColor;
-        public string borderColor;
         public string groupId="";
         public List<string> classNames = new List<string>() { "" };
     }

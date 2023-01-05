@@ -1729,8 +1729,13 @@ A VERTICAL event
 
 /*因為選賽只有一天，需要透過改變樣式達成效果*/
 .qualifying {
-    border-color: rgb(223, 106, 39);
-    background-color: rgb(223, 106, 39);
+    border-color: #db6527;
+    background: radial-gradient(ellipse at center,#fe8831,#db6527);
+}
+
+.squadQualifying {
+    border-color: #6f1217;
+    background: radial-gradient(ellipse at center,#8a1822,#6f1217);
 }
 
 .qualifying .fc-daygrid-event-dot {
