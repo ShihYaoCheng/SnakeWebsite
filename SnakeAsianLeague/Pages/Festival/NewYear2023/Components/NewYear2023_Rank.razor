@@ -1,4 +1,12 @@
-﻿<head>
+﻿@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.SnakeServerService
+@using System.Text.Json;
+@using Newtonsoft.Json;
+
+@inject AsiaLeagueScheduleService AsiaLeagueScheduleService
+@inject AsiaLeaguePlaceService AsiaLeaguePlaceService
+<head>
     <link href="css/Festival/NewYear2023/NewYear2023_Rank.css" rel="stylesheet" />  
 </head>
 
@@ -20,19 +28,52 @@
 
             @*下拉選擇排名日期*@
             <div class="select_bg">
-                <div class="select-container"></div>
+                <div class="select-container">
+                    <select @onchange="@(async (e)=>{await changeSelect( int.Parse(e.Value.ToString()) );})">
+                        @if (nowOptionData != null )
+                        {                           
+                           @foreach(var item in nowOptionData){
+                                <option value="@item.station">@item.innerHTML </option>
+                           } 
+                        }
+                    </select>
+                </div>
             </div>
             @*顯示排名*@
             <div class="rank-content">
                 <div class="rank-date">
                     @* <p >Qualification Date：5/29~5/28</p> *@
                     <div class="top3-container">
-                        @*rank1*@
-                        <div class="rank1"></div>
-                        @*rank2*@
-                        <div class="rank2"></div>
-                        @*rank3*@
-                        <div class="rank3"></div>
+                        @if (rankList != null )
+                        {
+                            @foreach(var item in rankList)
+                            {
+                                <div class="rank@(item.Place)"> 
+                                    <span>
+                                        @item.WinnerName 
+                                    </span>
+                                </div>
+                            }
+
+                            @if (rankList?.Count == 0)
+                            {
+                                <div class="Ranking-ComingSoon">
+                                    <span data-i18n="WarmUpActivities_data:ranking.ComingSoon">Coming Soon</span>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            
+                            <div class="Ranking-ComingSoon">
+                                <span data-i18n="WarmUpActivities_data:ranking.ComingSoon">Coming Soon</span>
+                            </div>
+                        }
+
+                      
+                        @*<div class="rank2"></div>
+                     
+                        <div class="rank3"></div>*@
                     </div>
                 </div>
                 
@@ -51,8 +92,58 @@
         Squad=2
     }
     int RankType =1;
-    private void toggleRankType( int value)
+    private async void toggleRankType( int value)
     {
         RankType = value;
+        nowOptionData = value == 1 ? soloOptionData : squadOptionData;
+        await changeSelect(1);
+    }
+
+    List<AsiaLeagueSchedule> Schedules;
+    protected override async Task OnInitializedAsync()
+    {
+        Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.NewYear2023);
+        await optionDateList();
+        await changeSelect(1);
+    }
+
+    private async Task optionDateList()
+    {       
+        List<AsiaLeagueSchedule> soloEndDay = Schedules.Where(w => w.IndFinalType == 0).ToList();
+        List<AsiaLeagueSchedule> squadEndDay = Schedules.Where(w => w.GuildFinalType == 1).ToList();
+
+        foreach(var item in soloEndDay)
+        {
+            OptionDTO soloOption = new OptionDTO();
+            soloOption.innerHTML = "Solo #" + item.IndStation.ToString() + " " + item.Date.ToString("yyyy/MM/dd");
+            soloOption.station = item.IndStation.ToString();
+            soloOptionData.Add(soloOption);
+        }
+
+        foreach(var item in squadEndDay)
+        {
+            OptionDTO squadOption = new OptionDTO();
+            squadOption.innerHTML = "Squad #" + item.GuildStation.ToString() + " " + item.Date.ToString("yyyy/MM/dd");
+            squadOption.station = item.GuildStation.ToString();
+            squadOptionData.Add(squadOption);
+        }
+        nowOptionData = soloOptionData;
+
+    }
+    List<OptionDTO> soloOptionData  = new List<OptionDTO>();
+    List<OptionDTO> squadOptionData  = new List<OptionDTO>();
+    List<OptionDTO> nowOptionData;
+    List<AsiaLeaguePlace> rankList;
+    public class OptionDTO
+    {
+        public string innerHTML = "";
+        public string station = "";
+    }
+
+    public async Task changeSelect( int value)
+    {
+        bool RankOptionIsGuild = RankType == 2 ?true: false ;      
+        rankList  = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesByIsGuildAndStation(AsiaLeagueSeasons.NewYear2023 ,RankOptionIsGuild , value );
+        InvokeAsync(StateHasChanged);
     }
 }
