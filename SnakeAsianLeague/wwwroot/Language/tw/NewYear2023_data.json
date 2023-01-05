@@ -1,0 +1,24 @@
+{
+    "eventBanner": {
+        "nav-01":"賽季內容",
+        "nav-02":"規則",
+        "nav-03":"獎勵",
+        "nav-04":"排名",
+        "nav-05":"時程",
+        "nav-06":"參賽須知"
+    },
+
+    "about": {
+        "title":"- 賽季內容 -",
+        "title-02":"註冊並且報名立即獲得報名費10",
+        "solo-name":"福星組",
+        "solo":"(個人)",
+        "registration-time":"報名時間：",
+        "event-date":"活動時間：",
+        "registration-fee":"報名費用：",
+        "squad-name":"福氣滿貫組",
+        "squad":"(隊伍)",
+        "ticket-award":"ticket-award-TW",
+        "registration-rewards":"註冊<br>獎勵"
+    }
+}

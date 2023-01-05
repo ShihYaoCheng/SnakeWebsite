@@ -20,6 +20,7 @@
     background-size: cover;
     /* height: 500px; */
     padding: 90px 0 40px;
+    margin-top: 70px;
 }
 
 .ticket{
@@ -90,12 +91,26 @@
     letter-spacing: 1px;
     position: absolute;
     top: 3.5%;
-    right: 9.5%;
-
+    right: 6.3%;
+    text-align: center;
+    /* transform: translateX(-50%); */
+    font-size: 17px;
+}
+.ticket-award-TW{
+    color: #191815;
+    display: inline-flex;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 3.7%;
+    right: 9.4%;
+    text-align: center;
+    /* transform: translateX(-50%); */
+    font-size: 18px;
 }
 .ticket-type-05{
-    font-size: 18px;
+
     line-height: 23px;
+
 }
 @media all and (max-width: 1000px) {
     .ticket-type{
@@ -123,14 +138,18 @@
     }
     .ticket-award{
         top: 4.3%;
-        right: 9.3%;
+        right: 6.6%;
+        font-size: 13px;
     }
     .ticket-type-05 {
-        font-size: 15px;
+
         line-height: 19px;
     }
 }
 @media all and (max-width: 800px) {
+    .ticket-block{
+        margin-top: 50px;
+    }
     .NewYear2023_About{
         padding: 60px 0 70px;
     }
@@ -162,12 +181,18 @@
         line-height: 18px;
     }
     .ticket-award{
-        top: 3.5%;
-        right: 9.3%;
+        top: 3.3%;
+        right: 6%;
+        font-size: 12px;
+    }
+    .ticket-award-TW{
+        font-size: 13px;
+        right: 8.9%;
+        top: 2.7%;
     }
     .ticket-type-05 {
-        font-size: 13px;
-        line-height: 16px;
+
+        line-height: 15px;
     }
 }
 #ticket-block-mobile{
@@ -188,6 +213,7 @@
     left: 0;
 }
 .ticket-type-mobile{
+    width: 100%;
     position: absolute;
     color: #f3e9d2;
     display: inline-flex;
@@ -235,9 +261,10 @@
     display: inline-flex;
     letter-spacing: 1px;
     position: absolute;
-    top: 73.5%;
+    top: 73.2%;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
 }
 .ticket-type-05-mobile {
     font-size: 16px;

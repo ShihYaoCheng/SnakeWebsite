@@ -85,6 +85,9 @@
 }
 
 @media all and (max-width: 576px) {
+    .NewYear2023_Rank_container{
+        padding: 30px 0 50px;
+    }
     .Bottom_Plate {
         height:102px;
     }
