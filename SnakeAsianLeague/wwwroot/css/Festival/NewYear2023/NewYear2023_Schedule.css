@@ -1694,6 +1694,48 @@ A VERTICAL event
     background: #e0a15e;
     box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 1);
 }
+.Schedule-type-block{
+    /* border: 1px solid red; */
+    width: 80%;
+    margin: 50px auto;
+    background-color: #191919ab;
+    padding: 20px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.Schedule-type{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.type-line{
+    width: 80px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+#type-line-solo{
+    border-color: #6f1217;
+    background: radial-gradient(ellipse at center,#8a1822,#6f1217);
+}
+#type-line-Squad{
+    border-color: #db6527;
+    background: radial-gradient(ellipse at center,#fe8831,#db6527);
+}
+#type-line-finals{
+    background-color: rgb(199, 182, 154);
+    /* background-image: url(/images/AsiaChampionsLeague/S3/Calender/CalenderFinal Icon.webp) */
+}
+.type-line-text{
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
 
 .Schedule-BG {
     background: #fff;
