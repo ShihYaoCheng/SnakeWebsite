@@ -52,6 +52,24 @@
         "title":"- 獎勵 -",
         "title-02":"總獎勵 55,500 gERNC！",
         "reward-solo":"福星組 - 個人賽",
-        "reward-squad":"福星滿貫組 - 隊伍賽"
+        "reward-solo-img":"/images/Festival/NewYear2023/reward/reward-solo-CN.png",
+        "reward-squad":"福星滿貫組 - 隊伍賽",
+        "reward-squad-img":"/images/sFestival/NewYear2023/reward/reward-squad-CN.png"
+
+    },
+
+    "ranking": {
+        "title":"- 排名 -",
+        "solo":"個人",
+        "squad":"隊伍"
+    },
+
+    "schedule": {
+        "title":"- 時程 -"
+    },
+
+
+    "notice": {
+        "title":"- 參賽須知 -"
     }
 }
