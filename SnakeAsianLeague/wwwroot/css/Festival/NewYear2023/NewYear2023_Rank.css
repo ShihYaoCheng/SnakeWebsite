@@ -145,23 +145,55 @@
     height: 39px;
     background: url("/images/Festival/NewYear2023/rank/select_container.png");
     background-repeat: round;
+    display:flex;
+    justify-content:start;
+    align-items:center;
+    padding-left:25px;
+}
+
+.select-container select {
+     /*移除箭頭樣式*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    background: url("/images/Festival/NewYear2023/select-arrow.png") no-repeat right center transparent;
+
+    border: 0;
+    color: #330d0f;
+    font-weight:500;
+    width:180px;
 }
 
 @media all and (max-width: 1000px) {
     .select-container {
-        width: 206px;
-        height: 25.35px;
+        width: 250px;
+        height: 30px;
+        padding-left: 5px;
+    }
+    .select-container select { 
+        font-weight: 300;
+        width: 150px;
+        font-size:10px;
     }
 }
 
 @media all and (max-width: 768px) {
     .select_bg {
         height: 90px;
-
+        padding: 12px 8px;
     }
+}
+
+@media all and (max-width: 576px) {
     .select-container {
-        width: 154px;
-        height: 19px;
+        width: 230px;
+        height: 26px;  
+    }
+
+    .select-container select {
+        font-weight: 300;
+        width: 140px;
+        font-size: 10px;
     }
 }
 
@@ -199,6 +231,7 @@
     background: url("/images/Festival/NewYear2023/rank/rank1.png");
     background-repeat: round;
     margin-bottom:20px;
+    position:relative;
 }
 .rank2 {
     width: 764px;
@@ -206,6 +239,7 @@
     background: url("/images/Festival/NewYear2023/rank/rank2.png");
     background-repeat: round;
     margin-bottom: 20px;
+    position: relative;
 }
 .rank3 {
     width: 740px;
@@ -213,6 +247,13 @@
     background: url("/images/Festival/NewYear2023/rank/rank3.png");
     background-repeat: round;
     margin-bottom: 20px;
+    position: relative;
+}
+.rank1 span, .rank2 span ,.rank3 span{
+     position: absolute;
+     transform:translate(-50%,-50%);
+     top:50%;
+     left:60%;
 }
 
 
@@ -292,5 +333,28 @@
         width: 277px;
         height: 40px;
         margin-bottom: 12px;
+    }
+}
+.Ranking-ComingSoon {
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dbd8d830;
+    border-radius: 15px;
+}
+
+.Ranking-ComingSoon span {
+    color: rgba(69, 27, 27, 0.85);
+    letter-spacing: 2px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+@media all and (max-width: 600px) {
+    .Ranking-ComingSoon span {
+        font-size: 18px;
     }
 }
