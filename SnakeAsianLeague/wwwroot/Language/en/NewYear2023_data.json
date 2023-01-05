@@ -20,5 +20,38 @@
         "squad":"(squad)",
         "ticket-award":"ticket-award",
         "registration-rewards":"Registration<br>Rewards"
+    },
+
+    "rules": {
+        "title":"- Rules -",
+        "content-title-01":"1. Game Rules :",
+        "content-01-01":"(1) Solo and Squad groups will receive tickets every qualification match cycle and enter the battle to accumulate points during 00:00-23:59.",
+        "content-01-02":"(2) Each battle costs one ticket, every win adds 1 point to your score, you won't lose any of it if you lose.",
+        "content-01-03":"(3) You can purchase 1 extra ticket each cycle.",
+        "content-title-02":"2. Battle :",
+        "content-02-01":"(1) Within 3 minutes, the side with the most number of defeats will be the winner. If they gain the same score, the game continues until one side gains one more point first.",
+        "content-02-02":"(2) The players will be separated into red and blue teams.  The solo group will be 1V7, and the Squad group will be 4V4.",
+        "content-title-03":"3. Solo Match :",
+        "content-03-01":"(1) 20 tickets will be distributed in each cycle, and the tickets can be accumulated.",
+        "content-03-02":"(2) The final match threshold is Top Eight that has the highest point, and each one should earn more than 10 points.",
+        "content-title-04":"4.Squad Match :",
+        "content-04-01":"(1) Each team can have up to 5 members. The captain will receive 100 tickets every cycle and can ration them to the team members.",
+        "content-04-02":"(2) If a team member leaves the team, all the tickets will return to the captain.",
+        "content-04-03":"(3) The final match threshold is Top Eight which has the highest point, and each one should earn more than 50 points.",
+        "content-title-05":"5. Finals :",
+        "content-05-01":"(1) The final includes 3 rounds.",
+        "content-05-02":"(2) The second round will select the final three players.",
+        "content-05-03":"(2) The second round will select the final three players.",
+        "content-05-04":"(2) The last round will decide the First, second, third place player.",
+        "content-title-06":"6. Rider :",
+        "content-06-01":"(1) Free riders or snakes will not be allowed to participate in Asian Champion League's Battle.",
+        "content-06-02":"(2) The player must own or rent an NFT (Riders or Snakes) to join in the battle."
+    },
+
+    "reward": {
+        "title":"- Reward -",
+        "title-02":"Total Grand 55,500 gERNC!",
+        "reward-solo":"Lucky Star - Solo",
+        "reward-squad":"Lucky Slam - Squad"
     }
 }
