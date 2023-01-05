@@ -54,7 +54,7 @@
         "reward-solo":"福星組 - 個人賽",
         "reward-solo-img":"/images/Festival/NewYear2023/reward/reward-solo-CN.png",
         "reward-squad":"福星滿貫組 - 隊伍賽",
-        "reward-squad-img":"/images/sFestival/NewYear2023/reward/reward-squad-CN.png"
+        "reward-squad-img":"/images/Festival/NewYear2023/reward/reward-squad-CN-01.png"
 
     },
 
@@ -65,7 +65,10 @@
     },
 
     "schedule": {
-        "title":"- 時程 -"
+        "title":"- 時程 -",
+        "schedule-type-01":"個人賽",
+        "schedule-type-02":"隊伍賽",
+        "schedule-type-03":"決賽"
     },
 
 

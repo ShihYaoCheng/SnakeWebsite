@@ -108,10 +108,18 @@
     font-size: 18px;
 }
 .ticket-type-05{
-
     line-height: 23px;
-
 }
+
+.ticket-SRC{
+    position: absolute;
+    max-width: 90px;
+    width: 9%;
+    top: 26.2%;
+    right: 7%;
+}
+
+
 @media all and (max-width: 1000px) {
     .ticket-type{
         top: 57%;
@@ -270,6 +278,15 @@
     font-size: 16px;
     line-height: 20px;
 }
+.ticket-SRC-mobile{
+    position: absolute;
+    max-width: 90px;
+    width: 350%;
+    transform: translateX(-50%);
+    top: 81.7%;
+    left: 50%;
+}
+
 @media all and (max-width: 600px){
     #ticket-block-web{
         display: none;
