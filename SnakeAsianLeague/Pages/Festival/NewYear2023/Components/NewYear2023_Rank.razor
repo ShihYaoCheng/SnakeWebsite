@@ -4,6 +4,7 @@
 @using System.Text.Json;
 @using Newtonsoft.Json;
 
+@inject IJSRuntime JS
 @inject AsiaLeagueScheduleService AsiaLeagueScheduleService
 @inject AsiaLeaguePlaceService AsiaLeaguePlaceService
 <head>
@@ -33,7 +34,7 @@
                         @if (nowOptionData != null )
                         {                           
                            @foreach(var item in nowOptionData){
-                                <option value="@item.station">@item.innerHTML </option>
+                                <option value="@item.station"><span data-i18n="NewYear2023_data:@item.i18n"></span> @item.innerHTML </option>
                            } 
                         }
                     </select>
@@ -106,6 +107,14 @@
         await optionDateList();
         await changeSelect(1);
     }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+           
+        }
+        await JS.InvokeVoidAsync("installI18n");
+    }
 
     private async Task optionDateList()
     {       
@@ -115,7 +124,8 @@
         foreach(var item in soloEndDay)
         {
             OptionDTO soloOption = new OptionDTO();
-            soloOption.innerHTML = "Solo #" + item.IndStation.ToString() + " " + item.Date.ToString("yyyy/MM/dd");
+            soloOption.i18n = "ranking.solo";
+            soloOption.innerHTML = " #" + item.IndStation.ToString() + " " + item.Date.ToString("yyyy/MM/dd");
             soloOption.station = item.IndStation.ToString();
             soloOptionData.Add(soloOption);
         }
@@ -123,7 +133,8 @@
         foreach(var item in squadEndDay)
         {
             OptionDTO squadOption = new OptionDTO();
-            squadOption.innerHTML = "Squad #" + item.GuildStation.ToString() + " " + item.Date.ToString("yyyy/MM/dd");
+            squadOption.i18n = "ranking.squad";
+            squadOption.innerHTML = " #" + item.GuildStation.ToString() + " " + item.Date.ToString("yyyy/MM/dd");
             squadOption.station = item.GuildStation.ToString();
             squadOptionData.Add(squadOption);
         }
@@ -136,6 +147,7 @@
     List<AsiaLeaguePlace> rankList;
     public class OptionDTO
     {
+        public string i18n = "";
         public string innerHTML = "";
         public string station = "";
     }

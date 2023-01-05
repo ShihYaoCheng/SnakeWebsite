@@ -69,7 +69,7 @@
 
         }
         var json = JsonConvert.SerializeObject(_NewYear2023Schedule);
-        await JS.InvokeVoidAsync("NewYear2023Schedule" ,json);
+        await JS.InvokeVoidAsync("NewYear2023Schedule" ,json ,AppState.NowLanguage.ToString());
         //await reloadCalendar(); 
     }
     private async Task arrangeSchedules()
@@ -78,7 +78,7 @@
         List<AsiaLeagueSchedule> soloEndDay = Schedules.Where(w => w.IndFinalType == 0).ToList();
         List<AsiaLeagueSchedule> squadStartDay = Schedules.Where(w => w.GuildATIssue == 4).ToList();
         List<AsiaLeagueSchedule> squadEndDay = Schedules.Where(w => w.GuildFinalType == 1).ToList();
-        
+
         //個人
         var index = 0;                
         foreach (var item in soloStartDay)
@@ -92,7 +92,9 @@
 
             //決賽
             ToJsListType ToJsListTypeFinal = new ToJsListType();
-            ToJsListTypeFinal.title ="福星組單人#"+item.IndStation+"決賽";
+            ToJsListTypeFinal.i18n =new List<string>() { "福星組單人#","Lucky Star#" };
+            ToJsListTypeFinal.i18nFinal =new List<string>() { "決賽","Final" };
+            ToJsListTypeFinal.title =item.IndStation.ToString();
             ToJsListTypeFinal.start = soloEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
             ToJsListTypeFinal.end = "";
             ToJsListTypeFinal.classNames[0]= "Final";
@@ -113,7 +115,9 @@
 
             //決賽
             ToJsListType ToJsListTypeFinal = new ToJsListType();
-            ToJsListTypeFinal.title ="福星滿貫組隊伍#"+item.GuildStation+"決賽";
+            ToJsListTypeFinal.i18n =new List<string>() { "福星滿貫組隊伍#","Lucky Slam#" };
+            ToJsListTypeFinal.i18nFinal =new List<string>() { "決賽","Final" };
+            ToJsListTypeFinal.title =item.GuildStation.ToString();
             ToJsListTypeFinal.start = squadEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
             ToJsListTypeFinal.end = "";
             ToJsListTypeFinal.classNames[0]= "Final";
@@ -128,6 +132,8 @@
         public string start;
         public string end;
         public string groupId="";
+        public List<string> i18n=new List<string>() { "","" };
+        public List<string> i18nFinal=new List<string>() { "","" };
         public List<string> classNames = new List<string>() { "" };
     }
     //public async Task reloadCalendar()
