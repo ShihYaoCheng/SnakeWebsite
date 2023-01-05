@@ -1020,7 +1020,7 @@ A HORIZONTAL event
 
     .fc-daygrid-dot-event:hover,
     .fc-daygrid-dot-event.fc-event-mirror {
-        background: rgba(0, 0, 0, 0.1);
+        
     }
 
     .fc-daygrid-dot-event.fc-event-selected:before {
@@ -1774,13 +1774,13 @@ A VERTICAL event
 /*決賽格子*/
     .Final .fc-event-title {
         color: #000 !important;
-        font-size: 18px !important;
+        font-size: 14px !important;
         text-align: center !important;
         line-height: normal !important;
         font-style: normal !important;
         height: 100% !important;
+        white-space: break-spaces;
         
-        word-wrap: break-word;
     }
 
 @media (max-width: 768px) {
