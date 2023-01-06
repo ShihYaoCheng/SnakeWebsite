@@ -403,7 +403,7 @@ html{
 
 .my_match_block{
     max-width: 1000px;
-    /* width: 90%; */
+    width: 100%;
     /* background-color: #67ADA1; */
     background-image: linear-gradient(to right,#67ada1e0 0% ,#8dbbb3e6 50%, #67ada1e8 100%);
     border-radius: 25px;
@@ -414,7 +414,7 @@ html{
     padding: 50px 20px;
     box-shadow: 1px 1px 15px 1px rgb(36 36 36 / 27%) inset, 3px 3px 14px 3px rgb(54 54 54 / 26%);
     text-shadow: 3px 2px 7px #00000045;
-    margin: 0 20px;
+    margin: 0 auto;
 }
 
 .match_inner{

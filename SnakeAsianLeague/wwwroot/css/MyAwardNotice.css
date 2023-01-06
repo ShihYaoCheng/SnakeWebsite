@@ -89,7 +89,7 @@
     text-shadow: 2px 2px 5px #24242431;
 }
 .myAwardNotice_block{
-    margin: 0 20px;
+    margin: 0 auto;
 }
 
 @media all and (max-width: 800px){
