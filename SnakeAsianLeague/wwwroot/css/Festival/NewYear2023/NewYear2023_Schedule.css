@@ -1886,6 +1886,7 @@ A VERTICAL event
         -webkit-line-clamp: 2;
         box-sizing: border-box;
         height: auto !important;
+        line-height: 14px !important;
     }
 
 }
@@ -2019,10 +2020,10 @@ A VERTICAL event
 @media (max-width: 600px) {
     .fc-theme-standard td {
         border: 0 !important;
-        padding: 0 5px 5px 0 !important;
+        padding: 0 3px 3px 0 !important;
     }
     .fc-theme-standard td:first-child {
-        padding-left: 5px !important;
+        padding-left: 3px !important;
     }
 
     .fc-theme-standard td:last-child {
