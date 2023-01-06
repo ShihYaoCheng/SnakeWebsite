@@ -34,9 +34,9 @@
     /* border: 1px solid red; */
     color: #488392;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 24px;
     margin: 20px 60px 20px 0;
-    line-height: 32px;
+    line-height: 28px;
 }
 ul.accountManagementUl{
     /* border: 1px solid red; */
@@ -52,7 +52,7 @@ ul.accountManagementUl a{
     padding: 11px 30px;
     width: 100%;
     transition: all .15s ease-in-out;
-    font-size: 22px;
+    font-size: 18px;
     white-space: nowrap;
     margin: 5px 0;
 }

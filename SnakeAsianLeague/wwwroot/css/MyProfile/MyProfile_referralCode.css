@@ -31,14 +31,16 @@
     background: #69aca2;
     border-radius: 25px;
     overflow: hidden;
+    
 }
 
 .referralCode-container h3 {
     width: 100%;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     background: #27616f;
     color:#fff;
+    font-size: 24px;
 }
 
 .referralCode-content {  
@@ -59,6 +61,8 @@
 
 .referralCode-img img{
     width: 65%;
+    border: 6px solid #27616f;
+    border-radius: 10px;
 }
 .referralCode-text {
     width: 69%;
@@ -83,8 +87,11 @@
 }
 
 @media all and (max-width: 500px) {
+    .referralCode-container h3{
+        font-size: 20px;
+    }
     .referralCode-content {
-        padding: 20px;
+        padding: 10px;
     }
     .referralCode-img {
         width: 50%;
@@ -103,7 +110,7 @@
 .playerInfoRow {
     display: flex;
     color: #67AEA2;
-    font-size: 26px;
+    font-size: 22px;
     margin-bottom: 15px;
     flex-wrap: wrap;
     white-space: nowrap;
@@ -119,10 +126,10 @@
 .playerInfoRowTitle {
     /* border: 1px solid red; */
     width: 40%;
-    font-size: 24px;
+    font-size: 22px;
     background-color: #1c4c58;
     border-radius: 10px;
-    padding: 0px 30px 1px;
+    padding: 3px 30px 1px;
     max-width: 160px;
     text-align: center;
     white-space: nowrap;
@@ -130,33 +137,33 @@
 }
 
 .copyButton {
-    font-size: 22px;
-    border-radius: 50px;
+    font-size: 18px;
+    border-radius: 15px;
     color: #fff;
     background-color: #1c3d53bf;
     box-shadow: 2px 2px 8px #2761709c;
-    border:1px solid #fff;
-    padding: 0 30px;
+    border: 2px solid #69aca2;
+    padding: 0 20px;
     
     position:absolute;
     right:2%;
 }
 
 .playerInfoRowShow {
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 @media all and (max-width: 800px) {
 
     .playerInfoRow {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .playerInfoRowTitle {
-        font-size: 22px;
+        font-size: 20px;
     }
     .copyButton {
-        font-size: 20px;
+        font-size: 16px;
         padding: 0 22px;
     }
 }
@@ -171,14 +178,14 @@
         border-radius: 7px;
     }
     .playerInfoRowShow {
-        padding-left: 10px;
-        font-size: 19px;
+        padding-left: 0px;
+        font-size: 18px;
     }
     .playerInfoRow {
         padding: 5px 4px 4px 5px;
     }
     .copyButton {
-        font-size: 16px;
+        font-size: 14px;
         padding: 0 16px;
     }
 }
@@ -194,24 +201,24 @@
 .referralCode-button {
     display:flex;
     justify-content:flex-end;
-    margin-top:20px;
+    /* margin-top:20px; */
 }
 
 .editButton {
     white-space: nowrap;
     background-color: #1c3d53bf;
-    font-size: 22px;
+    font-size: 20px;
     border-radius: 50px;
     color: #fff;
     cursor: pointer;
     box-shadow: 2px 2px 8px #2761709c;
-    margin: 15px 20px;
+    margin: 10px 20px;
     transition: all .15s ease-in-out;
     position: relative;
     display: flex;
     align-items: center;
     border: none;
-    padding: 15px 15px 15px 15px;
+    padding: 10px 15px 10px 15px;
   
 }
 
@@ -248,8 +255,8 @@
     }
 
     .editButton {
-        font-size: 18px;    
-        padding: 12px;
+        font-size: 16px;    
+        padding: 8px 12px;
     }
 }
 /*複製連結*/

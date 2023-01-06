@@ -169,7 +169,7 @@ html{
 .editButton {
     white-space: nowrap;
     background-color: #1c3d53bf;
-    font-size: 22px;
+    font-size: 20px;
     border-radius: 50px;
     color: #69ada2;
     cursor: pointer;
@@ -191,7 +191,7 @@ html{
 #editButton{
     white-space: nowrap;
     background-color: #1c3d53bf;
-    font-size: 22px;
+    font-size: 20px;
     border-radius: 50px;
     color: #69ada2;
     cursor: pointer;
@@ -233,7 +233,7 @@ html{
 .playerNickname{
     color: #1D4D5A;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 30px;
     margin: 12px 0;
     line-height: 36px;
 }
@@ -241,7 +241,7 @@ html{
 .playerInfoRow{
     display: flex;
     color: #67AEA2;
-    font-size: 26px;
+    font-size: 22px;
     margin-bottom: 15px;
     flex-wrap: wrap;
     white-space: nowrap;
@@ -256,13 +256,14 @@ html{
 .playerInfoRowTitle{
     /* border: 1px solid red; */
     width: 40%;
-    font-size: 24px;
+    font-size: 22px;
     background-color: #1c4c58;
     border-radius: 10px;
-    padding: 0px 30px 1px;
+    padding: 3px 30px 4px;
     max-width: 160px;
     text-align: center;
     white-space: nowrap;
+    margin-right: 15px;
 }
 
 .playerInfo-container {
@@ -270,6 +271,7 @@ html{
     justify-content: space-between;
     align-items: center;
     max-width: 650px;
+    margin-bottom: 15px;
 }
 
 .playerInfo-container input {
@@ -375,23 +377,23 @@ html{
         height: 35px;
     }
     .playerNickname {
-        font-size: 30px;
+        font-size: 28px;
         margin: 10px 0;
     }
     .playerInfoRow{
-        font-size: 24px;
+        font-size: 20px;
     }
     .playerInfoRowTitle{
-        font-size: 22px;
+        font-size: 20px;
     }
     .editButton {
-        font-size: 20px;
+        font-size: 18px;
     }
     .editButton img {
         height: 25px;        
     }
     #editButton,.btnMetamask{
-        font-size: 20px;
+        font-size: 18px;
     }
     #editButton img ,.btnMetamask img{
         width: 37px;
@@ -419,6 +421,7 @@ html{
     }
     .editButton {
         font-size: 16px;
+        padding: 3px 15px 3px 5px;
     }
     .editButton img {
         height: 22px;
@@ -430,10 +433,10 @@ html{
         font-size: 16px;
     }
     #editButton span {
-        margin: 5px 15px 4px 35px;
+        margin: 3px 15px 3px 35px;
     }
     .playerNickname {
-        font-size: 26px;
+        font-size: 20px;
         margin: 5px 0 5px 3px;
     }
     .playerInfoRowTitle {
@@ -457,6 +460,9 @@ html{
         width: 50%;
         padding: 0 0 0 5px;
     }
+    .personalBlock{
+        padding: 20px 0;
+    }
 }
 
 @media all and (max-width: 500px){
@@ -467,13 +473,13 @@ html{
     }
     .personalBlock{
         width: 100%;
-        padding: 20px 25px 0;
+        padding: 20px 10px 0;
         flex-direction: row;
         align-items: flex-end;
     }
     .personalInformation{
         width: 100%;
-        padding: 0px 25px 20px;
+        padding: 0px 10px 20px;
     } 
 
     .editButton img {
@@ -495,10 +501,10 @@ html{
         width: 36%;
     }
     .btnMetamask span {
-        margin: 6px 40px 5px 25px;
+        margin: 4px 40px 3px 25px;
     }
     #editButton, .btnMetamask {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 .copyTip{
@@ -681,7 +687,7 @@ html{
         font-size: 20px;
     }
     .assetValue {
-        font-size: 25px;
+        font-size: 20px;
         padding: 7px;
     }
     .myprofileLogin h1{
