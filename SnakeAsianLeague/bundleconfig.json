@@ -57,7 +57,7 @@
       "wwwroot/JavaScript/Popup.js",
       "wwwroot/JavaScript/NethereumMetamask.js",
       "wwwroot/JavaScript/ACLIndex/S3Calendar.js",
-    
+      "wwwroot/JavaScript/Festival/NewYear2023/NewYear2023Schedule.js",
       "wwwroot/JavaScript/Battle/BattleCarousel.js"
     ],
     "minify": {
