@@ -396,6 +396,7 @@
     {        
         if (firstRender)
         {
+            await JS.InvokeVoidAsync("signUpMobile");
             await BlockChainSever.GetBlockChainInfoDTO();
             NFTindexBannerJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NFTindex/NFTindexBanner.js");
             countryCodeJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ohterCtrl/countryCode.js");
