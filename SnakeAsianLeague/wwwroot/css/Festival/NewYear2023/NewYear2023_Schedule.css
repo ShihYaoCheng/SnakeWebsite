@@ -326,6 +326,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 .fc .fc-toolbar-title {
     font-size: 1.75em;
     margin: 0;
+    text-align: center;
 }
 
 .fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
@@ -1744,7 +1745,7 @@ A VERTICAL event
 .Schedule-BG {
     background: #fff;
     width: 800px;
-    height: 820px;
+    height: 810px;
     margin: 40px auto 0;
 }
 
@@ -1973,7 +1974,7 @@ A VERTICAL event
 
 @media (max-width: 600px) {
     .fc-col-header-cell-cushion {
-        font-size: 16.16px !important;
+        font-size: 14px !important;
     }
 }
 
@@ -2025,7 +2026,7 @@ A VERTICAL event
     }
 
     .fc-theme-standard td:last-child {
-        padding-left: 0px !important;
+        /* padding-left: 0px !important; */
     }
 }
 
