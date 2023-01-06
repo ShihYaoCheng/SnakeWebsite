@@ -23,148 +23,151 @@
 
 
 
-<div class="SignUp-Page" id="register_wrap">
 
-    @* <section class="@(displayForm? "" : "d-none") products-popup-bg products-popup-open "
-        id="products-popupblock-Name"> *@
-    <section class="SignUp-Block-BG ">
-        <div class="SignUp-Block">
+    <div class="SignUp-Page" id="register_wrap">
 
-
-            <div class="SignUp-popup-title" data-i18n="Home_data:register.title">Register Account</div>
-
-            @* <EditForm Model="@RegisterDTO" class="window_input_block"> *@
-            @* <DataAnnotationsValidator />
-                <ValidationSummary /> *@
-
-            <div class="SignUp-popup-content">
-
-                <div class="SignUp-avatar">
-                    <img src="/images/Shared/SignUp/avatar.png" alt="">
-                </div>
-
-                <div class="SignUp-popup-scroll">
-
-                <div class="popup-low">
-                    <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.phoneNumber">Phone Number</label>
-
-                    <div class="SignUp-input-row">
-                        @*<input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode" @bind="CountryCode">*@
-                        
-                        <select @bind="CountryCode" class="SignUp-inputText " id="SignUpSelectText" >
-                            @*<option value="+886"  data-i18n="countryCode_data:country_code.AE"></option>*@
-                            
-                        </select> 
-
-                        <input @bind="PhoneNum" type="text" class="SignUp-inputText" id="PhoneNum" name="PhoneNum" data-i18n="[placeholder]Home_data:register.inputPhoneNumber;[data-content]Home_data:register.tippy" placeholder="Phone Number">
-                        
-                    </div>
-                </div>
+        @* <section class="@(displayForm? "" : "d-none") products-popup-bg products-popup-open "
+            id="products-popupblock-Name"> *@
+        <section class="SignUp-Block-BG ">
+            <div class="SignUp-Block">
 
 
-                    <div class="popup-low">
-                        
+                <div class="SignUp-popup-title" data-i18n="Home_data:register.title">Register Account</div>
 
-                        <label class="popup-label" for="name"
-                            data-i18n="Home_data:register.verifyCode">VerifyCode 
-                            @* <span class="verifyCodeText" data-i18n="Home_data:register.verifyCodeText">(Enter the 4-digit verify code)</span> *@
-                        </label>
-
-                        <div class="SignUp-input-row">
-                            <input class="SignUp-inputText" id="" type="text"
-                                @bind-value="RegisterDTO.VerifyCode" placeholder="4-digit verify code"  data-i18n="[placeholder]Home_data:register.verifyCodeText">
-                            <div class="TimeLeft">
-                                    <button  hidden="@(sendVerifyCodehidden)" class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
-                                    data-i18n="Home_data:register.sendVerifyCode">Send VerifyCode</button>
-                                    <div hidden="@(!sendVerifyCodehidden)"  class="TimeLeft-Resend">
-                                        <button class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
-                                        data-i18n="Home_data:register.resendVerifyCode">Resend VerifyCode</button>
-                                        <span class="TimeLeft-countdown"> @TimeLeft.ToString("mm"):@TimeLeft.ToString("ss")</span>
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="if-No-VerifyCode">
-                            <span data-i18n="Home_data:register.if-No-VerifyCode">- If not receive the digital code, please contact us on</span>
-                            <a href="https://www.facebook.com/PonponSnake" target="_blank" data-i18n="Home_data:register.facebook"> Facebook</a>
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="popup-low">
-                        <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.password">Password</label>
-                        <input class="SignUp-inputText" id="RegisterPassword" type="text"
-                            @bind-value="RegisterDTO.Password" placeholder="Minimum of 6 characters, maximum of 10" data-i18n="[placeholder]Home_data:register.passwordText">
-                    </div>
-
-                    <div class="popup-low">
-                        <label class="popup-label" for="passwordcheck" data-i18n="Home_data:register.confirmPassword">Confirm
-                            Password</label>
-                        <input class="SignUp-inputText" id="passwordcheck" type="text"
-                            @bind-value="PasswordCheck" placeholder="">
-                    </div>
-
-                    <div class="popup-low">
-                        <label class="popup-label" for="InvitationCode" data-i18n="Home_data:register.InvitationCode">
-                            Invitation Code</label>
-                        <input class="SignUp-inputText" id="InvitationCode" type="text" @bind-value=@Code
-                             placeholder="No invitation code, leave the field blank."  data-i18n="[placeholder]Home_data:register.InvitationCodeText">
-                    </div>
-
-
-
-                    <div class="products-popup-error">@ErrorString</div>
-
-                    <button class="products-popup-submit button-hover" type="submit" @onclick="RegisterSubmit"
-                        data-i18n="Home_data:register.registerButton">Sign Up</button>
-
-                </div>
-            </div>
-
-            @* </EditForm> *@    
-            
-        </div>
-    </section>
-
-
-
-    @* 送出成功/失敗 彈窗 *@
-
-    <section class="@(displayAlert? "" : "d-none") products-popup-bg  products-popup-open "
-        id="products-popupblock-result">
-        <div class="products-popupblock">
-
-            <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25"
-                @onclick="AlertCancel">
-                <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z"
-                    transform="translate(2.5 2.5)" fill="none" stroke="#fff" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="5" />
-            </svg>
-
-            <div class="SignUp-popup-title" data-i18n="Home_data:registerAlert.@AlertTitleDatai18n">
-                
-            </div>
-
-            <EditForm Model="@RegisterDTO" class="window_input_block">
-
+                @* <EditForm Model="@RegisterDTO" class="window_input_block"> *@
+                @* <DataAnnotationsValidator />
+                    <ValidationSummary /> *@
 
                 <div class="SignUp-popup-content">
 
-                    @* 這裡待處理 *@
-                    <div class="SignUp-popup-text" data-i18n="Home_data:registerAlert.@AlertContentDatai18n"></div>
-                    <button class="products-popup-submit button-hover" type="submit" @onclick="AlertCancel"
-                        data-i18n="Home_data:register.close">Close</button>
+                    <div class="SignUp-avatar">
+                        <img src="/images/Shared/SignUp/avatar.png" alt="">
+                    </div>
+
+                    <div class="SignUp-popup-scroll">
+
+                    <div class="popup-low">
+                        <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.phoneNumber">Phone Number</label>
+
+                        <div class="SignUp-input-row">
+                            @*<input type="text" class="SignUp-inputText" id="CountryCode" name="CountryCode" placeholder="+886" data-i18n="[data-content]Home_data:register.countryCode" @bind="CountryCode">*@
+                        
+                            <select @bind="CountryCode" class="SignUp-inputText " id="SignUpSelectText" >
+                                @*<option value="+886"  data-i18n="countryCode_data:country_code.AE"></option>*@
+                            
+                            </select> 
+
+                            <input @bind="PhoneNum" type="text" class="SignUp-inputText" id="PhoneNum" name="PhoneNum" data-i18n="[placeholder]Home_data:register.inputPhoneNumber;[data-content]Home_data:register.tippy" placeholder="Phone Number">
+                        
+                        </div>
+                    </div>
+
+
+                        <div class="popup-low">
+                        
+
+                            <label class="popup-label" for="name"
+                                data-i18n="Home_data:register.verifyCode">VerifyCode 
+                                @* <span class="verifyCodeText" data-i18n="Home_data:register.verifyCodeText">(Enter the 4-digit verify code)</span> *@
+                            </label>
+
+                            <div class="SignUp-input-row">
+                                <input class="SignUp-inputText" id="" type="text"
+                                    @bind-value="RegisterDTO.VerifyCode" placeholder="4-digit verify code"  data-i18n="[placeholder]Home_data:register.verifyCodeText">
+                                <div class="TimeLeft">
+                                        <button  hidden="@(sendVerifyCodehidden)" class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
+                                        data-i18n="Home_data:register.sendVerifyCode">Send VerifyCode</button>
+                                        <div hidden="@(!sendVerifyCodehidden)"  class="TimeLeft-Resend">
+                                            <button class="TimeLeft-button" disabled=@TimerIsRunning @onclick="SendVerifyCode"
+                                            data-i18n="Home_data:register.resendVerifyCode">Resend VerifyCode</button>
+                                            <span class="TimeLeft-countdown"> @TimeLeft.ToString("mm"):@TimeLeft.ToString("ss")</span>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="if-No-VerifyCode">
+                                <span data-i18n="Home_data:register.if-No-VerifyCode">- If not receive the digital code, please contact us on</span>
+                                <a href="https://www.facebook.com/PonponSnake" target="_blank" data-i18n="Home_data:register.facebook"> Facebook</a>
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="popup-low">
+                            <label class="popup-label" for="RegisterPassword" data-i18n="Home_data:register.password">Password</label>
+                            <input class="SignUp-inputText" id="RegisterPassword" type="text"
+                                @bind-value="RegisterDTO.Password" placeholder="Minimum of 6 characters, maximum of 10" data-i18n="[placeholder]Home_data:register.passwordText">
+                        </div>
+
+                        <div class="popup-low">
+                            <label class="popup-label" for="passwordcheck" data-i18n="Home_data:register.confirmPassword">Confirm
+                                Password</label>
+                            <input class="SignUp-inputText" id="passwordcheck" type="text"
+                                @bind-value="PasswordCheck" placeholder="">
+                        </div>
+
+                        <div class="popup-low">
+                            <label class="popup-label" for="InvitationCode" data-i18n="Home_data:register.InvitationCode">
+                                Invitation Code</label>
+                            <input class="SignUp-inputText" id="InvitationCode" type="text" @bind-value=@Code
+                                 placeholder="No invitation code, leave the field blank."  data-i18n="[placeholder]Home_data:register.InvitationCodeText">
+                        </div>
+
+
+
+                        <div class="products-popup-error">@ErrorString</div>
+
+                        <button class="products-popup-submit button-hover" type="submit" @onclick="RegisterSubmit"
+                            data-i18n="Home_data:register.registerButton">Sign Up</button>
+
+                    </div>
                 </div>
 
-            </EditForm>
+                @* </EditForm> *@    
+            
+            </div>
+        </section>
 
-        </div>
-    </section>
+
+
+        @* 送出成功/失敗 彈窗 *@
+
+        <section class="@(displayAlert? "" : "d-none") products-popup-bg  products-popup-open "
+            id="products-popupblock-result">
+            <div class="products-popupblock">
+
+                <svg class="products-popup-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25"
+                    @onclick="AlertCancel">
+                    <path id="" data-name="" d="M10,10,0,20,10,10,0,0,10,10,20,0,10,10,20,20Z"
+                        transform="translate(2.5 2.5)" fill="none" stroke="#fff" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="5" />
+                </svg>
+
+                <div class="SignUp-popup-title" data-i18n="Home_data:registerAlert.@AlertTitleDatai18n">
+                
+                </div>
+
+                <EditForm Model="@RegisterDTO" class="window_input_block">
+
+
+                    <div class="SignUp-popup-content">
+
+                        @* 這裡待處理 *@
+                        <div class="SignUp-popup-text" data-i18n="Home_data:registerAlert.@AlertContentDatai18n"></div>
+                        <button class="products-popup-submit button-hover" type="submit" @onclick="AlertCancel"
+                            data-i18n="Home_data:register.close">Close</button>
+                    </div>
+
+                </EditForm>
+
+            </div>
+        </section>
 
    
-</div>
+    </div>
 
-
+@if(isMobile){    
+    <FectchDataLoading /> 
+}
 
 
 
@@ -173,6 +176,7 @@
 @code {
     public string? CountryCode { get; set; } = "+886";
     public string? PhoneNum { get; set; }
+    public bool isMobile = true;
 
     [Parameter]
     public string? Code { get; set; } = "";
@@ -236,7 +240,7 @@
         }
 
         ServerResponce resp = await AuthService.PhoneSendVerifyCode(CountryCode, PhoneNum);
-        
+
         if (resp.Success == true)
         {
             sendVerifyCodehidden = true;
@@ -393,19 +397,24 @@
     private IJSObjectReference? countryCodeJS;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
-    {        
+    {
         if (firstRender)
-        {
-            await JS.InvokeVoidAsync("signUpMobile");
+        {         
             await BlockChainSever.GetBlockChainInfoDTO();
             NFTindexBannerJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NFTindex/NFTindexBanner.js");
             countryCodeJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/ohterCtrl/countryCode.js");
-            await countryCodeJS.InvokeVoidAsync("countryCode","SignUp");            
+            await countryCodeJS.InvokeVoidAsync("countryCode", "SignUp");
             await JS.InvokeVoidAsync("installI18n");
 
             NavigationManager.LocationChanged += HandleLocationChanged;
             AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
+
+            isMobile = await JS.InvokeAsync<bool>("signUpMobile");
+            if (!isMobile)
+            {
+                await InvokeAsync(StateHasChanged);
+            }
         }
         else
         {
@@ -413,6 +422,8 @@
             await JS.InvokeVoidAsync("installI18n");
         }
         await JS.InvokeVoidAsync("installI18n");
+ 
+
     }
 
     private void HandleLocationChanged(object? sender, LocationChangedEventArgs e)
