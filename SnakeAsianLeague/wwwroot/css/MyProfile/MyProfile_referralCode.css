@@ -212,13 +212,13 @@
     color: #fff;
     cursor: pointer;
     box-shadow: 2px 2px 8px #2761709c;
-    margin: 10px 20px;
+    margin: 6px 20px;
     transition: all .15s ease-in-out;
     position: relative;
     display: flex;
     align-items: center;
     border: none;
-    padding: 10px 15px 10px 15px;
+    padding: 8px 15px 8px 15px;
   
 }
 
