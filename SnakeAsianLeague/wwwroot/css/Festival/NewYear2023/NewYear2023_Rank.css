@@ -168,7 +168,7 @@
     display:flex;
     justify-content:start;
     align-items:center;
-    padding-left: 25px;
+    padding-left: 5px;
     margin-bottom: 20px;
     margin-right: 20px;
 }
@@ -179,11 +179,11 @@
     -moz-appearance:none;
     -webkit-appearance:none;
     background: url("/images/Festival/NewYear2023/select-arrow.png") no-repeat right center transparent;
-    padding-left: 12px;
+    padding-left: 8px;
     border: 0;
     color: #330d0f;
     font-weight:500;
-    width:180px;
+    width: 63%;
     outline: none;
 }
 
