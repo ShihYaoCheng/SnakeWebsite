@@ -6,15 +6,26 @@
 
 <div class="Festival_Nav_Select">
     <select name="" id="FestivalSeasonNav">
-        <option style="display: none;" disable>節慶賽</option>
+        <option style="display: none;" disable  data-i18n="data:festival-nav.select-title">Festival League</option>
         <optgroup label="- 2023 -">
-            <option value="NewYear2023">春節新年聯賽</option>
+            <option value="NewYear2023" data-i18n="data:festival-nav.Chinese-NewYear-League-2023">New Year League</option>
         </optgroup>
         <optgroup label="- 2022 -">
-            <option value="LunarNewYear">新年節慶賽</option>
+            <option value="LunarNewYear" data-i18n="data:festival-nav.Chinese-NewYear-League-2022">New Year League</option>
         </optgroup>
         <optgroup label="- 2021 -">
-            <option value="ChristmasIndex">聖誕節慶賽</option>
+            <option value="ChristmasIndex" data-i18n="data:festival-nav.Christmas-League-2022">Christmas League</option>
         </optgroup>
     </select>
 </div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
+}
