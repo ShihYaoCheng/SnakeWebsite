@@ -402,7 +402,7 @@ html{
         font-size: 18px;
     }
     #editButton img ,.btnMetamask img{
-        width: 37px;
+        width: 20px;
     }
     #editButton span {
         margin: 5px 25px 4px 55px;
@@ -422,21 +422,21 @@ html{
 }
 @media all and (max-width: 700px){
     .playerInfo-container input {
-        font-size: 16px;
+        font-size: 14px;
         height:30px;
     }
     .editButton {
-        font-size: 16px;
+        font-size: 14px;
         padding: 3px 15px 3px 5px;
     }
     .editButton img {
         height: 22px;
     }
     #editButton img, .btnMetamask img {
-        width: 28px;
+        width: 20px;
     }
     #editButton, .btnMetamask {
-        font-size: 16px;
+        font-size: 14px;
     }
     #editButton span {
         margin: 3px 15px 3px 35px;
@@ -453,7 +453,7 @@ html{
     }
     .playerInfoRowShow {
         padding-left: 10px;
-        font-size: 19px;
+        font-size: 18px;
     }
     .playerInfoRow{
         padding: 5px 4px 4px 5px;
@@ -489,7 +489,7 @@ html{
     } 
 
     .editButton img {
-        height: 28px;
+        height: 20px;
     }
     #editButton{
         margin: 15px auto;
@@ -505,13 +505,22 @@ html{
     }
     .playerInfoRowTitle{
         width: 36%;
+        font-size: 16px;
+    }
+    .playerInfoRowShow{
+        font-size: 16px;
     }
     .btnMetamask span {
         margin: 4px 40px 3px 25px;
     }
     #editButton, .btnMetamask {
+        font-size: 14px;
+        padding: 5px 14px 4.5px 7px;
+    }
+    .metamaskAvailable{
         font-size: 16px;
     }
+
 }
 .copyTip{
     position: absolute; 
@@ -689,11 +698,11 @@ html{
     .myprofileMain{
         padding-top: 605x;
     }
-    .assetItem span {
-        font-size: 20px;
-    }
+    /* .assetItem span {
+        font-size: 15px;
+    } */
     .assetValue {
-        font-size: 20px;
+        font-size: 18px;
         padding: 7px;
     }
     .myprofileLogin h1{
