@@ -639,7 +639,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             string Base64String = "";
             QRCodeGenerator generator = new QRCodeGenerator();
             string host = _httpContextAccessor.HttpContext.Request.Host.Value;
-            string URL = $"https://{host}/SignUp/{Code}";
+            string URL = $"https://{host}/ForwardUrl/{Code}";
             QRCodeData codeData = generator.CreateQrCode(URL, QRCodeGenerator.ECCLevel.M, true);
             QRCoder.BitmapByteQRCode qrcode = new BitmapByteQRCode(codeData);
             byte[] bitmap = qrcode.GetGraphic(10);
