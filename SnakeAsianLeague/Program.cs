@@ -22,6 +22,7 @@ using SnakeAsianLeague.Data.Services.Commodity;
 using Microsoft.AspNetCore.Rewrite;
 using SnakeAsianLeague.Data.Services.WarmUpActivities;
 using SnakeAsianLeague.Data.Entity.View;
+using SnakeAsianLeague.Data.Services.ForwardUrl;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,6 +75,7 @@ builder.Services.AddSingleton<SnakeTableService>();
 builder.Services.AddSingleton<WarmUpActivitiesService>();
 builder.Services.AddSingleton<GetUrlView>();
 builder.Services.AddSingleton<BlockChainProcessorSever>();
+builder.Services.AddSingleton<ForwardUrlService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 
