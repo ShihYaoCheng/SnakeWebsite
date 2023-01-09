@@ -1,12 +1,15 @@
 ﻿@page "/ForwardUrl/{Code}"
+@using SnakeAsianLeague.Data.Services.ForwardUrl
 @inject IJSRuntime JS
+@inject ForwardUrlService ForwardUrlService
 
 @code {
     [Parameter]
     public string? Code { get; set; } = "";
-    
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        ForwardUrlService.QRcodeSaveInvitation(Code);
         await JS.InvokeAsync<bool>("signUpMobile",Code);
   
     }
