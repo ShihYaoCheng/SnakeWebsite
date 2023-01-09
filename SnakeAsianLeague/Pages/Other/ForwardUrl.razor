@@ -1,0 +1,13 @@
+﻿@page "/ForwardUrl/{Code}"
+@inject IJSRuntime JS
+
+@code {
+    [Parameter]
+    public string? Code { get; set; } = "";
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JS.InvokeAsync<bool>("signUpMobile",Code);
+  
+    }
+}

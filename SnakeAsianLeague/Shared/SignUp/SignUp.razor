@@ -165,9 +165,9 @@
    
     </div>
 
-@if(isMobile){    
+@*@if(isMobile){    
     <FectchDataLoading /> 
-}
+}*@
 
 
 
@@ -176,7 +176,7 @@
 @code {
     public string? CountryCode { get; set; } = "+886";
     public string? PhoneNum { get; set; }
-    public bool isMobile = true;
+    //public bool isMobile = true;
 
     [Parameter]
     public string? Code { get; set; } = "";
@@ -410,11 +410,7 @@
             AppState.StateChanged += async (Source, Property)
             => await InvokeAsync(StateHasChanged);
 
-            isMobile = await JS.InvokeAsync<bool>("signUpMobile");
-            if (!isMobile)
-            {
-                await InvokeAsync(StateHasChanged);
-            }
+
         }
         else
         {
