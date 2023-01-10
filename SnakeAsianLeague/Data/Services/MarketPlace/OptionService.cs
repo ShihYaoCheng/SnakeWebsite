@@ -374,7 +374,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <returns></returns>
         public async Task<List<NFTData>> Get_NFT_by_Filter( List<string> Rarity, List<string> Elements, bool IsLove)
         {
-            //List<string> Class, List<string> Country ,
+            //List<string> Class, List<string> Countryiiiiiiiiiiiiiiii ,
             Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
             Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
             //Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;

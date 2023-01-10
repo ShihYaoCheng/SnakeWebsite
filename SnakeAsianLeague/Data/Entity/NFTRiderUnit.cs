@@ -12,15 +12,15 @@
 
         public double size { get; set; }
 
-        public List<RiderUnit_Castings> castings { get; set; }
+        public RiderUnit_Castings castings { get; set; }
 
-        public RiderUnit_Knight knight { get; set; }
+        public RiderUnit_Knight? knight { get; set; }
 
-        public RiderUnit_Snake snake { get; set; }
+        public RiderUnit_Snake? snake { get; set; }
 
-        public RiderUnit_Weapon weapon { get; set; }
+        public RiderUnit_Weapon? weapon { get; set; }
 
-        public RiderUnit_Pet pet { get; set; }
+        public RiderUnit_Pet? pet { get; set; }
 
     }
 
@@ -53,7 +53,7 @@
         /// <summary>
         /// TokenID 同PPSR
         /// </summary>
-        public string TokenID { get; set; }
+        public string tokenId { get; set; }
         /// <summary>
         /// NFT 合約地址
         /// </summary>
