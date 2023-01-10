@@ -10,7 +10,7 @@
 
         public string name { get; set; }
 
-        public double size { get; set; }
+        public float size { get; set; }
 
         public RiderUnit_Castings castings { get; set; }
 
@@ -82,9 +82,9 @@
         public string serialNumber { get; set; }
         public string name { get; set; }
 
-        public double hp { get; set; }
+        public float hp { get; set; }
 
-        public double atk { get; set; }
+        public float atk { get; set; }
 
         public int occupationID { get; set; }
 
@@ -97,15 +97,15 @@
         public string serialNumber { get; set; }
         public string name { get; set; }
 
-        public double hp { get; set; }
+        public float hp { get; set; }
 
-        public double atk { get; set; }
+        public float atk { get; set; }
 
-        public double agl { get; set; }
+        public float agl { get; set; }
 
-        public double con { get; set; }
+        public float con { get; set; }
 
-        public double ms { get; set; }
+        public float ms { get; set; }
 
         public string skill { get; set; }
     }
@@ -115,15 +115,15 @@
         public string serialNumber { get; set; }
         public string name { get; set; }
 
-        public double autoATKRange { get; set; }
+        public float autoATKRange { get; set; }
 
-        public double atkRange { get; set; }
+        public float atkRange { get; set; }
 
-        public double @as { get; set; }
+        public float @as { get; set; }
 
         public string attrEffect { get; set; }
 
-        public double attrEffectValue { get; set; }
+        public float attrEffectValue { get; set; }
 
         public string skill { get; set; }
     }
@@ -131,16 +131,16 @@
     {
         public string serialNumber { get; set; }
         public string name { get; set; }
-        public double hp { get; set; }
-        public double atk { get; set; }
-        public double agl { get; set; }
-        public double @as { get; set; }
-        public double ms { get; set; }
-        public double con { get; set; }
-        public double crit { get; set; }
+        public float hp { get; set; }
+        public float atk { get; set; }
+        public float agl { get; set; }
+        public float @as { get; set; }
+        public float ms { get; set; }
+        public float con { get; set; }
+        public float crit { get; set; }
         public string attrEffect { get; set; }
 
-        public double attrEffectValue { get; set; }
+        public float attrEffectValue { get; set; }
         //"attrEffectValue": 0,
         public string skill { get; set; }
     }
