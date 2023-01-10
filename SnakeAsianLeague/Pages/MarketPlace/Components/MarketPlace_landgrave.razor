@@ -80,8 +80,8 @@ else
         var contractAddress_PPSBP = BlockChainSever.BlockChainInfoDTO.contractAddress_PPSI;
         var OpenSeaLink = BlockChainSever.BlockChainInfoDTO.openSeaLink;
 
-        DataList = await OptionService.GetPPSIMetadataList(contractAddress_PPSBP,OpenSeaLink);
-        getLandCount.InvokeAsync(DataList.Count);      
+        //DataList = await OptionService.GetPPSIMetadataList(contractAddress_PPSBP,OpenSeaLink);
+        //getLandCount.InvokeAsync(DataList.Count);      
         StateHasChanged();
     }
 
