@@ -62,7 +62,7 @@ else
     public List<MetadataList>  DataList { get; set;}
 
     [Parameter]
-    public EventCallback<int>  getPPSBPsCount { get; set;}
+    public EventCallback<int>  getLandCount { get; set;}
     
 
     private IJSObjectReference? lazyloadingJS;    
@@ -81,9 +81,10 @@ else
         var OpenSeaLink = BlockChainSever.BlockChainInfoDTO.openSeaLink;
 
         DataList = await OptionService.GetPPSIMetadataList(contractAddress_PPSBP,OpenSeaLink);
-        getPPSBPsCount.InvokeAsync(DataList.Count);      
+        getLandCount.InvokeAsync(DataList.Count);      
         StateHasChanged();
     }
 
 
 }
+v

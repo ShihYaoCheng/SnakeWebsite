@@ -72,6 +72,9 @@
                         case 1 :
                             <div class="marketPlaceTitle"> @PPSBPsCount PPSBP</div>
                             break;
+                        case 2 :
+                            <div class="marketPlaceTitle"> @PPSBPsCount 領地</div>
+                            break;
                     }  
                  
                 </div>
@@ -98,7 +101,9 @@
                 case 1 :                   
                     <MarketPlace_PPSBP getPPSBPsCount="getPPSBPsCount"></MarketPlace_PPSBP>
                     break;
-            
+                case 2 :                   
+                    <MarketPlace_landgrave getLandCount="getLandCount" ></MarketPlace_landgrave>
+                 break;
             }  
         </section> 
     </main>
@@ -123,6 +128,8 @@
     private int PPSRsCount;   
     //飛船藍圖數量
     private int PPSBPsCount;  
+    //領地數量
+    private int LandCount;  
     //OpenSeaURL NFT資產 官方網址   
     private string OpenSeaURL;
     //頁數
@@ -169,6 +176,11 @@
     {
         PPSBPsCount = count;
     }
+    public void getLandCount( int count)
+    {
+        LandCount = count;
+    }
+    
 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
