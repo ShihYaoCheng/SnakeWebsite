@@ -1429,5 +1429,14 @@
   "NFT_Unit8_3a_2": "海盜妃莉絲",
   "NFT_Unit10_3b_1": "光明騎兵西利卡",
   "NFT_Unit8_2b_1": "妃莉絲",
-  "NFT_Unit0_1b_5": "RG01-安捷菈"
+  "NFT_Unit0_1b_5": "RG01-安捷菈",
+
+
+  "Log": {
+    "lessee": "承租人",
+    "playingTime": "出戰時間",
+    "coin": "幣種",
+    "number": "數量",
+    "pickUp": "領取紀錄"
+  }
 }

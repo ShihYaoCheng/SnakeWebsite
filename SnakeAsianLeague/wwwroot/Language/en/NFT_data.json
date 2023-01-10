@@ -85,7 +85,13 @@
   "NFT_Unit8_3a_2": "Pirate Felice",
   "NFT_Unit10_3b_1": "Cavalry Celica",
   "NFT_Unit8_2b_1": "Felice",
-  "NFT_Unit0_1b_5": "RG01-Angela"
+  "NFT_Unit0_1b_5": "RG01-Angela",
 
-
+  "Log": {
+    "lessee": "lessee",
+    "playingTime": "playing time",
+    "coin": "coin",
+    "number": "number",
+    "pickUp": "pick up"
+  }
 }

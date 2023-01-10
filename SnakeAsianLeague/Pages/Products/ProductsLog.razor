@@ -2,7 +2,7 @@
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Services.Products
 @inject ProductsService ProductsService;
-
+@inject IJSRuntime JS
 <section class="products-section" id="products-Log">
         @* <div class="products-block"> *@
             @* <div class="products-block-title" >Log</div> *@
@@ -13,11 +13,11 @@
                    <table>
                     <thead>
                         <tr>
-                            <th>承租人</th>
-                            <th>出戰時間</th>
-                            <th>幣種</th>
-                            <th>金幣</th>
-                            <th>領取紀錄</th>
+                            <th data-i18n="NFT_data:Log.lessee">承租人</th>
+                            <th data-i18n="NFT_data:Log.playingTime">出戰時間</th>
+                            <th data-i18n="NFT_data:Log.coin">幣種</th>
+                            <th data-i18n="NFT_data:Log.number">金幣</th>
+                            <th data-i18n="NFT_data:Log.pickUp">領取紀錄</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +64,12 @@
         StateHasChanged();
     }
 
-
+      protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {            
+            await JS.InvokeVoidAsync("installI18n");
+        }
+    }
     
 }
