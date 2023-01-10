@@ -21,7 +21,7 @@ window.textCopy = function (value) {
     console.log('textCopy')
     let text = $('.metamaskAvailable span').text()
     if (value == "inviteCode") text = $('.InvitationCode').text()
-    if (value == "inviteLink") text = "https://www.ponponsnake.com/ForwardUrl/" + $('.InvitationCode').text()
+    if (value == "inviteLink") text = `https://${window.location.host}/ForwardUrl/` + $('.InvitationCode').text()
 
     console.log("copyTip")
     
