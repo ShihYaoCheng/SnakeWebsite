@@ -17,7 +17,7 @@
                 <div class="NFTcard-inner">
                     <div class="NFT-cardImg">
                         <img data-src="@item.image" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
-                        <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
+                        <div class="NFTcard-remark tippy-pop" data-content="This PPSL is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
                     </div>
 
                     <div class="NFT-cardText Not-Price-Ver">
@@ -77,11 +77,11 @@ else
 
     private async Task Refresh()
     {  
-        var contractAddress_PPSBP = BlockChainSever.BlockChainInfoDTO.contractAddress_PPSI;
+        var contractAddress_PPSL = BlockChainSever.BlockChainInfoDTO.contractAddress_PPSL;
         var OpenSeaLink = BlockChainSever.BlockChainInfoDTO.openSeaLink;
 
-        //DataList = await OptionService.GetPPSIMetadataList(contractAddress_PPSBP,OpenSeaLink);
-        //getLandCount.InvokeAsync(DataList.Count);      
+        DataList = await OptionService.GetPPSLMetadataList(contractAddress_PPSL,OpenSeaLink);
+        getLandCount.InvokeAsync(DataList.Count);      
         StateHasChanged();
     }
 

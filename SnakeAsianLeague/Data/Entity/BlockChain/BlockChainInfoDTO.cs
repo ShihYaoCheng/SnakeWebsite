@@ -28,7 +28,7 @@
         public string openSeaURL_PPSR { get; set; }
         public string openSeaURL_PPSBP { get; set; }
         public string openSeaLink { get; set; }
-
+        public string openSeaURL_PPSL { get; set; }
 
         // PPSR合約
         public string? adminWalletAddress_PPSR { get; set; }
@@ -59,6 +59,11 @@
         public string? adminWalletAddress_PPSI { get; set; }
         public string? contractAddress_PPSI { get; set; }
         public decimal balanceOf_PPSI { get; set; } // 剩餘瓦斯費
+
+        // PPSL合約
+        public string? adminWalletAddress_PPSL { get; set; }
+        public string? contractAddress_PPSL { get; set; }
+        public decimal balanceOf_PPSL { get; set; } // 剩餘瓦斯費
 
         // 暫時性合約
         // tSRC ERC20合約 (2022-12 預熱活動專用)

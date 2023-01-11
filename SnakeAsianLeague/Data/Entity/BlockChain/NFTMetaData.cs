@@ -10,7 +10,7 @@
 
 
     public class MetadataList {     
-        public List<Attributes> attributes { get; set;}
+        //public List<Attributes> attributes { get; set;}
         public string properties { get; set;}
         public string description { get; set; }
         public string external_url { get; set; }
@@ -23,6 +23,10 @@
     }
 
 
+
+
+
+
     public class Attributes
     { 
         public string trait_type { get; set; }
@@ -31,7 +35,12 @@
     }
 
 
-    
+
+
+
+
+   
+
 
 }
 
