@@ -59,6 +59,9 @@ namespace SnakeAsianLeague.Data.Entity.View
         public decimal gERNC { get; set; }
         public decimal tokenSRC { get; set; }
         public decimal tokenERNC { get; set; }
+        //臨時用
+        public decimal SRC { get; set; }
+        
 
         /// <summary>
         /// 星鑽
@@ -89,6 +92,10 @@ namespace SnakeAsianLeague.Data.Entity.View
         public void tokenSRCchange(decimal Value)
         {
             tokenSRC = Value;
+        }
+        public void SRCchange(decimal Value)
+        {
+            SRC = Value;
         }
         public void tokenERNCchange(decimal Value)
         {
