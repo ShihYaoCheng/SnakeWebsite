@@ -310,18 +310,17 @@
         //List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize ,contractAddress_PPSR);
         //getNFTDataList( pagelist);
         getPPSRsCount( await OptionService.GetNFTRiderUnitsCount());
-        //await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+        
         StateHasChanged();
     }
 
-    private IJSObjectReference? lazyloadingJS;    
+      
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await Refresh();
-            //lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
-            //await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+           
 
         }
     }
