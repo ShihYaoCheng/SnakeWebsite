@@ -58,16 +58,16 @@
 
 
     </main>
-
+    @*導航*@
     <NFTindex_Navigation />
-    
+    @*活動用banner*@
     <EventBanner_WarmUpActivities />
     @* <EventBanner_ACL_S3 /> *@
 </div>
 
 
 @code {
-
+    private IJSObjectReference? lazyloadingJS;
     private IJSObjectReference? BannerJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
 
@@ -77,9 +77,11 @@
 
         {
 
+            
+            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js"); 
+            await lazyloadingJS.InvokeVoidAsync("LazyLoadingJQuery");
             await JS.InvokeVoidAsync("installI18n");
             BannerJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SnakeIndex/Banner.js");
-
             await BannerJS.InvokeVoidAsync("indexScrollEvent");
             await BlockChainSever.GetBlockChainInfoDTO();
             await Analytics.TrackEvent("generate_lead", new {currency = "USD", value = 99.99});

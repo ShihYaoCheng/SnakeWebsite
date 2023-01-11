@@ -154,7 +154,7 @@ window.GameFiCarousel = function () {
 window.NFTindexCarouselJS = function () {
     // export function NFTindexCarousel() {
     // console.log('NFTindexCarousel init22', Swiper);
-    new Swiper('.NFTindex-Carousel-Block', {
+    const swiper = new Swiper('.NFTindex-Carousel-Block', {
         spaceBetween: 100,
 
         // 不自動輪播
@@ -191,7 +191,9 @@ window.NFTindexCarouselJS = function () {
             clickable: true,
         },
     });
-    
+    swiper.on('slideChange', function () {
+        $('.lazy').lazy();
+    });
 }
 
 
