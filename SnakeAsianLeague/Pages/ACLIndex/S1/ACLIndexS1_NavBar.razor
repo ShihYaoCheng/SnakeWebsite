@@ -1,4 +1,5 @@
 ﻿@*隱藏問題在CSS 是在site裡面，未來要修正*@
+@inject IJSRuntime JS
 
 <nav class="ACLIndexNavbar">
     <ul>
@@ -25,6 +26,15 @@
         <li><a href="ACLIndex/notice" data-i18n="nav.Ruleset">注意事項</a></li>
     </ul>
 </nav>
-@code {
 
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {           
+            await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("selectChangeLocation");
+        }
+    }
 }

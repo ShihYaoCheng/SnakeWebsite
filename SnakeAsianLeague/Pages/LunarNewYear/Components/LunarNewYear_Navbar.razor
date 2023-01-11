@@ -1,4 +1,6 @@
-﻿<nav class="FestivalNavbar" id="FestivalNavbar">
+﻿@inject IJSRuntime JS
+
+<nav class="FestivalNavbar" id="FestivalNavbar">
     <ul>
         @* 亞洲聯賽 賽季選單 *@
         <div class="FestivalNavBlockSelect">
@@ -23,5 +25,14 @@
     </ul>
 </nav>
 @code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {           
+            await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("selectChangeLocation");
+        }
+    }
 
 }

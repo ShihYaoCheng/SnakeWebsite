@@ -48,11 +48,12 @@
 </div>
 
 @code {
-            protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {           
             await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("selectChangeLocation");
         }
     }
 }
