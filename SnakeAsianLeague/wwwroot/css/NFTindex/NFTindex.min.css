@@ -2772,8 +2772,7 @@
 .Flag-Block::before {
     /* border: 1px solid red; */
     content: '';
-    /* content:url("/images/NFTindex/NFTindex_Flag/Longbar.png"); */
-    background-image: url("/images/NFTindex/NFTindex_Flag/Longbar-01.png");
+    background-image: url("/images/NFTindex/NFTindex_Flag/Longbar-01.webp");
     /* max-width: 380px; */
     width: 115%;
     height: 35px;
@@ -2848,17 +2847,17 @@
 }
 
 #Flag-Block-01 {
-    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-01-green.png");
+    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-01-green.webp");
 
 }
 
 #Flag-Block-02 {
-    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-02-brown.png");
+    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-02-brown.webp");
 
 }
 
 #Flag-Block-03 {
-    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-03-red.png");
+    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-03-red.webp");
 }
 
 
@@ -3057,8 +3056,7 @@
     .Flag-Block::before {
         /* border: 1px solid red; */
         content: '';
-        /* content:url("/images/NFTindex/NFTindex_Flag/Longbar.png"); */
-        background-image: url("/images/NFTindex/NFTindex_Flag/Longbar-01.png");
+        background-image: url("/images/NFTindex/NFTindex_Flag/Longbar-01.webp");
         /* max-width: 380px; */
         width: 113%;
         height: 33px;
@@ -5788,7 +5786,7 @@ button.products-popup-submit{
 .PPSSeignior-Info-Block {
     /* border: 1px solid rgb(90, 45, 238); */
     width: 55%;
-    background-image: url("/images/NFTindex/NFTindex_Seignior/team-01.png");
+    background-image: url("/images/NFTindex/NFTindex_Seignior/team-01.webp");
     background-position: center right;
     background-repeat: no-repeat;
     background-size: contain;
@@ -5882,7 +5880,7 @@ button.products-popup-submit{
     /* border: 1px solid rgba(255, 0, 0, 0); */
     width: 100%;
     /* clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%); */
-    background-image: url("/images/NFTindex/NFTindex_Seignior/Mid_bottom.png");
+    background-image: url("/images/NFTindex/NFTindex_Seignior/Mid_bottom.webp");
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -6183,7 +6181,7 @@ button.products-popup-submit{
     text-align: center;
 }
 .PPSRidersNFT-Info-Button{
-    background-image: url("/images/NFTindex/NFTindex_Seignior/yellow_button.png");
+    background-image: url("/images/NFTindex/NFTindex_Seignior/yellow_button.webp");
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
