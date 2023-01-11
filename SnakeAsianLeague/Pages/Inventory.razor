@@ -108,7 +108,13 @@
         string chainRPCUrl = BlockChainSever.BlockChainInfoDTO.chainRPCUrl;
 
         JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,chainId, SRC_token_addr , chainRPCUrl);
-        CoinData.tokenSRCchange(JSCoinData);         
+        CoinData.tokenSRCchange(JSCoinData);     
+        
+        //預熱活動用 修改 (臨時用SRC)
+        SRC_token_addr = BlockChainSever.BlockChainInfoDTO.contractAddress_SRC;
+        JSCoinData = await coinEchangeJS.InvokeAsync<decimal>("CoinexchangeData"  ,chainId, SRC_token_addr , chainRPCUrl);
+        CoinData.SRCchange(JSCoinData);  
+
     }
     //切換並新增Polygon
     protected  async Task AddPolygon()
