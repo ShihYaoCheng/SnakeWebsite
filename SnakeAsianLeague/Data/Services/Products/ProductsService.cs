@@ -111,11 +111,11 @@ namespace SnakeAsianLeague.Data.Services.Products
         /// </summary>
         /// <param name="SerialNumber"></param>
         /// <returns></returns>
-        public async Task<string> GetNFT_Unit_Owned(string SerialNumber)
+        public async Task<string> GetNFT_Unit_Owned(string tokenId)
         {
             string walletAddress = "";
             NFTRiderUnit result = new NFTRiderUnit();
-            RestRequest request = new RestRequest($"NFT/Unit?SerialNumber={SerialNumber}");
+            RestRequest request = new RestRequest($"NFT/Unit?tokenId={tokenId}");
             request.AddHeader("Authorization", Authenticate());
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
@@ -123,7 +123,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                 result = JsonSerializer.Deserialize<NFTRiderUnit>(restResponse.Content) ?? new NFTRiderUnit();
                 if (result.castings != null)
                 {
-                    walletAddress = result.castings[0].owner;
+                    walletAddress = result.castings.owner;
                 }
             }
             return walletAddress;
@@ -134,7 +134,7 @@ namespace SnakeAsianLeague.Data.Services.Products
         /// </summary>
         /// <param name="SerialNumber"></param>
         /// <returns></returns>
-        public async Task<RiderIntroduce> GetNFT_Unit_SerialNumber(string SerialNumber ,string TokenID , string googleapis)
+        public async Task<RiderIntroduce> GetNFT_Unit_SerialNumber(string TokenID , string googleapis)
         {
 
             string asset_contract_address = _config.GetValue<string>("asset_contract_address");
@@ -142,7 +142,7 @@ namespace SnakeAsianLeague.Data.Services.Products
             try
             {
                 NFTRiderUnit result = new NFTRiderUnit();
-                RestRequest request = new RestRequest($"NFT/Unit?SerialNumber={SerialNumber}");
+                RestRequest request = new RestRequest($"NFT/Unit?tokenId={TokenID}");
                 request.AddHeader("Authorization", Authenticate());
 
                 IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
@@ -157,7 +157,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                     {
                         /*Owned*/
                         Rider.TokenID = TokenID;
-                        Rider.Owned = result.castings[0].owner;
+                        Rider.Owned = result.castings.owner;
                         Rider.walletAddress = asset_contract_address;
                         if (Rider.Owned.Length > 20)
                         {
@@ -168,8 +168,8 @@ namespace SnakeAsianLeague.Data.Services.Products
                         /*Income*/
                         Rider.Income = new NowRentAndTotalRevenue();
                         Rider.Income = await Get_NowRentAndTotalRevenue("#" +TokenID);
-                        Rider.isAvailableInGame = result.castings[0].isAvailableInGame;
-                        Rider.receiveCurrency = result.castings[0].receiveCurrency;
+                        Rider.isAvailableInGame = result.castings.isAvailableInGame;
+                        Rider.receiveCurrency = result.castings.receiveCurrency;
                     }
                     else
                     {
@@ -184,8 +184,8 @@ namespace SnakeAsianLeague.Data.Services.Products
                     }
 
                     /*ImgPath*/
-                    Rider.Name = SerialNumber;
-                    Rider.ImgPath = string.Format(ImgPath,"ppsr", SerialNumber);
+                    Rider.Name = result.serialNumber;
+                    Rider.ImgPath = string.Format(ImgPath,"ppsr", result.serialNumber);
                     /*Attrbutes*/
                     Rider.Attrbutes = new Attrbutes();
                     List<string> RarityElements = result.serialNumber.Split('_').ToList();  //ex : NFT_Unit3_2c_1

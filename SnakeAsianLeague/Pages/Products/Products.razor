@@ -1,4 +1,4 @@
-@page "/products/{SerialNumber}/{TokenID}"
+@page "/products/ppsr/{TokenID}"
 @using SnakeAsianLeague.Data.Entity
 @using SnakeAsianLeague.Data.Services.BlockChain
 @using SnakeAsianLeague.Data.Services.Products
@@ -27,7 +27,7 @@
         <ProductsTopBid TokenID =@TokenID />
 
         <CascadingValue Value="@ReceiveCurrency">
-            <ProductsIncome TokenID =@TokenID  SerialNumber =@SerialNumber   />
+            <ProductsIncome TokenID =@TokenID    />
         </CascadingValue>
         
         <ProductsAttributes Ridder =@Ridder />
@@ -55,8 +55,8 @@
 
 @code {
 
-    [Parameter]
-    public string SerialNumber { get; set; }
+    //[Parameter]
+    //public string SerialNumber { get; set; }
 
     [Parameter]
     public string TokenID { get; set; }
@@ -86,7 +86,7 @@
     private async Task Refresh()
     {
         string googleapis =  BlockChainSever.BlockChainInfoDTO.googleapis;
-        Ridder =await ProductsService.GetNFT_Unit_SerialNumber(SerialNumber ,TokenID ,googleapis);
+        Ridder =await ProductsService.GetNFT_Unit_SerialNumber(TokenID ,googleapis);
         ReceiveCurrency = Ridder.receiveCurrency;
         StateHasChanged();
     }

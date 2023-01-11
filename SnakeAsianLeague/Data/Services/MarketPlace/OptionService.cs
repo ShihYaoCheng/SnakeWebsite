@@ -59,12 +59,12 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <summary>
         /// NFT 原始資料
         /// </summary>
-        List<NFTData> datas;
+        public static List<NFTData> datas;
 
         /// <summary>
         /// 篩選後NFT資料
         /// </summary>
-        List<NFTData> Filter =  new List<NFTData>();
+        public static List<NFTData> Filter =  new List<NFTData>();
 
         /// <summary>
         /// 取得OpenSeaURL NFT資產 官方網址
@@ -372,13 +372,14 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// <param name="Class"></param>
         /// <param name="Country"></param>
         /// <returns></returns>
-        public async Task<List<NFTData>> Get_NFT_by_Filter( List<string> Rarity, List<string> Elements, List<string> Class, List<string> Country ,bool IsLove)
+        public async Task<List<NFTData>> Get_NFT_by_Filter( List<string> Rarity, List<string> Elements, bool IsLove)
         {
+            //List<string> Class, List<string> Countryiiiiiiiiiiiiiiii ,
             Rarity = Rarity.Count == 0 ? RarityList.Select(m => m.Key).ToList() : Rarity;
             Elements = Elements.Count == 0 ? ElementsList.Select(m => m.Key).ToList() : Elements;
-            Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
-            Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
-            Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && Class.Contains(m.ClassKey) && m.IsLove == IsLove).ToList();
+            //Class = Class.Count == 0 ? ClassList.Select(m => m.Key).ToList() : Class;
+            //Country = Country.Count == 0 ? CountryList.Select(m => m.Key).ToList() : Country;
+            Filter = datas.Where(m => Rarity.Contains(m.RarityKey) && Elements.Contains(m.Elements) && m.IsLove == IsLove).ToList();
             return Filter;
         }
 

@@ -440,14 +440,14 @@
         //NFTDataList = pagelist;
         //MetaData = pagelist.MetaData;
         //PPSRsCount = MetaData.TotalCount;
-        List<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry ,iSFilterHeart);
+        List<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( CheckBoxRarity ,CheckBoxElements   ,iSFilterHeart);
         getNFTDataList(pagelist);
         getPPSRsCount( pagelist.Count);
         await ReFreshJS();
     }
     private void CountFilterSelected()
     {
-        FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count() + CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
+        FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count(); //+ CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
     }
 
     // 斷是否有點擊篩選我的最愛
