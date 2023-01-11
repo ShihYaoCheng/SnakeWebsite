@@ -64,8 +64,7 @@
 .Flag-Block::before {
     /* border: 1px solid red; */
     content: '';
-    /* content:url("/images/NFTindex/NFTindex_Flag/Longbar.png"); */
-    background-image: url("/images/NFTindex/NFTindex_Flag/Longbar-01.png");
+    background-image: url("/images/NFTindex/NFTindex_Flag/Longbar-01.webp");
     /* max-width: 380px; */
     width: 115%;
     height: 35px;
@@ -140,17 +139,17 @@
 }
 
 #Flag-Block-01 {
-    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-01-green.png");
+    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-01-green.webp");
 
 }
 
 #Flag-Block-02 {
-    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-02-brown.png");
+    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-02-brown.webp");
 
 }
 
 #Flag-Block-03 {
-    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-03-red.png");
+    background-image: url("/images/NFTindex/NFTindex_Flag/Flag-03-red.webp");
 }
 
 
@@ -349,8 +348,7 @@
     .Flag-Block::before {
         /* border: 1px solid red; */
         content: '';
-        /* content:url("/images/NFTindex/NFTindex_Flag/Longbar.png"); */
-        background-image: url("/images/NFTindex/NFTindex_Flag/Longbar-01.png");
+        background-image: url("/images/NFTindex/NFTindex_Flag/Longbar-01.webp");
         /* max-width: 380px; */
         width: 113%;
         height: 33px;

@@ -133,7 +133,7 @@
 .PPSSeignior-Info-Block {
     /* border: 1px solid rgb(90, 45, 238); */
     width: 55%;
-    background-image: url("/images/NFTindex/NFTindex_Seignior/team-01.png");
+    background-image: url("/images/NFTindex/NFTindex_Seignior/team-01.webp");
     background-position: center right;
     background-repeat: no-repeat;
     background-size: contain;
@@ -227,7 +227,7 @@
     /* border: 1px solid rgba(255, 0, 0, 0); */
     width: 100%;
     /* clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%); */
-    background-image: url("/images/NFTindex/NFTindex_Seignior/Mid_bottom.png");
+    background-image: url("/images/NFTindex/NFTindex_Seignior/Mid_bottom.webp");
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -528,7 +528,7 @@
     text-align: center;
 }
 .PPSRidersNFT-Info-Button{
-    background-image: url("/images/NFTindex/NFTindex_Seignior/yellow_button.png");
+    background-image: url("/images/NFTindex/NFTindex_Seignior/yellow_button.webp");
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
