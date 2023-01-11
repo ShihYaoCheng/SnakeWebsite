@@ -470,7 +470,7 @@
     private IJSObjectReference? footerContactJS;
     private IJSObjectReference? BackToTopJS;
     private IJSObjectReference? AnimateJS;
-    private IJSObjectReference? lazyloadingJS;
+
     private IJSObjectReference? IsMobileJS;
 
     string url;
@@ -619,12 +619,12 @@
             footerContactJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/WebFooter/FooterContact.js");
             BackToTopJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/NavMenu/BackToTop.js");
             AnimateJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/Animate.js");
-            lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
+           
             IsMobileJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/IsMobile.js");
            
             await BackToTopJS.InvokeVoidAsync("BackToTop");
             await AnimateJS.InvokeVoidAsync("Animate");
-          /*  await lazyloadingJS.InvokeVoidAsync("LazyLoading");*/
+       
 
             await JS.InvokeVoidAsync("Carousel");                
             await JS.InvokeVoidAsync("navbarSlide");            

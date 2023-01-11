@@ -62,8 +62,9 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
             //}
 
             //return Schedules;
-
-            string sheetName;
+            try
+            {
+                string sheetName;
             switch (season)
             {
                 case AsiaLeagueSeasons.AsiaLeagueS1:
@@ -99,7 +100,12 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
             {
                 return null;
             }
-
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
 
         }
 

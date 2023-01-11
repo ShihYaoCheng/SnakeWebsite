@@ -57,7 +57,20 @@
             </button>
         }
 
-        @*Filter*@
+      
+        @*下拉選單排序*@
+        <select class="sortSelect Inventory-PPSR-sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))" > 
+
+            <option disabled="" value="Sort"data-i18n="Inventory_data:sortOptions.Sort"  selected="" hidden="">Sort</option>
+            <option value="Highest Earned"  data-i18n="Inventory_data:sortOptions.HighestEarned" >Highest Earned</option>
+            <option value="Lowest Earned"   data-i18n="Inventory_data:sortOptions.LowestEarned" >Lowest Earned</option>
+            <option value="Highest Price"   data-i18n="Inventory_data:sortOptions.HighestPrice" >Highest Price</option>
+            <option value="Lowest Price"    data-i18n="Inventory_data:sortOptions.LowestPrice" >Lowest Price</option>
+            <option value="Newest"          data-i18n="Inventory_data:sortOptions.Newest" >Newest</option>
+            <option value="Oldest"          data-i18n="Inventory_data:sortOptions.Oldest"  >Oldest</option>
+
+        </select>
+          @*Filter*@
         <div class="Inventory-PPSR-Filter-Block">
             <div class="Inventory-PPSR-Filter Inventory-hover">
                 <svg class="Filter-Icon" xmlns="http://www.w3.org/2000/svg" width="28.06" height="25.65" viewBox="0 0 28.06 25.65">
@@ -236,18 +249,6 @@
                             
         </div>
 
-        @*下拉選單排序*@
-        <select class="sortSelect Inventory-PPSR-sortSelect" name="count_adults" id=""  @onchange="(e => DoStuff(e))" > 
-
-            <option disabled="" value="Sort"data-i18n="Inventory_data:sortOptions.Sort"  selected="" hidden="">Sort</option>
-            <option value="Highest Earned"  data-i18n="Inventory_data:sortOptions.HighestEarned" >Highest Earned</option>
-            <option value="Lowest Earned"   data-i18n="Inventory_data:sortOptions.LowestEarned" >Lowest Earned</option>
-            <option value="Highest Price"   data-i18n="Inventory_data:sortOptions.HighestPrice" >Highest Price</option>
-            <option value="Lowest Price"    data-i18n="Inventory_data:sortOptions.LowestPrice" >Lowest Price</option>
-            <option value="Newest"          data-i18n="Inventory_data:sortOptions.Newest" >Newest</option>
-            <option value="Oldest"          data-i18n="Inventory_data:sortOptions.Oldest"  >Oldest</option>
-
-        </select>
     </div>
               
     <div class="Inventory-CardBLock">

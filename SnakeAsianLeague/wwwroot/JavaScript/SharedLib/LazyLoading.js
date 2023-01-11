@@ -22,3 +22,7 @@
     }
     )
 }
+
+export function LazyLoadingJQuery() {
+    $('.lazy').lazy();
+}

@@ -127,8 +127,8 @@
     [Parameter]
     public string TokenID { get; set; }
 
-    [Parameter]
-    public string SerialNumber { get; set; }
+   @* [Parameter]
+    public string SerialNumber { get; set; }*@
 
    
     [CascadingParameter] 
@@ -175,7 +175,7 @@
         TotalRevenue = Math.Round(TotalRevenue, 3, MidpointRounding.AwayFromZero);
         TotalGoldRevenue = Income.totalRevenue.Where(m => m.currencyType == 1).First().price;
         TotalGoldRevenue = Math.Round(TotalGoldRevenue, 3, MidpointRounding.AwayFromZero);
-        string OwnedWalletAddress = await ProductsService.GetNFT_Unit_Owned(SerialNumber);
+        string OwnedWalletAddress = await ProductsService.GetNFT_Unit_Owned(TokenID);
         string  walletAddress = AppState.LoginStatus.walletAddress; 
         isSamaWalletAddress = walletAddress == OwnedWalletAddress;
 

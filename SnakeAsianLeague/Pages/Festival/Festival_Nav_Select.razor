@@ -25,6 +25,7 @@
     {
         if (firstRender)
         {
+            await JS.InvokeVoidAsync("selectChangeLocation");
             await JS.InvokeVoidAsync("installI18n");
         }
     }

@@ -35,15 +35,13 @@
     private IJSObjectReference? GameFiJS;
     private IJSObjectReference? lazyloadingJS;
     protected override async Task OnAfterRenderAsync(bool firstRender)
-
     {
-
         if (firstRender)
 
         {
             lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js"); 
             GameFiJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/GameFi/GameFi.js");
-            await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+            await lazyloadingJS.InvokeVoidAsync("LazyLoadingJQuery");
             await GameFiJS.InvokeVoidAsync("RiderHover");            
 
             await GameFiJS.InvokeVoidAsync("RoadmapSlideClick");

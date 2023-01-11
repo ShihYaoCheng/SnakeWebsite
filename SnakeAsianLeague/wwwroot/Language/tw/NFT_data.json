@@ -1436,7 +1436,7 @@
     "lessee": "承租人",
     "playingTime": "出戰時間",
     "coin": "幣種",
-    "number": "數量",
+    "amount": "數量",
     "pickUp": "領取紀錄"
   }
 }

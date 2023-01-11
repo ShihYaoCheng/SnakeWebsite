@@ -310,18 +310,17 @@
         //List<NFTData> pagelist = await OptionService.GetNFTDataPageList(PageNumber , PageSize ,contractAddress_PPSR);
         //getNFTDataList( pagelist);
         getPPSRsCount( await OptionService.GetNFTRiderUnitsCount());
-        //await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+        
         StateHasChanged();
     }
 
-    private IJSObjectReference? lazyloadingJS;    
+      
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await Refresh();
-            //lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
-            //await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+           
 
         }
     }
@@ -440,14 +439,14 @@
         //NFTDataList = pagelist;
         //MetaData = pagelist.MetaData;
         //PPSRsCount = MetaData.TotalCount;
-        List<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( CheckBoxRarity ,CheckBoxElements , CheckBoxClass ,CheckBoxCountry ,iSFilterHeart);
+        List<NFTData> pagelist = await OptionService.Get_NFT_by_Filter( CheckBoxRarity ,CheckBoxElements   ,iSFilterHeart);
         getNFTDataList(pagelist);
         getPPSRsCount( pagelist.Count);
         await ReFreshJS();
     }
     private void CountFilterSelected()
     {
-        FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count() + CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
+        FilterCount = CheckBoxRarity.Count() + CheckBoxElements.Count(); //+ CheckBoxClass.Count() ;// + CheckBoxCountry.Count();
     }
 
     // 斷是否有點擊篩選我的最愛
