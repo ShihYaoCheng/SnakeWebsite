@@ -22,6 +22,7 @@
     ],
     "minify": {
       "enabled": true,
+      "renameLocals": false,
       "adjustRelativePaths": false
     }
   },
@@ -34,6 +35,7 @@
     ],
     "minify": {
       "enabled": true,
+      "renameLocals": false,
       "adjustRelativePaths": false
     }
   },
@@ -61,7 +63,8 @@
       "wwwroot/JavaScript/Battle/BattleCarousel.js"
     ],
     "minify": {
-      "enabled": false
+      "enabled": true,
+      "renameLocals": false
     },
     "sourceMap": false
   }
