@@ -21,8 +21,7 @@
       "wwwroot/css/EventBanner/EventBanner_WarmUpActivities.css"
     ],
     "minify": {
-      "enabled": true,
-      "renameLocals": false,
+      "enabled": false,
       "adjustRelativePaths": false
     }
   },
@@ -34,8 +33,7 @@
       "wwwroot/css/Animate.css"
     ],
     "minify": {
-      "enabled": true,
-      "renameLocals": false,
+      "enabled": false,
       "adjustRelativePaths": false
     }
   },
@@ -63,8 +61,7 @@
       "wwwroot/JavaScript/Battle/BattleCarousel.js"
     ],
     "minify": {
-      "enabled": true,
-      "renameLocals": false
+      "enabled": true
     },
     "sourceMap": false
   }
