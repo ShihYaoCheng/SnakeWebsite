@@ -89,7 +89,7 @@
     font-size: 115px;
     font-weight: 700;
     letter-spacing: 3px;
-    margin: 28vh auto 0;
+    margin: 185px auto 0;
     font-family: 'Teko', sans-serif;
     z-index: 1;
     display: block;
@@ -112,7 +112,7 @@
     /* border: 1px solid red; */
     max-width: 1145px;
     width: 90%;
-    margin: 8vh auto;
+    margin: 85px auto;
     display: flex;
     /* justify-content: space-between; */
     /* justify-content: flex-start; */
@@ -376,7 +376,7 @@
         font-size: 100px;
         /* margin: 22.5vh auto 0; */
         /* margin: 188px auto 0; */
-        margin: 20vh auto 0;
+        margin: 160px auto 0;
     }
     .Activity-type-block{
         /* margin: 7.5vh auto; */
