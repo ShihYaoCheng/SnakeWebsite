@@ -21,7 +21,7 @@
       "wwwroot/css/EventBanner/EventBanner_WarmUpActivities.css"
     ],
     "minify": {
-      "enabled": false,
+      "enabled": true,
       "adjustRelativePaths": false
     }
   },
@@ -33,7 +33,7 @@
       "wwwroot/css/Animate.css"
     ],
     "minify": {
-      "enabled": false,
+      "enabled": true,
       "adjustRelativePaths": false
     }
   },
