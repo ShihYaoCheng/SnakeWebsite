@@ -792,7 +792,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         /// NFT PPSI 
         /// </summary>
         /// <returns></returns>
-        public async Task<List<MetadataList>> GetPPSIMetadataList(string contractAddress_PPSR ,string OpenSeaLink)
+        public async Task<List<MetadataList>> GetPPSIMetadataList(string contractAddress_PPSI ,string OpenSeaLink)
         {
             List<MetadataList> DataList = new List<MetadataList>();
             try
@@ -816,12 +816,57 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                         int num = item.Key;
                         //string getLinkURL = string.Format("https://testnets.opensea.io/assets/mumbai/" + contractAddress_PPSR + "/" + num); 
                         //string getLinkURL = string.Format("https://opensea.io/assets/matic/" + contractAddress_PPSR + "/" + num);
-                        string getLinkURL = string.Format(LinkURL, contractAddress_PPSR, num);
+                        string getLinkURL = string.Format(LinkURL, contractAddress_PPSI, num);
                         rd.LinkURL = getLinkURL;
                         DataList.Add(rd);
 
                     }
                 } 
+            }
+            catch (Exception ex)
+            {
+                string errormsg = ex.Message;
+            }
+            return DataList;
+        }
+
+
+
+
+        /// <summary>
+        /// NFT PPSL
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<MetadataList>> GetPPSLMetadataList(string contractAddress_PPSL, string OpenSeaLink)
+        {
+            List<MetadataList> DataList = new List<MetadataList>();
+            try
+            {
+                string LinkURL = OpenSeaLink;
+                string URL = "BC_PPSL/NFTMetadataList";
+                var request = new RestRequest(URL, Method.GET);
+                IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+
+                if (restResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    NFTMetaData ResultData = JsonSerializer.Deserialize<NFTMetaData>(restResponse.Content);
+
+
+                    foreach (var item in ResultData.metadataList)
+                    {
+                        var json = item.Value;
+                        MetadataList rd = JsonSerializer.Deserialize<MetadataList>(json);
+
+                        //取得url
+                        int num = item.Key;
+                        //string getLinkURL = string.Format("https://testnets.opensea.io/assets/mumbai/" + contractAddress_PPSR + "/" + num); 
+                        //string getLinkURL = string.Format("https://opensea.io/assets/matic/" + contractAddress_PPSR + "/" + num);
+                        string getLinkURL = string.Format(LinkURL, contractAddress_PPSL, num);
+                        rd.LinkURL = getLinkURL;
+                        DataList.Add(rd);
+
+                    }
+                }
             }
             catch (Exception ex)
             {
