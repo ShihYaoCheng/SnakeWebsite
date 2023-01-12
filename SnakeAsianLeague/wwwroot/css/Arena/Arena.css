@@ -38,7 +38,7 @@
 .Arena-SKY{
     /* border: 2px solid yellow; */
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     overflow-X: hidden;
     position: relative;
     z-index: 0;
@@ -98,21 +98,28 @@
     position: absolute;
     bottom: 0;
     opacity: 0.8;
+    pointer-events: none;
 
     /* display: none; */
 }
 
 .Activity-type-block{
     /* border: 1px solid red; */
-    max-width: 1200px;
+    max-width: 1145px;
     width: 90%;
     margin: 8vh auto;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 .Activity-type-block a{
     text-decoration: none;
-
+    margin: 0 30px 70px;
+}
+.Activity-box{
+    text-decoration: none;
+    position: relative;
 }
 .Activity-type{
     border: 5px solid #DFDFDF;
@@ -149,80 +156,59 @@
 .type-BG img{
     object-fit: cover;
 }
-#type-BG-01{
-    top: -21%;
-    left: -45%;
-    /* transition: all 1s linear; */
-}
-.Activity-type:hover #type-BG-01{
-    top: 0%;
-    left: -105%;
-    transition: all 1.5s linear;
-}
-#type-BG-01 img{
-    width: 310%;
-}
 
 
-#type-BG-02{
-    top: 0%;
-    /* left: -85%; */
-    /* transform: translateX(-50%); */
-    left: -88.5%;
-    transform-origin: top right;
-}
-.Activity-type:hover #type-BG-02{
-    /* top: -5%; */
-    /* left: -35%; */
-    /* transform-origin: center -5%; */
-    /* transform-origin: -35% 50%; */
-    transform: scale(0.925);
-    /* left: -87%; */
-    /* top: 3%; */
-    /* left: -85%; */
-    transition: all 1s linear;
-}
-#type-BG-02 img{
-    width: 282%;
 
-}
-
-
-#type-BG-03{
-    top: -5%;
-    left: -105%;
-}
-.Activity-type:hover #type-BG-03{
-    top: -5%;
-    left: -20%;
-    transition: all 1.5s linear;
-}
-#type-BG-03 img{
-    width: 210%;
-}
 .type-name{
+    width: 95%;
     z-index: 2;
     color: rgba(255, 255, 255, 0.947);
-    font-size: 33px;
+    font-size: 32px;
 
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 
     font-family: 'Cabin','Noto Sans', sans-serif;
 
-    text-shadow: 3px 3px 5px rgba(30, 30, 30, 0.8);
-    line-height: 43px;
+    /* text-shadow: 0px 0px 5px rgba(30, 30, 30, 0.8); */
+    text-shadow: 0px 0px 10px rgb(30 30 30 / 80%), 0px 0px 10px rgb(30 30 30 / 70%),0px 0px 15px rgb(30 30 30 / 60%),0px 0px 20px rgb(61 61 61 / 60%),0px 0px 20px rgb(61 61 61 / 50%),0px 0px 30px rgb(61 61 61 / 50%),0px 0px 40px rgb(61 61 61 / 50%),0px 0px 50px rgba(61, 61, 61, 0.4),0px 0px 40px rgba(78, 78, 78, 0.5),0px 0px 50px rgb(61 61 61 / 40%);
+    line-height: 40px;
     text-align: center;
 }
 
 .type-name-CN{
-    letter-spacing: 5.5px;
-    font-size: 38px;
+    letter-spacing: 4.5px;
+    font-size: 36px;
     text-shadow: 4px 4px 6px rgba(14, 14, 14, 0.8);
 }
 
 #Activity-03 .type-name{
     width: 80%;
+}
+
+
+
+
+
+.type-new{
+    z-index: 3;
+    position: absolute;
+    right: 4.4%;
+    top: -5%;
+
+    right: -2.7%;
+    top: -2.7%;
+    max-width: 126px;
+    width: 45%;
+}
+
+.type-new-02{
+    z-index: 3;
+    position: absolute;
+
+    right: 4.4%;
+    top: -5%;
+    max-width: 90px;
 }
 .type-icon{
     z-index: 3;
@@ -254,20 +240,127 @@
     }
 }
 
+
+
+
+
+
+
+/* 春節新年聯賽 2023 */
+#type-BG-01{
+    top: -21%;
+    left: -45%;
+    /* transition: all 1s linear; */
+}
+.Activity-type:hover #type-BG-01{
+    top: 0%;
+    left: -105%;
+    transition: all 1.5s linear;
+}
+#type-BG-01 img{
+    width: 310%;
+}
 #Activity-01 .type-icon{
     width: 98px;
 }
+
+
+/* 預熱活動 */
+#type-BG-02{
+    top: 0%;
+    /* left: -85%; */
+    /* transform: translateX(-50%); */
+    left: -88.5%;
+    transform-origin: top right;
+}
+.Activity-type:hover #type-BG-02{
+    /* top: -5%; */
+    /* left: -35%; */
+    /* transform-origin: center -5%; */
+    /* transform-origin: -35% 50%; */
+    transform: scale(0.925);
+    /* left: -87%; */
+    /* top: 3%; */
+    /* left: -85%; */
+    transition: all 1s linear;
+}
+#type-BG-02 img{
+    width: 282%;
+}
 #Activity-02 .type-icon{
     width: 88px;
+}
+
+
+
+/* 亞洲聯賽3 */
+#type-BG-03{
+    top: -5%;
+    left: -105%;
+}
+.Activity-type:hover #type-BG-03{
+    top: -5%;
+    left: -20%;
+    transition: all 1.5s linear;
+}
+#type-BG-03 img{
+    width: 210%;
 }
 #Activity-03 .type-icon{
     width: 98px;
 }
 
 
+
+/* 聖誕節慶賽 2021 */
+#type-BG-04{
+    top: -5%;
+    left: -50%;
+}
+.Activity-type:hover #type-BG-04{
+    top: 0%;
+    left: -90%;
+    transition: all 1.5s linear;
+}
+#type-BG-04 img{
+    width: 275%;
+}
+#Activity-04 .type-icon {
+    width: 90px;
+}
+
+
+
+/* 亞洲聯賽S1  */
+#type-BG-05{
+    top: -20%;
+    /* left: -85%; */
+    /* transform: translateX(-50%); */
+    left: -115%;
+    transform-origin: bottom right;
+}
+.Activity-type:hover #type-BG-05{
+    transform: scale(0.935);
+
+    transition: all 1s linear;
+}
+#type-BG-05 img{
+    width: 272%;
+
+}
+
+#Activity-05 .type-icon {
+    width: 98px;
+}
+
+
+
+
+
+
 @media all and (max-width: 2000px){
     .Arena-SKY{
-        max-height: 1050px;
+        /* max-height: 1050px; */
     }
     .Arena-BG{
         background-image: url(/images/Arena/sky-BG-1920.webp);
@@ -286,12 +379,12 @@
 }
 @media all and (max-width: 1800px){
     .Arena-SKY {
-        max-height: 1000px;
+        /* max-height: 1000px; */
     }
 }
 @media all and (max-width: 1200px){
     .Arena-SKY{
-        max-height: 880px;
+        /* max-height: 880px; */
     }
     .Activity-type{
         border: 4px solid #DFDFDF;
@@ -343,9 +436,9 @@
         flex-direction: column;
         align-items: center;
     }
-    .Activity-type{
+    /* .Activity-type{
         margin: 20px;
-    }
+    } */
 }
 @media all and (max-width: 800px){
     .Arena-title{
@@ -388,3 +481,4 @@
         margin: 15px auto 50px;
     }
 }
+

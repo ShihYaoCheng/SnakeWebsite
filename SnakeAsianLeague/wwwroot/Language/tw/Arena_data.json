@@ -1,0 +1,10 @@
+{
+    "Arena": {
+        "title": "PONPONSNAKE ARENA",
+        "type-01": "<span class=\"type-name-CN\">春節新年聯賽</span>",
+        "type-02": "<span class=\"type-name-CN\">預熱活動</span>",
+        "type-03": "<span class=\"type-name-CN\">亞洲聯賽S3</span>",
+        "type-04": "<span class=\"type-name-CN\">聖誕聯賽</span>",
+        "type-05": "<span class=\"type-name-CN\">亞洲聯賽S1</span>"
+      }
+}

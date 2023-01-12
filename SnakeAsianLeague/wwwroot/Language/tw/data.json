@@ -199,13 +199,6 @@
     "PrivacyPolicy": "隱私政策"
   },
 
-  "Arena": {
-    "title": "PONPONSNAKE ARENA",
-    "type-01": "<span class=\"type-name-CN\">節慶賽事</span>",
-    "type-02": "<span class=\"type-name-CN\">特別活動</span>",
-    "type-03": "<span class=\"type-name-CN\">亞洲聯賽</span>"
-  },
-
   "festival-nav": {
     "select-title": "節慶賽",
     "Chinese-NewYear-League-2023": "春節新年聯賽",
