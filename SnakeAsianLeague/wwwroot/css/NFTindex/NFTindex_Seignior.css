@@ -73,7 +73,7 @@
     /* filter: none; */
 }
 
-.main-Icon-kirakira{
+.PPSSeignior-main-Icon-kirakira{
     /* border: 1px solid yellow; */
     width: 150%;
     position: absolute;
@@ -86,15 +86,15 @@
     display: none;
 }
 
-#main-Icon-kirakira-001{
-    animation: main-Icon-kirakira 3s ease-in-out 1.5s infinite;
+#PPSSeignior-main-Icon-kirakira-001{
+    animation: PPSSeignior-main-Icon-kirakira 3s ease-in-out 1.5s infinite;
     opacity: 0;
 }
-#main-Icon-kirakira-002{
-    animation: main-Icon-kirakira 3s ease-in-out 0s infinite;
+#PPSSeignior-main-Icon-kirakira-002{
+    animation: PPSSeignior-main-Icon-kirakira 3s ease-in-out 0s infinite;
 }
 
-@keyframes main-Icon-kirakira {
+@keyframes PPSSeignior-main-Icon-kirakira {
     0% {
         opacity: 0;
     }
@@ -106,7 +106,7 @@
     }
 }
 
-.PPSSeignior-mainIcon:hover .main-Icon-kirakira{
+.PPSSeignior-mainIcon:hover .PPSSeignior-main-Icon-kirakira{
     display: block;
 }
 
