@@ -2,9 +2,9 @@
     //
     //`https://dev.origingaia.com/InvitationCode/QRcodeSaveInvitation?${new URLSearchParams({ 'code': code})}`
     //
-    fetch(`https://${window.location.host}/InvitationCode/QRcodeSaveInvitation?${new URLSearchParams({ 'code': code })}`,
+    fetch(`https://${window.location.port}/api/user/InvitationCode/QRcodeSaveInvitation?code=${code}`,
         {
-            method: "POST",         
+            method: "POST",           
         }
         )
         .then((response) => {
