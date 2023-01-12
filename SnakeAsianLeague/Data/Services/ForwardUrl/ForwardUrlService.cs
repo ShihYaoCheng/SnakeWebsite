@@ -33,9 +33,9 @@ namespace SnakeAsianLeague.Data.Services.ForwardUrl
         public async Task QRcodeSaveInvitation(string QRCode)
         {
 
-            string URL = $"/InvitationCode/QRcodeSaveInvitation?code={QRCode}";
+            string URL = $"/InvitationCode/QRcodeSaveInvitation";
             RestRequest request = new RestRequest(URL, Method.POST);
-            
+            request.AddQueryParameter("code", QRCode);
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
             bool result = restResponse.StatusCode == HttpStatusCode.OK;
 
