@@ -172,7 +172,7 @@
 
     @* 獎勵區塊 *@
 
-    <div class="christmas_award_block">
+    <div class="christmas_award_block" hidden="@(true)">
 
         <div class="award_inner_block" id="leagueAward">
             <div class="christmas_title_block">
@@ -2156,6 +2156,8 @@
             @* FireworksJS= await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/Festival/Fireworks.js");  
             await FireworksJS.InvokeVoidAsync("fireworks"); *@
             await JS.InvokeVoidAsync("Lightbox");
+            await JS.InvokeVoidAsync("selectChangeLocation");
+
         }
 
          

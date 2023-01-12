@@ -91,6 +91,8 @@
             await ParallaxJS.InvokeVoidAsync("ParallaxInit");
             await JS.InvokeVoidAsync("Lightbox");          
             await JS.InvokeVoidAsync("installI18n");
+            await JS.InvokeVoidAsync("selectChangeLocation");
+
         }
         lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js");
         await lazyloadingJS.InvokeVoidAsync("LazyLoading");

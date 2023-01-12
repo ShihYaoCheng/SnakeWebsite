@@ -6,7 +6,7 @@
     /* height: 500px; */
     /* border: 1px solid red; */
 
-    background-image: url(/images/NFTindex/NFTindex_Landlord/LandlordType_BG.png);
+    background-image: url(/images/NFTindex/NFTindex_Landlord/LandlordType_BG.webp);
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -337,7 +337,7 @@
 .LandlordType{
     width: 100%;
     padding: 80px 0 0;
-    /* background-image: url("/images/NFTindex/NFTindex_Landlord/LandlordType_BG.png");
+    /* background-image: url("/images/NFTindex/NFTindex_Landlord/LandlordType_BG.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -388,7 +388,7 @@
     /* background-color: #0c1a27d9; */
     /* box-shadow: inset 0px 0px 30px 15px #2e4457d9; */
     /* transform: rotate(45deg); */
-    background-image: url("/images/NFTindex/NFTindex_Landlord/backframe.png");
+    background-image: url("/images/NFTindex/NFTindex_Landlord/backframe.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom center;

@@ -159,7 +159,7 @@
 
 .Scholar-Info-Block {
     width: 55%;
-    background-image: url("/images/NFTindex/NFTindex_Scholar/spaceship.png");
+    background-image: url("/images/NFTindex/NFTindex_Scholar/spaceship.webp");
     background-position: center right;
     background-repeat: no-repeat;
     background-size: contain;
@@ -412,7 +412,7 @@
 
 .spaceship_blueprint{
     width: 100%;
-    background-image: url("/images/NFTindex/NFTindex_Scholar/Travel_map.png");
+    background-image: url("/images/NFTindex/NFTindex_Scholar/Travel_map.webp");
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: cover;
