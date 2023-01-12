@@ -1,7 +1,5 @@
 ﻿window.signUpMobile = function (code) {
-    //
-    //`https://dev.origingaia.com/InvitationCode/QRcodeSaveInvitation?${new URLSearchParams({ 'code': code})}`
-    //
+
     fetch(`https://${window.location.host}/api/user/InvitationCode/QRcodeSaveInvitation?code=${code}`,
         {
             method: "POST",           
@@ -15,6 +13,7 @@
         })
 
 
+
     setTimeout(() => {
         if (!window.MSStream && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
             window.location.href = "https://apps.apple.com/us/app/%E7%A2%B0%E7%A2%B0%E8%9B%87-2/id1504212624"
@@ -26,7 +25,7 @@
             window.location.href = `/SignUp/${code}`
         }
 
-    }, 500)
+    }, 600)
     
     
 }
