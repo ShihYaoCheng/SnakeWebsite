@@ -40,6 +40,3 @@ msbuild.wrn
 /.vs
 /SnakeAsianLeague.csproj.user
 /SnakeAsianLeague/SnakeAsianLeague.csproj.user
-/SnakeAsianLeague/wwwroot/css/NFTindex/NFTindex.min.css
-/SnakeAsianLeague/wwwroot/css/site.min.css
-/SnakeAsianLeague/wwwroot/JavaScript/Host.min.js
