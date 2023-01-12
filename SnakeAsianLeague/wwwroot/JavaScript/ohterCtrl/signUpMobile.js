@@ -26,7 +26,7 @@
             window.location.href = `/SignUp/${code}`
         }
 
-    }, 5000)
+    }, 1000)
     
     
 }
