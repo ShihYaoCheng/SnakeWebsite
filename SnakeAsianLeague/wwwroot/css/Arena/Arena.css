@@ -110,7 +110,8 @@
     margin: 8vh auto;
     display: flex;
     /* justify-content: space-between; */
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    justify-content: center;
     flex-wrap: wrap;
 }
 .Activity-type-block a{
