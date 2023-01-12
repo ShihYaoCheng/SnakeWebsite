@@ -39,6 +39,8 @@ namespace SnakeAsianLeague.Data.Services.ForwardUrl
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
             bool result = restResponse.StatusCode == HttpStatusCode.OK;
 
+            Console.WriteLine(System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + " QRcodeSaveInvitation : " + QRCode + " 。 restResponse.StatusCode : " + restResponse.StatusCode);
+
         }
 
         private string Authenticate()
