@@ -5,6 +5,7 @@
     /* display: none; */
     background-color: #cdf5f500 !important;
     box-shadow: unset;
+    /* position: absolute; */
 }
 #nav-Language_Select{
     position: absolute;
@@ -15,6 +16,9 @@
     width: 80px;
     height: 25px;
     font-size: 14px;
+}
+.login_block{
+    display: none;
 }
 .logo{
     display: none;
