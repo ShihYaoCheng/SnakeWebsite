@@ -38,7 +38,7 @@
 .Arena-SKY{
     /* border: 2px solid yellow; */
     width: 100%;
-    height: 100vh;
+    /* min-height: 100vh; */
     overflow-X: hidden;
     position: relative;
     z-index: 0;
@@ -49,8 +49,7 @@
     height: 100%;
     position: absolute;
     z-index: -1;
-
-
+    /* min-height: 100vh; */
     /* background-image: linear-gradient(165deg, #506da8 0%,#5270ac 41%,#9CD0DB 48% ,#a3d2da 53% ,#5b91bc 64%,#6598c3 100%) */
     
     background-image: url(/images/Arena/sky-BG.webp);
@@ -66,7 +65,13 @@
     width: 110%;
     animation: Arena-BG 30s ease-in-out  infinite;
 } */
-
+.Arena-BG-Gradient{
+    position: absolute;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #6393BA 0%, #5C93BE 50%, #6196bf 100%);
+}
 @keyframes Arena-BG {
     0% {
         transform: translateX(0px);
@@ -84,7 +89,7 @@
     font-size: 115px;
     font-weight: 700;
     letter-spacing: 3px;
-    margin: 28vh auto 0;
+    margin: 185px auto 0;
     font-family: 'Teko', sans-serif;
     z-index: 1;
     display: block;
@@ -98,21 +103,29 @@
     position: absolute;
     bottom: 0;
     opacity: 0.8;
+    pointer-events: none;
 
     /* display: none; */
 }
 
 .Activity-type-block{
     /* border: 1px solid red; */
-    max-width: 1200px;
+    max-width: 1145px;
     width: 90%;
-    margin: 8vh auto;
+    margin: 85px auto;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    /* justify-content: flex-start; */
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .Activity-type-block a{
     text-decoration: none;
-
+    margin: 0 30px 70px;
+}
+.Activity-box{
+    text-decoration: none;
+    position: relative;
 }
 .Activity-type{
     border: 5px solid #DFDFDF;
@@ -149,80 +162,59 @@
 .type-BG img{
     object-fit: cover;
 }
-#type-BG-01{
-    top: -21%;
-    left: -45%;
-    /* transition: all 1s linear; */
-}
-.Activity-type:hover #type-BG-01{
-    top: 0%;
-    left: -105%;
-    transition: all 1.5s linear;
-}
-#type-BG-01 img{
-    width: 310%;
-}
 
 
-#type-BG-02{
-    top: 0%;
-    /* left: -85%; */
-    /* transform: translateX(-50%); */
-    left: -88.5%;
-    transform-origin: top right;
-}
-.Activity-type:hover #type-BG-02{
-    /* top: -5%; */
-    /* left: -35%; */
-    /* transform-origin: center -5%; */
-    /* transform-origin: -35% 50%; */
-    transform: scale(0.925);
-    /* left: -87%; */
-    /* top: 3%; */
-    /* left: -85%; */
-    transition: all 1s linear;
-}
-#type-BG-02 img{
-    width: 282%;
 
-}
-
-
-#type-BG-03{
-    top: -5%;
-    left: -105%;
-}
-.Activity-type:hover #type-BG-03{
-    top: -5%;
-    left: -20%;
-    transition: all 1.5s linear;
-}
-#type-BG-03 img{
-    width: 210%;
-}
 .type-name{
+    width: 95%;
     z-index: 2;
     color: rgba(255, 255, 255, 0.947);
-    font-size: 33px;
+    font-size: 32px;
 
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 
     font-family: 'Cabin','Noto Sans', sans-serif;
 
-    text-shadow: 3px 3px 5px rgba(30, 30, 30, 0.8);
-    line-height: 43px;
+    /* text-shadow: 0px 0px 5px rgba(30, 30, 30, 0.8); */
+    text-shadow: 0px 0px 10px rgb(30 30 30 / 80%), 0px 0px 10px rgb(30 30 30 / 70%),0px 0px 15px rgb(30 30 30 / 60%),0px 0px 20px rgb(61 61 61 / 60%),0px 0px 20px rgb(61 61 61 / 50%),0px 0px 30px rgb(61 61 61 / 50%),0px 0px 40px rgb(61 61 61 / 50%),0px 0px 50px rgba(61, 61, 61, 0.4),0px 0px 40px rgba(78, 78, 78, 0.5),0px 0px 50px rgb(61 61 61 / 40%);
+    line-height: 40px;
     text-align: center;
 }
 
 .type-name-CN{
-    letter-spacing: 5.5px;
-    font-size: 38px;
+    letter-spacing: 4.5px;
+    font-size: 36px;
     text-shadow: 4px 4px 6px rgba(14, 14, 14, 0.8);
 }
 
 #Activity-03 .type-name{
     width: 80%;
+}
+
+
+
+
+
+.type-new{
+    z-index: 3;
+    position: absolute;
+    right: 4.4%;
+    top: -5%;
+
+    right: -2.7%;
+    top: -2.7%;
+    max-width: 126px;
+    width: 45%;
+}
+
+.type-new-02{
+    z-index: 3;
+    position: absolute;
+
+    right: 4.4%;
+    top: -5%;
+    max-width: 90px;
 }
 .type-icon{
     z-index: 3;
@@ -254,29 +246,137 @@
     }
 }
 
+
+
+
+
+
+
+/* 春節新年聯賽 2023 */
+#type-BG-01{
+    top: -21%;
+    left: -45%;
+    /* transition: all 1s linear; */
+}
+.Activity-type:hover #type-BG-01{
+    top: 0%;
+    left: -105%;
+    transition: all 1.5s linear;
+}
+#type-BG-01 img{
+    width: 310%;
+}
 #Activity-01 .type-icon{
     width: 98px;
 }
+
+
+/* 預熱活動 */
+#type-BG-02{
+    top: 0%;
+    /* left: -85%; */
+    /* transform: translateX(-50%); */
+    left: -88.5%;
+    transform-origin: top right;
+}
+.Activity-type:hover #type-BG-02{
+    /* top: -5%; */
+    /* left: -35%; */
+    /* transform-origin: center -5%; */
+    /* transform-origin: -35% 50%; */
+    transform: scale(0.925);
+    /* left: -87%; */
+    /* top: 3%; */
+    /* left: -85%; */
+    transition: all 1s linear;
+}
+#type-BG-02 img{
+    width: 282%;
+}
 #Activity-02 .type-icon{
     width: 88px;
+}
+
+
+
+/* 亞洲聯賽3 */
+#type-BG-03{
+    top: -5%;
+    left: -105%;
+}
+.Activity-type:hover #type-BG-03{
+    top: -5%;
+    left: -20%;
+    transition: all 1.5s linear;
+}
+#type-BG-03 img{
+    width: 210%;
 }
 #Activity-03 .type-icon{
     width: 98px;
 }
 
 
+
+/* 聖誕節慶賽 2021 */
+#type-BG-04{
+    top: -5%;
+    left: -50%;
+}
+.Activity-type:hover #type-BG-04{
+    top: 0%;
+    left: -90%;
+    transition: all 1.5s linear;
+}
+#type-BG-04 img{
+    width: 275%;
+}
+#Activity-04 .type-icon {
+    width: 90px;
+}
+
+
+
+/* 亞洲聯賽S1  */
+#type-BG-05{
+    top: -20%;
+    /* left: -85%; */
+    /* transform: translateX(-50%); */
+    left: -115%;
+    transform-origin: bottom right;
+}
+.Activity-type:hover #type-BG-05{
+    transform: scale(0.935);
+
+    transition: all 1s linear;
+}
+#type-BG-05 img{
+    width: 272%;
+
+}
+
+#Activity-05 .type-icon {
+    width: 98px;
+}
+
+
+
+
+
+
 @media all and (max-width: 2000px){
     .Arena-SKY{
-        max-height: 1050px;
+        /* max-height: 1050px; */
     }
     .Arena-BG{
+        max-height: 1050px;
         background-image: url(/images/Arena/sky-BG-1920.webp);
     }
     .Arena-title{
         font-size: 100px;
         /* margin: 22.5vh auto 0; */
         /* margin: 188px auto 0; */
-        margin: 20vh auto 0;
+        margin: 160px auto 0;
     }
     .Activity-type-block{
         /* margin: 7.5vh auto; */
@@ -286,11 +386,17 @@
 }
 @media all and (max-width: 1800px){
     .Arena-SKY {
+        /* max-height: 1000px; */
+    }
+    .Arena-BG{
         max-height: 1000px;
     }
 }
 @media all and (max-width: 1200px){
     .Arena-SKY{
+        /* max-height: 880px; */
+    }
+    .Arena-BG{
         max-height: 880px;
     }
     .Activity-type{
@@ -326,7 +432,8 @@
         font-size: 29px;
     }
     .type-name-CN{
-        font-size: 34px;
+        font-size: 30px;
+        letter-spacing: 4px;
     }
 }
 @media all and (max-width: 1000px){
@@ -343,8 +450,11 @@
         flex-direction: column;
         align-items: center;
     }
-    .Activity-type{
+    /* .Activity-type{
         margin: 20px;
+    } */
+    .Activity-type-block a{
+        margin: 0 10px 50px;
     }
 }
 @media all and (max-width: 800px){
@@ -373,18 +483,22 @@
 }
 @media all and (max-width: 500px){
     .Arena-title{
-        margin: 85px auto 0;
+        margin: 85px auto 30px;
         font-size: 50px;
         line-height: 50px;
     }
 }
 @media all and (max-width: 400px){
     .Arena-title {
-        margin: 90px auto 0;
+        margin: 90px auto 30px;
         font-size: 43px;
         line-height: 46px;
     }
     .Activity-type-block {
         margin: 15px auto 50px;
     }
+    .Activity-type-block a{
+        margin: 0 auto 50px;
+    }
 }
+

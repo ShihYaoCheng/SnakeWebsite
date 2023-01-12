@@ -2,7 +2,54 @@
 
 /* 預熱活動頁拿掉nav footer */
 #nav{
+    /* display: none; */
+    background-color: #cdf5f500 !important;
+    box-shadow: unset;
+    /* position: absolute; */
+}
+#nav-Language_Select{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+@media all and (max-width: 1000px){
+    #nav-Language_Select{
+        position: absolute;
+        top: 15px;
+        right: 10px;
+    }
+}
+#Language_Select {
+    width: 80px;
+    height: 25px;
+    font-size: 14px;
+}
+.collapse:not(.show){
+    display: block;
+}
+.login_block{
     display: none;
+}
+.logo{
+    display: none;
+}
+.navbar-toggler{
+    display: none;
+}
+.nav_ul{
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+}
+.nav-item{
+    opacity: 0;
+    pointer-events: none;
+}
+.LoginUser{
+    display: none;
+}
+.navbar-toggler{
+    /* display: none; */
 }
 #webFooter{
     display: none;
