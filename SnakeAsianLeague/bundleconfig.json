@@ -21,7 +21,7 @@
       "wwwroot/css/EventBanner/EventBanner_WarmUpActivities.css"
     ],
     "minify": {
-      "enabled": false,
+      "enabled": true,
       "adjustRelativePaths": false
     }
   },
@@ -33,7 +33,7 @@
       "wwwroot/css/Animate.css"
     ],
     "minify": {
-      "enabled": false,
+      "enabled": true,
       "adjustRelativePaths": false
     }
   },
@@ -61,9 +61,10 @@
       "wwwroot/JavaScript/Battle/BattleCarousel.js"
     ],
     "minify": {
-      "enabled": false
-    },
-    "sourceMap": false
+      "enabled": true,
+      "sourceMap": true
+    }
+    
   }
 
 
