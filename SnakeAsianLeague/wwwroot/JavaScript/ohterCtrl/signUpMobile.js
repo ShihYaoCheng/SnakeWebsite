@@ -2,7 +2,7 @@
     //
     //`https://dev.origingaia.com/InvitationCode/QRcodeSaveInvitation?${new URLSearchParams({ 'code': code})}`
     //
-    fetch(`https://${window.location.port}/api/user/InvitationCode/QRcodeSaveInvitation?code=${code}`,
+    fetch(`https://${window.location.host}/api/user/InvitationCode/QRcodeSaveInvitation?code=${code}`,
         {
             method: "POST",           
         }
@@ -26,7 +26,7 @@
             window.location.href = `/SignUp/${code}`
         }
 
-    }, 1000)
+    }, 500)
     
     
 }
