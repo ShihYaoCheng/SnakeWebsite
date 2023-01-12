@@ -9,8 +9,8 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        ForwardUrlService.QRcodeSaveInvitation(Code);
-        await JS.InvokeAsync<bool>("signUpMobile",Code);
+        await ForwardUrlService.QRcodeSaveInvitation(Code);
+        await JS.InvokeVoidAsync("signUpMobile",Code);
   
     }
 }
