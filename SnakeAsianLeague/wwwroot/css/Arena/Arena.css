@@ -38,7 +38,7 @@
 .Arena-SKY{
     /* border: 2px solid yellow; */
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     overflow-X: hidden;
     position: relative;
     z-index: 0;
@@ -49,8 +49,7 @@
     height: 100%;
     position: absolute;
     z-index: -1;
-
-
+    /* min-height: 100vh; */
     /* background-image: linear-gradient(165deg, #506da8 0%,#5270ac 41%,#9CD0DB 48% ,#a3d2da 53% ,#5b91bc 64%,#6598c3 100%) */
     
     background-image: url(/images/Arena/sky-BG.webp);
@@ -66,7 +65,13 @@
     width: 110%;
     animation: Arena-BG 30s ease-in-out  infinite;
 } */
-
+.Arena-BG-Gradient{
+    position: absolute;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #6393BA 0%, #5C93BE 50%, #6196bf 100%);
+}
 @keyframes Arena-BG {
     0% {
         transform: translateX(0px);
@@ -364,6 +369,7 @@
         /* max-height: 1050px; */
     }
     .Arena-BG{
+        max-height: 1050px;
         background-image: url(/images/Arena/sky-BG-1920.webp);
     }
     .Arena-title{
@@ -382,10 +388,16 @@
     .Arena-SKY {
         /* max-height: 1000px; */
     }
+    .Arena-BG{
+        max-height: 1000px;
+    }
 }
 @media all and (max-width: 1200px){
     .Arena-SKY{
         /* max-height: 880px; */
+    }
+    .Arena-BG{
+        max-height: 880px;
     }
     .Activity-type{
         border: 4px solid #DFDFDF;
@@ -420,7 +432,8 @@
         font-size: 29px;
     }
     .type-name-CN{
-        font-size: 34px;
+        font-size: 30px;
+        letter-spacing: 4px;
     }
 }
 @media all and (max-width: 1000px){
@@ -440,6 +453,9 @@
     /* .Activity-type{
         margin: 20px;
     } */
+    .Activity-type-block a{
+        margin: 0 10px 50px;
+    }
 }
 @media all and (max-width: 800px){
     .Arena-title{
@@ -467,19 +483,22 @@
 }
 @media all and (max-width: 500px){
     .Arena-title{
-        margin: 85px auto 0;
+        margin: 85px auto 30px;
         font-size: 50px;
         line-height: 50px;
     }
 }
 @media all and (max-width: 400px){
     .Arena-title {
-        margin: 90px auto 0;
+        margin: 90px auto 30px;
         font-size: 43px;
         line-height: 46px;
     }
     .Activity-type-block {
         margin: 15px auto 50px;
+    }
+    .Activity-type-block a{
+        margin: 0 auto 50px;
     }
 }
 
