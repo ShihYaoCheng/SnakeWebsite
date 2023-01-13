@@ -33,7 +33,7 @@
             <NFTindex_Flag />
         </div>
 
-        <div class="PPSRidersNFT-BG sec" id="sec-02" data-num="2">
+        <div class="PPSRidersNFT-BG sec cssLazy" id="sec-02" data-num="2">
             <NFTindex_Seignior />
             <NFTindex_Carousel />
         </div>
@@ -80,6 +80,7 @@
             
             lazyloadingJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/LazyLoading.js"); 
             await lazyloadingJS.InvokeVoidAsync("LazyLoadingJQuery");
+            await lazyloadingJS.InvokeVoidAsync("LazyLoadingJQueryCSS"); 
             await JS.InvokeVoidAsync("installI18n");
             BannerJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SnakeIndex/Banner.js");
             await BannerJS.InvokeVoidAsync("indexScrollEvent");
