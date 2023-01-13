@@ -26,3 +26,20 @@
 export function LazyLoadingJQuery() {
     $('.lazy').lazy();
 }
+
+export function LazyLoadingJQueryCSS() {
+    const lazyloadBackgrounds = document.querySelectorAll('.cssLazy');
+    var backgroundObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var background = entry.target;
+                background.classList.remove("cssLazy")
+                backgroundObserver.unobserve(background);
+            }
+        });
+    });
+
+    lazyloadBackgrounds.forEach(function (background) {
+        backgroundObserver.observe(background);
+    });
+}
