@@ -1,10 +1,16 @@
 {
     "Arena": {
-        "title": "PONPONSNAKE ARENA",
-        "type-01": "CHINESE NEWYEAR LEAGUE 2023",
-        "type-02": "WARM-UP EVENT",
-        "type-03": "ASIA CHAMPIONS LEAGUE S3",
-        "type-04": "CHRISTMAS LEAGUE 2021",
-        "type-05": "ASIA CHAMPIONS LEAGUE S1"
+        "Arena-title": "PONPONSNAKE ARENA",
+        "title-01": "CHINESE NEWYEAR LEAGUE 2023",
+        "title-02": "WARM-UP EVENT",
+        "title-03": "ASIA CHAMPIONS LEAGUE S3",
+        "title-04": "CHRISTMAS LEAGUE 2021",
+        "title-05": "ASIA CHAMPIONS LEAGUE S1",
+
+        "introduce-01": "Lucky Star arrives, Total Grand 55,500 gERNC!",
+        "introduce-02": "Play Free, Earn Fun! All Reward just for you!",
+        "introduce-03": "Secret Reward!<br>All top 8 Gets the Price!",
+        "introduce-04": "Celebrate the festive, Give a variety of good gifts!",
+        "introduce-05": "Exciting game,<br>Total bonus 1.725 million!"
       }
 }
