@@ -110,7 +110,7 @@
 
 .Activity-type-block{
     /* border: 1px solid red; */
-    max-width: 1145px;
+    max-width: 1175px;
     width: 90%;
     margin: 85px auto 150px;
     display: flex;
@@ -121,7 +121,7 @@
 }
 .Activity-type-block a{
     text-decoration: none;
-    margin: 0 30px 70px;
+    margin: 0 35px 80px;
 }
 .Activity-box{
     text-decoration: none;
@@ -465,7 +465,7 @@
         margin: 75px auto 100px;
     }
     .Activity-type-block a {
-        margin: 0 25px 50px;
+        margin: 0 30px 62px;
     }
     .type-icon{
         right: 4%;
