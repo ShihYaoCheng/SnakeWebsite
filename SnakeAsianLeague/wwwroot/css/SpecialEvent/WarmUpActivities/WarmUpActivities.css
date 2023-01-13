@@ -23,6 +23,9 @@
     width: 80px;
     height: 25px;
     font-size: 14px;
+    background-color: #9a3929;
+    color: #ffffff;
+    background-image: url(/images/SpecialEvent/WarmUpActivities/Language_Select.webp);
 }
 .collapse:not(.show){
     display: block;
