@@ -247,6 +247,7 @@
     /* right: 4.4%;
     top: -5%; */
 
+    pointer-events: none;
     right: -2.6%;
     top: -2.4%;
     max-width: 126px;
@@ -527,7 +528,7 @@
         margin: 20px;
     } */
     .Activity-type-block a{
-        margin: 0 30px 50px;
+        margin: 0 30px 45px;
     }
 }
 @media all and (max-width: 800px){
