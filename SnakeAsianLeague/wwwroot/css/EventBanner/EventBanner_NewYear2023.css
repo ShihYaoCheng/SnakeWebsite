@@ -1,0 +1,226 @@
+.SnakeEventBanner{
+    width: 100%;
+
+    position: fixed;
+    bottom: 0%;
+    left: 0;
+    z-index: 49;
+    /* background-color: rgba(48, 49, 69, 0.5); */
+    background-image: linear-gradient(to top, #303145 0%, #303145b0 60%, #30314580 80%, #30314530 100%);
+    box-shadow: 0px -15px 30px 15px #30314530;
+}
+
+.NewYear-SnakeEventBanner-BG {
+    /* max-width: 1200px; */
+    width: 95%;
+    border: 4px solid #65111184;
+    background-color: #34050584;
+    
+    background-image: url(/images/EventBanner/EventBanner_NewYear2023/01-background.png);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    
+    /* box-shadow: 0px 0px 10px 5px rgba(255, 220, 92, 0.2), 0px 10px 50px 30px rgba(238, 206, 197, 0.319); */
+    /* box-shadow: 0 -5px 100px 10px rgba(255, 237, 176, 0.3), 0 0 60px 20px rgba(123, 217, 248, 0.6); */
+    box-shadow: 0px 6px 30px 10px rgba(33, 2, 2, 0.4);
+    position: relative;
+
+    max-width: 800px;
+    height: 168px;
+    border-radius: 30px;
+    margin: 50px auto 25px;
+    
+}
+
+#event_banner_close {
+    border-radius: 50%;
+    position: absolute;
+    top: -2%;
+    z-index: 52;
+    transition: all .05s ease-out;
+    opacity: 0.7;
+
+    width: 27px;
+    height: 27px;
+    right: -36px;
+}
+
+#event_banner_close:hover {
+    cursor: pointer;
+    /* opacity: 0.8; */
+    transform: scale(1.05);
+}
+
+#event_banner_close img {
+    width: 100%;
+}
+.eventBanner-link{
+    /* border: 1px solid red; */
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 30px;
+}
+
+.NewYear-Img{
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+
+    
+}
+.EventBanner-NewYear-cloud{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+#NewYear-cloud-01{
+    max-width: 125px;
+    width: 13%;
+    left: -4%;
+    top: 18%;
+    opacity: 0.8;
+
+    animation: NewYear-cloud-01 25s linear 0s infinite;
+}
+@keyframes NewYear-cloud-01 {
+    0% {
+        left: -5%;
+    }
+
+    50% {
+        left: 4%;
+    }
+    0% {
+        left: -5%;
+    }
+}
+
+#NewYear-cloud-02{
+    max-width: 123px;
+    width: 13%;
+    left: 23%;
+    bottom: 7%;
+
+    animation: NewYear-cloud-02 25s linear 1s infinite;
+}
+@keyframes NewYear-cloud-02 {
+    0% {
+        left: 23%;
+    }
+
+    50% {
+        left: 19%;
+    }
+    0% {
+        left: 23%;
+    }
+}
+#NewYear-cloud-03{
+    max-width: 123px;
+    width: 13%;
+    right: 25%;
+    bottom: 23%;
+    
+    animation: NewYear-cloud-03 25s linear 1s infinite;
+}
+@keyframes NewYear-cloud-03 {
+    0% {
+        right: 23%;
+    }
+
+    50% {
+        right: 30%;
+    }
+    0% {
+        right: 23%;
+    }
+}
+
+
+#NewYear-rider{
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    height: 100%;
+}
+#NewYear-logo{
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    filter: drop-shadow( 0px 0px 20px rgba(255, 246, 122, 0.6));
+    animation: NewYear-logo 3s linear 0s infinite;
+    z-index: 3;
+}
+
+@keyframes NewYear-logo {
+    0% {
+        filter: drop-shadow( 0px 0px 20px rgba(255, 246, 122, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow( 0px 0px 60px rgba(255, 246, 122, 0.7));
+    }
+    0% {
+        filter: drop-shadow( 0px 0px 20px rgba(255, 246, 122, 0.5));
+    }
+}
+.NewYear-border{
+    border-radius: 30px;
+    border: 3px solid #e5cd76e0;
+    width: 99%;
+    height: 95%;
+    /* margin: 10px; */
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    z-index: 3;
+}
+#NewYear-centerTitle{
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 49%;
+    z-index: 4;
+    filter: drop-shadow( 0px 0px 20px rgba(54, 4, 4, 0.5));
+
+}
+
+
+
+@media all and (max-width: 900px){
+    .NewYear-SnakeEventBanner-BG {
+        max-width: 370px;
+        height: 90px;
+        border-radius: 15px;
+        /* border: 2px solid #65111184; */
+        margin: 50px auto 25px;
+
+    }
+    #event_banner_close{
+        width: 23px;
+        height: 23px;
+        right: -5px;
+        top: -32px;
+    }
+    .eventBanner-link{
+        border-radius: 20px;
+    }
+    #NewYear-centerTitle{
+        width: 125%;
+    }
+    #NewYear-cloud-02{
+        bottom: 13%;
+    }
+    #NewYear-logo{
+        width: 110%;
+    }
+    .NewYear-border{
+        width: 100%;
+        border-radius: 15px;
+        border: 2.1px solid #e5cd76cb;
+    }
+}

@@ -1,0 +1,63 @@
+@inject IJSRuntime JS
+
+<head>
+    @* <link href="css/EventBanner/ACL_S3.css" rel="stylesheet" /> *@
+    @* <link href="/css/NFTindex/NFTindex.min.css" rel="stylesheet" /> *@
+    <link href="css/EventBanner/EventBanner_NewYear2023.css" rel="stylesheet" />
+
+    @* <link href="css/EventBanner/EventBanner_WarmUpActivities.css" rel="stylesheet" /> *@
+    
+</head>
+
+@* SnakeBanner *@
+<div class="SnakeEventBanner" id="SnakeBanner">
+
+    <div class="NewYear-SnakeEventBanner-BG">
+        <div id="event_banner_close" @onclick="SnakeEventBannerCloseClick">
+            <img src="/images/OfficialWeb/event_banner/event_banner_close_red.webp" alt="">
+        </div>
+        <a class="eventBanner-link" href="NewYear2023#NewYear2023_Banner">
+            
+            <div class="EventBanner-NewYear-cloud">
+                <img class="NewYear-Img" id="NewYear-cloud-01" width="228" src="/images/EventBanner/EventBanner_NewYear2023/02-cloud-01.png" alt="">
+                <img class="NewYear-Img" id="NewYear-cloud-02" width="223" src="/images/EventBanner/EventBanner_NewYear2023/02-cloud-02.png" alt="">
+                <img class="NewYear-Img" id="NewYear-cloud-03" width="223" src="/images/EventBanner/EventBanner_NewYear2023/02-cloud-03.png" alt="">
+            </div>
+
+            <img class="NewYear-Img" id="NewYear-rider"  src="/images/EventBanner/EventBanner_NewYear2023/03-rider.png" alt="">
+            <img class="NewYear-Img" id="NewYear-logo"  src="/images/EventBanner/EventBanner_NewYear2023/04-logo.png" alt="">
+            
+            <div class="NewYear-Img NewYear-border"></div>
+            <img class="NewYear-Img" id="NewYear-centerTitle"  src="/images/EventBanner/EventBanner_NewYear2023/05-centerTitle.png" alt="">
+
+
+        </a>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+@code {
+    private IJSObjectReference? Banner;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Banner = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SnakeIndex/Banner.js");
+        }
+    }
+
+
+    private async Task SnakeEventBannerCloseClick()
+    {
+        if (Banner != null)
+        {
+            await Banner.InvokeVoidAsync("SnakeEventBannerClose");
+        }
+    }
+}
