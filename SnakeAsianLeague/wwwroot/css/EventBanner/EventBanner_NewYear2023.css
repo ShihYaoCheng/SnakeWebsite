@@ -153,7 +153,7 @@
     top: 0px;
     left: 0px;
     filter: drop-shadow( 0px 0px 20px rgba(255, 246, 122, 0.6));
-    animation: NewYear-logo 3s linear 0s infinite;
+    animation: NewYear-logo 5s linear 0s infinite;
     z-index: 3;
 }
 
