@@ -18,7 +18,8 @@
       "wwwroot/css/NFTindex/NFTindex_Seignior.css",
       "wwwroot/css/NFTindex/NFTindex_SRC.css",
       "wwwroot/css/NFTindex/NFTindex_Video.css",
-      "wwwroot/css/EventBanner/EventBanner_WarmUpActivities.css"
+      "wwwroot/css/EventBanner/EventBanner_WarmUpActivities.css",
+      "wwwroot/css/EventBanner/EventBanner_NewYear2023.css"
     ],
     "minify": {
       "enabled": false,
