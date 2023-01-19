@@ -1,8 +1,8 @@
 ﻿@using SnakeAsianLeague.Data.Entity
 
-@if (Value != null) 
+@if (NFTDataList != null) 
 {
-    @foreach (NFTData item in Value)
+    @foreach (NFTData item in NFTDataList)
     {       
         string cardBgColor = "";
         if (@item.IsOfficial)
@@ -25,7 +25,7 @@
         }
 
         <div class="NFTcard @cardBgColor">
-            <MarketPlace_NFTcard Value="item" HeartToggleButton="HeartToggleButton"   isLogin =@isLogin></MarketPlace_NFTcard>    
+            <MarketPlace_NFTcard NFTData="item" HeartToggleButton="HeartToggleButton"   isLogin =@isLogin></MarketPlace_NFTcard>    
         </div>
     
     }
@@ -59,7 +59,7 @@ else
     public bool isLogin { get; set; }
 
     [Parameter]
-    public List<NFTData> Value { get; set; }
+    public List<NFTData> NFTDataList { get; set; }
 
     [Parameter]
     public EventCallback<HeartParameter> HeartToggleButton { get; set;}
