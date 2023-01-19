@@ -74,5 +74,9 @@
 
     "notice": {
         "title":"- 參賽須知 -"
+    },
+
+    "EventBanner_NewYear2023":{
+        "title":"/images/EventBanner/EventBanner_NewYear2023/05-centerTitle_CN.png"
     }
 }
