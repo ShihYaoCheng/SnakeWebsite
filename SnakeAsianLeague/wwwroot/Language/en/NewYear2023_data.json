@@ -72,5 +72,9 @@
 
     "notice": {
         "title":"- Notice -"
+    },
+
+    "EventBanner_NewYear2023":{
+        "title":"/images/EventBanner/EventBanner_NewYear2023/05-centerTitle_EN.png"
     }
 }
