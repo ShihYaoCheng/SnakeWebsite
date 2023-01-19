@@ -8,6 +8,7 @@
 	const SRCExchange_addr = SRCExchange_address //SRCExchange_address
 
 	const SwapNumValue = PurchaseInput
+	BigNumber.config({ EXPONENTIAL_AT: [-7, 22] }) 
 	let x = new BigNumber(SwapNumValue);
 
 	

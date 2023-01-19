@@ -89,6 +89,7 @@ window.web3JSConfirm = async function (SwapToggle, SRCInput, USDTInput, USDT_add
 	if (SwapToggle) {
 		//SRC 轉 USDT
 		SwapNumValue = SRCInput
+		BigNumber.config({ EXPONENTIAL_AT: [-7, 22] }) 
 		let x = new BigNumber(SwapNumValue);
 
 		try {

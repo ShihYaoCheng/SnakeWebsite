@@ -76,7 +76,7 @@ window.getShowMSGState = function () {
 
 //暫放 解決點擊卡片是否要彈窗問題
 window.ShowMSGcheckbox = function () {
-    console.log("??")
+    
     window.ShowMSGState = false
     $('.ShowMSGcheckbox').click(function () {
      

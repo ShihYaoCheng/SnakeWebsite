@@ -43,11 +43,9 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 	const SRCExchange_ABI = window.SRCExchange_ABI
 
 	const SwapNumValue = SRCInput
+	BigNumber.config({ EXPONENTIAL_AT: [-7, 22] }) 
 	let x = new BigNumber(SwapNumValue);
 	const getGasPrice = await web3.eth.getGasPrice()
-	console.log("getGasPrice", getGasPrice)
-	console.log(web3.utils.isBN(getGasPrice))
-	
 	
 	try {
 		//驗證貨幣
@@ -61,6 +59,9 @@ export async function withdraw(SRCInput, SRC_address, SRCExchange_address) {
 		);
 
 		let SRC_decimals = parseInt(await tokenContract.methods.decimals().call())	
+
+
+		console.log( "x",x.shiftedBy(SRC_decimals).toString())
 		let request = await tokenContract.methods.approve(
 			SRCExchange_addr,
 			x.shiftedBy(SRC_decimals).toString()
@@ -116,6 +117,7 @@ export async function deposit(SRCInput, SRC_address, SRCExchange_address, warmUp
 	if (warmUpToggle) SRCExchange_ABI = window.tSRCExchange_ABI
 	
 	const SwapNumValue = SRCInput
+	BigNumber.config({ EXPONENTIAL_AT: [-7, 22] }) 
 	let x = new BigNumber(SwapNumValue);
 
 	const getGasPrice = await web3.eth.getGasPrice()
@@ -186,7 +188,7 @@ export async function CoinexchangeData(chainId ,SRC_address,wssURL) {
 	let SRC_decimals = await SRC_dai_contract.methods.decimals().call()
 	
 	let addr_SRC_balance = await SRC_dai_contract.methods.balanceOf(address[0]).call() / 10 ** SRC_decimals
-	console.log("addr_SRC_balance", addr_SRC_balance)
+	
 	/*ERNC*/
 
 
