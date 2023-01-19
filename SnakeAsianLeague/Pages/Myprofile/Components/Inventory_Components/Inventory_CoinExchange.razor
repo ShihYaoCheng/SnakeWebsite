@@ -29,7 +29,7 @@
                  <div class="coinTop">
                     <img class="coinEchange-Icon" src="/images/Myprofile/@(Value.imgUrl).webp" alt="">
                     <p class="coinTitle" data-i18n="Inventory_data:otherTitle.@Value.gTitle"></p>
-                    <p class="coinTotalNum" >@Value.gNumber</p>
+                    <p class="coinTotalNum" >@Value.gNumber.ToString("0.000")</p>
                  </div>
 
      
@@ -51,7 +51,7 @@
                     }
 
                     <p class="coinTitle" data-i18n="Inventory_data:otherTitle.@Value.tokenTitle" ></p>
-                    <p class="coinTotalNum">@Value.tokenNumber</p>
+                    <p class="coinTotalNum">@Value.tokenNumber.ToString("0.000")</p>
                  </div>
      
              </div>
@@ -60,7 +60,7 @@
    
         <div class="replacedCoin-zone" >
             <div class="left">
-                 <input class="replacedCoin" value="@Value.gNumberChange" @onchange="(ChangeEventArgs e)=> coinInput(e ,true)" />
+                 <input class="replacedCoin" value="@Value.gNumberChange.ToString("0.000")" @onchange="(ChangeEventArgs e)=> coinInput(e ,true)" />
                     
               
                  <div class="increaseCoin" id="GSRCincrease">
@@ -69,7 +69,7 @@
             </div>
             <div class="mid"></div>
             <div class="right">
-                 <input class="replacedCoin" value="@Value.tokenNumberChange" @onchange="(ChangeEventArgs e)=> coinInput(e,false)" />
+                 <input class="replacedCoin" value="@Value.tokenNumberChange.ToString("0.000")" @onchange="(ChangeEventArgs e)=> coinInput(e,false)" />
                    
                         
                  <div class="increaseCoin"  id="SRCincrease" >

@@ -9,7 +9,7 @@
 
     
         <div class="products-popup-content">
-            <div class="products-popup-text"> Comfirm to Collect <p class="NFT-Number-Pop"></p> <span>(@Value)</span>  Income?  </div>
+            <div class="products-popup-text"> Comfirm to Collect <p class="NFT-Number-Pop"></p> <span>(@SRCCollectBalance)</span>  Income?  </div>
             @*<div  class="show-msg"><img class="ShowMSGcheckbox" typeof="button" src="/images/MarketPlace/checkbox.webp"/> Do not show this message again </div>*@
             <button class="products-popup-submit" @onclick="clickReceiveRentByUnit" type="submit"  >Confirm  </button>
         </div>
@@ -17,7 +17,7 @@
 </section>
 @code {
     [Parameter]
-    public decimal Value { get; set; }
+    public decimal SRCCollectBalance { get; set; }
 
     [Parameter]
     public EventCallback ReceiveRentByUnit { get; set;}

@@ -12,12 +12,12 @@
      </svg>                                    
 </div>
 
-<a class="NFTcardA" href="Products/ppsr/@Value.TokenID" >
+<a class="NFTcardA" href="Products/ppsr/@NFTData.TokenID" >
     @*<a href="@Value.LinkURL" target="opensea">  </a>*@
 
     <div class="NFTcard-inner">
         <div class="NFT-cardImg">
-            <img src="@Value.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
+            <img src="@NFTData.ImgPath" alt=""  onerror="this.src='/images/MarketPlace/NFTproduct.webp'">
             <div class="NFTcard-remark tippy-pop" data-content="This PPSR is temporarily under maintenance." data-i18n="Inventory_data:NFTDetails.UnderMaintenance;[data-content]Inventory_data:NFTDetails.PPSRmaintenance">Under Maintenance</div>
         </div>
 
@@ -25,25 +25,25 @@
 
 
             <div class="NFT-card-header">
-                <img  class="NFT-ElementsIcon" src="@Value.ElementsIcon" alt="">
-                <div class="NFT-Number"  > @Value.Number.Substring(0, 5) # @Value.Number.Substring(6)</div>
+                <img  class="NFT-ElementsIcon" src="@NFTData.ElementsIcon" alt="">
+                <div class="NFT-Number"  > @NFTData.Number.Substring(0, 5) # @NFTData.Number.Substring(6)</div>
             </div>
-            <div class="NFT-Name"  data-i18n=NFT_data:@Value.serialNumber>
-                @Value.serialNumber
+            <div class="NFT-Name"  data-i18n=NFT_data:@NFTData.serialNumber>
+                @NFTData.serialNumber
             </div>
 
 
                 @*.................首拍拿掉的部分...................... *@
-            @if (Value.IsOpen)
+            @if (NFTData.IsOpen)
             {                
                 <div class="rent-container"  >
                     <div class="rent-left">
                         
 
-                        @if(Value.rentType == 1)
+                        @if(NFTData.rentType == 1)
                         {
                             <img src="/images/Myprofile/gold.png">
-                        }else if (Value.rentType == 22)
+                        }else if (NFTData.rentType == 22)
                         {
                             <img src="/images/MarketPlace/SRC.webp"/>
                         }
@@ -54,15 +54,15 @@
                        
 
 
-                        <p class="fee-Text" ><span data-i18n="Inventory_data:otherTitle.RentalFee"> Rental Fee: </span> <span>  @Value.nowRent </span> </p>
-                        <p class="balance-Text" ><span data-i18n="Inventory_data:otherTitle.Balance">Balance:</span> <span>  @Value.totalRevenue </span> </p>
+                        <p class="fee-Text" ><span data-i18n="Inventory_data:otherTitle.RentalFee"> Rental Fee: </span> <span>  @NFTData.nowRent </span> </p>
+                        <p class="balance-Text" ><span data-i18n="Inventory_data:otherTitle.Balance">Balance:</span> <span>  @NFTData.totalRevenue </span> </p>
                     </div>
                 </div>
-                @if (Value.totalRevenue != 0)
+                @if (NFTData.totalRevenue != 0)
                 {
                         <div class="CollectBtn-Container">
                             <button  class="Collect-Btn" @onclick="  (eventArgs)  =>  { 
-                               clicksetValueByUnit( Value.TokenID , Value.totalRevenue, eventArgs ); 
+                               clicksetValueByUnit( NFTData.TokenID , NFTData.totalRevenue, eventArgs ); 
                                ReceiveRentByUnit();  
                             }" 
                             data-i18n="Inventory_data:otherTitle.CollectIncome"
@@ -89,7 +89,7 @@
                 </div>
             }
             @*灰色的*@
-            @if (!(Value.IsOpen))
+            @if (!(NFTData.IsOpen))
             {
                 
             <div class="NFT-PriceBlock">
@@ -110,13 +110,13 @@
 
 <div class="tag-zone">                                                   
         <div class="NFT-Label-block">
-            <div class="NFT-Label" data-i18n="Inventory_data:Filter.@Value.RarityValue">@Value.RarityValue</div>
+            <div class="NFT-Label" data-i18n="Inventory_data:Filter.@NFTData.RarityValue">@NFTData.RarityValue</div>
         </div>
 </div>
 
 @code {
     [Parameter]
-    public NFTData Value { get; set; }
+    public NFTData NFTData { get; set; }
 
     [Parameter]
     public EventCallback<NFTCardData>  setValueByUnit { get; set;}
