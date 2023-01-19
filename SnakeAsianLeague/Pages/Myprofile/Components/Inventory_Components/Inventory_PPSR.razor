@@ -269,14 +269,14 @@
                     {
                         @*官方首拍 紅色*@
                         <div class="NFTcard card-bg-red">
-                            <Inventory_NFTcard Value="@item" setValueByUnit="setValueByUnit" ReceiveRentByUnitOnclick="ReceiveRentByUnitOnclick"  />
+                            <Inventory_NFTcard NFTData="@item" setValueByUnit="setValueByUnit" ReceiveRentByUnitOnclick="ReceiveRentByUnitOnclick"  />
                         </div>
                     }
                     else
                     {
                         @*官方 預定販售NFT*@                                       
                         <div class="NFTcard card-bg-grey">
-                            <Inventory_NFTcard Value="@item" setValueByUnit="setValueByUnit" ReceiveRentByUnitOnclick="ReceiveRentByUnitOnclick"  />
+                            <Inventory_NFTcard NFTData="@item" setValueByUnit="setValueByUnit" ReceiveRentByUnitOnclick="ReceiveRentByUnitOnclick"  />
                         </div>                                        
                     }
                 }
@@ -285,7 +285,7 @@
                     if(@item.IsOpen){     
                         @*個人持有 NFT*@     
                         <div class="NFTcard card-bg-green">
-                            <Inventory_NFTcard Value="@item" setValueByUnit="setValueByUnit" ReceiveRentByUnitOnclick="ReceiveRentByUnitOnclick"  />
+                            <Inventory_NFTcard NFTData="@item" setValueByUnit="setValueByUnit" ReceiveRentByUnitOnclick="ReceiveRentByUnitOnclick"  />
                         </div>                            
                     }
                 }        
@@ -308,7 +308,7 @@
 @*個別領 彈窗*@
 @if (SingelPopShow)
 {
-    <Inventory_SingelAllCollectPop Value=@SRCCollectBalance  ReceiveRentByUnit="ReceiveRentByUnit" toggleSingelPopShow="toggleSingelPopShow"></Inventory_SingelAllCollectPop>
+    <Inventory_SingelAllCollectPop SRCCollectBalance=@SRCCollectBalance  ReceiveRentByUnit="ReceiveRentByUnit" toggleSingelPopShow="toggleSingelPopShow"></Inventory_SingelAllCollectPop>
 }
 
 @if (loading)
@@ -319,7 +319,7 @@
 @code {
     @*四個貨幣 SRC ERNC(遊戲、鏈上)*@
     [Parameter]
-    public CoinData Value { get; set; }
+    public CoinData CoinData { get; set; }
 
 
     @*filter*@
@@ -532,8 +532,8 @@
             TotalGoldCount = TotalGoldCount +  Rent.Where(m => m.currencyType == 1).First().price;
             TotalGoldCount = Math.Round(TotalGoldCount, 3, MidpointRounding.AwayFromZero);
         }
-        Value.gSRCchange( TotalSRCCount);
-        Value.SetGoldChange(TotalGoldCount);
+        CoinData.gSRCchange( TotalSRCCount);
+        CoinData.SetGoldChange(TotalGoldCount);
         AllBalance = await InventoryService.CalReceiveRent(UserID);
         AllGoldBalance = await InventoryService.CalReceiveRentGold(UserID);
         StateHasChanged();
@@ -636,7 +636,7 @@
         AllBalance = await InventoryService.CalReceiveRent(UserID);
         AllGoldBalance = await InventoryService.CalReceiveRentGold(UserID);
 
-        Value.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID,22) );
+        CoinData.gSRCchange ( await InventoryService.GetgSRCCurrency1(UserID,22) );
         StateHasChanged();
     }
   }
