@@ -137,7 +137,7 @@
 .heart {
     /* position: absolute; */
     aspect-ratio: 1;
-    width: 40px;
+    width: 30px;
     top: 5px;
     right: 8px;
     z-index: 5;
@@ -753,7 +753,7 @@
         padding: 15px 20px;
     }
     #products-Attributes .products-propertyCellreact{
-        max-width: 160px;
+        max-width: 140px;
         height: 129px;
     }
     #products-Stats .products-propertyCellreact{
@@ -763,6 +763,7 @@
     .products-property-type{
         font-size: 20px;
         line-height: 26px;
+        padding: 0 10px;
     }
     .products-property-value{
         font-size: 18px;
@@ -841,6 +842,9 @@
     table-layout: fixed;
     position : sticky;
     border: 10px solid var(--green-1);
+}
+.products-Log-Text-Zone table{
+    width: 100%;
 }
 .products-Log-Text-Zone thead{
     
