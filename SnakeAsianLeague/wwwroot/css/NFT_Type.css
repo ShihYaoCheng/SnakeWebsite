@@ -47,7 +47,7 @@
     margin: 0px 30px 30px 0;
     padding: 5px 10px;
     color: var(--green-2);
-    font-size: 24px;
+    font-size: 20px;
     min-width: 210px;
     height: 70px;
 
@@ -73,7 +73,7 @@
 
 
 .Secend-Inventory-Icon {
-    width: 56px;
+    width: 45px;
 }
 #USDT-Icon{
     width: 45px;
@@ -89,11 +89,11 @@
         margin: 0px 16px 15px 0;
         min-width: 160px;
         padding: 5px 10px;
-        font-size: 18px;
+        font-size: 16px;
         height: 60px;
     }
     .Secend-Inventory-Icon {
-        width: 42px;
+        width: 36px;
     }
     #USDT-Icon{
         width: 35px;
