@@ -11,7 +11,9 @@ export function chartInit() {
 
         // 改變size時重跑一次
         $(window).resize(function () {
-            window.myChart.resize()
+            if (window.location.pathname == "/ERNC") {
+                window.myChart.resize()
+            }
         });
 
         const rect = $('#Pie-Chart')[0].getBoundingClientRect()
