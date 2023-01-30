@@ -405,7 +405,7 @@
 .NFT-Price{
     font-size: 18px;
     /* font-weight: bold; */
-    margin: 0 0 0 10px;
+    margin: 0 0 0 6px;
 }
 .NFT-PriceIcon-Border{
     border-radius: 50%;
@@ -527,8 +527,8 @@
         width: 30%;
     }
     .heart{
-        width: 24px;
-        top: 2px;
+        width: 20px;
+        top: 0px;
         right: 5px
     }
     .NFT-Number{
@@ -550,7 +550,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 8px 0px 8px 10px;
+        margin: 8px 0px 8px 6px;
         width: 24px;
         height: 24px;
     }
@@ -559,7 +559,7 @@
     }
     .NFT-Price{
         font-size: 14px;
-        margin: 0 0 0 5px;
+        margin: 0 0 0 4px;
     }
     .NFT-USD{
         font-size: 10px;
@@ -577,8 +577,11 @@
     }
 }
 @media all and (max-width: 800px){
+    .marketPlaceTitle{
+        font-size: 24px;
+    }
     .marketPlaceMain{
-        padding: 147px 0 0 0;
+        padding: 130px 0 0 0;
     }
     .marketPlaceHeader{
         flex-direction: column;
@@ -588,15 +591,19 @@
         /* margin-top: 30px; */
     }
     .BuyOnOpensea {
-        width: 240px;
-        /* height: 58px; */
+        width: 220px;
+        height: unset;
+        height: 46px;
     }
     .BuyOnOpensea a {
-        padding: 12px 0px;
-        font-size:22px
+        padding: 10px 0px;
+        font-size: 18px
     }
     .marketPlaceCardBLock{
         margin-bottom: 50px;
+    }
+    .marketPlaceTitle-container {
+        margin-bottom: 10px;
     }
 }
 @media all and (max-width: 748px){
@@ -1027,7 +1034,7 @@ button.price-search-button:hover .search-icon{
         width: 170px;
     }
     .Not-Price-Ver .NFT-ElementsIcon {
-        width: 20px;
+        width: 18px;
         margin: 2px 0 0 0
     }
     .Not-Price-Ver .NFT-card-header{
