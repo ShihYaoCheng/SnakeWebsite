@@ -94,7 +94,7 @@
 .heart {
     position: absolute;
     aspect-ratio: 1;
-    width: 40px;
+    width: 30px;
     top: 8px;
     right: 8px;
     z-index: 5;
@@ -373,7 +373,7 @@
 .NFT-Number{
     display: inline-block;
     /* width: 100px; */
-    font-size: 18px;
+    font-size: 16px;
     padding: 0 15px;
     margin: 12px 10px 10px 10px;
     border-radius: 5px;
@@ -402,7 +402,7 @@
     align-self: flex-start;
 }
 .NFT-Price{
-    font-size: 20px;
+    font-size: 18px;
     /* font-weight: bold; */
     margin: 0 0 0 10px;
 }
@@ -533,7 +533,7 @@
     .NFT-Number{
         /* width: 60px; */
         padding: 0 6px;
-        font-size: 10px;
+        font-size: 8px;
         margin: 6px 3px 5px 5px
     }
     .NFT-Name{
@@ -542,7 +542,7 @@
     }
     .NFT-PriceBlock{
         height: 52px;
-        margin-top: 16px;
+        margin-top: 8px;
     }
     .NFT-PriceIcon-Border{
         border-radius: 50%;
@@ -869,23 +869,6 @@ button.price-search-button:hover .search-icon{
     border-radius: 20px;
 }
 
-@media all and (max-width: 1500px) {
-    .CollectBtn-Container {
-        margin-top: 0px;
-        margin: 10px 0 0 0;
-    }
-    .Collect-Btn {
-        height: 26px;
-        font-size: 14px;
-    }
-    .Collect-Btn-Finish{
-        height: 26px;
-        font-size: 14px;
-    }
-    .Show-tag{
-        font-size: 14px;
-    }
-}
 
 
 /*.....新增租金........*/
@@ -897,7 +880,7 @@ button.price-search-button:hover .search-icon{
      display: flex;
      align-items: center;
      flex-direction: row;
-     margin: 0 13px;
+     margin: 0 10px;
 }
 
 .Not-Price-Ver .NFT-ElementsIcon{
@@ -905,12 +888,12 @@ button.price-search-button:hover .search-icon{
 }
 
 .Not-Price-Ver .NFT-Number{
-    margin: 12px 0px 10px 5px;
+    margin: 8px 0px 5px 5px;
 }
 .Not-Price-Ver .NFT-Name{
-    font-size: 30px;
+    font-size:24px;
     font-weight: 600;
-    margin: 30px 10px 10px 15px;
+    margin: 6px 10px 10px 15px;
     word-break: break-all;
     line-height: 30px;
 }
@@ -982,11 +965,12 @@ button.price-search-button:hover .search-icon{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 14px;
 }
 
 .ShowTag-arrow {
     height: 10px;
-  
+    margin-left: 3px;
 }
 
 .Show-tag:hover {
@@ -996,6 +980,23 @@ button.price-search-button:hover .search-icon{
 
 .show {
     display: block
+}
+@media all and (max-width: 1500px) {
+    .CollectBtn-Container {
+        margin-top: 0px;
+        margin: 10px 0 0 0;
+    }
+    .Collect-Btn {
+        height: 26px;
+        font-size: 14px;
+    }
+    .Collect-Btn-Finish{
+        height: 26px;
+        font-size: 14px;
+    }
+    .Show-tag{
+        font-size: 8px;
+    }
 }
 
 .tag-zone .NFT-Label-block {
@@ -1035,8 +1036,8 @@ button.price-search-button:hover .search-icon{
         margin: 5px 0px 0px 5px;
     }
     .Not-Price-Ver .NFT-Name{
-        font-size: 20px;
-        margin: 10px 5px 5px 5px;
+        font-size: 16px;
+        margin: 10px 5px 5px 10px;
         line-height: 20px;
     }
     .Not-Price-Ver .NFT-Income-Block{
