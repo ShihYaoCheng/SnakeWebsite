@@ -568,8 +568,8 @@
     margin-top: 0;
     border-radius: 20px;
     position: absolute;
-    left: 0;
-    top: 72px;
+    right: 0;
+    top: 60px;
     height: 400px;
     border: 2px solid var(--green-2);
     box-shadow: 0px 10px 20px #060606a6;
@@ -655,8 +655,10 @@
         margin: 5px 10px;
     }
     .Inventory-PPSR-Filter-Sidebar{
-        right: 10px;
+        /* right: 10px; */
         left: unset;
+        height: 300px;
+        width: 300px;
     }
 }
 
@@ -724,7 +726,7 @@
         margin: 15px;
     }
     .Inventory-PPSR-Filter-Sidebar{
-        top: 62px
+        top: 50px
     }
 }
 @media all and (max-width: 1100px){

@@ -6,7 +6,7 @@
       "wwwroot/css/NFTindex/NFTindex.css",
       "wwwroot/css/NFTindex/NFTindex_Banner.css",
       "wwwroot/css/NFTindex/NFTindex_Carousel.css",
-      "wwwroot/css/NFTindex/NFTindex_Collect.css",
+      
       "wwwroot/css/NFTindex/NFTindex_Flag.css",
       "wwwroot/css/NFTindex/NFTindex_Gameplay.css",
       "wwwroot/css/NFTindex/NFTindex_Join.css",
@@ -17,7 +17,7 @@
       "wwwroot/css/NFTindex/NFTindex_Scholar.css",
       "wwwroot/css/NFTindex/NFTindex_Seignior.css",
       "wwwroot/css/NFTindex/NFTindex_SRC.css",
-      "wwwroot/css/NFTindex/NFTindex_Video.css",
+      
       "wwwroot/css/EventBanner/EventBanner_WarmUpActivities.css",
       "wwwroot/css/EventBanner/EventBanner_NewYear2023.css"
     ],

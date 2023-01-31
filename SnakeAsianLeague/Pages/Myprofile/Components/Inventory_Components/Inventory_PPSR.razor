@@ -608,7 +608,8 @@
             RentJumpJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/MyProfile/InventoryAndMarketPlace/RentJump.js");
             await JS.InvokeVoidAsync("InventoryFilterSidebarClick");
             await JS.InvokeVoidAsync("installI18n");
-            await JS.InvokeVoidAsync("CollectBtnPoP");   
+            await JS.InvokeVoidAsync("CollectBtnPoP");  
+            await JS.InvokeVoidAsync("FilterButtonClick"); 
         }
     }
 

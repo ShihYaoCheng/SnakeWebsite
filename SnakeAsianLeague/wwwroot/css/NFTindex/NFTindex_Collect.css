@@ -3,9 +3,15 @@
     /* background-image: url("/images/NFTindex/NFTindex_Collect/NFTindexCollect_BG_02.png");
     background-size: cover;
     background-position: top left;
-    background-repeat: no-repeat; 
-    height: 1000px; */
-    padding-bottom: 200px;
+    background-repeat: no-repeat; */
+    padding-bottom: 50px;
+}
+.NFTindex_Collect_BG {
+    width: 100%;
+    background-image: url("/images/NFTindex/NFTindex_Collect/NFTindexCollect_BG_04.png");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
 }
 .NFTindexCollect_Block{
     /* border: 1px solid red; */
@@ -321,6 +327,10 @@
 }
 
 @media all and (max-width: 1400px){
+    .NFTindex_Collect_BG {
+        background-image: url("/images/NFTindex/NFTindex_Collect/BG-mobile.png");
+        background-position: top center;
+    }
     .NFTindexCollect_Title {
         max-width: 460px;
     }
