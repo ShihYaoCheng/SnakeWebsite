@@ -210,7 +210,7 @@ input[type="radio"] {
 
 #Filter-mobile{
     font-size: 26px;
-    margin-top: 50px;
+    margin-top: 45px;
     background-color: var(--green-1);
     width: 100%;
     color: var(--green-2);
@@ -230,9 +230,10 @@ input[type="radio"] {
         display: block;
     }
     .marketPlaceSidebar{
-        margin-top: 100px;
+        margin-top: 94px;
         display: none;
     }
+
 }
 @media all and (max-width: 500px){
     #Filter-mobile{
@@ -357,17 +358,18 @@ input[type="radio"] {
 .Filter-arrow{
     transition: all .1s ease-in-out;
     transform: rotate(180deg);
+    width: 14px;
 }
 .Filter-arrow-toggle{
     transition: all .1s ease-in-out;
     transform: rotate(0deg) !important;
 }
 .Filter-mobile-arrow {
-    margin: 5px;
+    margin: 3px;
     transition: all .1s ease-in-out;
     transform: rotate(00deg);
-    width: 16px;
-    height: 13px;
+    width: 14px;
+    /* height: 13px; */
     
 }
 
@@ -412,7 +414,9 @@ input[type="radio"] {
     }
 }
 @media all and (max-width: 1000px){
-
+    #Filter-Header{
+        font-size: 24px;
+    }
     .Filter-web-arrow{
         display: none;
     }  
@@ -466,10 +470,10 @@ input[type="radio"] {
 
 
 .Filter-heart{
-    width: 34px;
+    width: 30px;
     fill: none;
     stroke: var(--green-2);
-    margin: 5px;
+    margin: 3px;
 }
 
 .Filter-Title{
@@ -477,7 +481,7 @@ input[type="radio"] {
     cursor: pointer;
     display: inline-block;
     /* align-items: baseline; */
-    font-size: 24px;
+    font-size: 20px;
     /* margin-bottom: 10px; */
 }
 
