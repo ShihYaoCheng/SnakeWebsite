@@ -236,10 +236,10 @@ input[type="radio"] {
 }
 @media all and (max-width: 500px){
     #Filter-mobile{
-        margin-top: 48px;
+        margin-top: 42px;
     }
     .marketPlaceSidebar{
-        margin-top: 96px;
+        margin-top: 90px;
         height: calc(100vh - 57px);
     }
 }

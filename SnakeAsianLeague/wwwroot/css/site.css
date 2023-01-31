@@ -1407,7 +1407,7 @@ select.login_Select option{
     transform: translateY(-1px);
 }
 .MarketPlaceButton img{
-    width: 25px;
+    width: 22px;
     margin-right: 5px;
 }
 .MarketPlaceButton p{
@@ -1418,11 +1418,11 @@ select.login_Select option{
 
 @media all and (max-width: 500px){
     .MarketPlaceButton{
-        font-size: 16px;
+        font-size: 10px;
         padding: 5px 10px 3px;
     }
     .MarketPlaceButton img{
-        width: 25px;
+        width: 20px;
     }
 }
 

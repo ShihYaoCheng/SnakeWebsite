@@ -10211,10 +10211,10 @@ a.text-dark:focus, a.text-dark:hover {
     .bg-dark{
         /* background-color: #040e19c9 !important; */
         /* background-color: #fff6e582 !important; */
-        padding: 6px 0 3px;
+        padding: 3px 0 3px;
     }
     .fixed-top{
-        top: -6px;
+        /* top: -6px; */
     }
     .navbar-collapse{
         margin: 0px 0 30px 0; 
