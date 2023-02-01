@@ -726,7 +726,7 @@
         margin: 15px;
     }
     .Inventory-PPSR-Filter-Sidebar{
-        top: 50px
+        top: 60px
     }
 }
 @media all and (max-width: 1100px){
@@ -749,8 +749,8 @@
 }
 
 @media all and (max-width: 800px){
-    .Inventory-CardBLock{
-        margin-bottom: 50px;
+    .Inventory-PPSR-Filter-Sidebar{
+        top: 55px
     }
 }
 @media all and (max-width: 768px){
@@ -783,6 +783,7 @@
     .Inventory-PPSR-Amount {
         font-size: 26px;
     }
+
 
 }
 
