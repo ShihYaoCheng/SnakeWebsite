@@ -933,7 +933,7 @@
         display: none;
     }
     .mobile-none{
-        display: none;
+        display: none !important;
     }
     .mobile-show{
         display: block;
