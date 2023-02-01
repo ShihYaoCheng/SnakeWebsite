@@ -38,7 +38,7 @@ namespace SnakeAsianLeague.Data.Services.AuthManagement
 
 
         /// <summary>
-        /// 
+        /// Web token 
         /// </summary>
         public void GetWebAuthorize()
         {
@@ -57,7 +57,7 @@ namespace SnakeAsianLeague.Data.Services.AuthManagement
         }
 
         /// <summary>
-        /// 
+        /// Web RefreshToken
         /// </summary>
         public void ExchangeTokensForWeb()
         {
@@ -119,7 +119,7 @@ namespace SnakeAsianLeague.Data.Services.AuthManagement
 
 
         /// <summary>
-        /// 使用者登入
+        /// 使用者登入 取得userAccessToken/userRefreshToken
         /// </summary>
         /// <param name="PhoneId"></param>
         /// <param name="Password"></param>
