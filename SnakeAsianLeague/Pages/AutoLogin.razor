@@ -1,4 +1,5 @@
 ﻿@page "/autologin/{encrypt?}"
+@page "/autologin/{encrypt?}/{getUrl?}"
 @inject IJSRuntime JS
 @using SnakeAsianLeague.Data.Entity.View
 @using SnakeAsianLeague.Data.Services
@@ -10,18 +11,21 @@
 @inject IAuthService authService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject GetUrlView GetUrlView
-<div style="display:flex;width:100vw;height:100vh;justify-content:center;align-items:center;">  
+@*<div style="display:flex;width:100vw;height:100vh;justify-content:center;align-items:center;">  
     <button @onclick="OpenMeataMask" style="text-align: center;border: 3.8px solid #eac492db;background-image: linear-gradient(to top, #ffa300, #fed322);color: #fff;margin: 10px;letter-spacing: 1px;padding: 10px 20px 9px;border-radius: 17px;font-weight: 600;cursor: pointer;box-shadow: 3px 3px 10px 5px rgb(154 144 139 / 30%);display: inline-block;text-decoration: none;letter-spacing: 1.5px;font-size: 18px;font-family: sans-serif;transition: all .01s ease-in;text-shadow: 1px 2px 2px rgb(77 36 9 / 25%);">請開啟MetaMask瀏覽器</button>
-</div>
+</div>*@
 
 
 @code {
 
     [Parameter]
     public string? encrypt { get; set; }
+
+    [Parameter]
+    public string? getUrl { get; set; }
     string url="";
     private IJSObjectReference? IsMobileJS;
-    bool isInMetaMask = false;
+    //bool isInMetaMask = false;
     protected override async Task OnInitializedAsync()
     {
         url =await GetUrlView.GetUrl();
@@ -35,11 +39,11 @@
     {
         if (firstRender)
         {
-            IsMobileJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/IsMobile.js");
-            isInMetaMask = await IsMobileJS.InvokeAsync<bool>("IsInMetaMask");
+            //IsMobileJS = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SharedLib/IsMobile.js");
+            //isInMetaMask = await IsMobileJS.InvokeAsync<bool>("IsInMetaMask");
 
-            if (isInMetaMask)
-            {
+            //if (isInMetaMask)
+            //{
                 NavigationManager.LocationChanged += HandleLocationChanged;
                 AppState.StateChanged += async (Source, Property)
                     => await InvokeAsync(StateHasChanged);
@@ -76,7 +80,8 @@
                 {
                     NavigationManager.NavigateTo("/GettingStarted/create-PonPonSnake-game", true);
                 }
-            }     
+            //} 
+                NavigationManager.NavigateTo("https://" + url +"/"+ getUrl);
         }
 
     }
@@ -92,9 +97,9 @@
         AppState.StateChanged -= async (Source, Property)
             => await InvokeAsync(StateHasChanged);
     }
-    public void OpenMeataMask()
-    {
-         NavigationManager.NavigateTo("https://metamask.app.link/dapp/" + url +"/autologin/"+encrypt);
-    }
+    //public void OpenMeataMask()
+    //{
+    //     NavigationManager.NavigateTo("https://metamask.app.link/dapp/" + url +"/autologin/"+encrypt);
+    //}
 
 }
