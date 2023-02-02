@@ -44,44 +44,51 @@
 
             //if (isInMetaMask)
             //{
-                NavigationManager.LocationChanged += HandleLocationChanged;
-                AppState.StateChanged += async (Source, Property)
-                    => await InvokeAsync(StateHasChanged);
+            NavigationManager.LocationChanged += HandleLocationChanged;
+            AppState.StateChanged += async (Source, Property)
+                => await InvokeAsync(StateHasChanged);
 
 
-                //登出舊儲存帳號
-                var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-                var LoginUser = authState.User;
-                if (LoginUser != null && LoginUser.Identities.Count() != 0)
+            //登出舊儲存帳號
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var LoginUser = authState.User;
+            if (LoginUser != null && LoginUser.Identities.Count() != 0)
+            {
+                await authService.AuthLogout();
+            }
+
+            //解碼
+            Console.WriteLine(encrypt);
+            //encrypt = "eyJQaG9uZSI6Ijg4Njk4OTI0MjcyMyIsIlBhc3N3b3JkIjoiYWFhMTIzNDU2In0=";
+
+            LoginRequest loginRequest = new LoginRequest();
+            loginRequest = authService.DecodeLoginRequest(encrypt);
+            if (loginRequest != null && loginRequest.Phone != null)
+            {
+                try
                 {
-                    await authService.AuthLogout();
-                }
-
-                //解碼
-                Console.WriteLine(encrypt);
-                //encrypt = "eyJQaG9uZSI6Ijg4Njk4OTI0MjcyMyIsIlBhc3N3b3JkIjoiYWFhMTIzNDU2In0=";
-
-                LoginRequest loginRequest = new LoginRequest();
-                loginRequest = authService.DecodeLoginRequest(encrypt);
-                if (loginRequest != null && loginRequest.Phone != null)
-                {
-                    try
+                    SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest, true);
+                    AppState.UpdateLoginStatus(this, snakeAccount);
+                    if (getUrl!=null)
                     {
-                        SnakeAccount snakeAccount = await authService.AuthLogin(loginRequest, true);
-                        AppState.UpdateLoginStatus(this, snakeAccount);
+                         NavigationManager.NavigateTo("https://" + url +"/"+ getUrl);
+                    }
+                    else
+                    {
                         NavigationManager.NavigateTo("/GettingStarted/connect-game-account", true);
-                    }
-                    catch (Exception ex)
-                    {
-                        NavigationManager.NavigateTo("/GettingStarted/create-PonPonSnake-game", true);
-                    }
+                    }                   
                 }
-                else
+                catch (Exception ex)
                 {
                     NavigationManager.NavigateTo("/GettingStarted/create-PonPonSnake-game", true);
                 }
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/GettingStarted/create-PonPonSnake-game", true);
+            }
             //} 
-                NavigationManager.NavigateTo("https://" + url +"/"+ getUrl);
+              
         }
 
     }
