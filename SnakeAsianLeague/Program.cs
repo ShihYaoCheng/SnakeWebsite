@@ -23,6 +23,8 @@ using Microsoft.AspNetCore.Rewrite;
 using SnakeAsianLeague.Data.Services.WarmUpActivities;
 using SnakeAsianLeague.Data.Entity.View;
 using SnakeAsianLeague.Data.Services.ForwardUrl;
+using SnakeAsianLeague.Data.Contracts;
+using SnakeAsianLeague.Data.Services.AuthManagement;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -111,6 +113,8 @@ builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddScoped<IAuthManagement, AuthManagementService>();
 
 //builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 
