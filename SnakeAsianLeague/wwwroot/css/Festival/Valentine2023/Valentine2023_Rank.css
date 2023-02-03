@@ -64,11 +64,12 @@
 
 .rank-content {
     padding-top: 20px;
+    width:100%;
 }
 
 .rank {
     background: #ff7daf;
-    width:80%;
+    
     height:100px;
     border-radius:10px;
     display:flex;  
@@ -86,9 +87,17 @@
     font-weight: 700;
     color:#fff;
 }
-
+.rank1 {
+    width: 80%;
+}
+.rank2 {
+    width: 70%;
+}
+.rank3 {
+    width: 60%;
+}
 .rank1 span {
-    margin-left:90px;
+    margin-left: 90px;   
 }
 .rank2 span {
     margin-left: 60px;
