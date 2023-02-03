@@ -1,0 +1,63 @@
+.Valentine2023 {
+    padding-top: 50px;
+    /* font-family: NotoSansTC; */
+    background: url("/images/Festival/Valentine2023/Valentine2023_bg.png");
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.Valentine2023-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.Valentine2023-title {
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+.Valentine2023-title span {
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    padding: 5px 45px;
+    background-color: #d39f5b;
+    display: inline-block;
+    text-shadow: -2.6px 1.5px 7px rgba(0, 0, 0, 0.35);
+    font-weight: 500;
+    letter-spacing: 2px;
+    min-width: 260px;
+    border-radius: 10px;
+}
+
+
+@media all and (max-width: 1000px) {
+    .Valentine2023 {
+        padding-top: 40px;
+    }
+
+    .Valentine2023-container {
+        max-width: 850px;
+        margin: 0 auto;
+    }
+}
+
+@media all and (max-width: 800px) {
+    .Valentine2023-container {
+        /* max-width: 600px; */
+        margin: 0 auto;
+    }
+
+    .Valentine2023-title span {
+        font-size: 26px;
+        min-width: 230px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .Valentine2023-container {
+        /* max-width: 370px; */
+        margin: 0 auto;
+    }
+}
