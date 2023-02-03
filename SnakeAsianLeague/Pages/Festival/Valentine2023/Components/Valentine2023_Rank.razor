@@ -5,6 +5,62 @@
 </head>
 
 <div class="Valentine2023_Rank">
+    <div class="Valentine2023-container">
+        <div class="Valentine2023_Rank-container">
 
+        
+            <div class="Valentine2023-title" id="Valentine2023-title-Ranking">
+                <span >=時程=</span>
+            </div>
 
+            <div class="toggleRankTypeButton-container">
+                <button class="rank_type_button_solo"  @onclick=@(()=>toggleRankType(1)) style="background: url(@(RandButtonSolo)) round;"> 單人賽 </button>
+                <button class="rank_type_button_squad" @onclick=@(()=>toggleRankType(2)) style="background: url(@(RandButtonSquad)) round;"> 團體賽 </button>
+            </div>
+            <div class="Valentine2023_Rank_content">
+                <div class="select-container">
+                    <select>
+                        <option>個人賽第一回 0000/00/00</option>
+                        <option>個人賽第二回 0000/00/00</option>
+                    </select>
+                </div>
+                <div class="rank-content">
+                    <div class="rank rank1">
+                        <img src="/images/Festival/Valentine2023/Rank/crown1.png"/>
+                        <span>使用者名稱7字</span>
+                    </div>
+
+                    <div class="rank rank2">
+                        <img src="/images/Festival/Valentine2023/Rank/crown2.png"/>
+                        <span>使用者名稱7字</span>
+                    </div>
+
+                    <div class="rank rank3">
+                        <img src="/images/Festival/Valentine2023/Rank/crown3.png"/>
+                        <span>使用者名稱7字</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@code{
+    int RankType = 1;
+    string RandButtonSquad = "/images/Festival/Valentine2023/Rank/rank_type_button2.png";
+    string RandButtonSolo = "/images/Festival/Valentine2023/Rank/rank_type_button1.png";
+    public void toggleRankType(int value)
+    {
+        RankType = value;
+        if (value == 1)
+        {
+            RandButtonSquad = "/images/Festival/Valentine2023/Rank/rank_type_button2.png";
+            RandButtonSolo = "/images/Festival/Valentine2023/Rank/rank_type_button1.png";
+        }
+        else
+        {
+            RandButtonSquad = "/images/Festival/Valentine2023/Rank/rank_type_button1.png";
+            RandButtonSolo = "/images/Festival/Valentine2023/Rank/rank_type_button2.png";            
+        }
+    }
+}

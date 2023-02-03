@@ -1,5 +1,98 @@
 .Valentine2023_Rank {
     width:100%;
-    height:600px;
+    height:1000px;
 
+}
+
+.Valentine2023_Rank-container {
+    padding-top:50px;
+    width:800px;
+    margin:0 auto;
+}
+
+.toggleRankTypeButton-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0 10px;
+    height: 137px;
+
+}
+
+.toggleRankTypeButton-container button {
+    width: 50%;    
+    background-repeat: round;
+    height: 102px;
+    border: 0;
+    color: #ff7daf;
+    font-size:50px;
+    font-weight:700;
+}
+
+.rank_type_button_solo {
+    background: url("/images/Festival/Valentine2023/Rank/rank_type_button1.png");
+}
+.rank_type_button_squad {
+    background: url("/images/Festival/Valentine2023/Rank/rank_type_button2.png");
+}
+
+.Valentine2023_Rank_content {
+    background: url("/images/Festival/Valentine2023/Rank/rank_BG.png");
+    background-repeat: round;
+    width: 100%;
+    height: 661px;
+    transform: translateY(-25px);
+ 
+    padding:80px 30px;
+}
+
+.select-container {
+    width:100%;
+    
+}
+
+.select-container select {
+    border: 5px solid #ff7daf;
+    background: none;
+    border-radius: 15px;
+    height: 60px;
+    color: #ff7daf;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.rank-content {
+    padding-top: 20px;
+}
+
+.rank {
+    background: #ff7daf;
+    width:80%;
+    height:100px;
+    border-radius:10px;
+    display:flex;  
+    align-items:center;
+    padding:15px;
+    margin-bottom:50px;
+}
+
+.rank img{
+    height:100%;
+}
+
+.rank span {
+    font-size: 40px;
+    font-weight: 700;
+    color:#fff;
+}
+
+.rank1 span {
+    margin-left:90px;
+}
+.rank2 span {
+    margin-left: 60px;
+}
+.rank3 span {
+    margin-left: 30px;
 }
