@@ -14,19 +14,18 @@
 .Valentine2023-title {
     width: 100%;
     display: flex;
-    justify-content: center
+    justify-content: center;
 }
 
 .Valentine2023-title span {
     text-align: center;
     color: #fff;
-    font-size: 30px;
-    padding: 5px 45px;
+    font-size: 60px;
+    padding: 25px 45px;
     display: inline-block;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 2px;
-    min-width: 260px;
-    border-radius: 10px;
+    min-width: 560px;
 
     background:url("/images/Festival/Valentine2023/title_BG.png");
     background-repeat:round;

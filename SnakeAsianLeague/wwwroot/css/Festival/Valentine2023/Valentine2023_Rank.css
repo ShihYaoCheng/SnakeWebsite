@@ -21,7 +21,7 @@
 }
 
 .toggleRankTypeButton-container button {
-    width: 50%;    
+    width: 47%;    
     background-repeat: round;
     height: 102px;
     border: 0;
@@ -63,7 +63,7 @@
 }
 
 .rank-content {
-    padding-top: 20px;
+    padding-top: 40px;
     width:100%;
 }
 
