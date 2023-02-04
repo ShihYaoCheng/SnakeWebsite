@@ -1,5 +1,10 @@
+@using Newtonsoft.Json
+@using SnakeAsianLeague.Data.Entity.SnakeServer
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.SnakeServerService
 @inject IJSRuntime JS
-
+@inject AppState AppState
+@inject AsiaLeagueScheduleService AsiaLeagueScheduleService
 <head>   
     <link href="css/fullcalendar.css" rel="stylesheet">
     <link href="/css/Festival/Valentine2023/Valentine2023_Schedule.css" rel="stylesheet" />
@@ -22,15 +27,78 @@
     </div>
 </div>
 @code{
-      protected override async Task OnAfterRenderAsync(bool firstRender)
+    List<AsiaLeagueSchedule> Schedules;
+    List<ToJsListType> _Valentine2023Schedule =new List<ToJsListType>();
+
+    protected override async Task OnInitializedAsync()
     {
-        if (firstRender)
-        {
+        AppState.StateChanged += async (Source, Property)
+            => await InvokeAsync(StateHasChanged);
 
+        Schedules = await AsiaLeagueScheduleService.GetAsiaLeagueSchedulesAsync(AsiaLeagueSeasons.Valentine2023);
+        await arrangeSchedules();
+    }
 
-        }
-       
-        await JS.InvokeVoidAsync("Valentine2023Schedule" );
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        var json = JsonConvert.SerializeObject(_Valentine2023Schedule);
+        await JS.InvokeVoidAsync("Valentine2023Schedule",json ,AppState.NowLanguage.ToString());
         //await reloadCalendar(); 
     }
+
+    private async Task arrangeSchedules()
+    {
+        List<AsiaLeagueSchedule> soloStartDay = Schedules.Where(w => w.IndATIssue == 0).ToList();
+        List<AsiaLeagueSchedule> soloEndDay = Schedules.Where(w => w.IndFinalType == 0).ToList();
+        List<AsiaLeagueSchedule> squadStartDay = Schedules.Where(w => w.GuildATIssue == 4).ToList();
+        List<AsiaLeagueSchedule> squadEndDay = Schedules.Where(w => w.GuildFinalType == 1).ToList();
+
+        //個人
+        var index = 0;                
+        foreach (var item in soloStartDay)
+        {
+            //選賽
+            ToJsListType ToJsListType = new ToJsListType();        
+            ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:00";
+            ToJsListType.end = soloEndDay[index].Date.AddDays(1).ToString("yyyy-MM-dd") +"T00:00:00";  
+            ToJsListType.classNames[0]= "qualifying";
+            _Valentine2023Schedule.Add(ToJsListType);
+
+            //決賽
+            ToJsListType ToJsListTypeFinal = new ToJsListType();
+            ToJsListTypeFinal.i18n =new List<string>() { "福星組-個人 #","Lucky Star-Solo #" };
+            ToJsListTypeFinal.i18nFinal =new List<string>() { "決賽","Final" };
+            ToJsListTypeFinal.title =item.IndStation.ToString();
+            ToJsListTypeFinal.start = soloEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
+            ToJsListTypeFinal.end = "";
+            ToJsListTypeFinal.classNames[0]= "soloFinal";
+            _Valentine2023Schedule.Add(ToJsListTypeFinal);
+
+            index += 1;
+        }
+        //團體
+        index = 0;
+        foreach (var item in squadStartDay)
+        {       
+            //選賽
+            ToJsListType ToJsListType = new ToJsListType();       
+            ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:00";
+            ToJsListType.end = squadEndDay[index].Date.AddDays(1).ToString("yyyy-MM-dd") +"T00:00:00";          
+            ToJsListType.classNames[0]= "squadQualifying";
+            _Valentine2023Schedule.Add(ToJsListType);           
+
+            //決賽
+            ToJsListType ToJsListTypeFinal = new ToJsListType();
+            ToJsListTypeFinal.i18n =new List<string>() { "滿貫組-隊伍 #","Lucky Slam-Squad #" };
+            ToJsListTypeFinal.i18nFinal =new List<string>() { "決賽","Final" };
+            ToJsListTypeFinal.title =item.GuildStation.ToString();
+            ToJsListTypeFinal.start = squadEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
+            ToJsListTypeFinal.end = "";
+            ToJsListTypeFinal.classNames[0]= "squadFinal";
+            _Valentine2023Schedule.Add(ToJsListTypeFinal);
+
+            index += 1;
+        }
+    }
+
 }

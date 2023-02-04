@@ -92,5 +92,14 @@ namespace SnakeAsianLeague.Data.Entity.SnakeServer
         public string innerHTML = "";
         public string station = "";
     }
-
+    public class ToJsListType
+    {
+        public string title = "";
+        public string start;
+        public string end;
+        public string groupId = "";
+        public List<string> i18n = new List<string>() { "", "" };
+        public List<string> i18nFinal = new List<string>() { "", "" };
+        public List<string> classNames = new List<string>() { "" };
+    }
 }

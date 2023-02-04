@@ -52,6 +52,7 @@
 
 @code {
     List<AsiaLeagueSchedule> Schedules;
+    List<ToJsListType> _NewYear2023Schedule =new List<ToJsListType>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -126,18 +127,5 @@
             index += 1;
         }
     }
-    List<ToJsListType> _NewYear2023Schedule =new List<ToJsListType>();
-    public class ToJsListType{
-        public string title="";
-        public string start;
-        public string end;
-        public string groupId="";
-        public List<string> i18n=new List<string>() { "","" };
-        public List<string> i18nFinal=new List<string>() { "","" };
-        public List<string> classNames = new List<string>() { "" };
-    }
-    //public async Task reloadCalendar()
-    //{       
-       
-    //}
+
 }
