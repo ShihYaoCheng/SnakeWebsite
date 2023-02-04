@@ -20,10 +20,10 @@
             </div>
             <div class="Valentine2023_Rank_content">
                 <div class="select-container">
-                    @*<select>
-                        <option>個人賽第一回 0000/00/00</option>
-                        <option>個人賽第二回 0000/00/00</option>
-                    </select>*@
+                    <select @onchange="changeSelect">
+                        <option value="1">個人賽第一回 0000/00/00</option>
+                        <option value="2">個人賽第二回 0000/00/00</option>
+                    </select>
                 </div>
                 <div class="rank-content">
                     <div class="rank rank1">
@@ -63,5 +63,10 @@
             RandButtonSquad = "/images/Festival/Valentine2023/Rank/rank_type_button1.png";
             RandButtonSolo = "/images/Festival/Valentine2023/Rank/rank_type_button2.png";            
         }
+    }
+
+    public async Task changeSelect()
+    {
+        
     }
 }
