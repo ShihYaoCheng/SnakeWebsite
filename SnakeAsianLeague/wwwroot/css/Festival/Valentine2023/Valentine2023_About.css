@@ -1,0 +1,55 @@
+.Valentine2023_About{
+    padding: 50px 0;
+}
+
+.About-block{
+    background-color: #FCE0D9;
+
+    /* border: 5px dashed #e96464;
+    border-radius: 20px; */
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    /* height: 500px; */
+
+    background: url(/images/Festival/Valentine2023/About/About-block-BG.png);
+    background-repeat: round;
+    padding: 70px 20px 80px;
+    position: relative;
+}
+
+.About-info{
+    text-align: center;
+    color: #9f1919;
+    letter-spacing: 1px;
+
+}
+
+.info-title{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.info-date{
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.info-image{
+    position: absolute;
+}
+
+#info-image-01{
+    max-width: 230px;
+    width: 30%;
+    left: -11%;
+    bottom: -5%;
+}
+
+#info-image-02{
+    max-width: 260px;
+    width: 35%;
+    right: 5%;
+    bottom: 11%;
+}

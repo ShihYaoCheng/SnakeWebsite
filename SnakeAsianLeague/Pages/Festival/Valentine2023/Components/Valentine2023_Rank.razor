@@ -15,12 +15,12 @@
 
         
             <div class="Valentine2023-title" id="Valentine2023-title-Ranking">
-                <span >=╠ф╕W=</span>
+                <span >О╪²RankingО╪²</span>
             </div>
 
             <div class="toggleRankTypeButton-container">
-                <button class="rank_type_button_solo"  @onclick=@(()=>toggleRankType(1)) style="background: url(@RandButtonSolo) round;"> ЁФ╓Hаи </button>
-                <button class="rank_type_button_squad" @onclick=@(()=>toggleRankType(2)) style="background: url(@RandButtonSquad) round;"> ╧неИаи </button>
+                <button class="rank_type_button_solo"  @onclick=@(()=>toggleRankType(1)) style="background: url(@RandButtonSolo) round;"> Е√╝Д╨╨ХЁ╫ </button>
+                <button class="rank_type_button_squad" @onclick=@(()=>toggleRankType(2)) style="background: url(@RandButtonSquad) round;"> Е°≤И╚■ХЁ╫ </button>
             </div>
             <div class="Valentine2023_Rank_content">
                 <div class="select-container">
@@ -48,12 +48,12 @@
 
 @*                    <div class="rank rank2">
                         <img src="/images/Festival/Valentine2023/Rank/crown2.png"/>
-                        <span>╗о╔н╙л╕W╨ы7╕r</span>
+                        <span>О©╫о╔н╙л╕WО©╫О©╫7О©╫r</span>
                     </div>
 
                     <div class="rank rank3">
                         <img src="/images/Festival/Valentine2023/Rank/crown3.png"/>
-                        <span>╗о╔н╙л╕W╨ы7╕r</span>
+                        <span>О©╫о╔н╙л╕WО©╫О©╫7О©╫r</span>
                     </div>*@
                 </div>
             </div>
@@ -81,7 +81,7 @@
         nowOptionData = value == 1 ? soloOptionData : squadOptionData;
         await changeSelect(1);
     }
-    //Schedules ╓И╢а║A soloOptionData ЁФ╓H╗Mаи╓И╢а╕C╙М║AsquadOptionData ЁФ╓H╗Mаи╓И╢а╕C╙М║AnowOptionData ╗о╔н╙л©О╬э
+    //Schedules О©╫О©╫О©╫О©╫A soloOptionData О©╫О©╫HО©╫MО©╫и╓О©╫О©╫О©╫CО©╫О©╫О©╫AsquadOptionData О©╫О©╫HО©╫MО©╫и╓О©╫О©╫О©╫CО©╫О©╫О©╫AnowOptionData О©╫о╔н╙л©О©╫О©╫
     List<AsiaLeagueSchedule> Schedules;
     List<OptionDTO> soloOptionData  = new List<OptionDTO>();
     List<OptionDTO> squadOptionData  = new List<OptionDTO>();
