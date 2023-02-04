@@ -235,7 +235,54 @@
     background-size: cover !important;
 }
 
+/*事件樣式處理*/
+.squadQualifying .fc-event-title-container {
+    background: linear-gradient( 180deg, rgba(0,0,0,0) 35%, #221aca 36%,#221aca 64%,rgba(0,0,0,0) 65%);
+}
+.qualifying .fc-event-title-container {
+    background: linear-gradient( 180deg, rgba(0,0,0,0) 35%, #06dac4 36%,#06dac4 64%,rgba(0,0,0,0) 65%);
+}
+.fc-h-event {
+    border: none !important;   
+    background-color: rgb(0,0,0,0) !important;
+    overflow:hidden;
+}
 
+.fc-event-main {
+    transform:translateX(50px);
+}
+
+.squadQualifying .fc-sticky {
+    background: #221aca;
+}
+
+.qualifying .fc-sticky {
+    background: #06dac4;
+}
+
+.fc-sticky {
+    width: 20px;
+    height: 20px;
+   
+    border-radius: 50%;
+    transform: translateX(-2px);
+}
+/*決賽*/
+.soloFinal .fc-daygrid-event-dot {
+    display:none;
+}
+
+.squadFinal .fc-daygrid-event-dot {
+    display: none;
+}
+
+.soloFinal .fc-event-title {
+    background: #06dac4 !important;
+}
+
+.squadFinal .fc-event-title {
+    background: #221aca !important;
+}
 /*hover提升*/
 .fc-daygrid-bg-harness {
     z-index: 100
