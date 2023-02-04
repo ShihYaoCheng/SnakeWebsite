@@ -11,7 +11,8 @@ namespace SnakeAsianLeague.Data.Entity.SnakeServer
         Tiger2 = 5,
         AsiaLeagueS2 = 6,
         AsiaLeagueS3 = 7,
-        NewYear2023 = 8
+        NewYear2023 = 8,
+        Valentine2023 = 9
 
     }
 

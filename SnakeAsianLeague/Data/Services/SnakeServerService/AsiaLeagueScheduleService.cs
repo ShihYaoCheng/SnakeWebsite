@@ -84,8 +84,11 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
                 case AsiaLeagueSeasons.NewYear2023:
                     sheetName = "AsiaLeagueS8Schedule";
                     break;
+                case AsiaLeagueSeasons.Valentine2023:
+                    sheetName = "AsiaLeagueS9Schedule";
+                    break;
                 default:
-                    return null;
+                return null;
             }
 
             ServerResponce resp = await snakeTableService.GetSheetFromTableServerAsync(sheetName);
