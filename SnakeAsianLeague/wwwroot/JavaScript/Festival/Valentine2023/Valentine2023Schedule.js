@@ -2,9 +2,10 @@
     value = JSON.parse(value)
     let eventsList = []
     for (var i in value) {
-        value[i].title = lang == "en" ? value[i].i18n[1] + value[i].title + value[i].i18nFinal[1] : value[i].i18n[0] + value[i].title + value[i].i18nFinal[0]
+        value[i].title = lang == "en" ? value[i].i18n[1] + value[i].title  : value[i].i18n[0] + value[i].title 
         eventsList.push(value[i])
-    } 
+    }
+    console.log(value)
     var calendarEl = document.getElementById('Valentine2023Schedule');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -26,4 +27,28 @@
     });
 
     calendar.render();
+
+
+    var soloFinal = document.querySelectorAll(".soloFinal")
+    var squadFinal = document.querySelectorAll(".squadFinal")
+    if (squadFinal.length != 0) {
+        console.log(soloFinal)
+        squadFinal.forEach((e) => {
+            e.parentElement.parentElement.parentElement.style.background = "#221aca"
+            e.parentElement.parentElement.style.margin = "0px";
+        })
+        soloFinal.forEach((e) => {
+            e.parentElement.parentElement.parentElement.style.background = "#06dac4"
+            e.parentElement.parentElement.style.margin = "0px";
+        })
+    }
+
+
+   
+
+   
+  
+    //.
+
+  
 }

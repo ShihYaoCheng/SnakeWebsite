@@ -64,7 +64,7 @@
 
             //決賽
             ToJsListType ToJsListTypeFinal = new ToJsListType();
-            ToJsListTypeFinal.i18n =new List<string>() { "福星組-個人 #","Lucky Star-Solo #" };
+            ToJsListTypeFinal.i18n =new List<string>() { "個人 #","SOLO #" };
             ToJsListTypeFinal.i18nFinal =new List<string>() { "決賽","Final" };
             ToJsListTypeFinal.title =item.IndStation.ToString();
             ToJsListTypeFinal.start = soloEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
@@ -80,14 +80,14 @@
         {       
             //選賽
             ToJsListType ToJsListType = new ToJsListType();       
-            ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:00";
+            ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:01";
             ToJsListType.end = squadEndDay[index].Date.AddDays(1).ToString("yyyy-MM-dd") +"T00:00:00";          
             ToJsListType.classNames[0]= "squadQualifying";
             _Valentine2023Schedule.Add(ToJsListType);           
 
             //決賽
             ToJsListType ToJsListTypeFinal = new ToJsListType();
-            ToJsListTypeFinal.i18n =new List<string>() { "滿貫組-隊伍 #","Lucky Slam-Squad #" };
+            ToJsListTypeFinal.i18n =new List<string>() { "隊伍 #","Squad #" };
             ToJsListTypeFinal.i18nFinal =new List<string>() { "決賽","Final" };
             ToJsListTypeFinal.title =item.GuildStation.ToString();
             ToJsListTypeFinal.start = squadEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
