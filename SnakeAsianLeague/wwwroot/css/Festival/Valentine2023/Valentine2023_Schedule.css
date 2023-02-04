@@ -1,0 +1,39 @@
+.Valentine2023_Schedule {
+    width: 100%;
+    height: 1200px;
+}
+.Valentine2023_Schedule-container {
+    padding-top: 50px;
+}
+.Schedule-BG {
+    background: linear-gradient(to bottom, #f996bc 0%, #ffdfd9 100%);
+    width: 100%;
+    height: 810px;
+    margin: 40px auto 0;
+    box-shadow: 0px 20px 30px 6px rgb(0 0 0 / 50%);
+    border-radius: 5px;
+}
+@media (max-width: 1000px) {
+    .Schedule-BG {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .Schedule-BG {
+        /* width: 487px; */
+        height: 810px;
+        margin: 25px auto 0;
+    }
+}
+@media (max-width: 767px) {
+    .Schedule-BG {
+        height: 740px;
+    }
+}
+@media (max-width: 600px) {
+    .Schedule-BG {
+        width: 100%;
+        height: 630px;
+    }
+}
