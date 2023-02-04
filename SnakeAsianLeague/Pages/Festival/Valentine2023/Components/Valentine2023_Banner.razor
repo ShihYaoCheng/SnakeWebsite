@@ -1,0 +1,57 @@
+@page "/Valentine2023_Banner"
+
+@using SnakeAsianLeague.Pages.Festival.Valentine2023.Components
+
+
+<head>
+    <link href="/css/Festival/Valentine2023/Valentine2023_Banner.css" rel="stylesheet" />
+</head>
+
+
+<div class="Valentine2023_Banner" id="Valentine2023_Banner">
+
+    <div class="Valentine2023_Banner-BG">
+
+        <img src="/images/Festival/Valentine2023/banner/BG-01.png" alt="">
+        <img class="banner-BG" src="/images/Festival/Valentine2023/banner/BG-02.png" alt="">
+        <img class="banner-BG" src="/images/Festival/Valentine2023/banner/BG-03.png" alt="">
+
+        <div class="Valentine2023-Logo">
+            <img src="/images/Festival/Valentine2023/banner/Valentine2023_banner_logo.png" alt="">
+        </div>
+
+    </div>
+
+
+
+    <div class="Valentine2023-BannerNav" hidden="@false">
+        <div class="BannerNav">
+            @* <Festival_Nav_Select /> *@
+            <ul class="">
+                <li>
+                    <a href="NewYear2023#NewYear2023_About" data-i18n="NewYear2023_data:eventBanner.nav-01">About</a>
+                </li>
+                <li>
+                    <a href="NewYear2023#NewYear2023_Rules" data-i18n="NewYear2023_data:eventBanner.nav-02">Rules</a>
+                </li>
+                <li>
+                    <a href="NewYear2023#NewYear2023_Reward" data-i18n="NewYear2023_data:eventBanner.nav-03">Reward</a>
+                </li>
+                <li>
+                    <a href="NewYear2023#NewYear2023_Ranking"
+                        data-i18n="NewYear2023_data:eventBanner.nav-04">Ranking</a>
+                </li>
+                <li>
+                    <a href="NewYear2023#NewYear2023_Schedule" data-i18n="NewYear2023_data:eventBanner.nav-05">Schedule
+                    </a>
+                </li>
+                @* <li>
+                <a href="NewYear2023#NewYear2023_Notice"
+                data-i18n="NewYear2023_data:eventBanner.nav-06">Notice</a>
+                </li> *@
+            </ul>
+        </div>
+    </div>
+
+
+</div>

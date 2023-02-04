@@ -173,7 +173,7 @@
 
     z-index: 2;
     color: rgba(255, 255, 255, 1);
-    font-size: 26px;
+    font-size: 24px;
 
     font-weight: 600;
     letter-spacing: 1px;
@@ -202,7 +202,7 @@
     width: 95%;
     z-index: 3;
     color: rgba(255, 255, 255, 0.947);
-    font-size: 32px;
+    font-size: 30px;
 
     font-weight: 600;
     letter-spacing: 1px;
@@ -416,16 +416,16 @@
 
 /* 情人節節慶賽 2023  */
 #type-BG-06{
-    top: -0%;
-    left: -10%;
+    top: -16%;
+    left: -50%;
 }
 .Activity-type:hover #type-BG-06{
-    top: -0%;
-    left: -90%;
+    top: -5%;
+    left: -100%;
     transition: all 1.5s linear;
 }
 #type-BG-06 img{
-    width: 200%;
+    width: 222%;
 }
 #Activity-06 .type-icon{
     width: 98px;

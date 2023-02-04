@@ -1,0 +1,254 @@
+.Valentine2023_Banner{
+    width: 100%;
+    /* height: 1000px; */
+    position: relative;
+}
+
+.Valentine2023_Banner-BG{
+    position: relative;
+    background-color: #fff;
+    /* border: 5px solid red;  */
+}
+
+.Valentine2023_Banner-BG img{
+    width: 100%;
+}
+
+.banner-BG{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.Valentine2023-Logo{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 52%;
+    left: 50%;
+    max-width: 400px;
+    width: 20%;
+    filter: drop-shadow(0px 0px 20px rgba(247, 80, 236, 0.8));
+}
+.Valentine2023-Logo img{
+    width: 100%;
+}
+
+
+
+.Valentine2023-BannerNav{
+    
+    width: 100%;
+    background-color: #AC4444;
+    position: absolute;
+    bottom: 0;
+    box-shadow: inset 0px 1px 10px 0px #45454533, 0px -10px 15px #4646464b;
+
+}
+.BannerNav{
+    /* border: 2px solid red; */
+    /* max-width: 1500px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    /* margin: 0 auto;
+    padding: 0 20px; */
+    width: 100%;
+    border-top: 2px  #FF6F6F dashed;
+
+    border-bottom: 2px  #FF6F6F dashed;
+    /* border-style: dashed; */
+    /* border-width:medium ; */
+    border-left: none;
+    border-right: none;
+
+    margin: 10px 0;
+}
+.Valentine2023-BannerNav ul{
+
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 20px;
+    /* flex-wrap: wrap; */
+    width: 80%;
+
+}
+.Valentine2023-BannerNav li{
+    /* border: 1px solid red; */
+    /* padding: 10px; */
+    list-style-type: none;
+    margin: 0 2%;
+}
+.Valentine2023-BannerNav li a{
+    /* border: 1px solid red; */
+    color: #fff;
+    display: block;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    font-size: 24px; 
+    text-decoration: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.1s ease-out;
+    position: relative;
+    padding: 10px;
+}
+.Valentine2023-BannerNav li a::before{
+    content: "❤";
+    /* width: 7px;
+    height: 7px;
+    background-color: #fff; */
+    position: absolute;
+    /* transform: translateY(-50%) rotate(45deg); */
+    transform: translateY(-50%);
+    font-size: 12px;
+    top: 50%;
+    left: -12px;
+    transition: all 0.1s ease-out;
+
+    opacity: 0;
+}
+.Valentine2023-BannerNav li a::after{
+    content: "❤";
+    /* width: 7px;
+    height: 7px;
+    background-color: #fff; */
+    position: absolute;
+    /* transform: translateY(-50%) rotate(45deg); */
+    transform: translateY(-50%);
+    font-size: 12px;
+    top: 50%;
+    right: -12px;
+    transition: all 0.1s ease-out;
+
+    opacity: 0;
+}
+.Valentine2023-BannerNav li a:hover{
+    color: #fff;
+}
+.Valentine2023-BannerNav li a:hover::before{
+    opacity: 1;
+}
+.Valentine2023-BannerNav li a:hover::after{
+    opacity: 1;
+}
+
+@media all and (max-width: 1920px){
+    .Valentine2023-BannerNav li a{
+        font-size: 20px;
+    }
+    .Valentine2023_Banner-BG img{
+        transform: unset;
+    }
+}
+@media all and (max-width: 1200px){
+    .Valentine2023-BannerNav li a{
+        font-size: 18px;
+    }
+    .Valentine2023-BannerNav li a::before{
+        width: 5px;
+        height: 5px;
+        left: -12px;
+    }
+    .Valentine2023-BannerNav li a::after{
+        width: 5px;
+        height: 5px;
+        right: -12px;
+    }
+}
+@media all and (max-width: 1000px){
+    .Valentine2023-BannerNav li a{
+        font-size: 16px;
+    }
+    .BannerNav{
+        /* flex-direction: column; */
+    }
+    .BannerNav{
+        padding: 0 10px;
+    }
+}
+@media all and (max-width: 800px){
+    .Valentine2023_Banner{
+        /* position: absolute; */
+        width: 100%;
+        /* height: 500px; */
+    }
+    .Valentine2023_Banner-BG{
+        max-height: 400px;
+    }
+    .Valentine2023_Banner-BG img{
+        /* width: 130%;
+        transform: translate(-10% ,0%); */
+        /* width: 150%;
+        transform: translate(-19% ,0%); */
+        width: 140%;
+        transform: translate(-14% ,-8%);
+        
+    }
+    .Valentine2023-BannerNav{
+        position: unset;
+        background-color: #ecb865;
+        padding: 5px 0;
+        /* box-shadow: 0px 1px 10px 0px #45454533, 0px 10px 15px #4646464b; */
+    }
+    .Valentine2023-BannerNav li a {
+        font-size: 14px;
+    }
+    .Valentine2023-BannerNav ul{
+        flex-wrap: wrap;
+        width: 80%;
+        /* justify-content: center; */
+        margin: 0 auto 0px;
+        padding-left: 3%;
+    }
+    .Valentine2023-BannerNav li{
+        /* padding: 5px; */
+        width: 25%;
+        display: inline-block;
+    }
+    .Valentine2023-BannerNav li a {
+        font-size: 14px;
+        /* width: 30%; */
+        padding: 5px;
+    }
+    .Valentine2023-BannerNav li a::before{
+        display: none;
+    }
+    .Valentine2023-BannerNav li a::after{
+        display: none;
+    }
+    .Valentine2023-Logo{
+        width: 30%;
+        top: 50%;
+    }
+}
+@media all and (max-width: 600px){
+    .BannerNav{
+        flex-direction: column;
+        padding: 5px 7px 0px;
+    }
+    .Valentine2023-BannerNav ul{
+        width: 100%;
+    }
+    .Valentine2023-BannerNav li{
+        /* padding: 4px; */
+        /* width: 40%; */
+    }
+    .Valentine2023-BannerNav li a {
+        font-size: 14px;
+        padding: 4px;
+    }
+    .Valentine2023_Banner-BG img{
+        width: 155%;
+        transform: translate(-18% ,0%);
+    }
+}
+@media all and (max-width: 500px){
+
+
+
+
+}
