@@ -86,6 +86,11 @@ namespace SnakeAsianLeague.Data.Entity.SnakeServer
         ///<summary> 團體決賽時間 </summary>
         public string? GuildFinalTime { get; set; }
     }
-
+    public class OptionDTO
+    {
+        public string i18n = "";
+        public string innerHTML = "";
+        public string station = "";
+    }
 
 }

@@ -1,6 +1,7 @@
-
+@inject IJSRuntime JS
 
 <head>   
+    <link href="css/fullcalendar.css" rel="stylesheet">
     <link href="/css/Festival/Valentine2023/Valentine2023_Schedule.css" rel="stylesheet" />
 </head>
 
@@ -12,14 +13,22 @@
                 <span >=®Éµ{=</span>
             </div>
             <div class="Schedule-BG">
-                <div id="NewYear2023Schedule">
-
-
-                </div>
+                <div id="Valentine2023Schedule"></div>
+                <div class="Schedule-menu"></div>
             </div>
         </div>
     </div>
 </div>
 @code{
+      protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
 
+
+        }
+       
+        await JS.InvokeVoidAsync("Valentine2023Schedule" );
+        //await reloadCalendar(); 
+    }
 }
