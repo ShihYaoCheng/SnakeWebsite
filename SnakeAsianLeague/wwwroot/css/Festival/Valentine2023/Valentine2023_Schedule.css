@@ -291,16 +291,21 @@
 .fc-daygrid-dot-event:hover, .fc-daygrid-dot-event.fc-event-mirror {
     background: none !important;
 }
+.fc-event-title {
+    
+}
 
 .squadFinal .fc-event-title {
     color: #ffdfd8 !important;
     font-size: 20px;
     font-weight: 700;
+    transform: translateY(-10px);
 }
 .soloFinal .fc-event-title {
     color: #85ff7c !important;
     font-size: 20px;
     font-weight: 700;
+    transform: translateY(-10px);
 }
 /*hover´£¤É*/
 .fc-daygrid-bg-harness {
