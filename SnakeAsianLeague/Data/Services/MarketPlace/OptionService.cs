@@ -147,6 +147,9 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             datas = new List<NFTData>();
 
 
+
+            List<MetadataList> CharacterMetaData = await GetCharacterMetaData();
+
             Random myObject = new Random();
 
 
@@ -165,11 +168,13 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                     NFTData data = new NFTData();
                     data.TokenID = NFT_Riders[i].castings[0].tokenId;
                     data.Number = string.Format(" PPSR {0}", NFT_Riders[i].castings[0].tokenId);
-                    data.Name = NFT_Riders[i].name;
+                   
+
                     data.serialNumber = NFT_Riders[i].serialNumber;
                     //可能沒有拍賣紀錄
 
-
+                    //data.Name = NFT_Riders[i].name;
+                    data.Name = CharacterMetaData.Where(m => m.serialNumber == data.serialNumber).FirstOrDefault().name ?? "";
 
 
                     if (i % 50 == 0)
@@ -813,7 +818,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                         MetadataList rd = JsonSerializer.Deserialize<MetadataList>(json);
 
                         //取得url
-                        int num = item.Key;
+                        string num = item.Key.ToString();
                         //string getLinkURL = string.Format("https://testnets.opensea.io/assets/mumbai/" + contractAddress_PPSR + "/" + num); 
                         //string getLinkURL = string.Format("https://opensea.io/assets/matic/" + contractAddress_PPSR + "/" + num);
                         string getLinkURL = string.Format(LinkURL, contractAddress_PPSI, num);
@@ -858,7 +863,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
                         MetadataList rd = JsonSerializer.Deserialize<MetadataList>(json);
 
                         //取得url
-                        int num = item.Key;
+                        string num = item.Key.ToString();
                         //string getLinkURL = string.Format("https://testnets.opensea.io/assets/mumbai/" + contractAddress_PPSR + "/" + num); 
                         //string getLinkURL = string.Format("https://opensea.io/assets/matic/" + contractAddress_PPSR + "/" + num);
                         string getLinkURL = string.Format(LinkURL, contractAddress_PPSL, num);
@@ -953,6 +958,36 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         {
             string Url = "";
         }
+
+
+        /// <summary>
+        /// 取得opensea metadata 資料 
+        /// markplace名字要相互對應
+        /// </summary>
+        public  async Task<List<MetadataList>> GetCharacterMetaData()
+        {
+            string Url = "BC_CharacterContract/NFTMetadataList";
+            var request = new RestRequest(Url, Method.GET);
+            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+            List<MetadataList> result = new List<MetadataList>();
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                NFTMetaData ResultData = JsonSerializer.Deserialize<NFTMetaData>(restResponse.Content) ?? new NFTMetaData();
+                foreach (var item in ResultData.metadataList)
+                {
+                    MetadataList JsonMetaData = JsonSerializer.Deserialize<MetadataList>(item.Value);
+                    JsonMetaData.TokenID = item.Key.ToString();
+                    result.Add(JsonMetaData);
+                }
+            }
+            return result;
+        }
+
+
+
+
+
+
 
     }
 }

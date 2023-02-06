@@ -3,13 +3,15 @@
     public class NFTMetaData
     {
 
-        public Dictionary<int, string> metadataList { get; set; }
+        public Dictionary<decimal, string> metadataList { get; set; }
     }
 
 
 
 
     public class MetadataList {     
+
+        public string TokenID { get; set; }
         //public List<Attributes> attributes { get; set;}
         public string properties { get; set;}
         public string description { get; set; }
