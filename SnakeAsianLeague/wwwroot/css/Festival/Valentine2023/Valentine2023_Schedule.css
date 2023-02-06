@@ -275,13 +275,37 @@
 .squadFinal .fc-daygrid-event-dot {
     display: none;
 }
+.fc-event-title {
+    text-align:center;
+}
+.fc-daygrid-event-harness {
+    margin:0px !important;
+}
+.qualifying {
+    transform: translateX(-10px)
+}
+.squadQualifying {
+    transform: translateX(-10px)
+}
 
-.soloFinal .fc-event-title {
-    background: #06dac4 !important;
+.fc-daygrid-dot-event:hover, .fc-daygrid-dot-event.fc-event-mirror {
+    background: none !important;
+}
+.fc-event-title {
+    
 }
 
 .squadFinal .fc-event-title {
-    background: #221aca !important;
+    color: #ffdfd8 !important;
+    font-size: 20px;
+    font-weight: 700;
+    transform: translateY(-10px);
+}
+.soloFinal .fc-event-title {
+    color: #85ff7c !important;
+    font-size: 20px;
+    font-weight: 700;
+    transform: translateY(-10px);
 }
 /*hover´£¤É*/
 .fc-daygrid-bg-harness {

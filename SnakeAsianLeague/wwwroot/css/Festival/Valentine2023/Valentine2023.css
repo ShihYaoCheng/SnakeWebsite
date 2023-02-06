@@ -43,11 +43,19 @@
         max-width: 850px;
         margin: 0 auto;
     }
+
+    .Valentine2023-title span {
+        font-size: 30px;
+        padding: 13px 40px 16.5px;
+        letter-spacing: 1px;
+        max-width: 356px;
+    }
+
 }
 
 @media all and (max-width: 800px) {
     .Valentine2023-container {
-
+        max-width: 600px; 
         margin: 0 auto;
     }
 
@@ -59,7 +67,7 @@
 
 @media all and (max-width: 600px) {
     .Valentine2023-container {
-
+        max-width: 370px;
         margin: 0 auto;
     }
     .Valentine2023-title span {
