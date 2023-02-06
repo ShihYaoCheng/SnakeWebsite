@@ -15,8 +15,7 @@
     <div class="Valentine2023-container">
         <div class="Valentine2023_Schedule-container">
             <div class="Valentine2023-title" id="Valentine2023-title-Schedule">
-                <span >ÔºùScheduleÔº?</span>
-                <span >=Æ…µ{=</span>
+                <span data-i18n="Valentine2023_data:schedule.title">ÔºùScheduleÔºù</span>
             </div>
             <div class="Schedule-BG">
                 <div id="Valentine2023Schedule"></div>
@@ -65,21 +64,21 @@
         List<AsiaLeagueSchedule> squadStartDay = Schedules.Where(w => w.GuildATIssue == 4).ToList();
         List<AsiaLeagueSchedule> squadEndDay = Schedules.Where(w => w.GuildFinalType == 1).ToList();
 
-        //≠”§H
+        //ÔøΩ”§H
         var index = 0;                
         foreach (var item in soloStartDay)
         {
-            //øÔ¡…
+            //ÔøΩÔøΩÔøΩÔøΩ
             ToJsListType ToJsListType = new ToJsListType();        
             ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:00";
             ToJsListType.end = soloEndDay[index].Date.AddDays(1).ToString("yyyy-MM-dd") +"T00:00:00";  
             ToJsListType.classNames[0]= "qualifying";
             _Valentine2023Schedule.Add(ToJsListType);
 
-            //®M¡…
+            //ÔøΩMÔøΩÔøΩ
             ToJsListType ToJsListTypeFinal = new ToJsListType();
-            ToJsListTypeFinal.i18n =new List<string>() { "≠”§H #","SOLO #" };
-            ToJsListTypeFinal.i18nFinal =new List<string>() { "®M¡…","Final" };
+            ToJsListTypeFinal.i18n =new List<string>() { "ÔøΩ”§H #","SOLO #" };
+            ToJsListTypeFinal.i18nFinal =new List<string>() { "ÔøΩMÔøΩÔøΩ","Final" };
             ToJsListTypeFinal.title =item.IndStation.ToString();
             ToJsListTypeFinal.start = soloEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
             ToJsListTypeFinal.end = "";
@@ -88,21 +87,21 @@
 
             index += 1;
         }
-        //πŒ≈È
+        //ÔøΩÔøΩÔøΩÔøΩ
         index = 0;
         foreach (var item in squadStartDay)
         {       
-            //øÔ¡…
+            //ÔøΩÔøΩÔøΩÔøΩ
             ToJsListType ToJsListType = new ToJsListType();       
             ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:01";
             ToJsListType.end = squadEndDay[index].Date.AddDays(1).ToString("yyyy-MM-dd") +"T00:00:00";          
             ToJsListType.classNames[0]= "squadQualifying";
             _Valentine2023Schedule.Add(ToJsListType);           
 
-            //®M¡…
+            //ÔøΩMÔøΩÔøΩ
             ToJsListType ToJsListTypeFinal = new ToJsListType();
-            ToJsListTypeFinal.i18n =new List<string>() { "∂§•Ó #","Squad #" };
-            ToJsListTypeFinal.i18nFinal =new List<string>() { "®M¡…","Final" };
+            ToJsListTypeFinal.i18n =new List<string>() { "ÔøΩÔøΩÔøΩÔøΩ #","Squad #" };
+            ToJsListTypeFinal.i18nFinal =new List<string>() { "ÔøΩMÔøΩÔøΩ","Final" };
             ToJsListTypeFinal.title =item.GuildStation.ToString();
             ToJsListTypeFinal.start = squadEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
             ToJsListTypeFinal.end = "";
