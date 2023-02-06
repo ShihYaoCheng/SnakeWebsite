@@ -9,7 +9,7 @@
     border-radius: 20px; */
     width: 100%;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 80px;
     /* height: 500px; */
 
     background: url(/images/Festival/Valentine2023/About/About-block-BG.png);
@@ -52,4 +52,62 @@
     width: 35%;
     right: 5%;
     bottom: 11%;
+}
+
+.About-fee{
+    width: 100%;
+    /* border: 1px solid red; */
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    filter: drop-shadow(-15px 25px 5px  rgb(173, 142, 152, 0.5));
+}
+
+.fee-type{
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    z-index: 1;
+}
+.letter-image{
+    width: 100%;
+}
+.type-name{
+    position: absolute;
+
+    text-shadow: -3px 5.2px 6.4px rgba(91, 62, 79, 0.5);
+    -webkit-text-stroke: 2px #ea6557;
+    font-family: jf-openhuninn-1.1;
+    font-size: 23px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.12;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+
+}
+.letter-info{
+    position: relative;
+    max-width: 360px;
+    margin-left: -60px;
+    z-index: 2;
+}
+.letter-info-BG{
+    width: 100%;
+}
+.letter-info-text{
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    top: 40px;
+    font-size: 26px;
+    line-height: 38px;
+    white-space: nowrap;
+    color: #9f1919;
+    font-weight: 600;
 }
