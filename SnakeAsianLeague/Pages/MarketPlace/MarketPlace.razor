@@ -177,6 +177,10 @@
         NFTDataList = pagelist;
         PPSRsCount = await OptionService.GetNFTRiderUnitsCount();
         await lazyloadingJS.InvokeVoidAsync("LazyLoading");
+
+
+        //OptionService.GetMetaData();
+
         StateHasChanged();
     }
     public void getPPSBPsCount( int count)
