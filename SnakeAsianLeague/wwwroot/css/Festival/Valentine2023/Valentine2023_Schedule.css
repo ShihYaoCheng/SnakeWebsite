@@ -18,37 +18,141 @@
     .Schedule-BG {
         width: 100%;
     }
+
 }
 
 @media (max-width: 800px) {
     .Schedule-BG {
         /* width: 487px; */
-        height: 810px;
+        height: 860px;
         margin: 25px auto 0;
     }
-}
-@media (max-width: 767px) {
-    .Schedule-BG {
-        height: 740px;
+    .Valentine2023_Schedule {
+        height: 1150px;
     }
 }
 @media (max-width: 600px) {
     .Schedule-BG {
         width: 100%;
-        height: 630px;
+        height: 600px;
+    }
+    .Valentine2023_Schedule {
+        height: 850px;
     }
 }
 
 .Schedule-menu {
     background: #fcd4dd;
-    width: 600px;
+    max-width: 500px;
+    width: 70%;
     height: 70px;
     position: absolute;
     top: 20px;
     right: 50px;
     border-radius: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;   
 }
 
+.Schedule-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+
+.type-line {
+    width: 60px;
+    height: 25px;
+    margin-right: 8px;
+    border-radius: 3px;
+}
+
+#type-line-solo {
+    border-color: #6f1217;
+    background: rgb(6, 218, 196);
+}
+
+#type-line-Squad {
+    border-color: #db6527;
+    background: rgb(34, 26, 202);
+}
+
+.type-line-text {
+    color: #ff7bae;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight:700;
+}
+
+
+@media (max-width: 1000px) {
+    .Schedule-menu {
+        background: #fcd4dd;
+        max-width: 395px;
+        height: 60px;
+        top: 17.2px;
+        right: 43px;
+
+    }
+
+}
+@media (max-width: 800px) {
+    .Schedule-menu {
+        background: #fcd4dd;
+        max-width: 300px;
+        height: 50px;
+        top: 17.2px;
+        right: 43px;
+ 
+    }
+
+    .Schedule-type-block {
+        width: 100%;
+        padding: 6px 20px;
+    }
+    .Schedule-type {
+
+    }
+    .type-line {
+        width: 40px;
+        height: 20px;
+    }
+    .type-line-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .Schedule-menu {
+        max-width: 170px;
+        height: 50px;
+        top: 8.2px;
+        right: 16px;
+        justify-content: start;
+        padding-left:10px;
+    }
+    .Schedule-type-block {
+        width: 100%;
+        padding: 6px 10px;
+        justify-content: flex-start;
+    }
+    .Schedule-type {
+
+    }
+    .type-line {
+        width: 45px;
+        height: 18px;
+    }
+    .type-line-text {
+        font-size: 14px;
+    }
+}
 /*....行事曆套件..........*/
 /*總高度  外層，內層*/
 .fc fc-media-screen {
@@ -104,6 +208,22 @@
     margin: 0 30px !important;
 }
 
+@media (max-width: 1000px) {
+
+    .fc-toolbar-title {
+        font-size: 37px !important;
+        padding: 25px 17px 8.6px 17px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .fc-toolbar-title {
+        font-size: 29px !important;
+        padding: 30px 13px 6.5px 13.5px;
+    }
+}
+
 @media (max-width: 600px) {
     .fc-button-primary {
         width: 12px !important;
@@ -111,7 +231,15 @@
     }
 
     .fc-toolbar-title {
-        font-size: 1.2em !important;
+        font-size: 20px !important;
+        padding: 30px 10px 15px 12.75px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .fc-toolbar-title {
+        margin :0 auto !important;
     }
 }
 
@@ -171,7 +299,8 @@
 /* 每一格的間距 */
 
 .fc-daygrid-day {
-    padding: 2px 15px !important;
+    padding-top: 5px !important
+   
 }
 
 .fc-theme-standard td {
@@ -179,29 +308,46 @@
     /*   padding: 0 10px 10px 0 !important;*/
 }
 
-/*    .fc-theme-standard td:first-child {
-        padding-left: 10px !important;
-    }*/
 
-@media (max-width: 600px) {
-/*    .fc-theme-standard td {
-        border: 0 !important;
-        padding: 0 3px 3px 0 !important;
-    }*/
-
-/*        .fc-theme-standard td:first-child {
-            padding-left: 3px !important;
-        }*/
-
-        .fc-theme-standard td:last-child {
-            /* padding-left: 0px !important; */
-        }
-}
 
 .fc .fc-daygrid-day-frame {
     background: #fff;
     border: 3px solid #ffaacb;
     border-radius: 50%;
+    width: 105px !important;
+    height: 105px !important;
+    margin: 0 auto;
+}
+/*@media (max-width: 1000px) {
+    .fc .fc-daygrid-day-frame {
+        width: 90.3px !important;
+        
+    }
+    .fc-theme-standard td {
+        height: 90.3px !important;
+    }
+}*/
+@media (max-width: 800px) {
+    .fc .fc-daygrid-day-frame {
+        width: 72px !important;  
+    }
+    .fc-theme-standard td {
+        height: 72px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .fc .fc-daygrid-day-frame {
+        width: 54px !important;
+        height: 54px !important;
+    }
+
+}
+@media (max-width: 400px) {
+ /*   .fc .fc-daygrid-day-frame {
+        width: 105px !important;
+        height: 105px !important;
+    }*/
 }
 
 /*時間*/
@@ -215,6 +361,23 @@
     font-size: 28px !important;
     opacity: 1 !important;
     font-weight:600;
+}
+
+@media (max-width: 800px) {
+    .fc-daygrid-day-top {   
+        font-size: 22.4px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .fc-daygrid-day-top {
+        font-size: 12.8px !important;
+        padding:0 ;
+    }
+}
+
+@media (max-width: 400px) {
+
 }
 
 .fc-daygrid-day-top a {
@@ -249,7 +412,7 @@
 }
 
 .fc-event-main {
-    transform:translateX(50px);
+    transform:translateX(60px);
 }
 
 .squadQualifying .fc-sticky {
@@ -267,6 +430,26 @@
     border-radius: 50%;
     transform: translateX(-2px);
 }
+
+@media (max-width: 600px) {
+    .squadQualifying .fc-event-title-container {
+        background: linear-gradient( 180deg, rgba(0,0,0,0) 44%, #221aca 45%,#221aca 55%,rgba(0,0,0,0) 56% );
+    }
+
+    .qualifying .fc-event-title-container {
+        background: linear-gradient( 180deg, rgba(0,0,0,0) 44%, #06dac4 45%,#06dac4 55%,rgba(0,0,0,0) 56%);
+    }
+    .fc-event-main {
+        transform: translateX(35px);
+    }
+    .fc-sticky {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        transform: translate(-2px ,4px);
+    }
+}
+
 /*決賽*/
 .soloFinal .fc-daygrid-event-dot {
     display:none;
@@ -282,10 +465,10 @@
     margin:0px !important;
 }
 .qualifying {
-    transform: translateX(-10px)
+    transform: translateX(-16px);
 }
 .squadQualifying {
-    transform: translateX(-10px)
+    transform: translateX(-16px);
 }
 
 .fc-daygrid-dot-event:hover, .fc-daygrid-dot-event.fc-event-mirror {
@@ -300,12 +483,48 @@
     font-size: 20px;
     font-weight: 700;
     transform: translateY(-10px);
+    white-space: break-spaces;
 }
 .soloFinal .fc-event-title {
     color: #85ff7c !important;
     font-size: 20px;
     font-weight: 700;
     transform: translateY(-10px);
+    white-space: break-spaces;
+}
+@media (max-width: 1000px) {
+    .squadFinal .fc-event-title {
+        font-size: 16px;
+    }
+
+    .soloFinal .fc-event-title {
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .squadFinal .fc-event-title {
+        font-size: 13px;
+    }
+
+    .soloFinal .fc-event-title {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 600px) {
+    .squadFinal .fc-event-title {
+        font-size: 12px;
+    }
+
+    .soloFinal .fc-event-title {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+
 }
 /*hover提升*/
 .fc-daygrid-bg-harness {

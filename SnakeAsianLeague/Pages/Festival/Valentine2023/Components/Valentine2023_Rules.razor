@@ -1,0 +1,151 @@
+@inject IJSRuntime JS
+@using SnakeAsianLeague.Pages.Festival
+
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.1/swiper-bundle.css"
+        integrity="sha512-xTLlG+jNUAbKTCLpdibgQptrCWCqMDQHombvHK7T2S2bQW5zKZtDMssUw3ftsoJ+T9cATQmdNsPIgopUlUWz8g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="/css/Festival/Valentine2023/Valentine2023_Rules.css" rel="stylesheet" />
+</head>
+
+<div class="Valentine2023_Rules" id="Valentine2023_Rules">
+    <div class="Valentine2023-container">
+
+
+        <div class="Valentine2023-title" id="Valentine2023-title-Rules">
+            <span data-i18n="Valentine2023_data:rules.rules">＝Rules＝</span>
+        </div>
+
+        <div class="Valentine2023-Carousel">
+
+            <div class="Valentine2023-Carousel-All">
+
+                <img id="chocolate" src="/images/Festival/Valentine2023/rules/chocolate.png" alt="">
+
+                <div class="swiper Valentine2023-Carousel-Block">
+
+                    <div class="swiper-wrapper" id="Valentine2023-Carousel">
+
+
+                        <div class="swiper-slide">
+                            <div class="Rules-content">
+                                <p class="Rules-content-title" data-i18n="Valentine2023_data:rules.content-title-01">
+                                    1. Game Rules :</p>
+                                <p data-i18n="Valentine2023_data:rules.content-01-01">
+                                    (1) Solo and Squad groups will receive tickets every qualification match cycle and
+                                    enter the battle to accumulate points during 00:00-23:59.</p>
+
+                                <p data-i18n="Valentine2023_data:rules.content-01-02">(2) Each battle costs one ticket,
+                                    every win adds 1 point to your score, you won't lose any of it if you lose.</p>
+
+                                <p data-i18n="Valentine2023_data:rules.content-01-03">(3) You can purchase 1 extra ticket
+                                    each cycle.</p>
+
+                                <p class="Rules-content-title" data-i18n="Valentine2023_data:rules.content-title-02">2.
+                                    Battle :</p>
+                                <p data-i18n="Valentine2023_data:rules.content-02-01">(1) Within 3 minutes, the side with
+                                    the most number of defeats will be the winner. If they gain the same score, the game
+                                    continues until one side gains one more point first.</p>
+                                <p data-i18n="Valentine2023_data:rules.content-02-02">(2) The players will be separated
+                                    into red and blue teams. The solo group will be 1V7, and the Squad group will be
+                                    4V4.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="swiper-slide">
+
+                            <div class="Rules-content">
+                                <p class="Rules-content-title" data-i18n="Valentine2023_data:rules.content-title-03">3.
+                                    Solo Match :</p>
+
+                                <p data-i18n="Valentine2023_data:rules.content-03-01">(1) 20 tickets will be distributed
+                                    in each cycle, and the tickets can be accumulated.</p>
+
+                                <p data-i18n="Valentine2023_data:rules.content-03-02">(2) The final match threshold is Top
+                                    Eight that has the highest point, and each one should earn more than 10 points.</p>
+
+
+                                <p class="Rules-content-title" data-i18n="Valentine2023_data:rules.content-title-04">
+                                    4.Squad Match :</p>
+                                <p data-i18n="Valentine2023_data:rules.content-04-01">(1) Each team can have up to 5
+                                    members. The captain will receive 100 tickets every cycle and can ration them to the
+                                    team members.</p>
+
+                                <p data-i18n="Valentine2023_data:rules.content-04-02">(2) If a team member leaves the
+                                    team, all the tickets will return to the captain.</p>
+
+                                <p data-i18n="Valentine2023_data:rules.content-04-03">(3) The final match threshold is Top
+                                    Eight which has the highest point, and each one should earn more than 50 points.</p>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="swiper-slide">
+
+                            <div class="Rules-content">
+                                <p class="Rules-content-title" data-i18n="Valentine2023_data:rules.content-title-05">5.
+                                    Finals :</p>
+                                <p data-i18n="Valentine2023_data:rules.content-05-01">(1) The final includes 3 rounds.</p>
+
+                                <p data-i18n="Valentine2023_data:rules.content-05-02">(2) The first round will select
+                                    Final Four players.</p>
+
+                                <p data-i18n="Valentine2023_data:rules.content-05-03">(3) The second round will select the
+                                    final three players.</p>
+
+                                <p data-i18n="Valentine2023_data:rules.content-05-04">(4) The last round will decide the
+                                    First, second, third place player.</p>
+
+                                <p class="Rules-content-title" data-i18n="Valentine2023_data:rules.content-title-06">6.
+                                    Rider :</p>
+                                <p data-i18n="Valentine2023_data:rules.content-06-01">(1) Free riders or snakes will not
+                                    be allowed to participate in Asian Champion League's Battle.</p>
+
+                                <p data-i18n="Valentine2023_data:rules.content-06-02">(2) The player must own or rent an
+                                    NFT (Riders or Snakes) to join in the battle.</p>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+                <div class="swiper-pagination"></div>
+                @* <div class="swiper-button">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                </div> *@
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    {
+        if (firstRender)
+
+        {
+            // Carousel.js
+            await JS.InvokeVoidAsync("Valentine2023_CarouselJS");
+
+        }
+
+    }
+}

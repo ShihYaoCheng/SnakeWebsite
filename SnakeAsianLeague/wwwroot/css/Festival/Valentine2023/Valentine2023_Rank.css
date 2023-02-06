@@ -5,9 +5,9 @@
 }
 
 .Valentine2023_Rank-container {
-    padding-top:50px;
-    width:800px;
-    margin:0 auto;
+    padding-top: 50px;
+    width: 800px;
+    margin: 0 auto;
 }
 
 .toggleRankTypeButton-container {
@@ -23,12 +23,58 @@
 .toggleRankTypeButton-container button {
     width: 47%;    
     background-repeat: round;
-    height: 102px;
+    height:100%;
     border: 0;
     color: #ff7daf;
     font-size:50px;
     font-weight:700;
 }
+
+@media all and (max-width: 1000px) {
+    .Valentine2023_Rank {
+        height: 800px;
+    }
+    .Valentine2023_Rank-container {
+        width: 650px;
+    }
+    .toggleRankTypeButton-container {
+        height: 90px;
+    }
+    .toggleRankTypeButton-container button {
+        font-size: 40px;
+    }
+}
+
+@media all and (max-width: 800px) {
+    .Valentine2023_Rank {
+        height: 680px;
+    }
+    .Valentine2023_Rank-container {
+        width: 450px;
+    }
+    .toggleRankTypeButton-container {
+        height: 72px;
+    }
+    .toggleRankTypeButton-container button {
+        font-size: 32px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .Valentine2023_Rank {
+        height: 520px;
+    }
+    .Valentine2023_Rank-container {
+        width: 100%;
+    }
+    .toggleRankTypeButton-container {
+        height: 54px;
+    }
+    .toggleRankTypeButton-container button {
+        font-size: 24px;
+    }
+}
+
 
 .rank_type_button_solo {
     background: url("/images/Festival/Valentine2023/Rank/rank_type_button1.png");
@@ -42,15 +88,34 @@
     background-repeat: round;
     width: 100%;
     height: 661px;
-    transform: translateY(-25px);
- 
+    transform: translateY(-25px); 
     padding:80px 30px;
 }
 
-.select-container {
-    width:100%;
-    
+@media all and (max-width: 1000px) {
+    .Valentine2023_Rank_content {
+        height:545px;
+        transform: translateY(-12px);
+        padding: 66px 24px;
+    }
 }
+
+@media all and (max-width: 800px) {
+    .Valentine2023_Rank_content {
+        height: 465px;
+        transform: translateY(-12px);
+        padding: 52px 20px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .Valentine2023_Rank_content {
+        height: 350px;
+        transform: translateY(-5px);
+        padding: 40px 15px;
+    }
+}
+
 
 .select-container select {
     border: 5px solid #ff7daf;
@@ -87,6 +152,68 @@
     font-weight: 700;
     color:#fff;
 }
+
+
+@media all and (max-width: 1000px) {
+    .select-container select {
+        border: 4px solid #ff7daf;    
+        height: 50px; 
+        font-size: 20px;
+    }
+    .rank-content {
+        padding-top: 33px;
+    }
+    .rank {  
+        height: 83px;
+        padding: 12.5px;
+        margin-bottom: 42px;
+    }
+    .rank span {
+        font-size: 30px;
+    }
+}
+
+@media all and (max-width: 800px) {
+    .select-container select {
+        border: 3px solid #ff7daf;
+        height: 40px;
+        font-size: 16px;
+    }
+    .rank-content {
+        padding-top: 26.5px;
+    }
+    .rank {
+        height: 69px;
+        padding: 10px;
+        margin-bottom: 33.6px;
+    }
+    .rank span {
+        font-size: 25px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .select-container select {
+        border: 2.5px solid #ff7daf;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .rank-content {
+        padding-top: 20px;
+    }
+
+    .rank {
+        height:52px;
+        padding: 7.5px;
+        margin-bottom: 25px;
+    }
+
+    .rank span {
+        font-size: 18.75px;
+    }
+}
+
 .rank1 {
     width: 80%;
 }
@@ -104,4 +231,50 @@
 }
 .rank3 span {
     margin-left: 30px;
+}
+
+
+
+@media all and (max-width: 1000px) {
+    .rank1 span {
+        margin-left: 75px;
+    }
+
+    .rank2 span {
+        margin-left: 50px;
+    }
+
+    .rank3 span {
+        margin-left: 25px;
+    }
+
+}
+
+@media all and (max-width: 800px) {
+    .rank1 span {
+        margin-left: 60px;
+    }
+
+    .rank2 span {
+        margin-left: 40px;
+    }
+
+    .rank3 span {
+        margin-left: 20px;
+    }
+
+}
+
+@media all and (max-width: 600px) {
+    .rank1 span {
+        margin-left: 45px;
+    }
+
+    .rank2 span {
+        margin-left: 30px;
+    }
+
+    .rank3 span {
+        margin-left: 15px;
+    }
 }
