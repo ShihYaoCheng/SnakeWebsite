@@ -1,0 +1,91 @@
+{
+  "eventBanner": {
+    "nav-01": "賽季內容",
+    "nav-02": "規則",
+    "nav-03": "獎勵",
+    "nav-04": "排名",
+    "nav-05": "時程",
+    "nav-06": "參賽須知"
+  },
+
+  "about": {
+    "title": "- 賽季內容 -",
+    "title-02": "註冊並且報名立即獲得報名費10%的gERNC",
+    "solo-name": "福星組",
+    "solo": "(個人)",
+    "registration-time": "報名時間：",
+    "event-date": "活動時間：",
+    "registration-fee": "報名費用：",
+    "squad-name": "福氣滿貫組",
+    "squad": "(隊伍)",
+    "ticket-award": "ticket-award-TW",
+    "registration-rewards": "註冊<br>獎勵"
+  },
+
+  "rules": {
+    "title": "- 規則 -",
+    "content-title-01": "1. 比賽規則：",
+    "content-01-01": "(1) 個人與隊伍賽組於每一輪資格賽領取入場券，並於資格賽期間 00:00-23:59 進入戰場累積積分。",
+    "content-01-02": "(2) 每場戰鬥消耗一張票券，獲勝加一分；失敗不計分。",
+    "content-01-03": "(3) 每循環可額外加購一次票券。",
+    "content-title-02": "2. 對戰 :",
+    "content-02-01": "(1) 在3分鐘的時間內，擊敗數量多則為獲勝方。若是平手，競賽則會繼續，直到其中一方先獲得分數為止。",
+    "content-02-02": "(2) 玩家將會被分為紅藍兩隊，個人賽為1V7， 團隊賽為4V4。",
+    "content-title-03": "3. 個人賽 :",
+    "content-03-01": "(1) 每一循環將配發20張票券，票券可累積。",
+    "content-03-02": "(2) 決賽門檻為總積分前8強，並且超過10分。",
+    "content-title-04": "4. 團體賽 :",
+    "content-04-01": "(1) 隊伍由1-5人組成，每一循環隊長領取100張票券，並分票給隊員。",
+    "content-04-02": "(2) 若隊員離隊，將返還票券至隊長。",
+    "content-04-03": "(2) 決賽門檻為總積分前8強，並且超過30分。",
+    "content-title-05": "5. 決賽 :",
+    "content-05-01": "(1) 決賽共三輪：",
+    "content-05-02": "(2) 第一輪將選出四強選手。",
+    "content-05-03": "(2) 第二輪將選出冠亞賽與季軍爭奪賽選手。",
+    "content-05-04": "(2) 第三輪將決定冠軍、亞軍、季軍。",
+    "content-title-06": "6. 騎士 :",
+    "content-06-01": "(1) 聯賽將會禁止免費角色入場。",
+    "content-06-02": "(2) 玩家將會需要擁有NFT（騎士或是異蛇）或是向其他玩家租借才能參加對戰。"
+  },
+
+  "reward": {
+    "title": "- 獎勵 -",
+    "title-02": "總獎勵 55,500 gERNC！",
+    "reward-solo": "福星組 - 個人賽",
+    "reward-solo-img": "/images/Festival/NewYear2023/reward/reward-solo-CN.png",
+    "reward-squad": "福星滿貫組 - 隊伍賽",
+    "reward-squad-img": "/images/Festival/NewYear2023/reward/reward-squad-CN-01.png"
+
+  },
+
+  "ranking": {
+    "title": "- 排名 -",
+    "solo": "個人",
+    "squad": "隊伍"
+  },
+  "Valentine2023Rank": {
+    "ranking": {
+      "title": "- 排名 -",
+      "solo": "個人賽第",
+      "squad": "隊伍賽第",
+      "turn": "回"
+    }
+  },
+
+
+  "schedule": {
+    "title": "- 時程 -",
+    "schedule-type-01": "個人賽",
+    "schedule-type-02": "隊伍賽",
+    "schedule-type-03": "決賽"
+  },
+
+
+  "notice": {
+    "title": "- 參賽須知 -"
+  },
+
+  "EventBanner_NewYear2023": {
+    "title": "/images/EventBanner/EventBanner_NewYear2023/05-centerTitle_CN.png"
+  }
+}
