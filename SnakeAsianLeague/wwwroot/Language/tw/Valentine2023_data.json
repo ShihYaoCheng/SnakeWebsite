@@ -49,12 +49,11 @@
   },
 
   "reward": {
-    "title": "- 獎勵 -",
+    "title": "＝獎勵＝",
     "title-02": "總獎勵 55,500 gERNC！",
-    "reward-solo": "福星組 - 個人賽",
-    "reward-solo-img": "/images/Festival/NewYear2023/reward/reward-solo-CN.png",
-    "reward-squad": "福星滿貫組 - 隊伍賽",
-    "reward-squad-img": "/images/Festival/NewYear2023/reward/reward-squad-CN-01.png"
+
+    "reward-solo-img": "/images/Festival/Valentine2023/reward/reward-solo-CN.png",
+    "reward-squad-img": "/images/Festival/Valentine2023/reward/reward-squad-CN.png"
 
   },
 
@@ -85,7 +84,7 @@
     "title": "- 參賽須知 -"
   },
 
-  "EventBanner_NewYear2023": {
-    "title": "/images/EventBanner/EventBanner_NewYear2023/05-centerTitle_CN.png"
+  "EventBanner_Valentine2023": {
+    "title": "/images/EventBanner/EventBanner_Valentine2023/05-centerTitle_CN.png"
   }
 }

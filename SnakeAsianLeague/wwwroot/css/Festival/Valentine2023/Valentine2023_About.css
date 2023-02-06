@@ -61,7 +61,8 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    margin-bottom: 50px;
 
     filter: drop-shadow(-15px 25px 5px  rgb(173, 142, 152, 0.5));
 }
@@ -110,4 +111,37 @@
     white-space: nowrap;
     color: #9f1919;
     font-weight: 600;
+}
+@media all and (max-width: 600px){
+    .Valentine2023_About{
+        padding: 50px 0 0px; 
+    }
+    .About-block{
+        padding: 50px 15px 55px;
+    }
+    .info-title{
+        font-size: 20px;
+    }
+    .info-date{
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 15px;
+    }
+    .About-fee{
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .letter-info{
+        margin-left: unset;
+        margin-right: -30px;
+        margin-bottom: -70px;
+        max-width: 300px;
+        width: 90%;
+    }
+    .letter-info-text{
+        top: 34px;
+        font-size: 20px;
+        line-height: 30px;
+    }
 }
