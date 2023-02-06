@@ -21,12 +21,12 @@
 .Valentine2023-title span {
     text-align: center;
     color: #fff;
-    font-size: 40px;
+    font-size: 38px;
     padding: 20px 60px 25px;
     display: inline-block;
     font-weight: 700;
     letter-spacing: 1px;
-    max-width: 540px;
+    max-width: 500px;
     width: 100%;
 
     background: url("/images/Festival/Valentine2023/title_BG.png");
@@ -40,7 +40,7 @@
     }
 
     .Valentine2023-container {
-        max-width: 850px;
+        /* max-width: 850px; */
         margin: 0 auto;
     }
 
@@ -55,7 +55,7 @@
 
 @media all and (max-width: 800px) {
     .Valentine2023-container {
-        max-width: 600px; 
+        /* max-width: 600px;  */
         margin: 0 auto;
     }
 
@@ -67,7 +67,7 @@
 
 @media all and (max-width: 600px) {
     .Valentine2023-container {
-        max-width: 370px;
+        /* max-width: 370px; */
         margin: 0 auto;
     }
     .Valentine2023-title span {
