@@ -64,21 +64,21 @@
         List<AsiaLeagueSchedule> squadStartDay = Schedules.Where(w => w.GuildATIssue == 4).ToList();
         List<AsiaLeagueSchedule> squadEndDay = Schedules.Where(w => w.GuildFinalType == 1).ToList();
 
-        //�ӤH
+        //個人
         var index = 0;                
         foreach (var item in soloStartDay)
         {
-            //����
+            //選賽
             ToJsListType ToJsListType = new ToJsListType();        
             ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:00";
             ToJsListType.end = soloEndDay[index].Date.AddDays(1).ToString("yyyy-MM-dd") +"T00:00:00";  
             ToJsListType.classNames[0]= "qualifying";
             _Valentine2023Schedule.Add(ToJsListType);
 
-            //�M��
+            //決賽
             ToJsListType ToJsListTypeFinal = new ToJsListType();
-            ToJsListTypeFinal.i18n =new List<string>() { "�ӤH #","SOLO #" };
-            ToJsListTypeFinal.i18nFinal =new List<string>() { "�M��","Final" };
+            ToJsListTypeFinal.i18n =new List<string>() { "個人 #","SOLO #" };
+            ToJsListTypeFinal.i18nFinal =new List<string>() { "決賽","Final" };
             ToJsListTypeFinal.title =item.IndStation.ToString();
             ToJsListTypeFinal.start = soloEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
             ToJsListTypeFinal.end = "";
@@ -87,21 +87,21 @@
 
             index += 1;
         }
-        //����
+        //團體
         index = 0;
         foreach (var item in squadStartDay)
         {       
-            //����
+            //選賽
             ToJsListType ToJsListType = new ToJsListType();       
             ToJsListType.start = item.Date.ToString("yyyy-MM-dd") +"T00:00:01";
             ToJsListType.end = squadEndDay[index].Date.AddDays(1).ToString("yyyy-MM-dd") +"T00:00:00";          
             ToJsListType.classNames[0]= "squadQualifying";
             _Valentine2023Schedule.Add(ToJsListType);           
 
-            //�M��
+            //決賽
             ToJsListType ToJsListTypeFinal = new ToJsListType();
-            ToJsListTypeFinal.i18n =new List<string>() { "���� #","Squad #" };
-            ToJsListTypeFinal.i18nFinal =new List<string>() { "�M��","Final" };
+            ToJsListTypeFinal.i18n =new List<string>() { "隊伍 #","Squad #" };
+            ToJsListTypeFinal.i18nFinal =new List<string>() { "決賽","Final" };
             ToJsListTypeFinal.title =item.GuildStation.ToString();
             ToJsListTypeFinal.start = squadEndDay[index].Date.ToString("yyyy-MM-dd") +"T00:00:00";
             ToJsListTypeFinal.end = "";

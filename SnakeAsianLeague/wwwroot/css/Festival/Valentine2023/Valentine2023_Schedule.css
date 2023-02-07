@@ -1,6 +1,7 @@
 .Valentine2023_Schedule {
     width: 100%;
-    height: 1200px;
+    padding-bottom: 200px;
+    /* height: 1200px; */
 }
 .Valentine2023_Schedule-container {
     padding-top: 50px;
@@ -13,6 +14,9 @@
     box-shadow: 0px 20px 30px 6px rgb(0 0 0 / 50%);
     border-radius: 5px;
     position: relative;
+
+    max-width: 800px;
+    padding: 0 25px;
 }
 @media (max-width: 1000px) {
     .Schedule-BG {
@@ -23,12 +27,11 @@
 
 @media (max-width: 800px) {
     .Schedule-BG {
-        /* width: 487px; */
         height: 860px;
         margin: 25px auto 0;
     }
     .Valentine2023_Schedule {
-        height: 1150px;
+        padding-bottom: 150px;
     }
 }
 @media (max-width: 600px) {
@@ -37,17 +40,18 @@
         height: 600px;
     }
     .Valentine2023_Schedule {
-        height: 850px;
+        /* height: 850px; */
     }
 }
 
 .Schedule-menu {
     background: #fcd4dd;
-    max-width: 500px;
+    max-width: 400px;
     width: 70%;
-    height: 70px;
+    height: 50px;
     position: absolute;
-    top: 20px;
+    /* top: 20px; */
+    top: 26px;
     right: 50px;
     border-radius: 10px;
 
@@ -68,7 +72,7 @@
 
 .type-line {
     width: 60px;
-    height: 25px;
+    height: 22px;
     margin-right: 8px;
     border-radius: 3px;
 }
@@ -80,7 +84,7 @@
 
 #type-line-Squad {
     border-color: #db6527;
-    background: rgb(34, 26, 202);
+    background: #6d66fd;
 }
 
 .type-line-text {
@@ -153,9 +157,9 @@
         font-size: 14px;
     }
 }
-/*....¶Ê®∆æ‰ÆM•Û..........*/
-/*¡`∞™´◊  •~ºh°A§∫ºh*/
-.fc fc-media-screen {
+/*....Ë°å‰∫ãÊõÜÂ•ó‰ª∂..........*/
+/*Á∏ΩÈ´òÂ∫¶  Â§ñÂ±§ÔºåÂÖßÂ±§*/
+.fc .fc-media-screen {
     height: 756px !important;
 }
 
@@ -176,7 +180,7 @@
 }
 
 @media (max-width: 768px) {
-    .fc fc-media-screen {
+    .fc .fc-media-screen {
         height: 650px !important;
     }
 
@@ -184,11 +188,11 @@
         height: 460px !important;
     }
 }
-/*º–√D ¬IøÔ´ˆ∂s*/
+/*Ê®ôÈ°å ÈªûÈÅ∏ÊåâÈàï*/
 .fc-toolbar-title {
     color: #fff !important;
     padding: 30px 20px 10px 20px;
-    font-size: 44px !important;
+    font-size: 38px !important;
 }
 
 .fc-toolbar-chunk div {
@@ -216,13 +220,13 @@
     }
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
 
     .fc-toolbar-title {
         font-size: 29px !important;
         padding: 30px 13px 6.5px 13.5px;
     }
-}
+} */
 
 @media (max-width: 600px) {
     .fc-button-primary {
@@ -252,14 +256,14 @@
         margin-bottom: 0 !important;
     }
 }
-/*¨P¥¡*/
+/*ÊòüÊúü*/
 
 .fc-col-header-cell-cushion {
     color: #fff !important; 
     font-family: Microsoft JhengHei !important;
     text-align: center;
     font-weight: 700 !important;
-    font-size: 28px !important;
+    font-size: 24px !important;
 }
 
 @media (max-width: 600px) {
@@ -269,10 +273,10 @@
 }
 
 .fc-day-sun .fc-col-header-cell-cushion {
-    color: red !important;
+    color: #D80000 !important;
 }
 
-/*§µ§—*/
+/*‰ªäÂ§©*/
 .fc .fc-daygrid-day.fc-day-today {
     background-color: rgba(0,0,0,0) !important;
 }
@@ -296,7 +300,7 @@
     border: 0 !important;
 }
 
-/* ®C§@ÆÊ™∫∂°∂Z */
+/* ÊØè‰∏ÄÊ†ºÁöÑÈñìË∑ù */
 
 .fc-daygrid-day {
     padding-top: 5px !important
@@ -314,10 +318,23 @@
     background: #fff;
     border: 3px solid #ffaacb;
     border-radius: 50%;
-    width: 105px !important;
-    height: 105px !important;
-    margin: 0 auto;
+    /* width: 105px !important; */
+    width: 90px !important;
+
+    /* height: 105px !important; */
+    height: 90px !important;
+    /* margin: 0 auto; */
+    margin: 7px;
 }
+
+/* test */
+.fc .fc-daygrid-day-top{
+    /* border: 1px solid rgb(255, 0, 0); */
+}
+.fc-daygrid-day-events{
+    /* border: 1px solid rgb(64, 241, 20); */
+}
+
 /*@media (max-width: 1000px) {
     .fc .fc-daygrid-day-frame {
         width: 90.3px !important;
@@ -327,14 +344,14 @@
         height: 90.3px !important;
     }
 }*/
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
     .fc .fc-daygrid-day-frame {
         width: 72px !important;  
     }
     .fc-theme-standard td {
         height: 72px !important;
     }
-}
+} */
 
 @media (max-width: 600px) {
     .fc .fc-daygrid-day-frame {
@@ -350,15 +367,15 @@
     }*/
 }
 
-/*Æ…∂°*/
+/*ÊôÇÈñì*/
 .fc-event-time {
     display: none;
 }
-/* §È¥¡ */
+/* Êó•Êúü */
 .fc-daygrid-day-top {
     flex-direction: row !important;
     padding: 2px 10px 0px 10px;
-    font-size: 28px !important;
+    font-size: 24px !important;
     opacity: 1 !important;
     font-weight:600;
 }
@@ -390,7 +407,7 @@
     color: #cbc68d !important;
 }
 
-/*®∆•Û≠I¥∫≥z©˙Æ≥±º*/
+/*‰∫ã‰ª∂ËÉåÊôØÈÄèÊòéÊãøÊéâ*/
 .fc-bg-event {
     opacity: 1 !important;
     background-image: url("../../../images/AsiaChampionsLeague/S3/Calender/Calender_ Final Icon.webp") !important;
@@ -398,25 +415,31 @@
     background-size: cover !important;
 }
 
-/*®∆•ÛºÀ¶°≥B≤z*/
+/**/
 .squadQualifying .fc-event-title-container {
-    background: linear-gradient( 180deg, rgba(0,0,0,0) 35%, #221aca 36%,#221aca 64%,rgba(0,0,0,0) 65%);
+    /* border: 1px solid red; */
+    /* background: linear-gradient( 180deg, rgba(0,0,0,0) 35%, #6d66fd 36%,#6d66fd 64%,rgba(0,0,0,0) 65%); */
+    background: linear-gradient( 180deg, rgba(0,0,0,0) 23%, #6d66fd 23%,#6d66fd 60%,rgba(0,0,0,0) 60%);
+
 }
 .qualifying .fc-event-title-container {
-    background: linear-gradient( 180deg, rgba(0,0,0,0) 35%, #06dac4 36%,#06dac4 64%,rgba(0,0,0,0) 65%);
+    /* background: linear-gradient( 180deg, rgba(0,0,0,0) 35%, #06dac4 36%,#06dac4 64%,rgba(0,0,0,0) 65%); */
+    background: linear-gradient( 180deg, rgba(0,0,0,0) 23%, #06dac4 23%,#06dac4 60%,rgba(0,0,0,0) 60%);
 }
 .fc-h-event {
     border: none !important;   
     background-color: rgb(0,0,0,0) !important;
     overflow:hidden;
 }
-
+.fc .fc-daygrid-event{
+    margin: 0;
+}
 .fc-event-main {
     transform:translateX(60px);
 }
 
 .squadQualifying .fc-sticky {
-    background: #221aca;
+    background: #6d66fd;
 }
 
 .qualifying .fc-sticky {
@@ -424,16 +447,16 @@
 }
 
 .fc-sticky {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
    
     border-radius: 50%;
-    transform: translateX(-2px);
+    /* transform: translateX(-3px); */
 }
 
 @media (max-width: 600px) {
     .squadQualifying .fc-event-title-container {
-        background: linear-gradient( 180deg, rgba(0,0,0,0) 44%, #221aca 45%,#221aca 55%,rgba(0,0,0,0) 56% );
+        background: linear-gradient( 180deg, rgba(0,0,0,0) 44%, #6d66fd 45%,#6d66fd 55%,rgba(0,0,0,0) 56% );
     }
 
     .qualifying .fc-event-title-container {
@@ -450,7 +473,7 @@
     }
 }
 
-/*®M¡…*/
+/*Ê±∫Ë≥Ω*/
 .soloFinal .fc-daygrid-event-dot {
     display:none;
 }
@@ -465,10 +488,12 @@
     margin:0px !important;
 }
 .qualifying {
-    transform: translateX(-16px);
+    /* transform: translateX(-16px); */
+    transform: translateX(-26px) translateY(-8px);
 }
 .squadQualifying {
-    transform: translateX(-16px);
+    /* transform: translateX(-16px); */
+    transform: translateX(-26px) translateY(-8px);
 }
 
 .fc-daygrid-dot-event:hover, .fc-daygrid-dot-event.fc-event-mirror {
@@ -480,21 +505,28 @@
 
 .squadFinal .fc-event-title {
     color: #ffdfd8 !important;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     transform: translateY(-10px);
     white-space: break-spaces;
+    line-height: 22px;
+
+    white-space: nowrap;
 }
 .soloFinal .fc-event-title {
     color: #85ff7c !important;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
+    /* transform: translateY(-10px); */
     transform: translateY(-10px);
     white-space: break-spaces;
+    line-height: 22px;
+
+    white-space: nowrap;
 }
 @media (max-width: 1000px) {
     .squadFinal .fc-event-title {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .soloFinal .fc-event-title {
@@ -526,7 +558,7 @@
 @media (max-width: 400px) {
 
 }
-/*hover¥£§…*/
+/*hoverÊèêÂçá*/
 .fc-daygrid-bg-harness {
     z-index: 100
 }
@@ -536,4 +568,55 @@
 .FinalTime:hover .finals-Data-Pop {
     display: block
 }
-/*....¶Ê®∆æ‰ÆM•ÛEnd..........*/
+
+/* @media (max-width: 1000px) {
+
+    .Schedule-BG{
+        max-width: 600px;
+        padding: 0 20px;
+    }
+    .fc .fc-toolbar-title{
+        font-size: 29px !important;
+        padding: 30px 13px 6.5px 13.5px;
+    }
+    .Schedule-menu{
+        max-width: 240px;
+        justify-content: flex-start;
+        padding-left: 5%;
+        align-content: center;
+        right: 25px;
+        top: 25px;
+    }
+    .fc-daygrid-day-top{
+        font-size: 20px !important;
+        padding: 0;
+    }
+
+    .type-line {
+        width: 50px;
+        height: 15px;
+    }
+    .fc .fc-daygrid-day-frame{
+        width: 75px !important;
+        height: 75px !important;
+
+
+        margin: 17px 0;
+    }
+    .fc-theme-standard td{
+        padding: 0 !important;
+    }
+
+} */
+
+/* @media (max-width: 800px){
+    .Schedule-BG{
+        padding: 0 10px;
+        height: 750px;
+    }
+    .fc .fc-daygrid-day-frame{
+        margin: 15px 0;
+    }
+} */
+
+/*....Ë°å‰∫ãÊõÜÂ•ó‰ª∂End..........*/

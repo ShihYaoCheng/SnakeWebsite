@@ -34,7 +34,7 @@
     if (squadFinal.length != 0) {
         console.log(soloFinal)
         squadFinal.forEach((e) => {
-            e.parentElement.parentElement.parentElement.style.background = "#221aca"
+            e.parentElement.parentElement.parentElement.style.background = "#6d66fd"
             e.parentElement.parentElement.style.margin = "0px";
         })
         soloFinal.forEach((e) => {
