@@ -96,6 +96,9 @@
                 PopupWindowContent = "";
 
                 displayPopupWindow = true;
+                var phone = AppState.LoginStatus.phone;  
+                var userID = AppState.LoginStatus.userID;
+                await OfficialWebsiteData.BindWallet(userID,phone);
                 await JS.InvokeVoidAsync("installI18n");
                 Console.WriteLine(responce.Content);
             }
