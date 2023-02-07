@@ -59,7 +59,9 @@
   "ranking": {
     "title": "- Ranking -",
     "solo": "Solo",
-    "squad": "Squad"
+    "squad": "Squad",
+    "soloRace": "Solo",
+    "squadRace": "Squad"
   },
   "Valentine2023Rank": {
     "ranking": {

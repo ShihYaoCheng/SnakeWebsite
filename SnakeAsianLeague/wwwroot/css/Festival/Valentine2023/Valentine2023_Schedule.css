@@ -38,6 +38,7 @@
     .Schedule-BG {
         width: 100%;
         height: 600px;
+        padding: 0 0px;
     }
     .Valentine2023_Schedule {
         /* height: 850px; */
@@ -361,10 +362,9 @@
 
 }
 @media (max-width: 400px) {
- /*   .fc .fc-daygrid-day-frame {
-        width: 105px !important;
-        height: 105px !important;
-    }*/
+    .fc .fc-daygrid-day-frame {
+        margin: 0px !important;
+    }
 }
 
 /*時間*/
