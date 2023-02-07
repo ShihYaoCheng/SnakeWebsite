@@ -1,7 +1,7 @@
 .Valentine2023_Rules{
     width: 100%;
     /* height: 500px; */
-    padding: 50px 0;
+    padding: 50px 0 120px;
 }
 
 .Valentine2023-Carousel{
@@ -15,6 +15,8 @@
     /* margin-top: -250px; */
     /* height: 1000px; */
     padding: 0px 0 70px;
+
+    filter: drop-shadow(-15px 25px 5px rgb(173, 142, 152, 0.5));
 }
 
 .Valentine2023-Carousel-All{
@@ -127,6 +129,9 @@
 }
 
 @media all and (max-width: 800px){
+    .Valentine2023_Rules{
+        padding: 50px 0 50px;
+    }
     .swiper-button-prev, .swiper-button-next{
         width: 30px !important;
         height: 50px !important;

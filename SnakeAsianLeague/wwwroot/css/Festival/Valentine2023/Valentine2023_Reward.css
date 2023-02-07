@@ -1,5 +1,6 @@
 .Valentine2023_Reward{
     width: 100%;
+    padding: 0 0 80px;
 }
 
 .Reward-table{
@@ -7,7 +8,15 @@
     margin: 0 auto;
     width: 100%;
     margin-bottom: 70px;
+
+    filter: drop-shadow(-15px 25px 5px rgb(173, 142, 152, 0.5));
 }
 .Reward-table img{
     width: 100%;
+}
+
+@media all and (max-width: 800px){
+    .Valentine2023_Reward{
+        padding: 0 0 0px;
+    }
 }

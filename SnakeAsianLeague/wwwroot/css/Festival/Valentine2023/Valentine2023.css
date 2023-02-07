@@ -39,7 +39,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 0 auto 30px;
+    margin: 0 auto 50px;
 }
 
 .Valentine2023-title span {
@@ -67,7 +67,9 @@
         /* max-width: 850px; */
         margin: 0 auto;
     }
-
+    .Valentine2023-title{
+        margin: 0 auto 30px;
+    }
     .Valentine2023-title span {
         font-size: 30px;
         padding: 13px 40px 16.5px;

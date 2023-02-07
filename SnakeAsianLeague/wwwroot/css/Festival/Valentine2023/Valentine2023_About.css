@@ -1,5 +1,5 @@
 .Valentine2023_About{
-    padding: 50px 0;
+    padding: 50px 0 30px;
 }
 
 .About-block{
@@ -16,6 +16,8 @@
     background-repeat: round;
     padding: 70px 20px 80px;
     position: relative;
+
+    filter: drop-shadow(-15px 25px 5px rgb(173, 142, 152, 0.5));
 }
 
 .About-info{
