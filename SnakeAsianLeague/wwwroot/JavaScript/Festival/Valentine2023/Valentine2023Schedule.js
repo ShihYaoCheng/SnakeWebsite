@@ -4,8 +4,7 @@
     for (var i in value) {
         value[i].title = lang == "en" ? value[i].i18n[1] + value[i].title  : value[i].i18n[0] + value[i].title 
         eventsList.push(value[i])
-    }
-    console.log(value)
+    } 
     var calendarEl = document.getElementById('Valentine2023Schedule');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -32,7 +31,7 @@
     var soloFinal = document.querySelectorAll(".soloFinal")
     var squadFinal = document.querySelectorAll(".squadFinal")
     if (squadFinal.length != 0) {
-        console.log(soloFinal)
+        
         squadFinal.forEach((e) => {
             e.parentElement.parentElement.parentElement.style.background = "#6d66fd"
             e.parentElement.parentElement.style.margin = "0px";

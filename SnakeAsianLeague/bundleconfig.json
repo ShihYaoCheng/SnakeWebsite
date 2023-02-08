@@ -59,7 +59,8 @@
       "wwwroot/JavaScript/NethereumMetamask.js",
       "wwwroot/JavaScript/ACLIndex/S3Calendar.js",
       "wwwroot/JavaScript/Festival/NewYear2023/NewYear2023Schedule.js",
-      "wwwroot/JavaScript/Battle/BattleCarousel.js"
+      "wwwroot/JavaScript/Battle/BattleCarousel.js",
+      "wwwroot/JavaScript/Festival/Valentine2023/Valentine2023Schedule.js"
     ],
     "minify": {
       "enabled": false

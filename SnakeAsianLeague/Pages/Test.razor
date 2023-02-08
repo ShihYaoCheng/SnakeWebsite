@@ -1,25 +1,34 @@
 ﻿@page "/test"
-@using SnakeAsianLeague.Data.Entity.View
-@inject GetUrlView GetUrlView
+@using SnakeAsianLeague.Data.Services
+@using SnakeAsianLeague.Data.Services.Backstage
 
+@inject AppState AppState
+@inject OfficialWebsiteData OfficialWebsiteData
 <head>
     <link href="css/test.css" rel="stylesheet" />
 </head>
 
 <div class="test-container">
- 
+    <button @onclick="btn"> 測試</button>
 </div>
 
 
 @code {
-    string url;
+
     protected override async Task OnInitializedAsync()
     {
-        url =await GetUrlView.GetUrl();
+
 
     }
-   
-   
+
+    public async Task btn()
+    {
+        var phone = AppState.LoginStatus.phone;
+        var userID = AppState.LoginStatus.userID;
+        await OfficialWebsiteData.BindWallet(userID,phone);
+    }
+
+
 
     
   
