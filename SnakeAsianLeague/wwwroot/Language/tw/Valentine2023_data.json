@@ -60,7 +60,9 @@
   "ranking": {
     "title": "- 排名 -",
     "solo": "個人",
-    "squad": "隊伍"
+    "squad": "隊伍",
+    "soloRace": "個人賽",
+    "squadRace": "隊伍賽"
   },
   "Valentine2023Rank": {
     "ranking": {

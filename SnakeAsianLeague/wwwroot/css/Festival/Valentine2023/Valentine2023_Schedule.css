@@ -383,10 +383,9 @@
 
 }
 @media (max-width: 400px) {
- /*   .fc .fc-daygrid-day-frame {
-        width: 105px !important;
-        height: 105px !important;
-    }*/
+    .fc .fc-daygrid-day-frame {
+        margin: 0px !important;
+    }
 }
 
 /*時間*/
