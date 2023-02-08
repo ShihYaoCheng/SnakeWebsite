@@ -9,7 +9,7 @@
   },
 
   "about": {
-    "title": "- About -",
+    "title": "＝About＝",
     "title-02": "Sign up now and get 10% SRC of the sign up fee!",
     "solo-name": "Lucky Star",
     "solo": "(solo)",
@@ -23,7 +23,7 @@
   },
 
   "rules": {
-    "title": "- Rules -",
+    "title": "＝Rules＝",
     "content-title-01": "1. Game Rules :",
     "content-01-01": "(1) Solo and Squad groups will receive tickets every qualification match cycle and enter the battle to accumulate points during 00:00-23:59.",
     "content-01-02": "(2) Each battle costs one ticket, every win adds 1 point to your score, you won't lose any of it if you lose.",
@@ -57,7 +57,7 @@
   },
 
   "ranking": {
-    "title": "- Ranking -",
+    "title": "＝Ranking＝",
     "solo": "Solo",
     "squad": "Squad",
     "soloRace": "Solo",
@@ -65,21 +65,21 @@
   },
   "Valentine2023Rank": {
     "ranking": {
-      "title": "- Ranking -",
+      "title": "＝Ranking＝",
       "solo": "Solo #",
       "squad": "Squad #",
       "turn": ""
     }
   },
   "schedule": {
-    "title": "- Schedule -",
+    "title": "＝Schedule＝",
     "schedule-type-01": "Solo Match",
     "schedule-type-02": "Squad Match",
     "schedule-type-03": "Finals"
   },
 
   "notice": {
-    "title": "- Notice -"
+    "title": "＝Notice＝"
   },
 
   "EventBanner_Valentine2023": {

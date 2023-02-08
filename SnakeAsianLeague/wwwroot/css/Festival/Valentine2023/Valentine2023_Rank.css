@@ -1,13 +1,18 @@
 .Valentine2023_Rank {
     width:100%;
-    height:1000px;
-
+    padding: 0 0 50px;
+    /* height:1000px; */
 }
 
 .Valentine2023_Rank-container {
     padding-top: 50px;
     width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 120px;
+}
+.Valentine2023-Ranking-block{
+    width: 100%;
+    filter: drop-shadow(-15px 25px 5px rgb(173, 142, 152, 0.5));
+
 }
 
 .toggleRankTypeButton-container {
@@ -36,7 +41,7 @@
 
 @media all and (max-width: 1000px) {
     .Valentine2023_Rank {
-        height: 800px;
+        /* height: 800px; */
     }
     .Valentine2023_Rank-container {
         width: 650px;
@@ -51,7 +56,7 @@
 
 @media all and (max-width: 800px) {
     .Valentine2023_Rank {
-        height: 680px;
+        /* height: 680px; */
     }
     .Valentine2023_Rank-container {
         width: 450px;
@@ -66,7 +71,7 @@
 
 @media all and (max-width: 600px) {
     .Valentine2023_Rank {
-        height: 520px;
+        /* height: 520px; */
     }
     .Valentine2023_Rank-container {
         width: 100%;
@@ -105,6 +110,9 @@
 }
 
 @media all and (max-width: 800px) {
+    .Valentine2023_Rank{
+        padding: 0 0 0px;
+    }
     .Valentine2023_Rank_content {
         height: 465px;
         transform: translateY(-12px);

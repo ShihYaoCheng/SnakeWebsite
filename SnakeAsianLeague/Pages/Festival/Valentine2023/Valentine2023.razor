@@ -11,23 +11,39 @@
 </head>
 
 <div class="Valentine2023">
-    <Valentine2023_Banner />
-    <Valentine2023_About />
-    <Valentine2023_Rules />
-    <Valentine2023_Reward />
 
-    <Valentine2023_Rank />
-    <Valentine2023_Schedule />
+    <Valentine2023_Banner />
+    <div class="Valentine2023-BG">
+        
+        <div class="Valentine2023-BG-heart parallax_block" >
+            <img class="heart-BG ParallaxMove" data-depth="0.3" src="/images/Festival/Valentine2023/heart00.png" alt="">
+
+            @* <img class="heart-BG ParallaxMove" data-depth="0.5" src="/images/Festival/Valentine2023/heart01.png" alt="">
+            <img class="heart-BG ParallaxMove" data-depth="0.2" src="/images/Festival/Valentine2023/heart02.png" alt="">
+            <img class="heart-BG ParallaxMove" data-depth="0.3" src="/images/Festival/Valentine2023/heart03.png" alt=""> *@
+        </div>
+       
+        <Valentine2023_About />
+        <Valentine2023_Rules />
+        <Valentine2023_Reward />
+
+        <Valentine2023_Rank />
+        <Valentine2023_Schedule />
+    </div>
 </div>
 
 
 @code {
-    protected override async Task OnAfterRenderAsync(bool firstRender)
 
+    private IJSObjectReference? Valentine2023ParallaxMoveJS;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("installI18n");
+        Valentine2023ParallaxMoveJS = await JS.InvokeAsync<IJSObjectReference>("import","./JavaScript/Festival/Valentine2023/Valentine2023ParallaxMove.js");
+        await Valentine2023ParallaxMoveJS.InvokeVoidAsync("Valentine2023_BG_heart");
+        await JS.InvokeVoidAsync("installI18n");
         }
     }
+
 }
