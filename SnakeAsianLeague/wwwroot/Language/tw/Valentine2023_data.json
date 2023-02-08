@@ -10,16 +10,12 @@
 
   "about": {
     "title": "＝賽季內容＝",
-    "title-02": "註冊並且報名立即獲得報名費10%的gERNC",
-    "solo-name": "福星組",
-    "solo": "(個人)",
-    "registration-time": "報名時間：",
-    "event-date": "活動時間：",
-    "registration-fee": "報名費用：",
-    "squad-name": "福氣滿貫組",
-    "squad": "(隊伍)",
-    "ticket-award": "ticket-award-TW",
-    "registration-rewards": "註冊<br>獎勵"
+    "title-01": "【報名時間】",
+    "title-02": "【活動時間】",
+    "solo-name": "單身狗 (個人)<br>報名費用：3.99 USD",
+    "squad-name": "情人閃光組 (隊伍)<br>報名費用：20.99 USD",
+    "solo-letter": "/images/Festival/Valentine2023/about/About-letter-solo-CN.png",
+    "squad-letter": "/images/Festival/Valentine2023/about/About-letter-team-CN.png"
   },
 
   "rules": {

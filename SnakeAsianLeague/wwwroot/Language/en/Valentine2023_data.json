@@ -10,16 +10,12 @@
 
   "about": {
     "title": "＝About＝",
-    "title-02": "Sign up now and get 10% SRC of the sign up fee!",
-    "solo-name": "Lucky Star",
-    "solo": "(solo)",
-    "registration-time": "Registration Time :",
-    "event-date": "Event Date :",
-    "registration-fee": "Registration Fee :",
-    "squad-name": "Lucky Slam",
-    "squad": "(squad)",
-    "ticket-award": "ticket-award",
-    "registration-rewards": "Registration<br>Rewards"
+    "title-01": "【Registration Time】",
+    "title-02": "【Event Date】",
+    "solo-name": "Single (Solo)<br>Registration Fee：<br>3.99 USD",
+    "squad-name": "Lover Group (Squad)<br>Registration Fee：<br>20.99 USD",
+    "solo-letter": "/images/Festival/Valentine2023/about/About-letter-solo-EN.png",
+    "squad-letter": "/images/Festival/Valentine2023/about/About-letter-team-EN.png"
   },
 
   "rules": {

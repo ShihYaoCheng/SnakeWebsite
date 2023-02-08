@@ -105,11 +105,11 @@
 }
 .letter-info-text{
     position: absolute;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
     left: 50%;
-    top: 40px;
-    font-size: 26px;
-    line-height: 38px;
+    top: 37%;
+    font-size: 22px;
+    line-height: 30px;
     white-space: nowrap;
     color: #9f1919;
     font-weight: 600;
@@ -142,8 +142,8 @@
         width: 90%;
     }
     .letter-info-text{
-        top: 34px;
-        font-size: 20px;
-        line-height: 30px;
+        top: 36%;
+        font-size: 18px;
+        line-height: 28px;
     }
 }
