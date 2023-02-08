@@ -14,6 +14,10 @@
     width: 100%;
 }
 
+.banner-BG-web{
+    width: 100%;
+}
+
 .banner-BG{
     position: absolute;
     left: 0;
@@ -210,7 +214,17 @@
         padding: 0 10px;
     }
 }
+
+.banner-BG-mobile{
+    display: none;
+}
 @media all and (max-width: 800px){
+    .banner-BG-web{
+        display: none;
+    }
+    .banner-BG-mobile{
+        display: block;
+    }
     .Valentine2023_Banner{
         /* position: absolute; */
         width: 100%;
