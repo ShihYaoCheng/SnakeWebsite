@@ -1,11 +1,11 @@
 {
   "eventBanner": {
-    "nav-01": "＝About＝",
-    "nav-02": "＝Rules＝",
-    "nav-03": "＝Reward＝",
-    "nav-04": "＝Rankin＝",
-    "nav-05": "＝Schedule＝",
-    "nav-06": "＝Notice＝"
+    "nav-01": "About",
+    "nav-02": "Rules",
+    "nav-03": "Reward",
+    "nav-04": "Rankin",
+    "nav-05": "Schedule",
+    "nav-06": "Notice"
   },
 
   "about": {
