@@ -24,7 +24,7 @@
             </div>
             <div class="Valentine2023_Rank_content">
                 <div class="select-container">
-                    <select @onchange="@(async (e)=>{await changeSelect( int.Parse(e.Value.ToString()) );})">
+                    <select value=@selectValue @onchange="@(async (e)=>{await changeSelect( int.Parse(e.Value.ToString()) );})">
                         @if (nowOptionData != null )
                         {                           
                            @foreach(var item in nowOptionData){
@@ -34,18 +34,22 @@
                     </select>
                 </div>
                 <div class="rank-content">
-                    @if (rankList != null )
+                    @if (rankList != null && rankList.Count != 0 )
                     {
-@*                        @foreach(var item in rankList)
+                        @foreach(var item in rankList)
                         {
                             <div class="rank rank@(item.Place)">
                                 <img src="/images/Festival/Valentine2023/Rank/crown@(item.Place).png"/>
                                 <span>@item.WinnerName </span>
                             </div>
-                        }*@
+                        }
+                    }else{
+                         <div class="Ranking-ComingSoon">
+                            <span data-i18n="WarmUpActivities_data:ranking.ComingSoon">Coming Soon</span>
+                        </div>
                     }
              
-                            <div class="rank rank1">
+             @*               <div class="rank rank1">
                                 <img src="/images/Festival/Valentine2023/Rank/crown1.png"/>
                                 <span>1 </span>
                             </div>
@@ -56,7 +60,7 @@
                             <div class="rank rank3">
                                 <img src="/images/Festival/Valentine2023/Rank/crown3.png"/>
                                 <span>3 </span>
-                            </div>
+                            </div>*@
                 </div>
             </div>
         </div>
@@ -65,6 +69,7 @@
 
 @code{
     int RankType = 1;
+    int selectValue = 1;
     string RandButtonSquad = "/images/Festival/Valentine2023/Rank/rank_type_button2.png";
     string RandButtonSolo = "/images/Festival/Valentine2023/Rank/rank_type_button1.png";
     public async Task toggleRankType(int value)
@@ -81,7 +86,9 @@
             RandButtonSolo = "/images/Festival/Valentine2023/Rank/rank_type_button2.png";            
         }
         nowOptionData = value == 1 ? soloOptionData : squadOptionData;
+    
         await changeSelect(1);
+        
     }
     //Schedules ����A soloOptionData ��H�M�ɤ���C���AsquadOptionData ��H�M�ɤ���C���AnowOptionData �ϥΪ̿��
     List<AsiaLeagueSchedule> Schedules;
@@ -125,9 +132,10 @@
 
     public async Task changeSelect(int value)
     {
+        selectValue = value;
         bool RankOptionIsGuild = RankType == 2 ?true: false ;      
         rankList  = await AsiaLeaguePlaceService.GetAsiaLeaguePlacesByIsGuildAndStation(AsiaLeagueSeasons.NewYear2023 ,RankOptionIsGuild , value );
-        InvokeAsync(StateHasChanged);
+        await InvokeAsync(StateHasChanged);
     }
 
 

@@ -149,6 +149,8 @@
 .rank-content {
     padding-top: 40px;
     width:100%;
+    position:relative;
+    height:80%;
 }
 
 .rank {
@@ -299,4 +301,45 @@
     .rank3 span {
         margin-left: 15px;
     }
+}
+
+.Ranking-ComingSoon {
+    /* border: 1px solid red; */
+    max-width: 400px;
+    width: 70%;
+    /* height: 100%; */
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dbd8d830;
+    border-radius: 15px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 45%;
+    left: 50%;
+}
+
+    .Ranking-ComingSoon span {
+        color: rgba(227, 227, 227, 0.85);
+        letter-spacing: 2px;
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+@media all and (max-width: 800px) {
+    .Ranking-ComingSoon span {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .Ranking-ComingSoon {
+        padding: 12px;
+    }
+
+        .Ranking-ComingSoon span {
+            font-size: 18px;
+        }
 }
