@@ -47,10 +47,10 @@
         width: 650px;
     }
     .toggleRankTypeButton-container {
-        height: 90px;
+        height: 60px;
     }
     .toggleRankTypeButton-container button {
-        font-size: 36px;
+        font-size: 26px;
     }
 }
 
@@ -62,10 +62,10 @@
         width: 450px;
     }
     .toggleRankTypeButton-container {
-        height: 72px;
+        height: 45px;
     }
     .toggleRankTypeButton-container button {
-        font-size: 32px;
+        font-size: 20px;
     }
 }
 
@@ -75,12 +75,14 @@
     }
     .Valentine2023_Rank-container {
         width: 100%;
+        padding-top: 40px;
+        margin: 0 auto 80px;
     }
     .toggleRankTypeButton-container {
-        height: 54px;
+        height: 40px;
     }
     .toggleRankTypeButton-container button {
-        font-size: 24px;
+        font-size: 18px;
     }
 }
 
@@ -104,7 +106,7 @@
 @media all and (max-width: 1000px) {
     .Valentine2023_Rank_content {
         height:545px;
-        transform: translateY(-12px);
+        /* transform: translateY(-12px); */
         padding: 66px 24px;
     }
 }
@@ -115,7 +117,7 @@
     }
     .Valentine2023_Rank_content {
         height: 465px;
-        transform: translateY(-12px);
+        /* transform: translateY(-12px); */
         padding: 52px 20px;
     }
 }
@@ -123,17 +125,17 @@
 @media all and (max-width: 600px) {
     .Valentine2023_Rank_content {
         height: 350px;
-        transform: translateY(-5px);
+        /* transform: translateY(-5px); */
         padding: 40px 15px;
     }
 }
 
 .select-container select {
-    /*²¾°£½bÀY¼Ë¦¡*/
+    /*ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Yï¿½Ë¦ï¿½*/
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    /*§ïÅÜ¥kÃä½bÀY¼Ë¦¡*/
+    /*ï¿½ï¿½ï¿½Ü¥kï¿½ï¿½bï¿½Yï¿½Ë¦ï¿½*/
     background: url("/images/Festival/Valentine2023/Rank/Select_arrow.png") no-repeat right center transparent ;
     border: 5px solid #ff7daf;
     border-radius: 15px;
@@ -321,12 +323,12 @@
     left: 50%;
 }
 
-    .Ranking-ComingSoon span {
-        color: rgba(227, 227, 227, 0.85);
-        letter-spacing: 2px;
-        font-size: 24px;
-        font-weight: 500;
-    }
+.Ranking-ComingSoon span {
+    color: #ff7daf;
+    letter-spacing: 2px;
+    font-size: 30px;
+    font-weight: 500;
+}
 
 @media all and (max-width: 800px) {
     .Ranking-ComingSoon span {

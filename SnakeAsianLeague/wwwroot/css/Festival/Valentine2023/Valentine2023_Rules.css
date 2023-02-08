@@ -130,7 +130,7 @@
 
 @media all and (max-width: 800px){
     .Valentine2023_Rules{
-        padding: 50px 0 50px;
+        padding: 40px 0 50px;
     }
     .swiper-button-prev, .swiper-button-next{
         width: 30px !important;
@@ -166,7 +166,7 @@
         width: 80%;
     }
     .Valentine2023-Carousel{
-        padding: 0px 0 70px;
+        padding: 0px 0 50px;
     }
 }
 
