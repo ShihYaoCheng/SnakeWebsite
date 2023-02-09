@@ -10,16 +10,15 @@
     z-index: 49;
     /* background-color: rgba(48, 49, 69, 0.5); */
     /* background-image: linear-gradient(to top, #303145 0%, #303145b0 60%, #30314580 80%, #30314530 100%); */
-    /* box-shadow: 0px -15px 30px 15px #30314560; */
+    /* box-shadow: 0px 30px 30px 15px #30314560; */
 
     /* overflow: hidden; */
 }
 
 .cloud-BG-block{
     /* border: 1px solid blue; */
-
     /* pointer-events: none; */
-    filter: drop-shadow(0px 5px 20px rgba(120, 91, 81, 0.6));
+    filter: drop-shadow(0px -50px 20px rgba(57, 46, 42, 0.6));
     position: absolute;
     width: 100%;
     height: 100%;
@@ -280,6 +279,7 @@
     width: 27px;
     height: 27px;
     right: -36px;
+    
 }
 
 #event_banner_close:hover {
