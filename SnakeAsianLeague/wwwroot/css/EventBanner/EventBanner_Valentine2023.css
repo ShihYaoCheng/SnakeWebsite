@@ -359,7 +359,7 @@
         animation: Valentine-SnakeEventBanner-BG 25s linear 3s infinite;
     }
     #EventBanner-Valentine-logo{
-
+        width: 15%;
     }
     
     @keyframes EventBanner-Valentine-logo {
@@ -397,9 +397,47 @@
         left: 0%;
     }
 }
+@media all and (max-width: 1200px){
+    #letter{
+        display: none;
+    }
+    #EventBanner-Valentine-logo {
+        max-width: 150px;
+    }
+    @keyframes EventBanner-Valentine-logo {
+        0% {
+            right: 2%;
+            bottom: 5%;
+            transform: scale(1) rotate(10deg);
+            z-index: 8;
+        }
+        25% {
+            right: -2%;
+            bottom: 35%;
+            transform: rotate(-20deg);
+        }
+    
+        50% {
+            right: -4%;
+            bottom: 50%;
+            transform: rotate(5deg) scale(0.85);
+        }
+    
+        75% {
+            right: -2%;
+            bottom: 35%;
+            transform: rotate(-5deg);
+        }
+    
+        100% {
+            right: 2%;
+            bottom: 5%;
+            transform: scale(1) rotate(10deg);
+        }
+    }
+}
 
-
-@media all and (max-width: 900px){
+@media all and (max-width: 1200px){
     .Valentine-SnakeEventBanner-BG {
         max-width: 370px;
         height: 90px;
