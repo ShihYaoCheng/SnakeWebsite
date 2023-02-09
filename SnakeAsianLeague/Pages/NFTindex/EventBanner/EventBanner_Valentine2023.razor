@@ -1,0 +1,83 @@
+@inject IJSRuntime JS
+
+<head>
+    @* <link href="/css/NFTindex/NFTindex.min.css" rel="stylesheet" /> *@
+    <link href="css/EventBanner/EventBanner_Valentine2023.css" rel="stylesheet" />
+</head>
+
+@* SnakeBanner *@
+<div class="SnakeEventBanner" id="SnakeBanner">
+
+    <div class="cloud-BG-block">
+        <img class="cloud-BG" id="cloud-dot" src="/images/EventBanner/EventBanner_Valentine2023/cloud-dot.png" alt="">
+
+        <img class="cloud-BG" id="cloud-backend" src="/images/EventBanner/EventBanner_Valentine2023/cloud-backend.png"
+            alt="">
+        <img class="cloud-BG" id="cloud-front-01" src="/images/EventBanner/EventBanner_Valentine2023/cloud-front-01.png"
+            alt="">
+
+
+        <img class="cloud-BG" id="cloud-front-02" src="/images/EventBanner/EventBanner_Valentine2023/cloud-front-02.png"
+            alt="">
+
+        
+    </div>
+<img class="cloud-BG" id="letter" src="/images/EventBanner/EventBanner_Valentine2023/letter.png" alt="">
+        <img class="cloud-BG" id="EventBanner-Valentine-logo"
+            src="/images/EventBanner/EventBanner_Valentine2023/Valentine-logo.png" alt="">
+    <img class="cloud-BG" id="cloud-front-01-first"
+        src="/images/EventBanner/EventBanner_Valentine2023/cloud-front-01.png" alt="">
+    <img class="cloud-BG" id="cloud-front-02-first"
+        src="/images/EventBanner/EventBanner_Valentine2023/cloud-front-02.png" alt="">
+
+    <a class="eventBanner-link" href="Valentine2023#Valentine2023_Banner">
+
+        <div class="Valentine-SnakeEventBanner-BG">
+            <div id="event_banner_close" @onclick="SnakeEventBannerCloseClick">
+                <img src="/images/OfficialWeb/event_banner/event_banner_close_red.webp" alt="">
+            </div>
+
+
+            <img class="Valentine-EventBanner-Img" id="Valentine-rider"
+                src="/images/EventBanner/EventBanner_Valentine2023/rider.png" alt="">
+
+            <div class="Valentine-EventBanner-text">Total Bonuses up to <br> 55,000 ERNC</div>
+
+            <img class="Valentine-EventBanner-Img" id="Valentine-title"
+                src="/images/EventBanner/EventBanner_Valentine2023/title.png" alt="">
+
+            <img class="Valentine-EventBanner-Img" id="Valentine-src"
+                src="/images/EventBanner/EventBanner_Valentine2023/src.png" alt="">
+
+
+        </div>
+
+
+    </a>
+
+</div>
+
+
+
+
+
+
+@code {
+    private IJSObjectReference? Banner;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Banner = await JS.InvokeAsync<IJSObjectReference>("import", "./JavaScript/SnakeIndex/Banner.js");
+        }
+    }
+
+
+    private async Task SnakeEventBannerCloseClick()
+    {
+        if (Banner != null)
+        {
+            await Banner.InvokeVoidAsync("SnakeEventBannerClose");
+        }
+    }
+}

@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+.SnakeEventBanner{
+    /* border: 1px solid red; */
+    width: 100%;
+
+    position: fixed;
+    bottom: 0%;
+    left: 0;
+    z-index: 49;
+    /* background-color: rgba(48, 49, 69, 0.5); */
+    /* background-image: linear-gradient(to top, #303145 0%, #303145b0 60%, #30314580 80%, #30314530 100%); */
+    /* box-shadow: 0px -15px 30px 15px #30314560; */
+
+    /* overflow: hidden; */
+}
+
+.cloud-BG-block{
+    /* border: 1px solid blue; */
+
+    /* pointer-events: none; */
+    filter: drop-shadow(0px 5px 20px rgba(120, 91, 81, 0.6));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+}
+.cloud-BG{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+#cloud-dot{
+    width: 100%;
+    bottom: 0;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+#cloud-backend{
+    width: 120%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    left: 50%;
+    max-height: 500px;
+    z-index: -1;
+    opacity: 0.9;
+    animation: cloud-backend 35s linear 0s infinite;
+
+}
+
+@keyframes cloud-backend {
+    0% {
+        left: 48%;
+        width: 120%;
+    }
+
+    50% {
+        left: 52%;
+        width: 130%;
+    }
+    100% {
+        left: 48%;
+        width: 120%;
+    }
+}
+
+#cloud-front-01-first{
+    width: 110%;
+    z-index: 10;
+    left: 0%;
+    opacity: 1;
+    transition: all .1s ease-out;
+    pointer-events: none;
+    animation: cloud-front-01-first 3s ease-in 0s forwards;
+}
+@keyframes cloud-front-01-first {
+    0% {
+        z-index: 10;
+        left: 0%;
+        opacity: 1;
+    }
+    60% {
+        z-index: 10;
+        left: 0%;
+        opacity: 1;
+    }
+    100% {
+        /* z-index: -1; */
+        left: -25%;
+        opacity: 0;
+    }
+
+}
+
+#cloud-front-01{
+    width: 110%;
+    left: -7%;
+    bottom: 0;
+    opacity: 0.8;
+    max-height: 380px;
+    animation: NewYear-cloud-01 35s linear 0s infinite;
+}
+@keyframes NewYear-cloud-01 {
+    0% {
+        left: -7%;
+    }
+
+    50% {
+        left: -15%;
+    }
+    100% {
+        left: -7%;
+    }
+}
+
+#cloud-front-02-first{
+    width: 110%;
+    z-index: 10;
+    right: 0%;
+    opacity: 1;
+    transition: all .1s ease-out;
+    pointer-events: none;
+    animation: cloud-front-02-first 3s ease-in 0s forwards;
+}
+@keyframes cloud-front-02-first {
+    0% {
+        z-index: 10;
+        right: 0%;
+        opacity: 1;
+    }
+    60% {
+        z-index: 10;
+        right: 0%;
+        opacity: 1;
+    }
+    100% {
+        /* z-index: -1; */
+        right: -25%;
+        opacity: 0;
+    }
+
+}
+
+#cloud-front-02{
+    width: 110%;
+    right: -7%;
+    bottom: 0;
+    opacity: 0.8;
+    max-height: 400px;
+    transition: all .1s ease-out;
+    animation: cloud-front-02 35s linear 1.5s infinite;
+}
+
+@keyframes cloud-front-02 {
+    0% {
+        right: -7%;
+    }
+
+    50% {
+        right: -15%;
+    }
+    100% {
+        right: -7%;
+    }
+}
+
+#letter{
+    max-width: 280px;
+    left: 3%;
+    bottom: 10%;
+    width: 12%;
+    
+    opacity: 0.8;
+    transform-origin: center bottom;
+    animation: letter 6s linear 0s infinite;
+}
+
+@keyframes letter {
+    0% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-5deg)
+    }
+    100% {
+        transform: rotate(5deg)
+    }
+}
+
+#EventBanner-Valentine-logo{
+    max-width: 270px;
+    right: 10%;
+    bottom: 15%;
+    width: 17%;
+    transform-origin: center bottom;
+    z-index: 8;
+    
+    animation: EventBanner-Valentine-logo 30s ease-in-out 0s infinite;
+}
+@keyframes EventBanner-Valentine-logo {
+    0% {
+        right: 10%;
+        bottom: 15%;
+        transform: scale(1) rotate(10deg);
+        z-index: 8;
+    }
+    25% {
+        right: 6%;
+        bottom: 45%;
+        transform: rotate(-20deg);
+    }
+
+    50% {
+        right: 4%;
+        bottom: 60%;
+        transform: rotate(5deg) scale(0.85);
+    }
+
+    75% {
+        right: 6%;
+        bottom: 45%;
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        right: 10%;
+        bottom: 15%;
+        transform: scale(1) rotate(10deg);
+    }
+}
+
+.Valentine-SnakeEventBanner-BG {
+    /* max-width: 1200px; */
+    width: 95%;
+    border: 4px solid #CB9E82;
+    /* background-color: #34050584; */
+    
+    background-image: url(/images/EventBanner/EventBanner_Valentine2023/BG-opacity.png);
+    background-size: cover;
+    background-position: center 5%;
+    background-repeat: no-repeat;
+    
+    /* box-shadow: 0px 0px 10px 5px rgba(255, 220, 92, 0.2), 0px 10px 50px 30px rgba(238, 206, 197, 0.319); */
+    /* box-shadow: 0 -5px 100px 10px rgba(255, 237, 176, 0.3), 0 0 60px 20px rgba(123, 217, 248, 0.6); */
+    box-shadow: 0px 6px 10px 5px rgba(51, 4, 4, 0.328);
+    position: relative;
+
+    max-width: 770px;
+    height: 170px;
+    border-radius: 30px;
+    margin: 50px auto 25px;
+    
+    animation: Valentine-SnakeEventBanner-BG 40s linear 3s infinite;
+}
+@keyframes Valentine-SnakeEventBanner-BG {
+    0% {
+        background-position: center 5%;
+    }
+
+    50% {
+        background-position: center 100%;
+    }
+    100% {
+        background-position: center 5%;
+    }
+}
+
+
+#event_banner_close {
+    border-radius: 50%;
+    position: absolute;
+    top: -2%;
+    z-index: 52;
+    transition: all .05s ease-out;
+    opacity: 0.7;
+
+    width: 27px;
+    height: 27px;
+    right: -36px;
+}
+
+#event_banner_close:hover {
+    cursor: pointer;
+    /* opacity: 0.8; */
+    transform: scale(1.05);
+}
+
+#event_banner_close img {
+    width: 100%;
+}
+.eventBanner-link{
+    /* border: 1px solid red; */
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+
+    border-radius: 30px;
+}
+
+.Valentine-EventBanner-Img{
+    position: absolute;
+    /* pointer-events: none; */
+    width: 100%;
+
+    
+}
+
+
+
+.Valentine-EventBanner-Img{
+    position: absolute;
+}
+
+#Valentine-rider{
+    bottom: -25px;
+    left: -87px;
+    z-index: 2;
+    max-width: 777px;
+    transform-origin: left bottom;
+}
+#Valentine-title{
+    /* top: 29px;
+    left: 374px; */
+    top: 17%;
+    right: 13%;
+    max-width: 290px;
+    z-index: 3;
+}
+
+.Valentine-EventBanner-text{
+    color: #B24E50;
+    font-family: 'Outfit', sans-serif;
+    position: absolute;
+    font-size: 22px;
+    /* top: 79px; */
+    /* left: 430px; */
+    top: 47%;
+    right: 19.5%;
+    text-align: center;
+    line-height: 26px;
+}
+
+#Valentine-src{
+    /* top: 70px;
+    right: 10px; */
+    top: 44%;
+    right: 1.5%;
+    max-width: 100px;
+    z-index: 3;
+}
+
+
+@media all and (max-width: 1500px){
+    .Valentine-SnakeEventBanner-BG{
+        animation: Valentine-SnakeEventBanner-BG 25s linear 3s infinite;
+    }
+    #EventBanner-Valentine-logo{
+
+    }
+    
+    @keyframes EventBanner-Valentine-logo {
+        0% {
+            right: 4%;
+            bottom: 5%;
+            transform: scale(1) rotate(10deg);
+            z-index: 8;
+        }
+        25% {
+            right: 0%;
+            bottom: 35%;
+            transform: rotate(-20deg);
+        }
+    
+        50% {
+            right: -2%;
+            bottom: 50%;
+            transform: rotate(5deg) scale(0.85);
+        }
+    
+        75% {
+            right: 0%;
+            bottom: 35%;
+            transform: rotate(-5deg);
+        }
+    
+        100% {
+            right: 4%;
+            bottom: 5%;
+            transform: scale(1) rotate(10deg);
+        }
+    }
+    #letter{
+        left: 0%;
+    }
+}
+
+
+@media all and (max-width: 900px){
+    .Valentine-SnakeEventBanner-BG {
+        max-width: 370px;
+        height: 90px;
+        border-radius: 15px;
+        border: 2px solid #CB9E82;
+        margin: 50px auto 20px;
+
+    }
+    #event_banner_close{
+        width: 23px;
+        height: 23px;
+        right: -5px;
+        top: -32px;
+    }
+    .eventBanner-link{
+        border-radius: 20px;
+    }
+    #Valentine-rider{
+        bottom: -12px;
+        left: -42px;
+    }
+    #Valentine-title{
+        max-width: 165px;
+        top: 13%;
+        right: 5%;
+    }
+    .Valentine-EventBanner-text{
+        font-size: 14px;
+        line-height: 18px;
+        top: 45%;
+        right: 14%;
+    }
+    #Valentine-src{
+        top: 55%;
+        right: 1%;
+        max-width: 40px;
+    }
+
+
+}
+
+@media all and (max-width: 600px){
+    .Valentine-SnakeEventBanner-BG{
+        animation: Valentine-SnakeEventBanner-BG 15s linear 3s infinite;
+    }
+    #letter{
+        display: none;
+    }
+
+    #EventBanner-Valentine-logo{
+        animation: unset;
+        right: 0%;
+        bottom: 69%;
+        width: 23%;
+    }
+}
