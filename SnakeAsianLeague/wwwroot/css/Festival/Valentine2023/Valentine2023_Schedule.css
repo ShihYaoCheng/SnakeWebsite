@@ -532,7 +532,7 @@
     white-space: break-spaces;
     line-height: 22px;
 
-    white-space: nowrap;
+  
 }
 .soloFinal .fc-event-title {
     color: #85ff7c !important;
@@ -542,8 +542,7 @@
     transform: translateY(-10px);
     white-space: break-spaces;
     line-height: 22px;
-
-    white-space: nowrap;
+   
 }
 @media (max-width: 1000px) {
     .squadFinal .fc-event-title {
