@@ -316,7 +316,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #dbd8d830;
+    background-color: #dbd8d86a;
     border-radius: 15px;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -328,7 +328,7 @@
     color: #ff7daf;
     letter-spacing: 2px;
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 @media all and (max-width: 800px) {
