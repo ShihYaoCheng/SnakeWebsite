@@ -18,7 +18,7 @@
 .cloud-BG-block{
     /* border: 1px solid blue; */
     /* pointer-events: none; */
-    filter: drop-shadow(0px -50px 20px rgba(57, 46, 42, 0.6));
+    filter: drop-shadow(0px -50px 50px rgba(57, 46, 42, 0.6));
     position: absolute;
     width: 100%;
     height: 100%;
@@ -42,7 +42,7 @@
     bottom: 0px;
     transform: translateX(-50%);
     left: 50%;
-    max-height: 500px;
+    max-height: 600px;
     z-index: -1;
     opacity: 0.9;
     animation: cloud-backend 35s linear 0s infinite;
@@ -98,7 +98,7 @@
     left: -7%;
     bottom: 0;
     opacity: 0.8;
-    max-height: 380px;
+    max-height: 420px;
     animation: NewYear-cloud-01 35s linear 0s infinite;
 }
 @keyframes NewYear-cloud-01 {
@@ -147,7 +147,7 @@
     right: -7%;
     bottom: 0;
     opacity: 0.8;
-    max-height: 400px;
+    max-height: 440px;
     transition: all .1s ease-out;
     animation: cloud-front-02 35s linear 1.5s infinite;
 }
@@ -351,6 +351,17 @@
     right: 1.5%;
     max-width: 100px;
     z-index: 3;
+}
+@media all and (max-width: 1920px){
+    #cloud-backend{
+        max-height: 500px;
+    }
+    #cloud-front-01{
+        max-height: 380px;
+    }
+    #cloud-front-02{
+        max-height: 400px;
+    }
 }
 
 
