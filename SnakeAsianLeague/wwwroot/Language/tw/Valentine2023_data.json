@@ -84,6 +84,7 @@
   },
 
   "EventBanner_Valentine2023": {
-    "title": "/images/EventBanner/EventBanner_Valentine2023/05-centerTitle_CN.png"
+    "text": "總獎金高達<br>55,000 ERNC",
+    "class": "Valentine-EventBanner-text-CN"
   }
 }

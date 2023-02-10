@@ -341,11 +341,23 @@
     /* top: 79px; */
     /* left: 430px; */
     top: 47%;
-    right: 19.5%;
+    right: 23%;
     text-align: center;
     line-height: 26px;
 }
-
+.Valentine-EventBanner-text-CN{
+    color: #B24E50;
+    font-family: 'Arvo', sans-serif,'Noto Sans TC' ;
+    position: absolute;
+    font-size: 20px;
+    letter-spacing: 1px;
+    /* top: 79px; */
+    /* left: 430px; */
+    top: 48.5%;
+    right: 22%;
+    text-align: center;
+    line-height: 26px;
+}
 #Valentine-src{
     /* top: 70px;
     right: 10px; */
@@ -377,6 +389,12 @@
         font-size: 18px;
         line-height: 24px;
         right: 18%;
+    }
+    .Valentine-EventBanner-text-CN{
+        font-size: 16px;
+        top: 47%;
+        right: 21%;
+        line-height: 24px;
     }
     #Valentine-src {
         top: 46%;
@@ -440,7 +458,52 @@
         left: 0%;
     }
 }
+
+
 @media all and (max-width: 1200px){
+    .Valentine-SnakeEventBanner-BG {
+        max-width: 370px;
+        height: 90px;
+        border-radius: 15px;
+        border: 2px solid #CB9E82;
+        margin: 50px auto 20px;
+
+    }
+    #event_banner_close{
+        width: 23px;
+        height: 23px;
+        right: -5px;
+        top: -32px;
+    }
+    .eventBanner-link{
+        border-radius: 20px;
+    }
+    #Valentine-rider{
+        bottom: -12px;
+        left: -42px;
+    }
+    #Valentine-title{
+        max-width: 165px;
+        top: 13%;
+        right: 5%;
+    }
+    .Valentine-EventBanner-text{
+        font-size: 14px;
+        line-height: 18px;
+        top: 45%;
+        right: 14%;
+    }
+    .Valentine-EventBanner-text-CN{
+        font-size: 13px;
+        line-height: 18px;
+        top: 45%;
+        right: 16%;
+    }
+    #Valentine-src{
+        top: 55%;
+        right: 1%;
+        max-width: 40px;
+    }
     #letter{
         display: none;
     }
@@ -478,47 +541,6 @@
             transform: scale(1) rotate(10deg);
         }
     }
-}
-
-@media all and (max-width: 1200px){
-    .Valentine-SnakeEventBanner-BG {
-        max-width: 370px;
-        height: 90px;
-        border-radius: 15px;
-        border: 2px solid #CB9E82;
-        margin: 50px auto 20px;
-
-    }
-    #event_banner_close{
-        width: 23px;
-        height: 23px;
-        right: -5px;
-        top: -32px;
-    }
-    .eventBanner-link{
-        border-radius: 20px;
-    }
-    #Valentine-rider{
-        bottom: -12px;
-        left: -42px;
-    }
-    #Valentine-title{
-        max-width: 165px;
-        top: 13%;
-        right: 5%;
-    }
-    .Valentine-EventBanner-text{
-        font-size: 14px;
-        line-height: 18px;
-        top: 45%;
-        right: 14%;
-    }
-    #Valentine-src{
-        top: 55%;
-        right: 1%;
-        max-width: 40px;
-    }
-
 
 }
 
