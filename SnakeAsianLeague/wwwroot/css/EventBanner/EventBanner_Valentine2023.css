@@ -358,6 +358,8 @@
     .Valentine-SnakeEventBanner-BG{
         max-width: 570px;
         height: 140px;
+        border: 3px solid #CB9E82;
+        animation: Valentine-SnakeEventBanner-BG 30s linear 3s infinite;
     }
     #Valentine-rider {
         bottom: -20px;
@@ -387,10 +389,10 @@
         max-height: 480px;
     }
     #cloud-front-01{
-        max-height: 380px;
+        max-height: 370px;
     }
     #cloud-front-02{
-        max-height: 400px;
+        max-height: 390px;
     }
 }
 
