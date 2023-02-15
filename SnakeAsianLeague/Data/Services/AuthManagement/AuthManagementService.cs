@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using SnakeAsianLeague.Data.Entity.Authorize;
 using System.Net;
 using System.Text.Json;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace SnakeAsianLeague.Data.Services.AuthManagement
 {
@@ -78,40 +79,78 @@ namespace SnakeAsianLeague.Data.Services.AuthManagement
 
         public async Task<string> GetAdminAccessTokenInCookie()
         {
-            string savedToken = await _localStorage.GetItemAsync<string>("AdminAccessToken");
-            return savedToken;
+            try
+            {
+                var AccessCookie = AuthManagementCookies.AdminAccessToken;
+                if (AccessCookie != null)
+                {
+                    string AdminAccessToken = AuthManagementCookies.AdminAccessToken;
+                    var token = new JwtSecurityToken(jwtEncodedString: AdminAccessToken);
+                    string expiry = token.Claims.First(c => c.Type == "exp").Value;
+                    int Now = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
+                    if (int.Parse(expiry) < Now)
+                    {
+                        //AdminAccessToken 過期 呼叫ExchangeTokensForBackEnd
+                        ExchangeTokensForWeb();
+                    }
+                }
+                else
+                {
+                    var RefreshCookie = AuthManagementCookies.AdminRefreshToken;
+                    if (RefreshCookie != null)
+                    {
+                        ExchangeTokensForWeb();
+                    }
+                    else
+                    {
+                        GetWebAuthorize();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                ExchangeTokensForWeb();
+            }
+            return AuthManagementCookies.AdminAccessToken;
         }
        
         public async Task<string> GetAdminRefreshTokenInCookie()
         {
-            string savedToken = await _localStorage.GetItemAsync<string>("AdminRefreshToken");
-            return savedToken;
+            try
+            {
+                var RefreshCookie = AuthManagementCookies.AdminRefreshToken;
+                if (RefreshCookie != null)
+                {
+                    string AdminAccessToken = AuthManagementCookies.AdminAccessToken;
+                    var token = new JwtSecurityToken(jwtEncodedString: AdminAccessToken);
+                    string expiry = token.Claims.First(c => c.Type == "exp").Value;
+                    int Now = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
+                    if (int.Parse(expiry) < Now)
+                    {
+                        ExchangeTokensForWeb();
+                    }
+                }
+                else
+                {
+                    GetWebAuthorize();
+                }
+            }
+            catch (Exception)
+            {
+                GetWebAuthorize();
+            }
+            return AuthManagementCookies.AdminRefreshToken;
         }
 
 
         public async void SetAdminAccessTokenInCookie(string accessToken)
         {
-            var cookieOptions = new CookieOptions
-            {
-                HttpOnly = true,
-                Expires = DateTime.UtcNow.AddDays(10),
-            };
-            //Response.Cookies.Append("AdminAccessToken", accessToken, cookieOptions);
-            await  _localStorage.SetItemAsync("AdminAccessToken", accessToken);
-            //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
+            AuthManagementCookies.AdminAccessToken = accessToken;
         }
 
         public async void SetAdminRefreshTokenInCookie(string refreshToken)
         {
-            var cookieOptions = new CookieOptions
-            {
-                HttpOnly = true,
-                Expires = DateTime.UtcNow.AddDays(30),
-            };
-            //Response.Cookies.Append("AdminRefreshToken", refreshToken, cookieOptions);
-
-            await _localStorage.SetItemAsync("AdminRefreshToken", refreshToken);
-            //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", refreshToken);
+            AuthManagementCookies.AdminRefreshToken = refreshToken;
         }
 
 
@@ -159,10 +198,7 @@ namespace SnakeAsianLeague.Data.Services.AuthManagement
                 HttpOnly = true,
                 Expires = DateTime.UtcNow.AddDays(30),
             };
-            //Response.Cookies.Append("AdminRefreshToken", refreshToken, cookieOptions);
-
             await _localStorage.SetItemAsync("UserAccessToken", accessToken);
-            //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", refreshToken);
         }
 
         public async Task<string> GetUserAccessTokenInCookie()
@@ -178,10 +214,7 @@ namespace SnakeAsianLeague.Data.Services.AuthManagement
                 HttpOnly = true,
                 Expires = DateTime.UtcNow.AddDays(30),
             };
-            //Response.Cookies.Append("AdminRefreshToken", refreshToken, cookieOptions);
-
             await _localStorage.SetItemAsync("UserRefreshToken", refreshToken);
-            //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", refreshToken);
         }
 
         public async Task<string> GetUserRefreshTokenInCookie()

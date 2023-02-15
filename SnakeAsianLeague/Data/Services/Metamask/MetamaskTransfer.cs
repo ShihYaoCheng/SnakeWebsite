@@ -36,39 +36,6 @@ namespace SnakeAsianLeague.Data.Services.Metamask
             public uint userId { get; set; }
         }
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="UserID"></param>
-        ///// <param name="amount"></param>
-        ///// <returns></returns>
-        //public async Task<bool> SRCTransferToDB(uint UserID, decimal amount)
-        //{
-        //    bool result = false;
-        //    try
-        //    {
-        //        string URL = "/User/SRC/TransferToDB";
-        //        TransferData transferData = new TransferData();
-        //        transferData.userId = UserID;
-        //        transferData.amount = amount;
-
-        //        string jsonData = JsonSerializer.Serialize(transferData);
-        //        var request = new RestRequest(URL, Method.POST);
-        //        request.AddJsonBody(jsonData);
-        //        request.AddHeader("Authorization", Authenticate());
-        //        IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
-        //        if (restResponse.StatusCode == HttpStatusCode.OK)
-        //        {
-        //            ResultTransferData ResultData = JsonSerializer.Deserialize<ResultTransferData>(restResponse.Content);
-        //            result = ResultData.result;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        string errormsg = ex.Message;
-        //    }
-        //    return result;
-        //}
 
 
         /// <summary>
@@ -135,14 +102,7 @@ namespace SnakeAsianLeague.Data.Services.Metamask
 
 
 
-        private string Authenticate()
-        {
-            string auth = "Unity:Yx2fy5tFfDHAfU7Az";
-            auth = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
-            auth = "Basic " + auth;
-            return auth;
-        }
-
+ 
 
 
         public class ResultTransferData

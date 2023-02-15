@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using QRCoder;
 using RestSharp;
+using SnakeAsianLeague.Data.Contracts;
 using SnakeAsianLeague.Data.Entity;
 using SnakeAsianLeague.Data.Entity.Config;
 using SnakeAsianLeague.Data.Paging;
@@ -17,7 +18,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
         private readonly RestClient BlockChainServerClient;
-
+        private IAuthManagement _AuthManagement;
 
         List<NFTData> NFTDataList;
         /// <summary>
@@ -33,13 +34,14 @@ namespace SnakeAsianLeague.Data.Services.Personal
 
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public InventoryService(IConfiguration config, IOptions<ExternalServers> myConfiguration, HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
+        public InventoryService(IConfiguration config, IOptions<ExternalServers> myConfiguration, HttpClient httpClient, IHttpContextAccessor httpContextAccessor, IAuthManagement authManagement)
         {
             _config = config;
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
 
             BlockChainServerClient = new RestClient(externalServersConfig.NftWebApi);
+            _AuthManagement = authManagement;
 
             OptionKeyValue option = new OptionKeyValue();
             RarityList = option.Get_Default_Rarity();
@@ -335,7 +337,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             string URL = "/Unit/CheckForBackEnd";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("UserID", UserID);
-            request.AddHeader("Authorization", Authenticate());
+            request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
 
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
@@ -350,17 +352,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             return new List<RiderUnit>();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        private string Authenticate()
-        {
-            string auth = "Unity:Yx2fy5tFfDHAfU7Az";
-            auth = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
-            auth = "Basic " + auth;
-            return auth;
-        }
+       
 
 
 
@@ -379,7 +371,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("userID", userId);
             request.AddQueryParameter("ppsr", ppsr);
-            request.AddHeader("Authorization", Authenticate());
+            request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
 
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
@@ -403,7 +395,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             string URL = "/NFT/ReceiveRent";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("userID", userId);
-            request.AddHeader("Authorization", Authenticate());
+            request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
 
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
@@ -486,7 +478,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             string URL = "/NFT/AllCurrencies";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("userId", UserID);
-            request.AddHeader("Authorization", Authenticate());
+            request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
 
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
@@ -597,7 +589,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             string URL = $"InvitationCode";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("userId", UserID);
-            request.AddHeader("Authorization", Authenticate());
+            request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetUserAccessTokenInCookie()}");
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
@@ -617,7 +609,7 @@ namespace SnakeAsianLeague.Data.Services.Personal
             string URL = $"InvitationCode";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("userId", UserID);
-            request.AddHeader("Authorization", Authenticate());
+            request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetUserAccessTokenInCookie()}");
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.NotFound)
             {

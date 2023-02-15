@@ -49,8 +49,8 @@
             }          
 
             @*名*@
-            <div class="NFT-Name" data-i18n=NFT_data:@NFTData.serialNumber>@NFTData.serialNumber</div>
-            
+           @* <div class="NFT-Name" data-i18n=NFT_data:@NFTData.serialNumber>@NFTData.serialNumber</div>*@
+            <div class="NFT-Name">@NFTData.Name</div>
             @*...價格區塊...*@
             @if(@NFTData.IsOfficial == false ){
                 @*綠*@

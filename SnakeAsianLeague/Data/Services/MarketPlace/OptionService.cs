@@ -3,6 +3,7 @@
 using HtmlAgilityPack;
 using Microsoft.Extensions.Options;
 using RestSharp;
+using SnakeAsianLeague.Data.Contracts;
 using SnakeAsianLeague.Data.Entity;
 using SnakeAsianLeague.Data.Entity.BlockChain;
 using SnakeAsianLeague.Data.Entity.Config;
@@ -25,7 +26,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
         private readonly RestClient BlockChainServerClient;
-
+        private IAuthManagement _AuthManagement;
 
 
 
@@ -37,13 +38,14 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
-        public OptionService(IConfiguration config, IOptions<ExternalServers> myConfiguration,HttpClient httpClient )
+        public OptionService(IConfiguration config, IOptions<ExternalServers> myConfiguration,HttpClient httpClient, IAuthManagement authManagement)
         {
             _config = config;
             externalServersConfig = myConfiguration.Value;
             
             ServerClient = new RestClient(externalServersConfig.UserServer);
             BlockChainServerClient = new RestClient(externalServersConfig.NftWebApi);
+            _AuthManagement = authManagement;
             //ServerClient = new RestClient("https://rel.ponponsnake.com/api/user");
             //Console.WriteLine("ServerClient.BaseUrl: " + ServerClient.BaseUrl);
             OptionKeyValue option = new OptionKeyValue();
@@ -401,7 +403,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         {
             string URL = $"NFT/Units";
             var mLoginRestRequest = new RestRequest(URL);
-            mLoginRestRequest.AddHeader("Authorization", Authenticate());
+            mLoginRestRequest.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(mLoginRestRequest);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
@@ -424,7 +426,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
         {
             int result = 0;
             var LoginRestRequest = new RestRequest($"NFT/Units");
-            LoginRestRequest.AddHeader("Authorization", Authenticate());
+            LoginRestRequest.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(LoginRestRequest);
             //Console.WriteLine(" ResponseUri :" + restResponse.ResponseUri);
             if (restResponse.StatusCode == HttpStatusCode.OK)
@@ -468,17 +470,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
 
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        private string Authenticate()
-        {
-            string auth = "Unity:Yx2fy5tFfDHAfU7Az";
-            auth = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
-            auth = "Basic " + auth;
-            return auth;
-        }
 
 
 
@@ -647,7 +638,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             {
                 string URL = "Unit/AddLove";
                 RestRequest request = new RestRequest(URL, Method.POST);
-                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetUserAccessTokenInCookie()}");
                 request.AddHeader(RequestKey.Key, RequestKey.Value);
 
                 UnitDto dto = new UnitDto();
@@ -679,7 +670,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             {
                 string URL = "Unit/RemoveLove";
                 RestRequest request = new RestRequest(URL, Method.POST);
-                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetUserAccessTokenInCookie()}");
                 request.AddHeader(RequestKey.Key, RequestKey.Value);
                 UnitDto dto = new UnitDto();
                 dto.UserID = UserID;
@@ -708,7 +699,7 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             string URL = "/Unit/CheckForBackEnd";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("UserID", UserID);
-            request.AddHeader("Authorization", Authenticate());
+            request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
 
             IRestResponse restResponse = await ServerClient.ExecuteAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
@@ -935,29 +926,6 @@ namespace SnakeAsianLeague.Data.Services.MarketPlace
             }
         }
 
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="nftContract"></param>
-        /// <param name="tokenId"></param>
-        /// <param name="price"></param>
-        public async void DeleteMarkmaskShopList(string nftContract, decimal tokenId, decimal price)
-        {
-            string Url = "";
-            var request = new RestRequest(Url, Method.GET);
-            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
-
-
-        }
-
-
-
-        public void getLatestPrice(uint tokenId)
-        {
-            string Url = "";
-        }
 
 
         /// <summary>

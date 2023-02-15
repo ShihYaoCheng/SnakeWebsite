@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Options;
 using RestSharp;
 using SnakeAsianLeague.Areas.Identity;
+using SnakeAsianLeague.Data.Contracts;
 using SnakeAsianLeague.Data.Entity;
 using SnakeAsianLeague.Data.Entity.Config;
 using SnakeAsianLeague.Data.Entity.SnakeServer;
@@ -19,16 +20,20 @@ namespace SnakeAsianLeague.Data.Services
         private readonly HttpClient _httpClient;
         private readonly AuthenticationStateProvider _authenticationStateProvider;
         private readonly ILocalStorageService _localStorage;
+        private IAuthManagement _AuthManagement;
+
         public AuthService(IOptions<ExternalServers> myConfiguration ,
                             HttpClient httpClient,
                             AuthenticationStateProvider authenticationStateProvider,
-                            ILocalStorageService localStorage)
+                            ILocalStorageService localStorage,
+                            IAuthManagement authManagement)
         {
             externalServersConfig = myConfiguration.Value;            
             ServerClient = new RestClient(externalServersConfig.UserServer);
             _httpClient = httpClient;
             _authenticationStateProvider = authenticationStateProvider;
             _localStorage = localStorage;
+            _AuthManagement = authManagement;
 
         }
 

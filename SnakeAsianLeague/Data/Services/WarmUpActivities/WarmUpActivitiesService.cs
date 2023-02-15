@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RestSharp;
+using SnakeAsianLeague.Data.Contracts;
 using SnakeAsianLeague.Data.Entity.Config;
 using SnakeAsianLeague.Data.Entity.SnakeServer;
 using System.Net;
@@ -13,11 +14,13 @@ namespace SnakeAsianLeague.Data.Services.WarmUpActivities
         private readonly RestClient ServerClient;
         private ExternalServers externalServersConfig;
         private RestRequest restRequest;
+        private IAuthManagement _AuthManagement;
 
-        public WarmUpActivitiesService(IOptions<ExternalServers> myConfiguration)
+        public WarmUpActivitiesService(IOptions<ExternalServers> myConfiguration , IAuthManagement authManagement)
         {
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
+                _AuthManagement = authManagement;
         }
 
         public async Task<List<LeaderboardDTO>> GetLeaderboard()
@@ -25,7 +28,7 @@ namespace SnakeAsianLeague.Data.Services.WarmUpActivities
             restRequest = new RestRequest($"Leaderboard/Activity", Method.GET);
             restRequest.AddParameter("userId", 0);
 
-            restRequest.AddHeader("Authorization", Authenticate());
+            restRequest.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
             List<LeaderboardDTO> LeaderboardList = new List<LeaderboardDTO>();
 
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(restRequest);
@@ -40,13 +43,6 @@ namespace SnakeAsianLeague.Data.Services.WarmUpActivities
 
         }
 
-        private string Authenticate()
-        {
-            string auth = "Unity:Yx2fy5tFfDHAfU7Az";
-            auth = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
-            auth = "Basic " + auth;
-            return auth;
-        }
     }
 }
 

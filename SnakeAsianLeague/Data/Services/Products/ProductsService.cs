@@ -1,6 +1,8 @@
 using Microsoft.Extensions.Options;
 using RestSharp;
+using SnakeAsianLeague.Data.Contracts;
 using SnakeAsianLeague.Data.Entity;
+using SnakeAsianLeague.Data.Entity.BlockChain;
 using SnakeAsianLeague.Data.Entity.Config;
 using System.Net;
 using System.Text.Json;
@@ -34,12 +36,16 @@ namespace SnakeAsianLeague.Data.Services.Products
         private IConfiguration _config;
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
+        private readonly RestClient BlockChainServerClient;
+        private IAuthManagement _AuthManagement;
 
-        public ProductsService(IConfiguration config, IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
+        public ProductsService(IConfiguration config, IOptions<ExternalServers> myConfiguration, HttpClient httpClient, IAuthManagement authManagement)
         {
             _config = config;
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
+            BlockChainServerClient = new RestClient(externalServersConfig.NftWebApi);
+            _AuthManagement = authManagement;
 
             OptionKeyValue option = new OptionKeyValue();
             RarityList = option.Get_Default_Rarity();
@@ -55,30 +61,6 @@ namespace SnakeAsianLeague.Data.Services.Products
         public List<OptionKeyValue> ElementsList = new List<OptionKeyValue>() { };
         public List<OptionKeyValue> ClassList = new List<OptionKeyValue>() { };
         public List<OptionKeyValue> CountryList = new List<OptionKeyValue>() { };
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        private string Authenticate()
-        {
-            string auth = "Unity:Yx2fy5tFfDHAfU7Az";
-            auth = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
-            auth = "Basic " + auth;
-            return auth;
-        }
-
-
-
-
-
-
-
-
-
-
-
 
         /// <summary>
         /// 依照合約地址 取得opewnsea NFT路經
@@ -116,7 +98,7 @@ namespace SnakeAsianLeague.Data.Services.Products
             string walletAddress = "";
             NFTRiderUnit result = new NFTRiderUnit();
             RestRequest request = new RestRequest($"NFT/Unit?tokenId={tokenId}");
-            request.AddHeader("Authorization", Authenticate());
+            request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
             IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
             if (restResponse.StatusCode == HttpStatusCode.OK)
             {
@@ -143,9 +125,12 @@ namespace SnakeAsianLeague.Data.Services.Products
             {
                 NFTRiderUnit result = new NFTRiderUnit();
                 RestRequest request = new RestRequest($"NFT/Unit?tokenId={TokenID}");
-                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
 
                 IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
+
+                GetCharacterMetaData(TokenID);
+
 
                 if (restResponse.StatusCode == HttpStatusCode.OK)
                 {
@@ -293,7 +278,7 @@ namespace SnakeAsianLeague.Data.Services.Products
             {
                 PPSR = PPSR.Replace("#", "%23");
                 RestRequest request = new RestRequest($"NFT/NowRentAndTotalRevenue?PPSR={PPSR}");
-                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
 
                 IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
 
@@ -320,7 +305,7 @@ namespace SnakeAsianLeague.Data.Services.Products
             try
             {
                 RestRequest request = new RestRequest($"User/Fight/BattleData");
-                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
 
                 IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
 
@@ -360,7 +345,7 @@ namespace SnakeAsianLeague.Data.Services.Products
 
                 string URL = "/NFT/ChangeRent";
                 RestRequest request = new RestRequest(URL, Method.POST);
-                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetUserAccessTokenInCookie()}");
                 request.AddHeader(RequestKey.Key, RequestKey.Value);
 
                 JsonParameter JP = new JsonParameter("", dto);
@@ -403,7 +388,7 @@ namespace SnakeAsianLeague.Data.Services.Products
 
                 string URL = "NFT/ChangeRentCurrencyType";
                 RestRequest request = new RestRequest(URL, Method.POST);
-                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetUserAccessTokenInCookie()}");
                 request.AddHeader(RequestKey.Key, RequestKey.Value);
 
                 JsonParameter JP = new JsonParameter("", dto);
@@ -434,7 +419,7 @@ namespace SnakeAsianLeague.Data.Services.Products
                 string ppsr = "#" + TokenID;
                 ppsr = ppsr.Replace("#", "%23");
                 RestRequest request = new RestRequest($"NFT/UnitRecord?ppsr={ppsr}");
-                request.AddHeader("Authorization", Authenticate());
+                request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
 
                 IRestResponse restResponse = await ServerClient.ExecuteGetAsync(request);
 
@@ -574,6 +559,31 @@ namespace SnakeAsianLeague.Data.Services.Products
             double Wapon = Data.weapon == null ? 0 : Data.weapon.attrEffectValue;
             double Pet = Data.pet == null ? 0 : Data.pet.attrEffectValue;
             string result = string.Format(" {0} %", Wapon + Pet);
+            return result;
+        }
+
+
+
+
+
+        /// <summary>
+        /// 取得opensea metadata 資料  by tokenid
+        /// markplace名字要相互對應
+        /// </summary>
+        public async Task<PPSRMetadata_General> GetCharacterMetaData(string TokenID)
+        {
+            string Url = $"BC_CharacterContract/Metadata/{TokenID}";
+            var request = new RestRequest(Url, Method.GET);
+            IRestResponse restResponse = await BlockChainServerClient.ExecuteAsync(request);
+            //request.AddQueryParameter("tokenId ", TokenID);
+
+
+            PPSRMetadata_General result = new PPSRMetadata_General();
+            if (restResponse.StatusCode == HttpStatusCode.OK)
+            {
+                result = JsonSerializer.Deserialize<PPSRMetadata_General>(restResponse.Content) ?? new PPSRMetadata_General();
+
+            }
             return result;
         }
     }

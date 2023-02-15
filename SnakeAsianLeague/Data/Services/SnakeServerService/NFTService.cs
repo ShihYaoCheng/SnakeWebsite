@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RestSharp;
+using SnakeAsianLeague.Data.Contracts;
 using SnakeAsianLeague.Data.Entity.Config;
 using SnakeAsianLeague.Data.Entity.SnakeServer;
 using System;
@@ -18,11 +19,13 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
 
         private readonly RestRequest ApiPostNFTWalletAddress = new RestRequest("NFT/WalletAddress", Method.POST);
 
-        public NFTService(IOptions<ExternalServers> myConfiguration)
+        private IAuthManagement _AuthManagement;
+
+        public NFTService(IOptions<ExternalServers> myConfiguration , IAuthManagement  authManagement)
         {
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
-
+            _AuthManagement = authManagement;
         }
 
         public async Task<ServerResponce> PostNFTWalletAddress(uint userID, string address)
@@ -31,7 +34,7 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
             var request = new RestRequest(ApiPostNFTWalletAddress.Resource, ApiPostNFTWalletAddress.Method);
             request.AddQueryParameter("UserID", userID.ToString());
             request.AddQueryParameter("WalletAddress", address.ToLower());
-            request.AddHeader("Authorization", Authenticate());
+            request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetAdminAccessTokenInCookie()}");
             var response = await ServerClient.ExecuteAsync(request);
 
 
@@ -59,13 +62,6 @@ namespace SnakeAsianLeague.Data.Services.SnakeServerService
             return serverResponce;
         }
 
-        private string Authenticate()
-        {
-            string auth = "Unity:Yx2fy5tFfDHAfU7Az";
-            auth = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
-            auth = "Basic " + auth;
-            return auth;
-        }
 
     }
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using RestSharp;
+using SnakeAsianLeague.Data.Contracts;
 using SnakeAsianLeague.Data.Entity;
 using SnakeAsianLeague.Data.Entity.Backstage;
 using SnakeAsianLeague.Data.Entity.Config;
@@ -23,12 +24,14 @@ namespace SnakeAsianLeague.Data.Services.Backstage
         private ExternalServers externalServersConfig;
         private readonly RestClient ServerClient;
         private readonly RestClient BackstageServer;
+        private IAuthManagement _AuthManagement;
 
-        public ProfileService( IOptions<ExternalServers> myConfiguration, HttpClient httpClient)
+        public ProfileService( IOptions<ExternalServers> myConfiguration, HttpClient httpClient, IAuthManagement authManagement)
         {
             externalServersConfig = myConfiguration.Value;
             ServerClient = new RestClient(externalServersConfig.UserServer);
             BackstageServer = new RestClient(externalServersConfig.BackstageApiServer);
+            _AuthManagement = authManagement;
             //Console.WriteLine(externalServersConfig.BackstageApiServer);
         }
 
@@ -153,7 +156,7 @@ namespace SnakeAsianLeague.Data.Services.Backstage
             string URL = "/Unit/CheckForBackEnd";
             var request = new RestRequest(URL, Method.GET);
             request.AddQueryParameter("UserID", UserID);
-            request.AddHeader("Authorization", Authenticate());
+            request.AddHeader("Authorization", $"Bearer {_AuthManagement.GetUserAccessTokenInCookie()}");
 
             try
             {
@@ -183,17 +186,6 @@ namespace SnakeAsianLeague.Data.Services.Backstage
         }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        private string Authenticate()
-        {
-            string auth = "Unity:Yx2fy5tFfDHAfU7Az";
-            auth = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
-            auth = "Basic " + auth;
-            return auth;
-        }
 
 
 
