@@ -106,7 +106,8 @@
     "VE": "Venezuela (+58)",
     "YE": "Yemen (+967)",
     "VN": "Vietnam (+84)",
-    "MM": "Myanmar (+95)"
+    "MM": "Myanmar (+95)",
+    "LV": "Latvia (+371)"
   },
   "country_code_Number": {   
     "US": "+1",
@@ -204,6 +205,7 @@
     "VE": "+58",
     "YE": "+967",
     "VN": "+84",
-    "MM": "+95"
+    "MM": "+95",
+    "LV": "+371"
   }
 }
