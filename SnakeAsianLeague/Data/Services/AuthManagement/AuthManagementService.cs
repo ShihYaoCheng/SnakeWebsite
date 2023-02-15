@@ -33,11 +33,6 @@ namespace SnakeAsianLeague.Data.Services.AuthManagement
             _localStorage = localStorage;
         }
 
-
-        
-
-
-
         /// <summary>
         /// Web token 
         /// </summary>
